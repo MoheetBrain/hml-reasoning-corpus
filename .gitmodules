@@ -1,0 +1,3 @@
+[submodule "hml_core"]
+	path = hml_core
+	url = https://github.com/MoheetBrain/hamiltonian-lang.git
