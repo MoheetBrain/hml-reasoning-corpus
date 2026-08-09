@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.2.0",
+  "stages": [
+    {"id": 1, "name": "problem segmentation"},
+    {"id": 2, "name": "symbol/object identification"},
+    {"id": 3, "name": "type/domain resolution"},
+    {"id": 4, "name": "scope/binder resolution"},
+    {"id": 5, "name": "fact extraction"},
+    {"id": 6, "name": "goal identification"},
+    {"id": 7, "name": "epistemic-state construction"},
+    {"id": 8, "name": "dependency construction"},
+    {"id": 9, "name": "subgoal decomposition"},
+    {"id": 10, "name": "candidate reasoning move"},
+    {"id": 11, "name": "warrant/rule selection"},
+    {"id": 12, "name": "precondition checking"},
+    {"id": 13, "name": "transformation/inference execution"},
+    {"id": 14, "name": "local verification"},
+    {"id": 15, "name": "state update"},
+    {"id": 16, "name": "termination/goal discharge"}
+  ]
+}

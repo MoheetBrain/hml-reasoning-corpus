@@ -1,0 +1,8 @@
+# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+module Gold02AlgebraicSubstitution
+
+var a : Real
+var b : Real
+assume p0 : a = 2.0
+assume p1 : b = a + 3.0
+derive d0 : b = 2.0 + 3.0 from p0, p1 by substitute

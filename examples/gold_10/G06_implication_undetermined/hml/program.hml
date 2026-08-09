@@ -1,0 +1,8 @@
+# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+module Gold06ImplicationUndetermined
+
+var p : Bool
+var q : Bool
+assume a0 : p implies q
+assume a1 : q
+goal g0 : p

@@ -1,0 +1,10 @@
+{
+  "format": "generic-structured-control-v0",
+  "problem_id": "G08",
+  "steps": [
+    {"id": "c0", "kind": "extract_facts", "output": ["not Q", "P implies Q"]},
+    {"id": "c1", "kind": "infer", "rule": "modus_tollens", "input": ["not Q", "P implies Q"], "output": "not P"},
+    {"id": "c2", "kind": "discharge_goal", "input": "not P", "output": "established"}
+  ],
+  "terminal": {"status": "determined", "answer": "not P"}
+}

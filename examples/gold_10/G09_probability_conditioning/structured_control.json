@@ -1,0 +1,10 @@
+{
+  "format": "generic-structured-control-v0",
+  "problem_id": "G09",
+  "steps": [
+    {"id": "c0", "kind": "extract_facts", "output": ["P(A) = 0.5", "P(B | A) = 0.8"]},
+    {"id": "c1", "kind": "apply_rule", "rule": "conditional_product", "input": ["P(A)", "P(B | A)"], "output": "P(A and B) = 0.5 * 0.8"},
+    {"id": "c2", "kind": "evaluate", "input": "0.5 * 0.8", "output": "0.4"}
+  ],
+  "terminal": {"status": "determined", "answer": "P(A and B) = 0.4"}
+}

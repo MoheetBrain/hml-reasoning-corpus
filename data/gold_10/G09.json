@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.2.0",
+  "example_id": "G09",
+  "dataset_split": "GOLD-10",
+  "title": "Elementary probability and conditional reasoning",
+  "problem": {
+    "source": "hand_authored_worked_mathematics",
+    "statement": "Suppose P(A) = 0.5 and P(B | A) = 0.8. Determine P(A and B).",
+    "domain": "elementary probability",
+    "answer": "P(A and B) = 0.4",
+    "expected_outcome": "determined"
+  },
+  "gold_status": "GOLD_CANONICAL_VERIFIED",
+  "hml_status": "GAP_DOCUMENTED",
+  "reasoning_stages_used": [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16],
+  "semantic_gap_ids": ["GAP-0001", "GAP-0005"],
+  "states": [
+    {
+      "id": "S0",
+      "declarations": [{"name": "A", "kind": "event"}, {"name": "B", "kind": "event"}],
+      "objects": [{"id": "A", "kind": "event"}, {"id": "B", "kind": "event"}],
+      "types_domains": [{"object": "A", "type": "Event", "domain": "sample space"}, {"object": "B", "type": "Event", "domain": "sample space"}],
+      "facts": [{"id": "fact:p_a", "statement": "P(A) = 0.5", "status": "given"}, {"id": "fact:p_b_given_a", "statement": "P(B | A) = 0.8", "status": "given"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:p_ab", "statement": "P(A and B) = 0.4", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:probabilities", "statement": "The marginal and conditional probabilities are given", "status": "given"}],
+      "dependencies": ["fact:p_a", "fact:p_b_given_a"],
+      "provenance": {"source_problem": "G09", "source_step": "problem", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S1",
+      "declarations": [{"name": "A", "kind": "event"}, {"name": "B", "kind": "event"}],
+      "objects": [{"id": "A", "kind": "event"}, {"id": "B", "kind": "event"}],
+      "types_domains": [{"object": "A", "type": "Event", "domain": "sample space"}, {"object": "B", "type": "Event", "domain": "sample space"}],
+      "facts": [{"id": "fact:p_a", "statement": "P(A) = 0.5", "status": "given"}, {"id": "fact:p_b_given_a", "statement": "P(B | A) = 0.8", "status": "given"}, {"id": "fact:p_ab_formula", "statement": "P(A and B) = P(A) * P(B | A)", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:p_ab", "statement": "P(A and B) = 0.4", "status": "goal_open"}],
+      "subgoals": [{"id": "subgoal:product", "statement": "P(A and B) = 0.5 * 0.8", "status": "established"}],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:rule", "statement": "The conditional product rule has been applied", "status": "established"}],
+      "dependencies": ["fact:p_a", "fact:p_b_given_a", "fact:p_ab_formula"],
+      "provenance": {"source_problem": "G09", "source_step": "a0", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S2",
+      "declarations": [{"name": "A", "kind": "event"}, {"name": "B", "kind": "event"}],
+      "objects": [{"id": "A", "kind": "event"}, {"id": "B", "kind": "event"}],
+      "types_domains": [{"object": "A", "type": "Event", "domain": "sample space"}, {"object": "B", "type": "Event", "domain": "sample space"}],
+      "facts": [{"id": "fact:p_ab_formula", "statement": "P(A and B) = 0.5 * 0.8", "status": "established"}, {"id": "fact:p_ab", "statement": "P(A and B) = 0.4", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:p_ab", "statement": "P(A and B) = 0.4", "status": "goal_discharged"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:solution", "statement": "The joint probability is determined", "status": "goal_discharged"}],
+      "dependencies": ["fact:p_ab_formula", "fact:p_ab"],
+      "provenance": {"source_problem": "G09", "source_step": "a1", "authoring": "hand_authored"}
+    }
+  ],
+  "actions": [
+    {
+      "id": "a0",
+      "from_state": "S0",
+      "to_state": "S1",
+      "inputs": ["S0", "fact:p_a", "fact:p_b_given_a"],
+      "operation": "construct_conditional_product",
+      "dependencies": ["fact:p_a", "fact:p_b_given_a"],
+      "warrant": {"kind": "probability_rule", "rule": "conditional_product", "description": "Use P(A and B) = P(A)P(B | A)."},
+      "preconditions": [{"id": "pre:a0", "statement": "P(B | A) is defined for P(A) > 0", "status": "satisfied", "evidence": "P(A) = 0.5 > 0."}],
+      "resulting_fact": {"id": "fact:p_ab_formula", "statement": "P(A and B) = P(A) * P(B | A)", "status": "established"},
+      "state_change": {"from": "S0", "to": "S1", "added_facts": ["fact:p_ab_formula"], "removed_obligations": [], "epistemic_update": "The conditional probability dependency is made explicit."},
+      "verification": {"status": "verified", "method": "elementary probability oracle", "evidence": "The product rule follows from the definition of conditional probability."},
+      "reasoning_stages": [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15],
+      "hml_support": "REQUIRES_NEW_CORE_SEMANTIC",
+      "semantic_gap_ids": ["GAP-0005"],
+      "provenance": {"source_problem": "G09", "source_step": "worked_solution.step_1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a1",
+      "from_state": "S1",
+      "to_state": "S2",
+      "inputs": ["S1", "fact:p_ab_formula"],
+      "operation": "evaluate_probability_product",
+      "dependencies": ["fact:p_ab_formula", "fact:p_a", "fact:p_b_given_a"],
+      "warrant": {"kind": "arithmetic_evaluation", "rule": "constant_multiplication", "description": "Evaluate 0.5 * 0.8 to obtain 0.4."},
+      "preconditions": [{"id": "pre:a1", "statement": "The operands are probabilities in [0,1]", "status": "satisfied", "evidence": "Both given values are within [0,1]."}],
+      "resulting_fact": {"id": "fact:p_ab", "statement": "P(A and B) = 0.4", "status": "established"},
+      "state_change": {"from": "S1", "to": "S2", "added_facts": ["fact:p_ab"], "removed_obligations": [], "epistemic_update": "The joint probability is numeric and the goal is discharged."},
+      "verification": {"status": "verified", "method": "exact decimal arithmetic oracle", "evidence": "0.5 * 0.8 = 0.4."},
+      "reasoning_stages": [10, 13, 14, 15, 16],
+      "hml_support": "EXPRESSIBLE_WITH_LIBRARY",
+      "semantic_gap_ids": ["GAP-0001"],
+      "provenance": {"source_problem": "G09", "source_step": "worked_solution.step_2", "authoring": "hand_authored"}
+    }
+  ],
+  "goal_discharged": true,
+  "renderings": {
+    "hml": {"path": "examples/gold_10/G09_probability_conditioning/hml/program.hml", "format": "hml", "expected": "typechecks_without_probability_inference", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "structured_english": {"path": "examples/gold_10/G09_probability_conditioning/structured_english.md", "format": "structured_english"},
+    "structured_control": {"path": "examples/gold_10/G09_probability_conditioning/structured_control.json", "format": "generic_structured_control"}
+  },
+  "verification": {
+    "canonical_status": "VERIFIED",
+    "method": "conditional-probability identity plus exact decimal arithmetic",
+    "checks": ["P(A) > 0", "conditional product rule", "0.5 * 0.8 = 0.4", "all action references resolve"],
+    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+  }
+}

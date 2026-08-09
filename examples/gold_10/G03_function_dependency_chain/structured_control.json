@@ -1,0 +1,10 @@
+{
+  "format": "generic-structured-control-v0",
+  "problem_id": "G03",
+  "steps": [
+    {"id": "c0", "kind": "declare", "output": ["f(x) := x + 1", "g(x) := 2 * f(x)"]},
+    {"id": "c1", "kind": "evaluate_dependency", "input": "f(3)", "output": "4"},
+    {"id": "c2", "kind": "evaluate_dependency", "input": "g(3) = 2 * f(3)", "output": "8"}
+  ],
+  "terminal": {"status": "determined", "answer": "g(3) = 8"}
+}

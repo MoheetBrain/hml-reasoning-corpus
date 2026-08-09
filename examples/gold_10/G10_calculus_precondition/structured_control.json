@@ -1,0 +1,10 @@
+{
+  "format": "generic-structured-control-v0",
+  "problem_id": "G10",
+  "steps": [
+    {"id": "c0", "kind": "check_precondition", "input": "x", "condition": "x != 0", "output": "required"},
+    {"id": "c1", "kind": "differentiate", "input": "1 / x", "precondition": "x != 0", "output": "-1 / x^2"},
+    {"id": "c2", "kind": "evaluate", "input": "-1 / 2^2", "output": "-1/4"}
+  ],
+  "terminal": {"status": "determined", "answer": "f'(2) = -1/4"}
+}

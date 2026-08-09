@@ -1,0 +1,6 @@
+# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+module Gold03FunctionDependencyChain
+
+def f(x : Real) : Real := x + 1.0
+def g(x : Real) : Real := 2.0 * f(x)
+def value_at_3 : Real := g(3.0)

@@ -1,0 +1,10 @@
+{
+  "format": "generic-structured-control-v0",
+  "problem_id": "G06",
+  "steps": [
+    {"id": "c0", "kind": "extract_facts", "output": ["P implies Q", "Q"]},
+    {"id": "c1", "kind": "check_entailment", "candidate": "P", "countermodel": {"P": false, "Q": true}, "output": "not entailed"},
+    {"id": "c2", "kind": "assign_epistemic_status", "input": "P", "output": "undetermined"}
+  ],
+  "terminal": {"status": "undetermined", "answer": "P is undetermined"}
+}

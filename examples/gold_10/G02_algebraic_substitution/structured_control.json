@@ -1,0 +1,10 @@
+{
+  "format": "generic-structured-control-v0",
+  "problem_id": "G02",
+  "steps": [
+    {"id": "c0", "kind": "extract_facts", "output": ["a = 2", "b = a + 3"]},
+    {"id": "c1", "kind": "substitute", "rule": "substitution_of_equals", "input": "a = 2; b = a + 3", "output": "b = 2 + 3"},
+    {"id": "c2", "kind": "evaluate", "input": "2 + 3", "output": "5"}
+  ],
+  "terminal": {"status": "determined", "answer": "b = 5"}
+}

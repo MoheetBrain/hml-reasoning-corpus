@@ -1,0 +1,10 @@
+{
+  "format": "generic-structured-control-v0",
+  "problem_id": "G07",
+  "steps": [
+    {"id": "c0", "kind": "bind", "binder": "n", "domain": "Natural", "scope": "n + 0 = n"},
+    {"id": "c1", "kind": "apply_rule_under_binder", "rule": "additive_identity", "input": "n + 0 = n", "output": "true for every n"},
+    {"id": "c2", "kind": "discharge_goal", "input": "forall n : Natural . n + 0 = n", "output": "established"}
+  ],
+  "terminal": {"status": "determined", "answer": "forall n : Natural . n + 0 = n"}
+}

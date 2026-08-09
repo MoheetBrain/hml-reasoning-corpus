@@ -1,0 +1,140 @@
+{
+  "schema_version": "0.2.0",
+  "example_id": "G10",
+  "dataset_split": "GOLD-10",
+  "title": "Calculus with an explicit precondition",
+  "problem": {
+    "source": "hand_authored_worked_mathematics",
+    "statement": "For f(x) = 1/x, compute f'(2) and state the required domain precondition.",
+    "domain": "elementary calculus",
+    "answer": "x != 0 and f'(2) = -1/4",
+    "expected_outcome": "conditional"
+  },
+  "gold_status": "GOLD_CANONICAL_VERIFIED",
+  "hml_status": "GAP_DOCUMENTED",
+  "reasoning_stages_used": [1, 2, 3, 5, 6, 10, 11, 12, 13, 14, 15, 16],
+  "semantic_gap_ids": ["GAP-0006", "GAP-0001"],
+  "states": [
+    {
+      "id": "S0",
+      "declarations": [{"name": "f", "kind": "function"}, {"name": "x0", "kind": "evaluation_point"}],
+      "objects": [{"id": "f", "kind": "function"}, {"id": "x0", "kind": "scalar"}],
+      "types_domains": [{"object": "f", "type": "Real -> Real", "domain": "Real excluding 0"}, {"object": "x0", "type": "Real", "domain": "2"}],
+      "facts": [{"id": "fact:f_def", "statement": "f(x) = 1/x", "status": "given"}, {"id": "fact:x0", "statement": "x0 = 2", "status": "given"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:derivative", "statement": "f'(2) = -1/4", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:function", "statement": "The function and evaluation point are given", "status": "given"}],
+      "dependencies": ["fact:f_def", "fact:x0"],
+      "provenance": {"source_problem": "G10", "source_step": "problem", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S1",
+      "declarations": [{"name": "f", "kind": "function"}, {"name": "x0", "kind": "evaluation_point"}],
+      "objects": [{"id": "f", "kind": "function"}, {"id": "x0", "kind": "scalar"}],
+      "types_domains": [{"object": "f", "type": "Real -> Real", "domain": "Real excluding 0"}, {"object": "x0", "type": "Real", "domain": "2"}],
+      "facts": [{"id": "fact:f_def", "statement": "f(x) = 1/x", "status": "given"}, {"id": "fact:x0", "statement": "x0 = 2", "status": "given"}, {"id": "fact:precondition", "statement": "x0 != 0", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:derivative", "statement": "f'(2) = -1/4", "status": "goal_open"}],
+      "subgoals": [{"id": "subgoal:domain", "statement": "x0 != 0", "status": "goal_discharged"}],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:precondition", "statement": "The derivative evaluation is in the domain", "status": "established"}],
+      "dependencies": ["fact:f_def", "fact:x0", "fact:precondition"],
+      "provenance": {"source_problem": "G10", "source_step": "a0", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S2",
+      "declarations": [{"name": "f", "kind": "function"}, {"name": "x0", "kind": "evaluation_point"}],
+      "objects": [{"id": "f", "kind": "function"}, {"id": "x0", "kind": "scalar"}],
+      "types_domains": [{"object": "f", "type": "Real -> Real", "domain": "Real excluding 0"}, {"object": "x0", "type": "Real", "domain": "2"}],
+      "facts": [{"id": "fact:precondition", "statement": "x0 != 0", "status": "established"}, {"id": "fact:derivative_formula", "statement": "f'(x) = -1/x^2", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:derivative", "statement": "f'(2) = -1/4", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:derivative", "statement": "The derivative formula is established", "status": "established"}],
+      "dependencies": ["fact:precondition", "fact:derivative_formula"],
+      "provenance": {"source_problem": "G10", "source_step": "a1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S3",
+      "declarations": [{"name": "f", "kind": "function"}, {"name": "x0", "kind": "evaluation_point"}],
+      "objects": [{"id": "f", "kind": "function"}, {"id": "x0", "kind": "scalar"}],
+      "types_domains": [{"object": "f", "type": "Real -> Real", "domain": "Real excluding 0"}, {"object": "x0", "type": "Real", "domain": "2"}],
+      "facts": [{"id": "fact:derivative_formula", "statement": "f'(x) = -1/x^2", "status": "established"}, {"id": "fact:derivative_value", "statement": "f'(2) = -1/4", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:derivative", "statement": "f'(2) = -1/4", "status": "goal_discharged"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:solution", "statement": "The conditional derivative result is determined", "status": "goal_discharged"}],
+      "dependencies": ["fact:derivative_formula", "fact:derivative_value"],
+      "provenance": {"source_problem": "G10", "source_step": "a2", "authoring": "hand_authored"}
+    }
+  ],
+  "actions": [
+    {
+      "id": "a0",
+      "from_state": "S0",
+      "to_state": "S1",
+      "inputs": ["S0", "fact:f_def", "fact:x0"],
+      "operation": "check_derivative_domain_precondition",
+      "dependencies": ["fact:f_def", "fact:x0"],
+      "warrant": {"kind": "partial_operation_guard", "rule": "nonzero_denominator", "description": "The reciprocal and its derivative require a nonzero evaluation point."},
+      "preconditions": [{"id": "pre:a0", "statement": "x0 != 0", "status": "satisfied", "evidence": "x0 = 2."}],
+      "resulting_fact": {"id": "fact:precondition", "statement": "x0 != 0", "status": "established"},
+      "state_change": {"from": "S0", "to": "S1", "added_facts": ["fact:precondition"], "removed_obligations": [], "epistemic_update": "The explicit calculus precondition is discharged."},
+      "verification": {"status": "verified", "method": "exact numeric inequality oracle", "evidence": "2 != 0."},
+      "reasoning_stages": [1, 2, 3, 5, 6, 12, 14, 15],
+      "hml_support": "EXPRESSIBLE_CURRENT_HML",
+      "semantic_gap_ids": [],
+      "provenance": {"source_problem": "G10", "source_step": "worked_solution.step_1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a1",
+      "from_state": "S1",
+      "to_state": "S2",
+      "inputs": ["S1", "fact:f_def", "fact:precondition"],
+      "operation": "differentiate_reciprocal",
+      "dependencies": ["fact:f_def", "fact:precondition"],
+      "warrant": {"kind": "calculus_rule", "rule": "reciprocal_derivative", "description": "Differentiate 1/x to obtain -1/x^2 under x != 0."},
+      "preconditions": [{"id": "pre:a1", "statement": "The reciprocal is evaluated away from zero", "status": "satisfied", "evidence": "x0 = 2 != 0."}],
+      "resulting_fact": {"id": "fact:derivative_formula", "statement": "f'(x) = -1/x^2", "status": "established"},
+      "state_change": {"from": "S1", "to": "S2", "added_facts": ["fact:derivative_formula"], "removed_obligations": [], "epistemic_update": "The symbolic derivative is established conditionally on the domain."},
+      "verification": {"status": "verified", "method": "symbolic calculus oracle", "evidence": "The derivative of x^-1 is -x^-2 for x != 0."},
+      "reasoning_stages": [10, 11, 12, 13, 14, 15],
+      "hml_support": "EXPRESSIBLE_WITH_LIBRARY",
+      "semantic_gap_ids": ["GAP-0006"],
+      "provenance": {"source_problem": "G10", "source_step": "worked_solution.step_2", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a2",
+      "from_state": "S2",
+      "to_state": "S3",
+      "inputs": ["S2", "fact:derivative_formula"],
+      "operation": "evaluate_derivative_at_point",
+      "dependencies": ["fact:derivative_formula", "fact:precondition"],
+      "warrant": {"kind": "arithmetic_evaluation", "rule": "substitute_and_simplify", "description": "Substitute x = 2 into -1/x^2 and simplify to -1/4."},
+      "preconditions": [{"id": "pre:a2", "statement": "2 != 0", "status": "satisfied", "evidence": "The previously discharged domain precondition."}],
+      "resulting_fact": {"id": "fact:derivative_value", "statement": "f'(2) = -1/4", "status": "established"},
+      "state_change": {"from": "S2", "to": "S3", "added_facts": ["fact:derivative_value"], "removed_obligations": [], "epistemic_update": "The conditional calculus goal is discharged."},
+      "verification": {"status": "verified", "method": "exact rational arithmetic oracle", "evidence": "-1 / (2^2) = -1/4."},
+      "reasoning_stages": [10, 13, 14, 15, 16],
+      "hml_support": "EXPRESSIBLE_WITH_LIBRARY",
+      "semantic_gap_ids": ["GAP-0001", "GAP-0006"],
+      "provenance": {"source_problem": "G10", "source_step": "worked_solution.step_3", "authoring": "hand_authored"}
+    }
+  ],
+  "goal_discharged": true,
+  "renderings": {
+    "hml": {"path": "examples/gold_10/G10_calculus_precondition/hml/program.hml", "format": "hml", "expected": "typechecks_without_calculus_evaluation", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "structured_english": {"path": "examples/gold_10/G10_calculus_precondition/structured_english.md", "format": "structured_english"},
+    "structured_control": {"path": "examples/gold_10/G10_calculus_precondition/structured_control.json", "format": "generic_structured_control"}
+  },
+  "verification": {
+    "canonical_status": "VERIFIED",
+    "method": "symbolic differentiation plus exact rational arithmetic",
+    "checks": ["2 != 0", "d/dx(1/x) = -1/x^2", "-1/(2^2) = -1/4", "all action references resolve"],
+    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+  }
+}

@@ -1,0 +1,4 @@
+# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+module Gold07QuantifierBinder
+
+goal g0 : forall n : Natural . n + 0 = n

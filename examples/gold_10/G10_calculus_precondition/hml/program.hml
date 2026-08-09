@@ -1,0 +1,7 @@
+# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+module Gold10CalculusPrecondition
+
+param x0 : Real
+require x0 != 0.0
+def f(x : Real) : Real := 1.0 / x
+def derivative_f : Real := derivative(1.0 / x, x : Real)

@@ -1,0 +1,10 @@
+# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+module Gold04InequalityTransform
+
+var x : Real
+var k : Real
+assume p0 : x > 2.0
+assume p1 : k > 0.0
+goal g0 : x * k > 2.0 * k
+derive d0 : x * k > 2.0 * k from p0 by multiply_inequality(by := k)
+proved g0 by d0

@@ -1,0 +1,9 @@
+{
+  "format": "generic-structured-control-v0",
+  "problem_id": "G04",
+  "steps": [
+    {"id": "c0", "kind": "check_precondition", "input": "k", "condition": "k > 0", "output": "satisfied"},
+    {"id": "c1", "kind": "transform", "rule": "positive_multiplication", "input": "x > 2", "output": "x * k > 2 * k"}
+  ],
+  "terminal": {"status": "determined", "answer": "x * 3 > 2 * 3"}
+}

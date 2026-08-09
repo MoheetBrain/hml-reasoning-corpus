@@ -1,0 +1,140 @@
+{
+  "schema_version": "0.2.0",
+  "example_id": "G03",
+  "dataset_split": "GOLD-10",
+  "title": "Function evaluation and dependency chain",
+  "problem": {
+    "source": "hand_authored_worked_mathematics",
+    "statement": "Let f(x) = x + 1 and g(x) = 2f(x). Evaluate g(3).",
+    "domain": "elementary functions",
+    "answer": "g(3) = 8",
+    "expected_outcome": "determined"
+  },
+  "gold_status": "GOLD_CANONICAL_VERIFIED",
+  "hml_status": "GAP_DOCUMENTED",
+  "reasoning_stages_used": [1, 2, 3, 5, 8, 10, 13, 14, 15, 16],
+  "semantic_gap_ids": ["GAP-0002"],
+  "states": [
+    {
+      "id": "S0",
+      "declarations": [{"name": "f", "kind": "function"}, {"name": "g", "kind": "function"}, {"name": "3", "kind": "input"}],
+      "objects": [{"id": "f", "kind": "function"}, {"id": "g", "kind": "function"}],
+      "types_domains": [{"object": "f", "type": "Real -> Real", "domain": "all real inputs"}, {"object": "g", "type": "Real -> Real", "domain": "all real inputs"}],
+      "facts": [{"id": "fact:f_def", "statement": "f(x) = x + 1", "status": "given"}, {"id": "fact:g_def", "statement": "g(x) = 2f(x)", "status": "given"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:value", "statement": "g(3) = 8", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:defs", "statement": "Function definitions are given", "status": "given"}],
+      "dependencies": ["fact:f_def", "fact:g_def"],
+      "provenance": {"source_problem": "G03", "source_step": "problem", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S1",
+      "declarations": [{"name": "f", "kind": "function"}, {"name": "g", "kind": "function"}, {"name": "3", "kind": "input"}],
+      "objects": [{"id": "f", "kind": "function"}, {"id": "g", "kind": "function"}],
+      "types_domains": [{"object": "f", "type": "Real -> Real", "domain": "all real inputs"}, {"object": "g", "type": "Real -> Real", "domain": "all real inputs"}],
+      "facts": [{"id": "fact:f_def", "statement": "f(x) = x + 1", "status": "given"}, {"id": "fact:g_def", "statement": "g(x) = 2f(x)", "status": "given"}, {"id": "fact:f_at_3", "statement": "f(3) = 4", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:value", "statement": "g(3) = 8", "status": "goal_open"}],
+      "subgoals": [{"id": "subgoal:f_at_3", "statement": "f(3) = 4", "status": "goal_discharged"}],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:leaf", "statement": "The leaf dependency is evaluated", "status": "established"}],
+      "dependencies": ["fact:f_def", "fact:f_at_3"],
+      "provenance": {"source_problem": "G03", "source_step": "a0", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S2",
+      "declarations": [{"name": "f", "kind": "function"}, {"name": "g", "kind": "function"}, {"name": "3", "kind": "input"}],
+      "objects": [{"id": "f", "kind": "function"}, {"id": "g", "kind": "function"}],
+      "types_domains": [{"object": "f", "type": "Real -> Real", "domain": "all real inputs"}, {"object": "g", "type": "Real -> Real", "domain": "all real inputs"}],
+      "facts": [{"id": "fact:g_def", "statement": "g(x) = 2f(x)", "status": "given"}, {"id": "fact:f_at_3", "statement": "f(3) = 4", "status": "established"}, {"id": "fact:g_expanded", "statement": "g(3) = 2 * 4", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:value", "statement": "g(3) = 8", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:dependency", "statement": "The function dependency is expanded", "status": "established"}],
+      "dependencies": ["fact:g_def", "fact:f_at_3", "fact:g_expanded"],
+      "provenance": {"source_problem": "G03", "source_step": "a1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S3",
+      "declarations": [{"name": "f", "kind": "function"}, {"name": "g", "kind": "function"}, {"name": "3", "kind": "input"}],
+      "objects": [{"id": "f", "kind": "function"}, {"id": "g", "kind": "function"}],
+      "types_domains": [{"object": "f", "type": "Real -> Real", "domain": "all real inputs"}, {"object": "g", "type": "Real -> Real", "domain": "all real inputs"}],
+      "facts": [{"id": "fact:g_expanded", "statement": "g(3) = 2 * 4", "status": "established"}, {"id": "fact:g_solution", "statement": "g(3) = 8", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:value", "statement": "g(3) = 8", "status": "goal_discharged"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:solution", "statement": "g(3) is determined", "status": "goal_discharged"}],
+      "dependencies": ["fact:g_expanded", "fact:g_solution"],
+      "provenance": {"source_problem": "G03", "source_step": "a2", "authoring": "hand_authored"}
+    }
+  ],
+  "actions": [
+    {
+      "id": "a0",
+      "from_state": "S0",
+      "to_state": "S1",
+      "inputs": ["S0", "fact:f_def"],
+      "operation": "evaluate_leaf_function",
+      "dependencies": ["fact:f_def"],
+      "warrant": {"kind": "function_application", "rule": "definition_unfolding", "description": "Apply f(x) = x + 1 at x = 3."},
+      "preconditions": [{"id": "pre:a0", "statement": "3 is in the domain of f", "status": "satisfied", "evidence": "f is declared Real -> Real."}],
+      "resulting_fact": {"id": "fact:f_at_3", "statement": "f(3) = 4", "status": "established"},
+      "state_change": {"from": "S0", "to": "S1", "added_facts": ["fact:f_at_3"], "removed_obligations": [], "epistemic_update": "The dependency leaf is resolved."},
+      "verification": {"status": "verified", "method": "exact_integer_arithmetic_oracle", "evidence": "3 + 1 = 4."},
+      "reasoning_stages": [1, 2, 3, 5, 8, 10, 13, 14, 15],
+      "hml_support": "EXPRESSIBLE_WITH_LIBRARY",
+      "semantic_gap_ids": ["GAP-0002"],
+      "provenance": {"source_problem": "G03", "source_step": "worked_solution.step_1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a1",
+      "from_state": "S1",
+      "to_state": "S2",
+      "inputs": ["S1", "fact:g_def", "fact:f_at_3"],
+      "operation": "propagate_function_dependency",
+      "dependencies": ["fact:g_def", "fact:f_at_3"],
+      "warrant": {"kind": "dependency_substitution", "rule": "definition_unfolding", "description": "Use f(3) inside the definition of g."},
+      "preconditions": [{"id": "pre:a1", "statement": "f(3) is established", "status": "satisfied", "evidence": "fact:f_at_3."}],
+      "resulting_fact": {"id": "fact:g_expanded", "statement": "g(3) = 2 * 4", "status": "established"},
+      "state_change": {"from": "S1", "to": "S2", "added_facts": ["fact:g_expanded"], "removed_obligations": [], "epistemic_update": "The dependency chain is reduced to a numeric expression."},
+      "verification": {"status": "verified", "method": "dependency_graph_and_exact_substitution", "evidence": "g(3) = 2 * f(3) and f(3) = 4."},
+      "reasoning_stages": [8, 10, 13, 14, 15],
+      "hml_support": "EXPRESSIBLE_WITH_LIBRARY",
+      "semantic_gap_ids": ["GAP-0002"],
+      "provenance": {"source_problem": "G03", "source_step": "worked_solution.step_2", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a2",
+      "from_state": "S2",
+      "to_state": "S3",
+      "inputs": ["S2", "fact:g_expanded"],
+      "operation": "evaluate_function_result",
+      "dependencies": ["fact:g_expanded"],
+      "warrant": {"kind": "arithmetic_evaluation", "rule": "constant_multiplication", "description": "Evaluate 2 * 4 to obtain 8."},
+      "preconditions": [{"id": "pre:a2", "statement": "2 * 4 is finite and defined", "status": "satisfied", "evidence": "Exact integer arithmetic."}],
+      "resulting_fact": {"id": "fact:g_solution", "statement": "g(3) = 8", "status": "established"},
+      "state_change": {"from": "S2", "to": "S3", "added_facts": ["fact:g_solution"], "removed_obligations": [], "epistemic_update": "The terminal value is established and the goal is discharged."},
+      "verification": {"status": "verified", "method": "exact_integer_arithmetic_oracle", "evidence": "2 * 4 = 8."},
+      "reasoning_stages": [10, 13, 14, 15, 16],
+      "hml_support": "EXPRESSIBLE_WITH_LIBRARY",
+      "semantic_gap_ids": ["GAP-0002"],
+      "provenance": {"source_problem": "G03", "source_step": "worked_solution.step_3", "authoring": "hand_authored"}
+    }
+  ],
+  "goal_discharged": true,
+  "renderings": {
+    "hml": {"path": "examples/gold_10/G03_function_dependency_chain/hml/program.hml", "format": "hml", "expected": "typechecks_without_evaluation", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "structured_english": {"path": "examples/gold_10/G03_function_dependency_chain/structured_english.md", "format": "structured_english"},
+    "structured_control": {"path": "examples/gold_10/G03_function_dependency_chain/structured_control.json", "format": "generic_structured_control"}
+  },
+  "verification": {
+    "canonical_status": "VERIFIED",
+    "method": "exact_integer_arithmetic_oracle plus HML type check",
+    "checks": ["f(3) = 4", "g(3) = 2 * 4", "2 * 4 = 8", "all action references resolve"],
+    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+  }
+}

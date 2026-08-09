@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.2.0",
+  "example_id": "G02",
+  "dataset_split": "GOLD-10",
+  "title": "Multi-step algebraic substitution",
+  "problem": {
+    "source": "hand_authored_worked_mathematics",
+    "statement": "Given a = 2 and b = a + 3, determine b.",
+    "domain": "elementary algebra",
+    "answer": "b = 5",
+    "expected_outcome": "determined"
+  },
+  "gold_status": "GOLD_CANONICAL_VERIFIED",
+  "hml_status": "GAP_DOCUMENTED",
+  "reasoning_stages_used": [1, 2, 3, 5, 8, 10, 11, 13, 14, 15, 16],
+  "semantic_gap_ids": ["GAP-0001"],
+  "states": [
+    {
+      "id": "S0",
+      "declarations": [{"name": "a", "kind": "value"}, {"name": "b", "kind": "dependent_value"}],
+      "objects": [{"id": "a", "kind": "scalar"}, {"id": "b", "kind": "scalar"}],
+      "types_domains": [{"object": "a", "type": "Real", "domain": "all real numbers"}, {"object": "b", "type": "Real", "domain": "all real numbers"}],
+      "facts": [{"id": "fact:a", "statement": "a = 2", "status": "given"}, {"id": "fact:b_def", "statement": "b = a + 3", "status": "given"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:solve_b", "statement": "b = 5", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:dependency", "statement": "b depends on a", "status": "given"}],
+      "dependencies": ["fact:a", "fact:b_def"],
+      "provenance": {"source_problem": "G02", "source_step": "problem", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S1",
+      "declarations": [{"name": "a", "kind": "value"}, {"name": "b", "kind": "dependent_value"}],
+      "objects": [{"id": "a", "kind": "scalar"}, {"id": "b", "kind": "scalar"}],
+      "types_domains": [{"object": "a", "type": "Real", "domain": "all real numbers"}, {"object": "b", "type": "Real", "domain": "all real numbers"}],
+      "facts": [{"id": "fact:a", "statement": "a = 2", "status": "given"}, {"id": "fact:b_def", "statement": "b = a + 3", "status": "given"}, {"id": "fact:b_sub", "statement": "b = 2 + 3", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:solve_b", "statement": "b = 5", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:substitution", "statement": "a has been propagated into b", "status": "established"}],
+      "dependencies": ["fact:a", "fact:b_def", "fact:b_sub"],
+      "provenance": {"source_problem": "G02", "source_step": "a0", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S2",
+      "declarations": [{"name": "a", "kind": "value"}, {"name": "b", "kind": "dependent_value"}],
+      "objects": [{"id": "a", "kind": "scalar"}, {"id": "b", "kind": "scalar"}],
+      "types_domains": [{"object": "a", "type": "Real", "domain": "all real numbers"}, {"object": "b", "type": "Real", "domain": "all real numbers"}],
+      "facts": [{"id": "fact:a", "statement": "a = 2", "status": "given"}, {"id": "fact:b_sub", "statement": "b = 2 + 3", "status": "established"}, {"id": "fact:b_solution", "statement": "b = 5", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:solve_b", "statement": "b = 5", "status": "goal_discharged"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:solution", "statement": "b is determined", "status": "goal_discharged"}],
+      "dependencies": ["fact:b_sub", "fact:b_solution"],
+      "provenance": {"source_problem": "G02", "source_step": "a1", "authoring": "hand_authored"}
+    }
+  ],
+  "actions": [
+    {
+      "id": "a0",
+      "from_state": "S0",
+      "to_state": "S1",
+      "inputs": ["S0", "fact:a", "fact:b_def"],
+      "operation": "substitute_established_value",
+      "dependencies": ["fact:a", "fact:b_def"],
+      "warrant": {"kind": "equality_substitution", "rule": "substitute", "description": "Replace a by its established equal value in the definition of b."},
+      "preconditions": [{"id": "pre:a0", "statement": "a = 2 is established", "status": "satisfied", "evidence": "Given fact fact:a."}],
+      "resulting_fact": {"id": "fact:b_sub", "statement": "b = 2 + 3", "status": "established"},
+      "state_change": {"from": "S0", "to": "S1", "added_facts": ["fact:b_sub"], "removed_obligations": [], "epistemic_update": "The dependency edge a -> b has been resolved one step."},
+      "verification": {"status": "verified", "method": "HML kernel substitute", "evidence": "HML d0 is VERIFIED at the pinned SHA."},
+      "reasoning_stages": [1, 2, 3, 5, 8, 10, 11, 13, 14, 15],
+      "hml_support": "EXPRESSIBLE_CURRENT_HML",
+      "semantic_gap_ids": [],
+      "provenance": {"source_problem": "G02", "source_step": "worked_solution.step_1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a1",
+      "from_state": "S1",
+      "to_state": "S2",
+      "inputs": ["S1", "fact:b_sub"],
+      "operation": "evaluate_numeric_expression",
+      "dependencies": ["fact:b_sub"],
+      "warrant": {"kind": "arithmetic_evaluation", "rule": "real_constant_simplification", "description": "Evaluate 2 + 3 to obtain b = 5."},
+      "preconditions": [{"id": "pre:a1", "statement": "2 + 3 is finite and defined", "status": "satisfied", "evidence": "Exact integer arithmetic."}],
+      "resulting_fact": {"id": "fact:b_solution", "statement": "b = 5", "status": "established"},
+      "state_change": {"from": "S1", "to": "S2", "added_facts": ["fact:b_solution"], "removed_obligations": [], "epistemic_update": "The numeric dependency chain terminates and discharges the goal."},
+      "verification": {"status": "verified", "method": "exact_integer_arithmetic_oracle", "evidence": "2 + 3 = 5."},
+      "reasoning_stages": [10, 13, 14, 15, 16],
+      "hml_support": "EXPRESSIBLE_WITH_LIBRARY",
+      "semantic_gap_ids": ["GAP-0001"],
+      "provenance": {"source_problem": "G02", "source_step": "worked_solution.step_2", "authoring": "hand_authored"}
+    }
+  ],
+  "goal_discharged": true,
+  "renderings": {
+    "hml": {"path": "examples/gold_10/G02_algebraic_substitution/hml/program.hml", "format": "hml", "expected": "compiles_with_verified_prefix", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "structured_english": {"path": "examples/gold_10/G02_algebraic_substitution/structured_english.md", "format": "structured_english"},
+    "structured_control": {"path": "examples/gold_10/G02_algebraic_substitution/structured_control.json", "format": "generic_structured_control"}
+  },
+  "verification": {
+    "canonical_status": "VERIFIED",
+    "method": "exact_integer_arithmetic_oracle plus HML kernel check",
+    "checks": ["a = 2 substituted into b = a + 3", "2 + 3 = 5", "all action references resolve"],
+    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+  }
+}

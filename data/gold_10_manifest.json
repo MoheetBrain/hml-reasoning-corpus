@@ -1,0 +1,18 @@
+{
+  "dataset": "GOLD-10",
+  "schema_version": "0.2.0",
+  "count": 10,
+  "large_dataset_ingestion": false,
+  "trajectory_paths": [
+    "data/gold_10/G01.json",
+    "data/gold_10/G02.json",
+    "data/gold_10/G03.json",
+    "data/gold_10/G04.json",
+    "data/gold_10/G05.json",
+    "data/gold_10/G06.json",
+    "data/gold_10/G07.json",
+    "data/gold_10/G08.json",
+    "data/gold_10/G09.json",
+    "data/gold_10/G10.json"
+  ]
+}

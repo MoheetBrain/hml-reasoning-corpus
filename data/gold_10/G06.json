@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.2.0",
+  "example_id": "G06",
+  "dataset_split": "GOLD-10",
+  "title": "Implication with an undetermined result",
+  "problem": {
+    "source": "hand_authored_worked_mathematics",
+    "statement": "Given P implies Q and Q, determine whether P follows.",
+    "domain": "propositional logic and epistemic status",
+    "answer": "P is undetermined",
+    "expected_outcome": "undetermined"
+  },
+  "gold_status": "GOLD_CANONICAL_VERIFIED",
+  "hml_status": "GAP_DOCUMENTED",
+  "reasoning_stages_used": [1, 2, 3, 5, 6, 7, 10, 13, 14, 15, 16],
+  "semantic_gap_ids": ["GAP-0003"],
+  "states": [
+    {
+      "id": "S0",
+      "declarations": [{"name": "P", "kind": "proposition"}, {"name": "Q", "kind": "proposition"}],
+      "objects": [{"id": "P", "kind": "proposition"}, {"id": "Q", "kind": "proposition"}],
+      "types_domains": [{"object": "P", "type": "Bool", "domain": "truth values"}, {"object": "Q", "type": "Bool", "domain": "truth values"}],
+      "facts": [{"id": "fact:imp", "statement": "P implies Q", "status": "given"}, {"id": "fact:q", "statement": "Q", "status": "given"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:p", "statement": "Determine P", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:p", "statement": "Status of P is not yet determined", "status": "goal_open"}],
+      "dependencies": ["fact:imp", "fact:q"],
+      "provenance": {"source_problem": "G06", "source_step": "problem", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S1",
+      "declarations": [{"name": "P", "kind": "proposition"}, {"name": "Q", "kind": "proposition"}],
+      "objects": [{"id": "P", "kind": "proposition"}, {"id": "Q", "kind": "proposition"}],
+      "types_domains": [{"object": "P", "type": "Bool", "domain": "truth values"}, {"object": "Q", "type": "Bool", "domain": "truth values"}],
+      "facts": [{"id": "fact:imp", "statement": "P implies Q", "status": "given"}, {"id": "fact:q", "statement": "Q", "status": "given"}, {"id": "fact:countermodel", "statement": "P = false and Q = true satisfies the premises", "status": "established"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:p", "statement": "Determine P", "status": "goal_open"}],
+      "subgoals": [{"id": "subgoal:not_entailment", "statement": "P is not entailed", "status": "established"}],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:countermodel", "statement": "The premises admit P false", "status": "established"}],
+      "dependencies": ["fact:imp", "fact:q", "fact:countermodel"],
+      "provenance": {"source_problem": "G06", "source_step": "a0", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S2",
+      "declarations": [{"name": "P", "kind": "proposition"}, {"name": "Q", "kind": "proposition"}],
+      "objects": [{"id": "P", "kind": "proposition"}, {"id": "Q", "kind": "proposition"}],
+      "types_domains": [{"object": "P", "type": "Bool", "domain": "truth values"}, {"object": "Q", "type": "Bool", "domain": "truth values"}],
+      "facts": [{"id": "fact:countermodel", "statement": "P = false and Q = true satisfies the premises", "status": "established"}, {"id": "fact:undetermined", "statement": "P is undetermined", "status": "undetermined"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:p", "statement": "Determine P", "status": "goal_discharged"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:undetermined", "statement": "P is neither established nor refuted by the premises", "status": "undetermined"}],
+      "dependencies": ["fact:countermodel", "fact:undetermined"],
+      "provenance": {"source_problem": "G06", "source_step": "a1", "authoring": "hand_authored"}
+    }
+  ],
+  "actions": [
+    {
+      "id": "a0",
+      "from_state": "S0",
+      "to_state": "S1",
+      "inputs": ["S0", "fact:imp", "fact:q"],
+      "operation": "construct_non_entailment_countermodel",
+      "dependencies": ["fact:imp", "fact:q"],
+      "warrant": {"kind": "logical_countermodel", "rule": "countermodel_for_non_entailment", "description": "Assign P=false and Q=true; both premises remain true while P is false."},
+      "preconditions": [{"id": "pre:a0", "statement": "P and Q are Boolean propositions", "status": "satisfied", "evidence": "Both variables are declared Bool."}],
+      "resulting_fact": {"id": "fact:countermodel", "statement": "P = false and Q = true satisfies the premises", "status": "established"},
+      "state_change": {"from": "S0", "to": "S1", "added_facts": ["fact:countermodel"], "removed_obligations": [], "epistemic_update": "Non-entailment is witnessed by a concrete valuation."},
+      "verification": {"status": "verified_as_undetermined", "method": "two-variable truth-table oracle", "evidence": "The valuation P=false,Q=true satisfies P implies Q and Q."},
+      "reasoning_stages": [1, 2, 3, 5, 6, 10, 13, 14, 15],
+      "hml_support": "AMBIGUOUS_OR_HUMAN_IMPLICIT",
+      "semantic_gap_ids": ["GAP-0003"],
+      "provenance": {"source_problem": "G06", "source_step": "worked_solution.step_1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a1",
+      "from_state": "S1",
+      "to_state": "S2",
+      "inputs": ["S1", "fact:countermodel"],
+      "operation": "assign_undetermined_epistemic_status",
+      "dependencies": ["fact:countermodel"],
+      "warrant": {"kind": "epistemic_adjudication", "rule": "not_entailed_and_not_refuted", "description": "A countermodel blocks entailment; no valuation analysis establishes negation either."},
+      "preconditions": [{"id": "pre:a1", "statement": "The countermodel is valid", "status": "satisfied", "evidence": "Direct truth-table evaluation."}],
+      "resulting_fact": {"id": "fact:undetermined", "statement": "P is undetermined", "status": "undetermined"},
+      "state_change": {"from": "S1", "to": "S2", "added_facts": ["fact:undetermined"], "removed_obligations": [], "epistemic_update": "The determination goal is discharged with an undetermined outcome."},
+      "verification": {"status": "verified_as_undetermined", "method": "truth-table entailment and refutation check", "evidence": "P is true in some models and false in a model satisfying the premises."},
+      "reasoning_stages": [7, 10, 13, 14, 15, 16],
+      "hml_support": "REQUIRES_NEW_CORE_SEMANTIC",
+      "semantic_gap_ids": ["GAP-0003"],
+      "provenance": {"source_problem": "G06", "source_step": "worked_solution.step_2", "authoring": "hand_authored"}
+    }
+  ],
+  "goal_discharged": true,
+  "renderings": {
+    "hml": {"path": "examples/gold_10/G06_implication_undetermined/hml/program.hml", "format": "hml", "expected": "compiles_with_open_goal", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "structured_english": {"path": "examples/gold_10/G06_implication_undetermined/structured_english.md", "format": "structured_english"},
+    "structured_control": {"path": "examples/gold_10/G06_implication_undetermined/structured_control.json", "format": "generic_structured_control"}
+  },
+  "verification": {
+    "canonical_status": "VERIFIED",
+    "method": "complete two-variable truth-table oracle",
+    "checks": ["countermodel satisfies premises", "P is not entailed", "P is not refuted", "all action references resolve"],
+    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+  }
+}

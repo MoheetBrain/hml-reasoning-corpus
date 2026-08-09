@@ -1,0 +1,10 @@
+# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+module Gold05DirectImplication
+
+var p : Bool
+var q : Bool
+assume a0 : p
+assume a1 : p implies q
+goal g0 : q
+derive d0 : q from a0, a1 by modus_ponens
+proved g0 by d0

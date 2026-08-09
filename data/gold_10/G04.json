@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.2.0",
+  "example_id": "G04",
+  "dataset_split": "GOLD-10",
+  "title": "Inequality transformation",
+  "problem": {
+    "source": "hand_authored_worked_mathematics",
+    "statement": "Given x > 2 and k > 0, multiply both sides by k.",
+    "domain": "elementary algebra",
+    "answer": "x * k > 2 * k",
+    "expected_outcome": "determined"
+  },
+  "gold_status": "GOLD_CANONICAL_VERIFIED",
+  "hml_status": "FAITHFUL",
+  "reasoning_stages_used": [1, 2, 3, 5, 6, 10, 11, 12, 13, 14, 15, 16],
+  "semantic_gap_ids": [],
+  "states": [
+    {
+      "id": "S0",
+      "declarations": [{"name": "x", "kind": "unknown"}, {"name": "k", "kind": "multiplier"}],
+      "objects": [{"id": "x", "kind": "scalar"}, {"id": "k", "kind": "scalar"}],
+      "types_domains": [{"object": "x", "type": "Real", "domain": "all real numbers"}, {"object": "k", "type": "Real", "domain": "positive reals"}],
+      "facts": [{"id": "fact:ineq", "statement": "x > 2", "status": "given"}, {"id": "fact:multiplier_positive", "statement": "k > 0", "status": "given"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:transform", "statement": "x * k > 2 * k", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:ineq", "statement": "The strict inequality is given", "status": "given"}],
+      "dependencies": ["fact:ineq", "fact:multiplier_positive"],
+      "provenance": {"source_problem": "G04", "source_step": "problem", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S1",
+      "declarations": [{"name": "x", "kind": "unknown"}, {"name": "k", "kind": "multiplier"}],
+      "objects": [{"id": "x", "kind": "scalar"}, {"id": "k", "kind": "scalar"}],
+      "types_domains": [{"object": "x", "type": "Real", "domain": "all real numbers"}, {"object": "k", "type": "Real", "domain": "positive reals"}],
+      "facts": [{"id": "fact:ineq", "statement": "x > 2", "status": "given"}, {"id": "fact:multiplier_positive", "statement": "k > 0", "status": "established"}],
+      "assumptions": [{"id": "assume:multiplier_positive", "statement": "k > 0", "status": "assumed"}],
+      "goals": [{"id": "goal:transform", "statement": "x * k > 2 * k", "status": "goal_open"}],
+      "subgoals": [{"id": "subgoal:positive", "statement": "k > 0", "status": "goal_discharged"}],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:precondition", "statement": "The multiplier preserves order", "status": "established"}],
+      "dependencies": ["fact:ineq", "fact:multiplier_positive"],
+      "provenance": {"source_problem": "G04", "source_step": "a0", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S2",
+      "declarations": [{"name": "x", "kind": "unknown"}, {"name": "k", "kind": "multiplier"}],
+      "objects": [{"id": "x", "kind": "scalar"}, {"id": "k", "kind": "scalar"}],
+      "types_domains": [{"object": "x", "type": "Real", "domain": "all real numbers"}, {"object": "k", "type": "Real", "domain": "positive reals"}],
+      "facts": [{"id": "fact:ineq", "statement": "x > 2", "status": "given"}, {"id": "fact:multiplier_positive", "statement": "k > 0", "status": "established"}, {"id": "fact:transformed", "statement": "x * k > 2 * k", "status": "established"}],
+      "assumptions": [{"id": "assume:multiplier_positive", "statement": "k > 0", "status": "assumed"}],
+      "goals": [{"id": "goal:transform", "statement": "x * k > 2 * k", "status": "goal_discharged"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:solution", "statement": "The inequality transform is certified", "status": "goal_discharged"}],
+      "dependencies": ["fact:transformed"],
+      "provenance": {"source_problem": "G04", "source_step": "a1", "authoring": "hand_authored"}
+    }
+  ],
+  "actions": [
+    {
+      "id": "a0",
+      "from_state": "S0",
+      "to_state": "S1",
+      "inputs": ["S0", "fact:ineq"],
+      "operation": "check_order_preserving_precondition",
+      "dependencies": ["fact:ineq"],
+      "warrant": {"kind": "order_precondition", "rule": "positive_multiplier", "description": "A positive multiplier preserves the direction of a strict inequality."},
+      "preconditions": [{"id": "pre:a0", "statement": "k > 0", "status": "satisfied", "evidence": "Given fact fact:multiplier_positive and HML assumption p1."}],
+      "resulting_fact": {"id": "fact:multiplier_positive", "statement": "k > 0", "status": "established"},
+      "state_change": {"from": "S0", "to": "S1", "added_facts": ["fact:multiplier_positive"], "removed_obligations": [], "epistemic_update": "The side condition for inequality scaling is explicit."},
+      "verification": {"status": "verified", "method": "literal_order_oracle", "evidence": "3 is strictly greater than 0."},
+      "reasoning_stages": [1, 2, 3, 5, 12, 14, 15],
+      "hml_support": "EXPRESSIBLE_CURRENT_HML",
+      "semantic_gap_ids": [],
+      "provenance": {"source_problem": "G04", "source_step": "worked_solution.step_1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a1",
+      "from_state": "S1",
+      "to_state": "S2",
+      "inputs": ["S1", "fact:ineq", "fact:multiplier_positive"],
+      "operation": "multiply_inequality",
+      "dependencies": ["fact:ineq", "fact:multiplier_positive"],
+      "warrant": {"kind": "order_preservation", "rule": "multiply_inequality", "description": "Multiply both sides by 3 while preserving the strict direction."},
+      "preconditions": [{"id": "pre:a1", "statement": "k > 0", "status": "satisfied", "evidence": "The HML reasoning obligation is discharged by p1."}],
+      "resulting_fact": {"id": "fact:transformed", "statement": "x * k > 2 * k", "status": "established"},
+      "state_change": {"from": "S1", "to": "S2", "added_facts": ["fact:transformed"], "removed_obligations": ["order_preserving_multiplier"], "epistemic_update": "The goal is discharged by a verified HML derivation."},
+      "verification": {"status": "verified", "method": "HML kernel multiply_inequality", "evidence": "HML d0 is VERIFIED with its positive-multiplier obligation discharged."},
+      "reasoning_stages": [6, 10, 11, 12, 13, 14, 15, 16],
+      "hml_support": "EXPRESSIBLE_CURRENT_HML",
+      "semantic_gap_ids": [],
+      "provenance": {"source_problem": "G04", "source_step": "worked_solution.step_2", "authoring": "hand_authored"}
+    }
+  ],
+  "goal_discharged": true,
+  "renderings": {
+    "hml": {"path": "examples/gold_10/G04_inequality_transform/hml/program.hml", "format": "hml", "expected": "fully_verified", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "structured_english": {"path": "examples/gold_10/G04_inequality_transform/structured_english.md", "format": "structured_english"},
+    "structured_control": {"path": "examples/gold_10/G04_inequality_transform/structured_control.json", "format": "generic_structured_control"}
+  },
+  "verification": {
+    "canonical_status": "VERIFIED",
+    "method": "literal order oracle plus HML reasoning kernel",
+    "checks": ["3 > 0", "multiply_inequality preserves direction", "HML derivation VERIFIED", "all action references resolve"],
+    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+  }
+}

@@ -1,0 +1,10 @@
+# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+module Gold08Contrapositive
+
+var p : Bool
+var q : Bool
+assume a0 : not q
+assume a1 : p implies q
+goal g0 : not p
+derive d0 : not p from a0, a1 by modus_tollens
+proved g0 by d0

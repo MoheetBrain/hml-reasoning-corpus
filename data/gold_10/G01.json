@@ -1,0 +1,151 @@
+{
+  "schema_version": "0.2.0",
+  "example_id": "G01",
+  "dataset_split": "GOLD-10",
+  "title": "Simple equation isolation",
+  "problem": {
+    "source": "hand_authored_worked_mathematics",
+    "statement": "Given x + 2 = 5, isolate x.",
+    "domain": "elementary algebra",
+    "answer": "x = 3",
+    "expected_outcome": "determined"
+  },
+  "gold_status": "GOLD_CANONICAL_VERIFIED",
+  "hml_status": "GAP_DOCUMENTED",
+  "reasoning_stages_used": [1, 2, 3, 5, 6, 10, 11, 12, 13, 14, 15, 16],
+  "semantic_gap_ids": ["GAP-0001"],
+  "states": [
+    {
+      "id": "S0",
+      "declarations": [{"name": "x", "kind": "unknown"}],
+      "objects": [{"id": "x", "kind": "scalar"}],
+      "types_domains": [{"object": "x", "type": "Real", "domain": "all real numbers"}],
+      "facts": [{"id": "fact:eq", "statement": "x + 2 = 5", "status": "given"}],
+      "assumptions": [],
+      "goals": [{"id": "goal:solve_x", "statement": "x = 3", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:eq", "statement": "The equation is given", "status": "given"}],
+      "dependencies": ["fact:eq"],
+      "provenance": {"source_problem": "G01", "source_step": "problem", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S1",
+      "declarations": [{"name": "x", "kind": "unknown"}],
+      "objects": [{"id": "x", "kind": "scalar"}],
+      "types_domains": [{"object": "x", "type": "Real", "domain": "all real numbers"}],
+      "facts": [
+        {"id": "fact:eq", "statement": "x + 2 = 5", "status": "given"},
+        {"id": "fact:typed_x", "statement": "x is a real-valued unknown", "status": "established"}
+      ],
+      "assumptions": [],
+      "goals": [{"id": "goal:solve_x", "statement": "x = 3", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:typed", "statement": "The domain is resolved", "status": "established"}],
+      "dependencies": ["fact:eq", "fact:typed_x"],
+      "provenance": {"source_problem": "G01", "source_step": "a0", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S2",
+      "declarations": [{"name": "x", "kind": "unknown"}],
+      "objects": [{"id": "x", "kind": "scalar"}],
+      "types_domains": [{"object": "x", "type": "Real", "domain": "all real numbers"}],
+      "facts": [
+        {"id": "fact:eq", "statement": "x + 2 = 5", "status": "given"},
+        {"id": "fact:typed_x", "statement": "x is a real-valued unknown", "status": "established"},
+        {"id": "fact:subtracted", "statement": "x - 0 = 5 - 2", "status": "established"}
+      ],
+      "assumptions": [],
+      "goals": [{"id": "goal:solve_x", "statement": "x = 3", "status": "goal_open"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:subtraction", "statement": "Equality was preserved", "status": "established"}],
+      "dependencies": ["fact:subtracted"],
+      "provenance": {"source_problem": "G01", "source_step": "a1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "S3",
+      "declarations": [{"name": "x", "kind": "unknown"}],
+      "objects": [{"id": "x", "kind": "scalar"}],
+      "types_domains": [{"object": "x", "type": "Real", "domain": "all real numbers"}],
+      "facts": [
+        {"id": "fact:eq", "statement": "x + 2 = 5", "status": "given"},
+        {"id": "fact:subtracted", "statement": "x - 0 = 5 - 2", "status": "established"},
+        {"id": "fact:solution", "statement": "x = 3", "status": "established"}
+      ],
+      "assumptions": [],
+      "goals": [{"id": "goal:solve_x", "statement": "x = 3", "status": "goal_discharged"}],
+      "subgoals": [],
+      "unresolved_obligations": [],
+      "epistemic_status": [{"id": "epistemic:solution", "statement": "The value of x is determined", "status": "goal_discharged"}],
+      "dependencies": ["fact:subtracted", "fact:solution"],
+      "provenance": {"source_problem": "G01", "source_step": "a2", "authoring": "hand_authored"}
+    }
+  ],
+  "actions": [
+    {
+      "id": "a0",
+      "from_state": "S0",
+      "to_state": "S1",
+      "inputs": ["S0", "fact:eq"],
+      "operation": "segment_and_resolve_domain",
+      "dependencies": ["fact:eq"],
+      "warrant": {"kind": "problem_analysis", "rule": "typed_symbol_identification", "description": "Identify x as the real-valued unknown in the equation."},
+      "preconditions": [{"id": "pre:a0", "statement": "The source equation is well-formed", "status": "satisfied", "evidence": "Direct inspection of the problem statement."}],
+      "resulting_fact": {"id": "fact:typed_x", "statement": "x is a real-valued unknown", "status": "established"},
+      "state_change": {"from": "S0", "to": "S1", "added_facts": ["fact:typed_x"], "removed_obligations": [], "epistemic_update": "Domain and object identity are explicit."},
+      "verification": {"status": "verified", "method": "schema_and_domain_check", "evidence": "x is declared over Real."},
+      "reasoning_stages": [1, 2, 3, 5],
+      "hml_support": "EXPRESSIBLE_CURRENT_HML",
+      "semantic_gap_ids": [],
+      "provenance": {"source_problem": "G01", "source_step": "worked_solution.step_1", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a1",
+      "from_state": "S1",
+      "to_state": "S2",
+      "inputs": ["S1", "fact:eq"],
+      "operation": "subtract_same_term_from_both_sides",
+      "dependencies": ["fact:eq", "fact:typed_x"],
+      "warrant": {"kind": "equality_preservation", "rule": "subtract_both_sides", "description": "Subtracting the same term from both sides preserves equality."},
+      "preconditions": [{"id": "pre:a1", "statement": "Equality-preserving subtraction is defined over Real", "status": "satisfied", "evidence": "Real subtraction is total."}],
+      "resulting_fact": {"id": "fact:subtracted", "statement": "x - 0 = 5 - 2", "status": "established"},
+      "state_change": {"from": "S1", "to": "S2", "added_facts": ["fact:subtracted"], "removed_obligations": [], "epistemic_update": "A structurally checked equality transform is established."},
+      "verification": {"status": "verified", "method": "HML kernel subtract_both_sides", "evidence": "HML d0 is VERIFIED at the pinned SHA."},
+      "reasoning_stages": [10, 11, 12, 13, 14, 15],
+      "hml_support": "EXPRESSIBLE_CURRENT_HML",
+      "semantic_gap_ids": [],
+      "provenance": {"source_problem": "G01", "source_step": "worked_solution.step_2", "authoring": "hand_authored"}
+    },
+    {
+      "id": "a2",
+      "from_state": "S2",
+      "to_state": "S3",
+      "inputs": ["S2", "fact:subtracted"],
+      "operation": "normalize_and_evaluate_arithmetic",
+      "dependencies": ["fact:subtracted"],
+      "warrant": {"kind": "arithmetic_evaluation", "rule": "real_constant_simplification", "description": "Normalize x - 0 = 5 - 2 to x = 3."},
+      "preconditions": [{"id": "pre:a2", "statement": "The numeric expression is finite and defined", "status": "satisfied", "evidence": "Exact integer arithmetic gives 3."}],
+      "resulting_fact": {"id": "fact:solution", "statement": "x = 3", "status": "established"},
+      "state_change": {"from": "S2", "to": "S3", "added_facts": ["fact:solution"], "removed_obligations": [], "epistemic_update": "The goal is discharged after arithmetic normalization."},
+      "verification": {"status": "verified", "method": "exact_integer_arithmetic_oracle", "evidence": "5 - 2 = 3 and x - 0 = x."},
+      "reasoning_stages": [10, 13, 14, 15, 16],
+      "hml_support": "EXPRESSIBLE_WITH_LIBRARY",
+      "semantic_gap_ids": ["GAP-0001"],
+      "provenance": {"source_problem": "G01", "source_step": "worked_solution.step_3", "authoring": "hand_authored"}
+    }
+  ],
+  "goal_discharged": true,
+  "renderings": {
+    "hml": {"path": "examples/gold_10/G01_equation_isolation/hml/program.hml", "format": "hml", "expected": "compiles_with_verified_prefix", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "structured_english": {"path": "examples/gold_10/G01_equation_isolation/structured_english.md", "format": "structured_english"},
+    "structured_control": {"path": "examples/gold_10/G01_equation_isolation/structured_control.json", "format": "generic_structured_control"}
+  },
+  "verification": {
+    "canonical_status": "VERIFIED",
+    "method": "exact_integer_arithmetic_oracle plus HML kernel check",
+    "checks": ["5 - 2 = 3", "x - 0 = x", "all action references resolve"],
+    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+  }
+}
