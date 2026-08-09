@@ -1,6 +1,7 @@
-# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+# HML corpus rendering; hml_core commit: 5688aba18632b65a8709aa1d85577d31a67dba6a
 module Gold01EquationIsolation
 
 var x : Real
 assume p0 : x + 2.0 = 5.0
 derive d0 : x + 2.0 - 2.0 = 5.0 - 2.0 from p0 by subtract_both_sides(by := 2.0)
+evidence e1 : entails 5.0 - 2.0 = 3.0 by closed_eval_v1()

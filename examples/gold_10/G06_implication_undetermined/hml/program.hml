@@ -1,8 +1,10 @@
-# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+# HML corpus rendering; hml_core commit: 5688aba18632b65a8709aa1d85577d31a67dba6a
 module Gold06ImplicationUndetermined
 
-var p : Bool
-var q : Bool
-assume a0 : p implies q
-assume a1 : q
-goal g0 : p
+var P : Bool
+var Q : Bool
+assume a1 : P implies Q
+assume a2 : Q
+goal g0 : P
+evidence e1 : determines_neither P from a1, a2 by propositional_underdetermination_v1(holds := P and Q, fails := (not P) and Q)
+undetermined g0 by e1

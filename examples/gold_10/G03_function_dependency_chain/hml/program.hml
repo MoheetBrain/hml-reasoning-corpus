@@ -1,6 +1,9 @@
-# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+# HML corpus rendering; hml_core commit: 5688aba18632b65a8709aa1d85577d31a67dba6a
 module Gold03FunctionDependencyChain
 
 def f(x : Real) : Real := x + 1.0
 def g(x : Real) : Real := 2.0 * f(x)
 def value_at_3 : Real := g(3.0)
+evidence e0 : entails f(3.0) = 4.0 by definition_unfold_v1()
+evidence e1 : entails g(3.0) = 2.0 * 4.0 by definition_unfold_v1()
+evidence e2 : entails g(3.0) = 8.0 by definition_unfold_v1()

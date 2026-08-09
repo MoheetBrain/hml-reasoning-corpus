@@ -19,7 +19,7 @@ from hml_corpus.size import measure_gold10  # noqa: E402
 from hml_corpus.validation import EXPECTED_IDS, gold_paths, load_json, validate_gold10  # noqa: E402
 
 
-PINNED_SHA = "164d1946e91216c093478132caa0d06427259682"
+PINNED_SHA = "5688aba18632b65a8709aa1d85577d31a67dba6a"
 
 
 class Gold10Tests(unittest.TestCase):
@@ -109,8 +109,8 @@ class Gold10Tests(unittest.TestCase):
             {
                 "tokenizer": r"Unicode lexical tokens matching \w+|[^\w\s]",
                 "file_count": 50,
-                "utf8_bytes": 86028,
-                "lexical_tokens": 28053,
+                "utf8_bytes": 86683,
+                "lexical_tokens": 28228,
                 "canonical_trajectory_files": 10,
                 "rendering_and_source_files": 40,
             },

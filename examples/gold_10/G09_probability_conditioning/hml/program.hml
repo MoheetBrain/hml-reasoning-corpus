@@ -1,4 +1,4 @@
-# HML corpus rendering; hml_core commit: 164d1946e91216c093478132caa0d06427259682
+# HML corpus rendering; hml_core commit: 5688aba18632b65a8709aa1d85577d31a67dba6a
 module Gold09ProbabilityConditioning
 
 rv A : RandomVariable[Real]
@@ -6,3 +6,4 @@ rv B : RandomVariable[Real]
 require probability(A > 0.0) = 0.5
 require probability(B > 0.0 | A > 0.0) = 0.8
 def joint_probability : Probability := probability(A > 0.0 and B > 0.0)
+evidence e1 : entails 0.5 * 0.8 = 0.4 by closed_eval_v1()

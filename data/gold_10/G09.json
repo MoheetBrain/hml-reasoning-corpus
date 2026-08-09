@@ -96,7 +96,7 @@
   ],
   "goal_discharged": true,
   "renderings": {
-    "hml": {"path": "examples/gold_10/G09_probability_conditioning/hml/program.hml", "format": "hml", "expected": "typechecks_without_probability_inference", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "hml": {"path": "examples/gold_10/G09_probability_conditioning/hml/program.hml", "format": "hml", "expected": "typechecks_with_checked_numeric_evidence", "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a"},
     "structured_english": {"path": "examples/gold_10/G09_probability_conditioning/structured_english.md", "format": "structured_english"},
     "structured_control": {"path": "examples/gold_10/G09_probability_conditioning/structured_control.json", "format": "generic_structured_control"}
   },
@@ -104,6 +104,6 @@
     "canonical_status": "VERIFIED",
     "method": "conditional-probability identity plus exact decimal arithmetic",
     "checks": ["P(A) > 0", "conditional product rule", "0.5 * 0.8 = 0.4", "all action references resolve"],
-    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a"
   }
 }

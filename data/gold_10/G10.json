@@ -127,7 +127,7 @@
   ],
   "goal_discharged": true,
   "renderings": {
-    "hml": {"path": "examples/gold_10/G10_calculus_precondition/hml/program.hml", "format": "hml", "expected": "typechecks_without_calculus_evaluation", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "hml": {"path": "examples/gold_10/G10_calculus_precondition/hml/program.hml", "format": "hml", "expected": "typechecks_with_checked_numeric_evidence_but_calculus_library_blocked", "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a"},
     "structured_english": {"path": "examples/gold_10/G10_calculus_precondition/structured_english.md", "format": "structured_english"},
     "structured_control": {"path": "examples/gold_10/G10_calculus_precondition/structured_control.json", "format": "generic_structured_control"}
   },
@@ -135,6 +135,6 @@
     "canonical_status": "VERIFIED",
     "method": "symbolic differentiation plus exact rational arithmetic",
     "checks": ["2 != 0", "d/dx(1/x) = -1/x^2", "-1/(2^2) = -1/4", "all action references resolve"],
-    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a"
   }
 }

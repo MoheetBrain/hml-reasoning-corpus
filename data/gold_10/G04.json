@@ -96,7 +96,7 @@
   ],
   "goal_discharged": true,
   "renderings": {
-    "hml": {"path": "examples/gold_10/G04_inequality_transform/hml/program.hml", "format": "hml", "expected": "fully_verified", "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"},
+    "hml": {"path": "examples/gold_10/G04_inequality_transform/hml/program.hml", "format": "hml", "expected": "fully_verified", "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a"},
     "structured_english": {"path": "examples/gold_10/G04_inequality_transform/structured_english.md", "format": "structured_english"},
     "structured_control": {"path": "examples/gold_10/G04_inequality_transform/structured_control.json", "format": "generic_structured_control"}
   },
@@ -104,6 +104,6 @@
     "canonical_status": "VERIFIED",
     "method": "literal order oracle plus HML reasoning kernel",
     "checks": ["3 > 0", "multiply_inequality preserves direction", "HML derivation VERIFIED", "all action references resolve"],
-    "hml_core_sha": "164d1946e91216c093478132caa0d06427259682"
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a"
   }
 }

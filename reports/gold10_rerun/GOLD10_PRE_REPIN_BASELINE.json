@@ -1,0 +1,90 @@
+{
+  "branch": "main",
+  "corpus_commit": "467a4866756e6653c1b618a1eed479cda8d5927a",
+  "working_tree_status": "",
+  "old_hml_sha": "164d1946e91216c093478132caa0d06427259682",
+  "project_metadata": {
+    "hml_repo_url": "https://github.com/MoheetBrain/hamiltonian-lang.git",
+    "hml_commit_sha": "164d1946e91216c093478132caa0d06427259682",
+    "corpus_schema_version": "0.2.0"
+  },
+  "trajectory_count": 10,
+  "transition_count": 23,
+  "trajectory_hashes": {
+    "G01": "713a848c9cde2ad8e2488bf2e38409fe91bb1984ffabd112baab75be610f2e31",
+    "G02": "597fa3547af9ae27885dfc31f9ab58059b51fe392ccd21990a3e0af94c3df850",
+    "G03": "bff98bb0f39a93a861281d54109229b7751883709d38775245f416e90bf23851",
+    "G04": "32adff9b6bbb16b0dfb1388214614b3abf3561a1f7efb64fec883b725330ed6b",
+    "G05": "ff008641df5405490b5da117a9aae2f098ff07bb7ef6f8847599d25c754803c0",
+    "G06": "3976b0fef1386530bd9c6e5948b34534310ab73d2095b304e55316e0f3e3af3c",
+    "G07": "fed96d105c260c165e3eba05631afc8da030d7596a13d24038eb0681866f01cf",
+    "G08": "c5c824fe8af4c068e9ff551057885dea9ed2d9367d13087dcdb3b1554d409601",
+    "G09": "e04e1e0ffc5ce477cc22cb149d57fa9a691c520431419a76b4ab9f0dc34ac683",
+    "G10": "8e2cca7c769a44b5d52a381f9cd1c0d89d49a59f717a329a748c620259fcea1f"
+  },
+  "transition_ids": [
+    "G01:a0", "G01:a1", "G01:a2",
+    "G02:a0", "G02:a1",
+    "G03:a0", "G03:a1", "G03:a2",
+    "G04:a0", "G04:a1",
+    "G05:a0", "G05:a1",
+    "G06:a0", "G06:a1",
+    "G07:a0", "G07:a1",
+    "G08:a0", "G08:a1",
+    "G09:a0", "G09:a1",
+    "G10:a0", "G10:a1", "G10:a2"
+  ],
+  "previous_support_classifications": {
+    "G01:a0": "EXPRESSIBLE_CURRENT_HML",
+    "G01:a1": "EXPRESSIBLE_CURRENT_HML",
+    "G01:a2": "EXPRESSIBLE_WITH_LIBRARY",
+    "G02:a0": "EXPRESSIBLE_CURRENT_HML",
+    "G02:a1": "EXPRESSIBLE_WITH_LIBRARY",
+    "G03:a0": "EXPRESSIBLE_WITH_LIBRARY",
+    "G03:a1": "EXPRESSIBLE_WITH_LIBRARY",
+    "G03:a2": "EXPRESSIBLE_WITH_LIBRARY",
+    "G04:a0": "EXPRESSIBLE_CURRENT_HML",
+    "G04:a1": "EXPRESSIBLE_CURRENT_HML",
+    "G05:a0": "EXPRESSIBLE_CURRENT_HML",
+    "G05:a1": "EXPRESSIBLE_CURRENT_HML",
+    "G06:a0": "AMBIGUOUS_OR_HUMAN_IMPLICIT",
+    "G06:a1": "REQUIRES_NEW_CORE_SEMANTIC",
+    "G07:a0": "EXPRESSIBLE_CURRENT_HML",
+    "G07:a1": "REQUIRES_NEW_CORE_SEMANTIC",
+    "G08:a0": "EXPRESSIBLE_CURRENT_HML",
+    "G08:a1": "EXPRESSIBLE_CURRENT_HML",
+    "G09:a0": "REQUIRES_NEW_CORE_SEMANTIC",
+    "G09:a1": "EXPRESSIBLE_WITH_LIBRARY",
+    "G10:a0": "EXPRESSIBLE_CURRENT_HML",
+    "G10:a1": "EXPRESSIBLE_WITH_LIBRARY",
+    "G10:a2": "EXPRESSIBLE_WITH_LIBRARY"
+  },
+  "previous_support_counts": {
+    "EXPRESSIBLE_CURRENT_HML": 11,
+    "EXPRESSIBLE_WITH_LIBRARY": 8,
+    "REQUIRES_NEW_CORE_SEMANTIC": 3,
+    "AMBIGUOUS_OR_HUMAN_IMPLICIT": 1
+  },
+  "previous_core_gap_rate": {
+    "numerator": 2,
+    "denominator": 23,
+    "percentage": 8.7
+  },
+  "gold10_result_hashes": {
+    "data/gold_10/G01.json": "713a848c9cde2ad8e2488bf2e38409fe91bb1984ffabd112baab75be610f2e31",
+    "data/gold_10/G02.json": "597fa3547af9ae27885dfc31f9ab58059b51fe392ccd21990a3e0af94c3df850",
+    "data/gold_10/G03.json": "bff98bb0f39a93a861281d54109229b7751883709d38775245f416e90bf23851",
+    "data/gold_10/G04.json": "32adff9b6bbb16b0dfb1388214614b3abf3561a1f7efb64fec883b725330ed6b",
+    "data/gold_10/G05.json": "ff008641df5405490b5da117a9aae2f098ff07bb7ef6f8847599d25c754803c0",
+    "data/gold_10/G06.json": "3976b0fef1386530bd9c6e5948b34534310ab73d2095b304e55316e0f3e3af3c",
+    "data/gold_10/G07.json": "fed96d105c260c165e3eba05631afc8da030d7596a13d24038eb0681866f01cf",
+    "data/gold_10/G08.json": "c5c824fe8af4c068e9ff551057885dea9ed2d9367d13087dcdb3b1554d409601",
+    "data/gold_10/G09.json": "e04e1e0ffc5ce477cc22cb149d57fa9a691c520431419a76b4ab9f0dc34ac683",
+    "data/gold_10/G10.json": "8e2cca7c769a44b5d52a381f9cd1c0d89d49a59f717a329a748c620259fcea1f"
+  },
+  "report_hashes": {
+    "reports/GOLD_10_CLOSEOUT_V0.md": "18b263bd401bce4d6144aed273bd2243804b6e70fe9f62fbeda8da999fc7ae23",
+    "reports/REASONING_COVERAGE_V0.md": "080856b315f56fab6099a4fdb86c29c9724cf130f4533ab24d4aa7cca9599ddb",
+    "reports/GOLD_10_GAP_TRIAGE_HANDOFF.md": "fd287592bfa995da53dd690817290dbcb0b33a1fcb0a5f0f28af67b37147cea0"
+  }
+}

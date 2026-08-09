@@ -1,0 +1,90 @@
+{
+  "phase": "A_PURE_REPIN",
+  "corpus_commit": "467a4866756e6653c1b618a1eed479cda8d5927a",
+  "old_hml_sha": "164d1946e91216c093478132caa0d06427259682",
+  "new_hml_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+  "corpus_logic_changed": false,
+  "trajectory_data_changed": false,
+  "trajectory_count": 10,
+  "transition_count": 23,
+  "existing_gold10_suite": {
+    "return_code": 1,
+    "failures": [
+      {
+        "test": "test_frozen_hml_submodule_is_clean_and_pinned",
+        "cause": "old pin guard records 164d1946e91216c093478132caa0d06427259682 while project metadata records the new pin"
+      },
+      {
+        "test": "test_hml_renderings_use_the_pinned_sha_and_compile",
+        "cause": "test_gold10.py still hard-codes the old HML SHA before entering its compile loop"
+      }
+    ],
+    "note": "The unchanged suite did not reach its HML compile loop because its assertions are intentionally old-baseline-specific. Direct execution of the same 10 HML files was run separately below."
+  },
+  "direct_unchanged_rendering_checks": {
+    "return_code_by_example": {
+      "G01": 0,
+      "G02": 0,
+      "G03": 0,
+      "G04": 0,
+      "G05": 0,
+      "G06": 0,
+      "G07": 0,
+      "G08": 0,
+      "G09": 0,
+      "G10": 0
+    },
+    "behavior_by_example": {
+      "G01": "1 VERIFIED derivation; unchanged subtract_both_sides path",
+      "G02": "1 VERIFIED derivation; unchanged substitute path",
+      "G03": "definitions parse/type-check; no evidence or goal adjudication emitted",
+      "G04": "1 VERIFIED derivation and 1 PROVED goal",
+      "G05": "1 VERIFIED derivation and 1 PROVED goal",
+      "G06": "1 OPEN goal; old renderer emits no evidence/undetermined statement",
+      "G07": "1 OPEN goal; old renderer emits no forall_intro/forall_elim path",
+      "G08": "1 VERIFIED derivation and 1 PROVED goal",
+      "G09": "probability expressions type-check; no probability-law inference emitted",
+      "G10": "domain precondition type-checks; no calculus-law inference emitted"
+    }
+  },
+  "new_core_probe_results": {
+    "certified_underdetermination_example": "PASS: goal status UNDERDETERMINED",
+    "quantified_inference_example": "PASS: 2 VERIFIED derivations and 1 PROVED goal",
+    "closed_eval_v1_probe": "PASS: exact 5.0 - 2.0 = 3.0 evidence accepted",
+    "definition_unfold_v1_probe": "PASS: exact g(3.0) = 8.0 evidence accepted",
+    "unknown_without_certificate": "PASS: goal remains OPEN, not UNDERDETERMINED",
+    "unknown_checker_probe": "PASS: rejected with HML-R718; static checker registry preserved"
+  },
+  "rows": [
+    {"transition_id":"G01:a0","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"NATIVE_KERNEL_VERIFIED","old_reason":"domain identification","new_reason":"unchanged native path","old_hml_behavior":"current renderer has no gap","new_hml_behavior":"same parse/check result","cause":"NO_CHANGE"},
+    {"transition_id":"G01:a1","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"NATIVE_KERNEL_VERIFIED","old_reason":"subtract_both_sides is checked","new_reason":"unchanged native path","old_hml_behavior":"1 VERIFIED derivation","new_hml_behavior":"1 VERIFIED derivation","cause":"NO_CHANGE"},
+    {"transition_id":"G01:a2","old_classification":"EXPRESSIBLE_WITH_LIBRARY","phase_a_classification":"CORPUS_ADAPTER_MISSING","representation_status":"CURRENT_HML_PLUS_CHECKED_CERTIFICATE_AVAILABLE","verification_status":"CERTIFICATE_AVAILABLE_NOT_EMITTED","old_reason":"numeric normalization was not connected to v2 derive","new_reason":"closed_eval_v1 can check the numeric subclaim, but unchanged renderer emits neither evidence nor final normalized fact","old_hml_behavior":"pre-normalized derivation only","new_hml_behavior":"same pre-normalized derivation; new certificate boundary unused","cause":"CERTIFICATE_BOUNDARY"},
+    {"transition_id":"G02:a0","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"NATIVE_KERNEL_VERIFIED","old_reason":"substitute is checked","new_reason":"unchanged native path","old_hml_behavior":"1 VERIFIED derivation","new_hml_behavior":"1 VERIFIED derivation","cause":"NO_CHANGE"},
+    {"transition_id":"G02:a1","old_classification":"EXPRESSIBLE_WITH_LIBRARY","phase_a_classification":"CORPUS_ADAPTER_MISSING","representation_status":"CURRENT_HML_PLUS_CHECKED_CERTIFICATE_AVAILABLE","verification_status":"CERTIFICATE_AVAILABLE_NOT_EMITTED","old_reason":"closed arithmetic was external to v2 derive","new_reason":"closed_eval_v1 can check 2 + 3 = 5, but unchanged renderer does not emit the evidence","old_hml_behavior":"b = 2 + 3 only","new_hml_behavior":"same; certificate boundary unused","cause":"CERTIFICATE_BOUNDARY"},
+    {"transition_id":"G03:a0","old_classification":"EXPRESSIBLE_WITH_LIBRARY","phase_a_classification":"CORPUS_ADAPTER_MISSING","representation_status":"CURRENT_HML_PLUS_CHECKED_CERTIFICATE_AVAILABLE","verification_status":"CERTIFICATE_AVAILABLE_NOT_EMITTED","old_reason":"function evaluation was not exposed as evidence","new_reason":"definition_unfold_v1 can replay exact function unfolding, but unchanged renderer emits only definitions","old_hml_behavior":"definitions/call parse only","new_hml_behavior":"same; definition checker unused","cause":"CERTIFICATE_BOUNDARY"},
+    {"transition_id":"G03:a1","old_classification":"EXPRESSIBLE_WITH_LIBRARY","phase_a_classification":"CORPUS_ADAPTER_MISSING","representation_status":"CURRENT_HML_PLUS_CHECKED_CERTIFICATE_AVAILABLE","verification_status":"CERTIFICATE_AVAILABLE_NOT_EMITTED","old_reason":"dependency propagation lacked local evidence","new_reason":"existing evaluator can unfold dependencies, but unchanged renderer emits no intermediate evidence","old_hml_behavior":"dependency structure only","new_hml_behavior":"same; dependency evidence unused","cause":"CERTIFICATE_BOUNDARY"},
+    {"transition_id":"G03:a2","old_classification":"EXPRESSIBLE_WITH_LIBRARY","phase_a_classification":"CORPUS_ADAPTER_MISSING","representation_status":"CURRENT_HML_PLUS_CHECKED_CERTIFICATE_AVAILABLE","verification_status":"CERTIFICATE_AVAILABLE_NOT_EMITTED","old_reason":"function result was not checked","new_reason":"definition_unfold_v1 can check g(3) = 8, but unchanged renderer emits no goal/evidence statement","old_hml_behavior":"value definition only","new_hml_behavior":"same; definition checker unused","cause":"CERTIFICATE_BOUNDARY"},
+    {"transition_id":"G04:a0","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"NATIVE_KERNEL_VERIFIED","old_reason":"positive multiplier precondition is checked","new_reason":"unchanged native path","old_hml_behavior":"precondition accepted","new_hml_behavior":"precondition accepted","cause":"NO_CHANGE"},
+    {"transition_id":"G04:a1","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"NATIVE_KERNEL_VERIFIED","old_reason":"multiply_inequality is checked","new_reason":"unchanged native path","old_hml_behavior":"derivation VERIFIED; goal PROVED","new_hml_behavior":"derivation VERIFIED; goal PROVED","cause":"NO_CHANGE"},
+    {"transition_id":"G05:a0","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"NATIVE_KERNEL_VERIFIED","old_reason":"modus_ponens is checked","new_reason":"unchanged native path","old_hml_behavior":"derivation VERIFIED","new_hml_behavior":"derivation VERIFIED","cause":"NO_CHANGE"},
+    {"transition_id":"G05:a1","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"NATIVE_KERNEL_VERIFIED","old_reason":"goal adjudication is checked","new_reason":"unchanged native path","old_hml_behavior":"goal PROVED","new_hml_behavior":"goal PROVED","cause":"NO_CHANGE"},
+    {"transition_id":"G06:a0","old_classification":"AMBIGUOUS_OR_HUMAN_IMPLICIT","phase_a_classification":"CORPUS_ADAPTER_MISSING","representation_status":"CURRENT_HML_WITH_CERTIFIED_UNDERDETERMINATION","verification_status":"NEW_CERTIFICATE_AVAILABLE_NOT_EMITTED","old_reason":"countermodel evidence was ambiguous in corpus metadata","new_reason":"new static two-model checker supports the exact Γ, but unchanged renderer emits no certificate","old_hml_behavior":"only assumptions and open goal","new_hml_behavior":"same open goal in old rendering; new official example reaches UNDERDETERMINED","cause":"CORE_SEMANTIC_CHANGE"},
+    {"transition_id":"G06:a1","old_classification":"REQUIRES_NEW_CORE_SEMANTIC","phase_a_classification":"CORPUS_ADAPTER_MISSING","representation_status":"CURRENT_HML_WITH_UNDERDETERMINED_PROJECTION","verification_status":"NEW_CERTIFICATE_AVAILABLE_NOT_EMITTED","old_reason":"no certified underdetermined goal state","new_reason":"GoalStatus.UNDERDETERMINED and undetermined adjudication now exist, but unchanged renderer does not emit them","old_hml_behavior":"goal OPEN","new_hml_behavior":"goal OPEN in old rendering; new example goal UNDERDETERMINED","cause":"CORE_SEMANTIC_CHANGE"},
+    {"transition_id":"G07:a0","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"SCOPE_ONLY","old_reason":"binder resolution is current","new_reason":"unchanged binder representation","old_hml_behavior":"quantified goal parses","new_hml_behavior":"quantified goal parses","cause":"NO_CHANGE"},
+    {"transition_id":"G07:a1","old_classification":"REQUIRES_NEW_CORE_SEMANTIC","phase_a_classification":"LIBRARY_STILL_MISSING","representation_status":"QUANTIFIER_CORE_CURRENT_BODY_CERTIFICATE_MISSING","verification_status":"FORALL_CORE_AVAILABLE_BODY_UNSUPPORTED","old_reason":"no quantified inference rule","new_reason":"forall_intro/forall_elim are implemented and independently pass; n + 0 = n remains outside the trusted checker set, and old renderer emits neither","old_hml_behavior":"goal OPEN","new_hml_behavior":"same old goal OPEN; separate quantifier probe PROVED a non-arithmetic theorem","cause":"CORE_SEMANTIC_CHANGE"},
+    {"transition_id":"G08:a0","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"NATIVE_KERNEL_VERIFIED","old_reason":"modus_tollens is checked","new_reason":"unchanged native path","old_hml_behavior":"derivation VERIFIED","new_hml_behavior":"derivation VERIFIED","cause":"NO_CHANGE"},
+    {"transition_id":"G08:a1","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"NATIVE_KERNEL_VERIFIED","old_reason":"goal adjudication is checked","new_reason":"unchanged native path","old_hml_behavior":"goal PROVED","new_hml_behavior":"goal PROVED","cause":"NO_CHANGE"},
+    {"transition_id":"G09:a0","old_classification":"REQUIRES_NEW_CORE_SEMANTIC","phase_a_classification":"LIBRARY_STILL_MISSING","representation_status":"LIBRARY_REQUIRED","verification_status":"UNSUPPORTED_PROBABILITY_LAW","old_reason":"conditional product was absent from core","new_reason":"deliberately remains outside core; no probability-law checker was added","old_hml_behavior":"probability expressions type-check only","new_hml_behavior":"same; no law inference","cause":"LIBRARY_STILL_MISSING"},
+    {"transition_id":"G09:a1","old_classification":"EXPRESSIBLE_WITH_LIBRARY","phase_a_classification":"CORPUS_ADAPTER_MISSING","representation_status":"CURRENT_HML_PLUS_CHECKED_CERTIFICATE_AVAILABLE","verification_status":"CERTIFICATE_AVAILABLE_NOT_EMITTED","old_reason":"numeric product was external","new_reason":"closed_eval_v1 can check 0.5 * 0.8 = 0.4, but unchanged renderer emits no certificate","old_hml_behavior":"joint definition only","new_hml_behavior":"same; certificate boundary unused","cause":"CERTIFICATE_BOUNDARY"},
+    {"transition_id":"G10:a0","old_classification":"EXPRESSIBLE_CURRENT_HML","phase_a_classification":"EXPRESSIBLE_CURRENT_HML","representation_status":"CURRENT_HML","verification_status":"DOMAIN_CHECK_AVAILABLE","old_reason":"nonzero precondition is current","new_reason":"unchanged domain path","old_hml_behavior":"precondition type-checks","new_hml_behavior":"precondition type-checks","cause":"NO_CHANGE"},
+    {"transition_id":"G10:a1","old_classification":"EXPRESSIBLE_WITH_LIBRARY","phase_a_classification":"LIBRARY_STILL_MISSING","representation_status":"LIBRARY_REQUIRED","verification_status":"UNSUPPORTED_CALCULUS_LAW","old_reason":"derivative rule was library-level","new_reason":"calculus remains deliberately outside core and no trusted derivative checker was added","old_hml_behavior":"derivative expression represents/type-checks","new_hml_behavior":"same; no derivative inference","cause":"LIBRARY_STILL_MISSING"},
+    {"transition_id":"G10:a2","old_classification":"EXPRESSIBLE_WITH_LIBRARY","phase_a_classification":"LIBRARY_STILL_MISSING","representation_status":"NUMERIC_CERTIFICATE_READY_AFTER_FORMULA","verification_status":"FORMULA_MISSING","old_reason":"derivative formula and numeric evaluation were combined","new_reason":"exact arithmetic certificate can evaluate a valid formula, but the unchanged rendering has only DerivativeExpr and no trusted formula","old_hml_behavior":"no derivative evaluation","new_hml_behavior":"same; numeric checker cannot consume DerivativeExpr","cause":"LIBRARY_STILL_MISSING"}
+  ],
+  "phase_a_conclusion": {
+    "semantic_regressions": 0,
+    "previous_native_passes_preserved": 11,
+    "core_semantics_available_but_renderer_unused": ["G06:a0", "G06:a1", "G07:a1"],
+    "remaining_library_blocked_transitions": ["G07:a1", "G09:a0", "G10:a1", "G10:a2"],
+    "adapter_blocked_transitions": ["G01:a2", "G02:a1", "G03:a0", "G03:a1", "G03:a2", "G06:a0", "G06:a1", "G09:a1"]
+  }
+}

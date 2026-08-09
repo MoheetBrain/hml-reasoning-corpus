@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 HML = ROOT / "hml_core"
-PIN = "164d1946e91216c093478132caa0d06427259682"
+PIN = "5688aba18632b65a8709aa1d85577d31a67dba6a"
 
 
 def _read(path: str) -> str:
@@ -84,15 +84,15 @@ def test_frozen_hml_capabilities_and_v2_boundaries_are_present() -> None:
     # operations are not trusted v2 rules.
     assert '"modus_ponens"' in kernel
     assert '"conditional_product"' not in kernel
-    assert '"universal_introduction"' not in kernel
+    assert '"forall_intro"' in kernel
+    assert '"forall_elim"' in kernel
     assert '"differentiate"' not in kernel
 
-    # Current HML already has evaluation infrastructure, while its v2 goal status set
-    # does not yet include a certified underdetermination terminal state.
+    # Current HML has exact-evaluation and certified-underdetermination infrastructure.
     assert "def evaluate(" in evaluator
     assert "functions" in evaluator
     assert "closed_arithmetic_equality" in checkers
-    assert "UNDETERMINED" not in nodes
+    assert "UNDERDETERMINED" in nodes
 
     # The neutral schema can record the distinction, but its action support field is
     # still a single coarse classification; this is a diagnostic fact for the handoff.
