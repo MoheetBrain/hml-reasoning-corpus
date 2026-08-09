@@ -1,0 +1,828 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-018",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-07140",
+  "source_hash": "3c7fdcf4e07ee8c40ed0cd0d373470d655076e980b69760c8c6a47a26597ee2d",
+  "category": "Precalculus",
+  "level": "Level 1",
+  "problem": "Compute $\\tan 75^\\circ.$",
+  "original_solution": "From the angle addition formula,\n\\begin{align*}\n\\tan 75^\\circ &= \\tan (45^\\circ + 30^\\circ) \\\\\n&= \\frac{\\tan 45^\\circ + \\tan 30^\\circ}{1 - \\tan 45^\\circ \\tan 30^\\circ} \\\\\n&= \\frac{1 + \\frac{1}{\\sqrt{3}}}{1 - \\frac{1}{\\sqrt{3}}} \\\\\n&= \\frac{\\sqrt{3} + 1}{\\sqrt{3} - 1} \\\\\n&= \\frac{(\\sqrt{3} + 1)(\\sqrt{3} + 1)}{(\\sqrt{3} - 1)(\\sqrt{3} + 1)} \\\\\n&= \\frac{3 + 2 \\sqrt{3} + 1}{2} \\\\\n&= \\boxed{2 + \\sqrt{3}}.\n\\end{align*}",
+  "selection_reason": "Named trigonometric theorem, exact radical algebra, rationalization, and normalization.",
+  "initial_state": {
+    "objects": [
+      "angle 75°"
+    ],
+    "declarations": [
+      "angle : Real"
+    ],
+    "types_domains": [
+      "angles in degrees"
+    ],
+    "facts": [
+      {
+        "id": "fact:angle_split",
+        "statement": "75°=45°+30°",
+        "status": "given"
+      },
+      {
+        "id": "fact:special",
+        "statement": "tan45°=1, tan30°=1/√3",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "tan75°=2+√3",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "From the angle addition formula,",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "tangent_addition",
+        "description": "Apply the tangent addition formula; denominator must be nonzero.",
+        "source": "library"
+      },
+      "preconditions": [
+        {
+          "condition": "1-tan45°tan30°≠0",
+          "status": "implicit",
+          "evidence": "The worked solution does not state this condition explicitly.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "No trusted trigonometric identity library exists in current HML."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "angle 75°"
+        ],
+        "declarations": [
+          "angle : Real"
+        ],
+        "types_domains": [
+          "angles in degrees"
+        ],
+        "facts": [
+          {
+            "id": "fact:angle_split",
+            "statement": "75°=45°+30°",
+            "status": "given"
+          },
+          {
+            "id": "fact:special",
+            "statement": "tan45°=1, tan30°=1/√3",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "tan75°=2+√3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "angle 75°"
+        ],
+        "declarations": [
+          "angle : Real"
+        ],
+        "types_domains": [
+          "angles in degrees"
+        ],
+        "facts": [
+          {
+            "id": "fact:angle_split",
+            "statement": "75°=45°+30°",
+            "status": "given"
+          },
+          {
+            "id": "fact:special",
+            "statement": "tan45°=1, tan30°=1/√3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "tan75°=2+√3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "APPLY_THEOREM",
+        "family": "THEOREM_APPLICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "= \\frac{1 + \\frac{1}{\\sqrt{3}}}{1 - \\frac{1}{\\sqrt{3}}}",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "special_value_substitution",
+        "description": "Substitute exact special-angle values.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:special"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Exact radicals are representable, but the trig facts are library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "angle 75°"
+        ],
+        "declarations": [
+          "angle : Real"
+        ],
+        "types_domains": [
+          "angles in degrees"
+        ],
+        "facts": [
+          {
+            "id": "fact:angle_split",
+            "statement": "75°=45°+30°",
+            "status": "given"
+          },
+          {
+            "id": "fact:special",
+            "statement": "tan45°=1, tan30°=1/√3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "tan75°=2+√3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "angle 75°"
+        ],
+        "declarations": [
+          "angle : Real"
+        ],
+        "types_domains": [
+          "angles in degrees"
+        ],
+        "facts": [
+          {
+            "id": "fact:angle_split",
+            "statement": "75°=45°+30°",
+            "status": "given"
+          },
+          {
+            "id": "fact:special",
+            "statement": "tan45°=1, tan30°=1/√3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "tan75°=(1+1/√3)/(1-1/√3)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "tan75°=2+√3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:special"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: tan75°=(1+1/√3)/(1-1/√3)",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:special"
+        ]
+      },
+      "action": {
+        "operation_id": "SUBSTITUTE",
+        "family": "SUBSTITUTION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "tan75°=(1+1/√3)/(1-1/√3)",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "= \\frac{\\sqrt{3} + 1}{\\sqrt{3} - 1}",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "radical_normalization",
+        "description": "Multiply numerator and denominator by √3 to clear the fractional radicals, preserving the ratio because √3-1≠0.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "√3-1≠0",
+          "status": "implicit",
+          "evidence": "The worked solution does not state this condition explicitly.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Symbolic radical rationalization is not a trusted kernel rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "angle 75°"
+        ],
+        "declarations": [
+          "angle : Real"
+        ],
+        "types_domains": [
+          "angles in degrees"
+        ],
+        "facts": [
+          {
+            "id": "fact:angle_split",
+            "statement": "75°=45°+30°",
+            "status": "given"
+          },
+          {
+            "id": "fact:special",
+            "statement": "tan45°=1, tan30°=1/√3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "tan75°=(1+1/√3)/(1-1/√3)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "tan75°=2+√3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:special"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "angle 75°"
+        ],
+        "declarations": [
+          "angle : Real"
+        ],
+        "types_domains": [
+          "angles in degrees"
+        ],
+        "facts": [
+          {
+            "id": "fact:angle_split",
+            "statement": "75°=45°+30°",
+            "status": "given"
+          },
+          {
+            "id": "fact:special",
+            "statement": "tan45°=1, tan30°=1/√3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "tan75°=(1+1/√3)/(1-1/√3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "tan75°=(√3+1)/(√3-1)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "tan75°=2+√3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:special"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: tan75°=(√3+1)/(√3-1)",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "RATIONALIZE",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "tan75°=(√3+1)/(√3-1)",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "= \\frac{3 + 2 \\sqrt{3} + 1}{2}",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "exact_radical_arithmetic",
+        "description": "Expand and normalize the exact radical expression.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact radical arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Closed exact arithmetic is partly available, but symbolic radical normalization is not."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "angle 75°"
+        ],
+        "declarations": [
+          "angle : Real"
+        ],
+        "types_domains": [
+          "angles in degrees"
+        ],
+        "facts": [
+          {
+            "id": "fact:angle_split",
+            "statement": "75°=45°+30°",
+            "status": "given"
+          },
+          {
+            "id": "fact:special",
+            "statement": "tan45°=1, tan30°=1/√3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "tan75°=(1+1/√3)/(1-1/√3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "tan75°=(√3+1)/(√3-1)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "tan75°=2+√3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:special"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "angle 75°"
+        ],
+        "declarations": [
+          "angle : Real"
+        ],
+        "types_domains": [
+          "angles in degrees"
+        ],
+        "facts": [
+          {
+            "id": "fact:angle_split",
+            "statement": "75°=45°+30°",
+            "status": "given"
+          },
+          {
+            "id": "fact:special",
+            "statement": "tan45°=1, tan30°=1/√3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "tan75°=(1+1/√3)/(1-1/√3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "tan75°=(√3+1)/(√3-1)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "tan75°=2+√3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "tan75°=2+√3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:special"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: tan75°=2+√3",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "tan75°=2+√3",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "angle 75°"
+    ],
+    "declarations": [
+      "angle : Real"
+    ],
+    "types_domains": [
+      "angles in degrees"
+    ],
+    "facts": [
+      {
+        "id": "fact:angle_split",
+        "statement": "75°=45°+30°",
+        "status": "given"
+      },
+      {
+        "id": "fact:special",
+        "statement": "tan45°=1, tan30°=1/√3",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "tan75°=(1+1/√3)/(1-1/√3)",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "tan75°=(√3+1)/(√3-1)",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "tan75°=2+√3",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "tan75°=2+√3",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:special"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "tan75°=2+√3",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_THEOREM",
+    "EVALUATE",
+    "RATIONALIZE",
+    "SUBSTITUTE"
+  ],
+  "source_quality": {
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "MATH-GOLD-018: 1-tan45°tan30°≠0",
+      "MATH-GOLD-018: √3-1≠0"
+    ],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0003",
+    "MATH-GAP-0006",
+    "MATH-GAP-0007"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

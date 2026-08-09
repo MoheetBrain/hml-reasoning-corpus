@@ -1,0 +1,1291 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-011",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-01747",
+  "source_hash": "c0e06f9b2b538ed1fe994241fa941be1782227f7b226af9a6651bea8714a1470",
+  "category": "Counting & Probability",
+  "level": "Level 4",
+  "problem": "If three people are selected at random from a group of seven men and three women, what is the probability that at least one woman is selected? Express your answer as a common fraction.",
+  "original_solution": "We can find the probability that no women are selected and subtract it from 1 to find the probability that at least one woman is selected. To find the probability that only men are selected, we consider that the chance that the first person selected is male is $\\frac{7}{10}$. Then the probability that the second person selected is male is reduced to $\\frac{6}{9}=\\frac{2}{3}$. For the third person, the probability is $\\frac{5}{8}$. So the probability that only men are selected is $$\\frac{7}{10}\\cdot\\frac{2}{3}\\cdot\\frac{5}{8}=\\frac{7}{24}.$$ Notice that the 2 and 5 in the numerator cancel with the 10 in the denominator to leave $\\frac{7}{24}$. Now we subtract from 1 to find the probability that at least one woman is selected. The probability is $1-\\frac{7}{24}=\\boxed{\\frac{17}{24}}$.",
+  "selection_reason": "Complementary probability with sampling without replacement and exact fraction cancellation.",
+  "initial_state": {
+    "objects": [
+      "7 men",
+      "3 women",
+      "three selected people"
+    ],
+    "declarations": [
+      "finite population"
+    ],
+    "types_domains": [
+      "sampling without replacement"
+    ],
+    "facts": [
+      {
+        "id": "fact:population",
+        "statement": "7 men and 3 women",
+        "status": "given"
+      },
+      {
+        "id": "fact:sample",
+        "statement": "sample size 3",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "P(at least one woman)=17/24",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "We can find the probability that no women are selected and subtract it from 1",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "complement_rule",
+        "description": "For a binary event partition, P(at least one woman)=1-P(no woman).",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:population",
+        "fact:sample"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Probability complement reasoning is not a core HML rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: target = 1-P(no women)",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:population",
+          "fact:sample"
+        ]
+      },
+      "action": {
+        "operation_id": "COMPLEMENT_COUNT",
+        "family": "PROBABILISTIC_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "target = 1-P(no women)",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "the chance that the first person selected is male is $\\frac{7}{10}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "uniform_sampling",
+        "description": "Count favorable men over the population size.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:population"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Finite-sampling probability lacks a trusted domain library."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "P(first male)=7/10",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: P(first male)=7/10",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:population"
+        ]
+      },
+      "action": {
+        "operation_id": "CONDITIONAL_PROBABILITY",
+        "family": "PROBABILISTIC_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "P(first male)=7/10",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Then the probability that the second person selected is male is reduced to $\\frac{6}{9}=\\frac{2}{3}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "without_replacement_update",
+        "description": "Update the population after one male has been selected.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:population"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Conditional probability update is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "P(first male)=7/10",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "P(first male)=7/10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "P(second male | first male)=2/3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: P(second male | first male)=2/3",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:population"
+        ]
+      },
+      "action": {
+        "operation_id": "CONDITIONAL_PROBABILITY",
+        "family": "PROBABILISTIC_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "P(second male | first male)=2/3",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "For the third person, the probability is $\\frac{5}{8}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "without_replacement_update",
+        "description": "Update counts after two male selections.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:population"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Conditional probability update is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "P(first male)=7/10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "P(second male | first male)=2/3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "P(first male)=7/10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "P(second male | first male)=2/3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "P(third male | first two male)=5/8",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: P(third male | first two male)=5/8",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:population"
+        ]
+      },
+      "action": {
+        "operation_id": "CONDITIONAL_PROBABILITY",
+        "family": "PROBABILISTIC_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "P(third male | first two male)=5/8",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "So the probability that only men are selected is $$\\frac{7}{10}\\cdot\\frac{2}{3}\\cdot\\frac{5}{8}=\\frac{7}{24}.$$",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "chain_rule",
+        "description": "Multiply the successive conditional probabilities.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:population",
+        "fact:sample"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Conditional-product semantics are not a core rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "P(first male)=7/10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "P(second male | first male)=2/3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "P(third male | first two male)=5/8",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "P(first male)=7/10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "P(second male | first male)=2/3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "P(third male | first two male)=5/8",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(no women)=7/24",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: P(no women)=7/24",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:population",
+          "fact:sample"
+        ]
+      },
+      "action": {
+        "operation_id": "MULTIPLY_CONDITIONALS",
+        "family": "PROBABILISTIC_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "P(no women)=7/24",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s6",
+      "source_span": "Now we subtract from 1 to find the probability that at least one woman is selected. The probability is $1-\\frac{7}{24}=\\boxed{\\frac{17}{24}}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "complement_rule",
+        "description": "Subtract the exact complement from one.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:no_women"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact rational arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Numeric fraction arithmetic is checkable after the probability law is supplied."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s6",
+      "state_before": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "P(first male)=7/10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "P(second male | first male)=2/3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "P(third male | first two male)=5/8",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(no women)=7/24",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "7 men",
+          "3 women",
+          "three selected people"
+        ],
+        "declarations": [
+          "finite population"
+        ],
+        "types_domains": [
+          "sampling without replacement"
+        ],
+        "facts": [
+          {
+            "id": "fact:population",
+            "statement": "7 men and 3 women",
+            "status": "given"
+          },
+          {
+            "id": "fact:sample",
+            "statement": "sample size 3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "target = 1-P(no women)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "P(first male)=7/10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "P(second male | first male)=2/3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "P(third male | first two male)=5/8",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(no women)=7/24",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "P(at least one woman)=17/24",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "P(at least one woman)=17/24",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:population",
+          "fact:sample",
+          "fact:no_women"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s6: P(at least one woman)=17/24",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:no_women"
+        ]
+      },
+      "action": {
+        "operation_id": "COMPLEMENT_COUNT",
+        "family": "PROBABILISTIC_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "P(at least one woman)=17/24",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "7 men",
+      "3 women",
+      "three selected people"
+    ],
+    "declarations": [
+      "finite population"
+    ],
+    "types_domains": [
+      "sampling without replacement"
+    ],
+    "facts": [
+      {
+        "id": "fact:population",
+        "statement": "7 men and 3 women",
+        "status": "given"
+      },
+      {
+        "id": "fact:sample",
+        "statement": "sample size 3",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "target = 1-P(no women)",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "P(first male)=7/10",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "P(second male | first male)=2/3",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "P(third male | first two male)=5/8",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "P(no women)=7/24",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "P(at least one woman)=17/24",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "P(at least one woman)=17/24",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:population",
+      "fact:sample",
+      "fact:no_women"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "P(at least one woman)=17/24",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S6"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "COMPLEMENT_COUNT",
+    "CONDITIONAL_PROBABILITY",
+    "MULTIPLY_CONDITIONALS"
+  ],
+  "source_quality": {
+    "explicit_steps": 6,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0008"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

@@ -1,0 +1,939 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-005",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-00273",
+  "source_hash": "4a1ffb28a326cfc95f3d30edadc5822895974a6be7e7ffa87b18c2fa596aadc8",
+  "category": "Algebra",
+  "level": "Level 1",
+  "problem": "Addison's age is three times Brenda's age. Janet is six years older than Brenda. Addison and Janet are twins. How old is Brenda?",
+  "original_solution": "First, let $A = $ Addison's age, $B = $ Brenda's age, and $J = $ Janet's age. Then, from the statements given, we have the following system of equations:  $$\\begin{cases}\nA=3B \\\\\nJ = B+6 \\\\\nA=J\n\\end{cases} $$ Since $A=J$, we know that $3B=B+6$. Solving this equation, we have that $2B = 6 \\Rightarrow B=3$. Thus, Brenda is $\\boxed{3}$ years old.",
+  "selection_reason": "Natural-language relations become a typed system of equations and then a substitution/elimination chain.",
+  "initial_state": {
+    "objects": [
+      "A",
+      "B",
+      "J"
+    ],
+    "declarations": [
+      "A : Natural",
+      "B : Natural",
+      "J : Natural"
+    ],
+    "types_domains": [
+      "ages are nonnegative integers"
+    ],
+    "facts": [],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "B=3",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "First, let $A = $ Addison's age, $B = $ Brenda's age, and $J = $ Janet's age.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "variable_binding",
+        "description": "Name the quantities in the prose problem.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "FULL",
+        "constructs": [
+          "var"
+        ],
+        "notes": "Typed declarations are native; the prose-to-symbol step is external."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:s1",
+            "statement": "A, B, J are named age variables",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: A, B, J are named age variables",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "INTRODUCE_VARIABLE",
+        "family": "DECLARATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "A, B, J are named age variables",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Then, from the statements given, we have the following system of equations:",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "problem_translation",
+        "description": "Translate each verbal relation into an equation.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume"
+        ],
+        "notes": "HML can record the equations but has no prose relation extractor."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:s1",
+            "statement": "A, B, J are named age variables",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:s1",
+            "statement": "A, B, J are named age variables",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "A=3B, J=B+6, A=J",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: A=3B, J=B+6, A=J",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "FORMULATE_EQUATION",
+        "family": "EQUATION_CONSTRUCTION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "A=3B, J=B+6, A=J",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Since $A=J$, we know that $3B=B+6$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "equality_substitution",
+        "description": "Replace equal quantities in the first relation using A=J.",
+        "source": "core"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:system"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "FULL",
+        "constructs": [
+          "substitute"
+        ],
+        "notes": "The trusted substitute rule is structural and local."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:s1",
+            "statement": "A, B, J are named age variables",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "A=3B, J=B+6, A=J",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:s1",
+            "statement": "A, B, J are named age variables",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "A=3B, J=B+6, A=J",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "3B=B+6",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:system"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: 3B=B+6",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:system"
+        ]
+      },
+      "action": {
+        "operation_id": "SUBSTITUTE",
+        "family": "SUBSTITUTION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "3B=B+6",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Solving this equation, we have that $2B = 6 \\Rightarrow B=3$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "equality_preservation",
+        "description": "Subtract B and divide by the nonzero coefficient 2.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "2≠0",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:system"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "subtract_both_sides",
+          "divide_both_sides"
+        ],
+        "notes": "Local transformations are native; the full solve trajectory is not."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:s1",
+            "statement": "A, B, J are named age variables",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "A=3B, J=B+6, A=J",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "3B=B+6",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:system"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:s1",
+            "statement": "A, B, J are named age variables",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "A=3B, J=B+6, A=J",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "3B=B+6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "B=3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:system"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: B=3",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:system"
+        ]
+      },
+      "action": {
+        "operation_id": "SOLVE",
+        "family": "EQUATION_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "B=3",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Thus, Brenda is $\\boxed{3}$ years old.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "goal_matching",
+        "description": "The derived value matches the requested quantity.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:B"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "FULL",
+        "constructs": [
+          "goal",
+          "proved"
+        ],
+        "notes": "Goal discharge is native once a matching verified derivation exists."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:s1",
+            "statement": "A, B, J are named age variables",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "A=3B, J=B+6, A=J",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "3B=B+6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "B=3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:system"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "A",
+          "B",
+          "J"
+        ],
+        "declarations": [
+          "A : Natural",
+          "B : Natural",
+          "J : Natural"
+        ],
+        "types_domains": [
+          "ages are nonnegative integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:s1",
+            "statement": "A, B, J are named age variables",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "A=3B, J=B+6, A=J",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "3B=B+6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "B=3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "goal B=3 discharged",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "B=3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:system",
+          "fact:B"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: goal B=3 discharged",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:B"
+        ]
+      },
+      "action": {
+        "operation_id": "DISCHARGE_GOAL",
+        "family": "GOAL_MANAGEMENT",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "goal B=3 discharged",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "A",
+      "B",
+      "J"
+    ],
+    "declarations": [
+      "A : Natural",
+      "B : Natural",
+      "J : Natural"
+    ],
+    "types_domains": [
+      "ages are nonnegative integers"
+    ],
+    "facts": [
+      {
+        "id": "fact:s1",
+        "statement": "A, B, J are named age variables",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "A=3B, J=B+6, A=J",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "3B=B+6",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "B=3",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "goal B=3 discharged",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "B=3",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:system",
+      "fact:B"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "B=3",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S5"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "DISCHARGE_GOAL",
+    "FORMULATE_EQUATION",
+    "INTRODUCE_VARIABLE",
+    "SOLVE",
+    "SUBSTITUTE"
+  ],
+  "source_quality": {
+    "explicit_steps": 5,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

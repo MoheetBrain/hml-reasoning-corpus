@@ -1,0 +1,1306 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-025",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-05609",
+  "source_hash": "59a06c8b7ea32419021c1073c14dbe34e0155b4f09bc375868fc1be8fb13061e",
+  "category": "Prealgebra",
+  "level": "Level 5",
+  "problem": "Bob is trying to decide between two cell phone plans. Plan A has no flat fee, but the user must pay $10$ cents per minute on the phone. Plan B requires a one-time fee of $\\$20$, but only requires a payment of $5$ cents per minute on the phone. What is the minimum whole number of minutes Bob has to use the phone for to make Plan B the cheaper plan?",
+  "original_solution": "Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ cents, while Plan B costs $2000 + 5x$ cents. We therefore have the inequality \\begin{align*}\n2000+5x &< 10x \\\\\n\\Rightarrow\\qquad 2000 &< 5x \\\\\n\\Rightarrow\\qquad 400 &< x.\n\\end{align*} The smallest integer $x$ such that $400 < x$ is $401$. Therefore, Bob must use at least $\\boxed{401}$ minutes to make Plan B cheaper.",
+  "selection_reason": "Word-problem modeling, inequality transformation, integer rounding, and threshold verification.",
+  "initial_state": {
+    "objects": [
+      "phone plans",
+      "x minutes"
+    ],
+    "declarations": [
+      "x : Natural"
+    ],
+    "types_domains": [
+      "x is a whole number of minutes"
+    ],
+    "facts": [
+      {
+        "id": "fact:plan_A",
+        "statement": "cost_A=10x cents",
+        "status": "given"
+      },
+      {
+        "id": "fact:plan_B",
+        "statement": "cost_B=2000+5x cents",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "minimum x=401",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Let $x$ be the number of minutes that Bob anticipates using.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "variable_binding",
+        "description": "Name the unknown usage count.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "FULL",
+        "constructs": [
+          "var"
+        ],
+        "notes": "Typed variable declaration is native."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: x denotes minutes",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "INTRODUCE_VARIABLE",
+        "family": "DECLARATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "x denotes minutes",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Plan A costs $10x$ cents, while Plan B costs $2000 + 5x$ cents.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "word_problem_modeling",
+        "description": "Translate price schedules into affine cost functions.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "def",
+          "assume"
+        ],
+        "notes": "HML can record cost functions but has no prose modeling operation."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cost_A=10x; cost_B=2000+5x",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: cost_A=10x; cost_B=2000+5x",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "FORMULATE_EQUATION",
+        "family": "EQUATION_CONSTRUCTION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "cost_A=10x; cost_B=2000+5x",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "We therefore have the inequality",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "comparison_goal",
+        "description": "Plan B is cheaper exactly when its cost is strictly below Plan A.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:plan_A",
+        "fact:plan_B"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "goal",
+          "assume"
+        ],
+        "notes": "Inequalities are representable; source-model construction is external."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cost_A=10x; cost_B=2000+5x",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cost_A=10x; cost_B=2000+5x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2000+5x<10x",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: 2000+5x<10x",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ]
+      },
+      "action": {
+        "operation_id": "FORMULATE_INEQUALITY",
+        "family": "INEQUALITY_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "2000+5x<10x",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "We therefore have the inequality",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "order_preserving_affine_transform",
+        "description": "Subtract 5x and divide by positive 5, preserving inequality direction.",
+        "source": "core"
+      },
+      "preconditions": [
+        {
+          "condition": "5>0",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:plan_A",
+        "fact:plan_B"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "add_inequality",
+          "multiply_inequality"
+        ],
+        "notes": "Current kernel supports some inequality transformations; this compound normalization is partial."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cost_A=10x; cost_B=2000+5x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2000+5x<10x",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cost_A=10x; cost_B=2000+5x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2000+5x<10x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "x>400",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: x>400",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ]
+      },
+      "action": {
+        "operation_id": "SUBTRACT_BOTH_SIDES",
+        "family": "INEQUALITY_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "x>400",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "The smallest integer $x$ such that $400 < x$ is $401$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "integer_ceiling",
+        "description": "Select the least natural number strictly above 400.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "x∈Natural",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:plan_A",
+        "fact:plan_B"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Integer threshold selection is not a current kernel rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0010"
+      ],
+      "branch": null,
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cost_A=10x; cost_B=2000+5x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2000+5x<10x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "x>400",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cost_A=10x; cost_B=2000+5x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2000+5x<10x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "x>400",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "minimum whole-number x=401",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: minimum whole-number x=401",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ]
+      },
+      "action": {
+        "operation_id": "ROUND_TO_DOMAIN",
+        "family": "CONSTRAINT_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "minimum whole-number x=401",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s6",
+      "source_span": "Therefore, Bob must use at least",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "candidate_verification",
+        "description": "Check the candidate in the original inequality and use the strict threshold for minimality.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [
+        {
+          "id": "obl:threshold_minimality",
+          "statement": "x=401 is the least natural number satisfying x>400",
+          "status": "discharged",
+          "evidence": "The strict inequality gives x>400 and 401 is the next integer.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:plan_A",
+        "fact:plan_B"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Closed cost comparison is checkable; integer minimality is not a core rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0004",
+        "MATH-GAP-0010"
+      ],
+      "branch": null,
+      "result_id": "fact:s6",
+      "state_before": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cost_A=10x; cost_B=2000+5x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2000+5x<10x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "x>400",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "minimum whole-number x=401",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "phone plans",
+          "x minutes"
+        ],
+        "declarations": [
+          "x : Natural"
+        ],
+        "types_domains": [
+          "x is a whole number of minutes"
+        ],
+        "facts": [
+          {
+            "id": "fact:plan_A",
+            "statement": "cost_A=10x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:plan_B",
+            "statement": "cost_B=2000+5x cents",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x denotes minutes",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cost_A=10x; cost_B=2000+5x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2000+5x<10x",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "x>400",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "minimum whole-number x=401",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "x=401 satisfies cost_B<cost_A and is minimal",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "minimum x=401",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:threshold_minimality",
+            "statement": "x=401 is the least natural number satisfying x>400",
+            "status": "discharged",
+            "evidence": "The strict inequality gives x>400 and 401 is the next integer.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "removed_obligations": [
+          "obl:threshold_minimality"
+        ],
+        "epistemic_update": "Established fact:s6: x=401 satisfies cost_B<cost_A and is minimal",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:plan_A",
+          "fact:plan_B"
+        ]
+      },
+      "action": {
+        "operation_id": "VERIFY_CANDIDATE",
+        "family": "VERIFICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "x=401 satisfies cost_B<cost_A and is minimal",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "phone plans",
+      "x minutes"
+    ],
+    "declarations": [
+      "x : Natural"
+    ],
+    "types_domains": [
+      "x is a whole number of minutes"
+    ],
+    "facts": [
+      {
+        "id": "fact:plan_A",
+        "statement": "cost_A=10x cents",
+        "status": "given"
+      },
+      {
+        "id": "fact:plan_B",
+        "statement": "cost_B=2000+5x cents",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "x denotes minutes",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "cost_A=10x; cost_B=2000+5x",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "2000+5x<10x",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "x>400",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "minimum whole-number x=401",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "x=401 satisfies cost_B<cost_A and is minimal",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "minimum x=401",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:plan_A",
+      "fact:plan_B"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:threshold_minimality",
+        "statement": "x=401 is the least natural number satisfying x>400",
+        "status": "discharged",
+        "evidence": "The strict inequality gives x>400 and 401 is the next integer.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "minimum x=401",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S6"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "FORMULATE_EQUATION",
+    "FORMULATE_INEQUALITY",
+    "INTRODUCE_VARIABLE",
+    "ROUND_TO_DOMAIN",
+    "SUBTRACT_BOTH_SIDES",
+    "VERIFY_CANDIDATE"
+  ],
+  "source_quality": {
+    "explicit_steps": 5,
+    "implicit_steps": 1,
+    "source_omissions": [
+      "MATH-GOLD-025: x=401 is the least natural number satisfying x>400"
+    ],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0002",
+    "MATH-GAP-0004",
+    "MATH-GAP-0006",
+    "MATH-GAP-0010"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "dataset": "Hendrycks MATH",
+  "split": "train",
+  "source": "local Desktop parquet supplied for this Gold-25 discovery run",
+  "original_filename": "train-00000-of-00001-7320a6f3aba8ebd2.parquet",
+  "original_path": "/Users/moheet/Desktop/train-00000-of-00001-7320a6f3aba8ebd2.parquet",
+  "destination": "data/raw/math/train-00000-of-00001-7320a6f3aba8ebd2.parquet",
+  "bytes": {
+    "original": 4848345,
+    "destination": 4848345
+  },
+  "sha256": {
+    "original": "2325458edc03d786939ee9e1e5795efb9e2480247b6e1ed2c51f41bea7369c6a",
+    "destination": "2325458edc03d786939ee9e1e5795efb9e2480247b6e1ed2c51f41bea7369c6a"
+  },
+  "byte_identical": true,
+  "row_count": 12500,
+  "columns": [
+    "problem",
+    "level",
+    "type",
+    "solution"
+  ],
+  "categories": {
+    "Algebra": 2931,
+    "Counting & Probability": 1245,
+    "Geometry": 1349,
+    "Intermediate Algebra": 2198,
+    "Number Theory": 1409,
+    "Prealgebra": 2076,
+    "Precalculus": 1292
+  },
+  "levels": {
+    "Level 1": 1001,
+    "Level 2": 2242,
+    "Level 3": 2723,
+    "Level 4": 2904,
+    "Level 5": 3628,
+    "Level ?": 2
+  },
+  "large_dataset_ingestion": false,
+  "notes": "The full parquet was audited; only the 25 manifest-selected rows were reconstructed into trajectories."
+}

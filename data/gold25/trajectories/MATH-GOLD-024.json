@@ -1,0 +1,928 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-024",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-05591",
+  "source_hash": "04d06d65d46234047479418e3bad28bb709e6083472896004cca949e7133ccad",
+  "category": "Prealgebra",
+  "level": "Level 1",
+  "problem": "Compute $1+6\\cdot2-3+5\\cdot4\\div2$",
+  "original_solution": "When solving this problem, we must remember to apply the order of operations. First, we perform all cases of multiplication and division from left to right to obtain\n\n\\begin{align*}\n1+6\\cdot2-3+5\\cdot4\\div2&=1+12-3+5\\cdot4\\div2\\\\\n&=1+12-3+20\\div 2\\\\\n&=1+12-3+10.\n\\end{align*}Next, we perform all the required additions and subtractions from left to right. We get  \\begin{align*}\n1+12-3+10&=13-3+10\\\\\n&=10+10\\\\\n&=\\boxed{20}.\n\\end{align*}",
+  "selection_reason": "A pure evaluation trajectory exposes precedence, left-to-right normalization, and arithmetic verification.",
+  "initial_state": {
+    "objects": [
+      "closed arithmetic expression"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer arithmetic"
+    ],
+    "facts": [
+      {
+        "id": "fact:expression",
+        "statement": "1+6·2-3+5·4÷2",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "value=20",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "When solving this problem, we must remember to apply the order of operations.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "operator_precedence",
+        "description": "Apply the conventional precedence relation.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "HML can evaluate a closed expression but does not expose a source-level precedence transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "multiplication/division precede addition/subtraction",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: multiplication/division precede addition/subtraction",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "APPLY_PRECEDENCE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "multiplication/division precede addition/subtraction",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "First, we perform all cases of multiplication and division from left to right to obtain",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "exact_arithmetic",
+        "description": "Evaluate the multiplication 6·2 while preserving the remaining expression.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:expression"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Exact closed arithmetic is supported as evidence."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "multiplication/division precede addition/subtraction",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "multiplication/division precede addition/subtraction",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "1+12-3+20÷2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:expression"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: 1+12-3+20÷2",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:expression"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "1+12-3+20÷2",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "20\\div 2",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "exact_arithmetic",
+        "description": "Evaluate 20÷2 exactly.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:expression"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Exact closed arithmetic is supported as evidence."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "multiplication/division precede addition/subtraction",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "1+12-3+20÷2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:expression"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "multiplication/division precede addition/subtraction",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "1+12-3+20÷2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "1+12-3+10",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:expression"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: 1+12-3+10",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:expression"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "1+12-3+10",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Next, we perform all the required additions and subtractions from left to right.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "operator_precedence",
+        "description": "Evaluate addition and subtraction left-to-right after higher-precedence operations.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:expression"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "The evaluator can check the final closed expression, not expose each provenance-preserving microstep."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "multiplication/division precede addition/subtraction",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "1+12-3+20÷2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "1+12-3+10",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:expression"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "multiplication/division precede addition/subtraction",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "1+12-3+20÷2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "1+12-3+10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "13-3+10=10+10",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:expression"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: 13-3+10=10+10",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:expression"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "13-3+10=10+10",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "&=\\boxed{20}.",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "exact_arithmetic",
+        "description": "Evaluate the final closed expression.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:expression"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Closed exact evaluation is current HML capability."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "multiplication/division precede addition/subtraction",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "1+12-3+20÷2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "1+12-3+10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "13-3+10=10+10",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:expression"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "closed arithmetic expression"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer arithmetic"
+        ],
+        "facts": [
+          {
+            "id": "fact:expression",
+            "statement": "1+6·2-3+5·4÷2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "multiplication/division precede addition/subtraction",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "1+12-3+20÷2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "1+12-3+10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "13-3+10=10+10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "value=20",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "value=20",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:expression"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: value=20",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:expression"
+        ]
+      },
+      "action": {
+        "operation_id": "DISCHARGE_GOAL",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "value=20",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "closed arithmetic expression"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer arithmetic"
+    ],
+    "facts": [
+      {
+        "id": "fact:expression",
+        "statement": "1+6·2-3+5·4÷2",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "multiplication/division precede addition/subtraction",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "1+12-3+20÷2",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "1+12-3+10",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "13-3+10=10+10",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "value=20",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "value=20",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:expression"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "value=20",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S5"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_PRECEDENCE",
+    "DISCHARGE_GOAL",
+    "EVALUATE"
+  ],
+  "source_quality": {
+    "explicit_steps": 3,
+    "implicit_steps": 2,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0006"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

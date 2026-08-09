@@ -1,0 +1,870 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-002",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-00380",
+  "source_hash": "a193e6ada62ae0d564d4a783cf14a4d6509bc450fc091a44486f438a066c5e8d",
+  "category": "Algebra",
+  "level": "Level 1",
+  "problem": "The sum of the squares of two positive integers is 90. The product of the two integers is 27. What is the sum of the two integers?",
+  "original_solution": "Call the two integers $x$ and $y$. We are given that $x^2 + y^2 = 90$ and that $xy = 27$. We want to find $x + y$. Note that $(x + y)^2 = x^2 + y^2 + 2xy = 90 + 2\\cdot 27 = 144$. Taking the square root of 144, we see that $x + y = \\boxed{12}$.",
+  "selection_reason": "Combines variable introduction, an algebraic identity, exact evaluation, and a sign condition before square-root extraction.",
+  "initial_state": {
+    "objects": [
+      "x",
+      "y"
+    ],
+    "declarations": [
+      "x : Integer",
+      "y : Integer"
+    ],
+    "types_domains": [
+      "x,y are positive integers"
+    ],
+    "facts": [
+      {
+        "id": "fact:squares",
+        "statement": "x²+y²=90",
+        "status": "given"
+      },
+      {
+        "id": "fact:product",
+        "statement": "xy=27",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "x+y=12",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Call the two integers $x$ and $y$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "variable_binding",
+        "description": "Name the objects already quantified by the problem.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "FULL",
+        "constructs": [
+          "var"
+        ],
+        "notes": "HML can declare typed variables."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Integer",
+          "y : Integer"
+        ],
+        "types_domains": [
+          "x,y are positive integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:squares",
+            "statement": "x²+y²=90",
+            "status": "given"
+          },
+          {
+            "id": "fact:product",
+            "statement": "xy=27",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x+y=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Integer",
+          "y : Integer"
+        ],
+        "types_domains": [
+          "x,y are positive integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:squares",
+            "statement": "x²+y²=90",
+            "status": "given"
+          },
+          {
+            "id": "fact:product",
+            "statement": "xy=27",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x and y denote the two positive integers",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x+y=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: x and y denote the two positive integers",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "INTRODUCE_VARIABLE",
+        "family": "DECLARATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "x and y denote the two positive integers",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "We are given that $x^2 + y^2 = 90$ and that $xy = 27$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "problem_translation",
+        "description": "Translate the given numerical constraints into state facts.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume"
+        ],
+        "notes": "HML can record the facts but has no source-prose ingestion operation."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Integer",
+          "y : Integer"
+        ],
+        "types_domains": [
+          "x,y are positive integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:squares",
+            "statement": "x²+y²=90",
+            "status": "given"
+          },
+          {
+            "id": "fact:product",
+            "statement": "xy=27",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x and y denote the two positive integers",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x+y=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Integer",
+          "y : Integer"
+        ],
+        "types_domains": [
+          "x,y are positive integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:squares",
+            "statement": "x²+y²=90",
+            "status": "given"
+          },
+          {
+            "id": "fact:product",
+            "statement": "xy=27",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x and y denote the two positive integers",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "facts x²+y²=90 and xy=27 are active",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x+y=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: facts x²+y²=90 and xy=27 are active",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "RECORD_GIVEN",
+        "family": "STATE",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "facts x²+y²=90 and xy=27 are active",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Note that $(x + y)^2 = x^2 + y^2 + 2xy = 90 + 2\\cdot 27 = 144$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "polynomial_identity",
+        "description": "Use the square-of-a-sum identity and substitute established facts.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:squares",
+        "fact:product"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "The exact evaluator cannot establish this open-variable identity; no kernel identity rule covers it."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Integer",
+          "y : Integer"
+        ],
+        "types_domains": [
+          "x,y are positive integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:squares",
+            "statement": "x²+y²=90",
+            "status": "given"
+          },
+          {
+            "id": "fact:product",
+            "statement": "xy=27",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x and y denote the two positive integers",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "facts x²+y²=90 and xy=27 are active",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x+y=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Integer",
+          "y : Integer"
+        ],
+        "types_domains": [
+          "x,y are positive integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:squares",
+            "statement": "x²+y²=90",
+            "status": "given"
+          },
+          {
+            "id": "fact:product",
+            "statement": "xy=27",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x and y denote the two positive integers",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "facts x²+y²=90 and xy=27 are active",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "(x+y)²=144",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x+y=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:squares",
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: (x+y)²=144",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:squares",
+          "fact:product"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_IDENTITY",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "(x+y)²=144",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Taking the square root of 144, we see that $x + y = \\boxed{12}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "nonnegative_root",
+        "description": "Because x and y are positive, x+y is nonnegative, so the principal square root selects 12.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "x+y≥0",
+          "status": "satisfied",
+          "evidence": "x and y are positive integers from the problem.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:root_sign",
+          "statement": "x+y≥0 selects the principal square root",
+          "status": "discharged",
+          "evidence": "x and y are positive integers.",
+          "source_omission": false
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:squares",
+        "fact:product"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact arithmetic plus sign reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "evidence"
+        ],
+        "notes": "HML can check closed 144=12², but not the free-variable identity and sign-directed root step."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0004",
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Integer",
+          "y : Integer"
+        ],
+        "types_domains": [
+          "x,y are positive integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:squares",
+            "statement": "x²+y²=90",
+            "status": "given"
+          },
+          {
+            "id": "fact:product",
+            "statement": "xy=27",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x and y denote the two positive integers",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "facts x²+y²=90 and xy=27 are active",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "(x+y)²=144",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x+y=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:squares",
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Integer",
+          "y : Integer"
+        ],
+        "types_domains": [
+          "x,y are positive integers"
+        ],
+        "facts": [
+          {
+            "id": "fact:squares",
+            "statement": "x²+y²=90",
+            "status": "given"
+          },
+          {
+            "id": "fact:product",
+            "statement": "xy=27",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x and y denote the two positive integers",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "facts x²+y²=90 and xy=27 are active",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "(x+y)²=144",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "x+y=12",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x+y=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:squares",
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:root_sign",
+            "statement": "x+y≥0 selects the principal square root",
+            "status": "discharged",
+            "evidence": "x and y are positive integers.",
+            "source_omission": false
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [
+          "obl:root_sign"
+        ],
+        "epistemic_update": "Established fact:s4: x+y=12",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:squares",
+          "fact:product"
+        ]
+      },
+      "action": {
+        "operation_id": "EXTRACT_ROOT",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "x+y=12",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "x",
+      "y"
+    ],
+    "declarations": [
+      "x : Integer",
+      "y : Integer"
+    ],
+    "types_domains": [
+      "x,y are positive integers"
+    ],
+    "facts": [
+      {
+        "id": "fact:squares",
+        "statement": "x²+y²=90",
+        "status": "given"
+      },
+      {
+        "id": "fact:product",
+        "statement": "xy=27",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "x and y denote the two positive integers",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "facts x²+y²=90 and xy=27 are active",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "(x+y)²=144",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "x+y=12",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "x+y=12",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:squares",
+      "fact:product"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:root_sign",
+        "statement": "x+y≥0 selects the principal square root",
+        "status": "discharged",
+        "evidence": "x and y are positive integers.",
+        "source_omission": false
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "x+y=12",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_IDENTITY",
+    "EXTRACT_ROOT",
+    "INTRODUCE_VARIABLE",
+    "RECORD_GIVEN"
+  ],
+  "source_quality": {
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0003",
+    "MATH-GAP-0004",
+    "MATH-GAP-0006"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

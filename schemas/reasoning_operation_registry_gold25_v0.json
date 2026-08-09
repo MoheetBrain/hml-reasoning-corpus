@@ -1,0 +1,1907 @@
+{
+  "registry_version": "gold25_reasoning_operation_registry_v0",
+  "operations": [
+    {
+      "operation_id": "ADD_BOTH_SIDES",
+      "canonical_name": "ADD_BOTH_SIDES",
+      "family": "EQUATION_TRANSFORMATION",
+      "description": "Add the same term to both sides.",
+      "required_inputs": [
+        "equality",
+        "term"
+      ],
+      "allowed_types": [
+        "equation",
+        "inequality"
+      ],
+      "warrant_type": "equality_preservation",
+      "scope_behavior": "preserves scope",
+      "hml_rule": "add_both_sides",
+      "hml_support_status": "FULL",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-003"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "FULL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "ADVANCE_SEQUENCE",
+      "canonical_name": "ADVANCE_SEQUENCE",
+      "family": "SEQUENCE_REASONING",
+      "description": "Advance through a sequence while maintaining its admissibility rule.",
+      "required_inputs": [
+        "current term",
+        "successor rule"
+      ],
+      "allowed_types": [
+        "sequence"
+      ],
+      "warrant_type": "successor iteration",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "201,…,214 are nonsquares"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Number Theory"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-016"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "finite exact check"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "APPLY_DEFINITION",
+      "canonical_name": "APPLY_DEFINITION",
+      "family": "DEFINITION_APPLICATION",
+      "description": "Use a definition to rewrite or constrain an object.",
+      "required_inputs": [
+        "definition",
+        "object"
+      ],
+      "allowed_types": [
+        "expression",
+        "proposition"
+      ],
+      "warrant_type": "definition",
+      "scope_behavior": "preserves scope",
+      "hml_rule": "def/evidence",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [
+        "2>0 and 2≠1",
+        "4>0 and 4≠1",
+        "x>0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-006",
+        "MATH-GOLD-008",
+        "MATH-GOLD-013",
+        "MATH-GOLD-014",
+        "MATH-GOLD-017",
+        "MATH-GOLD-020"
+      ],
+      "frequency_gold25": 7,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "APPLY_IDENTITY",
+      "canonical_name": "APPLY_IDENTITY",
+      "family": "THEOREM_APPLICATION",
+      "description": "Apply a general algebraic or structural identity.",
+      "required_inputs": [
+        "expression",
+        "identity"
+      ],
+      "allowed_types": [
+        "expression"
+      ],
+      "warrant_type": "identity",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-002",
+        "MATH-GOLD-019"
+      ],
+      "frequency_gold25": 2,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "APPLY_PRECEDENCE",
+      "canonical_name": "APPLY_PRECEDENCE",
+      "family": "EVALUATION",
+      "description": "Choose the next evaluation layer using operator precedence.",
+      "required_inputs": [
+        "expression",
+        "precedence relation"
+      ],
+      "allowed_types": [
+        "numeric expression"
+      ],
+      "warrant_type": "operator precedence",
+      "scope_behavior": "preserves scope",
+      "hml_rule": "closed evaluator",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Prealgebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-024"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "APPLY_THEOREM",
+      "canonical_name": "APPLY_THEOREM",
+      "family": "THEOREM_APPLICATION",
+      "description": "Invoke a named mathematical theorem with hypotheses.",
+      "required_inputs": [
+        "theorem",
+        "hypotheses",
+        "target"
+      ],
+      "allowed_types": [
+        "proposition",
+        "expression"
+      ],
+      "warrant_type": "theorem",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "1-tan45°tan30°≠0",
+        "three positive terms",
+        "x>0,y>0,z>0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Geometry",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-009",
+        "MATH-GOLD-014",
+        "MATH-GOLD-018",
+        "MATH-GOLD-023"
+      ],
+      "frequency_gold25": 4,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "BOUND_REASONING",
+      "canonical_name": "BOUND_REASONING",
+      "family": "CONSTRAINT_REASONING",
+      "description": "Use a bound to eliminate impossible cases.",
+      "required_inputs": [
+        "domain bound",
+        "target"
+      ],
+      "allowed_types": [
+        "inequality",
+        "finite domain"
+      ],
+      "warrant_type": "upper/lower bound",
+      "scope_behavior": "prunes cases",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-012"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "BOUND_SEARCH",
+      "canonical_name": "BOUND_SEARCH",
+      "family": "CONSTRAINT_REASONING",
+      "description": "Use a finite domain or lower/upper bound to narrow admissible candidates.",
+      "required_inputs": [
+        "constraint",
+        "bounded domain"
+      ],
+      "allowed_types": [
+        "integer",
+        "finite set"
+      ],
+      "warrant_type": "bounded_search",
+      "scope_behavior": "prunes candidates",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "0≤n≤9",
+        "n≥0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Number Theory"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-014",
+        "MATH-GOLD-015"
+      ],
+      "frequency_gold25": 2,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "CANCEL_SYMMETRIC_TERMS",
+      "canonical_name": "CANCEL_SYMMETRIC_TERMS",
+      "family": "ALGEBRAIC_TRANSFORMATION",
+      "description": "Cancel equal cross terms using a symmetry law.",
+      "required_inputs": [
+        "expanded expression",
+        "symmetry law"
+      ],
+      "allowed_types": [
+        "vector expression"
+      ],
+      "warrant_type": "symmetry",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-020"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "CASE_SPLIT",
+      "canonical_name": "CASE_SPLIT",
+      "family": "CASE_ANALYSIS",
+      "description": "Partition a problem into explicitly scoped exhaustive branches.",
+      "required_inputs": [
+        "case predicate",
+        "coverage argument"
+      ],
+      "allowed_types": [
+        "proposition"
+      ],
+      "warrant_type": "case_partition",
+      "scope_behavior": "creates branches",
+      "hml_rule": "scope (no join rule)",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [
+        "x+3≥0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": true,
+      "may_discharge_obligation": true,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Counting & Probability",
+        "Intermediate Algebra",
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-004",
+        "MATH-GOLD-007",
+        "MATH-GOLD-010",
+        "MATH-GOLD-019"
+      ],
+      "frequency_gold25": 5,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "PARTIAL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "CLEAR_DENOMINATOR",
+      "canonical_name": "CLEAR_DENOMINATOR",
+      "family": "EQUATION_TRANSFORMATION",
+      "description": "Remove a denominator under a nonzero precondition.",
+      "required_inputs": [
+        "equation",
+        "nonzero denominator"
+      ],
+      "allowed_types": [
+        "equation"
+      ],
+      "warrant_type": "equality_preservation",
+      "scope_behavior": "preserves scope",
+      "hml_rule": "multiply_both_sides",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [
+        "x≠0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-019"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "PARTIAL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "COMBINE_CASES",
+      "canonical_name": "COMBINE_CASES",
+      "family": "CASE_ANALYSIS",
+      "description": "Merge complete branches when they imply a common result.",
+      "required_inputs": [
+        "complete branches",
+        "common result"
+      ],
+      "allowed_types": [
+        "proposition"
+      ],
+      "warrant_type": "case invariant",
+      "scope_behavior": "merges branches",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": true,
+      "may_discharge_obligation": true,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-019"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "COMBINE_CASE_COUNTS",
+      "canonical_name": "COMBINE_CASE_COUNTS",
+      "family": "COMBINATORIAL_REASONING",
+      "description": "Sum counts from disjoint cases.",
+      "required_inputs": [
+        "disjoint case counts"
+      ],
+      "allowed_types": [
+        "natural numbers"
+      ],
+      "warrant_type": "disjoint_sum",
+      "scope_behavior": "merges branches",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability",
+        "Number Theory"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-010",
+        "MATH-GOLD-012",
+        "MATH-GOLD-017"
+      ],
+      "frequency_gold25": 3,
+      "verification_backend": [
+        "exact integer arithmetic",
+        "exact rational arithmetic"
+      ],
+      "hml_support": [
+        "PARTIAL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "COMBINE_LIKE_TERMS",
+      "canonical_name": "COMBINE_LIKE_TERMS",
+      "family": "ALGEBRAIC_TRANSFORMATION",
+      "description": "Collect structurally equivalent terms.",
+      "required_inputs": [
+        "expression"
+      ],
+      "allowed_types": [
+        "expression"
+      ],
+      "warrant_type": "normalization",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Intermediate Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-006"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "COMPLEMENT_COUNT",
+      "canonical_name": "COMPLEMENT_COUNT",
+      "family": "PROBABILISTIC_REASONING",
+      "description": "Compute an event through its complement.",
+      "required_inputs": [
+        "event partition",
+        "complement probability"
+      ],
+      "allowed_types": [
+        "probability"
+      ],
+      "warrant_type": "complement_rule",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-011"
+      ],
+      "frequency_gold25": 2,
+      "verification_backend": [
+        "audited source reasoning",
+        "exact rational arithmetic"
+      ],
+      "hml_support": [
+        "PARTIAL",
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "CONDITIONAL_PROBABILITY",
+      "canonical_name": "CONDITIONAL_PROBABILITY",
+      "family": "PROBABILISTIC_REASONING",
+      "description": "Update a finite probability after observations without replacement.",
+      "required_inputs": [
+        "population state",
+        "event"
+      ],
+      "allowed_types": [
+        "probability"
+      ],
+      "warrant_type": "conditional_probability",
+      "scope_behavior": "updates state counts",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-011"
+      ],
+      "frequency_gold25": 3,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "CONSTRAINT_PROPAGATION",
+      "canonical_name": "CONSTRAINT_PROPAGATION",
+      "family": "CONSTRAINT_REASONING",
+      "description": "Propagate a numerical constraint through a structured state.",
+      "required_inputs": [
+        "constraint",
+        "state"
+      ],
+      "allowed_types": [
+        "integer",
+        "finite domain"
+      ],
+      "warrant_type": "constraint propagation",
+      "scope_behavior": "updates state",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-012"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "exact integer arithmetic"
+      ],
+      "hml_support": [
+        "PARTIAL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "COUNT_CASES",
+      "canonical_name": "COUNT_CASES",
+      "family": "COMBINATORIAL_REASONING",
+      "description": "Count a finite set of cases or choices.",
+      "required_inputs": [
+        "finite domain",
+        "constraints"
+      ],
+      "allowed_types": [
+        "natural numbers",
+        "finite sets"
+      ],
+      "warrant_type": "finite_counting",
+      "scope_behavior": "may create branches",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "d1≠0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability",
+        "Number Theory"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-010",
+        "MATH-GOLD-013",
+        "MATH-GOLD-017"
+      ],
+      "frequency_gold25": 4,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "COUNT_EXCLUDED",
+      "canonical_name": "COUNT_EXCLUDED",
+      "family": "SEQUENCE_REASONING",
+      "description": "Count omitted terms before a target sequence position.",
+      "required_inputs": [
+        "sequence rule",
+        "target"
+      ],
+      "allowed_types": [
+        "sequence"
+      ],
+      "warrant_type": "counting exclusions",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Number Theory"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-016"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "COUNT_PERMUTATIONS",
+      "canonical_name": "COUNT_PERMUTATIONS",
+      "family": "COMBINATORIAL_REASONING",
+      "description": "Count arrangements subject to repeated or distinct objects.",
+      "required_inputs": [
+        "multiset or ordered sample"
+      ],
+      "allowed_types": [
+        "natural numbers"
+      ],
+      "warrant_type": "permutation_count",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-012"
+      ],
+      "frequency_gold25": 2,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "CROSS_MULTIPLY",
+      "canonical_name": "CROSS_MULTIPLY",
+      "family": "EQUATION_TRANSFORMATION",
+      "description": "Clear denominators by multiplying both sides.",
+      "required_inputs": [
+        "equation",
+        "denominators"
+      ],
+      "allowed_types": [
+        "equation"
+      ],
+      "warrant_type": "equality_preservation",
+      "scope_behavior": "preserves scope",
+      "hml_rule": "multiply_both_sides + partiality",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [
+        "3≠0",
+        "x-5≠0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": true,
+      "may_discharge_obligation": true,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-003"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "PARTIAL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "DISCHARGE_GOAL",
+      "canonical_name": "DISCHARGE_GOAL",
+      "family": "GOAL_MANAGEMENT",
+      "description": "Mark a target resolved by a verified result.",
+      "required_inputs": [
+        "goal",
+        "supporting result"
+      ],
+      "allowed_types": [
+        "proposition"
+      ],
+      "warrant_type": "goal_matching",
+      "scope_behavior": "closes goal",
+      "hml_rule": "proved",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Intermediate Algebra",
+        "Prealgebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-005",
+        "MATH-GOLD-008",
+        "MATH-GOLD-024"
+      ],
+      "frequency_gold25": 3,
+      "verification_backend": [
+        "audited source reasoning",
+        "exact integer arithmetic"
+      ],
+      "hml_support": [
+        "FULL",
+        "PARTIAL",
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "DIVIDE_BOTH_SIDES",
+      "canonical_name": "DIVIDE_BOTH_SIDES",
+      "family": "EQUATION_TRANSFORMATION",
+      "description": "Divide both sides by a nonzero quantity.",
+      "required_inputs": [
+        "equality",
+        "nonzero divisor"
+      ],
+      "allowed_types": [
+        "equation"
+      ],
+      "warrant_type": "equality_preservation",
+      "scope_behavior": "preserves scope",
+      "hml_rule": "divide_both_sides",
+      "hml_support_status": "FULL",
+      "preconditions": [
+        "2≠0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-003"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "exact integer arithmetic"
+      ],
+      "hml_support": [
+        "FULL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "ENUMERATE",
+      "canonical_name": "ENUMERATE",
+      "family": "CONSTRAINT_REASONING",
+      "description": "Enumerate a finite domain and certify completeness.",
+      "required_inputs": [
+        "finite domain",
+        "coverage criterion"
+      ],
+      "allowed_types": [
+        "finite set"
+      ],
+      "warrant_type": "finite exhaustion",
+      "scope_behavior": "may create branches",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "n∈Natural"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": true,
+      "may_discharge_obligation": true,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability",
+        "Geometry"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-012",
+        "MATH-GOLD-023"
+      ],
+      "frequency_gold25": 2,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "EVALUATE",
+      "canonical_name": "EVALUATE",
+      "family": "EVALUATION",
+      "description": "Compute a closed or instantiated expression exactly.",
+      "required_inputs": [
+        "expression"
+      ],
+      "allowed_types": [
+        "numeric",
+        "closed proposition"
+      ],
+      "warrant_type": "exact_arithmetic",
+      "scope_behavior": "preserves scope",
+      "hml_rule": "closed_eval_v1 for closed claims",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Geometry",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-001",
+        "MATH-GOLD-006",
+        "MATH-GOLD-007",
+        "MATH-GOLD-009",
+        "MATH-GOLD-015",
+        "MATH-GOLD-018",
+        "MATH-GOLD-020",
+        "MATH-GOLD-021",
+        "MATH-GOLD-023",
+        "MATH-GOLD-024"
+      ],
+      "frequency_gold25": 12,
+      "verification_backend": [
+        "audited source reasoning",
+        "exact arithmetic",
+        "exact integer arithmetic",
+        "exact radical arithmetic"
+      ],
+      "hml_support": [
+        "PARTIAL",
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "EVALUATE_PROBABILITY",
+      "canonical_name": "EVALUATE_PROBABILITY",
+      "family": "PROBABILISTIC_REASONING",
+      "description": "Evaluate a finite probability from a sample-space model.",
+      "required_inputs": [
+        "sample space",
+        "favorable outcomes"
+      ],
+      "allowed_types": [
+        "probability"
+      ],
+      "warrant_type": "uniform_product_space",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-012"
+      ],
+      "frequency_gold25": 2,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "EXPAND",
+      "canonical_name": "EXPAND",
+      "family": "ALGEBRAIC_TRANSFORMATION",
+      "description": "Apply distributivity or polynomial expansion.",
+      "required_inputs": [
+        "expression"
+      ],
+      "allowed_types": [
+        "polynomial",
+        "product"
+      ],
+      "warrant_type": "distributive_law",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Geometry",
+        "Intermediate Algebra",
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-003",
+        "MATH-GOLD-007",
+        "MATH-GOLD-020",
+        "MATH-GOLD-021"
+      ],
+      "frequency_gold25": 4,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "EXTRACT_ROOT",
+      "canonical_name": "EXTRACT_ROOT",
+      "family": "ALGEBRAIC_TRANSFORMATION",
+      "description": "Recover a root from a powered equality under sign/domain conditions.",
+      "required_inputs": [
+        "powered equality",
+        "sign/domain condition"
+      ],
+      "allowed_types": [
+        "equation",
+        "radical expression"
+      ],
+      "warrant_type": "root_extraction",
+      "scope_behavior": "preserves or branches scope",
+      "hml_rule": "closed_eval_v1 only for closed claims",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [
+        "x+y≥0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": true,
+      "may_discharge_obligation": true,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-002"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "exact arithmetic plus sign reasoning"
+      ],
+      "hml_support": [
+        "PARTIAL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "FACTOR",
+      "canonical_name": "FACTOR",
+      "family": "ALGEBRAIC_TRANSFORMATION",
+      "description": "Rewrite an expression as a product or factorized form.",
+      "required_inputs": [
+        "expression"
+      ],
+      "allowed_types": [
+        "polynomial",
+        "integer"
+      ],
+      "warrant_type": "factorization",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "2≠0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Geometry",
+        "Intermediate Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-007",
+        "MATH-GOLD-021",
+        "MATH-GOLD-022"
+      ],
+      "frequency_gold25": 3,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "PARTIAL",
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "FORMULATE_EQUATION",
+      "canonical_name": "FORMULATE_EQUATION",
+      "family": "EQUATION_CONSTRUCTION",
+      "description": "Construct an equation or inequality from verbal/geometric relations.",
+      "required_inputs": [
+        "objects",
+        "relations"
+      ],
+      "allowed_types": [
+        "equation",
+        "inequality"
+      ],
+      "warrant_type": "problem_translation",
+      "scope_behavior": "global or current branch",
+      "hml_rule": "assume/goal",
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "π≠0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Geometry",
+        "Prealgebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-001",
+        "MATH-GOLD-005",
+        "MATH-GOLD-021",
+        "MATH-GOLD-022",
+        "MATH-GOLD-025"
+      ],
+      "frequency_gold25": 6,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "FORMULATE_INEQUALITY",
+      "canonical_name": "FORMULATE_INEQUALITY",
+      "family": "EQUATION_CONSTRUCTION",
+      "description": "Construct a comparison encoding the requested optimization or threshold.",
+      "required_inputs": [
+        "costs or bounds",
+        "goal relation"
+      ],
+      "allowed_types": [
+        "inequality"
+      ],
+      "warrant_type": "comparison_goal",
+      "scope_behavior": "global",
+      "hml_rule": "goal/assume",
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Prealgebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-025"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "INDEX_TRANSLATION",
+      "canonical_name": "INDEX_TRANSLATION",
+      "family": "SEQUENCE_REASONING",
+      "description": "Translate an ambient index after exclusions or offsets.",
+      "required_inputs": [
+        "index",
+        "excluded values"
+      ],
+      "allowed_types": [
+        "sequence"
+      ],
+      "warrant_type": "index shift",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Number Theory"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-016"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "INTRODUCE_VARIABLE",
+      "canonical_name": "INTRODUCE_VARIABLE",
+      "family": "DECLARATION",
+      "description": "Name a mathematical object and assign a type/domain.",
+      "required_inputs": [
+        "source object or quantity"
+      ],
+      "allowed_types": [
+        "scalar",
+        "function",
+        "finite object"
+      ],
+      "warrant_type": "variable_binding",
+      "scope_behavior": "adds a name to current scope",
+      "hml_rule": "var/param",
+      "hml_support_status": "FULL",
+      "preconditions": [
+        "r>0",
+        "x≥1"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Geometry",
+        "Number Theory",
+        "Prealgebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-001",
+        "MATH-GOLD-002",
+        "MATH-GOLD-005",
+        "MATH-GOLD-015",
+        "MATH-GOLD-021",
+        "MATH-GOLD-022",
+        "MATH-GOLD-025"
+      ],
+      "frequency_gold25": 7,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "FULL",
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "MULTIPLY_CONDITIONALS",
+      "canonical_name": "MULTIPLY_CONDITIONALS",
+      "family": "PROBABILISTIC_REASONING",
+      "description": "Multiply a chain of conditional probabilities.",
+      "required_inputs": [
+        "conditional probabilities"
+      ],
+      "allowed_types": [
+        "probability"
+      ],
+      "warrant_type": "chain_rule",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-011"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "MULTIPLY_COUNTS",
+      "canonical_name": "MULTIPLY_COUNTS",
+      "family": "COMBINATORIAL_REASONING",
+      "description": "Multiply independent finite choices.",
+      "required_inputs": [
+        "choice counts"
+      ],
+      "allowed_types": [
+        "natural numbers"
+      ],
+      "warrant_type": "product_rule",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Counting & Probability"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-013"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "exact integer arithmetic"
+      ],
+      "hml_support": [
+        "PARTIAL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "PARAMETERIZE_CONGRUENCE",
+      "canonical_name": "PARAMETERIZE_CONGRUENCE",
+      "family": "NUMBER_THEORY",
+      "description": "Replace a congruence with an integer parameterization.",
+      "required_inputs": [
+        "congruence",
+        "residue"
+      ],
+      "allowed_types": [
+        "Natural",
+        "Integer"
+      ],
+      "warrant_type": "congruence definition",
+      "scope_behavior": "adds parameter",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Number Theory"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-015"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "PRIME_FACTORIZE",
+      "canonical_name": "PRIME_FACTORIZE",
+      "family": "NUMBER_THEORY",
+      "description": "Represent an integer by prime exponents.",
+      "required_inputs": [
+        "integer"
+      ],
+      "allowed_types": [
+        "Natural"
+      ],
+      "warrant_type": "unique factorization",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Number Theory"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-017"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "RATIONALIZE",
+      "canonical_name": "RATIONALIZE",
+      "family": "ALGEBRAIC_TRANSFORMATION",
+      "description": "Clear a radical denominator while preserving an exact ratio.",
+      "required_inputs": [
+        "fraction",
+        "nonzero conjugate"
+      ],
+      "allowed_types": [
+        "radical expression"
+      ],
+      "warrant_type": "equality_preservation",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "√3-1≠0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-018"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "RECORD_EQUALITY_CONDITION",
+      "canonical_name": "RECORD_EQUALITY_CONDITION",
+      "family": "THEOREM_APPLICATION",
+      "description": "Record the equality conditions attached to a bound or theorem.",
+      "required_inputs": [
+        "theorem",
+        "equality conditions"
+      ],
+      "allowed_types": [
+        "proposition"
+      ],
+      "warrant_type": "theorem_equality_case",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Intermediate Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-009"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "RECORD_GIVEN",
+      "canonical_name": "RECORD_GIVEN",
+      "family": "STATE",
+      "description": "Move source-given information into active state facts.",
+      "required_inputs": [
+        "problem statement"
+      ],
+      "allowed_types": [
+        "proposition",
+        "equation"
+      ],
+      "warrant_type": "problem_translation",
+      "scope_behavior": "global fact",
+      "hml_rule": "assume",
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-002"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "ROUND_TO_DOMAIN",
+      "canonical_name": "ROUND_TO_DOMAIN",
+      "family": "CONSTRAINT_REASONING",
+      "description": "Select the least domain element satisfying a strict threshold.",
+      "required_inputs": [
+        "threshold",
+        "discrete domain"
+      ],
+      "allowed_types": [
+        "natural numbers"
+      ],
+      "warrant_type": "integer ceiling",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "x∈Natural"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Prealgebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-025"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "SELECT_CANDIDATE",
+      "canonical_name": "SELECT_CANDIDATE",
+      "family": "CONSTRAINT_REASONING",
+      "description": "Choose admissible candidates using domain, order, or minimality constraints.",
+      "required_inputs": [
+        "candidate set",
+        "domain/order constraint"
+      ],
+      "allowed_types": [
+        "finite set",
+        "ordered values"
+      ],
+      "warrant_type": "minimality/admissibility",
+      "scope_behavior": "preserves scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "374n divisible by 2",
+        "r>0",
+        "x and x+1 are positive consecutive integers"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Geometry",
+        "Number Theory"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-014",
+        "MATH-GOLD-021",
+        "MATH-GOLD-022"
+      ],
+      "frequency_gold25": 3,
+      "verification_backend": [
+        "audited source reasoning",
+        "exact algebra",
+        "exact divisibility check"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "SELECT_EXTREMUM",
+      "canonical_name": "SELECT_EXTREMUM",
+      "family": "GOAL_MANAGEMENT",
+      "description": "Select a maximum/minimum from a verified finite candidate set.",
+      "required_inputs": [
+        "verified candidates",
+        "order"
+      ],
+      "allowed_types": [
+        "ordered values"
+      ],
+      "warrant_type": "finite_order",
+      "scope_behavior": "merges candidates",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-004"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "SOLVE",
+      "canonical_name": "SOLVE",
+      "family": "GOAL_MANAGEMENT",
+      "description": "Transform constraints to isolate a target or solve a polynomial.",
+      "required_inputs": [
+        "equations",
+        "target"
+      ],
+      "allowed_types": [
+        "equation",
+        "system"
+      ],
+      "warrant_type": "constraint_solving",
+      "scope_behavior": "preserves or branches scope",
+      "hml_rule": null,
+      "hml_support_status": "REPRESENTABLE_ONLY",
+      "preconditions": [
+        "2>0 and 2≠1",
+        "2≠0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Intermediate Algebra",
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-001",
+        "MATH-GOLD-005",
+        "MATH-GOLD-006",
+        "MATH-GOLD-009",
+        "MATH-GOLD-019"
+      ],
+      "frequency_gold25": 6,
+      "verification_backend": [
+        "audited source reasoning",
+        "exact arithmetic",
+        "exact integer arithmetic"
+      ],
+      "hml_support": [
+        "PARTIAL",
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "SOLVE_CASE",
+      "canonical_name": "SOLVE_CASE",
+      "family": "CASE_ANALYSIS",
+      "description": "Apply local transformations inside one branch.",
+      "required_inputs": [
+        "branch assumption",
+        "equation"
+      ],
+      "allowed_types": [
+        "equation"
+      ],
+      "warrant_type": "branch_local_validity",
+      "scope_behavior": "branch-local",
+      "hml_rule": "scope + local rules",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-004"
+      ],
+      "frequency_gold25": 2,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "PARTIAL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "SUBSTITUTE",
+      "canonical_name": "SUBSTITUTE",
+      "family": "SUBSTITUTION",
+      "description": "Replace equal or defined content in a target expression.",
+      "required_inputs": [
+        "equality/definition",
+        "target"
+      ],
+      "allowed_types": [
+        "expression",
+        "proposition"
+      ],
+      "warrant_type": "equality_substitution",
+      "scope_behavior": "must avoid binder capture",
+      "hml_rule": "substitute",
+      "hml_support_status": "FULL",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Precalculus"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-005",
+        "MATH-GOLD-007",
+        "MATH-GOLD-015",
+        "MATH-GOLD-018"
+      ],
+      "frequency_gold25": 5,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "FULL",
+        "PARTIAL",
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "SUBTRACT_BOTH_SIDES",
+      "canonical_name": "SUBTRACT_BOTH_SIDES",
+      "family": "EQUATION_TRANSFORMATION",
+      "description": "Subtract the same term from both sides.",
+      "required_inputs": [
+        "equality",
+        "term"
+      ],
+      "allowed_types": [
+        "equation",
+        "inequality"
+      ],
+      "warrant_type": "equality_preservation",
+      "scope_behavior": "preserves scope",
+      "hml_rule": "subtract_both_sides",
+      "hml_support_status": "FULL",
+      "preconditions": [
+        "5>0"
+      ],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": false,
+      "may_discharge_obligation": false,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Prealgebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-025"
+      ],
+      "frequency_gold25": 1,
+      "verification_backend": [
+        "audited source reasoning"
+      ],
+      "hml_support": [
+        "PARTIAL"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    },
+    {
+      "operation_id": "VERIFY_CANDIDATE",
+      "canonical_name": "VERIFY_CANDIDATE",
+      "family": "VERIFICATION",
+      "description": "Substitute a generated candidate into the original constraints.",
+      "required_inputs": [
+        "candidate",
+        "original constraints"
+      ],
+      "allowed_types": [
+        "equation",
+        "inequality",
+        "congruence"
+      ],
+      "warrant_type": "candidate_verification",
+      "scope_behavior": "branch-local or global",
+      "hml_rule": "closed_eval_v1 only for closed claims",
+      "hml_support_status": "PARTIAL",
+      "preconditions": [],
+      "state_effect": "adds or transforms a fact in the current trajectory state",
+      "may_create_obligation": true,
+      "may_discharge_obligation": true,
+      "dependency_behavior": "records cited facts and prior results",
+      "domains_seen": [
+        "Algebra",
+        "Number Theory",
+        "Prealgebra"
+      ],
+      "examples_gold25": [
+        "MATH-GOLD-004",
+        "MATH-GOLD-015",
+        "MATH-GOLD-025"
+      ],
+      "frequency_gold25": 4,
+      "verification_backend": [
+        "exact arithmetic",
+        "exact integer arithmetic",
+        "exact modular arithmetic"
+      ],
+      "hml_support": [
+        "PARTIAL",
+        "REPRESENTABLE_ONLY"
+      ],
+      "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
+    }
+  ]
+}

@@ -1,0 +1,780 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-013",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-09107",
+  "source_hash": "3be5413a486a4e51b77403a69c19c43a5951e3b110d2c6eda8c3f6b64310877a",
+  "category": "Counting & Probability",
+  "level": "Level 2",
+  "problem": "Find the total number of four-digit palindromes. (Recall that a palindrome is a nonnegative sequence of digits which reads the same forwards and backwards, such as 1331. Zero cannot be the first digit.)",
+  "original_solution": "In a four-digit palindrome, the first digit is the same as the last, and the second digit is the same as the third digit.  There are 9 options for the first/last digit (1 through 9 -- the first digit cannot be 0), and there are 10 options for the second/third digit (0 through 9).  This gives us $9 \\cdot 10 = \\boxed{90}$ four-digit palindromes.",
+  "selection_reason": "Palindromic symmetry becomes independent digit choices with a leading-zero precondition.",
+  "initial_state": {
+    "objects": [
+      "four digit positions"
+    ],
+    "declarations": [
+      "digits d1,d2,d3,d4 : {0,…,9}"
+    ],
+    "types_domains": [
+      "d1≠0"
+    ],
+    "facts": [
+      {
+        "id": "fact:palindrome",
+        "statement": "d1=d4 and d2=d3",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "count=90",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "In a four-digit palindrome, the first digit is the same as the last, and the second digit is the same as the third digit.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "palindrome_definition",
+        "description": "Apply the definition of a four-digit palindrome.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:palindrome"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume"
+        ],
+        "notes": "HML can state equalities but has no counting-by-symmetry rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "four digit positions"
+        ],
+        "declarations": [
+          "digits d1,d2,d3,d4 : {0,…,9}"
+        ],
+        "types_domains": [
+          "d1≠0"
+        ],
+        "facts": [
+          {
+            "id": "fact:palindrome",
+            "statement": "d1=d4 and d2=d3",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=90",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "four digit positions"
+        ],
+        "declarations": [
+          "digits d1,d2,d3,d4 : {0,…,9}"
+        ],
+        "types_domains": [
+          "d1≠0"
+        ],
+        "facts": [
+          {
+            "id": "fact:palindrome",
+            "statement": "d1=d4 and d2=d3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "free choices are d1 and d2; d4=d1,d3=d2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=90",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:palindrome"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: free choices are d1 and d2; d4=d1,d3=d2",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:palindrome"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_DEFINITION",
+        "family": "DEFINITION_APPLICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "free choices are d1 and d2; d4=d1,d3=d2",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "There are 9 options for the first/last digit (1 through 9 -- the first digit cannot be 0)",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "leading_digit_constraint",
+        "description": "A four-digit number cannot begin with zero.",
+        "source": "explicit"
+      },
+      "preconditions": [
+        {
+          "condition": "d1≠0",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:palindrome"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Finite digit-choice counting is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "four digit positions"
+        ],
+        "declarations": [
+          "digits d1,d2,d3,d4 : {0,…,9}"
+        ],
+        "types_domains": [
+          "d1≠0"
+        ],
+        "facts": [
+          {
+            "id": "fact:palindrome",
+            "statement": "d1=d4 and d2=d3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "free choices are d1 and d2; d4=d1,d3=d2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=90",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:palindrome"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "four digit positions"
+        ],
+        "declarations": [
+          "digits d1,d2,d3,d4 : {0,…,9}"
+        ],
+        "types_domains": [
+          "d1≠0"
+        ],
+        "facts": [
+          {
+            "id": "fact:palindrome",
+            "statement": "d1=d4 and d2=d3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "free choices are d1 and d2; d4=d1,d3=d2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "d1 has 9 choices",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=90",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:palindrome"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: d1 has 9 choices",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:palindrome"
+        ]
+      },
+      "action": {
+        "operation_id": "COUNT_CASES",
+        "family": "COMBINATORIAL_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "d1 has 9 choices",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "and there are 10 options for the second/third digit (0 through 9).",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "independent_digit_choice",
+        "description": "The repeated inner digit may be any decimal digit.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:palindrome"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Finite digit-choice counting is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "four digit positions"
+        ],
+        "declarations": [
+          "digits d1,d2,d3,d4 : {0,…,9}"
+        ],
+        "types_domains": [
+          "d1≠0"
+        ],
+        "facts": [
+          {
+            "id": "fact:palindrome",
+            "statement": "d1=d4 and d2=d3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "free choices are d1 and d2; d4=d1,d3=d2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "d1 has 9 choices",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=90",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:palindrome"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "four digit positions"
+        ],
+        "declarations": [
+          "digits d1,d2,d3,d4 : {0,…,9}"
+        ],
+        "types_domains": [
+          "d1≠0"
+        ],
+        "facts": [
+          {
+            "id": "fact:palindrome",
+            "statement": "d1=d4 and d2=d3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "free choices are d1 and d2; d4=d1,d3=d2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "d1 has 9 choices",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "d2 has 10 choices",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=90",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:palindrome"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: d2 has 10 choices",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:palindrome"
+        ]
+      },
+      "action": {
+        "operation_id": "COUNT_CASES",
+        "family": "COMBINATORIAL_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "d2 has 10 choices",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "This gives us $9 \\cdot 10 = \\boxed{90}$ four-digit palindromes.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "product_rule",
+        "description": "Multiply independent choices for the two free positions.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:palindrome"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "The multiplication is closed and checkable; the combinatorial product rule is not native."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "four digit positions"
+        ],
+        "declarations": [
+          "digits d1,d2,d3,d4 : {0,…,9}"
+        ],
+        "types_domains": [
+          "d1≠0"
+        ],
+        "facts": [
+          {
+            "id": "fact:palindrome",
+            "statement": "d1=d4 and d2=d3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "free choices are d1 and d2; d4=d1,d3=d2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "d1 has 9 choices",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "d2 has 10 choices",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=90",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:palindrome"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "four digit positions"
+        ],
+        "declarations": [
+          "digits d1,d2,d3,d4 : {0,…,9}"
+        ],
+        "types_domains": [
+          "d1≠0"
+        ],
+        "facts": [
+          {
+            "id": "fact:palindrome",
+            "statement": "d1=d4 and d2=d3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "free choices are d1 and d2; d4=d1,d3=d2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "d1 has 9 choices",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "d2 has 10 choices",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "count=90",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=90",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:palindrome"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: count=90",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:palindrome"
+        ]
+      },
+      "action": {
+        "operation_id": "MULTIPLY_COUNTS",
+        "family": "COMBINATORIAL_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "count=90",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "four digit positions"
+    ],
+    "declarations": [
+      "digits d1,d2,d3,d4 : {0,…,9}"
+    ],
+    "types_domains": [
+      "d1≠0"
+    ],
+    "facts": [
+      {
+        "id": "fact:palindrome",
+        "statement": "d1=d4 and d2=d3",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "free choices are d1 and d2; d4=d1,d3=d2",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "d1 has 9 choices",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "d2 has 10 choices",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "count=90",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "count=90",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:palindrome"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "count=90",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_DEFINITION",
+    "COUNT_CASES",
+    "MULTIPLY_COUNTS"
+  ],
+  "source_quality": {
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0008"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

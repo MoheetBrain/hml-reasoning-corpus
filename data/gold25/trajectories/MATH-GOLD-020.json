@@ -1,0 +1,840 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-020",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-07014",
+  "source_hash": "cf7d11827d4b0afeb9e444df4e77e2b58498917523b636e1666386f4a8f58933",
+  "category": "Precalculus",
+  "level": "Level 1",
+  "problem": "If $\\|\\mathbf{a}\\| = 3$ and $\\|\\mathbf{b}\\| = 6,$ then find $(\\mathbf{a} + \\mathbf{b}) \\cdot (\\mathbf{a} - \\mathbf{b}).$",
+  "original_solution": "Expanding the dot product, we get\n\\begin{align*}\n(\\mathbf{a} + \\mathbf{b}) \\cdot (\\mathbf{a} - \\mathbf{b}) &= (\\mathbf{a} + \\mathbf{b}) \\cdot \\mathbf{a} - (\\mathbf{a} + \\mathbf{b}) \\cdot \\mathbf{b} \\\\\n&= \\mathbf{a} \\cdot \\mathbf{a} + \\mathbf{b} \\cdot \\mathbf{a} - \\mathbf{a} \\cdot \\mathbf{b} - \\mathbf{b} \\cdot \\mathbf{b} \\\\\n&= \\mathbf{a} \\cdot \\mathbf{a} - \\mathbf{b} \\cdot \\mathbf{b} \\\\\n&= \\|\\mathbf{a}\\|^2 - \\|\\mathbf{b}\\|^2 \\\\\n&= 3^2 - 6^2 = \\boxed{-27}.\n\\end{align*}",
+  "selection_reason": "Vector bilinearity and symmetry cancel cross terms before norm substitution.",
+  "initial_state": {
+    "objects": [
+      "vectors a,b"
+    ],
+    "declarations": [
+      "a,b : Vector"
+    ],
+    "types_domains": [
+      "||a||=3, ||b||=6"
+    ],
+    "facts": [
+      {
+        "id": "fact:norm_a",
+        "statement": "||a||=3",
+        "status": "given"
+      },
+      {
+        "id": "fact:norm_b",
+        "statement": "||b||=6",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "(a+b)·(a-b)=-27",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Expanding the dot product, we get",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "bilinearity",
+        "description": "Apply bilinearity of the dot product.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:norm_a",
+        "fact:norm_b"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Vector bilinearity is not in the HML kernel."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "vectors a,b"
+        ],
+        "declarations": [
+          "a,b : Vector"
+        ],
+        "types_domains": [
+          "||a||=3, ||b||=6"
+        ],
+        "facts": [
+          {
+            "id": "fact:norm_a",
+            "statement": "||a||=3",
+            "status": "given"
+          },
+          {
+            "id": "fact:norm_b",
+            "statement": "||b||=6",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "(a+b)·(a-b)=-27",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "vectors a,b"
+        ],
+        "declarations": [
+          "a,b : Vector"
+        ],
+        "types_domains": [
+          "||a||=3, ||b||=6"
+        ],
+        "facts": [
+          {
+            "id": "fact:norm_a",
+            "statement": "||a||=3",
+            "status": "given"
+          },
+          {
+            "id": "fact:norm_b",
+            "statement": "||b||=6",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "(a+b)·(a-b)=a·a+b·a-a·b-b·b",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "(a+b)·(a-b)=-27",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: (a+b)·(a-b)=a·a+b·a-a·b-b·b",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ]
+      },
+      "action": {
+        "operation_id": "EXPAND",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "(a+b)·(a-b)=a·a+b·a-a·b-b·b",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "= \\mathbf{a} \\cdot \\mathbf{a} - \\mathbf{b} \\cdot \\mathbf{b}",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "dot_product_symmetry",
+        "description": "Use a·b=b·a to cancel the cross terms.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:norm_a",
+        "fact:norm_b"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Vector symmetry/cancellation is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "vectors a,b"
+        ],
+        "declarations": [
+          "a,b : Vector"
+        ],
+        "types_domains": [
+          "||a||=3, ||b||=6"
+        ],
+        "facts": [
+          {
+            "id": "fact:norm_a",
+            "statement": "||a||=3",
+            "status": "given"
+          },
+          {
+            "id": "fact:norm_b",
+            "statement": "||b||=6",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "(a+b)·(a-b)=a·a+b·a-a·b-b·b",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "(a+b)·(a-b)=-27",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "vectors a,b"
+        ],
+        "declarations": [
+          "a,b : Vector"
+        ],
+        "types_domains": [
+          "||a||=3, ||b||=6"
+        ],
+        "facts": [
+          {
+            "id": "fact:norm_a",
+            "statement": "||a||=3",
+            "status": "given"
+          },
+          {
+            "id": "fact:norm_b",
+            "statement": "||b||=6",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "(a+b)·(a-b)=a·a+b·a-a·b-b·b",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cross terms cancel",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "(a+b)·(a-b)=-27",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: cross terms cancel",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ]
+      },
+      "action": {
+        "operation_id": "CANCEL_SYMMETRIC_TERMS",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "cross terms cancel",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "= \\|\\mathbf{a}\\|^2 - \\|\\mathbf{b}\\|^2",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "norm_definition",
+        "description": "Use a·a=||a||² and b·b=||b||².",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:norm_a",
+        "fact:norm_b"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Vector norm definitions are not trusted core constructs."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "vectors a,b"
+        ],
+        "declarations": [
+          "a,b : Vector"
+        ],
+        "types_domains": [
+          "||a||=3, ||b||=6"
+        ],
+        "facts": [
+          {
+            "id": "fact:norm_a",
+            "statement": "||a||=3",
+            "status": "given"
+          },
+          {
+            "id": "fact:norm_b",
+            "statement": "||b||=6",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "(a+b)·(a-b)=a·a+b·a-a·b-b·b",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cross terms cancel",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "(a+b)·(a-b)=-27",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "vectors a,b"
+        ],
+        "declarations": [
+          "a,b : Vector"
+        ],
+        "types_domains": [
+          "||a||=3, ||b||=6"
+        ],
+        "facts": [
+          {
+            "id": "fact:norm_a",
+            "statement": "||a||=3",
+            "status": "given"
+          },
+          {
+            "id": "fact:norm_b",
+            "statement": "||b||=6",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "(a+b)·(a-b)=a·a+b·a-a·b-b·b",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cross terms cancel",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "||a||²-||b||²",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "(a+b)·(a-b)=-27",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: ||a||²-||b||²",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_DEFINITION",
+        "family": "DEFINITION_APPLICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "||a||²-||b||²",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "= 3^2 - 6^2 = \\boxed{-27}.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "exact_arithmetic",
+        "description": "Substitute the given norms and evaluate.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:norm_a",
+        "fact:norm_b"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "The closed scalar arithmetic is checkable after vector identities are supplied."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "vectors a,b"
+        ],
+        "declarations": [
+          "a,b : Vector"
+        ],
+        "types_domains": [
+          "||a||=3, ||b||=6"
+        ],
+        "facts": [
+          {
+            "id": "fact:norm_a",
+            "statement": "||a||=3",
+            "status": "given"
+          },
+          {
+            "id": "fact:norm_b",
+            "statement": "||b||=6",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "(a+b)·(a-b)=a·a+b·a-a·b-b·b",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cross terms cancel",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "||a||²-||b||²",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "(a+b)·(a-b)=-27",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "vectors a,b"
+        ],
+        "declarations": [
+          "a,b : Vector"
+        ],
+        "types_domains": [
+          "||a||=3, ||b||=6"
+        ],
+        "facts": [
+          {
+            "id": "fact:norm_a",
+            "statement": "||a||=3",
+            "status": "given"
+          },
+          {
+            "id": "fact:norm_b",
+            "statement": "||b||=6",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "(a+b)·(a-b)=a·a+b·a-a·b-b·b",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "cross terms cancel",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "||a||²-||b||²",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "(a+b)·(a-b)=-27",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "(a+b)·(a-b)=-27",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: (a+b)·(a-b)=-27",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:norm_a",
+          "fact:norm_b"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "(a+b)·(a-b)=-27",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "vectors a,b"
+    ],
+    "declarations": [
+      "a,b : Vector"
+    ],
+    "types_domains": [
+      "||a||=3, ||b||=6"
+    ],
+    "facts": [
+      {
+        "id": "fact:norm_a",
+        "statement": "||a||=3",
+        "status": "given"
+      },
+      {
+        "id": "fact:norm_b",
+        "statement": "||b||=6",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "(a+b)·(a-b)=a·a+b·a-a·b-b·b",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "cross terms cancel",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "||a||²-||b||²",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "(a+b)·(a-b)=-27",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "(a+b)·(a-b)=-27",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:norm_a",
+      "fact:norm_b"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "(a+b)·(a-b)=-27",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_DEFINITION",
+    "CANCEL_SYMMETRIC_TERMS",
+    "EVALUATE",
+    "EXPAND"
+  ],
+  "source_quality": {
+    "explicit_steps": 2,
+    "implicit_steps": 2,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0007"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

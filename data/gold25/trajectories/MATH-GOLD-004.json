@@ -1,0 +1,1314 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-004",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-08508",
+  "source_hash": "cb2908d439a3efbe1bb5586d6471e287523c6dafde29f837a9e169c5e48ae1a6",
+  "category": "Algebra",
+  "level": "Level 1",
+  "problem": "Find the largest value of $x$ that satisfies the equation $|5x-1|=x+3$.",
+  "original_solution": "We can split the expression $|5x-1|=x+3$ into two separate cases. In the first case, \\begin{align*} 5x-1&=x+3\n\\\\\\Rightarrow \\qquad 4x&=4\n\\\\\\Rightarrow \\qquad x&=1\n\\end{align*}If we plug this value of $x$ back into the original equation in order to check our answer, we see that $|5(1)-1|=1+3$ or $4=4$. Since this is true, we can accept $x=1$ as a valid solution.\n\nIn the second case, \\begin{align*} 5x-1&=-(x+3)\n\\\\ 5x-1&=-x-3\n\\\\\\Rightarrow \\qquad 6x&=-2\n\\\\\\Rightarrow \\qquad x&=-\\frac13.\n\\end{align*}If we plug $-\\frac13$ back into the initial equation, we get that $\\left|5\\left(-\\frac13\\right)-1\\right|=-\\frac13+3$, which simplifies to $\\left|-\\frac{8}{3}\\right|=\\frac{8}{3}$, or $\\frac{8}{3}=\\frac{8}{3}$. Since this is also a true statement, we can accept $x=-\\frac13$ as a valid solution as well. Since both $x=1$ and $x=-\\frac13$ are possible values of $x$, the final answer is the larger of the two: $x=\\boxed{1}$.",
+  "selection_reason": "Explicit case split plus two candidate solutions and direct candidate verification.",
+  "initial_state": {
+    "objects": [
+      "x"
+    ],
+    "declarations": [
+      "x : Real"
+    ],
+    "types_domains": [
+      "x ∈ Real"
+    ],
+    "facts": [
+      {
+        "id": "fact:abs",
+        "statement": "|5x-1|=x+3",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "largest solution x=1",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "We can split the expression $|5x-1|=x+3$ into two separate cases.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "absolute_value_definition",
+        "description": "Apply the two-branch definition of absolute value.",
+        "source": "core"
+      },
+      "preconditions": [
+        {
+          "condition": "x+3≥0",
+          "status": "implicit",
+          "evidence": "The worked solution does not state this condition explicitly.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:abs_case_cover",
+          "statement": "the absolute-value branches are exhaustive and disjoint",
+          "status": "discharged",
+          "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "scope"
+        ],
+        "notes": "Lexical scope exists, but no case-split rule proves branch exhaustiveness or manages branch joins."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0001",
+        "MATH-GAP-0002",
+        "MATH-GAP-0004"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [
+          "obl:abs_case_cover"
+        ],
+        "epistemic_update": "Established fact:s1: case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "CASE_SPLIT",
+        "family": "CASE_ANALYSIS",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "5x-1&=x+3",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "equality_preservation",
+        "description": "Solve the branch equation under its sign condition.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:abs"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "subtract_both_sides",
+          "divide_both_sides"
+        ],
+        "notes": "Local algebra is available, but branch-scoped derivation is not a single current rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0001"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "case 1 yields x=1",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:abs"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: case 1 yields x=1",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:abs"
+        ]
+      },
+      "action": {
+        "operation_id": "SOLVE_CASE",
+        "family": "CASE_ANALYSIS",
+        "arguments": {
+          "branch": "x≥1/5"
+        }
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "case 1 yields x=1",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "If we plug this value of $x$ back into the original equation in order to check our answer, we see that $|5(1)-1|=1+3$ or $4=4$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "substitution_check",
+        "description": "Re-evaluate the original equation at the generated candidate.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:abs"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Closed candidate checks can be certified, but candidate-generation/branch linkage is not kernel-native."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002"
+      ],
+      "branch": "case 1",
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "case 1 yields x=1",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:abs"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "case 1 yields x=1",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "candidate x=1 satisfies the original equation",
+            "status": "established",
+            "scope": "case 1"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case 1"
+        ],
+        "dependencies": [
+          "fact:abs"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: candidate x=1 satisfies the original equation",
+        "scope_effect": "branch-local",
+        "dependency_effect": [
+          "fact:abs"
+        ]
+      },
+      "action": {
+        "operation_id": "VERIFY_CANDIDATE",
+        "family": "VERIFICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "candidate x=1 satisfies the original equation",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "5x-1&=-(x+3)",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "equality_preservation",
+        "description": "Solve the second branch equation under its sign condition.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:abs"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "add_both_sides",
+          "divide_both_sides"
+        ],
+        "notes": "Local algebra is available; branch proof remains partial."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0001"
+      ],
+      "branch": "case 2",
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "case 1 yields x=1",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "candidate x=1 satisfies the original equation",
+            "status": "established",
+            "scope": "case 1"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case 1"
+        ],
+        "dependencies": [
+          "fact:abs"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "case 1 yields x=1",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "candidate x=1 satisfies the original equation",
+            "status": "established",
+            "scope": "case 1"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case 2 yields x=-1/3",
+            "status": "established",
+            "scope": "case 2"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case 1",
+          "branch:case 2"
+        ],
+        "dependencies": [
+          "fact:abs"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: case 2 yields x=-1/3",
+        "scope_effect": "branch-local",
+        "dependency_effect": [
+          "fact:abs"
+        ]
+      },
+      "action": {
+        "operation_id": "SOLVE_CASE",
+        "family": "CASE_ANALYSIS",
+        "arguments": {
+          "branch": "x<1/5"
+        }
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "case 2 yields x=-1/3",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "If we plug $-\\frac13$ back into the initial equation, we get that",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "substitution_check",
+        "description": "Re-evaluate the original equation at the second generated candidate.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:abs"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Closed candidate checks can be certified; branch bookkeeping is external."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002"
+      ],
+      "branch": "case 2",
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "case 1 yields x=1",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "candidate x=1 satisfies the original equation",
+            "status": "established",
+            "scope": "case 1"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case 2 yields x=-1/3",
+            "status": "established",
+            "scope": "case 2"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case 1",
+          "branch:case 2"
+        ],
+        "dependencies": [
+          "fact:abs"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "case 1 yields x=1",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "candidate x=1 satisfies the original equation",
+            "status": "established",
+            "scope": "case 1"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case 2 yields x=-1/3",
+            "status": "established",
+            "scope": "case 2"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "candidate x=-1/3 satisfies the original equation",
+            "status": "established",
+            "scope": "case 2"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case 1",
+          "branch:case 2"
+        ],
+        "dependencies": [
+          "fact:abs"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: candidate x=-1/3 satisfies the original equation",
+        "scope_effect": "branch-local",
+        "dependency_effect": [
+          "fact:abs"
+        ]
+      },
+      "action": {
+        "operation_id": "VERIFY_CANDIDATE",
+        "family": "VERIFICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "candidate x=-1/3 satisfies the original equation",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s6",
+      "source_span": "the final answer is the larger of the two",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "finite_order",
+        "description": "Compare the verified finite candidate set.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:candidate_1",
+        "fact:candidate_2"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "goal"
+        ],
+        "notes": "HML has goals but no finite-candidate selection rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002"
+      ],
+      "branch": null,
+      "result_id": "fact:s6",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "case 1 yields x=1",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "candidate x=1 satisfies the original equation",
+            "status": "established",
+            "scope": "case 1"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case 2 yields x=-1/3",
+            "status": "established",
+            "scope": "case 2"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "candidate x=-1/3 satisfies the original equation",
+            "status": "established",
+            "scope": "case 2"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case 1",
+          "branch:case 2"
+        ],
+        "dependencies": [
+          "fact:abs"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:abs",
+            "statement": "|5x-1|=x+3",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "case 1 yields x=1",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "candidate x=1 satisfies the original equation",
+            "status": "established",
+            "scope": "case 1"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case 2 yields x=-1/3",
+            "status": "established",
+            "scope": "case 2"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "candidate x=-1/3 satisfies the original equation",
+            "status": "established",
+            "scope": "case 2"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "largest valid solution is x=1",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "largest solution x=1",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case 1",
+          "branch:case 2"
+        ],
+        "dependencies": [
+          "fact:abs",
+          "fact:candidate_1",
+          "fact:candidate_2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:abs_case_cover",
+            "statement": "the absolute-value branches are exhaustive and disjoint",
+            "status": "discharged",
+            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s6: largest valid solution is x=1",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:candidate_1",
+          "fact:candidate_2"
+        ]
+      },
+      "action": {
+        "operation_id": "SELECT_EXTREMUM",
+        "family": "GOAL_MANAGEMENT",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "largest valid solution is x=1",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "x"
+    ],
+    "declarations": [
+      "x : Real"
+    ],
+    "types_domains": [
+      "x ∈ Real"
+    ],
+    "facts": [
+      {
+        "id": "fact:abs",
+        "statement": "|5x-1|=x+3",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "case 1 yields x=1",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "candidate x=1 satisfies the original equation",
+        "status": "established",
+        "scope": "case 1"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "case 2 yields x=-1/3",
+        "status": "established",
+        "scope": "case 2"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "candidate x=-1/3 satisfies the original equation",
+        "status": "established",
+        "scope": "case 2"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "largest valid solution is x=1",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "largest solution x=1",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global",
+      "branch:case 1",
+      "branch:case 2"
+    ],
+    "dependencies": [
+      "fact:abs",
+      "fact:candidate_1",
+      "fact:candidate_2"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:abs_case_cover",
+        "statement": "the absolute-value branches are exhaustive and disjoint",
+        "status": "discharged",
+        "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "largest solution x=1",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S6"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "CASE_SPLIT",
+    "SELECT_EXTREMUM",
+    "SOLVE_CASE",
+    "VERIFY_CANDIDATE"
+  ],
+  "source_quality": {
+    "explicit_steps": 4,
+    "implicit_steps": 2,
+    "source_omissions": [
+      "MATH-GOLD-004: the absolute-value branches are exhaustive and disjoint",
+      "MATH-GOLD-004: x+3≥0"
+    ],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0001",
+    "MATH-GAP-0002",
+    "MATH-GAP-0004"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

@@ -1,0 +1,827 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-009",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-03391",
+  "source_hash": "34fc81a0202e83102e59d13bc829e4dca562c6f6fb425421b98d500781d0102a",
+  "category": "Intermediate Algebra",
+  "level": "Level 2",
+  "problem": "Let $x,$ $y,$ $z$ be positive real numbers such that $xyz = 8.$  Find the minimum value of $x + 2y + 4z.$",
+  "original_solution": "By AM-GM,\n\\[x + 2y + 4z \\ge 3 \\sqrt[3]{(x)(2y)(4z)} = 3 \\sqrt[3]{8xyz} = 3 \\sqrt[3]{8 \\cdot 8} = 12.\\]Equality occurs when $x = 2y = 4z$ and $xyz = 8.$  We can solve to get $x = 4,$ $y = 2,$ and $z = 1,$ so the minimum value is $\\boxed{12}.$",
+  "selection_reason": "Theorem application with hypotheses, inequality lower bound, equality conditions, and witness construction.",
+  "initial_state": {
+    "objects": [
+      "x",
+      "y",
+      "z"
+    ],
+    "declarations": [
+      "x : PositiveReal",
+      "y : PositiveReal",
+      "z : PositiveReal"
+    ],
+    "types_domains": [
+      "x,y,z>0"
+    ],
+    "facts": [
+      {
+        "id": "fact:product",
+        "statement": "xyz=8",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "min(x+2y+4z)=12",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "By AM-GM,",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "AM_GM",
+        "description": "Apply AM-GM to the three positive quantities x, 2y, and 4z.",
+        "source": "library"
+      },
+      "preconditions": [
+        {
+          "condition": "x>0,y>0,z>0",
+          "status": "satisfied",
+          "evidence": "Given in the problem.",
+          "source_omission": false
+        },
+        {
+          "condition": "three positive terms",
+          "status": "satisfied",
+          "evidence": "x,2y,4z are positive.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:product"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "AM-GM is not a core HML rule or trusted library checker."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "x",
+          "y",
+          "z"
+        ],
+        "declarations": [
+          "x : PositiveReal",
+          "y : PositiveReal",
+          "z : PositiveReal"
+        ],
+        "types_domains": [
+          "x,y,z>0"
+        ],
+        "facts": [
+          {
+            "id": "fact:product",
+            "statement": "xyz=8",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "min(x+2y+4z)=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y",
+          "z"
+        ],
+        "declarations": [
+          "x : PositiveReal",
+          "y : PositiveReal",
+          "z : PositiveReal"
+        ],
+        "types_domains": [
+          "x,y,z>0"
+        ],
+        "facts": [
+          {
+            "id": "fact:product",
+            "statement": "xyz=8",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x+2y+4z ≥ 3∛((x)(2y)(4z))",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "min(x+2y+4z)=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: x+2y+4z ≥ 3∛((x)(2y)(4z))",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:product"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_THEOREM",
+        "family": "THEOREM_APPLICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "x+2y+4z ≥ 3∛((x)(2y)(4z))",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "= 3 \\sqrt[3]{8xyz} = 3 \\sqrt[3]{8 \\cdot 8} = 12.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "exact_arithmetic",
+        "description": "Substitute xyz=8 and evaluate the exact cube root.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:product"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Only the closed numeric subexpression is directly certifiable."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "x",
+          "y",
+          "z"
+        ],
+        "declarations": [
+          "x : PositiveReal",
+          "y : PositiveReal",
+          "z : PositiveReal"
+        ],
+        "types_domains": [
+          "x,y,z>0"
+        ],
+        "facts": [
+          {
+            "id": "fact:product",
+            "statement": "xyz=8",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x+2y+4z ≥ 3∛((x)(2y)(4z))",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "min(x+2y+4z)=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y",
+          "z"
+        ],
+        "declarations": [
+          "x : PositiveReal",
+          "y : PositiveReal",
+          "z : PositiveReal"
+        ],
+        "types_domains": [
+          "x,y,z>0"
+        ],
+        "facts": [
+          {
+            "id": "fact:product",
+            "statement": "xyz=8",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x+2y+4z ≥ 3∛((x)(2y)(4z))",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "x+2y+4z≥12",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "min(x+2y+4z)=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: x+2y+4z≥12",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:product"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "x+2y+4z≥12",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Equality occurs when $x = 2y = 4z$ and $xyz = 8.$",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "AM_GM_equality",
+        "description": "Use the equality condition of AM-GM together with the product constraint.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:product"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "The equality condition requires theorem-library semantics."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "x",
+          "y",
+          "z"
+        ],
+        "declarations": [
+          "x : PositiveReal",
+          "y : PositiveReal",
+          "z : PositiveReal"
+        ],
+        "types_domains": [
+          "x,y,z>0"
+        ],
+        "facts": [
+          {
+            "id": "fact:product",
+            "statement": "xyz=8",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x+2y+4z ≥ 3∛((x)(2y)(4z))",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "x+2y+4z≥12",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "min(x+2y+4z)=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y",
+          "z"
+        ],
+        "declarations": [
+          "x : PositiveReal",
+          "y : PositiveReal",
+          "z : PositiveReal"
+        ],
+        "types_domains": [
+          "x,y,z>0"
+        ],
+        "facts": [
+          {
+            "id": "fact:product",
+            "statement": "xyz=8",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x+2y+4z ≥ 3∛((x)(2y)(4z))",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "x+2y+4z≥12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "equality condition x=2y=4z",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "min(x+2y+4z)=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: equality condition x=2y=4z",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:product"
+        ]
+      },
+      "action": {
+        "operation_id": "RECORD_EQUALITY_CONDITION",
+        "family": "THEOREM_APPLICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "equality condition x=2y=4z",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "We can solve to get $x = 4,$ $y = 2,$ and $z = 1,",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "constraint_solving",
+        "description": "Solve the equality condition and verify the product constraint.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:product"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "HML can record the witness and closed checks but cannot invoke AM-GM."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "x",
+          "y",
+          "z"
+        ],
+        "declarations": [
+          "x : PositiveReal",
+          "y : PositiveReal",
+          "z : PositiveReal"
+        ],
+        "types_domains": [
+          "x,y,z>0"
+        ],
+        "facts": [
+          {
+            "id": "fact:product",
+            "statement": "xyz=8",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x+2y+4z ≥ 3∛((x)(2y)(4z))",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "x+2y+4z≥12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "equality condition x=2y=4z",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "min(x+2y+4z)=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y",
+          "z"
+        ],
+        "declarations": [
+          "x : PositiveReal",
+          "y : PositiveReal",
+          "z : PositiveReal"
+        ],
+        "types_domains": [
+          "x,y,z>0"
+        ],
+        "facts": [
+          {
+            "id": "fact:product",
+            "statement": "xyz=8",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x+2y+4z ≥ 3∛((x)(2y)(4z))",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "x+2y+4z≥12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "equality condition x=2y=4z",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "witness (x,y,z)=(4,2,1) attains 12",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "min(x+2y+4z)=12",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:product"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: witness (x,y,z)=(4,2,1) attains 12",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:product"
+        ]
+      },
+      "action": {
+        "operation_id": "SOLVE",
+        "family": "CONSTRUCTION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "witness (x,y,z)=(4,2,1) attains 12",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "x",
+      "y",
+      "z"
+    ],
+    "declarations": [
+      "x : PositiveReal",
+      "y : PositiveReal",
+      "z : PositiveReal"
+    ],
+    "types_domains": [
+      "x,y,z>0"
+    ],
+    "facts": [
+      {
+        "id": "fact:product",
+        "statement": "xyz=8",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "x+2y+4z ≥ 3∛((x)(2y)(4z))",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "x+2y+4z≥12",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "equality condition x=2y=4z",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "witness (x,y,z)=(4,2,1) attains 12",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "min(x+2y+4z)=12",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:product"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "min(x+2y+4z)=12",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_THEOREM",
+    "EVALUATE",
+    "RECORD_EQUALITY_CONDITION",
+    "SOLVE"
+  ],
+  "source_quality": {
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0007"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

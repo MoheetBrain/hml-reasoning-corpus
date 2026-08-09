@@ -1,0 +1,963 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-017",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-04886",
+  "source_hash": "ffb12af4932ee086f2ae99eb8201281ae3e66086a88408168528500b5f853d8b",
+  "category": "Number Theory",
+  "level": "Level 2",
+  "problem": "How many positive factors of 72 are perfect cubes?",
+  "original_solution": "Prime factorize $72$ as $2^3\\cdot 3^2$.  A positive integer is a factor of 72 if and only if the exponents in its prime factorization are less than or equal to the corresponding exponents in the prime factorization of 72.  Also, a positive integer is a perfect cube if and only if every exponent is a multiple of 3.  Therefore, in forming a perfect cube factor of 72, we have 2 choices for the exponent of $2$ (either 0 or 3) and only 1 choice for the exponent of 3 (namely 0).  There are $2\\cdot 1=\\boxed{2}$ ways to make these choices.",
+  "selection_reason": "Prime-exponent representation and predicate intersection count admissible factors.",
+  "initial_state": {
+    "objects": [
+      "positive factors of 72"
+    ],
+    "declarations": [
+      "m : Natural"
+    ],
+    "types_domains": [
+      "m|72 and m is a perfect cube"
+    ],
+    "facts": [
+      {
+        "id": "fact:factorization",
+        "statement": "72=2³·3²",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "count=2",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Prime factorize $72$ as $2^3\\cdot 3^2$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "unique_factorization",
+        "description": "Use unique prime factorization.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Prime factorization is not a current HML rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "72=2³·3²",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: 72=2³·3²",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "PRIME_FACTORIZE",
+        "family": "NUMBER_THEORY",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "72=2³·3²",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "A positive integer is a factor of 72 if and only if the exponents in its prime factorization are less than or equal to the corresponding exponents in the prime factorization of 72.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "factor_definition",
+        "description": "Apply the prime-exponent characterization of divisors.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:factorization"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Divisor-set construction is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "72=2³·3²",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "72=2³·3²",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:factorization"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:factorization"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_DEFINITION",
+        "family": "NUMBER_THEORY",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Also, a positive integer is a perfect cube if and only if every exponent is a multiple of 3.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "perfect_power_definition",
+        "description": "Apply the exponent characterization of perfect cubes.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:factorization"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Perfect-power theorem is not in the core."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "72=2³·3²",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:factorization"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "72=2³·3²",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "e₂,e₃ must be multiples of 3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:factorization"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: e₂,e₃ must be multiples of 3",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:factorization"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_DEFINITION",
+        "family": "NUMBER_THEORY",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "e₂,e₃ must be multiples of 3",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Therefore, in forming a perfect cube factor of 72",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "finite_constraint_intersection",
+        "description": "Intersect divisor bounds with cube-exponent constraints.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:factorization"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Finite exponent enumeration is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008",
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "72=2³·3²",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "e₂,e₃ must be multiples of 3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:factorization"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "72=2³·3²",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "e₂,e₃ must be multiples of 3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "admissible exponent choices: e₂∈{0,3}, e₃=0",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:factorization"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: admissible exponent choices: e₂∈{0,3}, e₃=0",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:factorization"
+        ]
+      },
+      "action": {
+        "operation_id": "COUNT_CASES",
+        "family": "NUMBER_THEORY",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "admissible exponent choices: e₂∈{0,3}, e₃=0",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "There are $2\\cdot 1=\\boxed{2}$ ways to make these choices.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "product_rule",
+        "description": "Multiply independent exponent-choice counts.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:factorization"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Numeric multiplication is checkable after number-theory semantics are supplied."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "72=2³·3²",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "e₂,e₃ must be multiples of 3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "admissible exponent choices: e₂∈{0,3}, e₃=0",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:factorization"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "positive factors of 72"
+        ],
+        "declarations": [
+          "m : Natural"
+        ],
+        "types_domains": [
+          "m|72 and m is a perfect cube"
+        ],
+        "facts": [
+          {
+            "id": "fact:factorization",
+            "statement": "72=2³·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "72=2³·3²",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "e₂,e₃ must be multiples of 3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "admissible exponent choices: e₂∈{0,3}, e₃=0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "count=2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "count=2",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:factorization"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: count=2",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:factorization"
+        ]
+      },
+      "action": {
+        "operation_id": "COMBINE_CASE_COUNTS",
+        "family": "NUMBER_THEORY",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "count=2",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "positive factors of 72"
+    ],
+    "declarations": [
+      "m : Natural"
+    ],
+    "types_domains": [
+      "m|72 and m is a perfect cube"
+    ],
+    "facts": [
+      {
+        "id": "fact:factorization",
+        "statement": "72=2³·3²",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "72=2³·3²",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "e₂,e₃ must be multiples of 3",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "admissible exponent choices: e₂∈{0,3}, e₃=0",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "count=2",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "count=2",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:factorization"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "count=2",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S5"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_DEFINITION",
+    "COMBINE_CASE_COUNTS",
+    "COUNT_CASES",
+    "PRIME_FACTORIZE"
+  ],
+  "source_quality": {
+    "explicit_steps": 5,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0008",
+    "MATH-GAP-0009"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

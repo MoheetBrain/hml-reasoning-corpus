@@ -1,0 +1,1280 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-001",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-00000",
+  "source_hash": "bc89628eac0770ff3de29c886a62e50d3a7f96cfe7503b05aebf2f4b7afc0c6d",
+  "category": "Algebra",
+  "level": "Level 5",
+  "problem": "Let \\[f(x) = \\left\\{\n\\begin{array}{cl} ax+3, &\\text{ if }x>2, \\\\\nx-5 &\\text{ if } -2 \\le x \\le 2, \\\\\n2x-b &\\text{ if } x <-2.\n\\end{array}\n\\right.\\]Find $a+b$ if the piecewise function is continuous (which means that its graph can be drawn without lifting your pencil from the paper).",
+  "original_solution": "For the piecewise function to be continuous, the cases must \"meet\" at $2$ and $-2$. For example, $ax+3$ and $x-5$ must be equal when $x=2$. This implies $a(2)+3=2-5$, which we solve to get $2a=-6 \\Rightarrow a=-3$. Similarly, $x-5$ and $2x-b$ must be equal when $x=-2$. Substituting, we get $-2-5=2(-2)-b$, which implies $b=3$. So $a+b=-3+3=\\boxed{0}$.",
+  "selection_reason": "Piecewise continuity exposes equation construction at boundaries, coupled substitutions, and a hidden continuity precondition.",
+  "initial_state": {
+    "objects": [
+      "piecewise function f",
+      "a",
+      "b"
+    ],
+    "declarations": [
+      "a : Real",
+      "b : Real",
+      "f : PiecewiseFunction"
+    ],
+    "types_domains": [
+      "a,b ∈ Real"
+    ],
+    "facts": [
+      {
+        "id": "fact:piecewise",
+        "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [
+      "continuity at x=2",
+      "continuity at x=-2"
+    ],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "a+b=0",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "For the piecewise function to be continuous, the cases must \"meet\" at $2$ and $-2$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "definition_application",
+        "description": "Apply the definition of continuity for a piecewise function at a boundary.",
+        "source": "core"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "def",
+          "assume"
+        ],
+        "notes": "Definitions and assumptions can state the branches; no continuity theorem is in the kernel."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0005"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: continuity reduces to matching adjacent branch values at x=2 and x=-2",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "INTRODUCE_VARIABLE",
+        "family": "DECLARATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "For example, $ax+3$ and $x-5$ must be equal when $x=2$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "boundary_matching",
+        "description": "Continuity requires equal one-sided branch values at the boundary.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:piecewise"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume"
+        ],
+        "notes": "The equation is representable as an assumption, but boundary-continuity construction is not a rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0005"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2a+3=-3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:piecewise"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: 2a+3=-3",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:piecewise"
+        ]
+      },
+      "action": {
+        "operation_id": "FORMULATE_EQUATION",
+        "family": "EQUATION_CONSTRUCTION",
+        "arguments": {
+          "boundary": 2
+        }
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "2a+3=-3",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "This implies $a(2)+3=2-5$, which we solve to get $2a=-6 \\Rightarrow a=-3$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "equality_preservation",
+        "description": "Subtract 3 and divide by the nonzero coefficient 2.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:piecewise"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "subtract_both_sides",
+          "divide_both_sides"
+        ],
+        "notes": "The transformations are kernel rules; the general solve operation is not."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2a+3=-3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:piecewise"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2a+3=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "a=-3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:piecewise"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: a=-3",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:piecewise"
+        ]
+      },
+      "action": {
+        "operation_id": "SOLVE",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "a=-3",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Similarly, $x-5$ and $2x-b$ must be equal when $x=-2$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "boundary_matching",
+        "description": "Continuity requires equal adjacent branch values at the second boundary.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:piecewise"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume"
+        ],
+        "notes": "Representable proposition; no continuity/boundary rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0005"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2a+3=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "a=-3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:piecewise"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2a+3=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "a=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "-7=-4-b",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:piecewise"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: -7=-4-b",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:piecewise"
+        ]
+      },
+      "action": {
+        "operation_id": "FORMULATE_EQUATION",
+        "family": "EQUATION_CONSTRUCTION",
+        "arguments": {
+          "boundary": -2
+        }
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "-7=-4-b",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Substituting, we get $-2-5=2(-2)-b$, which implies $b=3$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "equality_preservation",
+        "description": "Substitute the boundary value and isolate b.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:piecewise"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "substitute",
+          "add_both_sides"
+        ],
+        "notes": "Only local equality transformations are trusted."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2a+3=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "a=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "-7=-4-b",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:piecewise"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2a+3=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "a=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "-7=-4-b",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "b=3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:piecewise"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: b=3",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:piecewise"
+        ]
+      },
+      "action": {
+        "operation_id": "SOLVE",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "b=3",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s6",
+      "source_span": "So $a+b=-3+3=\\boxed{0}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "exact_arithmetic",
+        "description": "Evaluate the established parameter values exactly.",
+        "source": "core"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:a",
+        "fact:b"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Closed arithmetic can be checked as evidence; it is not a kernel derivation."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s6",
+      "state_before": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2a+3=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "a=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "-7=-4-b",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "b=3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:piecewise"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "piecewise function f",
+          "a",
+          "b"
+        ],
+        "declarations": [
+          "a : Real",
+          "b : Real",
+          "f : PiecewiseFunction"
+        ],
+        "types_domains": [
+          "a,b ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:piecewise",
+            "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2a+3=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "a=-3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "-7=-4-b",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "b=3",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "a+b=0",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [
+          "continuity at x=2",
+          "continuity at x=-2"
+        ],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a+b=0",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:piecewise",
+          "fact:a",
+          "fact:b"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s6: a+b=0",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:a",
+          "fact:b"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "a+b=0",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "piecewise function f",
+      "a",
+      "b"
+    ],
+    "declarations": [
+      "a : Real",
+      "b : Real",
+      "f : PiecewiseFunction"
+    ],
+    "types_domains": [
+      "a,b ∈ Real"
+    ],
+    "facts": [
+      {
+        "id": "fact:piecewise",
+        "statement": "f(x)=ax+3 for x>2; x-5 for -2≤x≤2; 2x-b for x<-2",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "continuity reduces to matching adjacent branch values at x=2 and x=-2",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "2a+3=-3",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "a=-3",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "-7=-4-b",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "b=3",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "a+b=0",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [
+      "continuity at x=2",
+      "continuity at x=-2"
+    ],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "a+b=0",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:piecewise",
+      "fact:a",
+      "fact:b"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "a+b=0",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S6"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "EVALUATE",
+    "FORMULATE_EQUATION",
+    "INTRODUCE_VARIABLE",
+    "SOLVE"
+  ],
+  "source_quality": {
+    "explicit_steps": 6,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0005",
+    "MATH-GAP-0006"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

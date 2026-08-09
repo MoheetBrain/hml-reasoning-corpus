@@ -1,0 +1,599 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-016",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-05222",
+  "source_hash": "d0bc48d60647c1269936c6c3b04773253ee6b31e275004ca9e93031efe9e7d1b",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "problem": "What is the 200th term of the increasing sequence of positive integers formed by omitting only the perfect squares?",
+  "original_solution": "When 200 is reached in the sequence of non-square positive integers, all the perfect squares from $1^2$ up to $14^2$ have been omitted.  Therefore, 200 is the 186th term.  The 187th term is 201, the 188th term is 202, $\\ldots$, the 200th term is $\\boxed{214}$.",
+  "selection_reason": "Index translation across omitted squares exposes sequence-state reasoning and counting exclusions.",
+  "initial_state": {
+    "objects": [
+      "sequence of positive integers excluding squares"
+    ],
+    "declarations": [
+      "a_k : Natural"
+    ],
+    "types_domains": [
+      "a_k is increasing; perfect squares omitted"
+    ],
+    "facts": [
+      {
+        "id": "fact:index",
+        "statement": "target index k=200",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "a_200=214",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "When 200 is reached in the sequence of non-square positive integers, all the perfect squares from $1^2$ up to $14^2$ have been omitted.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "counting_exclusions",
+        "description": "Count the perfect squares below 200 using 1² through 14².",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:index"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Sequence indexing with excluded values is not a core rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0010"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "sequence of positive integers excluding squares"
+        ],
+        "declarations": [
+          "a_k : Natural"
+        ],
+        "types_domains": [
+          "a_k is increasing; perfect squares omitted"
+        ],
+        "facts": [
+          {
+            "id": "fact:index",
+            "statement": "target index k=200",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a_200=214",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "sequence of positive integers excluding squares"
+        ],
+        "declarations": [
+          "a_k : Natural"
+        ],
+        "types_domains": [
+          "a_k is increasing; perfect squares omitted"
+        ],
+        "facts": [
+          {
+            "id": "fact:index",
+            "statement": "target index k=200",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "14 squares are omitted before the target value",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a_200=214",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:index"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: 14 squares are omitted before the target value",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:index"
+        ]
+      },
+      "action": {
+        "operation_id": "COUNT_EXCLUDED",
+        "family": "SEQUENCE_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "14 squares are omitted before the target value",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Therefore, 200 is the 186th term.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "index_shift",
+        "description": "Subtract the 14 omitted values from the ambient integer index.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:index"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Index translation is not executable in current HML."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0010"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "sequence of positive integers excluding squares"
+        ],
+        "declarations": [
+          "a_k : Natural"
+        ],
+        "types_domains": [
+          "a_k is increasing; perfect squares omitted"
+        ],
+        "facts": [
+          {
+            "id": "fact:index",
+            "statement": "target index k=200",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "14 squares are omitted before the target value",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a_200=214",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:index"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "sequence of positive integers excluding squares"
+        ],
+        "declarations": [
+          "a_k : Natural"
+        ],
+        "types_domains": [
+          "a_k is increasing; perfect squares omitted"
+        ],
+        "facts": [
+          {
+            "id": "fact:index",
+            "statement": "target index k=200",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "14 squares are omitted before the target value",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "value 200 has sequence index 186",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a_200=214",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:index"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: value 200 has sequence index 186",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:index"
+        ]
+      },
+      "action": {
+        "operation_id": "INDEX_TRANSLATION",
+        "family": "SEQUENCE_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "value 200 has sequence index 186",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "The 187th term is 201",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "successor_iteration",
+        "description": "Advance 14 positions after 200; none of 201–214 is a square.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "201,…,214 are nonsquares",
+          "status": "implicit",
+          "evidence": "The worked solution does not state this condition explicitly.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:index"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "finite exact check",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Finite sequence iteration is not a trusted HML operation."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0010"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "sequence of positive integers excluding squares"
+        ],
+        "declarations": [
+          "a_k : Natural"
+        ],
+        "types_domains": [
+          "a_k is increasing; perfect squares omitted"
+        ],
+        "facts": [
+          {
+            "id": "fact:index",
+            "statement": "target index k=200",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "14 squares are omitted before the target value",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "value 200 has sequence index 186",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a_200=214",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:index"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "sequence of positive integers excluding squares"
+        ],
+        "declarations": [
+          "a_k : Natural"
+        ],
+        "types_domains": [
+          "a_k is increasing; perfect squares omitted"
+        ],
+        "facts": [
+          {
+            "id": "fact:index",
+            "statement": "target index k=200",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "14 squares are omitted before the target value",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "value 200 has sequence index 186",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "a_200=214",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "a_200=214",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:index"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: a_200=214",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:index"
+        ]
+      },
+      "action": {
+        "operation_id": "ADVANCE_SEQUENCE",
+        "family": "SEQUENCE_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "a_200=214",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "sequence of positive integers excluding squares"
+    ],
+    "declarations": [
+      "a_k : Natural"
+    ],
+    "types_domains": [
+      "a_k is increasing; perfect squares omitted"
+    ],
+    "facts": [
+      {
+        "id": "fact:index",
+        "statement": "target index k=200",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "14 squares are omitted before the target value",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "value 200 has sequence index 186",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "a_200=214",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "a_200=214",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:index"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "a_200=214",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S3"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "ADVANCE_SEQUENCE",
+    "COUNT_EXCLUDED",
+    "INDEX_TRANSLATION"
+  ],
+  "source_quality": {
+    "explicit_steps": 3,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "MATH-GOLD-016: 201,…,214 are nonsquares"
+    ],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0010"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

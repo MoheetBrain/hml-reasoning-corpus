@@ -1,0 +1,487 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-008",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-09744",
+  "source_hash": "77fa1cc62c5daa81958c91b39d406e39024752ed8a43c9e1b96fa8dfb8536dd3",
+  "category": "Intermediate Algebra",
+  "level": "Level 1",
+  "problem": "If $f(x)$ is an even function and $g(x)$ is an odd function, find if $f(g(x^3))$ is even, odd, or neither.\n\nEnter \"odd\", \"even\", or \"neither\".",
+  "original_solution": "Substituting $-x$ for $x$ gives us $f(g(-x^3)) = f(-g(x^3)) = f(g(x^3))$ so $f(g(x^3))$ is $\\boxed{\\text{even}}$.",
+  "selection_reason": "A definition-driven parity proof requiring function composition and an implicit universal argument.",
+  "initial_state": {
+    "objects": [
+      "f",
+      "g",
+      "x"
+    ],
+    "declarations": [
+      "f : Function",
+      "g : Function",
+      "x : Real"
+    ],
+    "types_domains": [
+      "f even: f(-u)=f(u)",
+      "g odd: g(-u)=-g(u)"
+    ],
+    "facts": [
+      {
+        "id": "fact:parity_f",
+        "statement": "f is even",
+        "status": "given"
+      },
+      {
+        "id": "fact:parity_g",
+        "statement": "g is odd",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "f(g(x³)) is even",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Substituting $-x$ for $x$ gives us $f(g(-x^3)) = f(-g(x^3)) = f(g(x^3))$",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "parity_definition",
+        "description": "Apply oddness of g and evenness of f to the transformed input.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:parity_f",
+        "fact:parity_g"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "HML can state the parity claims but has no registered function-parity theorem."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "f",
+          "g",
+          "x"
+        ],
+        "declarations": [
+          "f : Function",
+          "g : Function",
+          "x : Real"
+        ],
+        "types_domains": [
+          "f even: f(-u)=f(u)",
+          "g odd: g(-u)=-g(u)"
+        ],
+        "facts": [
+          {
+            "id": "fact:parity_f",
+            "statement": "f is even",
+            "status": "given"
+          },
+          {
+            "id": "fact:parity_g",
+            "statement": "g is odd",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "f(g(x³)) is even",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "f",
+          "g",
+          "x"
+        ],
+        "declarations": [
+          "f : Function",
+          "g : Function",
+          "x : Real"
+        ],
+        "types_domains": [
+          "f even: f(-u)=f(u)",
+          "g odd: g(-u)=-g(u)"
+        ],
+        "facts": [
+          {
+            "id": "fact:parity_f",
+            "statement": "f is even",
+            "status": "given"
+          },
+          {
+            "id": "fact:parity_g",
+            "statement": "g is odd",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "h(-x)=h(x) for h(x)=f(g(x³))",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "f(g(x³)) is even",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:parity_f",
+          "fact:parity_g"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: h(-x)=h(x) for h(x)=f(g(x³))",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:parity_f",
+          "fact:parity_g"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_DEFINITION",
+        "family": "DEFINITION_APPLICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "h(-x)=h(x) for h(x)=f(g(x³))",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "so $f(g(x^3))$ is $\\boxed{\\text{even}}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "definition_matching",
+        "description": "The transformed expression equals the original under x↦-x.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:parity_f",
+        "fact:parity_g"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "goal",
+          "evidence"
+        ],
+        "notes": "Goal syntax exists; the functional extensionality/parity proof is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "f",
+          "g",
+          "x"
+        ],
+        "declarations": [
+          "f : Function",
+          "g : Function",
+          "x : Real"
+        ],
+        "types_domains": [
+          "f even: f(-u)=f(u)",
+          "g odd: g(-u)=-g(u)"
+        ],
+        "facts": [
+          {
+            "id": "fact:parity_f",
+            "statement": "f is even",
+            "status": "given"
+          },
+          {
+            "id": "fact:parity_g",
+            "statement": "g is odd",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "h(-x)=h(x) for h(x)=f(g(x³))",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "f(g(x³)) is even",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:parity_f",
+          "fact:parity_g"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "f",
+          "g",
+          "x"
+        ],
+        "declarations": [
+          "f : Function",
+          "g : Function",
+          "x : Real"
+        ],
+        "types_domains": [
+          "f even: f(-u)=f(u)",
+          "g odd: g(-u)=-g(u)"
+        ],
+        "facts": [
+          {
+            "id": "fact:parity_f",
+            "statement": "f is even",
+            "status": "given"
+          },
+          {
+            "id": "fact:parity_g",
+            "statement": "g is odd",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "h(-x)=h(x) for h(x)=f(g(x³))",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "goal parity even discharged",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "f(g(x³)) is even",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:parity_f",
+          "fact:parity_g"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: goal parity even discharged",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:parity_f",
+          "fact:parity_g"
+        ]
+      },
+      "action": {
+        "operation_id": "DISCHARGE_GOAL",
+        "family": "GOAL_MANAGEMENT",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "goal parity even discharged",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "f",
+      "g",
+      "x"
+    ],
+    "declarations": [
+      "f : Function",
+      "g : Function",
+      "x : Real"
+    ],
+    "types_domains": [
+      "f even: f(-u)=f(u)",
+      "g odd: g(-u)=-g(u)"
+    ],
+    "facts": [
+      {
+        "id": "fact:parity_f",
+        "statement": "f is even",
+        "status": "given"
+      },
+      {
+        "id": "fact:parity_g",
+        "statement": "g is odd",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "h(-x)=h(x) for h(x)=f(g(x³))",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "goal parity even discharged",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "f(g(x³)) is even",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:parity_f",
+      "fact:parity_g"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "f(g(x³)) is even",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S2"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_DEFINITION",
+    "DISCHARGE_GOAL"
+  ],
+  "source_quality": {
+    "explicit_steps": 2,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0007"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

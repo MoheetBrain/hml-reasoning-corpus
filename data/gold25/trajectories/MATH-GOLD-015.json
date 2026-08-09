@@ -1,0 +1,1288 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-015",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-04963",
+  "source_hash": "94634051b1491449c2d42ad5ba7bfb05d75d87913ea1f0b30ccab44af3fba126",
+  "category": "Number Theory",
+  "level": "Level 2",
+  "problem": "What is the smallest positive integer that leaves a remainder of 4 when divided by 5 and a remainder of 6 when divided by 7?",
+  "original_solution": "Let the desired number be $a$. Then \\begin{align*}\na\\equiv 4\\pmod 5,\\\\\na\\equiv 6\\pmod 7.\n\\end{align*} The first congruence means that there exists a non-negative integer $n$ such that $a=4+5n$. Substituting this into the second congruence yields \\[4+5n\\equiv 6\\pmod 7\\implies n\\equiv 6\\pmod 7\\] So $n$ has a lower bound of $6$. Then $n\\ge 6\\implies a=4+5n\\ge 34$. $\\boxed{34}$ is the smallest solution since it is a lower bound of $a$ and satisfies both original congruences.",
+  "selection_reason": "Congruence construction, parameter substitution, lower-bound reasoning, and minimality verification.",
+  "initial_state": {
+    "objects": [
+      "a",
+      "n"
+    ],
+    "declarations": [
+      "a : Natural",
+      "n : Natural"
+    ],
+    "types_domains": [
+      "a>0, n≥0"
+    ],
+    "facts": [
+      {
+        "id": "fact:congruence_5",
+        "statement": "a≡4 mod 5",
+        "status": "given"
+      },
+      {
+        "id": "fact:congruence_7",
+        "statement": "a≡6 mod 7",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "smallest a=34",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Let the desired number be $a$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "variable_binding",
+        "description": "Name the unknown integer.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "FULL",
+        "constructs": [
+          "var"
+        ],
+        "notes": "Typed declaration is native."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: a names the desired positive integer",
+        "scope_effect": "global/current scope",
+        "dependency_effect": []
+      },
+      "action": {
+        "operation_id": "INTRODUCE_VARIABLE",
+        "family": "DECLARATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "a names the desired positive integer",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "The first congruence means that there exists a non-negative integer $n$ such that $a=4+5n$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "congruence_definition",
+        "description": "Unpack a≡4 (mod 5) into an integer parameterization.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:congruence_5"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Congruence parameterization is not a core rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "a=4+5n for n≥0",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:congruence_5"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: a=4+5n for n≥0",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:congruence_5"
+        ]
+      },
+      "action": {
+        "operation_id": "PARAMETERIZE_CONGRUENCE",
+        "family": "NUMBER_THEORY",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "a=4+5n for n≥0",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Substituting this into the second congruence yields \\[4+5n\\equiv 6\\pmod 7\\implies n\\equiv 6\\pmod 7\\]",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "modular_substitution",
+        "description": "Substitute the parameterization and reduce modulo 7.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:congruence_5",
+        "fact:congruence_7"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "No trusted modular arithmetic rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "a=4+5n for n≥0",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:congruence_5"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "a=4+5n for n≥0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "n≡6 mod 7",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:congruence_5",
+          "fact:congruence_7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: n≡6 mod 7",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:congruence_5",
+          "fact:congruence_7"
+        ]
+      },
+      "action": {
+        "operation_id": "SUBSTITUTE",
+        "family": "NUMBER_THEORY",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "n≡6 mod 7",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "So $n$ has a lower bound of $6$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "least_residue",
+        "description": "Use n≥0 and n≡6 mod 7 to identify the least admissible n.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "n≥0",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:congruence_7"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Minimality over congruence classes is not native."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "a=4+5n for n≥0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "n≡6 mod 7",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:congruence_5",
+          "fact:congruence_7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "a=4+5n for n≥0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "n≡6 mod 7",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "n≥6",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:congruence_5",
+          "fact:congruence_7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: n≥6",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:congruence_7"
+        ]
+      },
+      "action": {
+        "operation_id": "BOUND_SEARCH",
+        "family": "CONSTRAINT_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "n≥6",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Then $n\\ge 6\\implies a=4+5n\\ge 34$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "monotonicity",
+        "description": "The affine expression increases with n.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:congruence_5"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Symbolic monotonicity is not a core rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "a=4+5n for n≥0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "n≡6 mod 7",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "n≥6",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:congruence_5",
+          "fact:congruence_7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "a=4+5n for n≥0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "n≡6 mod 7",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "n≥6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "a≥34",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:congruence_5",
+          "fact:congruence_7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: a≥34",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:congruence_5"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "CONSTRAINT_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "a≥34",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s6",
+      "source_span": "$\\boxed{34}$ is the smallest solution since it is a lower bound of $a$ and satisfies both original congruences.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "candidate_verification",
+        "description": "Check the lower-bound candidate against both original modular constraints.",
+        "source": "explicit"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:congruence_5",
+        "fact:congruence_7"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact modular arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Candidate verification over congruences is not a trusted checker."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s6",
+      "state_before": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "a=4+5n for n≥0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "n≡6 mod 7",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "n≥6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "a≥34",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:congruence_5",
+          "fact:congruence_7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "a",
+          "n"
+        ],
+        "declarations": [
+          "a : Natural",
+          "n : Natural"
+        ],
+        "types_domains": [
+          "a>0, n≥0"
+        ],
+        "facts": [
+          {
+            "id": "fact:congruence_5",
+            "statement": "a≡4 mod 5",
+            "status": "given"
+          },
+          {
+            "id": "fact:congruence_7",
+            "statement": "a≡6 mod 7",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "a names the desired positive integer",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "a=4+5n for n≥0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "n≡6 mod 7",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "n≥6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "a≥34",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "a=34 is minimal and satisfies both congruences",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "smallest a=34",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:congruence_5",
+          "fact:congruence_7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s6: a=34 is minimal and satisfies both congruences",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:congruence_5",
+          "fact:congruence_7"
+        ]
+      },
+      "action": {
+        "operation_id": "VERIFY_CANDIDATE",
+        "family": "VERIFICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "a=34 is minimal and satisfies both congruences",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "a",
+      "n"
+    ],
+    "declarations": [
+      "a : Natural",
+      "n : Natural"
+    ],
+    "types_domains": [
+      "a>0, n≥0"
+    ],
+    "facts": [
+      {
+        "id": "fact:congruence_5",
+        "statement": "a≡4 mod 5",
+        "status": "given"
+      },
+      {
+        "id": "fact:congruence_7",
+        "statement": "a≡6 mod 7",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "a names the desired positive integer",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "a=4+5n for n≥0",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "n≡6 mod 7",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "n≥6",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "a≥34",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "a=34 is minimal and satisfies both congruences",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "smallest a=34",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:congruence_5",
+      "fact:congruence_7"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "smallest a=34",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S6"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "BOUND_SEARCH",
+    "EVALUATE",
+    "INTRODUCE_VARIABLE",
+    "PARAMETERIZE_CONGRUENCE",
+    "SUBSTITUTE",
+    "VERIFY_CANDIDATE"
+  ],
+  "source_quality": {
+    "explicit_steps": 6,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0002",
+    "MATH-GAP-0006",
+    "MATH-GAP-0009"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

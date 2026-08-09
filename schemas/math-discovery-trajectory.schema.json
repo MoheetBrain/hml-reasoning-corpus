@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hml.reasoning.local/schemas/math-discovery-trajectory.schema.json",
+  "title": "Gold-25 neutral mathematical reasoning trajectory",
+  "description": "Representation-neutral S0 -> action -> S1 trajectories reconstructed from worked MATH solutions. HML is intentionally not a required rendering.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "problem_id",
+    "source_dataset",
+    "source_row_id",
+    "source_hash",
+    "category",
+    "level",
+    "problem",
+    "original_solution",
+    "selection_reason",
+    "initial_state",
+    "steps",
+    "final_state",
+    "goal_status",
+    "operations_observed",
+    "source_quality",
+    "hml_gaps",
+    "canonical_verification"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "math-discovery-0.1.0"
+    },
+    "problem_id": {
+      "type": "string",
+      "pattern": "^MATH-GOLD-[0-9]{3}$"
+    },
+    "source_dataset": {
+      "type": "string"
+    },
+    "source_row_id": {
+      "type": "string"
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "category": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "problem": {
+      "type": "string",
+      "minLength": 1
+    },
+    "original_solution": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selection_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "initial_state": {
+      "$ref": "#/$defs/state"
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    },
+    "final_state": {
+      "$ref": "#/$defs/state"
+    },
+    "goal_status": {
+      "const": "discharged"
+    },
+    "operations_observed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "source_quality": {
+      "type": "object"
+    },
+    "hml_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "canonical_verification": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "objects",
+        "declarations",
+        "types_domains",
+        "facts",
+        "assumptions",
+        "constraints",
+        "definitions",
+        "goals",
+        "subgoals",
+        "scope",
+        "dependencies",
+        "open_obligations",
+        "discharged_obligations",
+        "epistemic_status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^S[0-9]+$"
+        },
+        "objects": {
+          "type": "array"
+        },
+        "declarations": {
+          "type": "array"
+        },
+        "types_domains": {
+          "type": "array"
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "constraints": {
+          "type": "array"
+        },
+        "definitions": {
+          "type": "array"
+        },
+        "goals": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "subgoals": {
+          "type": "array"
+        },
+        "scope": {
+          "type": "array"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "open_obligations": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "discharged_obligations": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "epistemic_status": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "step_id",
+        "source_span",
+        "explicitness",
+        "action",
+        "warrant",
+        "preconditions",
+        "creates_obligations",
+        "discharges_obligations",
+        "dependencies",
+        "verification",
+        "hml_support",
+        "semantic_gap_ids",
+        "state_before",
+        "state_after",
+        "state_change",
+        "result"
+      ],
+      "properties": {
+        "step_id": {
+          "type": "string",
+          "pattern": "^s[0-9]+$"
+        },
+        "source_span": {
+          "type": "string",
+          "minLength": 1
+        },
+        "explicitness": {
+          "enum": [
+            "explicit",
+            "implicit"
+          ]
+        },
+        "action": {
+          "type": "object"
+        },
+        "warrant": {
+          "type": "object"
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "creates_obligations": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "discharges_obligations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "verification": {
+          "type": "object"
+        },
+        "hml_support": {
+          "type": "object"
+        },
+        "semantic_gap_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state_before": {
+          "$ref": "#/$defs/state"
+        },
+        "state_after": {
+          "$ref": "#/$defs/state"
+        },
+        "state_change": {
+          "type": "object"
+        },
+        "result": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

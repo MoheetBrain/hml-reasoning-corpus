@@ -1,0 +1,1863 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-012",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-01825",
+  "source_hash": "c212efb8259e63d2919eb2d8d6b859ae5e96a30b2232c7e8821e5a5868ad706c",
+  "category": "Counting & Probability",
+  "level": "Level 4",
+  "problem": "If three, standard, 6-faced dice are rolled, what is the probability that the sum of the face up integers is 16?",
+  "original_solution": "At least one of the dice must come up 6, since otherwise the best we can do is 15.  The other two dice must add up to 10.  There are two ways two dice add to 10: $4+6$ and $5+5$.\n\nSo, we have two cases to consider:\n\nA) The dice are 6, 6, 4.  There are three possible ways this can happen, and the probability of each is $(1/6)^3 = 1/216$.  So, the probability of this case is $3(1/216) = 1/72$.\n\n\nB) The dice are 6, 5, 5.  There are three possible ways this can happen, and the probability of each is $(1/6)^3 = 1/216$.  So, the probability of this case is $3(1/216) = 1/72$.\n\nAdding the probabilities of these two cases gives us a total probability of $\\frac{1}{72} + \\frac{1}{72} = \\boxed{\\frac{1}{36}}$.",
+  "selection_reason": "Finite-case decomposition, impossibility bound, permutation multiplicity, and probability aggregation.",
+  "initial_state": {
+    "objects": [
+      "three six-sided dice"
+    ],
+    "declarations": [
+      "D1,D2,D3 : {1,2,3,4,5,6}"
+    ],
+    "types_domains": [
+      "independent fair dice"
+    ],
+    "facts": [
+      {
+        "id": "fact:sample_space",
+        "statement": "6³ equally likely ordered outcomes",
+        "status": "given"
+      },
+      {
+        "id": "fact:target",
+        "statement": "D1+D2+D3=16",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "probability=1/36",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "At least one of the dice must come up 6, since otherwise the best we can do is 15.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "upper_bound",
+        "description": "The sum of three values at most 5 is at most 15.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:target"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence"
+        ],
+        "notes": "Bound reasoning over finite domains is not a core rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:target"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: at least one die is 6",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:target"
+        ]
+      },
+      "action": {
+        "operation_id": "BOUND_REASONING",
+        "family": "CASE_ANALYSIS",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "at least one die is 6",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "The other two dice must add up to 10.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "arithmetic_constraint",
+        "description": "Subtract the required 6 contribution from the target sum.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:target"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Closed arithmetic is checkable; finite-domain propagation is not."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:target"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:target"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: remaining two dice sum to 10",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:target"
+        ]
+      },
+      "action": {
+        "operation_id": "CONSTRAINT_PROPAGATION",
+        "family": "CASE_ANALYSIS",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "remaining two dice sum to 10",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "There are two ways two dice add to 10: $4+6$ and $5+5$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "finite_exhaustion",
+        "description": "Enumerate all pairs in {1,…,6} summing to 10, up to order.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [
+        {
+          "id": "obl:dice_case_cover",
+          "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+          "status": "discharged",
+          "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:target"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "scope"
+        ],
+        "notes": "No finite enumeration rule or completeness certificate exists."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0001",
+        "MATH-GAP-0004",
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:target"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:target"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [
+          "obl:dice_case_cover"
+        ],
+        "epistemic_update": "Established fact:s3: patterns (6,6,4) and (6,5,5)",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:target"
+        ]
+      },
+      "action": {
+        "operation_id": "ENUMERATE",
+        "family": "CASE_ANALYSIS",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "patterns (6,6,4) and (6,5,5)",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "A) The dice are 6, 6, 4.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "permutation_count",
+        "description": "Choose which die shows 4; the two 6s are identical.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:target"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Permutation counting is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": "case A",
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:target"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case A has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case A"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case A"
+        ],
+        "dependencies": [
+          "fact:target"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: case A has 3 ordered outcomes",
+        "scope_effect": "branch-local",
+        "dependency_effect": [
+          "fact:target"
+        ]
+      },
+      "action": {
+        "operation_id": "COUNT_PERMUTATIONS",
+        "family": "COMBINATORIAL_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "case A has 3 ordered outcomes",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "There are three possible ways this can happen, and the probability of each is $(1/6)^3 = 1/216$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "uniform_product_space",
+        "description": "Each ordered triple has probability 1/216; multiply by the case multiplicity.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:sample_space"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Finite probability and multiplicity need a domain library."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": "case A",
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case A has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case A"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case A"
+        ],
+        "dependencies": [
+          "fact:target"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case A has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(case A)=3/216=1/72",
+            "status": "established",
+            "scope": "case A"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case A"
+        ],
+        "dependencies": [
+          "fact:target",
+          "fact:sample_space"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: P(case A)=3/216=1/72",
+        "scope_effect": "branch-local",
+        "dependency_effect": [
+          "fact:sample_space"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE_PROBABILITY",
+        "family": "PROBABILISTIC_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "P(case A)=3/216=1/72",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s6",
+      "source_span": "B) The dice are 6, 5, 5.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "permutation_count",
+        "description": "Choose which die shows 6; the two 5s are identical.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:target"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Permutation counting is library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": "case B",
+      "result_id": "fact:s6",
+      "state_before": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case A has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(case A)=3/216=1/72",
+            "status": "established",
+            "scope": "case A"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case A"
+        ],
+        "dependencies": [
+          "fact:target",
+          "fact:sample_space"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case A has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(case A)=3/216=1/72",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "case B has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case B"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case A",
+          "branch:case B"
+        ],
+        "dependencies": [
+          "fact:target",
+          "fact:sample_space"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s6: case B has 3 ordered outcomes",
+        "scope_effect": "branch-local",
+        "dependency_effect": [
+          "fact:target"
+        ]
+      },
+      "action": {
+        "operation_id": "COUNT_PERMUTATIONS",
+        "family": "COMBINATORIAL_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "case B has 3 ordered outcomes",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s7",
+      "source_span": "So, the probability of this case is $3(1/216) = 1/72$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "uniform_product_space",
+        "description": "Use the same ordered-outcome probability for case B.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:sample_space"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Finite probability and multiplicity need a domain library."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "branch": "case B",
+      "result_id": "fact:s7",
+      "state_before": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case A has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(case A)=3/216=1/72",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "case B has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case B"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case A",
+          "branch:case B"
+        ],
+        "dependencies": [
+          "fact:target",
+          "fact:sample_space"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_after": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case A has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(case A)=3/216=1/72",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "case B has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case B"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "P(case B)=3/216=1/72",
+            "status": "established",
+            "scope": "case B"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case A",
+          "branch:case B"
+        ],
+        "dependencies": [
+          "fact:target",
+          "fact:sample_space"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S7"
+      },
+      "state_change": {
+        "from": "S6",
+        "to": "S7",
+        "added_facts": [
+          "fact:s7"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s7: P(case B)=3/216=1/72",
+        "scope_effect": "branch-local",
+        "dependency_effect": [
+          "fact:sample_space"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE_PROBABILITY",
+        "family": "PROBABILISTIC_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s7",
+        "statement": "P(case B)=3/216=1/72",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s8",
+      "source_span": "Adding the probabilities of these two cases gives us a total probability of $\\frac{1}{72} + \\frac{1}{72} = \\boxed{\\frac{1}{36}}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "disjoint_case_sum",
+        "description": "The cases are disjoint and exhaustive, so add their probabilities.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:case_A",
+        "fact:case_B"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact rational arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "The final rational sum is checkable after case semantics are supplied."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0001",
+        "MATH-GAP-0004",
+        "MATH-GAP-0008"
+      ],
+      "branch": null,
+      "result_id": "fact:s8",
+      "state_before": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case A has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(case A)=3/216=1/72",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "case B has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case B"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "P(case B)=3/216=1/72",
+            "status": "established",
+            "scope": "case B"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case A",
+          "branch:case B"
+        ],
+        "dependencies": [
+          "fact:target",
+          "fact:sample_space"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S7"
+      },
+      "state_after": {
+        "objects": [
+          "three six-sided dice"
+        ],
+        "declarations": [
+          "D1,D2,D3 : {1,2,3,4,5,6}"
+        ],
+        "types_domains": [
+          "independent fair dice"
+        ],
+        "facts": [
+          {
+            "id": "fact:sample_space",
+            "statement": "6³ equally likely ordered outcomes",
+            "status": "given"
+          },
+          {
+            "id": "fact:target",
+            "statement": "D1+D2+D3=16",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "at least one die is 6",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "remaining two dice sum to 10",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "patterns (6,6,4) and (6,5,5)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "case A has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "P(case A)=3/216=1/72",
+            "status": "established",
+            "scope": "case A"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "case B has 3 ordered outcomes",
+            "status": "established",
+            "scope": "case B"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "P(case B)=3/216=1/72",
+            "status": "established",
+            "scope": "case B"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "P(sum=16)=1/36",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "probability=1/36",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global",
+          "branch:case A",
+          "branch:case B"
+        ],
+        "dependencies": [
+          "fact:target",
+          "fact:sample_space",
+          "fact:case_A",
+          "fact:case_B"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:dice_case_cover",
+            "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+            "status": "discharged",
+            "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S8"
+      },
+      "state_change": {
+        "from": "S7",
+        "to": "S8",
+        "added_facts": [
+          "fact:s8"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s8: P(sum=16)=1/36",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:case_A",
+          "fact:case_B"
+        ]
+      },
+      "action": {
+        "operation_id": "COMBINE_CASE_COUNTS",
+        "family": "PROBABILISTIC_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s8",
+        "statement": "P(sum=16)=1/36",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "three six-sided dice"
+    ],
+    "declarations": [
+      "D1,D2,D3 : {1,2,3,4,5,6}"
+    ],
+    "types_domains": [
+      "independent fair dice"
+    ],
+    "facts": [
+      {
+        "id": "fact:sample_space",
+        "statement": "6³ equally likely ordered outcomes",
+        "status": "given"
+      },
+      {
+        "id": "fact:target",
+        "statement": "D1+D2+D3=16",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "at least one die is 6",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "remaining two dice sum to 10",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "patterns (6,6,4) and (6,5,5)",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "case A has 3 ordered outcomes",
+        "status": "established",
+        "scope": "case A"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "P(case A)=3/216=1/72",
+        "status": "established",
+        "scope": "case A"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "case B has 3 ordered outcomes",
+        "status": "established",
+        "scope": "case B"
+      },
+      {
+        "id": "fact:s7",
+        "statement": "P(case B)=3/216=1/72",
+        "status": "established",
+        "scope": "case B"
+      },
+      {
+        "id": "fact:s8",
+        "statement": "P(sum=16)=1/36",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "probability=1/36",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global",
+      "branch:case A",
+      "branch:case B"
+    ],
+    "dependencies": [
+      "fact:target",
+      "fact:sample_space",
+      "fact:case_A",
+      "fact:case_B"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:dice_case_cover",
+        "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+        "status": "discharged",
+        "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "probability=1/36",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S8"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "BOUND_REASONING",
+    "COMBINE_CASE_COUNTS",
+    "CONSTRAINT_PROPAGATION",
+    "COUNT_PERMUTATIONS",
+    "ENUMERATE",
+    "EVALUATE_PROBABILITY"
+  ],
+  "source_quality": {
+    "explicit_steps": 8,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "MATH-GOLD-012: the listed dice patterns exhaust the finite pairs summing to 10"
+    ],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0001",
+    "MATH-GAP-0004",
+    "MATH-GAP-0008"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

@@ -1,0 +1,869 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-003",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-08680",
+  "source_hash": "762d1c1b1f5e8a29a2ee2a12d8c83d9e84a76bcf78023fad938be9a26d79476e",
+  "category": "Algebra",
+  "level": "Level 1",
+  "problem": "Solve the following equation for $x$: \\[ \\ \\frac{2}{3} = \\frac{4}{x-5}.\\]",
+  "original_solution": "Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the left side gives $2x-10 = 12$.  Adding 10 to both sides gives $2x = 22$ and dividing by 2 gives $x = \\boxed{11}$.",
+  "selection_reason": "Compact equation solving with cross-multiplication, expansion, cancellation, and a denominator restriction.",
+  "initial_state": {
+    "objects": [
+      "x"
+    ],
+    "declarations": [
+      "x : Real"
+    ],
+    "types_domains": [
+      "x ∈ Real"
+    ],
+    "facts": [
+      {
+        "id": "fact:eq",
+        "statement": "2/3=4/(x-5)",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "x=11",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "equality_preservation",
+        "description": "Multiply both sides by the common factors.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "x-5≠0",
+          "status": "implicit",
+          "evidence": "The worked solution does not state this condition explicitly.",
+          "source_omission": true
+        },
+        {
+          "condition": "3≠0",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:denominator",
+          "statement": "x-5≠0",
+          "status": "discharged",
+          "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:eq"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "multiply_both_sides",
+          "partiality"
+        ],
+        "notes": "HML can multiply both sides; denominator obligations are term-level, but cross-multiplication as a compound operation is absent."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:eq",
+            "statement": "2/3=4/(x-5)",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x=11",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:eq",
+            "statement": "2/3=4/(x-5)",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "2(x-5)=12",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x=11",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:eq"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:denominator",
+            "statement": "x-5≠0",
+            "status": "discharged",
+            "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [
+          "obl:denominator"
+        ],
+        "epistemic_update": "Established fact:s1: 2(x-5)=12",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:eq"
+        ]
+      },
+      "action": {
+        "operation_id": "CROSS_MULTIPLY",
+        "family": "EQUATION_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "2(x-5)=12",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Expanding the left side gives $2x-10 = 12$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "distributive_law",
+        "description": "Apply the distributive law.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:eq"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "No trusted symbolic expansion rule is registered."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:eq",
+            "statement": "2/3=4/(x-5)",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "2(x-5)=12",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x=11",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:eq"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:denominator",
+            "statement": "x-5≠0",
+            "status": "discharged",
+            "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:eq",
+            "statement": "2/3=4/(x-5)",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "2(x-5)=12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2x-10=12",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x=11",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:eq"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:denominator",
+            "statement": "x-5≠0",
+            "status": "discharged",
+            "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: 2x-10=12",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:eq"
+        ]
+      },
+      "action": {
+        "operation_id": "EXPAND",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "2x-10=12",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Adding 10 to both sides gives $2x = 22$",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "equality_preservation",
+        "description": "Add the same term to both sides.",
+        "source": "core"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:eq"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "FULL",
+        "constructs": [
+          "add_both_sides"
+        ],
+        "notes": "Current HML has the corresponding trusted rule."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:eq",
+            "statement": "2/3=4/(x-5)",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "2(x-5)=12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2x-10=12",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x=11",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:eq"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:denominator",
+            "statement": "x-5≠0",
+            "status": "discharged",
+            "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:eq",
+            "statement": "2/3=4/(x-5)",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "2(x-5)=12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2x-10=12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2x=22",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x=11",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:eq"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:denominator",
+            "statement": "x-5≠0",
+            "status": "discharged",
+            "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: 2x=22",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:eq"
+        ]
+      },
+      "action": {
+        "operation_id": "ADD_BOTH_SIDES",
+        "family": "EQUATION_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "2x=22",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "and dividing by 2 gives $x = \\boxed{11}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "equality_preservation",
+        "description": "Divide both sides by the nonzero coefficient 2.",
+        "source": "core"
+      },
+      "preconditions": [
+        {
+          "condition": "2≠0",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:eq"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "FULL",
+        "constructs": [
+          "divide_both_sides"
+        ],
+        "notes": "The division rule is current; its obligation is discharged by the literal nonzero divisor."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:eq",
+            "statement": "2/3=4/(x-5)",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "2(x-5)=12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2x-10=12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2x=22",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x=11",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:eq"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:denominator",
+            "statement": "x-5≠0",
+            "status": "discharged",
+            "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "x"
+        ],
+        "declarations": [
+          "x : Real"
+        ],
+        "types_domains": [
+          "x ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:eq",
+            "statement": "2/3=4/(x-5)",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "2(x-5)=12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "2x-10=12",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "2x=22",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "x=11",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "x=11",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:eq"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:denominator",
+            "statement": "x-5≠0",
+            "status": "discharged",
+            "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: x=11",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:eq"
+        ]
+      },
+      "action": {
+        "operation_id": "DIVIDE_BOTH_SIDES",
+        "family": "EQUATION_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "x=11",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "x"
+    ],
+    "declarations": [
+      "x : Real"
+    ],
+    "types_domains": [
+      "x ∈ Real"
+    ],
+    "facts": [
+      {
+        "id": "fact:eq",
+        "statement": "2/3=4/(x-5)",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "2(x-5)=12",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "2x-10=12",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "2x=22",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "x=11",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "x=11",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:eq"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:denominator",
+        "statement": "x-5≠0",
+        "status": "discharged",
+        "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "x=11",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "ADD_BOTH_SIDES",
+    "CROSS_MULTIPLY",
+    "DIVIDE_BOTH_SIDES",
+    "EXPAND"
+  ],
+  "source_quality": {
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "MATH-GOLD-003: x-5≠0",
+      "MATH-GOLD-003: x-5≠0"
+    ],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0003",
+    "MATH-GAP-0006"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

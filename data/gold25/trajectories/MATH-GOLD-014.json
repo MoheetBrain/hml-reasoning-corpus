@@ -1,0 +1,850 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-014",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-10603",
+  "source_hash": "b9f7526975ea526ad61089d8e3a4e66cc5b268a6c30cdacf9edc847ac3a39d2a",
+  "category": "Number Theory",
+  "level": "Level 1",
+  "problem": "The four-digit number $\\underline{374n}$ is divisible by 18. Find the units digit $n$.",
+  "original_solution": "We know that the prime factorization of 18 is $2\\cdot 3^2$, so in order for the four digit number to be divisible by 18 it must also be divisible by 9 and 2. In order for a number to be divisible by 9, the sum of its digits must be divisible by 9 as well. Thus, $3+7+4+n$, or $14+n$, must be divisible by 9. Since 18 is the smallest multiple of 9 that is greater than 10, $14+n=18$, and $n=18-14=\\boxed{4}$.",
+  "selection_reason": "Prime factorization and divisibility rules reduce a digit problem to constrained candidate selection.",
+  "initial_state": {
+    "objects": [
+      "digit n"
+    ],
+    "declarations": [
+      "n : Digit"
+    ],
+    "types_domains": [
+      "n∈{0,…,9}"
+    ],
+    "facts": [
+      {
+        "id": "fact:number",
+        "statement": "374n",
+        "status": "given"
+      },
+      {
+        "id": "fact:divisor",
+        "statement": "18=2·3²",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "n=4",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "We know that the prime factorization of 18 is $2\\cdot 3^2$, so in order for the four digit number to be divisible by 18 it must also be divisible by 9 and 2.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "divisibility_factorization",
+        "description": "A number divisible by 18 is divisible by each prime-power factor 2 and 9.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:number",
+        "fact:divisor"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Number-theoretic divisibility theorems are not trusted core rules."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "digit n"
+        ],
+        "declarations": [
+          "n : Digit"
+        ],
+        "types_domains": [
+          "n∈{0,…,9}"
+        ],
+        "facts": [
+          {
+            "id": "fact:number",
+            "statement": "374n",
+            "status": "given"
+          },
+          {
+            "id": "fact:divisor",
+            "statement": "18=2·3²",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "n=4",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "digit n"
+        ],
+        "declarations": [
+          "n : Digit"
+        ],
+        "types_domains": [
+          "n∈{0,…,9}"
+        ],
+        "facts": [
+          {
+            "id": "fact:number",
+            "statement": "374n",
+            "status": "given"
+          },
+          {
+            "id": "fact:divisor",
+            "statement": "18=2·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "374n must be divisible by 9 and by 2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "n=4",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:number",
+          "fact:divisor"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: 374n must be divisible by 9 and by 2",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:number",
+          "fact:divisor"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_DEFINITION",
+        "family": "THEOREM_APPLICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "374n must be divisible by 9 and by 2",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "In order for a number to be divisible by 9, the sum of its digits must be divisible by 9 as well.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "digit_sum_rule",
+        "description": "Apply the base-10 divisibility-by-9 theorem.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:number"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Digit-sum divisibility requires a number-theory library."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "digit n"
+        ],
+        "declarations": [
+          "n : Digit"
+        ],
+        "types_domains": [
+          "n∈{0,…,9}"
+        ],
+        "facts": [
+          {
+            "id": "fact:number",
+            "statement": "374n",
+            "status": "given"
+          },
+          {
+            "id": "fact:divisor",
+            "statement": "18=2·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "374n must be divisible by 9 and by 2",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "n=4",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:number",
+          "fact:divisor"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "digit n"
+        ],
+        "declarations": [
+          "n : Digit"
+        ],
+        "types_domains": [
+          "n∈{0,…,9}"
+        ],
+        "facts": [
+          {
+            "id": "fact:number",
+            "statement": "374n",
+            "status": "given"
+          },
+          {
+            "id": "fact:divisor",
+            "statement": "18=2·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "374n must be divisible by 9 and by 2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "14+n is divisible by 9",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "n=4",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:number",
+          "fact:divisor"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: 14+n is divisible by 9",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:number"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_THEOREM",
+        "family": "THEOREM_APPLICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "14+n is divisible by 9",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Thus, $3+7+4+n$, or $14+n$, must be divisible by 9.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "finite_digit_domain",
+        "description": "Use n∈{0,…,9} to bound the possible multiples of 9.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "0≤n≤9",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:number"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Finite constraint search is not a kernel operation."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "digit n"
+        ],
+        "declarations": [
+          "n : Digit"
+        ],
+        "types_domains": [
+          "n∈{0,…,9}"
+        ],
+        "facts": [
+          {
+            "id": "fact:number",
+            "statement": "374n",
+            "status": "given"
+          },
+          {
+            "id": "fact:divisor",
+            "statement": "18=2·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "374n must be divisible by 9 and by 2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "14+n is divisible by 9",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "n=4",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:number",
+          "fact:divisor"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "digit n"
+        ],
+        "declarations": [
+          "n : Digit"
+        ],
+        "types_domains": [
+          "n∈{0,…,9}"
+        ],
+        "facts": [
+          {
+            "id": "fact:number",
+            "statement": "374n",
+            "status": "given"
+          },
+          {
+            "id": "fact:divisor",
+            "statement": "18=2·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "374n must be divisible by 9 and by 2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "14+n is divisible by 9",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "14+n ∈ {18,27} under digit bound",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "n=4",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:number",
+          "fact:divisor"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: 14+n ∈ {18,27} under digit bound",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:number"
+        ]
+      },
+      "action": {
+        "operation_id": "BOUND_SEARCH",
+        "family": "CONSTRAINT_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "14+n ∈ {18,27} under digit bound",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Since 18 is the smallest multiple of 9 that is greater than 10, $14+n=18$, and $n=18-14=\\boxed{4}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "minimal_candidate",
+        "description": "Select the digit-compatible multiple and compute n.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "374n divisible by 2",
+          "status": "implicit",
+          "evidence": "The worked solution does not state this condition explicitly.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:number"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact divisibility check",
+        "notes": "The source omits the final explicit evenness check; 3744 is even and divisible by 9, so the conclusion is valid."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Divisibility and finite digit search are library-level."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "digit n"
+        ],
+        "declarations": [
+          "n : Digit"
+        ],
+        "types_domains": [
+          "n∈{0,…,9}"
+        ],
+        "facts": [
+          {
+            "id": "fact:number",
+            "statement": "374n",
+            "status": "given"
+          },
+          {
+            "id": "fact:divisor",
+            "statement": "18=2·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "374n must be divisible by 9 and by 2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "14+n is divisible by 9",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "14+n ∈ {18,27} under digit bound",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "n=4",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:number",
+          "fact:divisor"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "digit n"
+        ],
+        "declarations": [
+          "n : Digit"
+        ],
+        "types_domains": [
+          "n∈{0,…,9}"
+        ],
+        "facts": [
+          {
+            "id": "fact:number",
+            "statement": "374n",
+            "status": "given"
+          },
+          {
+            "id": "fact:divisor",
+            "statement": "18=2·3²",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "374n must be divisible by 9 and by 2",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "14+n is divisible by 9",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "14+n ∈ {18,27} under digit bound",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "n=4",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "n=4",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:number",
+          "fact:divisor"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: n=4",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:number"
+        ]
+      },
+      "action": {
+        "operation_id": "SELECT_CANDIDATE",
+        "family": "CONSTRAINT_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "n=4",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "digit n"
+    ],
+    "declarations": [
+      "n : Digit"
+    ],
+    "types_domains": [
+      "n∈{0,…,9}"
+    ],
+    "facts": [
+      {
+        "id": "fact:number",
+        "statement": "374n",
+        "status": "given"
+      },
+      {
+        "id": "fact:divisor",
+        "statement": "18=2·3²",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "374n must be divisible by 9 and by 2",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "14+n is divisible by 9",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "14+n ∈ {18,27} under digit bound",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "n=4",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "n=4",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:number",
+      "fact:divisor"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "n=4",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_DEFINITION",
+    "APPLY_THEOREM",
+    "BOUND_SEARCH",
+    "SELECT_CANDIDATE"
+  ],
+  "source_quality": {
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "MATH-GOLD-014: 374n divisible by 2"
+    ],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0009"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

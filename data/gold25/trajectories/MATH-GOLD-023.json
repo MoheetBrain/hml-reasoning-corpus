@@ -1,0 +1,598 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-023",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-02646",
+  "source_hash": "1fcb3e761bd1bfebfaf01b9bef883cc564fc158ad9f98b799a424a54fb874722",
+  "category": "Geometry",
+  "level": "Level 3",
+  "problem": "A stick 5 cm long, a stick 9 cm long, and a third stick $n$ cm long form a triangle. What is the sum of all possible whole number values of $n$?",
+  "original_solution": "Using the Triangle Inequality, we see that $n > 4$ and $n < 14,$ so $n$ can be any integer from $5$ to $13,$ inclusive. The sum can be calculated in several ways, but regardless, $5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 = \\boxed{81}.$",
+  "selection_reason": "Triangle inequality creates a bounded integer domain and an exhaustive finite sum.",
+  "initial_state": {
+    "objects": [
+      "sticks 5cm, 9cm, ncm"
+    ],
+    "declarations": [
+      "n : Natural"
+    ],
+    "types_domains": [
+      "n is a whole-number side length"
+    ],
+    "facts": [
+      {
+        "id": "fact:sides",
+        "statement": "5,9,n form a triangle",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "sum of valid n=81",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Using the Triangle Inequality",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "triangle_inequality",
+        "description": "A triangle exists exactly when each side is less than the sum of the other two; with sides 5 and 9 this bounds n.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:sides"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Triangle inequality is not a trusted core theorem."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "sticks 5cm, 9cm, ncm"
+        ],
+        "declarations": [
+          "n : Natural"
+        ],
+        "types_domains": [
+          "n is a whole-number side length"
+        ],
+        "facts": [
+          {
+            "id": "fact:sides",
+            "statement": "5,9,n form a triangle",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "sum of valid n=81",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "sticks 5cm, 9cm, ncm"
+        ],
+        "declarations": [
+          "n : Natural"
+        ],
+        "types_domains": [
+          "n is a whole-number side length"
+        ],
+        "facts": [
+          {
+            "id": "fact:sides",
+            "statement": "5,9,n form a triangle",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "4<n<14",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "sum of valid n=81",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:sides"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: 4<n<14",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:sides"
+        ]
+      },
+      "action": {
+        "operation_id": "APPLY_THEOREM",
+        "family": "THEOREM_APPLICATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "4<n<14",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "so $n$ can be any integer from $5$ to $13,$ inclusive.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "integer_interval_enumeration",
+        "description": "Intersect the open real interval with the integer domain.",
+        "source": "derived"
+      },
+      "preconditions": [
+        {
+          "condition": "n∈Natural",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:sides"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Finite interval enumeration is not native."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0010"
+      ],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "sticks 5cm, 9cm, ncm"
+        ],
+        "declarations": [
+          "n : Natural"
+        ],
+        "types_domains": [
+          "n is a whole-number side length"
+        ],
+        "facts": [
+          {
+            "id": "fact:sides",
+            "statement": "5,9,n form a triangle",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "4<n<14",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "sum of valid n=81",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:sides"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "sticks 5cm, 9cm, ncm"
+        ],
+        "declarations": [
+          "n : Natural"
+        ],
+        "types_domains": [
+          "n is a whole-number side length"
+        ],
+        "facts": [
+          {
+            "id": "fact:sides",
+            "statement": "5,9,n form a triangle",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "4<n<14",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "valid n={5,6,7,8,9,10,11,12,13}",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "sum of valid n=81",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:sides"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: valid n={5,6,7,8,9,10,11,12,13}",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:sides"
+        ]
+      },
+      "action": {
+        "operation_id": "ENUMERATE",
+        "family": "CONSTRAINT_REASONING",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "valid n={5,6,7,8,9,10,11,12,13}",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "The sum can be calculated in several ways, but regardless",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "finite_sum",
+        "description": "Sum every valid integer exactly once.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:sides"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact integer arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "The final arithmetic is checkable; interval derivation is not."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0010"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "sticks 5cm, 9cm, ncm"
+        ],
+        "declarations": [
+          "n : Natural"
+        ],
+        "types_domains": [
+          "n is a whole-number side length"
+        ],
+        "facts": [
+          {
+            "id": "fact:sides",
+            "statement": "5,9,n form a triangle",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "4<n<14",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "valid n={5,6,7,8,9,10,11,12,13}",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "sum of valid n=81",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:sides"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "sticks 5cm, 9cm, ncm"
+        ],
+        "declarations": [
+          "n : Natural"
+        ],
+        "types_domains": [
+          "n is a whole-number side length"
+        ],
+        "facts": [
+          {
+            "id": "fact:sides",
+            "statement": "5,9,n form a triangle",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "4<n<14",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "valid n={5,6,7,8,9,10,11,12,13}",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "sum=81",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "sum of valid n=81",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:sides"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: sum=81",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:sides"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "sum=81",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "sticks 5cm, 9cm, ncm"
+    ],
+    "declarations": [
+      "n : Natural"
+    ],
+    "types_domains": [
+      "n is a whole-number side length"
+    ],
+    "facts": [
+      {
+        "id": "fact:sides",
+        "statement": "5,9,n form a triangle",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "4<n<14",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "valid n={5,6,7,8,9,10,11,12,13}",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "sum=81",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "sum of valid n=81",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:sides"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "sum of valid n=81",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S3"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_THEOREM",
+    "ENUMERATE",
+    "EVALUATE"
+  ],
+  "source_quality": {
+    "explicit_steps": 2,
+    "implicit_steps": 1,
+    "source_omissions": [],
+    "solution_variants": null
+  },
+  "hml_gaps": [
+    "MATH-GAP-0007",
+    "MATH-GAP-0010"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}

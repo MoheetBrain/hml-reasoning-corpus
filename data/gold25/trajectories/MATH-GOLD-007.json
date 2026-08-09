@@ -1,0 +1,1294 @@
+{
+  "schema_version": "math-discovery-0.1.0",
+  "problem_id": "MATH-GOLD-007",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-03469",
+  "source_hash": "96270431ed4dfc49a0f420c874bace8d776957de68574136a452f48c4ffb73f5",
+  "category": "Intermediate Algebra",
+  "level": "Level 1",
+  "problem": "Two real numbers $x$ and $y$ satisfy $x-y=4$ and $x^3-y^3=28$.  Compute $xy$.",
+  "original_solution": "Solution 1. The first equation gives $x = y+4$. Substituting into the second equation, we get \\[(y+4)^3 - y^3 = 28 \\implies 12y^2 + 48y + 36 = 0.\\]Thus, $y^2 + 4y + 3 = 0$, so $(y+1)(y+3) = 0$. Therefore, either $y=-1$ and $x=y+4=3$, or $y=-3$ and $x=y+4=1$. Either way, $xy = \\boxed{-3}$.\n\nSolution 2. The second equation factors via difference of cubes, as \\[(x-y)(x^2+xy+y^2) = 28.\\]Since $x-y=4$, we have $x^2+xy+y^2=\\frac{28}{4} =7$. Now, squaring the first equation, we get $x^2-2xy+y^2=16$. Thus, \\[3xy = (x^2+xy+y^2) - (x^2-2xy+y^2) = 7-16=-9,\\]so $xy = \\frac{-9}{3} = \\boxed{-3}$.",
+  "selection_reason": "Shows substitution, polynomial expansion/factoring, alternative derivation, and a result invariant across candidates.",
+  "initial_state": {
+    "objects": [
+      "x",
+      "y"
+    ],
+    "declarations": [
+      "x : Real",
+      "y : Real"
+    ],
+    "types_domains": [
+      "x,y ∈ Real"
+    ],
+    "facts": [
+      {
+        "id": "fact:diff",
+        "statement": "x-y=4",
+        "status": "given"
+      },
+      {
+        "id": "fact:cubes",
+        "statement": "x³-y³=28",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "xy=-3",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "The first equation gives $x = y+4$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "equality_preservation",
+        "description": "Add y to both sides of x-y=4.",
+        "source": "core"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:diff"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "add_both_sides"
+        ],
+        "notes": "Native equality transformation can express this local step."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s1",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s1: x=y+4",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:diff"
+        ]
+      },
+      "action": {
+        "operation_id": "SUBSTITUTE",
+        "family": "SUBSTITUTION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "x=y+4",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Substituting into the second equation, we get",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "equality_substitution",
+        "description": "Replace x by y+4 in the cubic equation.",
+        "source": "core"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:diff",
+        "fact:cubes"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "FULL",
+        "constructs": [
+          "substitute"
+        ],
+        "notes": "Current HML has the corresponding trusted rule."
+      },
+      "semantic_gap_ids": [],
+      "branch": null,
+      "result_id": "fact:s2",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(y+4)³-y³=28",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff",
+          "fact:cubes"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s2: (y+4)³-y³=28",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:diff",
+          "fact:cubes"
+        ]
+      },
+      "action": {
+        "operation_id": "SUBSTITUTE",
+        "family": "SUBSTITUTION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "(y+4)³-y³=28",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s3",
+      "source_span": "12y^2 + 48y + 36 = 0.",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "polynomial_expansion",
+        "description": "Expand and collect polynomial terms.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:cubes"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "No trusted symbolic polynomial expansion rule."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s3",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(y+4)³-y³=28",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff",
+          "fact:cubes"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(y+4)³-y³=28",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "12y²+48y+36=0",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff",
+          "fact:cubes"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s3: 12y²+48y+36=0",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:cubes"
+        ]
+      },
+      "action": {
+        "operation_id": "EXPAND",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "12y²+48y+36=0",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Thus, $y^2 + 4y + 3 = 0$, so $(y+1)(y+3) = 0$.",
+      "explicitness": "implicit",
+      "warrant": {
+        "kind": "factorization",
+        "description": "Scale the equation and factor the quadratic.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:cubes"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "evidence"
+        ],
+        "notes": "Symbolic factorization is not trusted in current HML."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0006"
+      ],
+      "branch": null,
+      "result_id": "fact:s4",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(y+4)³-y³=28",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "12y²+48y+36=0",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff",
+          "fact:cubes"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(y+4)³-y³=28",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "12y²+48y+36=0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "(y+1)(y+3)=0",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff",
+          "fact:cubes"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s4: (y+1)(y+3)=0",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:cubes"
+        ]
+      },
+      "action": {
+        "operation_id": "FACTOR",
+        "family": "ALGEBRAIC_TRANSFORMATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "(y+1)(y+3)=0",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Therefore, either $y=-1$ and $x=y+4=3$, or $y=-3$ and $x=y+4=1$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "zero_product_property",
+        "description": "A product is zero only when at least one factor is zero, then recover x by substitution.",
+        "source": "library"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:diff",
+        "fact:cubes"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "MANUAL_SEMANTIC_CHECK",
+        "backend": "audited source reasoning",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "scope"
+        ],
+        "notes": "Case scopes exist, but no zero-product/case coverage rule is in the kernel."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0001",
+        "MATH-GAP-0007"
+      ],
+      "branch": null,
+      "result_id": "fact:s5",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(y+4)³-y³=28",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "12y²+48y+36=0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "(y+1)(y+3)=0",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff",
+          "fact:cubes"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(y+4)³-y³=28",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "12y²+48y+36=0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "(y+1)(y+3)=0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "candidate 1 (x,y)=(3,-1); candidate 2 (x,y)=(1,-3)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff",
+          "fact:cubes"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s5: candidate 1 (x,y)=(3,-1); candidate 2 (x,y)=(1,-3)",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:diff",
+          "fact:cubes"
+        ]
+      },
+      "action": {
+        "operation_id": "CASE_SPLIT",
+        "family": "CASE_ANALYSIS",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "candidate 1 (x,y)=(3,-1); candidate 2 (x,y)=(1,-3)",
+        "status": "established"
+      }
+    },
+    {
+      "step_id": "s6",
+      "source_span": "Either way, $xy = \\boxed{-3}$.",
+      "explicitness": "explicit",
+      "warrant": {
+        "kind": "case_invariant",
+        "description": "Evaluate the requested expression in every surviving branch.",
+        "source": "derived"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:candidate_1",
+        "fact:candidate_2"
+      ],
+      "verification": {
+        "status": "verified",
+        "category": "VERIFIED_EXACT",
+        "backend": "exact arithmetic",
+        "notes": "The result follows from the recorded premises and the stated warrant."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1"
+        ],
+        "notes": "Closed branch-local arithmetic is checkable; branch merge is not native."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0001"
+      ],
+      "branch": null,
+      "result_id": "fact:s6",
+      "state_before": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(y+4)³-y³=28",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "12y²+48y+36=0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "(y+1)(y+3)=0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "candidate 1 (x,y)=(3,-1); candidate 2 (x,y)=(1,-3)",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff",
+          "fact:cubes"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "x",
+          "y"
+        ],
+        "declarations": [
+          "x : Real",
+          "y : Real"
+        ],
+        "types_domains": [
+          "x,y ∈ Real"
+        ],
+        "facts": [
+          {
+            "id": "fact:diff",
+            "statement": "x-y=4",
+            "status": "given"
+          },
+          {
+            "id": "fact:cubes",
+            "statement": "x³-y³=28",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "x=y+4",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(y+4)³-y³=28",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "12y²+48y+36=0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "(y+1)(y+3)=0",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "candidate 1 (x,y)=(3,-1); candidate 2 (x,y)=(1,-3)",
+            "status": "established",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "both candidates yield xy=-3",
+            "status": "established",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "xy=-3",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:diff",
+          "fact:cubes",
+          "fact:candidate_1",
+          "fact:candidate_2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "removed_obligations": [],
+        "epistemic_update": "Established fact:s6: both candidates yield xy=-3",
+        "scope_effect": "global/current scope",
+        "dependency_effect": [
+          "fact:candidate_1",
+          "fact:candidate_2"
+        ]
+      },
+      "action": {
+        "operation_id": "EVALUATE",
+        "family": "EVALUATION",
+        "arguments": {}
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "both candidates yield xy=-3",
+        "status": "established"
+      }
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "x",
+      "y"
+    ],
+    "declarations": [
+      "x : Real",
+      "y : Real"
+    ],
+    "types_domains": [
+      "x,y ∈ Real"
+    ],
+    "facts": [
+      {
+        "id": "fact:diff",
+        "statement": "x-y=4",
+        "status": "given"
+      },
+      {
+        "id": "fact:cubes",
+        "statement": "x³-y³=28",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "x=y+4",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "(y+4)³-y³=28",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "12y²+48y+36=0",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "(y+1)(y+3)=0",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "candidate 1 (x,y)=(3,-1); candidate 2 (x,y)=(1,-3)",
+        "status": "established",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "both candidates yield xy=-3",
+        "status": "established",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "xy=-3",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:diff",
+      "fact:cubes",
+      "fact:candidate_1",
+      "fact:candidate_2"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "xy=-3",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S6"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "CASE_SPLIT",
+    "EVALUATE",
+    "EXPAND",
+    "FACTOR",
+    "SUBSTITUTE"
+  ],
+  "source_quality": {
+    "explicit_steps": 4,
+    "implicit_steps": 2,
+    "source_omissions": [],
+    "solution_variants": "source contains two solution paths"
+  },
+  "hml_gaps": [
+    "MATH-GAP-0001",
+    "MATH-GAP-0006",
+    "MATH-GAP-0007"
+  ],
+  "canonical_verification": {
+    "status": "MANUAL_SEMANTIC_CHECK",
+    "notes": "The trajectory is an audited reconstruction of the worked solution; exact arithmetic subclaims are marked at step level."
+  }
+}
