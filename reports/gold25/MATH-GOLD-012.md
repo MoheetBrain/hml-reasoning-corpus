@@ -127,7 +127,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 **Obligations created:**
 - none
 
-**Dependencies:** fact:target
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` remaining two dice sum to 10
 
@@ -155,6 +155,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `goal:answer` probability=1/36 (goal_open)
 **Dependencies:**
 - fact:target
+- fact:s1
 
 ### Step 3: ENUMERATE
 
@@ -180,8 +181,9 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `goal:answer` probability=1/36 (goal_open)
 **Dependencies:**
 - fact:target
+- fact:s1
 
-**Arguments:** `{}`
+**Arguments:** `{"branches": ["case A", "case B"]}`
 
 **Warrant:** Enumerate all pairs in {1,…,6} summing to 10, up to order. (`finite_exhaustion`, source `derived`)
 
@@ -191,7 +193,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 **Obligations created:**
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 — `discharged`
 
-**Dependencies:** fact:target
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` patterns (6,6,4) and (6,5,5)
 
@@ -203,7 +205,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 
 **State after:**
 
-`S3` scope: global
+`S3` scope: global, branch:case A, branch:case B
 **Objects:**
 - three six-sided dice
 **Declarations:**
@@ -222,6 +224,8 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
 
 ### Step 4: COUNT_PERMUTATIONS
 
@@ -231,7 +235,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 
 **State before:**
 
-`S3` scope: global
+`S3` scope: global, branch:case A, branch:case B
 **Objects:**
 - three six-sided dice
 **Declarations:**
@@ -250,6 +254,8 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -261,7 +267,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 **Obligations created:**
 - none
 
-**Dependencies:** fact:target
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` case A has 3 ordered outcomes
 
@@ -273,7 +279,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 
 **State after:**
 
-`S4` scope: global, branch:case A
+`S4` scope: global, branch:case A, branch:case B
 **Objects:**
 - three six-sided dice
 **Declarations:**
@@ -293,6 +299,9 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
 
 ### Step 5: EVALUATE_PROBABILITY
 
@@ -302,7 +311,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 
 **State before:**
 
-`S4` scope: global, branch:case A
+`S4` scope: global, branch:case A, branch:case B
 **Objects:**
 - three six-sided dice
 **Declarations:**
@@ -322,6 +331,9 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -333,7 +345,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 **Obligations created:**
 - none
 
-**Dependencies:** fact:sample_space
+**Dependencies:** fact:s4, fact:sample_space
 
 **Result:** `fact:s5` P(case A)=3/216=1/72
 
@@ -345,7 +357,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 
 **State after:**
 
-`S5` scope: global, branch:case A
+`S5` scope: global, branch:case A, branch:case B
 **Objects:**
 - three six-sided dice
 **Declarations:**
@@ -366,6 +378,10 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 - fact:sample_space
 
 ### Step 6: COUNT_PERMUTATIONS
@@ -376,7 +392,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 
 **State before:**
 
-`S5` scope: global, branch:case A
+`S5` scope: global, branch:case A, branch:case B
 **Objects:**
 - three six-sided dice
 **Declarations:**
@@ -397,6 +413,10 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 - fact:sample_space
 
 **Arguments:** `{}`
@@ -409,7 +429,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 **Obligations created:**
 - none
 
-**Dependencies:** fact:target
+**Dependencies:** fact:s3
 
 **Result:** `fact:s6` case B has 3 ordered outcomes
 
@@ -443,6 +463,10 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 - fact:sample_space
 
 ### Step 7: EVALUATE_PROBABILITY
@@ -475,6 +499,10 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 - fact:sample_space
 
 **Arguments:** `{}`
@@ -487,7 +515,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 **Obligations created:**
 - none
 
-**Dependencies:** fact:sample_space
+**Dependencies:** fact:s6, fact:sample_space
 
 **Result:** `fact:s7` P(case B)=3/216=1/72
 
@@ -522,7 +550,12 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 - fact:sample_space
+- fact:s6
 
 ### Step 8: COMBINE_CASE_COUNTS
 
@@ -555,7 +588,12 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 - fact:sample_space
+- fact:s6
 
 **Arguments:** `{}`
 
@@ -567,7 +605,7 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 **Obligations created:**
 - none
 
-**Dependencies:** fact:case_A, fact:case_B
+**Dependencies:** fact:s5, fact:s7
 
 **Result:** `fact:s8` P(sum=16)=1/36
 
@@ -603,9 +641,14 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 - fact:sample_space
-- fact:case_A
-- fact:case_B
+- fact:s6
+- fact:s5
+- fact:s7
 
 ## Final state
 
@@ -633,9 +676,14 @@ Adding the probabilities of these two cases gives us a total probability of $\fr
 - `obl:dice_case_cover` the listed dice patterns exhaust the finite pairs summing to 10 (discharged)
 **Dependencies:**
 - fact:target
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 - fact:sample_space
-- fact:case_A
-- fact:case_B
+- fact:s6
+- fact:s5
+- fact:s7
 
 **Goal status:** `discharged`
 

@@ -164,6 +164,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: 72=2³·3²",
         "scope_effect": "global/current scope",
@@ -193,7 +194,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:factorization"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -300,7 +301,7 @@
           "global"
         ],
         "dependencies": [
-          "fact:factorization"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -313,11 +314,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:factorization"
+          "fact:s1"
         ]
       },
       "action": {
@@ -344,7 +346,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:factorization"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -408,7 +410,7 @@
           "global"
         ],
         "dependencies": [
-          "fact:factorization"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -465,7 +467,7 @@
           "global"
         ],
         "dependencies": [
-          "fact:factorization"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -478,11 +480,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: e₂,e₃ must be multiples of 3",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:factorization"
+          "fact:s1"
         ]
       },
       "action": {
@@ -509,7 +512,8 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:factorization"
+        "fact:s2",
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -580,7 +584,7 @@
           "global"
         ],
         "dependencies": [
-          "fact:factorization"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -643,7 +647,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:factorization"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -656,11 +662,13 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: admissible exponent choices: e₂∈{0,3}, e₃=0",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:factorization"
+          "fact:s2",
+          "fact:s3"
         ]
       },
       "action": {
@@ -687,7 +695,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:factorization"
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -763,7 +771,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:factorization"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -832,7 +842,10 @@
           "global"
         ],
         "dependencies": [
-          "fact:factorization"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -845,11 +858,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: count=2",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:factorization"
+          "fact:s4"
         ]
       },
       "action": {
@@ -926,7 +940,10 @@
       "global"
     ],
     "dependencies": [
-      "fact:factorization"
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

@@ -119,7 +119,7 @@ Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the l
 **Obligations created:**
 - none
 
-**Dependencies:** fact:eq
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` 2x-10=12
 
@@ -148,6 +148,7 @@ Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the l
 - `obl:denominator` x-5≠0 (discharged)
 **Dependencies:**
 - fact:eq
+- fact:s1
 
 ### Step 3: ADD_BOTH_SIDES
 
@@ -174,6 +175,7 @@ Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the l
 - `obl:denominator` x-5≠0 (discharged)
 **Dependencies:**
 - fact:eq
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -185,7 +187,7 @@ Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the l
 **Obligations created:**
 - none
 
-**Dependencies:** fact:eq
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` 2x=22
 
@@ -215,6 +217,8 @@ Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the l
 - `obl:denominator` x-5≠0 (discharged)
 **Dependencies:**
 - fact:eq
+- fact:s1
+- fact:s2
 
 ### Step 4: DIVIDE_BOTH_SIDES
 
@@ -242,6 +246,8 @@ Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the l
 - `obl:denominator` x-5≠0 (discharged)
 **Dependencies:**
 - fact:eq
+- fact:s1
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -253,7 +259,7 @@ Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the l
 **Obligations created:**
 - none
 
-**Dependencies:** fact:eq
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` x=11
 
@@ -284,6 +290,9 @@ Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the l
 - `obl:denominator` x-5≠0 (discharged)
 **Dependencies:**
 - fact:eq
+- fact:s1
+- fact:s2
+- fact:s3
 
 ## Final state
 
@@ -306,6 +315,9 @@ Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.  Expanding the l
 - `obl:denominator` x-5≠0 (discharged)
 **Dependencies:**
 - fact:eq
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Goal status:** `discharged`
 

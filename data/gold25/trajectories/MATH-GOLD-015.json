@@ -183,6 +183,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: a names the desired positive integer",
         "scope_effect": "global/current scope",
@@ -346,6 +347,7 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: a=4+5n for n≥0",
         "scope_effect": "global/current scope",
@@ -377,7 +379,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:congruence_5",
+        "fact:s2",
         "fact:congruence_7"
       ],
       "verification": {
@@ -514,6 +516,7 @@
         ],
         "dependencies": [
           "fact:congruence_5",
+          "fact:s2",
           "fact:congruence_7"
         ],
         "open_obligations": [],
@@ -527,11 +530,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: n≡6 mod 7",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:congruence_5",
+          "fact:s2",
           "fact:congruence_7"
         ]
       },
@@ -566,7 +570,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:congruence_7"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -644,6 +648,7 @@
         ],
         "dependencies": [
           "fact:congruence_5",
+          "fact:s2",
           "fact:congruence_7"
         ],
         "open_obligations": [],
@@ -715,7 +720,9 @@
         ],
         "dependencies": [
           "fact:congruence_5",
-          "fact:congruence_7"
+          "fact:s2",
+          "fact:congruence_7",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -728,11 +735,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: n≥6",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:congruence_7"
+          "fact:s3"
         ]
       },
       "action": {
@@ -755,11 +763,24 @@
         "description": "The affine expression increases with n.",
         "source": "derived"
       },
-      "preconditions": [],
+      "preconditions": [
+        {
+          "condition": "n≥6",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        },
+        {
+          "condition": "5>0",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        }
+      ],
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:congruence_5"
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -843,7 +864,9 @@
         ],
         "dependencies": [
           "fact:congruence_5",
-          "fact:congruence_7"
+          "fact:s2",
+          "fact:congruence_7",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -920,7 +943,10 @@
         ],
         "dependencies": [
           "fact:congruence_5",
-          "fact:congruence_7"
+          "fact:s2",
+          "fact:congruence_7",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -933,15 +959,16 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: a≥34",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:congruence_5"
+          "fact:s4"
         ]
       },
       "action": {
-        "operation_id": "EVALUATE",
+        "operation_id": "BOUND_REASONING",
         "family": "CONSTRAINT_REASONING",
         "arguments": {}
       },
@@ -964,6 +991,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
+        "fact:s5",
         "fact:congruence_5",
         "fact:congruence_7"
       ],
@@ -1056,7 +1084,10 @@
         ],
         "dependencies": [
           "fact:congruence_5",
-          "fact:congruence_7"
+          "fact:s2",
+          "fact:congruence_7",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1139,7 +1170,11 @@
         ],
         "dependencies": [
           "fact:congruence_5",
-          "fact:congruence_7"
+          "fact:s2",
+          "fact:congruence_7",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1152,10 +1187,12 @@
         "added_facts": [
           "fact:s6"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s6: a=34 is minimal and satisfies both congruences",
         "scope_effect": "global/current scope",
         "dependency_effect": [
+          "fact:s5",
           "fact:congruence_5",
           "fact:congruence_7"
         ]
@@ -1248,7 +1285,11 @@
     ],
     "dependencies": [
       "fact:congruence_5",
-      "fact:congruence_7"
+      "fact:s2",
+      "fact:congruence_7",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5"
     ],
     "open_obligations": [],
     "discharged_obligations": [],
@@ -1263,8 +1304,8 @@
   },
   "goal_status": "discharged",
   "operations_observed": [
+    "BOUND_REASONING",
     "BOUND_SEARCH",
-    "EVALUATE",
     "INTRODUCE_VARIABLE",
     "PARAMETERIZE_CONGRUENCE",
     "SUBSTITUTE",

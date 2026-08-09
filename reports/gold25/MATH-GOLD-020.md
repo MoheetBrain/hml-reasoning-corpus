@@ -63,7 +63,7 @@ Expanding the dot product, we get
 **Obligations created:**
 - none
 
-**Dependencies:** fact:norm_a, fact:norm_b
+**Dependencies:** none
 
 **Result:** `fact:s1` (a+b)·(a-b)=a·a+b·a-a·b-b·b
 
@@ -88,9 +88,6 @@ Expanding the dot product, we get
 - `fact:s1` (a+b)·(a-b)=a·a+b·a-a·b-b·b (established)
 **Goals:**
 - `goal:answer` (a+b)·(a-b)=-27 (goal_open)
-**Dependencies:**
-- fact:norm_a
-- fact:norm_b
 
 ### Step 2: CANCEL_SYMMETRIC_TERMS
 
@@ -113,9 +110,6 @@ Expanding the dot product, we get
 - `fact:s1` (a+b)·(a-b)=a·a+b·a-a·b-b·b (established)
 **Goals:**
 - `goal:answer` (a+b)·(a-b)=-27 (goal_open)
-**Dependencies:**
-- fact:norm_a
-- fact:norm_b
 
 **Arguments:** `{}`
 
@@ -127,7 +121,7 @@ Expanding the dot product, we get
 **Obligations created:**
 - none
 
-**Dependencies:** fact:norm_a, fact:norm_b
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` cross terms cancel
 
@@ -154,8 +148,7 @@ Expanding the dot product, we get
 **Goals:**
 - `goal:answer` (a+b)·(a-b)=-27 (goal_open)
 **Dependencies:**
-- fact:norm_a
-- fact:norm_b
+- fact:s1
 
 ### Step 3: APPLY_DEFINITION
 
@@ -180,8 +173,7 @@ Expanding the dot product, we get
 **Goals:**
 - `goal:answer` (a+b)·(a-b)=-27 (goal_open)
 **Dependencies:**
-- fact:norm_a
-- fact:norm_b
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -193,7 +185,7 @@ Expanding the dot product, we get
 **Obligations created:**
 - none
 
-**Dependencies:** fact:norm_a, fact:norm_b
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` ||a||²-||b||²
 
@@ -221,8 +213,8 @@ Expanding the dot product, we get
 **Goals:**
 - `goal:answer` (a+b)·(a-b)=-27 (goal_open)
 **Dependencies:**
-- fact:norm_a
-- fact:norm_b
+- fact:s1
+- fact:s2
 
 ### Step 4: EVALUATE
 
@@ -248,8 +240,8 @@ Expanding the dot product, we get
 **Goals:**
 - `goal:answer` (a+b)·(a-b)=-27 (goal_open)
 **Dependencies:**
-- fact:norm_a
-- fact:norm_b
+- fact:s1
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -261,7 +253,7 @@ Expanding the dot product, we get
 **Obligations created:**
 - none
 
-**Dependencies:** fact:norm_a, fact:norm_b
+**Dependencies:** fact:s3, fact:norm_a, fact:norm_b
 
 **Result:** `fact:s4` (a+b)·(a-b)=-27
 
@@ -290,6 +282,9 @@ Expanding the dot product, we get
 **Goals:**
 - `goal:answer` (a+b)·(a-b)=-27 (goal_open)
 **Dependencies:**
+- fact:s1
+- fact:s2
+- fact:s3
 - fact:norm_a
 - fact:norm_b
 
@@ -312,6 +307,9 @@ Expanding the dot product, we get
 **Goals:**
 - `goal:answer` (a+b)·(a-b)=-27 (goal_discharged)
 **Dependencies:**
+- fact:s1
+- fact:s2
+- fact:s3
 - fact:norm_a
 - fact:norm_b
 

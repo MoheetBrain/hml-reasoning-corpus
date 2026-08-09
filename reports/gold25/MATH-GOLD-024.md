@@ -112,7 +112,7 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Obligations created:**
 - none
 
-**Dependencies:** fact:expression
+**Dependencies:** fact:s1, fact:expression
 
 **Result:** `fact:s2` 1+12-3+20÷2
 
@@ -136,6 +136,7 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Goals:**
 - `goal:answer` value=20 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:expression
 
 ### Step 3: EVALUATE
@@ -158,6 +159,7 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Goals:**
 - `goal:answer` value=20 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:expression
 
 **Arguments:** `{}`
@@ -170,7 +172,7 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Obligations created:**
 - none
 
-**Dependencies:** fact:expression
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` 1+12-3+10
 
@@ -195,7 +197,9 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Goals:**
 - `goal:answer` value=20 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:expression
+- fact:s2
 
 ### Step 4: EVALUATE
 
@@ -218,7 +222,9 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Goals:**
 - `goal:answer` value=20 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:expression
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -230,7 +236,7 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Obligations created:**
 - none
 
-**Dependencies:** fact:expression
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` 13-3+10=10+10
 
@@ -256,7 +262,10 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Goals:**
 - `goal:answer` value=20 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:expression
+- fact:s2
+- fact:s3
 
 ### Step 5: DISCHARGE_GOAL
 
@@ -280,7 +289,10 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Goals:**
 - `goal:answer` value=20 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:expression
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -292,7 +304,7 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Obligations created:**
 - none
 
-**Dependencies:** fact:expression
+**Dependencies:** fact:s4
 
 **Result:** `fact:s5` value=20
 
@@ -317,9 +329,13 @@ When solving this problem, we must remember to apply the order of operations. Fi
 - `fact:s4` 13-3+10=10+10 (established)
 - `fact:s5` value=20 (established)
 **Goals:**
-- `goal:answer` value=20 (goal_open)
+- `goal:answer` value=20 (goal_discharged)
 **Dependencies:**
+- fact:s1
 - fact:expression
+- fact:s2
+- fact:s3
+- fact:s4
 
 ## Final state
 
@@ -338,7 +354,11 @@ When solving this problem, we must remember to apply the order of operations. Fi
 **Goals:**
 - `goal:answer` value=20 (goal_discharged)
 **Dependencies:**
+- fact:s1
 - fact:expression
+- fact:s2
+- fact:s3
+- fact:s4
 
 **Goal status:** `discharged`
 

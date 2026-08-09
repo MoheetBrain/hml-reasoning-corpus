@@ -122,7 +122,7 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Obligations created:**
 - none
 
-**Dependencies:** none
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` cost_A=10x; cost_B=2000+5x
 
@@ -149,6 +149,8 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 - `fact:s2` cost_A=10x; cost_B=2000+5x (established)
 **Goals:**
 - `goal:answer` minimum x=401 (goal_open)
+**Dependencies:**
+- fact:s1
 
 ### Step 3: FORMULATE_INEQUALITY
 
@@ -173,6 +175,8 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 - `fact:s2` cost_A=10x; cost_B=2000+5x (established)
 **Goals:**
 - `goal:answer` minimum x=401 (goal_open)
+**Dependencies:**
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -184,7 +188,7 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:plan_A, fact:plan_B
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` 2000+5x<10x
 
@@ -213,8 +217,8 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Goals:**
 - `goal:answer` minimum x=401 (goal_open)
 **Dependencies:**
-- fact:plan_A
-- fact:plan_B
+- fact:s1
+- fact:s2
 
 ### Step 4: SUBTRACT_BOTH_SIDES
 
@@ -241,8 +245,8 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Goals:**
 - `goal:answer` minimum x=401 (goal_open)
 **Dependencies:**
-- fact:plan_A
-- fact:plan_B
+- fact:s1
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -254,7 +258,7 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:plan_A, fact:plan_B
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` x>400
 
@@ -284,8 +288,9 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Goals:**
 - `goal:answer` minimum x=401 (goal_open)
 **Dependencies:**
-- fact:plan_A
-- fact:plan_B
+- fact:s1
+- fact:s2
+- fact:s3
 
 ### Step 5: ROUND_TO_DOMAIN
 
@@ -313,8 +318,9 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Goals:**
 - `goal:answer` minimum x=401 (goal_open)
 **Dependencies:**
-- fact:plan_A
-- fact:plan_B
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -326,7 +332,7 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:plan_A, fact:plan_B
+**Dependencies:** fact:s4
 
 **Result:** `fact:s5` minimum whole-number x=401
 
@@ -357,8 +363,10 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Goals:**
 - `goal:answer` minimum x=401 (goal_open)
 **Dependencies:**
-- fact:plan_A
-- fact:plan_B
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 
 ### Step 6: VERIFY_CANDIDATE
 
@@ -387,8 +395,10 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Goals:**
 - `goal:answer` minimum x=401 (goal_open)
 **Dependencies:**
-- fact:plan_A
-- fact:plan_B
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 
 **Arguments:** `{}`
 
@@ -400,7 +410,7 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Obligations created:**
 - `obl:threshold_minimality` x=401 is the least natural number satisfying x>400 — `discharged`
 
-**Dependencies:** fact:plan_A, fact:plan_B
+**Dependencies:** fact:s5
 
 **Result:** `fact:s6` x=401 satisfies cost_B<cost_A and is minimal
 
@@ -434,8 +444,11 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Discharged obligations:**
 - `obl:threshold_minimality` x=401 is the least natural number satisfying x>400 (discharged)
 **Dependencies:**
-- fact:plan_A
-- fact:plan_B
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 ## Final state
 
@@ -461,8 +474,11 @@ Let $x$ be the number of minutes that Bob anticipates using. Plan A costs $10x$ 
 **Discharged obligations:**
 - `obl:threshold_minimality` x=401 is the least natural number satisfying x>400 (discharged)
 **Dependencies:**
-- fact:plan_A
-- fact:plan_B
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 **Goal status:** `discharged`
 

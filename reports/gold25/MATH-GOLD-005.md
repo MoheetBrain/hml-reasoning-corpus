@@ -124,7 +124,7 @@ A=J
 **Obligations created:**
 - none
 
-**Dependencies:** none
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` A=3B, J=B+6, A=J
 
@@ -152,6 +152,8 @@ A=J
 - `fact:s2` A=3B, J=B+6, A=J (established)
 **Goals:**
 - `goal:answer` B=3 (goal_open)
+**Dependencies:**
+- fact:s1
 
 ### Step 3: SUBSTITUTE
 
@@ -177,6 +179,8 @@ A=J
 - `fact:s2` A=3B, J=B+6, A=J (established)
 **Goals:**
 - `goal:answer` B=3 (goal_open)
+**Dependencies:**
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -188,7 +192,7 @@ A=J
 **Obligations created:**
 - none
 
-**Dependencies:** fact:system
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` 3B=B+6
 
@@ -218,7 +222,8 @@ A=J
 **Goals:**
 - `goal:answer` B=3 (goal_open)
 **Dependencies:**
-- fact:system
+- fact:s1
+- fact:s2
 
 ### Step 4: SOLVE
 
@@ -246,7 +251,8 @@ A=J
 **Goals:**
 - `goal:answer` B=3 (goal_open)
 **Dependencies:**
-- fact:system
+- fact:s1
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -258,7 +264,7 @@ A=J
 **Obligations created:**
 - none
 
-**Dependencies:** fact:system
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` B=3
 
@@ -289,7 +295,9 @@ A=J
 **Goals:**
 - `goal:answer` B=3 (goal_open)
 **Dependencies:**
-- fact:system
+- fact:s1
+- fact:s2
+- fact:s3
 
 ### Step 5: DISCHARGE_GOAL
 
@@ -318,7 +326,9 @@ A=J
 **Goals:**
 - `goal:answer` B=3 (goal_open)
 **Dependencies:**
-- fact:system
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -330,7 +340,7 @@ A=J
 **Obligations created:**
 - none
 
-**Dependencies:** fact:B
+**Dependencies:** fact:s4
 
 **Result:** `fact:s5` goal B=3 discharged
 
@@ -360,10 +370,12 @@ A=J
 - `fact:s4` B=3 (established)
 - `fact:s5` goal B=3 discharged (established)
 **Goals:**
-- `goal:answer` B=3 (goal_open)
+- `goal:answer` B=3 (goal_discharged)
 **Dependencies:**
-- fact:system
-- fact:B
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 
 ## Final state
 
@@ -387,8 +399,10 @@ A=J
 **Goals:**
 - `goal:answer` B=3 (goal_discharged)
 **Dependencies:**
-- fact:system
-- fact:B
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 
 **Goal status:** `discharged`
 

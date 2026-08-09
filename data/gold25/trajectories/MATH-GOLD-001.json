@@ -186,14 +186,15 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: continuity reduces to matching adjacent branch values at x=2 and x=-2",
         "scope_effect": "global/current scope",
         "dependency_effect": []
       },
       "action": {
-        "operation_id": "INTRODUCE_VARIABLE",
-        "family": "DECLARATION",
+        "operation_id": "APPLY_DEFINITION",
+        "family": "DEFINITION_APPLICATION",
         "arguments": {}
       },
       "result": {
@@ -349,6 +350,7 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: 2a+3=-3",
         "scope_effect": "global/current scope",
@@ -382,7 +384,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:piecewise"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -518,7 +520,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:piecewise"
+          "fact:piecewise",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -531,11 +534,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: a=-3",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:piecewise"
+          "fact:s2"
         ]
       },
       "action": {
@@ -639,7 +643,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:piecewise"
+          "fact:piecewise",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -709,7 +714,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:piecewise"
+          "fact:piecewise",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -722,6 +728,7 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: -7=-4-b",
         "scope_effect": "global/current scope",
@@ -755,7 +762,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:piecewise"
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -839,7 +846,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:piecewise"
+          "fact:piecewise",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -915,7 +923,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:piecewise"
+          "fact:piecewise",
+          "fact:s2",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -928,11 +938,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: b=3",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:piecewise"
+          "fact:s4"
         ]
       },
       "action": {
@@ -959,8 +970,8 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:a",
-        "fact:b"
+        "fact:s3",
+        "fact:s5"
       ],
       "verification": {
         "status": "verified",
@@ -1049,7 +1060,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:piecewise"
+          "fact:piecewise",
+          "fact:s2",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1132,8 +1145,10 @@
         ],
         "dependencies": [
           "fact:piecewise",
-          "fact:a",
-          "fact:b"
+          "fact:s2",
+          "fact:s4",
+          "fact:s3",
+          "fact:s5"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1146,12 +1161,13 @@
         "added_facts": [
           "fact:s6"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s6: a+b=0",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:a",
-          "fact:b"
+          "fact:s3",
+          "fact:s5"
         ]
       },
       "action": {
@@ -1242,8 +1258,10 @@
     ],
     "dependencies": [
       "fact:piecewise",
-      "fact:a",
-      "fact:b"
+      "fact:s2",
+      "fact:s4",
+      "fact:s3",
+      "fact:s5"
     ],
     "open_obligations": [],
     "discharged_obligations": [],
@@ -1258,9 +1276,9 @@
   },
   "goal_status": "discharged",
   "operations_observed": [
+    "APPLY_DEFINITION",
     "EVALUATE",
     "FORMULATE_EQUATION",
-    "INTRODUCE_VARIABLE",
     "SOLVE"
   ],
   "source_quality": {

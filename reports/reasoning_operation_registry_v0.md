@@ -122,7 +122,7 @@ This is an empirical discovery registry, not a completeness claim. Operations ar
 
 - Meaning: Apply local transformations inside one branch.
 - Inputs: branch assumption, equation
-- Preconditions observed: none recorded
+- Preconditions observed: 5x-1<0, 5x-1≥0
 - Warrant: `branch_local_validity`
 - State effect: adds or transforms a fact in the current trajectory state
 - Scope: branch-local
@@ -196,14 +196,14 @@ This is an empirical discovery registry, not a completeness claim. Operations ar
 
 - Meaning: Use a bound to eliminate impossible cases.
 - Inputs: domain bound, target
-- Preconditions observed: none recorded
+- Preconditions observed: 5>0, n≥6
 - Warrant: `upper/lower bound`
 - State effect: adds or transforms a fact in the current trajectory state
 - Scope: prunes cases
 - Dependencies: records cited facts and prior results
 - Obligations: creates=False; discharges=False
-- Example(s): MATH-GOLD-012
-- Frequency: **1**
+- Example(s): MATH-GOLD-012, MATH-GOLD-015
+- Frequency: **2**
 - HML: `REPRESENTABLE_ONLY`; rule/construct `none`
 
 ### `BOUND_SEARCH`
@@ -282,15 +282,15 @@ This is an empirical discovery registry, not a completeness claim. Operations ar
 
 - Meaning: Name a mathematical object and assign a type/domain.
 - Inputs: source object or quantity
-- Preconditions observed: r>0, x≥1
+- Preconditions observed: x≥1
 - Warrant: `variable_binding`
 - State effect: adds or transforms a fact in the current trajectory state
 - Scope: adds a name to current scope
 - Dependencies: records cited facts and prior results
 - Obligations: creates=False; discharges=False
-- Example(s): MATH-GOLD-001, MATH-GOLD-002, MATH-GOLD-005, MATH-GOLD-015, MATH-GOLD-021, MATH-GOLD-022, MATH-GOLD-025
-- Frequency: **7**
-- HML: `FULL,REPRESENTABLE_ONLY`; rule/construct `var/param`
+- Example(s): MATH-GOLD-002, MATH-GOLD-005, MATH-GOLD-015, MATH-GOLD-021, MATH-GOLD-025
+- Frequency: **5**
+- HML: `FULL`; rule/construct `var/param`
 
 ## DEFINITION_APPLICATION
 
@@ -298,14 +298,14 @@ This is an empirical discovery registry, not a completeness claim. Operations ar
 
 - Meaning: Use a definition to rewrite or constrain an object.
 - Inputs: definition, object
-- Preconditions observed: 2>0 and 2≠1, 4>0 and 4≠1, x>0
+- Preconditions observed: 2>0 and 2≠1, 4>0 and 4≠1, r>0, x>0
 - Warrant: `definition`
 - State effect: adds or transforms a fact in the current trajectory state
 - Scope: preserves scope
 - Dependencies: records cited facts and prior results
 - Obligations: creates=False; discharges=False
-- Example(s): MATH-GOLD-006, MATH-GOLD-008, MATH-GOLD-013, MATH-GOLD-014, MATH-GOLD-017, MATH-GOLD-020
-- Frequency: **7**
+- Example(s): MATH-GOLD-001, MATH-GOLD-006, MATH-GOLD-008, MATH-GOLD-013, MATH-GOLD-017, MATH-GOLD-020, MATH-GOLD-022
+- Frequency: **8**
 - HML: `REPRESENTABLE_ONLY`; rule/construct `def/evidence`
 
 ## EQUATION_CONSTRUCTION
@@ -350,8 +350,8 @@ This is an empirical discovery registry, not a completeness claim. Operations ar
 - Scope: preserves scope
 - Dependencies: records cited facts and prior results
 - Obligations: creates=False; discharges=False
-- Example(s): MATH-GOLD-003
-- Frequency: **1**
+- Example(s): MATH-GOLD-003, MATH-GOLD-007
+- Frequency: **2**
 - HML: `FULL`; rule/construct `add_both_sides`
 
 ### `CLEAR_DENOMINATOR`
@@ -436,8 +436,8 @@ This is an empirical discovery registry, not a completeness claim. Operations ar
 - Scope: preserves scope
 - Dependencies: records cited facts and prior results
 - Obligations: creates=False; discharges=False
-- Example(s): MATH-GOLD-001, MATH-GOLD-006, MATH-GOLD-007, MATH-GOLD-009, MATH-GOLD-015, MATH-GOLD-018, MATH-GOLD-020, MATH-GOLD-021, MATH-GOLD-023, MATH-GOLD-024
-- Frequency: **12**
+- Example(s): MATH-GOLD-001, MATH-GOLD-006, MATH-GOLD-007, MATH-GOLD-009, MATH-GOLD-018, MATH-GOLD-020, MATH-GOLD-021, MATH-GOLD-023, MATH-GOLD-024
+- Frequency: **11**
 - HML: `PARTIAL,REPRESENTABLE_ONLY`; rule/construct `closed_eval_v1 for closed claims`
 
 ## GOAL_MANAGEMENT
@@ -474,7 +474,7 @@ This is an empirical discovery registry, not a completeness claim. Operations ar
 
 - Meaning: Transform constraints to isolate a target or solve a polynomial.
 - Inputs: equations, target
-- Preconditions observed: 2>0 and 2≠1, 2≠0
+- Preconditions observed: 2>0 and 2≠1, 2≠0, 3/2≠0
 - Warrant: `constraint_solving`
 - State effect: adds or transforms a fact in the current trajectory state
 - Scope: preserves or branches scope
@@ -645,8 +645,8 @@ This is an empirical discovery registry, not a completeness claim. Operations ar
 - Dependencies: records cited facts and prior results
 - Obligations: creates=False; discharges=False
 - Example(s): MATH-GOLD-005, MATH-GOLD-007, MATH-GOLD-015, MATH-GOLD-018
-- Frequency: **5**
-- HML: `FULL,PARTIAL,REPRESENTABLE_ONLY`; rule/construct `substitute`
+- Frequency: **4**
+- HML: `FULL,REPRESENTABLE_ONLY`; rule/construct `substitute`
 
 ## THEOREM_APPLICATION
 
@@ -675,7 +675,7 @@ This is an empirical discovery registry, not a completeness claim. Operations ar
 - Dependencies: records cited facts and prior results
 - Obligations: creates=False; discharges=False
 - Example(s): MATH-GOLD-009, MATH-GOLD-014, MATH-GOLD-018, MATH-GOLD-023
-- Frequency: **4**
+- Frequency: **5**
 - HML: `REPRESENTABLE_ONLY`; rule/construct `none`
 
 ### `RECORD_EQUALITY_CONDITION`

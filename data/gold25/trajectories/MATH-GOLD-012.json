@@ -184,6 +184,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: at least one die is 6",
         "scope_effect": "global/current scope",
@@ -215,7 +216,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:target"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -334,7 +335,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:target"
+          "fact:target",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -347,11 +349,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: remaining two dice sum to 10",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:target"
+          "fact:s1"
         ]
       },
       "action": {
@@ -386,7 +389,7 @@
       ],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:target"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -457,7 +460,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:target"
+          "fact:target",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -516,10 +520,14 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case A",
+          "branch:case B"
         ],
         "dependencies": [
-          "fact:target"
+          "fact:target",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -540,19 +548,25 @@
         "added_facts": [
           "fact:s3"
         ],
-        "removed_obligations": [
+        "added_obligations": [
           "obl:dice_case_cover"
         ],
+        "removed_obligations": [],
         "epistemic_update": "Established fact:s3: patterns (6,6,4) and (6,5,5)",
-        "scope_effect": "global/current scope",
+        "scope_effect": "branch-declaration",
         "dependency_effect": [
-          "fact:target"
+          "fact:s2"
         ]
       },
       "action": {
         "operation_id": "ENUMERATE",
         "family": "CASE_ANALYSIS",
-        "arguments": {}
+        "arguments": {
+          "branches": [
+            "case A",
+            "case B"
+          ]
+        }
       },
       "result": {
         "id": "fact:s3",
@@ -573,7 +587,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:target"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -645,10 +659,14 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case A",
+          "branch:case B"
         ],
         "dependencies": [
-          "fact:target"
+          "fact:target",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -722,10 +740,14 @@
         "subgoals": [],
         "scope": [
           "global",
-          "branch:case A"
+          "branch:case A",
+          "branch:case B"
         ],
         "dependencies": [
-          "fact:target"
+          "fact:target",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -746,11 +768,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: case A has 3 ordered outcomes",
         "scope_effect": "branch-local",
         "dependency_effect": [
-          "fact:target"
+          "fact:s3"
         ]
       },
       "action": {
@@ -777,6 +800,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
+        "fact:s4",
         "fact:sample_space"
       ],
       "verification": {
@@ -856,10 +880,14 @@
         "subgoals": [],
         "scope": [
           "global",
-          "branch:case A"
+          "branch:case A",
+          "branch:case B"
         ],
         "dependencies": [
-          "fact:target"
+          "fact:target",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -939,10 +967,15 @@
         "subgoals": [],
         "scope": [
           "global",
-          "branch:case A"
+          "branch:case A",
+          "branch:case B"
         ],
         "dependencies": [
           "fact:target",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
           "fact:sample_space"
         ],
         "open_obligations": [],
@@ -964,10 +997,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: P(case A)=3/216=1/72",
         "scope_effect": "branch-local",
         "dependency_effect": [
+          "fact:s4",
           "fact:sample_space"
         ]
       },
@@ -995,7 +1030,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:target"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -1080,10 +1115,15 @@
         "subgoals": [],
         "scope": [
           "global",
-          "branch:case A"
+          "branch:case A",
+          "branch:case B"
         ],
         "dependencies": [
           "fact:target",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
           "fact:sample_space"
         ],
         "open_obligations": [],
@@ -1175,6 +1215,10 @@
         ],
         "dependencies": [
           "fact:target",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
           "fact:sample_space"
         ],
         "open_obligations": [],
@@ -1196,11 +1240,12 @@
         "added_facts": [
           "fact:s6"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s6: case B has 3 ordered outcomes",
         "scope_effect": "branch-local",
         "dependency_effect": [
-          "fact:target"
+          "fact:s3"
         ]
       },
       "action": {
@@ -1227,6 +1272,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
+        "fact:s6",
         "fact:sample_space"
       ],
       "verification": {
@@ -1323,6 +1369,10 @@
         ],
         "dependencies": [
           "fact:target",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
           "fact:sample_space"
         ],
         "open_obligations": [],
@@ -1420,7 +1470,12 @@
         ],
         "dependencies": [
           "fact:target",
-          "fact:sample_space"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:sample_space",
+          "fact:s6"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -1441,10 +1496,12 @@
         "added_facts": [
           "fact:s7"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s7: P(case B)=3/216=1/72",
         "scope_effect": "branch-local",
         "dependency_effect": [
+          "fact:s6",
           "fact:sample_space"
         ]
       },
@@ -1472,8 +1529,8 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:case_A",
-        "fact:case_B"
+        "fact:s5",
+        "fact:s7"
       ],
       "verification": {
         "status": "verified",
@@ -1577,7 +1634,12 @@
         ],
         "dependencies": [
           "fact:target",
-          "fact:sample_space"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:sample_space",
+          "fact:s6"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -1680,9 +1742,14 @@
         ],
         "dependencies": [
           "fact:target",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
           "fact:sample_space",
-          "fact:case_A",
-          "fact:case_B"
+          "fact:s6",
+          "fact:s5",
+          "fact:s7"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -1703,12 +1770,13 @@
         "added_facts": [
           "fact:s8"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s8: P(sum=16)=1/36",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:case_A",
-          "fact:case_B"
+          "fact:s5",
+          "fact:s7"
         ]
       },
       "action": {
@@ -1811,9 +1879,14 @@
     ],
     "dependencies": [
       "fact:target",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
       "fact:sample_space",
-      "fact:case_A",
-      "fact:case_B"
+      "fact:s6",
+      "fact:s5",
+      "fact:s7"
     ],
     "open_obligations": [],
     "discharged_obligations": [

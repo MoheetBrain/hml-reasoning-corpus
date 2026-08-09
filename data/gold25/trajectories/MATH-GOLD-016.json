@@ -168,6 +168,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: 14 squares are omitted before the target value",
         "scope_effect": "global/current scope",
@@ -199,7 +200,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:index"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -308,7 +309,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:index"
+          "fact:index",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -321,11 +323,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: value 200 has sequence index 186",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:index"
+          "fact:s1"
         ]
       },
       "action": {
@@ -359,7 +362,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:index"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -423,7 +426,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:index"
+          "fact:index",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -480,7 +484,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:index"
+          "fact:index",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -493,11 +499,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: a_200=214",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:index"
+          "fact:s2"
         ]
       },
       "action": {
@@ -562,7 +569,9 @@
       "global"
     ],
     "dependencies": [
-      "fact:index"
+      "fact:index",
+      "fact:s1",
+      "fact:s2"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

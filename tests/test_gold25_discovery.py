@@ -19,6 +19,8 @@ PROVENANCE = ROOT / "data/raw/math/math_dataset_provenance.json"
 MANIFEST = ROOT / "manifests/gold25_math_v0.json"
 TRAJECTORIES = ROOT / "data/gold25/trajectories"
 HML_CORE = ROOT / "hml_core"
+AUDIT_REPORT = ROOT / "reports/gold25_semantic_adversarial_audit.md"
+GENERATOR = ROOT / "scripts/build_gold25.py"
 
 
 def sha256(path: Path) -> str:
@@ -92,6 +94,38 @@ class Gold25DiscoveryIntegrityTest(unittest.TestCase):
         self.assertEqual(renderings, [])
         for path in TRAJECTORIES.glob("*.json"):
             self.assertNotIn("hml_program", json.loads(path.read_text(encoding="utf-8")))
+
+    def test_transition_semantics_have_resolvable_dependencies_and_exact_deltas(self) -> None:
+        for path in sorted(TRAJECTORIES.glob("MATH-GOLD-*.json")):
+            trajectory = json.loads(path.read_text(encoding="utf-8"))
+            available = {fact["id"] for fact in trajectory["initial_state"]["facts"]}
+            for step in trajectory["steps"]:
+                self.assertTrue(set(step["dependencies"]) <= available, (path.name, step["step_id"]))
+                before_facts = {fact["id"] for fact in step["state_before"]["facts"]}
+                after_facts = {fact["id"] for fact in step["state_after"]["facts"]}
+                self.assertEqual(after_facts - before_facts, {step["result_id"]}, (path.name, step["step_id"]))
+                self.assertEqual(before_facts - after_facts, set(), (path.name, step["step_id"]))
+                self.assertEqual(step["state_change"]["added_facts"], [step["result_id"]])
+                self.assertEqual(
+                    step["state_change"]["added_obligations"],
+                    [item["id"] for item in step["creates_obligations"]],
+                )
+                self.assertEqual(step["state_change"]["removed_obligations"], step["discharges_obligations"])
+                self.assertEqual(step["state_change"]["from"], step["state_before"]["id"])
+                self.assertEqual(step["state_change"]["to"], step["state_after"]["id"])
+                if step["action"]["operation_id"] == "DISCHARGE_GOAL":
+                    self.assertTrue(all(goal["status"] == "goal_discharged" for goal in step["state_after"]["goals"]))
+                available.add(step["result_id"])
+
+    def test_adversarial_audit_report_and_generator_scope(self) -> None:
+        self.assertTrue(AUDIT_REPORT.exists())
+        audit = AUDIT_REPORT.read_text(encoding="utf-8")
+        self.assertIn("all 25 selected problems and all 118 canonical transitions", audit)
+        self.assertIn("Independent hard-trajectory audits", audit)
+        self.assertIn("MATH-GOLD-006", audit)
+        generator = GENERATOR.read_text(encoding="utf-8")
+        self.assertIn("Gold-25 curated artifact generator", generator)
+        self.assertIn("not a reusable automatic extractor", generator)
 
     def test_frozen_hml_pin_cleanliness_and_permissions(self) -> None:
         metadata = json.loads((ROOT / "schemas/project_metadata.json").read_text(encoding="utf-8"))

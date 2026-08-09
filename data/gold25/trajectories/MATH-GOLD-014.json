@@ -185,6 +185,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: 374n must be divisible by 9 and by 2",
         "scope_effect": "global/current scope",
@@ -194,7 +195,7 @@
         ]
       },
       "action": {
-        "operation_id": "APPLY_DEFINITION",
+        "operation_id": "APPLY_THEOREM",
         "family": "THEOREM_APPLICATION",
         "arguments": {}
       },
@@ -217,7 +218,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:number"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -338,7 +339,8 @@
         ],
         "dependencies": [
           "fact:number",
-          "fact:divisor"
+          "fact:divisor",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -351,11 +353,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: 14+n is divisible by 9",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:number"
+          "fact:s1"
         ]
       },
       "action": {
@@ -389,7 +392,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:number"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -459,7 +462,8 @@
         ],
         "dependencies": [
           "fact:number",
-          "fact:divisor"
+          "fact:divisor",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -522,7 +526,9 @@
         ],
         "dependencies": [
           "fact:number",
-          "fact:divisor"
+          "fact:divisor",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -535,11 +541,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: 14+n ∈ {18,27} under digit bound",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:number"
+          "fact:s2"
         ]
       },
       "action": {
@@ -573,7 +580,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:number"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -649,7 +656,9 @@
         ],
         "dependencies": [
           "fact:number",
-          "fact:divisor"
+          "fact:divisor",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -718,7 +727,10 @@
         ],
         "dependencies": [
           "fact:number",
-          "fact:divisor"
+          "fact:divisor",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -731,11 +743,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: n=4",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:number"
+          "fact:s3"
         ]
       },
       "action": {
@@ -812,7 +825,10 @@
     ],
     "dependencies": [
       "fact:number",
-      "fact:divisor"
+      "fact:divisor",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3"
     ],
     "open_obligations": [],
     "discharged_obligations": [],
@@ -827,7 +843,6 @@
   },
   "goal_status": "discharged",
   "operations_observed": [
-    "APPLY_DEFINITION",
     "APPLY_THEOREM",
     "BOUND_SEARCH",
     "SELECT_CANDIDATE"

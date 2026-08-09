@@ -180,6 +180,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: x denotes minutes",
         "scope_effect": "global/current scope",
@@ -208,7 +209,9 @@
       "preconditions": [],
       "creates_obligations": [],
       "discharges_obligations": [],
-      "dependencies": [],
+      "dependencies": [
+        "fact:s1"
+      ],
       "verification": {
         "status": "verified",
         "category": "MANUAL_SEMANTIC_CHECK",
@@ -324,7 +327,9 @@
         "scope": [
           "global"
         ],
-        "dependencies": [],
+        "dependencies": [
+          "fact:s1"
+        ],
         "open_obligations": [],
         "discharged_obligations": [],
         "epistemic_status": [],
@@ -336,10 +341,13 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: cost_A=10x; cost_B=2000+5x",
         "scope_effect": "global/current scope",
-        "dependency_effect": []
+        "dependency_effect": [
+          "fact:s1"
+        ]
       },
       "action": {
         "operation_id": "FORMULATE_EQUATION",
@@ -365,8 +373,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:plan_A",
-        "fact:plan_B"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -434,7 +441,9 @@
         "scope": [
           "global"
         ],
-        "dependencies": [],
+        "dependencies": [
+          "fact:s1"
+        ],
         "open_obligations": [],
         "discharged_obligations": [],
         "epistemic_status": [],
@@ -496,8 +505,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -510,12 +519,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: 2000+5x<10x",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s2"
         ]
       },
       "action": {
@@ -549,8 +558,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:plan_A",
-        "fact:plan_B"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -627,8 +635,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -697,8 +705,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -711,12 +720,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: x>400",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s3"
         ]
       },
       "action": {
@@ -750,8 +759,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:plan_A",
-        "fact:plan_B"
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -833,8 +841,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -909,8 +918,10 @@
           "global"
         ],
         "dependencies": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -923,12 +934,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: minimum whole-number x=401",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s4"
         ]
       },
       "action": {
@@ -963,8 +974,7 @@
       ],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:plan_A",
-        "fact:plan_B"
+        "fact:s5"
       ],
       "verification": {
         "status": "verified",
@@ -1054,8 +1064,10 @@
           "global"
         ],
         "dependencies": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1136,8 +1148,11 @@
           "global"
         ],
         "dependencies": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -1158,14 +1173,14 @@
         "added_facts": [
           "fact:s6"
         ],
-        "removed_obligations": [
+        "added_obligations": [
           "obl:threshold_minimality"
         ],
+        "removed_obligations": [],
         "epistemic_update": "Established fact:s6: x=401 satisfies cost_B<cost_A and is minimal",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:plan_A",
-          "fact:plan_B"
+          "fact:s5"
         ]
       },
       "action": {
@@ -1254,8 +1269,11 @@
       "global"
     ],
     "dependencies": [
-      "fact:plan_A",
-      "fact:plan_B"
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5"
     ],
     "open_obligations": [],
     "discharged_obligations": [

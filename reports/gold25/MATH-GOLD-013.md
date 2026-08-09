@@ -114,7 +114,7 @@ In a four-digit palindrome, the first digit is the same as the last, and the sec
 **Obligations created:**
 - none
 
-**Dependencies:** fact:palindrome
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` d1 has 9 choices
 
@@ -141,6 +141,7 @@ In a four-digit palindrome, the first digit is the same as the last, and the sec
 - `goal:answer` count=90 (goal_open)
 **Dependencies:**
 - fact:palindrome
+- fact:s1
 
 ### Step 3: COUNT_CASES
 
@@ -165,6 +166,7 @@ In a four-digit palindrome, the first digit is the same as the last, and the sec
 - `goal:answer` count=90 (goal_open)
 **Dependencies:**
 - fact:palindrome
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -176,7 +178,7 @@ In a four-digit palindrome, the first digit is the same as the last, and the sec
 **Obligations created:**
 - none
 
-**Dependencies:** fact:palindrome
+**Dependencies:** fact:s1
 
 **Result:** `fact:s3` d2 has 10 choices
 
@@ -204,6 +206,7 @@ In a four-digit palindrome, the first digit is the same as the last, and the sec
 - `goal:answer` count=90 (goal_open)
 **Dependencies:**
 - fact:palindrome
+- fact:s1
 
 ### Step 4: MULTIPLY_COUNTS
 
@@ -229,6 +232,7 @@ In a four-digit palindrome, the first digit is the same as the last, and the sec
 - `goal:answer` count=90 (goal_open)
 **Dependencies:**
 - fact:palindrome
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -240,7 +244,7 @@ In a four-digit palindrome, the first digit is the same as the last, and the sec
 **Obligations created:**
 - none
 
-**Dependencies:** fact:palindrome
+**Dependencies:** fact:s2, fact:s3
 
 **Result:** `fact:s4` count=90
 
@@ -269,6 +273,9 @@ In a four-digit palindrome, the first digit is the same as the last, and the sec
 - `goal:answer` count=90 (goal_open)
 **Dependencies:**
 - fact:palindrome
+- fact:s1
+- fact:s2
+- fact:s3
 
 ## Final state
 
@@ -289,6 +296,9 @@ In a four-digit palindrome, the first digit is the same as the last, and the sec
 - `goal:answer` count=90 (goal_discharged)
 **Dependencies:**
 - fact:palindrome
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Goal status:** `discharged`
 

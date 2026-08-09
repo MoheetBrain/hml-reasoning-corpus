@@ -132,7 +132,7 @@ By AM-GM,
 **Obligations created:**
 - none
 
-**Dependencies:** fact:product
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` x+2y+4z≥12
 
@@ -163,6 +163,7 @@ By AM-GM,
 - `goal:answer` min(x+2y+4z)=12 (goal_open)
 **Dependencies:**
 - fact:product
+- fact:s1
 
 ### Step 3: RECORD_EQUALITY_CONDITION
 
@@ -191,6 +192,7 @@ By AM-GM,
 - `goal:answer` min(x+2y+4z)=12 (goal_open)
 **Dependencies:**
 - fact:product
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -202,7 +204,7 @@ By AM-GM,
 **Obligations created:**
 - none
 
-**Dependencies:** fact:product
+**Dependencies:** fact:s1, fact:product
 
 **Result:** `fact:s3` equality condition x=2y=4z
 
@@ -234,6 +236,7 @@ By AM-GM,
 - `goal:answer` min(x+2y+4z)=12 (goal_open)
 **Dependencies:**
 - fact:product
+- fact:s1
 
 ### Step 4: SOLVE
 
@@ -263,6 +266,7 @@ By AM-GM,
 - `goal:answer` min(x+2y+4z)=12 (goal_open)
 **Dependencies:**
 - fact:product
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -274,7 +278,7 @@ By AM-GM,
 **Obligations created:**
 - none
 
-**Dependencies:** fact:product
+**Dependencies:** fact:s3, fact:product
 
 **Result:** `fact:s4` witness (x,y,z)=(4,2,1) attains 12
 
@@ -307,6 +311,8 @@ By AM-GM,
 - `goal:answer` min(x+2y+4z)=12 (goal_open)
 **Dependencies:**
 - fact:product
+- fact:s1
+- fact:s3
 
 ## Final state
 
@@ -331,6 +337,8 @@ By AM-GM,
 - `goal:answer` min(x+2y+4z)=12 (goal_discharged)
 **Dependencies:**
 - fact:product
+- fact:s1
+- fact:s3
 
 **Goal status:** `discharged`
 

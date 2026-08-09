@@ -53,7 +53,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Goals:**
 - `goal:answer` largest solution x=1 (goal_open)
 
-**Arguments:** `{}`
+**Arguments:** `{"branches": ["case 1", "case 2"]}`
 
 **Warrant:** Apply the two-branch definition of absolute value. (`absolute_value_definition`, source `core`)
 
@@ -75,7 +75,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 
 **State after:**
 
-`S1` scope: global
+`S1` scope: global, branch:case 1, branch:case 2
 **Objects:**
 - x
 **Declarations:**
@@ -98,7 +98,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 
 **State before:**
 
-`S1` scope: global
+`S1` scope: global, branch:case 1, branch:case 2
 **Objects:**
 - x
 **Declarations:**
@@ -115,15 +115,15 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 
 **Arguments:** `{"branch": "x≥1/5"}`
 
-**Warrant:** Solve the branch equation under its sign condition. (`equality_preservation`, source `derived`)
+**Warrant:** Solve the branch equation under the branch condition 5x-1≥0. (`equality_preservation`, source `derived`)
 
 **Preconditions:**
-- none recorded
+- 5x-1≥0 — `implicit`; The worked solution does not state this condition explicitly.
 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:abs
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` case 1 yields x=1
 
@@ -135,7 +135,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 
 **State after:**
 
-`S2` scope: global
+`S2` scope: global, branch:case 1, branch:case 2
 **Objects:**
 - x
 **Declarations:**
@@ -151,7 +151,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
+- fact:s1
 
 ### Step 3: VERIFY_CANDIDATE
 
@@ -161,7 +161,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 
 **State before:**
 
-`S2` scope: global
+`S2` scope: global, branch:case 1, branch:case 2
 **Objects:**
 - x
 **Declarations:**
@@ -177,7 +177,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -189,7 +189,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Obligations created:**
 - none
 
-**Dependencies:** fact:abs
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` candidate x=1 satisfies the original equation
 
@@ -201,7 +201,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 
 **State after:**
 
-`S3` scope: global, branch:case 1
+`S3` scope: global, branch:case 1, branch:case 2
 **Objects:**
 - x
 **Declarations:**
@@ -218,7 +218,8 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
+- fact:s1
+- fact:s2
 
 ### Step 4: SOLVE_CASE
 
@@ -228,7 +229,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 
 **State before:**
 
-`S3` scope: global, branch:case 1
+`S3` scope: global, branch:case 1, branch:case 2
 **Objects:**
 - x
 **Declarations:**
@@ -245,19 +246,20 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
+- fact:s1
+- fact:s2
 
 **Arguments:** `{"branch": "x<1/5"}`
 
-**Warrant:** Solve the second branch equation under its sign condition. (`equality_preservation`, source `derived`)
+**Warrant:** Solve the second branch equation under the branch condition 5x-1<0. (`equality_preservation`, source `derived`)
 
 **Preconditions:**
-- none recorded
+- 5x-1<0 — `implicit`; The worked solution does not state this condition explicitly.
 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:abs
+**Dependencies:** fact:s1
 
 **Result:** `fact:s4` case 2 yields x=-1/3
 
@@ -287,7 +289,8 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
+- fact:s1
+- fact:s2
 
 ### Step 5: VERIFY_CANDIDATE
 
@@ -315,7 +318,8 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
+- fact:s1
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -327,7 +331,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Obligations created:**
 - none
 
-**Dependencies:** fact:abs
+**Dependencies:** fact:s4
 
 **Result:** `fact:s5` candidate x=-1/3 satisfies the original equation
 
@@ -358,7 +362,9 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
+- fact:s1
+- fact:s2
+- fact:s4
 
 ### Step 6: SELECT_EXTREMUM
 
@@ -387,7 +393,9 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
+- fact:s1
+- fact:s2
+- fact:s4
 
 **Arguments:** `{}`
 
@@ -399,7 +407,7 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Obligations created:**
 - none
 
-**Dependencies:** fact:candidate_1, fact:candidate_2
+**Dependencies:** fact:s3, fact:s5
 
 **Result:** `fact:s6` largest valid solution is x=1
 
@@ -431,9 +439,11 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
-- fact:candidate_1
-- fact:candidate_2
+- fact:s1
+- fact:s2
+- fact:s4
+- fact:s3
+- fact:s5
 
 ## Final state
 
@@ -457,9 +467,11 @@ In the second case, \begin{align*} 5x-1&=-(x+3)
 **Discharged obligations:**
 - `obl:abs_case_cover` the absolute-value branches are exhaustive and disjoint (discharged)
 **Dependencies:**
-- fact:abs
-- fact:candidate_1
-- fact:candidate_2
+- fact:s1
+- fact:s2
+- fact:s4
+- fact:s3
+- fact:s5
 
 **Goal status:** `discharged`
 

@@ -168,6 +168,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: free choices are d1 and d2; d4=d1,d3=d2",
         "scope_effect": "global/current scope",
@@ -206,7 +207,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:palindrome"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -315,7 +316,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:palindrome"
+          "fact:palindrome",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -328,11 +330,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: d1 has 9 choices",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:palindrome"
+          "fact:s1"
         ]
       },
       "action": {
@@ -359,7 +362,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:palindrome"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -423,7 +426,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:palindrome"
+          "fact:palindrome",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -480,7 +484,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:palindrome"
+          "fact:palindrome",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -493,11 +498,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: d2 has 10 choices",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:palindrome"
+          "fact:s1"
         ]
       },
       "action": {
@@ -524,7 +530,8 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:palindrome"
+        "fact:s2",
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -594,7 +601,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:palindrome"
+          "fact:palindrome",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -657,7 +665,10 @@
           "global"
         ],
         "dependencies": [
-          "fact:palindrome"
+          "fact:palindrome",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -670,11 +681,13 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: count=90",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:palindrome"
+          "fact:s2",
+          "fact:s3"
         ]
       },
       "action": {
@@ -745,7 +758,10 @@
       "global"
     ],
     "dependencies": [
-      "fact:palindrome"
+      "fact:palindrome",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

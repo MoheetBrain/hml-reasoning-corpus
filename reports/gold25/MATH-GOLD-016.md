@@ -114,7 +114,7 @@ When 200 is reached in the sequence of non-square positive integers, all the per
 **Obligations created:**
 - none
 
-**Dependencies:** fact:index
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` value 200 has sequence index 186
 
@@ -141,6 +141,7 @@ When 200 is reached in the sequence of non-square positive integers, all the per
 - `goal:answer` a_200=214 (goal_open)
 **Dependencies:**
 - fact:index
+- fact:s1
 
 ### Step 3: ADVANCE_SEQUENCE
 
@@ -165,6 +166,7 @@ When 200 is reached in the sequence of non-square positive integers, all the per
 - `goal:answer` a_200=214 (goal_open)
 **Dependencies:**
 - fact:index
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -176,7 +178,7 @@ When 200 is reached in the sequence of non-square positive integers, all the per
 **Obligations created:**
 - none
 
-**Dependencies:** fact:index
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` a_200=214
 
@@ -204,6 +206,8 @@ When 200 is reached in the sequence of non-square positive integers, all the per
 - `goal:answer` a_200=214 (goal_open)
 **Dependencies:**
 - fact:index
+- fact:s1
+- fact:s2
 
 ## Final state
 
@@ -223,6 +227,8 @@ When 200 is reached in the sequence of non-square positive integers, all the per
 - `goal:answer` a_200=214 (goal_discharged)
 **Dependencies:**
 - fact:index
+- fact:s1
+- fact:s2
 
 **Goal status:** `discharged`
 

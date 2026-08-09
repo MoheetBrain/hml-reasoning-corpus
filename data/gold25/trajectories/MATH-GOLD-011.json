@@ -191,6 +191,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: target = 1-P(no women)",
         "scope_effect": "global/current scope",
@@ -223,7 +224,8 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:population"
+        "fact:population",
+        "fact:sample"
       ],
       "verification": {
         "status": "verified",
@@ -361,11 +363,13 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: P(first male)=7/10",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:population"
+          "fact:population",
+          "fact:sample"
         ]
       },
       "action": {
@@ -392,7 +396,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:population"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -529,7 +533,8 @@
         ],
         "dependencies": [
           "fact:population",
-          "fact:sample"
+          "fact:sample",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -542,11 +547,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: P(second male | first male)=2/3",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:population"
+          "fact:s2"
         ]
       },
       "action": {
@@ -573,7 +579,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:population"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -651,7 +657,8 @@
         ],
         "dependencies": [
           "fact:population",
-          "fact:sample"
+          "fact:sample",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -722,7 +729,9 @@
         ],
         "dependencies": [
           "fact:population",
-          "fact:sample"
+          "fact:sample",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -735,11 +744,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: P(third male | first two male)=5/8",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:population"
+          "fact:s3"
         ]
       },
       "action": {
@@ -766,8 +776,9 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:population",
-        "fact:sample"
+        "fact:s2",
+        "fact:s3",
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -851,7 +862,9 @@
         ],
         "dependencies": [
           "fact:population",
-          "fact:sample"
+          "fact:sample",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -928,7 +941,10 @@
         ],
         "dependencies": [
           "fact:population",
-          "fact:sample"
+          "fact:sample",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -941,12 +957,14 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: P(no women)=7/24",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:population",
-          "fact:sample"
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ]
       },
       "action": {
@@ -973,7 +991,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:no_women"
+        "fact:s5"
       ],
       "verification": {
         "status": "verified",
@@ -1063,7 +1081,10 @@
         ],
         "dependencies": [
           "fact:population",
-          "fact:sample"
+          "fact:sample",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1147,7 +1168,10 @@
         "dependencies": [
           "fact:population",
           "fact:sample",
-          "fact:no_women"
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1160,11 +1184,12 @@
         "added_facts": [
           "fact:s6"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s6: P(at least one woman)=17/24",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:no_women"
+          "fact:s5"
         ]
       },
       "action": {
@@ -1256,7 +1281,10 @@
     "dependencies": [
       "fact:population",
       "fact:sample",
-      "fact:no_women"
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

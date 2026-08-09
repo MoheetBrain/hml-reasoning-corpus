@@ -4,16 +4,16 @@
 
 | Operation | Frequency |
 |---|---:|
-| `EVALUATE` | 12 |
-| `INTRODUCE_VARIABLE` | 7 |
-| `APPLY_DEFINITION` | 7 |
+| `EVALUATE` | 11 |
+| `APPLY_DEFINITION` | 8 |
 | `FORMULATE_EQUATION` | 6 |
 | `SOLVE` | 6 |
+| `INTRODUCE_VARIABLE` | 5 |
 | `CASE_SPLIT` | 5 |
-| `SUBSTITUTE` | 5 |
+| `APPLY_THEOREM` | 5 |
 | `EXPAND` | 4 |
 | `VERIFY_CANDIDATE` | 4 |
-| `APPLY_THEOREM` | 4 |
+| `SUBSTITUTE` | 4 |
 | `COUNT_CASES` | 4 |
 | `DISCHARGE_GOAL` | 3 |
 | `FACTOR` | 3 |
@@ -21,8 +21,10 @@
 | `CONDITIONAL_PROBABILITY` | 3 |
 | `SELECT_CANDIDATE` | 3 |
 | `APPLY_IDENTITY` | 2 |
+| `ADD_BOTH_SIDES` | 2 |
 | `SOLVE_CASE` | 2 |
 | `COMPLEMENT_COUNT` | 2 |
+| `BOUND_REASONING` | 2 |
 | `ENUMERATE` | 2 |
 | `COUNT_PERMUTATIONS` | 2 |
 | `EVALUATE_PROBABILITY` | 2 |
@@ -30,13 +32,11 @@
 | `RECORD_GIVEN` | 1 |
 | `EXTRACT_ROOT` | 1 |
 | `CROSS_MULTIPLY` | 1 |
-| `ADD_BOTH_SIDES` | 1 |
 | `DIVIDE_BOTH_SIDES` | 1 |
 | `SELECT_EXTREMUM` | 1 |
 | `COMBINE_LIKE_TERMS` | 1 |
 | `RECORD_EQUALITY_CONDITION` | 1 |
 | `MULTIPLY_CONDITIONALS` | 1 |
-| `BOUND_REASONING` | 1 |
 | `CONSTRAINT_PROPAGATION` | 1 |
 | `MULTIPLY_COUNTS` | 1 |
 | `PARAMETERIZE_CONGRUENCE` | 1 |
@@ -64,16 +64,16 @@
 - `CASE_ANALYSIS`: 10 steps
 - `PROBABILISTIC_REASONING`: 9 steps
 - `THEOREM_APPLICATION`: 8 steps
+- `EQUATION_TRANSFORMATION`: 7 steps
 - `COMBINATORIAL_REASONING`: 7 steps
 - `NUMBER_THEORY`: 7 steps
-- `DECLARATION`: 6 steps
+- `DEFINITION_APPLICATION`: 6 steps
 - `EQUATION_CONSTRUCTION`: 6 steps
-- `EQUATION_TRANSFORMATION`: 6 steps
 - `CONSTRAINT_REASONING`: 6 steps
-- `DEFINITION_APPLICATION`: 5 steps
+- `DECLARATION`: 5 steps
 - `VERIFICATION`: 4 steps
 - `GOAL_MANAGEMENT`: 4 steps
-- `SUBSTITUTION`: 4 steps
+- `SUBSTITUTION`: 3 steps
 - `CONSTRUCTION`: 3 steps
 - `SEQUENCE_REASONING`: 3 steps
 - `INEQUALITY_TRANSFORMATION`: 2 steps
@@ -83,13 +83,13 @@
 
 | HML support status | Steps |
 |---|---:|
-| `FULL` | 10 |
-| `PARTIAL` | 37 |
+| `FULL` | 11 |
+| `PARTIAL` | 36 |
 | `REPRESENTABLE_ONLY` | 71 |
 | `ABSENT` | 0 |
 | `UNKNOWN` | 0 |
 
-The strict fully-supported step coverage is **10/118 = 8.5%**. This is a discovery metric, not a benchmark score; `PARTIAL` means the state/form or a local suboperation exists but the complete semantic transition does not.
+The strict fully-supported step coverage is **11/118 = 9.3%**. This is a discovery metric, not a benchmark score; `PARTIAL` means the state/form or a local suboperation exists but the complete semantic transition does not.
 
 ## E. Gap distribution
 
@@ -134,36 +134,36 @@ Facts and goals are universal in this deliberately problem-centered sample. Depe
 | Problem | Source steps | Canonical steps | Explicit | Implicit | Max dependency depth (approx.) | Branches | Obligations |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | MATH-GOLD-001 | 6 | 6 | 6 | 0 | 2 | 0 | 0 |
-| MATH-GOLD-002 | 5 | 4 | 4 | 0 | 2 | 0 | 1 |
+| MATH-GOLD-002 | 5 | 4 | 4 | 0 | 1 | 0 | 1 |
 | MATH-GOLD-003 | 3 | 4 | 4 | 0 | 1 | 0 | 1 |
 | MATH-GOLD-004 | 7 | 6 | 4 | 2 | 2 | 2 | 1 |
 | MATH-GOLD-005 | 4 | 5 | 5 | 0 | 1 | 0 | 0 |
 | MATH-GOLD-006 | 1 | 4 | 3 | 1 | 1 | 0 | 0 |
 | MATH-GOLD-007 | 9 | 6 | 4 | 2 | 2 | 0 | 0 |
 | MATH-GOLD-008 | 1 | 2 | 2 | 0 | 2 | 0 | 0 |
-| MATH-GOLD-009 | 1 | 4 | 4 | 0 | 1 | 0 | 0 |
+| MATH-GOLD-009 | 1 | 4 | 4 | 0 | 2 | 0 | 0 |
 | MATH-GOLD-010 | 2 | 3 | 2 | 1 | 2 | 0 | 0 |
-| MATH-GOLD-011 | 7 | 6 | 6 | 0 | 2 | 0 | 0 |
+| MATH-GOLD-011 | 7 | 6 | 6 | 0 | 3 | 0 | 0 |
 | MATH-GOLD-012 | 10 | 8 | 8 | 0 | 2 | 2 | 1 |
-| MATH-GOLD-013 | 3 | 4 | 4 | 0 | 1 | 0 | 0 |
+| MATH-GOLD-013 | 3 | 4 | 4 | 0 | 2 | 0 | 0 |
 | MATH-GOLD-014 | 4 | 4 | 4 | 0 | 2 | 0 | 0 |
-| MATH-GOLD-015 | 6 | 6 | 6 | 0 | 2 | 0 | 0 |
+| MATH-GOLD-015 | 6 | 6 | 6 | 0 | 3 | 0 | 0 |
 | MATH-GOLD-016 | 3 | 3 | 3 | 0 | 1 | 0 | 0 |
-| MATH-GOLD-017 | 5 | 5 | 5 | 0 | 1 | 0 | 0 |
-| MATH-GOLD-018 | 2 | 4 | 4 | 0 | 1 | 0 | 0 |
+| MATH-GOLD-017 | 5 | 5 | 5 | 0 | 2 | 0 | 0 |
+| MATH-GOLD-018 | 2 | 4 | 4 | 0 | 2 | 0 | 0 |
 | MATH-GOLD-019 | 5 | 6 | 6 | 0 | 2 | 2 | 1 |
-| MATH-GOLD-020 | 2 | 4 | 2 | 2 | 2 | 0 | 0 |
+| MATH-GOLD-020 | 2 | 4 | 2 | 2 | 3 | 0 | 0 |
 | MATH-GOLD-021 | 9 | 6 | 6 | 0 | 2 | 0 | 0 |
-| MATH-GOLD-022 | 5 | 4 | 3 | 1 | 1 | 0 | 0 |
+| MATH-GOLD-022 | 5 | 4 | 3 | 1 | 2 | 0 | 0 |
 | MATH-GOLD-023 | 2 | 3 | 2 | 1 | 1 | 0 | 0 |
-| MATH-GOLD-024 | 5 | 5 | 3 | 2 | 1 | 0 | 0 |
-| MATH-GOLD-025 | 5 | 6 | 5 | 1 | 2 | 0 | 1 |
+| MATH-GOLD-024 | 5 | 5 | 3 | 2 | 2 | 0 | 0 |
+| MATH-GOLD-025 | 5 | 6 | 5 | 1 | 1 | 0 | 1 |
 
 ## I. Source quality
 
 - Explicit reconstructed steps: **105**
 - Implicit reconstructed steps: **13**
-- Explicitly recorded source omissions/precondition omissions: **13**
+- Explicitly recorded source omissions/precondition omissions: **15**
 - Solutions with alternative paths: **2**
 
 The worked solutions are mathematically useful but compress semantic work. In particular, theorem hypotheses, domain restrictions, branch coverage, candidate verification, and minimality arguments are often implicit. Those omissions are recorded rather than silently repaired.
@@ -171,3 +171,11 @@ The worked solutions are mathematically useful but compress semantic work. In pa
 ## Main discovery
 
 The recurring pattern is not a vocabulary list of textbook phrases. It is a compact transition shape: typed objects and constraints, a reusable operation, a warrant/library reference, applicability conditions, proof debt, dependency edges, and a result that must be checked. Current HML already captures the local checked-kernel half of this shape; Gold-25 evidence points primarily toward branch/candidate interfaces and replayable mathematical libraries.
+
+## J. Adversarial semantic audit
+
+All 118 transitions were audited for state entailment, legitimate state deltas, warrants, preconditions, obligations, dependencies, scope, and source compression. Five trajectories were independently reconstructed from the original MATH solutions: MATH-GOLD-001, MATH-GOLD-004, MATH-GOLD-006, MATH-GOLD-012, and MATH-GOLD-019. The audit found no unresolved dependency or state invariant failure; it did identify and correct semantic metadata in the generated artifact.
+
+MATH-GOLD-006 s3 remains a documented compound macro: its source sentence divides by 3/2, isolates the logarithm, and exponentiates. It is valid mathematics, but it is not evidence that SOLVE is an atomic reusable extraction operation.
+
+The generator is a curated Gold-25 artifact generator with hard-coded selections and hand-authored annotations, not a reusable automatic extractor or scalable dataset pipeline. See reports/gold25_semantic_adversarial_audit.md.

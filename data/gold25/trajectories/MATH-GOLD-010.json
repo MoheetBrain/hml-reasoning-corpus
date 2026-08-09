@@ -160,7 +160,9 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case Y/Y",
+          "branch:case colors"
         ],
         "dependencies": [],
         "open_obligations": [],
@@ -174,15 +176,21 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: case Y/Y; case two distinct colors",
-        "scope_effect": "global/current scope",
+        "scope_effect": "branch-declaration",
         "dependency_effect": []
       },
       "action": {
         "operation_id": "CASE_SPLIT",
         "family": "CASE_ANALYSIS",
-        "arguments": {}
+        "arguments": {
+          "branches": [
+            "case Y/Y",
+            "case colors"
+          ]
+        }
       },
       "result": {
         "id": "fact:s1",
@@ -203,7 +211,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:inventory"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -261,7 +269,9 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case Y/Y",
+          "branch:case colors"
         ],
         "dependencies": [],
         "open_obligations": [],
@@ -313,10 +323,12 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case Y/Y",
+          "branch:case colors"
         ],
         "dependencies": [
-          "fact:inventory"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -329,11 +341,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: six distinct-color pairs",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:inventory"
+          "fact:s1"
         ]
       },
       "action": {
@@ -360,8 +373,8 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:case_yy",
-        "fact:case_colors"
+        "fact:s1",
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -426,10 +439,12 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case Y/Y",
+          "branch:case colors"
         ],
         "dependencies": [
-          "fact:inventory"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -486,12 +501,13 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case Y/Y",
+          "branch:case colors"
         ],
         "dependencies": [
-          "fact:inventory",
-          "fact:case_yy",
-          "fact:case_colors"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -504,12 +520,13 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: total=7",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:case_yy",
-          "fact:case_colors"
+          "fact:s1",
+          "fact:s2"
         ]
       },
       "action": {
@@ -574,12 +591,13 @@
     ],
     "subgoals": [],
     "scope": [
-      "global"
+      "global",
+      "branch:case Y/Y",
+      "branch:case colors"
     ],
     "dependencies": [
-      "fact:inventory",
-      "fact:case_yy",
-      "fact:case_colors"
+      "fact:s1",
+      "fact:s2"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

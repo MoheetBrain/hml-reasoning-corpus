@@ -128,7 +128,7 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Obligations created:**
 - none
 
-**Dependencies:** fact:population
+**Dependencies:** fact:population, fact:sample
 
 **Result:** `fact:s2` P(first male)=7/10
 
@@ -198,7 +198,7 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Obligations created:**
 - none
 
-**Dependencies:** fact:population
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` P(second male | first male)=2/3
 
@@ -230,6 +230,7 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Dependencies:**
 - fact:population
 - fact:sample
+- fact:s2
 
 ### Step 4: CONDITIONAL_PROBABILITY
 
@@ -259,6 +260,7 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Dependencies:**
 - fact:population
 - fact:sample
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -270,7 +272,7 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Obligations created:**
 - none
 
-**Dependencies:** fact:population
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` P(third male | first two male)=5/8
 
@@ -303,6 +305,8 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Dependencies:**
 - fact:population
 - fact:sample
+- fact:s2
+- fact:s3
 
 ### Step 5: MULTIPLY_CONDITIONALS
 
@@ -333,6 +337,8 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Dependencies:**
 - fact:population
 - fact:sample
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -344,7 +350,7 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Obligations created:**
 - none
 
-**Dependencies:** fact:population, fact:sample
+**Dependencies:** fact:s2, fact:s3, fact:s4
 
 **Result:** `fact:s5` P(no women)=7/24
 
@@ -378,6 +384,9 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Dependencies:**
 - fact:population
 - fact:sample
+- fact:s2
+- fact:s3
+- fact:s4
 
 ### Step 6: COMPLEMENT_COUNT
 
@@ -409,6 +418,9 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Dependencies:**
 - fact:population
 - fact:sample
+- fact:s2
+- fact:s3
+- fact:s4
 
 **Arguments:** `{}`
 
@@ -420,7 +432,7 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Obligations created:**
 - none
 
-**Dependencies:** fact:no_women
+**Dependencies:** fact:s5
 
 **Result:** `fact:s6` P(at least one woman)=17/24
 
@@ -455,7 +467,10 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Dependencies:**
 - fact:population
 - fact:sample
-- fact:no_women
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 ## Final state
 
@@ -482,7 +497,10 @@ We can find the probability that no women are selected and subtract it from 1 to
 **Dependencies:**
 - fact:population
 - fact:sample
-- fact:no_women
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 **Goal status:** `discharged`
 

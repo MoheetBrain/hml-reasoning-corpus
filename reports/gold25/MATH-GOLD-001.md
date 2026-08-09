@@ -33,7 +33,7 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 
 ## Trajectory
 
-### Step 1: INTRODUCE_VARIABLE
+### Step 1: APPLY_DEFINITION
 
 **Source span:** For the piecewise function to be continuous, the cases must "meet" at $2$ and $-2$.
 
@@ -201,7 +201,7 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 **Obligations created:**
 - none
 
-**Dependencies:** fact:piecewise
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` a=-3
 
@@ -233,6 +233,7 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 - `goal:answer` a+b=0 (goal_open)
 **Dependencies:**
 - fact:piecewise
+- fact:s2
 
 ### Step 4: FORMULATE_EQUATION
 
@@ -262,6 +263,7 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 - `goal:answer` a+b=0 (goal_open)
 **Dependencies:**
 - fact:piecewise
+- fact:s2
 
 **Arguments:** `{"boundary": -2}`
 
@@ -306,6 +308,7 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 - `goal:answer` a+b=0 (goal_open)
 **Dependencies:**
 - fact:piecewise
+- fact:s2
 
 ### Step 5: SOLVE
 
@@ -336,6 +339,7 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 - `goal:answer` a+b=0 (goal_open)
 **Dependencies:**
 - fact:piecewise
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -347,7 +351,7 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 **Obligations created:**
 - none
 
-**Dependencies:** fact:piecewise
+**Dependencies:** fact:s4
 
 **Result:** `fact:s5` b=3
 
@@ -381,6 +385,8 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 - `goal:answer` a+b=0 (goal_open)
 **Dependencies:**
 - fact:piecewise
+- fact:s2
+- fact:s4
 
 ### Step 6: EVALUATE
 
@@ -412,6 +418,8 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 - `goal:answer` a+b=0 (goal_open)
 **Dependencies:**
 - fact:piecewise
+- fact:s2
+- fact:s4
 
 **Arguments:** `{}`
 
@@ -423,7 +431,7 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 **Obligations created:**
 - none
 
-**Dependencies:** fact:a, fact:b
+**Dependencies:** fact:s3, fact:s5
 
 **Result:** `fact:s6` a+b=0
 
@@ -458,8 +466,10 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 - `goal:answer` a+b=0 (goal_open)
 **Dependencies:**
 - fact:piecewise
-- fact:a
-- fact:b
+- fact:s2
+- fact:s4
+- fact:s3
+- fact:s5
 
 ## Final state
 
@@ -486,14 +496,16 @@ For the piecewise function to be continuous, the cases must "meet" at $2$ and $-
 - `goal:answer` a+b=0 (goal_discharged)
 **Dependencies:**
 - fact:piecewise
-- fact:a
-- fact:b
+- fact:s2
+- fact:s4
+- fact:s3
+- fact:s5
 
 **Goal status:** `discharged`
 
 ## Operations observed
 
-`EVALUATE`, `FORMULATE_EQUATION`, `INTRODUCE_VARIABLE`, `SOLVE`
+`APPLY_DEFINITION`, `EVALUATE`, `FORMULATE_EQUATION`, `SOLVE`
 
 ## HML gaps exposed
 

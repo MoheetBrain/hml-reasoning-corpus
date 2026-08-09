@@ -29,7 +29,7 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 
 ## Trajectory
 
-### Step 1: SUBSTITUTE
+### Step 1: ADD_BOTH_SIDES
 
 **Source span:** The first equation gives $x = y+4$.
 
@@ -68,7 +68,7 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 
 **Verification:** `verified` / `MANUAL_SEMANTIC_CHECK` — The result follows from the recorded premises and the stated warrant.
 
-**HML support:** `PARTIAL`; constructs: add_both_sides. Native equality transformation can express this local step.
+**HML support:** `FULL`; constructs: add_both_sides. Current HML has the corresponding trusted rule.
 
 **Semantic gaps:** none
 
@@ -128,7 +128,7 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 **Obligations created:**
 - none
 
-**Dependencies:** fact:diff, fact:cubes
+**Dependencies:** fact:s1, fact:cubes
 
 **Result:** `fact:s2` (y+4)³-y³=28
 
@@ -158,6 +158,7 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_open)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
 
 ### Step 3: EXPAND
@@ -186,6 +187,7 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_open)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
 
 **Arguments:** `{}`
@@ -198,7 +200,7 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 **Obligations created:**
 - none
 
-**Dependencies:** fact:cubes
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` 12y²+48y+36=0
 
@@ -229,7 +231,9 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_open)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
+- fact:s2
 
 ### Step 4: FACTOR
 
@@ -258,7 +262,9 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_open)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -270,7 +276,7 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 **Obligations created:**
 - none
 
-**Dependencies:** fact:cubes
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` (y+1)(y+3)=0
 
@@ -302,7 +308,10 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_open)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
+- fact:s2
+- fact:s3
 
 ### Step 5: CASE_SPLIT
 
@@ -332,7 +341,10 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_open)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -344,7 +356,7 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 **Obligations created:**
 - none
 
-**Dependencies:** fact:diff, fact:cubes
+**Dependencies:** fact:s4
 
 **Result:** `fact:s5` candidate 1 (x,y)=(3,-1); candidate 2 (x,y)=(1,-3)
 
@@ -377,7 +389,11 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_open)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
+- fact:s2
+- fact:s3
+- fact:s4
 
 ### Step 6: EVALUATE
 
@@ -408,7 +424,11 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_open)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
+- fact:s2
+- fact:s3
+- fact:s4
 
 **Arguments:** `{}`
 
@@ -420,7 +440,7 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 **Obligations created:**
 - none
 
-**Dependencies:** fact:candidate_1, fact:candidate_2
+**Dependencies:** fact:s5
 
 **Result:** `fact:s6` both candidates yield xy=-3
 
@@ -454,9 +474,12 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_open)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
-- fact:candidate_1
-- fact:candidate_2
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 ## Final state
 
@@ -482,15 +505,18 @@ Solution 2. The second equation factors via difference of cubes, as \[(x-y)(x^2+
 - `goal:answer` xy=-3 (goal_discharged)
 **Dependencies:**
 - fact:diff
+- fact:s1
 - fact:cubes
-- fact:candidate_1
-- fact:candidate_2
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 **Goal status:** `discharged`
 
 ## Operations observed
 
-`CASE_SPLIT`, `EVALUATE`, `EXPAND`, `FACTOR`, `SUBSTITUTE`
+`ADD_BOTH_SIDES`, `CASE_SPLIT`, `EVALUATE`, `EXPAND`, `FACTOR`, `SUBSTITUTE`
 
 ## HML gaps exposed
 

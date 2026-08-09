@@ -76,11 +76,11 @@
         "notes": "The result follows from the recorded premises and the stated warrant."
       },
       "hml_support": {
-        "status": "PARTIAL",
+        "status": "FULL",
         "constructs": [
           "add_both_sides"
         ],
-        "notes": "Native equality transformation can express this local step."
+        "notes": "Current HML has the corresponding trusted rule."
       },
       "semantic_gap_ids": [],
       "branch": null,
@@ -187,6 +187,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: x=y+4",
         "scope_effect": "global/current scope",
@@ -195,8 +196,8 @@
         ]
       },
       "action": {
-        "operation_id": "SUBSTITUTE",
-        "family": "SUBSTITUTION",
+        "operation_id": "ADD_BOTH_SIDES",
+        "family": "EQUATION_TRANSFORMATION",
         "arguments": {}
       },
       "result": {
@@ -218,7 +219,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:diff",
+        "fact:s1",
         "fact:cubes"
       ],
       "verification": {
@@ -341,6 +342,7 @@
         ],
         "dependencies": [
           "fact:diff",
+          "fact:s1",
           "fact:cubes"
         ],
         "open_obligations": [],
@@ -354,11 +356,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: (y+4)³-y³=28",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:diff",
+          "fact:s1",
           "fact:cubes"
         ]
       },
@@ -386,7 +389,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:cubes"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -458,6 +461,7 @@
         ],
         "dependencies": [
           "fact:diff",
+          "fact:s1",
           "fact:cubes"
         ],
         "open_obligations": [],
@@ -523,7 +527,9 @@
         ],
         "dependencies": [
           "fact:diff",
-          "fact:cubes"
+          "fact:s1",
+          "fact:cubes",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -536,11 +542,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: 12y²+48y+36=0",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:cubes"
+          "fact:s2"
         ]
       },
       "action": {
@@ -567,7 +574,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:cubes"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -645,7 +652,9 @@
         ],
         "dependencies": [
           "fact:diff",
-          "fact:cubes"
+          "fact:s1",
+          "fact:cubes",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -716,7 +725,10 @@
         ],
         "dependencies": [
           "fact:diff",
-          "fact:cubes"
+          "fact:s1",
+          "fact:cubes",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -729,11 +741,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: (y+1)(y+3)=0",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:cubes"
+          "fact:s3"
         ]
       },
       "action": {
@@ -760,8 +773,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:diff",
-        "fact:cubes"
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -846,7 +858,10 @@
         ],
         "dependencies": [
           "fact:diff",
-          "fact:cubes"
+          "fact:s1",
+          "fact:cubes",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -923,7 +938,11 @@
         ],
         "dependencies": [
           "fact:diff",
-          "fact:cubes"
+          "fact:s1",
+          "fact:cubes",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -936,12 +955,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: candidate 1 (x,y)=(3,-1); candidate 2 (x,y)=(1,-3)",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:diff",
-          "fact:cubes"
+          "fact:s4"
         ]
       },
       "action": {
@@ -968,8 +987,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:candidate_1",
-        "fact:candidate_2"
+        "fact:s5"
       ],
       "verification": {
         "status": "verified",
@@ -1059,7 +1077,11 @@
         ],
         "dependencies": [
           "fact:diff",
-          "fact:cubes"
+          "fact:s1",
+          "fact:cubes",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1142,9 +1164,12 @@
         ],
         "dependencies": [
           "fact:diff",
+          "fact:s1",
           "fact:cubes",
-          "fact:candidate_1",
-          "fact:candidate_2"
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1157,12 +1182,12 @@
         "added_facts": [
           "fact:s6"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s6: both candidates yield xy=-3",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:candidate_1",
-          "fact:candidate_2"
+          "fact:s5"
         ]
       },
       "action": {
@@ -1253,9 +1278,12 @@
     ],
     "dependencies": [
       "fact:diff",
+      "fact:s1",
       "fact:cubes",
-      "fact:candidate_1",
-      "fact:candidate_2"
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5"
     ],
     "open_obligations": [],
     "discharged_obligations": [],
@@ -1270,6 +1298,7 @@
   },
   "goal_status": "discharged",
   "operations_observed": [
+    "ADD_BOTH_SIDES",
     "CASE_SPLIT",
     "EVALUATE",
     "EXPAND",

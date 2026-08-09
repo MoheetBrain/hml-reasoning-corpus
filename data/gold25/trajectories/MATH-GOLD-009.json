@@ -193,6 +193,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: x+2y+4z ≥ 3∛((x)(2y)(4z))",
         "scope_effect": "global/current scope",
@@ -224,7 +225,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:product"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -341,7 +342,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:product"
+          "fact:product",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -354,11 +356,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: x+2y+4z≥12",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:product"
+          "fact:s1"
         ]
       },
       "action": {
@@ -385,6 +388,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
+        "fact:s1",
         "fact:product"
       ],
       "verification": {
@@ -453,7 +457,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:product"
+          "fact:product",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -514,7 +519,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:product"
+          "fact:product",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -527,10 +533,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: equality condition x=2y=4z",
         "scope_effect": "global/current scope",
         "dependency_effect": [
+          "fact:s1",
           "fact:product"
         ]
       },
@@ -558,6 +566,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
+        "fact:s3",
         "fact:product"
       ],
       "verification": {
@@ -632,7 +641,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:product"
+          "fact:product",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -699,7 +709,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:product"
+          "fact:product",
+          "fact:s1",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -712,10 +724,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: witness (x,y,z)=(4,2,1) attains 12",
         "scope_effect": "global/current scope",
         "dependency_effect": [
+          "fact:s3",
           "fact:product"
         ]
       },
@@ -791,7 +805,9 @@
       "global"
     ],
     "dependencies": [
-      "fact:product"
+      "fact:product",
+      "fact:s1",
+      "fact:s3"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

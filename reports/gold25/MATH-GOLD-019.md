@@ -122,7 +122,7 @@ Solution 2: Squaring the given equation, we get
 **Obligations created:**
 - none
 
-**Dependencies:** fact:reciprocal
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` x=(√3±i)/2
 
@@ -149,6 +149,7 @@ Solution 2: Squaring the given equation, we get
 - `goal:answer` x¹⁸=-1 (goal_open)
 **Dependencies:**
 - fact:reciprocal
+- fact:s1
 
 ### Step 3: APPLY_IDENTITY
 
@@ -173,8 +174,9 @@ Solution 2: Squaring the given equation, we get
 - `goal:answer` x¹⁸=-1 (goal_open)
 **Dependencies:**
 - fact:reciprocal
+- fact:s1
 
-**Arguments:** `{}`
+**Arguments:** `{"branches": ["root 1", "root 2"]}`
 
 **Warrant:** Convert the two complex roots to exponential/polar form. (`polar_form`, source `library`)
 
@@ -184,7 +186,7 @@ Solution 2: Squaring the given equation, we get
 **Obligations created:**
 - none
 
-**Dependencies:** fact:reciprocal
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` two unit-complex candidate forms
 
@@ -196,7 +198,7 @@ Solution 2: Squaring the given equation, we get
 
 **State after:**
 
-`S3` scope: global
+`S3` scope: global, branch:root 1, branch:root 2
 **Objects:**
 - x
 **Declarations:**
@@ -212,6 +214,8 @@ Solution 2: Squaring the given equation, we get
 - `goal:answer` x¹⁸=-1 (goal_open)
 **Dependencies:**
 - fact:reciprocal
+- fact:s1
+- fact:s2
 
 ### Step 4: CASE_SPLIT
 
@@ -221,7 +225,7 @@ Solution 2: Squaring the given equation, we get
 
 **State before:**
 
-`S3` scope: global
+`S3` scope: global, branch:root 1, branch:root 2
 **Objects:**
 - x
 **Declarations:**
@@ -237,6 +241,8 @@ Solution 2: Squaring the given equation, we get
 - `goal:answer` x¹⁸=-1 (goal_open)
 **Dependencies:**
 - fact:reciprocal
+- fact:s1
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -248,7 +254,7 @@ Solution 2: Squaring the given equation, we get
 **Obligations created:**
 - none
 
-**Dependencies:** fact:reciprocal
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` branch 1 x¹⁸=e^{3πi}=-1
 
@@ -260,7 +266,7 @@ Solution 2: Squaring the given equation, we get
 
 **State after:**
 
-`S4` scope: global, branch:root 1
+`S4` scope: global, branch:root 1, branch:root 2
 **Objects:**
 - x
 **Declarations:**
@@ -277,6 +283,9 @@ Solution 2: Squaring the given equation, we get
 - `goal:answer` x¹⁸=-1 (goal_open)
 **Dependencies:**
 - fact:reciprocal
+- fact:s1
+- fact:s2
+- fact:s3
 
 ### Step 5: CASE_SPLIT
 
@@ -286,7 +295,7 @@ Solution 2: Squaring the given equation, we get
 
 **State before:**
 
-`S4` scope: global, branch:root 1
+`S4` scope: global, branch:root 1, branch:root 2
 **Objects:**
 - x
 **Declarations:**
@@ -303,6 +312,9 @@ Solution 2: Squaring the given equation, we get
 - `goal:answer` x¹⁸=-1 (goal_open)
 **Dependencies:**
 - fact:reciprocal
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -314,7 +326,7 @@ Solution 2: Squaring the given equation, we get
 **Obligations created:**
 - none
 
-**Dependencies:** fact:reciprocal
+**Dependencies:** fact:s3
 
 **Result:** `fact:s5` branch 2 x¹⁸=e^{33πi}=-1
 
@@ -344,6 +356,9 @@ Solution 2: Squaring the given equation, we get
 - `goal:answer` x¹⁸=-1 (goal_open)
 **Dependencies:**
 - fact:reciprocal
+- fact:s1
+- fact:s2
+- fact:s3
 
 ### Step 6: COMBINE_CASES
 
@@ -371,6 +386,9 @@ Solution 2: Squaring the given equation, we get
 - `goal:answer` x¹⁸=-1 (goal_open)
 **Dependencies:**
 - fact:reciprocal
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -382,7 +400,7 @@ Solution 2: Squaring the given equation, we get
 **Obligations created:**
 - `obl:root_case_join` both complex-root branches are covered before the invariant is global — `discharged`
 
-**Dependencies:** fact:root_1, fact:root_2
+**Dependencies:** fact:s4, fact:s5
 
 **Result:** `fact:s6` both branches give x¹⁸=-1
 
@@ -415,8 +433,11 @@ Solution 2: Squaring the given equation, we get
 - `obl:root_case_join` both complex-root branches are covered before the invariant is global (discharged)
 **Dependencies:**
 - fact:reciprocal
-- fact:root_1
-- fact:root_2
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 ## Final state
 
@@ -441,8 +462,11 @@ Solution 2: Squaring the given equation, we get
 - `obl:root_case_join` both complex-root branches are covered before the invariant is global (discharged)
 **Dependencies:**
 - fact:reciprocal
-- fact:root_1
-- fact:root_2
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 **Goal status:** `discharged`
 

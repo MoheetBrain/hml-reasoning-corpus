@@ -110,7 +110,7 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Obligations created:**
 - none
 
-**Dependencies:** fact:factorization
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` factor exponents satisfy 0≤e₂≤3 and 0≤e₃≤2
 
@@ -136,7 +136,7 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Goals:**
 - `goal:answer` count=2 (goal_open)
 **Dependencies:**
-- fact:factorization
+- fact:s1
 
 ### Step 3: APPLY_DEFINITION
 
@@ -160,7 +160,7 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Goals:**
 - `goal:answer` count=2 (goal_open)
 **Dependencies:**
-- fact:factorization
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -172,7 +172,7 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Obligations created:**
 - none
 
-**Dependencies:** fact:factorization
+**Dependencies:** fact:s1
 
 **Result:** `fact:s3` e₂,e₃ must be multiples of 3
 
@@ -199,7 +199,7 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Goals:**
 - `goal:answer` count=2 (goal_open)
 **Dependencies:**
-- fact:factorization
+- fact:s1
 
 ### Step 4: COUNT_CASES
 
@@ -224,7 +224,7 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Goals:**
 - `goal:answer` count=2 (goal_open)
 **Dependencies:**
-- fact:factorization
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -236,7 +236,7 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Obligations created:**
 - none
 
-**Dependencies:** fact:factorization
+**Dependencies:** fact:s2, fact:s3
 
 **Result:** `fact:s4` admissible exponent choices: e₂∈{0,3}, e₃=0
 
@@ -264,7 +264,9 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Goals:**
 - `goal:answer` count=2 (goal_open)
 **Dependencies:**
-- fact:factorization
+- fact:s1
+- fact:s2
+- fact:s3
 
 ### Step 5: COMBINE_CASE_COUNTS
 
@@ -290,7 +292,9 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Goals:**
 - `goal:answer` count=2 (goal_open)
 **Dependencies:**
-- fact:factorization
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -302,7 +306,7 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Obligations created:**
 - none
 
-**Dependencies:** fact:factorization
+**Dependencies:** fact:s4
 
 **Result:** `fact:s5` count=2
 
@@ -331,7 +335,10 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Goals:**
 - `goal:answer` count=2 (goal_open)
 **Dependencies:**
-- fact:factorization
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 
 ## Final state
 
@@ -352,7 +359,10 @@ Prime factorize $72$ as $2^3\cdot 3^2$.  A positive integer is a factor of 72 if
 **Goals:**
 - `goal:answer` count=2 (goal_discharged)
 **Dependencies:**
-- fact:factorization
+- fact:s1
+- fact:s2
+- fact:s3
+- fact:s4
 
 **Goal status:** `discharged`
 

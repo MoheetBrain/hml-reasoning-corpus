@@ -24,12 +24,14 @@
       "may_discharge_obligation": false,
       "dependency_behavior": "records cited facts and prior results",
       "domains_seen": [
-        "Algebra"
+        "Algebra",
+        "Intermediate Algebra"
       ],
       "examples_gold25": [
-        "MATH-GOLD-003"
+        "MATH-GOLD-003",
+        "MATH-GOLD-007"
       ],
-      "frequency_gold25": 1,
+      "frequency_gold25": 2,
       "verification_backend": [
         "audited source reasoning"
       ],
@@ -96,6 +98,7 @@
       "preconditions": [
         "2>0 and 2≠1",
         "4>0 and 4≠1",
+        "r>0",
         "x>0"
       ],
       "state_effect": "adds or transforms a fact in the current trajectory state",
@@ -103,20 +106,23 @@
       "may_discharge_obligation": false,
       "dependency_behavior": "records cited facts and prior results",
       "domains_seen": [
+        "Algebra",
         "Counting & Probability",
+        "Geometry",
         "Intermediate Algebra",
         "Number Theory",
         "Precalculus"
       ],
       "examples_gold25": [
+        "MATH-GOLD-001",
         "MATH-GOLD-006",
         "MATH-GOLD-008",
         "MATH-GOLD-013",
-        "MATH-GOLD-014",
         "MATH-GOLD-017",
-        "MATH-GOLD-020"
+        "MATH-GOLD-020",
+        "MATH-GOLD-022"
       ],
-      "frequency_gold25": 7,
+      "frequency_gold25": 8,
       "verification_backend": [
         "audited source reasoning"
       ],
@@ -238,7 +244,7 @@
         "MATH-GOLD-018",
         "MATH-GOLD-023"
       ],
-      "frequency_gold25": 4,
+      "frequency_gold25": 5,
       "verification_backend": [
         "audited source reasoning"
       ],
@@ -264,18 +270,23 @@
       "scope_behavior": "prunes cases",
       "hml_rule": null,
       "hml_support_status": "REPRESENTABLE_ONLY",
-      "preconditions": [],
+      "preconditions": [
+        "5>0",
+        "n≥6"
+      ],
       "state_effect": "adds or transforms a fact in the current trajectory state",
       "may_create_obligation": false,
       "may_discharge_obligation": false,
       "dependency_behavior": "records cited facts and prior results",
       "domains_seen": [
-        "Counting & Probability"
+        "Counting & Probability",
+        "Number Theory"
       ],
       "examples_gold25": [
-        "MATH-GOLD-012"
+        "MATH-GOLD-012",
+        "MATH-GOLD-015"
       ],
-      "frequency_gold25": 1,
+      "frequency_gold25": 2,
       "verification_backend": [
         "audited source reasoning"
       ],
@@ -962,7 +973,6 @@
         "Algebra",
         "Geometry",
         "Intermediate Algebra",
-        "Number Theory",
         "Prealgebra",
         "Precalculus"
       ],
@@ -971,14 +981,13 @@
         "MATH-GOLD-006",
         "MATH-GOLD-007",
         "MATH-GOLD-009",
-        "MATH-GOLD-015",
         "MATH-GOLD-018",
         "MATH-GOLD-020",
         "MATH-GOLD-021",
         "MATH-GOLD-023",
         "MATH-GOLD-024"
       ],
-      "frequency_gold25": 12,
+      "frequency_gold25": 11,
       "verification_backend": [
         "audited source reasoning",
         "exact arithmetic",
@@ -1285,7 +1294,6 @@
       "hml_rule": "var/param",
       "hml_support_status": "FULL",
       "preconditions": [
-        "r>0",
         "x≥1"
       ],
       "state_effect": "adds or transforms a fact in the current trajectory state",
@@ -1299,21 +1307,18 @@
         "Prealgebra"
       ],
       "examples_gold25": [
-        "MATH-GOLD-001",
         "MATH-GOLD-002",
         "MATH-GOLD-005",
         "MATH-GOLD-015",
         "MATH-GOLD-021",
-        "MATH-GOLD-022",
         "MATH-GOLD-025"
       ],
-      "frequency_gold25": 7,
+      "frequency_gold25": 5,
       "verification_backend": [
         "audited source reasoning"
       ],
       "hml_support": [
-        "FULL",
-        "REPRESENTABLE_ONLY"
+        "FULL"
       ],
       "notes": "Frequency is canonical-step frequency, not source-sentence frequency."
     },
@@ -1708,7 +1713,8 @@
       "hml_support_status": "REPRESENTABLE_ONLY",
       "preconditions": [
         "2>0 and 2≠1",
-        "2≠0"
+        "2≠0",
+        "3/2≠0"
       ],
       "state_effect": "adds or transforms a fact in the current trajectory state",
       "may_create_obligation": false,
@@ -1754,7 +1760,10 @@
       "scope_behavior": "branch-local",
       "hml_rule": "scope + local rules",
       "hml_support_status": "PARTIAL",
-      "preconditions": [],
+      "preconditions": [
+        "5x-1<0",
+        "5x-1≥0"
+      ],
       "state_effect": "adds or transforms a fact in the current trajectory state",
       "may_create_obligation": false,
       "may_discharge_obligation": false,
@@ -1808,13 +1817,12 @@
         "MATH-GOLD-015",
         "MATH-GOLD-018"
       ],
-      "frequency_gold25": 5,
+      "frequency_gold25": 4,
       "verification_backend": [
         "audited source reasoning"
       ],
       "hml_support": [
         "FULL",
-        "PARTIAL",
         "REPRESENTABLE_ONLY"
       ],
       "notes": "Frequency is canonical-step frequency, not source-sentence frequency."

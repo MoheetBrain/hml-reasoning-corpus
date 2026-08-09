@@ -34,7 +34,7 @@ We want to find two integers whose product is 80, such that one integer is two m
 
 ## Trajectory
 
-### Step 1: INTRODUCE_VARIABLE
+### Step 1: APPLY_DEFINITION
 
 **Source span:** If $r$ is the radius of the circle, we know that $x = \pi r^2$ and $y = 2\pi r$.
 
@@ -132,7 +132,7 @@ We want to find two integers whose product is 80, such that one integer is two m
 **Obligations created:**
 - none
 
-**Dependencies:** fact:sum
+**Dependencies:** fact:s1, fact:sum
 
 **Result:** `fact:s2` r(r+2)=80
 
@@ -162,6 +162,7 @@ We want to find two integers whose product is 80, such that one integer is two m
 **Goals:**
 - `goal:answer` r=8 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:sum
 
 ### Step 3: FACTOR
@@ -190,6 +191,7 @@ We want to find two integers whose product is 80, such that one integer is two m
 **Goals:**
 - `goal:answer` r=8 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:sum
 
 **Arguments:** `{}`
@@ -202,7 +204,7 @@ We want to find two integers whose product is 80, such that one integer is two m
 **Obligations created:**
 - none
 
-**Dependencies:** fact:sum
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` seek consecutive-offset factor pair (r,r+2)
 
@@ -233,7 +235,9 @@ We want to find two integers whose product is 80, such that one integer is two m
 **Goals:**
 - `goal:answer` r=8 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:sum
+- fact:s2
 
 ### Step 4: SELECT_CANDIDATE
 
@@ -262,7 +266,9 @@ We want to find two integers whose product is 80, such that one integer is two m
 **Goals:**
 - `goal:answer` r=8 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:sum
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -274,7 +280,7 @@ We want to find two integers whose product is 80, such that one integer is two m
 **Obligations created:**
 - none
 
-**Dependencies:** fact:sum
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` r=8
 
@@ -306,7 +312,10 @@ We want to find two integers whose product is 80, such that one integer is two m
 **Goals:**
 - `goal:answer` r=8 (goal_open)
 **Dependencies:**
+- fact:s1
 - fact:sum
+- fact:s2
+- fact:s3
 
 ## Final state
 
@@ -330,13 +339,16 @@ We want to find two integers whose product is 80, such that one integer is two m
 **Goals:**
 - `goal:answer` r=8 (goal_discharged)
 **Dependencies:**
+- fact:s1
 - fact:sum
+- fact:s2
+- fact:s3
 
 **Goal status:** `discharged`
 
 ## Operations observed
 
-`FACTOR`, `FORMULATE_EQUATION`, `INTRODUCE_VARIABLE`, `SELECT_CANDIDATE`
+`APPLY_DEFINITION`, `FACTOR`, `FORMULATE_EQUATION`, `SELECT_CANDIDATE`
 
 ## HML gaps exposed
 

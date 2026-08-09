@@ -64,10 +64,7 @@
       "preconditions": [],
       "creates_obligations": [],
       "discharges_obligations": [],
-      "dependencies": [
-        "fact:norm_a",
-        "fact:norm_b"
-      ],
+      "dependencies": [],
       "verification": {
         "status": "verified",
         "category": "MANUAL_SEMANTIC_CHECK",
@@ -170,10 +167,7 @@
         "scope": [
           "global"
         ],
-        "dependencies": [
-          "fact:norm_a",
-          "fact:norm_b"
-        ],
+        "dependencies": [],
         "open_obligations": [],
         "discharged_obligations": [],
         "epistemic_status": [],
@@ -185,13 +179,11 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: (a+b)·(a-b)=a·a+b·a-a·b-b·b",
         "scope_effect": "global/current scope",
-        "dependency_effect": [
-          "fact:norm_a",
-          "fact:norm_b"
-        ]
+        "dependency_effect": []
       },
       "action": {
         "operation_id": "EXPAND",
@@ -217,8 +209,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:norm_a",
-        "fact:norm_b"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -280,10 +271,7 @@
         "scope": [
           "global"
         ],
-        "dependencies": [
-          "fact:norm_a",
-          "fact:norm_b"
-        ],
+        "dependencies": [],
         "open_obligations": [],
         "discharged_obligations": [],
         "epistemic_status": [],
@@ -338,8 +326,7 @@
           "global"
         ],
         "dependencies": [
-          "fact:norm_a",
-          "fact:norm_b"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -352,12 +339,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: cross terms cancel",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:norm_a",
-          "fact:norm_b"
+          "fact:s1"
         ]
       },
       "action": {
@@ -384,8 +371,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:norm_a",
-        "fact:norm_b"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -454,8 +440,7 @@
           "global"
         ],
         "dependencies": [
-          "fact:norm_a",
-          "fact:norm_b"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -517,8 +502,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:norm_a",
-          "fact:norm_b"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -531,12 +516,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: ||a||²-||b||²",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:norm_a",
-          "fact:norm_b"
+          "fact:s2"
         ]
       },
       "action": {
@@ -563,6 +548,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
+        "fact:s3",
         "fact:norm_a",
         "fact:norm_b"
       ],
@@ -639,8 +625,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:norm_a",
-          "fact:norm_b"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -708,6 +694,9 @@
           "global"
         ],
         "dependencies": [
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
           "fact:norm_a",
           "fact:norm_b"
         ],
@@ -722,10 +711,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: (a+b)·(a-b)=-27",
         "scope_effect": "global/current scope",
         "dependency_effect": [
+          "fact:s3",
           "fact:norm_a",
           "fact:norm_b"
         ]
@@ -803,6 +794,9 @@
       "global"
     ],
     "dependencies": [
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
       "fact:norm_a",
       "fact:norm_b"
     ],

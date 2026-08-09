@@ -183,6 +183,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: x and y denote the two positive integers",
         "scope_effect": "global/current scope",
@@ -340,6 +341,7 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: facts x²+y²=90 and xy=27 are active",
         "scope_effect": "global/current scope",
@@ -369,8 +371,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:squares",
-        "fact:product"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -503,8 +504,7 @@
           "global"
         ],
         "dependencies": [
-          "fact:squares",
-          "fact:product"
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -517,12 +517,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: (x+y)²=144",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:squares",
-          "fact:product"
+          "fact:s2"
         ]
       },
       "action": {
@@ -564,8 +564,7 @@
       ],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:squares",
-        "fact:product"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -645,8 +644,7 @@
           "global"
         ],
         "dependencies": [
-          "fact:squares",
-          "fact:product"
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -716,8 +714,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:squares",
-          "fact:product"
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -738,14 +736,14 @@
         "added_facts": [
           "fact:s4"
         ],
-        "removed_obligations": [
+        "added_obligations": [
           "obl:root_sign"
         ],
+        "removed_obligations": [],
         "epistemic_update": "Established fact:s4: x+y=12",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:squares",
-          "fact:product"
+          "fact:s3"
         ]
       },
       "action": {
@@ -823,8 +821,8 @@
       "global"
     ],
     "dependencies": [
-      "fact:squares",
-      "fact:product"
+      "fact:s2",
+      "fact:s3"
     ],
     "open_obligations": [],
     "discharged_obligations": [

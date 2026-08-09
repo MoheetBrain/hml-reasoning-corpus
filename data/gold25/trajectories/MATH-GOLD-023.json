@@ -168,6 +168,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: 4<n<14",
         "scope_effect": "global/current scope",
@@ -206,7 +207,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:sides"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -315,7 +316,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:sides"
+          "fact:sides",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -328,11 +330,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: valid n={5,6,7,8,9,10,11,12,13}",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:sides"
+          "fact:s1"
         ]
       },
       "action": {
@@ -359,7 +362,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:sides"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -423,7 +426,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:sides"
+          "fact:sides",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -480,7 +484,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:sides"
+          "fact:sides",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -493,11 +499,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: sum=81",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:sides"
+          "fact:s2"
         ]
       },
       "action": {
@@ -562,7 +569,9 @@
       "global"
     ],
     "dependencies": [
-      "fact:sides"
+      "fact:sides",
+      "fact:s1",
+      "fact:s2"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

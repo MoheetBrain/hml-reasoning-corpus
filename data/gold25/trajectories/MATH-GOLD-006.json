@@ -188,6 +188,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: log₄x=(1/2)log₂x",
         "scope_effect": "global/current scope",
@@ -219,7 +220,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:log_eq"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -328,7 +329,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:log_eq"
+          "fact:log_eq",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -341,11 +343,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: (3/2)log₂x=6",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:log_eq"
+          "fact:s1"
         ]
       },
       "action": {
@@ -370,6 +373,12 @@
       },
       "preconditions": [
         {
+          "condition": "3/2≠0",
+          "status": "satisfied",
+          "evidence": "Given or established in the current state.",
+          "source_omission": false
+        },
+        {
           "condition": "2>0 and 2≠1",
           "status": "satisfied",
           "evidence": "Given or established in the current state.",
@@ -379,7 +388,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:log_eq"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -443,7 +452,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:log_eq"
+          "fact:log_eq",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -500,7 +510,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:log_eq"
+          "fact:log_eq",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -513,11 +525,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: log₂x=4 and x=2⁴",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:log_eq"
+          "fact:s2"
         ]
       },
       "action": {
@@ -543,7 +556,9 @@
       "preconditions": [],
       "creates_obligations": [],
       "discharges_obligations": [],
-      "dependencies": [],
+      "dependencies": [
+        "fact:s3"
+      ],
       "verification": {
         "status": "verified",
         "category": "VERIFIED_EXACT",
@@ -610,7 +625,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:log_eq"
+          "fact:log_eq",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -673,7 +690,10 @@
           "global"
         ],
         "dependencies": [
-          "fact:log_eq"
+          "fact:log_eq",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -686,10 +706,13 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: x=16",
         "scope_effect": "global/current scope",
-        "dependency_effect": []
+        "dependency_effect": [
+          "fact:s3"
+        ]
       },
       "action": {
         "operation_id": "EVALUATE",
@@ -759,7 +782,10 @@
       "global"
     ],
     "dependencies": [
-      "fact:log_eq"
+      "fact:log_eq",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

@@ -116,7 +116,7 @@ First, we use the fact that $\frac{\log b}{\log a}=\log_a b$ to turn $\log_4 x$ 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:log_eq
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` (3/2)log₂x=6
 
@@ -143,6 +143,7 @@ First, we use the fact that $\frac{\log b}{\log a}=\log_a b$ to turn $\log_4 x$ 
 - `goal:answer` x=16 (goal_open)
 **Dependencies:**
 - fact:log_eq
+- fact:s1
 
 ### Step 3: SOLVE
 
@@ -167,18 +168,20 @@ First, we use the fact that $\frac{\log b}{\log a}=\log_a b$ to turn $\log_4 x$ 
 - `goal:answer` x=16 (goal_open)
 **Dependencies:**
 - fact:log_eq
+- fact:s1
 
 **Arguments:** `{}`
 
 **Warrant:** Undo the logarithm using the definition of base-2 logarithm. (`inverse_function`, source `library`)
 
 **Preconditions:**
+- 3/2≠0 — `satisfied`; Given or established in the current state.
 - 2>0 and 2≠1 — `satisfied`; Given or established in the current state.
 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:log_eq
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` log₂x=4 and x=2⁴
 
@@ -206,6 +209,8 @@ First, we use the fact that $\frac{\log b}{\log a}=\log_a b$ to turn $\log_4 x$ 
 - `goal:answer` x=16 (goal_open)
 **Dependencies:**
 - fact:log_eq
+- fact:s1
+- fact:s2
 
 ### Step 4: EVALUATE
 
@@ -231,6 +236,8 @@ First, we use the fact that $\frac{\log b}{\log a}=\log_a b$ to turn $\log_4 x$ 
 - `goal:answer` x=16 (goal_open)
 **Dependencies:**
 - fact:log_eq
+- fact:s1
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -242,7 +249,7 @@ First, we use the fact that $\frac{\log b}{\log a}=\log_a b$ to turn $\log_4 x$ 
 **Obligations created:**
 - none
 
-**Dependencies:** none
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` x=16
 
@@ -271,6 +278,9 @@ First, we use the fact that $\frac{\log b}{\log a}=\log_a b$ to turn $\log_4 x$ 
 - `goal:answer` x=16 (goal_open)
 **Dependencies:**
 - fact:log_eq
+- fact:s1
+- fact:s2
+- fact:s3
 
 ## Final state
 
@@ -291,6 +301,9 @@ First, we use the fact that $\frac{\log b}{\log a}=\log_a b$ to turn $\log_4 x$ 
 - `goal:answer` x=16 (goal_discharged)
 **Dependencies:**
 - fact:log_eq
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Goal status:** `discharged`
 

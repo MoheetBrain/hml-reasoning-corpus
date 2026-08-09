@@ -25,7 +25,7 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 
 ## Trajectory
 
-### Step 1: APPLY_DEFINITION
+### Step 1: APPLY_THEOREM
 
 **Source span:** We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the four digit number to be divisible by 18 it must also be divisible by 9 and 2.
 
@@ -120,7 +120,7 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:number
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` 14+n is divisible by 9
 
@@ -149,6 +149,7 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 **Dependencies:**
 - fact:number
 - fact:divisor
+- fact:s1
 
 ### Step 3: BOUND_SEARCH
 
@@ -175,6 +176,7 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 **Dependencies:**
 - fact:number
 - fact:divisor
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -186,7 +188,7 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:number
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` 14+n ∈ {18,27} under digit bound
 
@@ -216,6 +218,8 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 **Dependencies:**
 - fact:number
 - fact:divisor
+- fact:s1
+- fact:s2
 
 ### Step 4: SELECT_CANDIDATE
 
@@ -243,6 +247,8 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 **Dependencies:**
 - fact:number
 - fact:divisor
+- fact:s1
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -254,7 +260,7 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:number
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` n=4
 
@@ -285,6 +291,9 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 **Dependencies:**
 - fact:number
 - fact:divisor
+- fact:s1
+- fact:s2
+- fact:s3
 
 ## Final state
 
@@ -307,12 +316,15 @@ We know that the prime factorization of 18 is $2\cdot 3^2$, so in order for the 
 **Dependencies:**
 - fact:number
 - fact:divisor
+- fact:s1
+- fact:s2
+- fact:s3
 
 **Goal status:** `discharged`
 
 ## Operations observed
 
-`APPLY_DEFINITION`, `APPLY_THEOREM`, `BOUND_SEARCH`, `SELECT_CANDIDATE`
+`APPLY_THEOREM`, `BOUND_SEARCH`, `SELECT_CANDIDATE`
 
 ## HML gaps exposed
 

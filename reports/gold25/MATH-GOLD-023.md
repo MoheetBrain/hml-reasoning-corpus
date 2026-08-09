@@ -114,7 +114,7 @@ Using the Triangle Inequality, we see that $n > 4$ and $n < 14,$ so $n$ can be a
 **Obligations created:**
 - none
 
-**Dependencies:** fact:sides
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` valid n={5,6,7,8,9,10,11,12,13}
 
@@ -141,6 +141,7 @@ Using the Triangle Inequality, we see that $n > 4$ and $n < 14,$ so $n$ can be a
 - `goal:answer` sum of valid n=81 (goal_open)
 **Dependencies:**
 - fact:sides
+- fact:s1
 
 ### Step 3: EVALUATE
 
@@ -165,6 +166,7 @@ Using the Triangle Inequality, we see that $n > 4$ and $n < 14,$ so $n$ can be a
 - `goal:answer` sum of valid n=81 (goal_open)
 **Dependencies:**
 - fact:sides
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -176,7 +178,7 @@ Using the Triangle Inequality, we see that $n > 4$ and $n < 14,$ so $n$ can be a
 **Obligations created:**
 - none
 
-**Dependencies:** fact:sides
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` sum=81
 
@@ -204,6 +206,8 @@ Using the Triangle Inequality, we see that $n > 4$ and $n < 14,$ so $n$ can be a
 - `goal:answer` sum of valid n=81 (goal_open)
 **Dependencies:**
 - fact:sides
+- fact:s1
+- fact:s2
 
 ## Final state
 
@@ -223,6 +227,8 @@ Using the Triangle Inequality, we see that $n > 4$ and $n < 14,$ so $n$ can be a
 - `goal:answer` sum of valid n=81 (goal_discharged)
 **Dependencies:**
 - fact:sides
+- fact:s1
+- fact:s2
 
 **Goal status:** `discharged`
 

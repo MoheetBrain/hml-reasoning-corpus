@@ -187,7 +187,7 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:hypotenuse
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` 2x²+2x+1=841
 
@@ -218,6 +218,7 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Dependencies:**
 - fact:hypotenuse
 - fact:consecutive
+- fact:s2
 
 ### Step 4: FACTOR
 
@@ -246,6 +247,7 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Dependencies:**
 - fact:hypotenuse
 - fact:consecutive
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -257,7 +259,7 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:hypotenuse
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` x(x+1)=420
 
@@ -289,6 +291,8 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Dependencies:**
 - fact:hypotenuse
 - fact:consecutive
+- fact:s2
+- fact:s3
 
 ### Step 5: SELECT_CANDIDATE
 
@@ -318,6 +322,8 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Dependencies:**
 - fact:hypotenuse
 - fact:consecutive
+- fact:s2
+- fact:s3
 
 **Arguments:** `{}`
 
@@ -329,7 +335,7 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:consecutive
+**Dependencies:** fact:s4
 
 **Result:** `fact:s5` legs=(20,21)
 
@@ -362,6 +368,9 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Dependencies:**
 - fact:hypotenuse
 - fact:consecutive
+- fact:s2
+- fact:s3
+- fact:s4
 
 ### Step 6: EVALUATE
 
@@ -392,6 +401,9 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Dependencies:**
 - fact:hypotenuse
 - fact:consecutive
+- fact:s2
+- fact:s3
+- fact:s4
 
 **Arguments:** `{}`
 
@@ -403,7 +415,7 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Obligations created:**
 - none
 
-**Dependencies:** none
+**Dependencies:** fact:s5
 
 **Result:** `fact:s6` leg sum=41
 
@@ -437,6 +449,10 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Dependencies:**
 - fact:hypotenuse
 - fact:consecutive
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 ## Final state
 
@@ -462,6 +478,10 @@ Let's call the length of the shorter leg $x$. Then the length of the longer leg 
 **Dependencies:**
 - fact:hypotenuse
 - fact:consecutive
+- fact:s2
+- fact:s3
+- fact:s4
+- fact:s5
 
 **Goal status:** `discharged`
 

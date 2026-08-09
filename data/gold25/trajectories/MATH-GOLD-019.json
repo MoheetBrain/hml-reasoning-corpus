@@ -177,6 +177,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: x²-√3x+1=0",
         "scope_effect": "global/current scope",
@@ -208,7 +209,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:reciprocal"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -317,7 +318,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:reciprocal"
+          "fact:reciprocal",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -330,11 +332,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: x=(√3±i)/2",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:reciprocal"
+          "fact:s1"
         ]
       },
       "action": {
@@ -361,7 +364,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:reciprocal"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -425,7 +428,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:reciprocal"
+          "fact:reciprocal",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -479,10 +483,14 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:root 1",
+          "branch:root 2"
         ],
         "dependencies": [
-          "fact:reciprocal"
+          "fact:reciprocal",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -495,17 +503,23 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: two unit-complex candidate forms",
-        "scope_effect": "global/current scope",
+        "scope_effect": "branch-declaration",
         "dependency_effect": [
-          "fact:reciprocal"
+          "fact:s2"
         ]
       },
       "action": {
         "operation_id": "APPLY_IDENTITY",
         "family": "THEOREM_APPLICATION",
-        "arguments": {}
+        "arguments": {
+          "branches": [
+            "root 1",
+            "root 2"
+          ]
+        }
       },
       "result": {
         "id": "fact:s3",
@@ -526,7 +540,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:reciprocal"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -594,10 +608,14 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:root 1",
+          "branch:root 2"
         ],
         "dependencies": [
-          "fact:reciprocal"
+          "fact:reciprocal",
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -658,10 +676,14 @@
         "subgoals": [],
         "scope": [
           "global",
-          "branch:root 1"
+          "branch:root 1",
+          "branch:root 2"
         ],
         "dependencies": [
-          "fact:reciprocal"
+          "fact:reciprocal",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -674,11 +696,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: branch 1 x¹⁸=e^{3πi}=-1",
         "scope_effect": "branch-local",
         "dependency_effect": [
-          "fact:reciprocal"
+          "fact:s3"
         ]
       },
       "action": {
@@ -705,7 +728,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:reciprocal"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -780,10 +803,14 @@
         "subgoals": [],
         "scope": [
           "global",
-          "branch:root 1"
+          "branch:root 1",
+          "branch:root 2"
         ],
         "dependencies": [
-          "fact:reciprocal"
+          "fact:reciprocal",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -854,7 +881,10 @@
           "branch:root 2"
         ],
         "dependencies": [
-          "fact:reciprocal"
+          "fact:reciprocal",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -867,11 +897,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: branch 2 x¹⁸=e^{33πi}=-1",
         "scope_effect": "branch-local",
         "dependency_effect": [
-          "fact:reciprocal"
+          "fact:s3"
         ]
       },
       "action": {
@@ -906,8 +937,8 @@
       ],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:root_1",
-        "fact:root_2"
+        "fact:s4",
+        "fact:s5"
       ],
       "verification": {
         "status": "verified",
@@ -993,7 +1024,10 @@
           "branch:root 2"
         ],
         "dependencies": [
-          "fact:reciprocal"
+          "fact:reciprocal",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1071,8 +1105,11 @@
         ],
         "dependencies": [
           "fact:reciprocal",
-          "fact:root_1",
-          "fact:root_2"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -1093,14 +1130,15 @@
         "added_facts": [
           "fact:s6"
         ],
-        "removed_obligations": [
+        "added_obligations": [
           "obl:root_case_join"
         ],
+        "removed_obligations": [],
         "epistemic_update": "Established fact:s6: both branches give x¹⁸=-1",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:root_1",
-          "fact:root_2"
+          "fact:s4",
+          "fact:s5"
         ]
       },
       "action": {
@@ -1186,8 +1224,11 @@
     ],
     "dependencies": [
       "fact:reciprocal",
-      "fact:root_1",
-      "fact:root_2"
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5"
     ],
     "open_obligations": [],
     "discharged_obligations": [

@@ -65,7 +65,7 @@ From the angle addition formula,
 **Obligations created:**
 - none
 
-**Dependencies:** none
+**Dependencies:** fact:angle_split
 
 **Result:** `fact:s1` tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)
 
@@ -90,6 +90,8 @@ From the angle addition formula,
 - `fact:s1` tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°) (established)
 **Goals:**
 - `goal:answer` tan75°=2+√3 (goal_open)
+**Dependencies:**
+- fact:angle_split
 
 ### Step 2: SUBSTITUTE
 
@@ -112,6 +114,8 @@ From the angle addition formula,
 - `fact:s1` tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°) (established)
 **Goals:**
 - `goal:answer` tan75°=2+√3 (goal_open)
+**Dependencies:**
+- fact:angle_split
 
 **Arguments:** `{}`
 
@@ -123,7 +127,7 @@ From the angle addition formula,
 **Obligations created:**
 - none
 
-**Dependencies:** fact:special
+**Dependencies:** fact:s1, fact:special
 
 **Result:** `fact:s2` tan75°=(1+1/√3)/(1-1/√3)
 
@@ -150,6 +154,8 @@ From the angle addition formula,
 **Goals:**
 - `goal:answer` tan75°=2+√3 (goal_open)
 **Dependencies:**
+- fact:angle_split
+- fact:s1
 - fact:special
 
 ### Step 3: RATIONALIZE
@@ -175,6 +181,8 @@ From the angle addition formula,
 **Goals:**
 - `goal:answer` tan75°=2+√3 (goal_open)
 **Dependencies:**
+- fact:angle_split
+- fact:s1
 - fact:special
 
 **Arguments:** `{}`
@@ -187,7 +195,7 @@ From the angle addition formula,
 **Obligations created:**
 - none
 
-**Dependencies:** none
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` tan75°=(√3+1)/(√3-1)
 
@@ -215,7 +223,10 @@ From the angle addition formula,
 **Goals:**
 - `goal:answer` tan75°=2+√3 (goal_open)
 **Dependencies:**
+- fact:angle_split
+- fact:s1
 - fact:special
+- fact:s2
 
 ### Step 4: EVALUATE
 
@@ -241,7 +252,10 @@ From the angle addition formula,
 **Goals:**
 - `goal:answer` tan75°=2+√3 (goal_open)
 **Dependencies:**
+- fact:angle_split
+- fact:s1
 - fact:special
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -253,7 +267,7 @@ From the angle addition formula,
 **Obligations created:**
 - none
 
-**Dependencies:** none
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` tan75°=2+√3
 
@@ -282,7 +296,11 @@ From the angle addition formula,
 **Goals:**
 - `goal:answer` tan75°=2+√3 (goal_open)
 **Dependencies:**
+- fact:angle_split
+- fact:s1
 - fact:special
+- fact:s2
+- fact:s3
 
 ## Final state
 
@@ -303,7 +321,11 @@ From the angle addition formula,
 **Goals:**
 - `goal:answer` tan75°=2+√3 (goal_discharged)
 **Dependencies:**
+- fact:angle_split
+- fact:s1
 - fact:special
+- fact:s2
+- fact:s3
 
 **Goal status:** `discharged`
 

@@ -142,7 +142,7 @@ Substituting $-x$ for $x$ gives us $f(g(-x^3)) = f(-g(x^3)) = f(g(x^3))$ so $f(g
 **Obligations created:**
 - none
 
-**Dependencies:** fact:parity_f, fact:parity_g
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` goal parity even discharged
 
@@ -172,10 +172,11 @@ Substituting $-x$ for $x$ gives us $f(g(-x^3)) = f(-g(x^3)) = f(g(x^3))$ so $f(g
 - `fact:s1` h(-x)=h(x) for h(x)=f(g(x³)) (established)
 - `fact:s2` goal parity even discharged (established)
 **Goals:**
-- `goal:answer` f(g(x³)) is even (goal_open)
+- `goal:answer` f(g(x³)) is even (goal_discharged)
 **Dependencies:**
 - fact:parity_f
 - fact:parity_g
+- fact:s1
 
 ## Final state
 
@@ -201,6 +202,7 @@ Substituting $-x$ for $x$ gives us $f(g(-x^3)) = f(-g(x^3)) = f(g(x^3))$ so $f(g
 **Dependencies:**
 - fact:parity_f
 - fact:parity_g
+- fact:s1
 
 **Goal status:** `discharged`
 

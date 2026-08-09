@@ -157,6 +157,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: A, B, J are named age variables",
         "scope_effect": "global/current scope",
@@ -185,7 +186,9 @@
       "preconditions": [],
       "creates_obligations": [],
       "discharges_obligations": [],
-      "dependencies": [],
+      "dependencies": [
+        "fact:s1"
+      ],
       "verification": {
         "status": "verified",
         "category": "MANUAL_SEMANTIC_CHECK",
@@ -286,7 +289,9 @@
         "scope": [
           "global"
         ],
-        "dependencies": [],
+        "dependencies": [
+          "fact:s1"
+        ],
         "open_obligations": [],
         "discharged_obligations": [],
         "epistemic_status": [],
@@ -298,10 +303,13 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: A=3B, J=B+6, A=J",
         "scope_effect": "global/current scope",
-        "dependency_effect": []
+        "dependency_effect": [
+          "fact:s1"
+        ]
       },
       "action": {
         "operation_id": "FORMULATE_EQUATION",
@@ -327,7 +335,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:system"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -387,7 +395,9 @@
         "scope": [
           "global"
         ],
-        "dependencies": [],
+        "dependencies": [
+          "fact:s1"
+        ],
         "open_obligations": [],
         "discharged_obligations": [],
         "epistemic_status": [],
@@ -442,7 +452,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:system"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -455,11 +466,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: 3B=B+6",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:system"
+          "fact:s2"
         ]
       },
       "action": {
@@ -493,7 +505,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:system"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -561,7 +573,8 @@
           "global"
         ],
         "dependencies": [
-          "fact:system"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -623,7 +636,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:system"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -636,11 +651,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: B=3",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:system"
+          "fact:s3"
         ]
       },
       "action": {
@@ -667,7 +683,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:B"
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -741,7 +757,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:system"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -801,7 +819,7 @@
           {
             "id": "goal:answer",
             "statement": "B=3",
-            "status": "goal_open"
+            "status": "goal_discharged"
           }
         ],
         "subgoals": [],
@@ -809,12 +827,20 @@
           "global"
         ],
         "dependencies": [
-          "fact:system",
-          "fact:B"
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
-        "epistemic_status": [],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "B=3",
+            "status": "goal_discharged"
+          }
+        ],
         "id": "S5"
       },
       "state_change": {
@@ -823,11 +849,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: goal B=3 discharged",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:B"
+          "fact:s4"
         ]
       },
       "action": {
@@ -903,8 +930,10 @@
       "global"
     ],
     "dependencies": [
-      "fact:system",
-      "fact:B"
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

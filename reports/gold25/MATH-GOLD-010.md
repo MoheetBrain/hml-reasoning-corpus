@@ -50,7 +50,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 **Goals:**
 - `goal:answer` number of distinct 2-marble groups=7 (goal_open)
 
-**Arguments:** `{}`
+**Arguments:** `{"branches": ["case Y/Y", "case colors"]}`
 
 **Warrant:** Partition the outcomes by whether the indistinguishable yellow multiplicity is used twice. (`combinatorial_partition`, source `explicit`)
 
@@ -72,7 +72,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 
 **State after:**
 
-`S1` scope: global
+`S1` scope: global, branch:case Y/Y, branch:case colors
 **Objects:**
 - red marble
 - green marble
@@ -96,7 +96,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 
 **State before:**
 
-`S1` scope: global
+`S1` scope: global, branch:case Y/Y, branch:case colors
 **Objects:**
 - red marble
 - green marble
@@ -122,7 +122,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 **Obligations created:**
 - none
 
-**Dependencies:** fact:inventory
+**Dependencies:** fact:s1
 
 **Result:** `fact:s2` six distinct-color pairs
 
@@ -134,7 +134,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 
 **State after:**
 
-`S2` scope: global
+`S2` scope: global, branch:case Y/Y, branch:case colors
 **Objects:**
 - red marble
 - green marble
@@ -151,7 +151,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 **Goals:**
 - `goal:answer` number of distinct 2-marble groups=7 (goal_open)
 **Dependencies:**
-- fact:inventory
+- fact:s1
 
 ### Step 3: COMBINE_CASE_COUNTS
 
@@ -161,7 +161,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 
 **State before:**
 
-`S2` scope: global
+`S2` scope: global, branch:case Y/Y, branch:case colors
 **Objects:**
 - red marble
 - green marble
@@ -178,7 +178,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 **Goals:**
 - `goal:answer` number of distinct 2-marble groups=7 (goal_open)
 **Dependencies:**
-- fact:inventory
+- fact:s1
 
 **Arguments:** `{}`
 
@@ -190,7 +190,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 **Obligations created:**
 - none
 
-**Dependencies:** fact:case_yy, fact:case_colors
+**Dependencies:** fact:s1, fact:s2
 
 **Result:** `fact:s3` total=7
 
@@ -202,7 +202,7 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 
 **State after:**
 
-`S3` scope: global
+`S3` scope: global, branch:case Y/Y, branch:case colors
 **Objects:**
 - red marble
 - green marble
@@ -220,13 +220,12 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 **Goals:**
 - `goal:answer` number of distinct 2-marble groups=7 (goal_open)
 **Dependencies:**
-- fact:inventory
-- fact:case_yy
-- fact:case_colors
+- fact:s1
+- fact:s2
 
 ## Final state
 
-`S3` scope: global
+`S3` scope: global, branch:case Y/Y, branch:case colors
 **Objects:**
 - red marble
 - green marble
@@ -244,9 +243,8 @@ There are two cases here: either Tom chooses two yellow marbles (1 result), or h
 **Goals:**
 - `goal:answer` number of distinct 2-marble groups=7 (goal_discharged)
 **Dependencies:**
-- fact:inventory
-- fact:case_yy
-- fact:case_colors
+- fact:s1
+- fact:s2
 
 **Goal status:** `discharged`
 

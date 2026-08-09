@@ -186,7 +186,7 @@ Call the two integers $x$ and $y$. We are given that $x^2 + y^2 = 90$ and that $
 **Obligations created:**
 - none
 
-**Dependencies:** fact:squares, fact:product
+**Dependencies:** fact:s2
 
 **Result:** `fact:s3` (x+y)²=144
 
@@ -216,8 +216,7 @@ Call the two integers $x$ and $y$. We are given that $x^2 + y^2 = 90$ and that $
 **Goals:**
 - `goal:answer` x+y=12 (goal_open)
 **Dependencies:**
-- fact:squares
-- fact:product
+- fact:s2
 
 ### Step 4: EXTRACT_ROOT
 
@@ -245,8 +244,7 @@ Call the two integers $x$ and $y$. We are given that $x^2 + y^2 = 90$ and that $
 **Goals:**
 - `goal:answer` x+y=12 (goal_open)
 **Dependencies:**
-- fact:squares
-- fact:product
+- fact:s2
 
 **Arguments:** `{}`
 
@@ -258,7 +256,7 @@ Call the two integers $x$ and $y$. We are given that $x^2 + y^2 = 90$ and that $
 **Obligations created:**
 - `obl:root_sign` x+y≥0 selects the principal square root — `discharged`
 
-**Dependencies:** fact:squares, fact:product
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` x+y=12
 
@@ -291,8 +289,8 @@ Call the two integers $x$ and $y$. We are given that $x^2 + y^2 = 90$ and that $
 **Discharged obligations:**
 - `obl:root_sign` x+y≥0 selects the principal square root (discharged)
 **Dependencies:**
-- fact:squares
-- fact:product
+- fact:s2
+- fact:s3
 
 ## Final state
 
@@ -317,8 +315,8 @@ Call the two integers $x$ and $y$. We are given that $x^2 + y^2 = 90$ and that $
 **Discharged obligations:**
 - `obl:root_sign` x+y≥0 selects the principal square root (discharged)
 **Dependencies:**
-- fact:squares
-- fact:product
+- fact:s2
+- fact:s3
 
 **Goal status:** `discharged`
 

@@ -69,7 +69,7 @@
           "id": "obl:abs_case_cover",
           "statement": "the absolute-value branches are exhaustive and disjoint",
           "status": "discharged",
-          "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+          "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
           "source_omission": true
         }
       ],
@@ -167,7 +167,9 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case 1",
+          "branch:case 2"
         ],
         "dependencies": [],
         "open_obligations": [],
@@ -176,7 +178,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -189,17 +191,23 @@
         "added_facts": [
           "fact:s1"
         ],
-        "removed_obligations": [
+        "added_obligations": [
           "obl:abs_case_cover"
         ],
+        "removed_obligations": [],
         "epistemic_update": "Established fact:s1: case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
-        "scope_effect": "global/current scope",
+        "scope_effect": "branch-declaration",
         "dependency_effect": []
       },
       "action": {
         "operation_id": "CASE_SPLIT",
         "family": "CASE_ANALYSIS",
-        "arguments": {}
+        "arguments": {
+          "branches": [
+            "case 1",
+            "case 2"
+          ]
+        }
       },
       "result": {
         "id": "fact:s1",
@@ -213,14 +221,21 @@
       "explicitness": "implicit",
       "warrant": {
         "kind": "equality_preservation",
-        "description": "Solve the branch equation under its sign condition.",
+        "description": "Solve the branch equation under the branch condition 5x-1≥0.",
         "source": "derived"
       },
-      "preconditions": [],
+      "preconditions": [
+        {
+          "condition": "5x-1≥0",
+          "status": "implicit",
+          "evidence": "The worked solution does not state this condition explicitly.",
+          "source_omission": true
+        }
+      ],
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:abs"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -239,7 +254,7 @@
       "semantic_gap_ids": [
         "MATH-GAP-0001"
       ],
-      "branch": null,
+      "branch": "case 1",
       "result_id": "fact:s2",
       "state_before": {
         "objects": [
@@ -276,7 +291,9 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case 1",
+          "branch:case 2"
         ],
         "dependencies": [],
         "open_obligations": [],
@@ -285,7 +302,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -318,7 +335,7 @@
             "id": "fact:s2",
             "statement": "case 1 yields x=1",
             "status": "established",
-            "scope": "global"
+            "scope": "case 1"
           }
         ],
         "assumptions": [],
@@ -333,10 +350,12 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case 1",
+          "branch:case 2"
         ],
         "dependencies": [
-          "fact:abs"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -344,7 +363,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -357,11 +376,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: case 1 yields x=1",
-        "scope_effect": "global/current scope",
+        "scope_effect": "branch-local",
         "dependency_effect": [
-          "fact:abs"
+          "fact:s1"
         ]
       },
       "action": {
@@ -390,7 +410,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:abs"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -436,7 +456,7 @@
             "id": "fact:s2",
             "statement": "case 1 yields x=1",
             "status": "established",
-            "scope": "global"
+            "scope": "case 1"
           }
         ],
         "assumptions": [],
@@ -451,10 +471,12 @@
         ],
         "subgoals": [],
         "scope": [
-          "global"
+          "global",
+          "branch:case 1",
+          "branch:case 2"
         ],
         "dependencies": [
-          "fact:abs"
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -462,7 +484,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -495,7 +517,7 @@
             "id": "fact:s2",
             "statement": "case 1 yields x=1",
             "status": "established",
-            "scope": "global"
+            "scope": "case 1"
           },
           {
             "id": "fact:s3",
@@ -517,10 +539,12 @@
         "subgoals": [],
         "scope": [
           "global",
-          "branch:case 1"
+          "branch:case 1",
+          "branch:case 2"
         ],
         "dependencies": [
-          "fact:abs"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -528,7 +552,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -541,11 +565,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: candidate x=1 satisfies the original equation",
         "scope_effect": "branch-local",
         "dependency_effect": [
-          "fact:abs"
+          "fact:s2"
         ]
       },
       "action": {
@@ -565,14 +590,21 @@
       "explicitness": "implicit",
       "warrant": {
         "kind": "equality_preservation",
-        "description": "Solve the second branch equation under its sign condition.",
+        "description": "Solve the second branch equation under the branch condition 5x-1<0.",
         "source": "derived"
       },
-      "preconditions": [],
+      "preconditions": [
+        {
+          "condition": "5x-1<0",
+          "status": "implicit",
+          "evidence": "The worked solution does not state this condition explicitly.",
+          "source_omission": true
+        }
+      ],
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:abs"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -619,7 +651,7 @@
             "id": "fact:s2",
             "statement": "case 1 yields x=1",
             "status": "established",
-            "scope": "global"
+            "scope": "case 1"
           },
           {
             "id": "fact:s3",
@@ -641,10 +673,12 @@
         "subgoals": [],
         "scope": [
           "global",
-          "branch:case 1"
+          "branch:case 1",
+          "branch:case 2"
         ],
         "dependencies": [
-          "fact:abs"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -652,7 +686,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -685,7 +719,7 @@
             "id": "fact:s2",
             "statement": "case 1 yields x=1",
             "status": "established",
-            "scope": "global"
+            "scope": "case 1"
           },
           {
             "id": "fact:s3",
@@ -717,7 +751,8 @@
           "branch:case 2"
         ],
         "dependencies": [
-          "fact:abs"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -725,7 +760,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -738,11 +773,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: case 2 yields x=-1/3",
         "scope_effect": "branch-local",
         "dependency_effect": [
-          "fact:abs"
+          "fact:s1"
         ]
       },
       "action": {
@@ -771,7 +807,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:abs"
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -817,7 +853,7 @@
             "id": "fact:s2",
             "statement": "case 1 yields x=1",
             "status": "established",
-            "scope": "global"
+            "scope": "case 1"
           },
           {
             "id": "fact:s3",
@@ -849,7 +885,8 @@
           "branch:case 2"
         ],
         "dependencies": [
-          "fact:abs"
+          "fact:s1",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -857,7 +894,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -890,7 +927,7 @@
             "id": "fact:s2",
             "statement": "case 1 yields x=1",
             "status": "established",
-            "scope": "global"
+            "scope": "case 1"
           },
           {
             "id": "fact:s3",
@@ -928,7 +965,9 @@
           "branch:case 2"
         ],
         "dependencies": [
-          "fact:abs"
+          "fact:s1",
+          "fact:s2",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -936,7 +975,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -949,11 +988,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: candidate x=-1/3 satisfies the original equation",
         "scope_effect": "branch-local",
         "dependency_effect": [
-          "fact:abs"
+          "fact:s4"
         ]
       },
       "action": {
@@ -980,8 +1020,8 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:candidate_1",
-        "fact:candidate_2"
+        "fact:s3",
+        "fact:s5"
       ],
       "verification": {
         "status": "verified",
@@ -1027,7 +1067,7 @@
             "id": "fact:s2",
             "statement": "case 1 yields x=1",
             "status": "established",
-            "scope": "global"
+            "scope": "case 1"
           },
           {
             "id": "fact:s3",
@@ -1065,7 +1105,9 @@
           "branch:case 2"
         ],
         "dependencies": [
-          "fact:abs"
+          "fact:s1",
+          "fact:s2",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -1073,7 +1115,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -1106,7 +1148,7 @@
             "id": "fact:s2",
             "statement": "case 1 yields x=1",
             "status": "established",
-            "scope": "global"
+            "scope": "case 1"
           },
           {
             "id": "fact:s3",
@@ -1150,9 +1192,11 @@
           "branch:case 2"
         ],
         "dependencies": [
-          "fact:abs",
-          "fact:candidate_1",
-          "fact:candidate_2"
+          "fact:s1",
+          "fact:s2",
+          "fact:s4",
+          "fact:s3",
+          "fact:s5"
         ],
         "open_obligations": [],
         "discharged_obligations": [
@@ -1160,7 +1204,7 @@
             "id": "obl:abs_case_cover",
             "statement": "the absolute-value branches are exhaustive and disjoint",
             "status": "discharged",
-            "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+            "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
             "source_omission": true
           }
         ],
@@ -1173,12 +1217,13 @@
         "added_facts": [
           "fact:s6"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s6: largest valid solution is x=1",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:candidate_1",
-          "fact:candidate_2"
+          "fact:s3",
+          "fact:s5"
         ]
       },
       "action": {
@@ -1219,7 +1264,7 @@
         "id": "fact:s2",
         "statement": "case 1 yields x=1",
         "status": "established",
-        "scope": "global"
+        "scope": "case 1"
       },
       {
         "id": "fact:s3",
@@ -1263,9 +1308,11 @@
       "branch:case 2"
     ],
     "dependencies": [
-      "fact:abs",
-      "fact:candidate_1",
-      "fact:candidate_2"
+      "fact:s1",
+      "fact:s2",
+      "fact:s4",
+      "fact:s3",
+      "fact:s5"
     ],
     "open_obligations": [],
     "discharged_obligations": [
@@ -1273,7 +1320,7 @@
         "id": "obl:abs_case_cover",
         "statement": "the absolute-value branches are exhaustive and disjoint",
         "status": "discharged",
-        "evidence": "The nonnegative/nonpositive definition of absolute value partitions the argument.",
+        "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
         "source_omission": true
       }
     ],
@@ -1298,7 +1345,9 @@
     "implicit_steps": 2,
     "source_omissions": [
       "MATH-GOLD-004: the absolute-value branches are exhaustive and disjoint",
-      "MATH-GOLD-004: x+3≥0"
+      "MATH-GOLD-004: x+3≥0",
+      "MATH-GOLD-004: 5x-1≥0",
+      "MATH-GOLD-004: 5x-1<0"
     ],
     "solution_variants": null
   },

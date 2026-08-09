@@ -158,6 +158,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: multiplication/division precede addition/subtraction",
         "scope_effect": "global/current scope",
@@ -187,6 +188,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
+        "fact:s1",
         "fact:expression"
       ],
       "verification": {
@@ -288,6 +290,7 @@
           "global"
         ],
         "dependencies": [
+          "fact:s1",
           "fact:expression"
         ],
         "open_obligations": [],
@@ -301,10 +304,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: 1+12-3+20÷2",
         "scope_effect": "global/current scope",
         "dependency_effect": [
+          "fact:s1",
           "fact:expression"
         ]
       },
@@ -332,7 +337,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:expression"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -392,6 +397,7 @@
           "global"
         ],
         "dependencies": [
+          "fact:s1",
           "fact:expression"
         ],
         "open_obligations": [],
@@ -447,7 +453,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:expression"
+          "fact:s1",
+          "fact:expression",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -460,11 +468,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: 1+12-3+10",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:expression"
+          "fact:s2"
         ]
       },
       "action": {
@@ -491,7 +500,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:expression"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -557,7 +566,9 @@
           "global"
         ],
         "dependencies": [
-          "fact:expression"
+          "fact:s1",
+          "fact:expression",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -618,7 +629,10 @@
           "global"
         ],
         "dependencies": [
-          "fact:expression"
+          "fact:s1",
+          "fact:expression",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -631,11 +645,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: 13-3+10=10+10",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:expression"
+          "fact:s3"
         ]
       },
       "action": {
@@ -662,7 +677,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:expression"
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -734,7 +749,10 @@
           "global"
         ],
         "dependencies": [
-          "fact:expression"
+          "fact:s1",
+          "fact:expression",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -793,7 +811,7 @@
           {
             "id": "goal:answer",
             "statement": "value=20",
-            "status": "goal_open"
+            "status": "goal_discharged"
           }
         ],
         "subgoals": [],
@@ -801,11 +819,21 @@
           "global"
         ],
         "dependencies": [
-          "fact:expression"
+          "fact:s1",
+          "fact:expression",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
-        "epistemic_status": [],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "value=20",
+            "status": "goal_discharged"
+          }
+        ],
         "id": "S5"
       },
       "state_change": {
@@ -814,11 +842,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: value=20",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:expression"
+          "fact:s4"
         ]
       },
       "action": {
@@ -893,7 +922,11 @@
       "global"
     ],
     "dependencies": [
-      "fact:expression"
+      "fact:s1",
+      "fact:expression",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

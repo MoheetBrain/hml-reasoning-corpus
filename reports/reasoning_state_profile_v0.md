@@ -11,9 +11,9 @@ sample contains 118 canonical transitions across seven MATH categories.
 | Types/domains | 25/25 trajectories |
 | Active facts/constraints | 25/25 trajectories |
 | Explicit goal | 25/25 trajectories |
-| Dependencies/provenance | 99/118 transitions cite prior facts or results |
+| Dependencies/provenance | 105/118 transitions cite prior facts or results |
 | Scope/branch context | 3/25 trajectories contain branch-local reasoning |
-| Preconditions | 25/118 transitions record at least one |
+| Preconditions | 28/118 transitions record at least one |
 | Obligations | 6/118 transitions create explicit debt |
 
 The evidence supports a state containing typed objects, active facts/constraints, goals,
@@ -55,7 +55,7 @@ constructing witnesses.
 
 ## 6. Preconditions
 
-Preconditions are material in 25 of 118
+Preconditions are material in 28 of 118
 steps. The most common are nonzero denominators, positive/log domains, sign conditions,
 integer domains, theorem hypotheses, and branch predicates. Several source solutions
 omit them; the reconstruction marks those omissions.
@@ -88,3 +88,17 @@ claims, explicit goals, rule applications, obligations, scope, and provenance ma
 observed shape. It is underpowered at reusable evidence for open symbolic/domain claims,
 candidate/branch interfaces, and sequence/finite-search state. The data does not justify
 adding textbook theorem names as core keywords.
+
+## 11. Adversarial audit adjustment
+
+The 118-transition audit confirms that dependency provenance and branch scope are
+semantic state, not optional commentary. State deltas now add exactly one result fact,
+record created obligations separately from explicit discharges, and update goal status at
+the transition that discharges it. Five difficult trajectories were reconstructed
+independently from their original MATH solutions; no mathematical answer changed.
+
+The profile also exposes a schema concern: source spans can compress several legitimate
+operations. MATH-GOLD-006 s3 is retained as a marked compound macro for this curated
+set, but a future atomic trajectory schema should either split it or represent its
+internal operation sequence explicitly. This is a canonicalization/schema issue, not
+evidence that HML's denotation is wrong.

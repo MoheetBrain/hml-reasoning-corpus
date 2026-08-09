@@ -187,6 +187,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: legs x and x+1",
         "scope_effect": "global/current scope",
@@ -350,6 +351,7 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: x²+(x+1)²=29²",
         "scope_effect": "global/current scope",
@@ -382,7 +384,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:hypotenuse"
+        "fact:s2"
       ],
       "verification": {
         "status": "verified",
@@ -517,7 +519,8 @@
         ],
         "dependencies": [
           "fact:hypotenuse",
-          "fact:consecutive"
+          "fact:consecutive",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -530,11 +533,12 @@
         "added_facts": [
           "fact:s3"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s3: 2x²+2x+1=841",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:hypotenuse"
+          "fact:s2"
         ]
       },
       "action": {
@@ -568,7 +572,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:hypotenuse"
+        "fact:s3"
       ],
       "verification": {
         "status": "verified",
@@ -645,7 +649,8 @@
         ],
         "dependencies": [
           "fact:hypotenuse",
-          "fact:consecutive"
+          "fact:consecutive",
+          "fact:s2"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -715,7 +720,9 @@
         ],
         "dependencies": [
           "fact:hypotenuse",
-          "fact:consecutive"
+          "fact:consecutive",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -728,11 +735,12 @@
         "added_facts": [
           "fact:s4"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s4: x(x+1)=420",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:hypotenuse"
+          "fact:s3"
         ]
       },
       "action": {
@@ -766,7 +774,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:consecutive"
+        "fact:s4"
       ],
       "verification": {
         "status": "verified",
@@ -849,7 +857,9 @@
         ],
         "dependencies": [
           "fact:hypotenuse",
-          "fact:consecutive"
+          "fact:consecutive",
+          "fact:s2",
+          "fact:s3"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -925,7 +935,10 @@
         ],
         "dependencies": [
           "fact:hypotenuse",
-          "fact:consecutive"
+          "fact:consecutive",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -938,11 +951,12 @@
         "added_facts": [
           "fact:s5"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s5: legs=(20,21)",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:consecutive"
+          "fact:s4"
         ]
       },
       "action": {
@@ -968,7 +982,9 @@
       "preconditions": [],
       "creates_obligations": [],
       "discharges_obligations": [],
-      "dependencies": [],
+      "dependencies": [
+        "fact:s5"
+      ],
       "verification": {
         "status": "verified",
         "category": "VERIFIED_EXACT",
@@ -1054,7 +1070,10 @@
         ],
         "dependencies": [
           "fact:hypotenuse",
-          "fact:consecutive"
+          "fact:consecutive",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1136,7 +1155,11 @@
         ],
         "dependencies": [
           "fact:hypotenuse",
-          "fact:consecutive"
+          "fact:consecutive",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
@@ -1149,10 +1172,13 @@
         "added_facts": [
           "fact:s6"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s6: leg sum=41",
         "scope_effect": "global/current scope",
-        "dependency_effect": []
+        "dependency_effect": [
+          "fact:s5"
+        ]
       },
       "action": {
         "operation_id": "EVALUATE",
@@ -1241,7 +1267,11 @@
     ],
     "dependencies": [
       "fact:hypotenuse",
-      "fact:consecutive"
+      "fact:consecutive",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

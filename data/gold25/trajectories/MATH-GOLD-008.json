@@ -200,6 +200,7 @@
         "added_facts": [
           "fact:s1"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s1: h(-x)=h(x) for h(x)=f(g(x³))",
         "scope_effect": "global/current scope",
@@ -232,8 +233,7 @@
       "creates_obligations": [],
       "discharges_obligations": [],
       "dependencies": [
-        "fact:parity_f",
-        "fact:parity_g"
+        "fact:s1"
       ],
       "verification": {
         "status": "verified",
@@ -356,7 +356,7 @@
           {
             "id": "goal:answer",
             "statement": "f(g(x³)) is even",
-            "status": "goal_open"
+            "status": "goal_discharged"
           }
         ],
         "subgoals": [],
@@ -365,11 +365,18 @@
         ],
         "dependencies": [
           "fact:parity_f",
-          "fact:parity_g"
+          "fact:parity_g",
+          "fact:s1"
         ],
         "open_obligations": [],
         "discharged_obligations": [],
-        "epistemic_status": [],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "f(g(x³)) is even",
+            "status": "goal_discharged"
+          }
+        ],
         "id": "S2"
       },
       "state_change": {
@@ -378,12 +385,12 @@
         "added_facts": [
           "fact:s2"
         ],
+        "added_obligations": [],
         "removed_obligations": [],
         "epistemic_update": "Established fact:s2: goal parity even discharged",
         "scope_effect": "global/current scope",
         "dependency_effect": [
-          "fact:parity_f",
-          "fact:parity_g"
+          "fact:s1"
         ]
       },
       "action": {
@@ -453,7 +460,8 @@
     ],
     "dependencies": [
       "fact:parity_f",
-      "fact:parity_g"
+      "fact:parity_g",
+      "fact:s1"
     ],
     "open_obligations": [],
     "discharged_obligations": [],

@@ -193,7 +193,7 @@ a\equiv 6\pmod 7.
 **Obligations created:**
 - none
 
-**Dependencies:** fact:congruence_5, fact:congruence_7
+**Dependencies:** fact:s2, fact:congruence_7
 
 **Result:** `fact:s3` n≡6 mod 7
 
@@ -224,6 +224,7 @@ a\equiv 6\pmod 7.
 - `goal:answer` smallest a=34 (goal_open)
 **Dependencies:**
 - fact:congruence_5
+- fact:s2
 - fact:congruence_7
 
 ### Step 4: BOUND_SEARCH
@@ -253,6 +254,7 @@ a\equiv 6\pmod 7.
 - `goal:answer` smallest a=34 (goal_open)
 **Dependencies:**
 - fact:congruence_5
+- fact:s2
 - fact:congruence_7
 
 **Arguments:** `{}`
@@ -265,7 +267,7 @@ a\equiv 6\pmod 7.
 **Obligations created:**
 - none
 
-**Dependencies:** fact:congruence_7
+**Dependencies:** fact:s3
 
 **Result:** `fact:s4` n≥6
 
@@ -297,9 +299,11 @@ a\equiv 6\pmod 7.
 - `goal:answer` smallest a=34 (goal_open)
 **Dependencies:**
 - fact:congruence_5
+- fact:s2
 - fact:congruence_7
+- fact:s3
 
-### Step 5: EVALUATE
+### Step 5: BOUND_REASONING
 
 **Source span:** Then $n\ge 6\implies a=4+5n\ge 34$.
 
@@ -327,19 +331,22 @@ a\equiv 6\pmod 7.
 - `goal:answer` smallest a=34 (goal_open)
 **Dependencies:**
 - fact:congruence_5
+- fact:s2
 - fact:congruence_7
+- fact:s3
 
 **Arguments:** `{}`
 
 **Warrant:** The affine expression increases with n. (`monotonicity`, source `derived`)
 
 **Preconditions:**
-- none recorded
+- n≥6 — `satisfied`; Given or established in the current state.
+- 5>0 — `satisfied`; Given or established in the current state.
 
 **Obligations created:**
 - none
 
-**Dependencies:** fact:congruence_5
+**Dependencies:** fact:s4
 
 **Result:** `fact:s5` a≥34
 
@@ -372,7 +379,10 @@ a\equiv 6\pmod 7.
 - `goal:answer` smallest a=34 (goal_open)
 **Dependencies:**
 - fact:congruence_5
+- fact:s2
 - fact:congruence_7
+- fact:s3
+- fact:s4
 
 ### Step 6: VERIFY_CANDIDATE
 
@@ -403,7 +413,10 @@ a\equiv 6\pmod 7.
 - `goal:answer` smallest a=34 (goal_open)
 **Dependencies:**
 - fact:congruence_5
+- fact:s2
 - fact:congruence_7
+- fact:s3
+- fact:s4
 
 **Arguments:** `{}`
 
@@ -415,7 +428,7 @@ a\equiv 6\pmod 7.
 **Obligations created:**
 - none
 
-**Dependencies:** fact:congruence_5, fact:congruence_7
+**Dependencies:** fact:s5, fact:congruence_5, fact:congruence_7
 
 **Result:** `fact:s6` a=34 is minimal and satisfies both congruences
 
@@ -449,7 +462,11 @@ a\equiv 6\pmod 7.
 - `goal:answer` smallest a=34 (goal_open)
 **Dependencies:**
 - fact:congruence_5
+- fact:s2
 - fact:congruence_7
+- fact:s3
+- fact:s4
+- fact:s5
 
 ## Final state
 
@@ -475,13 +492,17 @@ a\equiv 6\pmod 7.
 - `goal:answer` smallest a=34 (goal_discharged)
 **Dependencies:**
 - fact:congruence_5
+- fact:s2
 - fact:congruence_7
+- fact:s3
+- fact:s4
+- fact:s5
 
 **Goal status:** `discharged`
 
 ## Operations observed
 
-`BOUND_SEARCH`, `EVALUATE`, `INTRODUCE_VARIABLE`, `PARAMETERIZE_CONGRUENCE`, `SUBSTITUTE`, `VERIFY_CANDIDATE`
+`BOUND_REASONING`, `BOUND_SEARCH`, `INTRODUCE_VARIABLE`, `PARAMETERIZE_CONGRUENCE`, `SUBSTITUTE`, `VERIFY_CANDIDATE`
 
 ## HML gaps exposed
 
