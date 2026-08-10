@@ -1,0 +1,2348 @@
+# Project cognition ledger — dormant ideas, rejected hypotheses, conditional
+# strategies, negative results, and activation cues.
+#
+# THIS FILE DOES NOT REPLACE THE FIVE CANONICAL DOCUMENTS.
+#   docs/00_HML_MASTER.md · docs/01_STATE_AND_EXECUTION.md
+#   docs/02_SEARCH_AND_DISCOVERY.md · docs/03_MEANING_EVIDENCE_AND_VERIFICATION.md
+#   docs/04_INTEGRATION_AND_IMPLEMENTATION.md
+# Those remain canonical and integrator-owned. This file preserves the material that
+# those documents deliberately compress away: things parked, things killed, things
+# conditionally planned, and the exact conditions that should wake them.
+#
+# RULES OF USE
+#   * IDs X1..Xn are PERMANENT. Never renumber. Never reuse a retired id.
+#   * Every entry must trace to a real artifact. No entry may be added to inflate a count.
+#   * An entry whose evidence disappears is marked status: unresolved with the loss
+#     recorded in evidence_against, never silently deleted.
+#   * Claims that the surrounding project repeats but the repositories do not support
+#     are recorded as DISCREPANCY entries (type: risk, project: cross) with the
+#     contradicting evidence in evidence_against.
+
+meta:
+  schema: project_memory/1
+  created: "2026-08-10"
+  author_role: PROJECT MEMORY / EVIDENCE AUDITOR
+  write_scope: "This file only. No HML source, no frozen artifact, no canonical doc was modified."
+  repositories:
+    corpus:
+      path: /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus
+      branch: codex/minilang-artifact-audit
+      head: fc9b2a3
+      hml_core_submodule_pin: 5688aba18632b65a8709aa1d85577d31a67dba6a
+    hml:
+      path: /Users/moheet/hml_v2_worktree
+      branch: feature/hml-reasoning-kernel-v2
+      head: fc64965ee18edea051009774eb70b5b775a094db
+      last_source_change: 2af4998
+  path_convention: "Absolute paths. corpus/* and hml/* prefixes are NOT used; full paths are given."
+  next_free_id: X136
+  audits:
+    - pass: 2
+      date: "2026-08-10"
+      author_role: SECOND INDEPENDENT AUDITOR (adversarial re-verification, did not take pass 1 on trust)
+      corpus_head_at_audit: fc9b2a3
+      hml_head_at_audit: 7c9137a
+      hml_head_recorded_by_pass_1: fc64965
+      note_on_pass_1_head: "meta.repositories.hml.head still reads fc64965 and is left unchanged as the honest record of what pass 1 measured. HML has since advanced two commits: 4d05aca (canonical semantic state) and 7c9137a (Semantic Firewall closeout). Staleness induced by those two commits is corrected entry-by-entry below, not by rewriting this block."
+      structural_findings_confirmed:
+        - "Parses as valid YAML under a strict subset reader (rejects tabs, unbalanced quotes, unescaped interior quotes, inconsistent indent, duplicate keys). No plain scalar contains ': '."
+        - "128 entries, ids X1..X128, no duplicates, no gaps, no self-references."
+        - "0 dangling cross-references across all `related` and `dependencies` values."
+        - "83 distinct absolute /Users paths cited; all 83 resolve on disk."
+        - "All cited commit hashes resolve, except two that are correctly not commits: 6316f062... is an ollama model digest (X116, labelled 'digest'), 7ecc7947... is the upstream PRM800K checkout commit (X20), corroborated by experiments/prm800k_audit/results/source_manifest.json key source_commit."
+      structural_findings_DISPUTED:
+        - "Pass 1 reported a status breakdown of 37 dormant / 23 active / 19 completed / 16 REJECTED / 11 unresolved / 7 blocked. Two defects: (a) the rejected count was 14, not 16; (b) the six listed statuses sum to 113 and omit five statuses entirely — 6 deferred, 5 implemented, 4 superseded, 1 testing, 1 proposed. Measured breakdown before this audit's edits: dormant 37, active 23, completed 19, rejected 14, unresolved 11, blocked 7, deferred 6, implemented 5, superseded 4, testing 1, proposed 1 = 128."
+        - "Pass 1's claim of 'no dangling references' is confirmed for cross-references and for absolute paths, but 23 citations are RELATIVE (e.g. 'docs/research/PRIOR_ART_MATRIX.csv row 28' in X91/X92) and resolve only against an implied repository root. All 23 were resolved by hand and every one exists; the convention nonetheless violates meta.path_convention."
+      changes_applied:
+        - "X78, X79: dormant -> implemented. Both capabilities shipped in HML at 4d05aca; X79's proposal additionally asserted a disjointness requirement the shipped contract deliberately rejects."
+        - "X22: first activation cue recorded as SATISFIED; the entry remains blocked, now on the model runner alone."
+        - "X21: activation cue strengthened — running the 30 fixtures unmodified is now demonstrably insufficient as an acceptance test."
+        - "X105: rejected -> unresolved. Original reason preserved verbatim; a harness defect confounding the result recorded in evidence_against."
+        - "X39: HML_OBF confound recorded in evidence_against; activation cue qualified."
+        - "X121: reason strengthened from 'absent from the filesystem' to 'never existed in any commit of any repository', which is a stronger and differently-sourced finding."
+        - "Appended X129..X133."
+      changes_NOT_applied:
+        - "No canonical document was read-modified. The Gold-125 versioning edits this audit recommends are recorded in X131 as PROPOSED ONLY and are integrator-owned."
+        - "No coverage figure was recomputed or invented. No entry was deleted, renumbered, or softened."
+      concurrent_activity_observed:
+        - "WARNING FOR THE NEXT PASS. During this audit (files modified 15:46-15:56 on 2026-08-10, while the audit was running) /Users/moheet/hml_v2_worktree acquired UNCOMMITTED changes made by another actor, not by this audit: modified DECISIONS.md (+96 lines) and src/hamiltonian_lang/semantic_state/verify.py (+41/-12), plus a new untracked tests/freeze/test_decision_ids.py. The verify.py change adds SF-R13 / D-048 handling that treats an ABSENT domain annotation as an unknown short-circuiting to UNRESOLVED rather than as a TYPE_DOMAIN violation. That is a THIRD change to the same file whose two previous repairs are recorded in X133."
+        - "This work is DELIBERATELY NOT recorded as established anywhere in this ledger. It is uncommitted, it has no commit hash to cite, and treating in-progress working-tree state as a finding is precisely the failure mode this audit exists to catch. Every HML claim in this pass is anchored to committed state at 7c9137a or earlier, read via git show / git ls-tree rather than from the working tree."
+        - "CONSEQUENCE: this ledger will be stale again as soon as that work commits, and X133's account of the divergences from reference_checker.py will need a third row. Re-audit after it lands."
+
+entries:
+
+# ---------------------------------------------------------------------------
+# HYPOTHESES — corpus register (H1-H5) and HML register (H1, H2, H3-*)
+# ---------------------------------------------------------------------------
+
+- id: X1
+  type: hypothesis
+  proposal: "H1 state-transition thesis — mathematical reasoning is representable as typed state transitions with preconditions, obligations, dependencies, provenance and epistemic status."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §3 H1; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md H1-H5 table"
+  reason: "Supported as a REPRESENTATION hypothesis by Gold-25 and Gold-125 structural audits; completeness for mathematics is untested."
+  status: active
+  project: corpus
+  activation_cues:
+    - "A source class is found whose state cannot be recorded without inventing a new state field."
+    - "A cross-source (AMPS or formal proof state) sample forces new state fields beyond the Gold-125 schema."
+  dependencies: [X14, X17]
+  evidence_for:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/01_STATE_AND_EXECUTION.md §1: 901 dependency edges, max fan-in 11; Gold-25 dependency/provenance on 105/118 transitions"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_state_profile.md"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §12: Gold-25/125 are curated, not random; 89 compound macros, 124 uncertain atomicity"
+  related: [X2, X14, X17]
+
+- id: X2
+  type: hypothesis
+  proposal: "H2 small-core thesis — after warrants and domain names are factored out, a small reusable operation set accounts for most transitions."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §3 H2"
+  reason: "Exploratory support only. 17 adjudicated KEEP_AS_CORE values; saturation 15 at 25 trajectories, 17 at 50, flat to 125."
+  status: testing
+  project: corpus
+  activation_cues:
+    - "The ontology quality gate (X16) closes."
+    - "An independently annotated cross-source sample (AMPS, X88) is run."
+  dependencies: [X15, X16, X17, X88]
+  evidence_for:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_ontology_v1_saturation.json: accepted core 15/17/17/17/17 at 25/50/75/100/125"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_ontology_v1_core_topk.json: top-5 80.19%, top-10 94.89%, top-15 99.52% over 626 accepted-core units"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/minilang_artifact_audit.md: independent 17-label MiniLang vocabulary, 2.726 bits label entropy, effective perplexity 6.616"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_ontology_quality_gate.json: UNRESOLVED 136/769 = 17.685%, frozen OTHER 125/769 = 16.255%, status UNSTABLE_REVIEW_REQUIRED"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md: 'Do not say mathematics has 17 primitives.'"
+  related: [X15, X16, X17, X100]
+
+- id: X3
+  type: hypothesis
+  proposal: "H3 HML semantic representation thesis — current HML usefully represents typed expressions, claims, rules, obligations, scope, provenance and fail-closed verification."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §3 H3"
+  reason: "Provisional support. Step-weighted Gold-125 coverage at the pinned HML revision is FULL 11 / PARTIAL 455 / REPRESENTABLE_ONLY 303 / ABSENT 0."
+  status: active
+  project: cross
+  activation_cues:
+    - "The corpus repins hml_core past 5688aba (see X122) and reruns coverage."
+  dependencies: [X18, X122]
+  evidence_for:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_hml_coverage.md"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/semantic_firewall/results/current_hml_probe.json: dependency, scope-leak, precondition and obligation probes behave as expected against the pinned core"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md: no general theorem library, no broad domain checkers, no generic exhaustive case/join semantics, no candidate verification protocol, no general symbolic normalization, no search policy"
+  related: [X18, X78, X79]
+
+- id: X4
+  type: hypothesis
+  proposal: "H4 thinking-language thesis — HML can serve as the language of open reasoning, not only its record."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §3 H4"
+  reason: "Hybrid / inconclusive. 87 source-visible meta records in 769 transitions (11.3%); MATH exposes successful paths only, so failed alternatives cannot be counted."
+  status: unresolved
+  project: corpus
+  activation_cues:
+    - "A corpus containing failed search (not polished solutions) is annotated."
+    - "AMPS pedagogical prose is semantically annotated rather than lexically proxied."
+  dependencies: [X19, X88]
+  evidence_for:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §2: CONSIDER_CASES 27, CHOOSE_REPRESENTATION 27, CREATE_SUBGOAL 13, RECOGNIZE_STRUCTURE 10, USE_SYMMETRY 7, REFRAME 3"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §2: 'Gold-125 must not be described as a discovery-process corpus.'"
+    - "/Users/moheet/hml_v2_worktree/evaluation/arena/results/PILOT_B1_gemma3-4b.json: HML as an input representation lost to structured English on the one reasoning endpoint measured"
+  related: [X19, X35, X55, X56, X57, X58, X59, X60]
+
+- id: X5
+  type: hypothesis
+  proposal: "H5 learned-representation thesis — a model trained or adapted around this representation reasons or verifies better."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §3 H5"
+  reason: "NOT TESTED. No training has been performed in either repository. H1-H4 do not imply H5."
+  status: blocked
+  project: cross
+  activation_cues:
+    - "A training stack exists (torch, transformers, peft, datasets, trl, accelerate are all currently absent)."
+    - "The ontology quality gate closes so the trained-on representation is not a moving target."
+  dependencies: [X16, X115]
+  evidence_for: []
+  evidence_against:
+    - "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'Known Failures and Limitations': 'Phase 6 is blocked: no training stack exists ... Recorded as blocked, not dropped.'"
+  related: [X115, X120]
+
+- id: X6
+  type: hypothesis
+  proposal: "HML-register H1 — providing a problem in HML rather than English improves the final mathematical result."
+  origin: "/Users/moheet/hml_v2_worktree/GOAL.md §8 H1"
+  reason: "Four arena measurements now exist and none shows frozen zero-shot HML helping as an input representation."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "A matched-adaptation (fine-tuned / demonstration-taught) condition is run; the negative results are all zero-shot."
+    - "A model materially larger or different in family from gemma3:4b is placed in a valid headroom band."
+  dependencies: [X30, X35, X36, X39]
+  evidence_for:
+    - "/Users/moheet/hml_v2_worktree/evaluation/arena/results/ENDPOINT_A_MICRO.json: HML 9/12 vs SE 3/12 (did not replicate, see X38)"
+  evidence_against:
+    - "/Users/moheet/hml_v2_worktree/evaluation/arena/results/PILOT_B1_gemma3-4b.json: SE 5/12 pairs, HML 1/12, AST 0/12"
+    - "/Users/moheet/hml_v2_worktree/evaluation/arena/results/B2_PILOT.json: AST_V2 4/8, HML 3/8, SE 1/8 — a generic S-expression beat HML on HML's designed mechanism"
+    - "/Users/moheet/hml_v2_worktree/evaluation/arena/results/CAUSAL_SCOUT.json: SE 5/6 beat every one of four HML conditions"
+  related: [X35, X36, X38, X39, X46, X54]
+
+- id: X7
+  type: hypothesis
+  proposal: "HML-register H2 — requiring the model to construct and use an HML workspace improves the final mathematical result."
+  origin: "/Users/moheet/hml_v2_worktree/GOAL.md §8 H2"
+  reason: "Never measured. Two purpose-built corpora saturated before any HML call could be made."
+  status: blocked
+  project: hml_core
+  activation_cues:
+    - "A corpus is found or built that lands the chosen model in the 6-17 of 24 usable headroom band AT THE COMPLETION BUDGET IT WILL BE RUN AT (see X45)."
+  dependencies: [X26, X27, X45, X51]
+  evidence_for: []
+  evidence_against:
+    - "/Users/moheet/hml_v2_worktree/docs/evaluation/V1_HEADROOM_GATE_REPORT.md: SE 23/23, band INSUFFICIENT, HML-V1 calls made 0, verdict HML_BENCHMARK_FAILED_NO_SIGNAL"
+    - "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md: eval001 mean accuracy 0.961 over 285/285 cells, HEADROOM_INSUFFICIENT"
+  related: [X26, X27, X45]
+
+- id: X8
+  type: hypothesis
+  proposal: "HML-register H3-system — compiler/verifier feedback plus a bounded repair opportunity improves verified completion."
+  origin: "/Users/moheet/hml_v2_worktree/GOAL.md §8 H3-system"
+  reason: "One positive signal exists and it is about ENCODING, not about answers."
+  status: dormant
+  project: hml_core
+  activation_cues:
+    - "An endpoint exists on which answer accuracy is not saturated, so a feedback effect on accuracy could be observed."
+  dependencies: [X25, X7]
+  evidence_for:
+    - "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md: compiler feedback raised encoding fidelity by +0.065 (CI [0.006, 0.136]) and parse rate by 12-43 points, at +38% generated tokens"
+  evidence_against:
+    - "same source: 'It did not change answer accuracy at all.'"
+    - "/Users/moheet/hml_v2_worktree/evaluation/arena/results/CAUSAL_SCOUT.json: HML_VERIFY, handed both proof signals false, still answered TRUE — deterministic feedback did not repair unsupported commitment"
+  related: [X25, X39]
+
+- id: X9
+  type: hypothesis
+  proposal: "HML-register H3-compute-matched — verifier feedback remains advantageous when the comparator receives an equivalent extra inference budget."
+  origin: "/Users/moheet/hml_v2_worktree/GOAL.md §8 H3-compute-matched"
+  reason: "Not tested. It is the control that separates 'diagnostic information helped' from 'more compute helped'."
+  status: proposed
+  project: hml_core
+  activation_cues:
+    - "H3-system returns a positive result on a non-saturated endpoint."
+  dependencies: [X8]
+  evidence_for: []
+  evidence_against: []
+  related: [X8]
+
+# ---------------------------------------------------------------------------
+# CORPUS EXPERIMENTS AND THEIR ACTUAL MEASURED RESULTS
+# ---------------------------------------------------------------------------
+
+- id: X10
+  type: experiment
+  proposal: "Gold-10 — 10 hand-authored neutral trajectories, 23 transitions, rendered to HML and checked."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/GOLD_10_CLOSEOUT_V0.md; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §4"
+  reason: "First end-to-end pipeline validation. All ten HML renderings parsed and type-checked at the then-pinned revision."
+  status: completed
+  project: corpus
+  activation_cues:
+    - "hml_core is repinned; Gold-10 is the designated regression set (see X122)."
+  dependencies: []
+  evidence_for:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/GOLD_10_SIZE.md"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/REASONING_COVERAGE_V0.md"
+  evidence_against: []
+  related: [X11, X12, X122]
+
+- id: X11
+  type: negative_result
+  proposal: "Gold-10 CoreGapRate = 3/23 = 13.04% — the original headline claim that HML had a genuine 13% core-semantic gap."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §5 first bullet; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/GOLD_10_GAP_TRIAGE_HANDOFF.md"
+  reason: "SUPERSEDED. Forensic triage reduced the primary core-semantic count to 2/23; after repinning to repaired HML and adding corpus-side certificate adapters, no original transition remained classified as a new core-semantic requirement."
+  status: superseded
+  project: corpus
+  activation_cues:
+    - "Anyone quotes 13.04% as a live figure — it is history, not state."
+  dependencies: [X10]
+  evidence_for:
+    - "original classification: 11 current-HML, 8 library, 3 core-gap, 1 ambiguous"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md 'Gold-10 history': four transitions remained library-blocked (n+0=n, a probability product law, reciprocal differentiation, the dependent final calculus transition); CoreGapRate 0/23"
+  related: [X10, X12]
+
+- id: X12
+  type: negative_result
+  proposal: "Apparent core gaps can be translation, evidence-routing, library, or epistemic-status problems rather than missing semantics."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md 'This history is a warning'; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold10_rerun/"
+  reason: "The single most transferable methodological lesson in the corpus: a gap must be classified before it is believed."
+  status: active
+  project: cross
+  activation_cues:
+    - "Any new gap registry entry is proposed as CORE_SEMANTIC_MISSING."
+  dependencies: [X11]
+  evidence_for:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §5: split 11 current-HML / 2 core-semantic / 3 library / 7 translation-canonicalization"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_gap_analysis.md: MATH-GAP-0011 is explicitly classed TRANSLATION/CANONICALIZATION_PROBLEM"
+  evidence_against: []
+  related: [X11, X80, X86]
+
+- id: X13
+  type: experiment
+  proposal: "Gold-25 — 25 curated MATH trajectories, 118 adversarially audited transitions across seven categories."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold25_semantic_adversarial_audit.md; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/scripts/build_gold25.py"
+  reason: "Established the state-profile method. 48 surface operation IDs, 105 explicit + 13 implicit steps, 28 precondition records, 6 explicit obligations, 3 branch-bearing trajectories."
+  status: completed
+  project: corpus
+  activation_cues: []
+  dependencies: [X10]
+  evidence_for:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/reasoning_state_profile_v0.md"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold25_freeze_hashes_2026-08-10.json"
+  evidence_against:
+    - "the builder is a curated artifact generator for named examples, not a scalable automatic extractor (docs/HML_RESEARCH_LEDGER.md §12)"
+  related: [X14]
+
+- id: X14
+  type: experiment
+  proposal: "Gold-125 — 125 trajectories, 769 source-granularity transitions, full structural and exact-source audit."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/scripts/build_gold125.py; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_semantic_audit.md"
+  reason: "The current empirical backbone of the whole programme."
+  status: completed
+  project: corpus
+  activation_cues: []
+  dependencies: [X13]
+  evidence_for:
+    - "atomic/compound/uncertain 556/89/124; 66 observed surface labels; 340 precondition records; 257 obligations created, 243 measured, mean lifetime 2.54, max 13"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_branch_scope_audit.json: 5 branch trajectories, 26 branch steps, max depth 1, 1 explicit join, 15 CASE_SPLIT, 0 exhaustive partitions, 0 invariant joins"
+    - "modes: EXECUTION 580 / SEARCH_META 48 / VERIFICATION 28 / GOAL_MANAGEMENT 113"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md: 'exact source containment is not formal theorem replay'"
+  related: [X15, X17, X18]
+
+- id: X15
+  type: experiment
+  proposal: "Ontology-v1 — multi-axis derived view separating mode, operation, warrant, knowledge layer, goal/scope/epistemic effect, atomicity and uncertainty."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/schemas/reasoning_ontology_v1.yaml; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/reasoning_ontology_v1_design.md"
+  reason: "Its strongest single result: 42 of 43 independent broad-label disagreements become intelligible once the axes are separated."
+  status: implemented
+  project: corpus
+  activation_cues: []
+  dependencies: [X14]
+  evidence_for:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_label_disagreement_matrix.json: OPERATION_VS_WARRANT 14, OPERATION_VS_GOAL_EFFECT 13, GRANULARITY 8, AMBIGUOUS_SOURCE 4, OPERATION_VS_DOMAIN 2, MODE_VS_OPERATION 1, ANNOTATION_ERROR 1"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/core_operation_adjudication_v1.md"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/03_MEANING_EVIDENCE_AND_VERIFICATION.md §3: 'Explaining a label conflict is not proof that the reconstructed transition is mathematically valid.'"
+  related: [X16, X17, X100]
+
+- id: X16
+  type: kill_criterion
+  proposal: "Ontology gate — do not freeze or implement the semantic kernel while ontology-v1 is UNSTABLE_REVIEW_REQUIRED."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §10; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_ontology_quality_gate.json"
+  reason: "The gate exists so that a flat saturation curve is not mistaken for stabilization."
+  status: active
+  project: corpus
+  activation_cues:
+    - "MATH-GOLD-043 s1 is human-adjudicated (the one genuine annotation error)."
+    - "The 136 UNRESOLVED transitions are adjudicated OR an explicit acceptable residual threshold is defined and met."
+    - "The 125 frozen OTHER labels are sampled and separated into ambiguity vs missing schema vs missing evidence."
+  dependencies: [X15, X17]
+  evidence_for:
+    - "gold125_ontology_quality_gate.json reason: 'UNRESOLVED remains material and the annotation-error review remains open.'"
+  evidence_against: []
+  related: [X2, X17, X47]
+
+- id: X17
+  type: risk
+  proposal: "STANDING EPISTEMIC WARNING — 136/769 (17.685%) UNRESOLVED and 125/769 (16.255%) frozen OTHER. The ontology is not scientifically frozen and no saturation claim may be made over this tail."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_ontology_quality_gate.json; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/core_operation_adjudication_v1.md (UNRESOLVED row: 136, layers CORE 7 / UNKNOWN 125 / SEARCH_META 4)"
+  reason: "The unresolved tail is the most likely place a refutation of H2 is hiding: saturation can look flat precisely because the hard cases were never labelled. It must be re-stated in every document that quotes the 17-operation figure."
+  status: active
+  project: corpus
+  activation_cues:
+    - "Any report quotes 17 core operations without also quoting 17.685% UNRESOLVED."
+    - "Any proposal to freeze the kernel, add keywords, or start training."
+    - "Any attempt to extend the ontology to a second source before the tail is bounded."
+  dependencies: [X15]
+  evidence_for:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/operation_long_tail_analysis_gold125.md"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md 'Central scientific threats' item 2 (unresolved tail)"
+  evidence_against: []
+  related: [X2, X16, X110]
+
+- id: X18
+  type: experiment
+  proposal: "Gold-125 HML support classification at pinned HML 5688aba — FULL 11 (1.4%) / PARTIAL 455 (59.2%) / REPRESENTABLE_ONLY 303 (39.4%) / ABSENT 0 (0.0%)."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_hml_coverage.md"
+  reason: "These are semantic-support classes, not performance scores. REPRESENTABLE_ONLY does not mean executable or theorem-verified. ABSENT = 0 is the least interesting number in the table and the one most likely to be over-quoted."
+  status: completed
+  project: cross
+  activation_cues:
+    - "hml_core is repinned to 2af4998 or later, which added algebra/probability/calculus libraries (X122)."
+  dependencies: [X14, X122]
+  evidence_for: []
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §6: 'The HML coverage classification is support evidence, not a benchmark score.'"
+  related: [X3, X122]
+
+- id: X19
+  type: experiment
+  proposal: "AMPS-Khan provenance and distribution audit — 103,059 rows, 721 topics, 47,530 planning-cue rows, 100-row topic-diverse prospective preview."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/amps_khan_dataset_audit.json; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/amps_khan_candidate_selection_plan.md"
+  reason: "Prepared and deliberately NOT annotated, because ontology-v1 is unstable. Cue frequency is a lexical proxy, not semantic frequency."
+  status: deferred
+  project: corpus
+  activation_cues:
+    - "X16 (ontology gate) closes."
+  dependencies: [X16]
+  evidence_for:
+    - "SHA-256 b48c40afd262a8ac587504bc3008a2b0d688c0144b5d9fddd083f0b576a5df41; 3,293 visual-dependent, 21,094 multiple-choice, 1,666 duplicate problems"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §3: 'no AMPS transition has been annotated'"
+  related: [X88, X4]
+
+- id: X20
+  type: experiment
+  proposal: "PRM800K natural reasoning error and action audit — bounded semantic-discovery pass over the official OpenAI checkout."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/PRM800K_NATURAL_REASONING_AUDIT.md; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/prm800k_audit/"
+  reason: "Result is a BOUNDARY, not an ontology victory: PRM800K separates validity from progress/novelty/goal-relevance, but does not license treating every -1 as a violated HML core invariant."
+  status: completed
+  project: corpus
+  activation_cues:
+    - "Anyone proposes deriving HML core-operation frequencies from PRM800K labels."
+  dependencies: []
+  evidence_for:
+    - "commit 7ecc794703b2877f63226f2477a49b34f9b25163; 4 source files fingerprinted, never modified; HML pinned and read-only"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/prm800k_audit/results/semantic_metrics.json: resolved_error_fraction 0.124; error classes FALSE_GOAL_DISCHARGE 32, OTHER 27, PRECONDITION_VIOLATION 3, UNRESOLVED 438; confidence LOW 438 / MEDIUM 62"
+    - "zero-rating reasons: insufficient progress 193, redundant computation 18, harmless detour 14, restatement 10, vague plan 9, semantically valid but goal-irrelevant 6"
+  evidence_against:
+    - "same file, method_warning: 'LOW confidence and UNRESOLVED must not be used as ontology-frequency estimates.'"
+  related: [X84, X89]
+
+- id: X21
+  type: experiment
+  proposal: "Semantic Firewall — a frozen corpus-side reference checker over ten transition invariants."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/semantic_firewall_experiment.md; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/semantic_firewall/results/metrics.json"
+  reason: "Strongest positive controlled result in the corpus: 80/80 valid FINAL transitions accepted and 80/80 minimally corrupted transitions detected, over 80 unique MATH Level 4/5 rows with zero Gold-125 overlap."
+  status: completed
+  project: corpus
+  activation_cues:
+    - "A future HML implementation claims Semantic Firewall support — it must run experiments/semantic_firewall/acceptance/fixtures.json unmodified. NECESSARY BUT DEMONSTRABLY NOT SUFFICIENT — see the second cue and X133."
+    - "ADDED BY AUDIT PASS 2: anyone treats a 30/30 fixture pass as evidence of agreement with the reference checker. At 7c9137a an implementation passing 30/30 was found by READING reference_checker.py to diverge from it in two places, one in the unsafe direction. The corpus owns the fixtures and is the only party that can close this: two fixtures are named as sufficient in the closeout handoff — a LEGAL case whose claim is Natural where the action requires Integer (reference: VALID), and an ILLEGAL case whose warrant evidence binds a strict subset of the action's dependencies (reference: INVALID, WARRANT_MISMATCH)."
+  dependencies: []
+  evidence_for:
+    - "metrics.json FINAL: baseline accuracy 0.5 (80 false accepts, invalid_false_accept_rate 1.0); relative_error_reduction 1.0 with 95% CI [1.0, 1.0]; McNemar exact two-sided p = 1.65e-24"
+    - "benchmark_counts: 100 valid, 100 invalid, 100 pairs, final_gold125_overlap 0, 30 acceptance fixtures"
+  evidence_against:
+    - "metrics.json interpretation_boundary: 'This estimates deterministic firewall sensitivity, not open mathematical reasoning accuracy.'"
+    - "AUDIT PASS 2: /Users/moheet/hml_v2_worktree/docs/agent_handoffs/CLAUDE_SEMANTIC_FIREWALL_CLOSEOUT.md §7: 'A 30/30 pass rate against an external frozen checker concealed two real defects, one of them in the unsafe direction.' The acceptance set cannot discriminate the defects because every fixture declares the domain its claim already has and every fixture's premise envelope already equals its dependency list. This bounds what the 30 fixtures can certify."
+    - "AUDIT PASS 2: SEMANTIC_STATE_CONTRACT.md §6: 'Acceptance fixtures are not source-held-out (gold125_overlap: true on some). Pass rates here are not evidence of generalisation. Only FINAL is held out.'"
+  related: [X22, X78, X79, X80, X129, X133]
+
+- id: X22
+  type: negative_result
+  proposal: "Semantic Firewall representation comparison — SE, generic typed AST and HML were all PREPARED and none was SCORED."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/semantic_firewall/results/metrics.json key representation_experiment"
+  reason: "status NOT_RUN_NO_CONFIGURED_MODEL_RUNNER. Pure current-HML parity is blocked by candidate, branch/join and arbitrary neutral-state fields. No comparative score was invented — that restraint is the result."
+  status: blocked
+  project: corpus
+  activation_cues:
+    - "SATISFIED 2026-08-10 (audit pass 2): a generic candidate lifecycle (X78) and a certified branch/join protocol (X79) now exist in HML at 4d05aca, and a lossless HML view of a transition exists at 7c9137a. The parity blocker named in representation_experiment.warning is therefore removed IN THE HML REPOSITORY — but not yet in this corpus, whose hml_core is still pinned at 5688aba."
+    - "STILL OPEN AND NOW THE SOLE BLOCKER: a model runner is configured for the corpus repository."
+  dependencies: [X21, X78, X79]
+  evidence_for:
+    - "AUDIT PASS 2: /Users/moheet/hml_v2_worktree/docs/hml_v2/SEMANTIC_STATE_CONTRACT.md §4 (SF-R15): parse_transition is the inverse of render_transition over frozen dataclasses, so structural equality of the whole transition; chained corpus JSON -> state -> view -> state -> corpus JSON is 30/30 byte-identical."
+  evidence_against:
+    - "representation_experiment.warning: 'Pure current-HML parity is blocked by candidate, branch/join, and arbitrary neutral-state fields.'"
+    - "AUDIT PASS 2: a lossless view establishes REPRESENTABILITY, NOT ADEQUACY. SEMANTIC_STATE_CONTRACT.md §6: 'Nothing here was measured against a model.' Parity being unblocked says nothing about how any arm would score."
+  related: [X21, X78, X79, X121, X129, X133]
+
+- id: X23
+  type: experiment
+  proposal: "MiniLang OOPSLA26 v2 artifact audit — external independent evidence for a small proof-control vocabulary."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/minilang_artifact_audit.md; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/minilang_audit/"
+  reason: "Converges with Gold-125's long-tail compression but is NOT directly comparable: MiniLang commands are coarse proof-control compositions, HML's 17 are finer candidate state effects."
+  status: completed
+  project: corpus
+  activation_cues:
+    - "Anyone proposes replacing the 17 HML candidates with MiniLang's ten keywords — explicitly prohibited."
+  dependencies: []
+  evidence_for:
+    - "archive SHA-256 1562c84524c0851682e47b32243c0e2dcbfb47daaf6820bcb5c216ae8f12bc82; Zenodo 18454706; 42,699 paths manifested"
+    - "290,185 / 340,267 source goals verified refined = 85.2816%; 1,519,944 serialized commands; label entropy 2.726 bits; effective perplexity 6.616; top-1 38.93%, top-5 86.09%, top-10 96.06%"
+    - "ten paper semantics, 17 concrete labels in verified output (7 escape labels: APPLY, CONFIG, DEFINE, LET, NOTATION, OPEN_MODULE, UNFOLD)"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/minilang_translation_failure_audit.md: the 14.7184% failed-or-missing tail is dominated by translator/replay/automation/resource diagnostics and does NOT establish a 14.72% core-semantic gap rate"
+    - "END/NEXT alone are 57.59% of tokens and invoke hidden Sledgehammer automation; that frequency is not 57.59% of reasoning"
+  related: [X24, X2, X114]
+
+- id: X24
+  type: experiment
+  proposal: "MiniLang learning-experiment reconstruction — the only training-based representation comparison anywhere in the evidence base, and it is somebody else's."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/minilang_learning_experiment.md"
+  reason: "Supports two bounded claims (MiniLang > Isar at fixed base model and ATP; SH* > SH at fixed language) and isolates none of the mechanisms. 'Minimal semantics caused the gain' is too strong."
+  status: completed
+  project: corpus
+  activation_cues:
+    - "A matched HML/AST/SE training experiment is designed — this is the closest available design precedent and its confounds are the ones to avoid."
+  dependencies: [X23]
+  evidence_for:
+    - "arXiv:2507.18885v4 §5.1-5.3 + Table 2; Llemma 7B and DeepSeek-Prover-Base v1.5 7B; 2 languages x 3 ATP levels x 2 base models = 12 fine-tuned models; 8x H200, ~12 h/run; PISA on AFP 2025-02-12"
+  evidence_against:
+    - "same report: does not isolate operation-count reduction, semantic-boundary clarity, output length, entropy, data filtering, premise hints or state recoverability"
+  related: [X5, X23]
+
+# ---------------------------------------------------------------------------
+# HML-REPOSITORY MODEL EXPERIMENTS — every one, including the negatives
+# ---------------------------------------------------------------------------
+
+- id: X25
+  type: negative_result
+  proposal: "HML-EVAL-001 pilot — first HML-vs-English measurement; found NO representation advantage."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/HML_EVAL_001_PILOT_REPORT.md"
+  reason: "Every paired contrast was exactly zero with zero discordant pairs — but 14 of 15 problems were solved by nearly every arm. Saturated at 93.3% across all seven arms; detectable effect ~33 percentage points. Decision: REDESIGN AND RETEST, not refutation."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "Anyone cites the pilot as evidence that no advantage exists — it is not; it is evidence the instrument could not see one."
+  dependencies: []
+  evidence_for:
+    - "encoding fidelity 0.648; 27-50% of encodings did not compile"
+    - "the one positive: compiler feedback raised encoding fidelity +0.065 (CI [0.006, 0.136]) and parse rate 12-43 points at +38% generated tokens, with zero effect on accuracy"
+  evidence_against: []
+  related: [X8, X26, X99]
+
+- id: X26
+  type: negative_result
+  proposal: "eval001 headroom screen — 95 deduplicated problems x 3 seeds, temperature 0.7, complete 285/285."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md; commit fa39abc on integration/m1.5-paper-derived-closeout"
+  reason: "Mean accuracy 0.961. 90 of 95 tasks are 3/3 correct; only 3 fall in the 1/3-2/3 headroom band against a required 30. Three of five domains (algebraic, binding, quantifier) are 3/3 on EVERY task and carry no signal at all. Verdict HEADROOM_INSUFFICIENT — the corpus is retired for H2."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "A materially weaker model is selected — eval001 is retired for THIS model, not proven useless in principle."
+  dependencies: []
+  evidence_for:
+    - "92/95 tasks unanimous across three seeds, which makes this saturation rather than sampling noise"
+    - "integrity: matrix complete, 0 duplicates, 0 transport failures, 0 scoring failures, one model digest, 11 truncations at inherited max_tokens 2400"
+  evidence_against: []
+  related: [X7, X27, X45, X107]
+
+- id: X27
+  type: negative_result
+  proposal: "The 24-task v1 benchmark decisive run — SE control scored 23/23 (100%) against a usable band of 6-17; verdict HML_BENCHMARK_FAILED_NO_SIGNAL and ZERO HML calls were made."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/V1_HEADROOM_GATE_REPORT.md; commit 3dd4216"
+  reason: "This is a verdict about the corpus, not about HML. Predicted mean accuracy was 0.556; measured 1.000. All three tied-hardest tasks and every convention trap were answered correctly. Difficulty estimates were all marked PREDICTED_NOT_MEASURED and carried no signal."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "Anyone reads 'HML_BENCHMARK_FAILED' as an HML failure — no HML scientific call exists."
+  dependencies: [X45, X51]
+  evidence_for:
+    - "run decisive_01, protocol v1.3, gemma4:31b, 23 valid paired tasks, 46 calls, 2.27 h, 132,571 completion tokens"
+    - "integrity: 0 truncations, 0 transport errors, all 46 scored ok, exactly one answer marker per reply, zero drift in the scientific-input hash, all 23 results reconstruct by re-scoring raw content"
+  evidence_against: []
+  related: [X7, X45, X51, X108]
+
+- id: X28
+  type: negative_result
+  proposal: "SE difficulty calibration — 13 calls, 10 valid observations, 10 correct."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/SE_CALIBRATION_REPORT.md"
+  reason: "Third corpus in the project's history to saturate. The two apparent failures were finish=length truncations at 8192 tokens (one mid-way through a correct argument) recorded MEASUREMENT_INVALID rather than counted as difficulty."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "A difficulty axis other than length is proposed."
+  dependencies: []
+  evidence_for: []
+  evidence_against:
+    - "the one difficulty axis discovered (length) is UNUSABLE for this hypothesis, because HML is more verbose than prose and would truncate sooner — a confound anti-correlated with the treatment"
+  related: [X26, X29, X45]
+
+- id: X29
+  type: negative_result
+  proposal: "Synthetic difficulty lab calibration — SYNTHETIC_STATE_COMPLEXITY_SATURATED."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/SYNTHETIC_CALIBRATION_REPORT.md"
+  reason: "9 valid / 9 correct / 0 truncations across L3, L5 and L7 — L7 being depth-16 dependency chains with 6 distractors and 10-variable logic worlds with 26 constraints. Two independent instruments then had failed to find headroom for this model."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "A generator family is proposed that produces difficulty by something other than state complexity or length."
+  dependencies: [X28]
+  evidence_for: []
+  evidence_against: []
+  related: [X28, X30]
+
+- id: X30
+  type: experiment
+  proposal: "Developmental model ladder (SE-only micro-screen, one frozen 6-pair / 12-call set reused unchanged)."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/MICRO_gemma4-e4b.json, MICRO_gemma4-e2b.json, MICRO_gemma3-4b.json, MICRO_llama3.2-3b.json; FREEZE_gemma3-4b.json"
+  reason: "gemma4:e4b (8.0B) 6/6 too strong; gemma4:e2b (5.1B) 6/6 too strong; gemma3:4b (4.3B) 3/6 SELECTED; llama3.2:3b (3.2B) 0/6 too weak and rejected for 2 responses with no FINAL: line. The ladder BRACKETS the choice."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "Any future organism screen — the rule that the model must be chosen on structured English alone still holds."
+  dependencies: []
+  evidence_for:
+    - "gemma3:4b digest a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a, 4.3B, Q4_K_M; 12/12 correctly formatted responses; mean 180 completion tokens, 3.8 s latency"
+  evidence_against:
+    - "gemma3:4b is a DIFFERENT FAMILY from the gemma4 candidates; its results cannot be pooled with or compared against the gemma4 screens"
+    - "N=6 pairs makes 0.50 a selection signal, not an estimate"
+  related: [X31, X32, X116]
+
+- id: X31
+  type: negative_result
+  proposal: "gemma4:12b developmental screen — INVALID, no verdict on the model."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/DEV_gemma4-12b_ATTEMPT1_LOST.console.txt"
+  reason: "Two independent harness failures: a misplaced module-entry guard crashed the runner after every call had completed, discarding all records (~36 min of compute); and 12 of 24 responses truncated at max_tokens=4096 because gemma4:12b is a thinking model whose finished responses averaged 2395 completion tokens. Both faults were the experimenter's, not the model's."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "A thinking-trace model is screened again — the trace is billed to completion_tokens but returned in a separate field."
+  dependencies: []
+  evidence_for: []
+  evidence_against: []
+  related: [X30, X45]
+
+- id: X32
+  type: experiment
+  proposal: "Final model freeze — gemma3:4b confirmed at 5/6 out-of-sample, 8/12 pooled."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/FREEZE_FINAL_gemma3-4b.json; MICRO_gemma3-4b_off8.json"
+  reason: "Stated precisely because the halves play different roles: offset 6 scored 3/6 and SELECTED the model; offset 8 scored 5/6 and is the only genuinely out-of-sample half."
+  status: implemented
+  project: hml_core
+  activation_cues: []
+  dependencies: [X30]
+  evidence_for: []
+  evidence_against:
+    - "8/12 is on the UPPER EDGE and outside the preferred 5-7 band"
+    - "the halves disagree sharply (3/6 then 5/6), so the estimate is unstable"
+    - "OPERAND_ORDER is 4/4 — SATURATED — so one third of frozen pilot pairs are expected to be non-discriminating"
+  related: [X30, X116]
+
+- id: X33
+  type: experiment
+  proposal: "ACQ3 acquisition gate — HML 5/6, SE 5/6, AST 4/6. HML cleared the >=5/6 bar; the AST control did not."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/ACQ3_gemma3-4b.json; ACQUISITION_INSTRUMENT_FINAL.json"
+  reason: "Case B — pilot NOT run on the original composition. The AST arm is the control that makes the experiment interpretable, and its failure was on BINDER_ORDER while half the frozen pilot composition was QUANTIFIER_ORDER."
+  status: completed
+  project: hml_core
+  activation_cues: []
+  dependencies: [X30]
+  evidence_for:
+    - "0 invalid, 0 truncations across all 18 calls; no rescoring, no item deleted, threshold unmoved, no fourth attempt"
+    - "GOAL_TARGET went from wrong in all three arms to correct in all three — the exact signature of the diagnosed renderer defect"
+    - "FACT_COUNT failed identically in every arm with the byte-identical '10\\nFINAL: 10', as predicted from the zero-based-label lure recorded BEFORE the run"
+  evidence_against:
+    - "'AST is harder to read than HML' is NOT established — its deficit is one item, n=1"
+    - "HML used ~2x the completion tokens of either control (48.5 vs 23.7 / 25.0)"
+    - "attempts #1 and #2 are permanently INVALID_INSTRUMENT and are not carried forward"
+  related: [X34, X52, X42]
+
+- id: X34
+  type: experiment
+  proposal: "Binder diagnostic — SE 8/8, HML 8/8, AST 6/8; the AST v1 control cannot read binder nesting."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/BINDER_DIAG_gemma3-4b.json"
+  reason: "AST's answers are predicted on 5/5 configurations by 'say forall if forall appears anywhere, else exists' — a token-presence rule that never reads nesting. The arm is not 75% reliable at binder order; it is ~0% reliable and 75% lucky. All three misses are exists -> forall."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "Any control arm scores near-threshold — test whether a surface heuristic predicts its answers before trusting it."
+  dependencies: [X33]
+  evidence_for: []
+  evidence_against: []
+  related: [X33, X36, X97]
+
+- id: X35
+  type: negative_result
+  proposal: "Pilot B1 (IMPLICATION_DIRECTION, 12 minimal-contrast pairs, 72 calls) — SE 5/12 pairs, HML 1/12, AST 0/12. Verdict HML_REPRESENTATION_HARM_SIGNAL."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/PILOT_B1_gemma3-4b.json; PILOT_MANIFEST_B1.json"
+  reason: "THE FIRST HML-vs-SE REASONING RESULT, AND IT IS NEGATIVE FOR HML. Item level SE 15/24, HML 10/24, AST 6/24. Paired discordances all agree: HML vs SE -0.208, AST vs SE -0.375, HML vs AST +0.167."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "Anyone claims HML's losses are a length or readability artefact — both escapes are closed (see evidence_for)."
+    - "A matched-adaptation condition is run; this result is zero-shot only."
+  dependencies: [X30, X32, X33, X34]
+  evidence_for:
+    - "verified from records: mean prompt tokens HML 285.3, SE 347.4, AST 505.2 — HML had the SHORTEST prompts and still lost"
+    - "HML scored 5/6 on acquisition (X33) and 8/8 on the binder diagnostic (X34), so it is not a readability failure"
+    - "every error in every arm was a wrong semantic conclusion: zero format failures, zero truncations, zero invalid"
+    - "dominant error is collapsing UNDETERMINED into a definite verdict (HML 10 of its 14 errors)"
+  evidence_against:
+    - "N=12 pairs, one semantic mechanism, one level, one 4.3B model; no significance is claimed or computable"
+    - "this is NOT a refutation — quantifier scope, the mechanism HML was designed for, is a different endpoint (X36)"
+  related: [X6, X36, X54, X116]
+
+- id: X36
+  type: negative_result
+  proposal: "Endpoint B2 (QUANTIFIER_ORDER, 8 pairs, 48 calls) — AST_V2 4/8 > HML 3/8 > SE 1/8. Verdict HML_STRUCTURE_ONLY_SIGNAL."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/B2_PILOT.json; ENDPOINT_B2_MANIFEST.json"
+  reason: "On the mechanism HML was DESIGNED for, structure clearly beats prose — SE scored exactly chance (8/16) with perfectly symmetric errors — but a plain generic S-expression beat HML. Structure does the work; HML's specific ontology does not."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "This is the result that most directly arms the docs/04 §13 KILL/PIVOT RULE (X46). If it replicates at larger N under matched adaptation, the HML-specific learning claim is killed."
+  dependencies: [X34, X35]
+  evidence_for:
+    - "verified from records: items AST_V2 12/16, HML 10/16, SE 8/16; pairs 4/8, 3/8, 1/8"
+    - "AST_V2 never lost to SE on a single item; the length explanation is unavailable — verified mean prompt tokens AST_V2 242.8, SE 280.2, HML 345.9 (pre-run parity means 190.9 / 229.2 / 295.4), so AST_V2 is the SHORTEST arm"
+    - "48 calls, 0 invalid, 0 truncations"
+  evidence_against:
+    - "descriptive at N=8"
+  related: [X6, X46, X96, X97]
+
+- id: X37
+  type: experiment
+  proposal: "Endpoint A micro-pilot (next-action, 12 items) — SE 3/12 vs HML 9/12, delta +0.500."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/ENDPOINT_A_MICRO.json; ENDPOINT_A_MANIFEST.json"
+  reason: "The only positive HML signal ever measured against a fair control. It did not survive replication (X38). Preserved because a suppressed positive is as much a distortion as a suppressed negative."
+  status: superseded
+  project: hml_core
+  activation_cues:
+    - "Anyone cites +0.500 on Endpoint A — always cite X38 with it."
+  dependencies: []
+  evidence_for:
+    - "instrument frozen after a 24-check adversarial audit with zero model calls spent; a real defect was found and fixed pre-freeze (answer positions A2/B4/C1/D5 -> 3/3/3/3); surface-heuristic tests all fail to beat chance"
+  evidence_against:
+    - "SE's 3/12 was exactly chance; on fresh items the same renderer scored 11/18"
+  related: [X38]
+
+- id: X38
+  type: negative_result
+  proposal: "Endpoint A expansion (18 independent items) — 11/18 in BOTH arms, delta = 0.000. The N=12 signal did not replicate. CASE B: advantage not demonstrated."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/ENDPOINT_A_EXPAND.json"
+  reason: "Pooled 30 items: SE 14/30, HML 20/30, delta +0.200 — carried ENTIRELY by the first half. 68 calls spent, 0 invalid, 0 truncations. No escalation, no agent build, no verifier loop justified."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "The one surviving qualitative hypothesis: HML's errors fell entirely into precondition/no-progress roles — zero invalid-arithmetic and zero logic-polarity errors, against five for SE. This was tested and rejected offline as chance-compatible (X40)."
+  dependencies: [X37]
+  evidence_for: []
+  evidence_against: []
+  related: [X37, X40]
+
+- id: X39
+  type: negative_result
+  proposal: "Causal diagnosis scout — five matched conditions, 6 items, 30 calls. NO CONDITION RESCUES HML."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/CAUSAL_SCOUT.json; CAUSAL_DIAGNOSIS_MANIFEST.json"
+  reason: "SE 5/6 · HML_BASIC 4/6 · HML_EPI 3/6 · HML_VERIFY 3/6 · HML_OBF 2/6 (verified from records). Case D — the frozen zero-shot branch is closed. Four measurements now, none showing frozen zero-shot HML helping."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "H2 (the readability/acquisition hypothesis) has the only positive signature, arguing for MATCHED ADAPTATION rather than any prompt-level fix. That is the surviving live direction. QUALIFIED BY AUDIT PASS 2: that 'only positive signature' is the HML_OBF arm, which the HML repository has since withdrawn as evidence for H2 pending a re-run (see X105, X132). The argument for matched adaptation does not currently rest on an unimpeached measurement."
+  dependencies: [X35, X36]
+  evidence_for:
+    - "HML_OBF answered UNDETERMINED on ALL SIX items — a degenerate constant; obfuscation stopped the model engaging rather than degrading it gracefully — WITHDRAWN-PENDING BY AUDIT PASS 2: confounded by causal_diag.py:121-125 obfuscating the question text, see X132. The 2/6 score and the degeneracy are real; the causal reading is not established."
+    - "HML_VERIFY failed a two-bit lookup: handed BOTH proof signals false, it still answered TRUE — deterministic feedback did not repair unsupported commitment"
+    - "HML_EPI made over-commitment WORSE (UNDET->definite 2/2 vs 1/2 baseline)"
+  evidence_against:
+    - "AUDIT PASS 2: the HML_OBF arm of this scout is confounded by a harness defect (X132). The headline finding 'NO CONDITION RESCUES HML' is UNAFFECTED — it rests on SE 5/6 vs HML_BASIC 4/6, HML_EPI 3/6 and HML_VERIFY 3/6, none of which touches the obfuscation path — but the five-condition contrast is now four clean conditions plus one impeached one."
+  related: [X8, X6, X105, X132]
+
+- id: X40
+  type: negative_result
+  proposal: "Error-topology hypothesis (HML makes qualitatively different error types) — CLOSED OFFLINE with 0 model calls."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'ERROR-TOPOLOGY BRANCH CLOSED OFFLINE (0 calls)'"
+  reason: "The motivating signal is compatible with chance: HML made ~5 errors per family, and P(0 of a subtype | 5 errors) = (2/3)^5 = 0.13. Error opportunity is also confounded with family — polarity errors exist only on logic items. A power simulation showed direction alone is a coin flip under the null."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "An error-topology claim is made again at larger N where (2/3)^n is no longer plausible."
+  dependencies: [X38]
+  evidence_for: []
+  evidence_against: []
+  related: [X38, X39]
+
+- id: X41
+  type: experiment
+  proposal: "Representation Arena (arena-1.0.0) — one neutral semantic world rendered in three provably information-matched notations, with per-arm decoders."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/ARENA_DESIGN.md; /Users/moheet/hml_v2_worktree/evaluation/arena/"
+  reason: "The instrument that makes every X33-X40 result interpretable. Parity is PROVED per world by round trip: canonical_world(decode_X(render_X(w))) == canonical_world(w)."
+  status: implemented
+  project: hml_core
+  activation_cues: []
+  dependencies: []
+  evidence_for:
+    - "1800 round trips over 600 worlds, 0 failures; pre-flight gate 8/8 checks over 306 items and 69 minimal-contrast pairs; 100 arena tests pass; 214/214 HML worlds compile under the real compiler"
+  evidence_against:
+    - "ZERO model calls in the arena build itself — nothing in the arena is evidence about any model's behaviour"
+    - "HML has NO uninterpreted predicate (HML-T470): a declared Predicate is not callable, so a finite relation can only be stated in closed form — an ontology gap independent of the arena"
+    - "MIXED_STATE_COMPOSITION is not ported; next-action covers two families rather than three; all three ported families sit inside HML's covered ontology region, so the handoff's structural tension is untouched"
+    - "OPERAND_ORDER contrast twins have answers that are exact negations of each other"
+    - "the HML renderer had a latent semantic defect caught ONLY by parity (a relativised nested quantifier meant the right thing solely because implies is right-associative). Compiling was not sufficient to detect it."
+  related: [X33, X34, X35, X36, X118]
+
+- id: X42
+  type: risk
+  proposal: "ACQ0 instrument failed its own audit TWICE — v1 was 0/41 admissible; v2 shipped a model-visible view from which 3 of 8 tasks could not be encoded."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/ACQ0_V2_PROOF_CORPUS_AUDIT.md; /Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'Known Failures and Limitations'"
+  reason: "The lesson is specific and UNRESOLVED IN GENERAL: three separate 'verifications' all validated an artefact against itself. Only a check that CROSSES the boundary where information is lost can detect that class of defect."
+  status: unresolved
+  project: hml_core
+  activation_cues:
+    - "Any new instrument declares itself verified without a check that crosses the lossy boundary."
+  dependencies: []
+  evidence_for:
+    - "v1: mathematics was authored in three independent places and disagreed, so a frontier model that followed the prose was scored FAIL"
+    - "the repair is generator-level, not answer-level (D-030); admission now requires view -> rebuild -> compile -> content_hash equality, 8/8 exact"
+  evidence_against: []
+  related: [X33, X117]
+
+- id: X43
+  type: negative_result
+  proposal: "Tranche A (32-condition syntax tournament) is MEASUREMENT_INVALID on truncation; surface D eliminated by upper bound."
+  origin: "/Users/moheet/hml_v2_worktree/DECISIONS.md D-033"
+  reason: "Everything except the cap audited clean: matrix complete 8x4, no duplicates, no missing, 0 transport failures, no prompt drift, no bundle drift, no repository mutation during measurement. Three conditions hit the 6,144-token allowance and the truncation decides the verdict for two of four surfaces."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "A syntax tournament is restarted — all 32 records are preserved with a hash manifest, admissible for debugging only."
+  dependencies: []
+  evidence_for:
+    - "surface D eliminated without a rerun: repaired parse 0/8, one truncated record and only in repair, best attainable 1/8 against a frozen 6/8 threshold; failure class is schema conformance (triples encoding where the candidate specifies a statements array)"
+    - "one harness defect found by the first attempt and the attempt discarded: a ```lisp fence went to the importer fence and all, so surface C would have been eliminated on a harness bug"
+  evidence_against: []
+  related: [X44, X106]
+
+- id: X44
+  type: negative_result
+  proposal: "CAP_CALIBRATION_FAILED — a bigger completion cap is not the fix; the model is non-terminating on one task."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'CAP_CALIBRATION_FAILED'"
+  reason: "Both cap probes at 12,288 reached the cap exactly and truncated, on the same task that truncated at 6,144. The model restates the module header 229 times in surface A and 161 times in surface C, cycling on 'varrho' which it mistypes as 'vvarrho' and restarts over. Two allowances a factor of two apart, both fully consumed, with repetition scaling with the budget — that is non-termination."
+  status: completed
+  project: hml_core
+  activation_cues:
+    - "A truncation is about to be treated as an undersized budget — check whether repetition count scales with the budget first."
+  dependencies: [X43]
+  evidence_for:
+    - "the proposed 1 x 32,768 configuration is recorded as required but NOT recommended: predicts ~500 restatements, still truncates, ~10 hours at halved concurrency"
+    - "it is one task, not one surface: the other seven surface-A tasks finished with stop, and this task completed cleanly in surface B"
+  evidence_against: []
+  related: [X43, X45]
+
+- id: X45
+  type: decision
+  proposal: "TRANSFERABLE FINDING — headroom is a function of the completion budget. A corpus must be calibrated AT THE BUDGET IT WILL BE RUN AT."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md; /Users/moheet/hml_v2_worktree/docs/evaluation/V1_PROTOCOL_AMENDMENT_v1_2.md; commit b1ac7bf (protocol v1.3)"
+  reason: "On the SAME tasks with the SAME model at temperature 0: at 4096 tokens the probe truncated and v1b_06 returned ZERO CHARACTERS of content; at 8192 the model scored 23/23. The reasoning trace alone costs ~3,000-4,000 tokens. Below ~5,000 the corpus floors on a measurement artefact; above it, it ceilings."
+  status: active
+  project: cross
+  activation_cues:
+    - "Any difficulty estimate is produced without naming the completion budget — it is not an estimate of difficulty."
+  dependencies: []
+  evidence_for:
+    - "recorded plainly: the v1.2 -> v1.3 budget raise was necessary AND is what moved the corpus from floor to ceiling; both changes were committed before any scientific call, but budget and saturation are causally linked"
+    - "four harness defects demonstrated and repaired pre-run (D1 first vs last ANSWER span; D2 first number-like substring mined so 16/7 -> 16.0; D3 markerless reply scored against whole text; D4 SE carried its whole first reply while HML carried only the fence) — D2 and D4 were DIFFERENTIAL and fell on the treatment arm"
+  evidence_against: []
+  related: [X26, X27, X28, X31, X44]
+
+# ---------------------------------------------------------------------------
+# KILL / PIVOT CRITERIA AND GATES
+# ---------------------------------------------------------------------------
+
+- id: X46
+  type: kill_criterion
+  proposal: "docs/04 §13 KILL / PIVOT RULE — the HML-specific learning claim is weakened or killed if matched exposure repeatedly yields generic AST >= HML on the tasks HML is intended to improve."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §13"
+  reason: "The single most consequential rule in the programme. It explicitly survives its own trigger: the broader typed semantic-machine/state/verifier architecture can survive that result, potentially with a different surface representation."
+  status: active
+  project: cross
+  activation_cues:
+    - "ALREADY PARTIALLY FIRED, UNMATCHED: Endpoint B2 gave AST_V2 4/8 >= HML 3/8 on quantifier scope, the mechanism HML was designed for (X36). The rule says MATCHED EXPOSURE and REPEATEDLY; B2 is zero-shot and N=8, so the rule is armed, not discharged."
+    - "A matched-adaptation experiment (same mathematics, trajectories, model, training budget, context budget, search budget) returns generic AST >= HML."
+  dependencies: [X36, X120]
+  evidence_for:
+    - "§13 required measurements: source-to-state alignment; next-action accuracy and verified-transition rate; complete verified solution rate; sample efficiency; OOD compositional generalization; deeper-chain/larger-state robustness; scope/precondition/obligation/candidate errors; proof vs counterexample success and calibration; backend/tactic dependence; search/token/wall-clock cost"
+  evidence_against: []
+  related: [X36, X47, X120]
+
+- id: X47
+  type: kill_criterion
+  proposal: "Corpus ledger §17 — three separate kill/pivot conditions for the small-core interpretation."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md §17"
+  reason: "Distinguishes killing the SMALL-CORE claim from killing HML-as-representation; these fail independently."
+  status: active
+  project: corpus
+  activation_cues:
+    - "KILL small-core: a pre-registered cross-source sample produces many high-frequency domain-independent operations that cannot be factored into the ontology axes."
+    - "KILL small-core: independent adjudicators cannot agree on state effects and warrants."
+    - "PIVOT to a library/evidence IR: generic core operations remain small but most useful verification lives in domain libraries and backends."
+    - "PIVOT away from HML as primary representation: it cannot preserve state, obligations, dependencies, scope and epistemic outcomes without repeated example-specific extensions."
+  dependencies: [X2, X17]
+  evidence_for:
+    - "explicit rule in the same section: 'Do not use saturation alone as a success criterion. A flat curve with high UNRESOLVED, OTHER, or annotation disagreement is not stabilization.'"
+  evidence_against: []
+  related: [X2, X16, X17, X46]
+
+- id: X48
+  type: kill_criterion
+  proposal: "V1 per-layer kill criteria — each V1 layer is DELETED if it fails its own criterion."
+  origin: "/Users/moheet/hml_v2_worktree/docs/design/V1_KERNEL.md §8; /Users/moheet/hml_v2_worktree/spec/v1/semantic_objects.yaml::kill_criteria"
+  reason: "L2 transformation: killed below 30% of injected invalid-step errors detected. L3 inference: killed if it does not separate valid from invalid chains better than chance. L4 epistemic: killed if ANY §7 conflation type-checks. L5 discourse: killed if it adds no diagnostic V0 does not already produce. families: killed if estimator/estimate confusion still type-checks."
+  status: dormant
+  project: hml_core
+  activation_cues:
+    - "V1 implementation resumes — it is currently superseded by the signal pivot."
+  dependencies: []
+  evidence_for:
+    - "L4's criterion HAS fired once: PValue was specified and never implemented, so p-value-as-posterior type-checked (COMPILER_CORE_REMEDIATION.md row 7). Closed in v1/epistemic.py (Python) and still OPEN IN THE LANGUAGE."
+  evidence_against: []
+  related: [X49]
+
+- id: X49
+  type: risk
+  proposal: "L5's kill criterion is unfalsifiable — 'adds no diagnostic V0 does not already produce' is satisfiable by the layer merely existing."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/V1_FREEZE_MANIFEST.md finding 5"
+  reason: "Recorded OPEN and Lead-owned. A kill criterion that cannot fire is not a kill criterion."
+  status: unresolved
+  project: hml_core
+  activation_cues:
+    - "V1 work resumes; L5 must be given a falsifiable criterion first."
+  dependencies: [X48]
+  evidence_for: []
+  evidence_against: []
+  related: [X48]
+
+- id: X50
+  type: kill_criterion
+  proposal: "GOAL.md §12 success ladder G0-G5 — explicit gates from trustworthy instrument to adaptation value."
+  origin: "/Users/moheet/hml_v2_worktree/GOAL.md §12"
+  reason: "Each gate states what passing does NOT mean. G0 = the experiment can be run (does not support the thesis). G1 = the model can faithfully USE one surface (not that it helps). G2 = credible positive direction on held-out dev tasks. G3 = frozen adequately-powered confirmatory. G4 = replication. G5 = matched adaptation adds value without forgetting/drift/leakage/memorisation."
+  status: active
+  project: hml_core
+  activation_cues:
+    - "Any claim of progress must name which gate it clears."
+  dependencies: []
+  evidence_for: []
+  evidence_against:
+    - "the programme is currently at G0/G1 at best: X33 is a readability gate, and PROJECT_STATUS states explicitly 'This is a readability gate, not evidence about reasoning.'"
+  related: [X52, X53]
+
+- id: X51
+  type: kill_criterion
+  proposal: "SE-first headroom gate band — 8-15 ideal, 6-17 usable, 0-5 or 18+ INSUFFICIENT, of 23-24 tasks."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/V1_HEADROOM_GATE_REPORT.md §1"
+  reason: "The gate that prevented a wasted HML arm on a saturated corpus. It ran SE first BY DESIGN and stopped."
+  status: active
+  project: hml_core
+  activation_cues:
+    - "Any new decisive corpus — run the SE control first and stop if outside band."
+  dependencies: []
+  evidence_for:
+    - "fired once: SE 23/23, band INSUFFICIENT, 0 HML calls"
+  evidence_against:
+    - "DISCREPANCY: PROJECT_STATUS.md reports the ideal band as '8-16 of 24'; V1_HEADROOM_GATE_REPORT.md reports '8-15'. The report is the primary artefact."
+  related: [X27, X124]
+
+- id: X52
+  type: kill_criterion
+  proposal: "Acquisition gate — require >=5/6 literal state-recovery items for BOTH the AST control and HML before any reasoning pilot."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'Exact Next Actions' step 0/3; ACQUISITION_INSTRUMENT_FINAL.json"
+  reason: "Exists so that unfamiliar syntax is not mistaken for a bad reasoning representation. It fired: AST scored 4/6 and blocked the original pilot (X33)."
+  status: active
+  project: hml_core
+  activation_cues:
+    - "Any new representation arm is introduced."
+  dependencies: [X33]
+  evidence_for: []
+  evidence_against: []
+  related: [X33, X34]
+
+- id: X53
+  type: kill_criterion
+  proposal: "HML-EVAL-002 two blocking gates — parse success >=95% after at most one repair with >=90% semantic preservation; and a benchmark of >=200 problems at 40-70% baseline accuracy."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/HML_EVAL_002_PREREGISTRATION.md; /Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md"
+  reason: "Neither gate is currently passed. The second is the same problem that killed eval001 and the 24-task benchmark: no corpus at 40-70% has been found for any candidate model."
+  status: blocked
+  project: hml_core
+  activation_cues:
+    - "A >=200-problem corpus lands in the 40-70% band at the completion budget it will be run at."
+  dependencies: [X26, X27, X45]
+  evidence_for: []
+  evidence_against:
+    - "HML-EVAL-001 measured encoding fidelity 0.648 with 27-50% of encodings not compiling — far below the 95%/90% gate"
+  related: [X7, X45]
+
+- id: X54
+  type: decision
+  proposal: "Pre-declared arena verdict codes — HML_REPRESENTATION_HARM_SIGNAL, HML_STRUCTURE_ONLY_SIGNAL, HML_BENCHMARK_FAILED_NO_SIGNAL, SYNTHETIC_STATE_COMPLEXITY_SATURATED, HEADROOM_INSUFFICIENT, MEASUREMENT_INVALID, INVALID_INSTRUMENT."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md; /Users/moheet/hml_v2_worktree/evaluation/arena/results/*.json; DECISIONS.md D-033"
+  reason: "The verdict vocabulary is itself a research asset: it forces a result to name WHICH thing failed (representation, corpus, instrument, or measurement) before it is interpreted."
+  status: active
+  project: hml_core
+  activation_cues:
+    - "A new failure mode is observed that none of these codes names."
+  dependencies: []
+  evidence_for: []
+  evidence_against: []
+  related: [X26, X27, X29, X35, X36, X42, X43]
+
+# ---------------------------------------------------------------------------
+# DORMANT SEARCH / DISCOVERY CANDIDATES
+# docs/02 §8 research agenda + docs/04 §8 TEST BEFORE IMPLEMENTATION.
+# For each: current evidence classification is recorded, not asserted as settled.
+# Global rule (docs/02 §12, docs/04 §8, docs/04 §11.E): DO NOT IMPLEMENT AS SYNTAX YET.
+# ---------------------------------------------------------------------------
+
+- id: X55
+  type: dormant_option
+  proposal: "CHOOSE_REPRESENTATION — expose useful structure in another encoding."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 table row 1; §2 table (27 source-visible records)"
+  reason: "Observed, but primitive-vs-policy is UNRESOLVED. Evidence suggests: REPRESENTATION PROPOSAL (input problem/state -> representation proposal plus mapping obligations). No truth-state change unless a later equivalence is verified."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "AMPS bounded sample is semantically annotated and CHOOSE_REPRESENTATION recurs with a DISTINCT state/control effect, not merely a paraphrase of planner intent."
+    - "A representation change is shown to require a mapping obligation that no existing operation generates."
+  dependencies: [X19, X88, X16]
+  evidence_for:
+    - "27 source-visible meta records in Gold-125 (joint highest with CONSIDER_CASES)"
+    - "AMPS lexical cues include 'we can rewrite', 'instead'"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §8: named explicitly in the 'do not add syntax merely named' list"
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §12 DO NOT IMPLEMENT YET"
+  related: [X56, X60, X75, X76]
+
+- id: X56
+  type: dormant_option
+  proposal: "RECOGNIZE_STRUCTURE — link the current form to a pattern, invariant, recurrence, or known family."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 2; §2 (10 records)"
+  reason: "Evidence suggests: PLANNER METADATA or COMPOSITION (state -> structure hypothesis / warrant candidates). No truth-state change. Its natural home is WARRANT SEARCH, not a state effect."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "It predicts a state/control effect distinct from selecting a warrant."
+  dependencies: [X16]
+  evidence_for:
+    - "10 source-visible records in Gold-125, MATH only"
+  evidence_against:
+    - "docs/04 §8: must be tested before being treated as a primitive"
+  related: [X55, X59, X86]
+
+- id: X57
+  type: dormant_option
+  proposal: "CREATE_SUBGOAL — replace the progress target with a sufficient intermediate goal."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 3; §2 (13 records)"
+  reason: "Evidence suggests: GOAL EFFECT — it is already an axis value in the multi-axis event schema (goal_effect: NONE | ADVANCE | CREATE_SUBGOAL | DISCHARGE). It is the strongest candidate to be a REUSABLE CONTROL EFFECT rather than a new operation."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "The goal_effect axis is implemented in HML; CREATE_SUBGOAL then needs no separate operation."
+  dependencies: [X16]
+  evidence_for:
+    - "13 source-visible records; already present as a goal_effect value in docs/04 §4"
+    - "docs/02 §8 status: 'Observed; reusable control effect.'"
+  evidence_against: []
+  related: [X61, X81]
+
+- id: X58
+  type: dormant_option
+  proposal: "CONSIDER_CASES — propose a partition worth exploring."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 4; §2 (27 records)"
+  reason: "Evidence suggests: the SEARCH HALF of the case protocol, paired with the execution-side CASE_SPLIT. State -> case proposal plus a coverage obligation. No global truth change."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "A certified exhaustive/disjoint branch and join protocol exists (X79) — CONSIDER_CASES is its proposal side and is not separately implementable before it."
+  dependencies: [X79]
+  evidence_for:
+    - "27 source-visible records (joint highest); Gold-125 has 15 CASE_SPLIT labels"
+  evidence_against:
+    - "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/01_STATE_AND_EXECUTION.md §8: 0 certified exhaustive partitions and 0 invariant joins in Gold-125 — the protocol is underrepresented, not easy"
+  related: [X79, X14]
+
+- id: X59
+  type: dormant_option
+  proposal: "USE_SYMMETRY — normalize equivalent configurations or reduce cases."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 5; §2 (7 records)"
+  reason: "Evidence suggests: COMPOSITION of representation choice plus theorem use, carrying an equivalence obligation. No truth change until the warrant is checked."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "A symmetry step is found that cannot be expressed as CHOOSE_REPRESENTATION + APPLY_THEOREM + an equivalence obligation."
+  dependencies: [X55]
+  evidence_for:
+    - "7 source-visible records; AMPS cue 'by symmetry'"
+  evidence_against: []
+  related: [X55, X75]
+
+- id: X60
+  type: dormant_option
+  proposal: "REFRAME — replace the task with an equivalent or strategically easier one."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 6; §2 (3 records)"
+  reason: "Evidence suggests: GOAL/CONTROL EFFECT (goal -> new goal plus equivalence and map-back obligations). SPARSE observation — only 3 records. Test before treating as primitive."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "AMPS pedagogical prose supplies materially more REFRAME instances after semantic (not lexical) annotation."
+  dependencies: [X19, X88]
+  evidence_for: []
+  evidence_against:
+    - "3 records in 769 transitions"
+    - "named in docs/04 §8 and §11.E prohibition lists"
+  related: [X55, X70]
+
+- id: X61
+  type: dormant_option
+  proposal: "WORK_BACKWARDS — search from the target toward sufficient predecessor states."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 7"
+  reason: "Evidence suggests: PLANNER POLICY or COMPOSITION over CREATE_SUBGOAL — unresolved between the two. No truth-state change. ZERO source-visible records; it is a general heuristic, not an observation."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "A corpus containing backward-chaining traces (formal proof states, not polished MATH solutions) is annotated."
+  dependencies: [X57]
+  evidence_for: []
+  evidence_against:
+    - "not in the Gold-125 source-visible meta table (docs/02 §2 lists only 6 classes and this is not one)"
+    - "named in docs/04 §8 and §11.E prohibition lists"
+  related: [X57, X65]
+
+- id: X62
+  type: dormant_option
+  proposal: "GENERALIZE — propose a broader claim or abstraction."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 8"
+  reason: "Evidence suggests: DISCOVERY-STATE MUTATION producing a conjecture version. Explicitly flagged HIGH RISK as a primitive — it changes discovery status only, never deductive truth."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "A discovery-state DAG exists (X82) to hold conjecture versions without contaminating deductive state."
+  dependencies: [X82, X83]
+  evidence_for: []
+  evidence_against:
+    - "theoretical only; derived from the Lakatos/Winskel synthesis, not observed in any corpus here"
+  related: [X63, X68, X82]
+
+- id: X63
+  type: dormant_option
+  proposal: "SPECIALIZE — restrict a claim or state to a useful instance."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 9"
+  reason: "Evidence suggests: GOAL/CONTROL EFFECT and LIKELY A COMPOSITION (claim/domain -> instance goal or candidate)."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "A specialization step is found that is not expressible as SUBSTITUTE / APPLY_DEFINITION plus a subgoal."
+  dependencies: []
+  evidence_for: []
+  evidence_against:
+    - "theoretical; general heuristic, no corpus observation"
+  related: [X62]
+
+- id: X64
+  type: dormant_option
+  proposal: "STRENGTHEN_HYPOTHESIS — repair an insufficient proof invariant."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 10; docs/01 §10"
+  reason: "Evidence suggests: PLANNER DECISION inside a proof protocol, changing discovery status only. Winskel is explicit that the obvious induction hypothesis can be too weak and that choosing a stronger one is itself mathematical work."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "The targeted proof-state/induction study (docs/04 §12 step 3) is run with weak AND strengthened hypotheses."
+  dependencies: [X81]
+  evidence_for: []
+  evidence_against:
+    - "named in docs/04 §8 and §11.E prohibition lists; docs/01 'DO-NOT-IMPLEMENT-YET' names it alongside INDUCT"
+  related: [X81, X100]
+
+- id: X65
+  type: dormant_option
+  proposal: "SEEK_COUNTEREXAMPLE — search for a falsifying witness or model."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 11; docs/03 §9"
+  reason: "Evidence suggests: a PROTOCOL (dual proof/falsification search), not necessarily a primitive. The STRONGEST theoretical support of any candidate — Lakatos, Blackburn/Bos and FormalMATH all converge. Only a VERIFIED witness refutes; failure to find one is not proof."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "A model builder / counterexample backend with a trusted evidence envelope exists."
+    - "docs/04 §7 item 4 (parallel proof and counterexample/model checking) is prototyped."
+  dependencies: [X74, X80]
+  evidence_for:
+    - "FormalMATH negation-based disproof is a useful asymmetric filter: proving not-T rejects T"
+  evidence_against:
+    - "no counterexample-search implementation or artifact exists in either repository"
+  related: [X74, X73]
+
+- id: X66
+  type: dormant_option
+  proposal: "LOCATE_FAILED_DEPENDENCY — diagnose which lemma or edge caused a proof failure. (IDENTIFY_FAILED_DEPENDENCY is the same diagnostic family and the terminology must be merged before implementation.)"
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 rows 12-13"
+  reason: "Evidence suggests: DISCOVERY-STATE MUTATION producing a diagnosis node from a failed proof graph. No truth-state change. Two names for one thing is itself the parked defect."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "A failed-proof corpus exists — MATH exposes no failures, so this cannot be observed today."
+    - "Before any implementation: merge the two names."
+  dependencies: [X82]
+  evidence_for: []
+  evidence_against:
+    - "theoretical, Lakatos-derived; zero observations"
+  related: [X67, X82, X72]
+
+- id: X67
+  type: dormant_option
+  proposal: "REPAIR_LEMMA — propose a corrected lemma or proof path."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 14"
+  reason: "Evidence suggests: PROTOCOL / COMPOSITION producing a versioned repair proposal; discovery status only."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "Versioned concepts/definitions in discovery mode (X83) exist to hold the repair."
+    - "The anti-exception-barring guardrail (X87) is specified, so a repair records WHY it excludes a witness."
+  dependencies: [X66, X83, X87]
+  evidence_for: []
+  evidence_against:
+    - "named in docs/04 §8 and §11.E prohibition lists"
+  related: [X66, X68, X87]
+
+- id: X68
+  type: dormant_option
+  proposal: "REVISE_CONJECTURE — create a new conjecture version after evidence."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 15"
+  reason: "Evidence suggests: PROTOCOL over versioned discovery state. The old truth status is unchanged; the new claim is merely proposed."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "Versioned relationships (C@v2 REFINES C@v1, T@v2 RESTRICTS T@v1, D@v3 GENERALIZES D@v2, P2 SUPERSEDES P1) are given a schema."
+  dependencies: [X83, X72]
+  evidence_for: []
+  evidence_against:
+    - "named in docs/04 §8 and §11.E prohibition lists"
+  related: [X62, X67, X72, X83]
+
+- id: X69
+  type: dormant_option
+  proposal: "PRUNE_IRRELEVANT_STATE — focus search on goal-relevant nodes and branches."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 16"
+  reason: "Evidence suggests: PLANNER POLICY over search state, producing an inactive/deprioritized subset with a rationale. No mathematical truth change. UNANNOTATED — the AMPS pedagogy source that motivates it has produced no trajectories."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "AMPS is annotated (X88) and pruning appears with a recoverable rationale."
+  dependencies: [X88]
+  evidence_for: []
+  evidence_against:
+    - "zero annotations; named as PRUNE in docs/04 §8 and §11.E prohibition lists"
+  related: [X84, X88]
+
+- id: X70
+  type: dormant_option
+  proposal: "RELAX_CONSTRAINT — explore a broader or approximate problem."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 17"
+  reason: "Evidence suggests: DISCOVERY-STATE MUTATION producing an alternate problem plus a map-back condition. Flagged HIGH SEMANTIC RISK — relaxing a constraint silently is exactly the failure the state model exists to prevent."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "An approximation contract exists in HML — currently frozen as D-037 and NOT BUILT."
+  dependencies: [X83]
+  evidence_for: []
+  evidence_against:
+    - "/Users/moheet/hml_v2_worktree/docs/hml_v2/CURRENT_TRUTH.md: approximation is 'frozen as D-037, NOT built'"
+    - "named in docs/04 §8 and §11.E prohibition lists"
+  related: [X60, X68]
+
+- id: X71
+  type: dormant_option
+  proposal: "COMPARE_PROOF_PATHS — contrast multiple proofs for dependencies and theorem refinements."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §8 row 18; §7 'different proofs may expose different refinements'"
+  reason: "Evidence suggests: a RESEARCH OPERATION over multiple proof DAGs producing comparison/repair hypotheses. No direct truth change."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "More than one proof of the same claim is stored with dependency graphs — no artifact in either repository currently stores two proofs of one claim."
+  dependencies: [X72]
+  evidence_for: []
+  evidence_against: []
+  related: [X66, X67, X72]
+
+# ---------------------------------------------------------------------------
+# DORMANT ARCHITECTURE OPTIONS
+# ---------------------------------------------------------------------------
+
+- id: X72
+  type: architecture
+  proposal: "The Lakatos discovery loop — conjecture C@v1 -> rough proof P1 -> counterexample X -> locate guilty/hidden lemma L -> repair -> revised conjecture C@v2 -> new proof attempt."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §4 and §7 (SOURCE-DERIVED — Lakatos)"
+  reason: "DORMANT. Better modeled as a versioned discovery-state protocol than as a pile of imperative keywords. Nothing in either repository implements or observes it: MATH exposes polished successful paths only."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "A corpus containing failed proof attempts, counterexamples and repairs is acquired or built (docs/02 §12 test 2)."
+    - "A discovery-state DAG (X82) with a verification/promotion boundary exists."
+  dependencies: [X82, X83, X65]
+  evidence_for:
+    - "further loop steps documented: inspect other proofs for the same new lemma, re-check old consequences, compare theorem refinements, turn counterexamples into new objects"
+  evidence_against:
+    - "docs/00 'Strongest negative and null evidence': 'MATH exposes successful proofs, not failed search or concept repair.'"
+  related: [X62, X66, X67, X68, X71, X73, X82, X87]
+
+- id: X73
+  type: architecture
+  proposal: "Local vs global counterexample record — target, target version, target level, witness/model, status, impact, provenance."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §5"
+  reason: "DORMANT schema sketch. A GLOBAL counterexample refutes the conjecture; a LOCAL one attacks a lemma used in one proof and the conjecture may survive another proof. Collapsing the two loses the distinction that makes repair possible."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "SEEK_COUNTEREXAMPLE (X65) or dual search (X74) is prototyped."
+  dependencies: [X65, X74]
+  evidence_for: []
+  evidence_against: []
+  related: [X65, X72, X74]
+
+- id: X74
+  type: architecture
+  proposal: "Dual proof and falsification search over the same claim, with a conservative merged epistemic update."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/03_MEANING_EVIDENCE_AND_VERIFICATION.md §9; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §7 item 4"
+  reason: "DORMANT, MEDIUM CONFIDENCE. The safe asymmetries are already written down: a verified proof establishes P under its exact assumptions; a verified counterexample refutes its exact target; no counterexample found does not prove P; prover timeout does not make P false; model-builder timeout does not make P true; incompatible results signal a defect requiring adjudication."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "A model-building or counterexample backend is admitted through the HML certificate boundary."
+    - "docs/03 §16 open question is answered: how should proof and counterexample search share resource limits and context?"
+  dependencies: [X65, X80]
+  evidence_for:
+    - "current HML already distinguishes ENTAILED | REFUTED | UNDERDETERMINED | UNKNOWN and nothing converts UNKNOWN into UNDERDETERMINED (DECISIONS.md D-047)"
+  evidence_against:
+    - "no falsification-search implementation exists in either repository"
+  related: [X65, X73, X80]
+
+- id: X75
+  type: architecture
+  proposal: "Assumption-aware semantic equivalence classes — cluster candidate results by semantic class rather than raw text."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/03_MEANING_EVIDENCE_AND_VERIFICATION.md §7; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §7 item 5"
+  reason: "DORMANT, MEDIUM CONFIDENCE. Could support deduplication, voting, state normalization and dependency comparison. Blocked on trust: equivalence evidence must report assumptions, domain, approximation and unsupported forms, and provenance must survive normalization."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "A trusted equivalence backend exists for a documented fragment — HML's equivalence/symbolic.py is explicitly NOT trusted (X104)."
+    - "docs/01 open question is answered: can semantic equivalence safely collapse state nodes without erasing provenance?"
+  dependencies: [X77, X104]
+  evidence_for:
+    - "worked example in docs/03 §7: 2x+2, x+x+2, 2(x+1), (x+1)+(x+1)"
+  evidence_against:
+    - "docs/03 §7 DECISION: 'Never assert equivalence merely because expressions look similar or a backend times out.'"
+  related: [X77, X104]
+
+- id: X76
+  type: architecture
+  proposal: "Interpretation / multiple-readings layer ABOVE ontology-v1 — reading_id, semantic_status, scope_status, binding_status, interpretation_constraints, alternative_readings, alignment_evidence."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §3; docs/03 §5"
+  reason: "DORMANT, MEDIUM CONFIDENCE. Architecturally RESERVE the layer now; do not make HML a general English parser and do not freeze concrete fields before a source-to-meaning study. Upstream states sketched: SCOPE_UNRESOLVED, BINDING_UNRESOLVED, TYPE_UNRESOLVED, DOMAIN_UNRESOLVED, REFERENCE_AMBIGUOUS, MULTIPLE_READINGS."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "A source-to-meaning study is run (docs/00 next question 5: can interpretation errors be separated experimentally from reasoning errors?)."
+    - "An interpretation error is misdiagnosed as a reasoning error in any experiment — that is the failure this layer prevents."
+  dependencies: [X16]
+  evidence_for:
+    - "docs/03 §4 failure taxonomy: interpretation error vs reasoning error vs evidence error vs task error"
+    - "FormalMATH funnel (docs/03 §11): ~92.4% compiler-valid, 31.7% surviving semantic verification, 30.1% surviving negation filtering, ~21.7% final manually validated — parses != preserves meaning != proves != answers the task"
+  evidence_against:
+    - "docs/03 §15: 'Gold-125 largely starts AFTER source interpretation. Ontology-v1 does not yet constitute a natural-language semantic parser.'"
+  related: [X55, X90, X85]
+
+- id: X77
+  type: dormant_option
+  proposal: "E-graph / equality saturation as an HML backend."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_AUDIT.md §6; /Users/moheet/hml_v2_worktree/docs/hml_v2/MATHEMATICAL_LIBRARY_CONTRACT.md §M; /Users/moheet/hml_v2_worktree/src/hamiltonian_lang/libraries/algebra.py and calculus.py headers"
+  reason: "DORMANT AND EXPLICITLY DO-NOT-BUILD. Recorded as a possible future BACKEND, not an architecture change. Equality saturation would add a search subsystem with its own proof-extraction and termination questions to solve a four-step normalisation."
+  status: dormant
+  project: hml_core
+  activation_cues:
+    - "The five conditions in the e-graph adoption gate are met — BUT SEE X121: the gate document does not exist."
+    - "Stated blockers: no syntax has passed the acquisition gate, and no positive reasoning signal exists."
+  dependencies: [X121]
+  evidence_for:
+    - "the Gold-10 library closeout shipped five oriented algebra identities and a terminating derivative replay instead — 'No e-graph, no equality saturation, no ring normaliser, no simp, no sympy.simplify'"
+  evidence_against:
+    - "COMPILER_CORE_REMEDIATION.md: 'none met; no syntax has passed the acquisition gate'"
+  related: [X75, X121, X102, X103, X104]
+
+- id: X78
+  type: architecture
+  proposal: "Generic first-class candidate lifecycle — PROPOSED -> UNVERIFIED -> VERIFIED | REJECTED, with original-constraint checking on promotion."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/01_STATE_AND_EXECUTION.md §7; /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §D requirement-to-build map (gap class CORE_STATE_CHANGE, fixtures FX-CAN-*)"
+  reason: "IMPLEMENTED IN HML AT 4d05aca (audit pass 2, 2026-08-10). Was DORMANT and classified ABSENT when pass 1 wrote this entry at HML fc64965; that classification is now stale. Implemented as a typed state object in src/hamiltonian_lang/semantic_state/model.py, NOT as surface syntax — the contract is explicit that no HML syntax was added and that git diff is empty for ast/, lexer/, parser/, backends/ and reasoning/. SCOPE LIMIT worth keeping: SF-R06 requires four candidate states and no acceptance fixture or benchmark case ever exercises UNVERIFIED or REJECTED, so the lifecycle is shipped with synthetic tests only."
+  status: implemented
+  project: cross
+  activation_cues:
+    - "SATISFIED AS A REQUIREMENT AND NOW AS AN IMPLEMENTATION. Remaining live condition: the corpus repins hml_core (currently 5688aba) to 4d05aca or later and reruns the six FX-CAN-* / FX-BRN-* fixtures itself."
+    - "Anyone cites the candidate lifecycle as externally validated — it is not; UNVERIFIED and REJECTED have synthetic tests only, written by the same author as the code."
+  dependencies: [X21, X16]
+  evidence_for:
+    - "Gold-125 MATH-GAP-0002 'Candidate generation and verification', 47 step references across 7 domains, class CORE_SEMANTIC_MISSING"
+    - "docs/04 MiniLang handoff: candidate lifecycle is absent from MiniLang too, so it is an HML-distinctive requirement rather than an imitation"
+    - "AUDIT PASS 2: /Users/moheet/hml_v2_worktree/src/hamiltonian_lang/semantic_state/model.py exists at 4d05aca and 7c9137a; Candidate with PROPOSED -> UNVERIFIED -> VERIFIED | REJECTED, constraint_ids checked in full on promotion"
+    - "AUDIT PASS 2: /Users/moheet/hml_v2_worktree/docs/hml_v2/SEMANTIC_STATE_CONTRACT.md §5: 'Previously CURRENT_HML_NOT_EXPRESSIBLE: FX-CAN-{LEGAL,ILLEGAL,UNKNOWN}, FX-BRN-{LEGAL,ILLEGAL,UNKNOWN} — all six now handled.' 30/30 fixtures match the frozen reference checker."
+  evidence_against:
+    - "AUDIT PASS 2: SEMANTIC_STATE_CONTRACT.md §6: 'SF-R06 is still not demonstrated by the corpus. It requires four candidate states; no fixture or benchmark case ever exercises UNVERIFIED or REJECTED.' Implemented is not validated."
+  related: [X21, X22, X79, X80, X129, X133]
+
+- id: X79
+  type: architecture
+  proposal: "Certified exhaustive/disjoint branch and safe-join proof protocol, reusing lexical frames and certificate envelopes."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/01_STATE_AND_EXECUTION.md §8; docs/04 §D (gap class CORE_PROOF_CHANGE, fixtures FX-BRN-*)"
+  reason: "IMPLEMENTED IN HML AT 4d05aca (audit pass 2, 2026-08-10), WITH ONE DELIBERATE DEPARTURE FROM THIS PROPOSAL. Was DORMANT and 'ABSENT beyond lexical scope' when pass 1 wrote this entry at HML fc64965; that is now stale. CORRECTION TO THE PROPOSAL ABOVE: the proposal asks for an exhaustive AND DISJOINT case certificate. The shipped contract requires coverage and deliberately does NOT require disjointness, because disjunction elimination is sound for overlapping cases and demanding disjointness would reject valid reasoning — checked against MiniLang CONSIDER-or semantics, whose obligations record coverage only. The word 'disjoint' in the proposal should not be carried forward as a requirement."
+  status: implemented
+  project: cross
+  activation_cues:
+    - "SATISFIED AS A REQUIREMENT AND NOW AS AN IMPLEMENTATION. Remaining live condition: the corpus repins hml_core (currently 5688aba) to 4d05aca or later and reruns the FX-BRN-* fixtures itself."
+    - "MiniLang replay fixtures for datatype cases, induction hypotheses and both CONSIDER modes are prepared."
+    - "Anyone re-proposes DISJOINTNESS as a join requirement — it was considered and rejected on soundness grounds, not overlooked."
+  dependencies: [X21]
+  evidence_for:
+    - "Gold-125 MATH-GAP-0001 'Case coverage and branch joins', 22 step references, class CORE_SEMANTIC_MISSING"
+    - "gold125_branch_scope_audit.json: 0 exhaustive partitions, 0 invariant joins, 1 explicit join in 125 trajectories"
+    - "MiniLang's safety comes from Isabelle elimination/induction theorems and export callbacks, NOT from the surface case label"
+    - "AUDIT PASS 2: SEMANTIC_STATE_CONTRACT.md §2 'Branch/join (SF-R08)': a join requires every named branch CLOSED, a valid partition certificate covering them, and every branch's conclusion equal to the published claim. BranchStatus.JOINED is reachable only through the verifier. FX-BRN-* fixtures pass 30/30 with the rest."
+  evidence_against:
+    - "rarity in the corpus (5 trajectories) is evidence of an underrepresented protocol, NOT evidence that joins are easy"
+    - "AUDIT PASS 2: SEMANTIC_STATE_CONTRACT.md §6: the substantive rules — branch not CLOSED, branch conclusion mismatch — are exercised by NO acceptance fixture. The two new ILLEGAL fixtures differ from their LEGAL twins solely in an evidence_id naming a missing record. Synthetic tests were mutation-checked (5 rules disabled one at a time, 5/5 caught), which shows the tests bite but does not make them external acceptance criteria."
+  related: [X58, X78, X21, X22, X129, X133]
+
+- id: X80
+  type: architecture
+  proposal: "Versioned neutral-transition importer plus a NARROW trusted evidence-adapter API over the existing HML certificate boundary."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §D (gap classes CORPUS_ADAPTER and EVIDENCE_ADAPTER, fixtures FX-DEP-*, FX-OBL-*, FX-WAR-*); docs/04 §7 item 12"
+  reason: "DORMANT. The lowest-risk item on the map: the static trusted certificate registry already exists in HML, so this is an interface, not a semantics change. Some Gold-10 failures were adapter/canonicalization failures precisely because existing HML evaluator and certificate facilities were not connected to the trajectory path."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "ALREADY SATISFIED AS A REQUIREMENT: Semantic Firewall requirement 2."
+    - "Explicit prohibition to respect: do NOT add a user-registerable trusted checker."
+  dependencies: [X21, X12]
+  evidence_for:
+    - "/Users/moheet/hml_v2_worktree/DECISIONS.md D-047: certificate boundary with a STATIC trusted registry; source cannot define, override or extend a checker; fail-closed on unknown checker, wrong judgement, hash mismatch, malformed payload, unsupported fragment and any exception"
+  evidence_against: []
+  related: [X12, X21, X86, X104]
+
+- id: X81
+  type: dormant_option
+  proposal: "Induction as a reusable proof schema rather than a core operation."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/01_STATE_AND_EXECUTION.md §10; docs/04 §7 item 7; reports/gold125_gap_analysis.md MATH-GAP-0012"
+  reason: "DORMANT AND UNRESOLVED. INDUCT appears in 7 Gold-125 transitions across 4 categories; ontology-v1 preserves it as an 18th candidate but excludes it from the 17 accepted-core count. A decomposition is already sketched (choose schema [search] -> base subgoal -> prove base -> introduce index [scope] -> assume IH [scope] -> step subgoal -> execute/verify -> strengthen if insufficient [search] -> discharge and generalize)."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "docs/04 §12 step 3 (targeted proof-state/induction study) is run, including base/step goals, weak AND strengthened hypotheses, assumption discharge, failed steps and alternative schemas."
+  dependencies: [X100, X64]
+  evidence_for:
+    - "MiniLang has INDUCT as one of ten paper operations and reconstructs it via Isabelle induction rules — external evidence that it can be a protocol over a smaller kernel"
+  evidence_against:
+    - "docs/01 'DO-NOT-IMPLEMENT-YET': do not add INDUCT or STRENGTHEN_HYPOTHESIS syntax before targeted evidence"
+  related: [X64, X100, X79]
+
+- id: X82
+  type: architecture
+  proposal: "Discovery-state DAG linked to, but separated from, the deductive dependency graph, with a licensed promotion boundary."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §5 and §7 item 6; docs/02 §6"
+  reason: "DORMANT. The two epistemic regimes are already tabulated: deductive (ASSUMED/DERIVED/VERIFIED/REFUTED/UNDERDETERMINED/UNRESOLVED) vs discovery (CONJECTURED/HEURISTIC/CANDIDATE_LEMMA/REPRESENTATION_PROPOSAL/DEFINITION_PROPOSAL/FAILED_BRANCH/ABANDONED_PATH/COUNTEREXAMPLE/DIAGNOSIS). Discovery nodes cannot serve as deductive premises until a licensed status transition promotes them."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "Failed branches need to be retained and inspected without becoming facts — i.e. as soon as any experiment records failed attempts."
+  dependencies: [X72]
+  evidence_for:
+    - "HML already has an explicit evidence graph with a three-way ESTABLISHED / PROVISIONAL / NOT_EVIDENCE split (DECISIONS.md D-040), which is the nearest existing machinery"
+  evidence_against:
+    - "no discovery-state artifact exists in either repository"
+  related: [X62, X66, X72, X83]
+
+- id: X83
+  type: architecture
+  proposal: "Versioned concepts and definitions in discovery mode — C@v2 REFINES C@v1, T@v2 RESTRICTS T@v1, D@v3 GENERALIZES D@v2, P2 SUPERSEDES P1."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §7; docs/04 §7 item 9"
+  reason: "DORMANT. Hard constraint attached: routine deduction uses fixed, identified definitions, and discovery mode must NEVER silently mutate a library definition already used by a proof."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "REVISE_CONJECTURE (X68) or REPAIR_LEMMA (X67) is prototyped — neither is implementable without version identity."
+  dependencies: [X82]
+  evidence_for: []
+  evidence_against: []
+  related: [X67, X68, X70, X82]
+
+- id: X84
+  type: dormant_option
+  proposal: "Separate evaluation of validity, consistency, novelty/information gain, and goal relevance — four dimensions, not one 'good step' score."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/03_MEANING_EVIDENCE_AND_VERIFICATION.md §8; docs/04 §7 item 10"
+  reason: "DORMANT, MEDIUM CONFIDENCE. A step may be valid but useless, novel but false, goal-relevant but unsupported, or consistent but redundant. Goal relevance is an HML architectural extension, not attributed to Blackburn & Bos."
+  status: dormant
+  project: cross
+  activation_cues:
+    - "ALREADY SUPPORTED BY EVIDENCE: the PRM800K audit (X20) empirically separates validity from progress, novelty, goal relevance, readability and short-horizon verifiability, and the MiniLang audit shows kernel acceptance answers validity and discharge but not novelty/usefulness/budget."
+    - "Remaining blocker: docs/03 §16 asks how these are measured without confusing them with validity."
+  dependencies: [X20, X23]
+  evidence_for:
+    - "PRM800K zero-rating reasons are almost entirely non-validity: insufficient progress 193, redundant computation 18, harmless detour 14, restatement 10, vague plan 9, goal-irrelevant 6"
+    - "MiniLang END/NEXT are 57.59% of tokens and invoke hidden automation — frequency is not usefulness"
+  evidence_against: []
+  related: [X20, X23, X69]
+
+- id: X85
+  type: dormant_option
+  proposal: "Semantic back-translation and multi-judge quarantine as a gate for promoting corpus material."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §7 item 11; docs/03 §11"
+  reason: "DORMANT, MEDIUM CONFIDENCE. Motivated by FormalMATH: compiler validity and semantic alignment are separate gates, and human adjudication remained material in their benchmark construction."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "Any automatic corpus expansion beyond curated builders is attempted — the current Gold builders are curated artifact generators, so the gate is not yet load-bearing."
+  dependencies: [X76]
+  evidence_for: []
+  evidence_against:
+    - "no judge or back-translation pipeline exists in either repository"
+  related: [X76, X90]
+
+- id: X86
+  type: architecture
+  proposal: "Library/backend evidence adapters over the existing HML certificate boundary — keep large mathematical taxonomies OUT of the trusted kernel."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §9 and §7 item 12; /Users/moheet/hml_v2_worktree/docs/hml_v2/MATHEMATICAL_LIBRARY_CONTRACT.md"
+  reason: "PARTIALLY IMPLEMENTED. The architectural claim was tested: three Gold-10 library capabilities (algebra, probability, calculus) were built at 2af4998 and the trusted kernel diff is EMPTY. Prefer TRANSFORM + warrant=TRIGONOMETRY_IDENTITY over TRIG_TRANSFORM/LOG_TRANSFORM/MODULAR_TRANSFORM."
+  status: implemented
+  project: cross
+  activation_cues:
+    - "ALREADY SATISFIED: the corpus can now repin and rerun Gold-10 against the shipped libraries (X122)."
+  dependencies: [X80]
+  evidence_for:
+    - "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md: git diff empty for kernel.py, binders.py, adjudication.py, side_conditions.py, refinement.py, evidence.py, partiality.py, ast/, lexer/, parser/, backends/"
+    - "conformance PASS 8/8; pytest 6981 passed, 0 failed, 65 new library tests"
+    - "calculus is a REPLAY not a table — the checker differentiates the expression itself, so a CAS proposal is a claim rather than evidence"
+    - "libraries.axioms() prints the complete assumed set; the registry refuses an assumed theorem with no written justification"
+  evidence_against:
+    - "one new core-adjacent gap reported not patched: RefinementEnv.entails cannot discharge an obligation whose subject is not a declared variable (X125)"
+  related: [X80, X122, X125]
+
+- id: X87
+  type: decision
+  proposal: "Anti-exception-barring guardrail — when a repair excludes a witness, record WHY."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/02_SEARCH_AND_DISCOVERY.md §7 'Anti-exception-barring guardrail'"
+  reason: "DORMANT design guidance. Four questions: does the restriction arise from a failed lemma or proof invariant; does it identify a principled domain boundary; does it improve multiple cases or merely exclude the observed witness; does another proof avoid the restriction? Ad-hoc exception barring resembles overfitting a theorem to known counterexamples."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "REPAIR_LEMMA (X67) or REVISE_CONJECTURE (X68) is prototyped."
+  dependencies: [X67, X68]
+  evidence_for: []
+  evidence_against:
+    - "docs/02 §7 states plainly: 'This analogy is design guidance, not a formal judgement rule.'"
+  related: [X67, X68, X72]
+
+# ---------------------------------------------------------------------------
+# DATASET OPTIONS — active, dormant, and unsupported
+# ---------------------------------------------------------------------------
+
+- id: X88
+  type: dataset_option
+  proposal: "AMPS (Khan subset) — bounded cross-source replication of ontology-v1 on an APPROVED sample only."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/amps_khan_dataset_audit.json; reports/amps_khan_candidate_selection_plan.json (100-row prospective preview); data/raw/amps_khan/"
+  reason: "DORMANT BY DECISION, not by lack of data. The dataset is audited, hashed and copied; a 100-row topic-diverse preview exists; ZERO transitions are annotated. It is held because ontology-v1 is unstable (X16) and annotating a second source against a moving target would waste the replication."
+  status: deferred
+  project: corpus
+  activation_cues:
+    - "X16 (ontology gate) closes: the annotation review is adjudicated and UNRESOLVED is reduced or explicitly bounded."
+    - "Then: track NEW core, meta, library, backend, warrant, interpretation and state-field demands SEPARATELY, and do not treat new mathematics as evidence of a new reasoning primitive."
+  dependencies: [X16, X19]
+  evidence_for:
+    - "103,059 rows, 721 topics, 47,530 planning-cue rows; SHA-256 b48c40afd262a8ac587504bc3008a2b0d688c0144b5d9fddd083f0b576a5df41"
+    - "pedagogical prose may expose strategy selection more explicitly than competition solutions"
+  evidence_against:
+    - "explicit prohibition (docs/04 §11): do NOT process the full AMPS dataset or train from the prospective candidate list"
+    - "3,293 rows are visual-dependent and 21,094 are multiple-choice"
+  related: [X16, X19, X2, X55, X60, X69]
+
+- id: X89
+  type: dataset_option
+  proposal: "PRM800K — deeper use beyond the completed bounded audit."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/prm800k_audit/; reports/PRM800K_NATURAL_REASONING_AUDIT.md"
+  reason: "DORMANT for ontology purposes. The audit deliberately preserved UNRESOLVED for 438/500 sampled -1 steps, so its resolved counts are not prevalence estimates. Its live value is the PROCESS-QUALITY axis (X84), not core-operation frequencies."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "A human adjudication protocol exists for -1 labels (the audit's own stated blocker: a textual prefix is insufficient for deterministic semantic classification)."
+    - "The project needs data on same-prefix / different-next-action, which PRM800K uniquely supplies."
+  dependencies: [X20, X84]
+  evidence_for:
+    - "phase1_train 949 rows, phase1_test 106 rows, phase2_train 97,782 rows, phase2_test 2,762 rows, all SHA-256 fingerprinted"
+    - "phase1_test: 2.77 candidate completions per state (max 7), 612 multi-candidate states, 3,320 alternative candidates beyond the first, 15.09% give_up"
+  evidence_against:
+    - "firewall_ontology_direct_count is only 35 of 500 sampled"
+  related: [X20, X84]
+
+- id: X90
+  type: dataset_option
+  proposal: "FormalMATH — methodological source, not an ingested dataset."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/03_MEANING_EVIDENCE_AND_VERIFICATION.md §11 (SOURCE-DERIVED)"
+  reason: "DORMANT AS DATA. Present only as a supplied research packet summary. Its value here is the funnel lesson (~92.4% compiler-valid -> 31.7% semantic -> 30.1% post-negation -> ~21.7% manually validated) and the 16.46% strongest-prover figure as evidence that formal proof is hard, NOT as an HML baseline."
+  status: dormant
+  project: corpus
+  activation_cues:
+    - "A formal-proof comparison is run (docs/04 §12 step 4: compare against formal proof states)."
+  dependencies: []
+  evidence_for: []
+  evidence_against:
+    - "no FormalMATH data files exist in either repository; only prose summaries"
+    - "docs/03 §11: 'These are properties of that pipeline, not universal mathematical rates.'"
+  related: [X76, X85, X91]
+
+- id: X91
+  type: dataset_option
+  proposal: "miniF2F and ProofNet — reuse published benchmark problem sets rather than authoring fresh ones."
+  origin: "/Users/moheet/hml_v2_worktree/docs/research/PRIOR_ART.md §'miniF2F / ProofNet and the autoformalization literature' and §'Reuse table'; docs/research/PRIOR_ART_MATRIX.csv row 28"
+  reason: "DORMANT AND BLOCKED ON LICENCE. miniF2F is 488 olympiad-level problems in multiple formal languages; ProofNet is 371 paired informal/formal statements. Reason to want them: comparability with published baselines (miniF2F 29.6% -> 35.2%, Wu et al. 2022), which HML cannot claim to beat without them."
+  status: blocked
+  project: hml_core
+  activation_cues:
+    - "UNVERIFIED item U7 is closed: 'miniF2F and ProofNet repository licences' — PRIOR_ART.md §Unknowns records this as blocking reuse of their problem sets."
+    - "A formal backend that could actually execute them exists — Lean 4.32.2 is installed but MATHLIB IS NOT (X93)."
+  dependencies: [X93]
+  evidence_for: []
+  evidence_against:
+    - "PRIOR_ART.md U7: licences UNVERIFIED per repository"
+  related: [X92, X93, X90]
+
+- id: X92
+  type: dataset_option
+  proposal: "Metamath set.mm — a verified corpus whose every step names its justification."
+  origin: "/Users/moheet/hml_v2_worktree/docs/research/PRIOR_ART.md §Metamath; docs/research/PRIOR_ART_MATRIX.csv row 7"
+  reason: "DORMANT. Licensing is the cleanest of any candidate: the metamath program is GPL-2+, but set.mm itself is CC0. What it beats HML at: verifier simplicity — a conforming Metamath verifier is a few hundred lines. What it lacks: type theory (typecodes only), and set.mm probability content is minimal."
+  status: dormant
+  project: hml_core
+  activation_cues:
+    - "The project wants a source of proofs where every step already carries an explicit dependency trace, for comparison against HML's evidence graph."
+    - "Auditability becomes the axis of comparison rather than reasoning accuracy."
+  dependencies: []
+  evidence_for:
+    - "set.mm CC0 (recorded [I]); FSF directory reference in PRIOR_ART.md §Sources"
+  evidence_against:
+    - "U6 open: the Metamath program's current LICENSE file was not reachable (low stakes; set.mm is CC0 regardless)"
+    - "minimal probability content, which is HML's strongest domain"
+  related: [X91, X93]
+
+- id: X93
+  type: dataset_option
+  proposal: "Lean 4 + mathlib4 as verification backend and statement vocabulary."
+  origin: "/Users/moheet/hml_v2_worktree/docs/research/PRIOR_ART.md §'Lean 4 (+ mathlib4)' and §Reuse table; docs/evaluation/COMPILER_CORE_AUDIT.md §7"
+  reason: "DORMANT AND CURRENTLY UNUSABLE. Both Apache-2.0, already chosen as the target. But MATHLIB IS NOT INSTALLED, so almost nothing HML emits is expressible: every scalar but Bool/Natural/Integer maps to R."
+  status: blocked
+  project: hml_core
+  activation_cues:
+    - "Mathlib is installed."
+    - "U9 is closed: mathlib4's exact treatment of random variables vs measures (PMF, Measure, IsProbabilityMeasure)."
+  dependencies: []
+  evidence_for:
+    - "the Lean gate is real and tested: forbidden-tactic pre-check, autoImplicit false, compilation, statement comparison, and #print axioms; 12 tests, 7 against real Lean 4.32.2"
+  evidence_against:
+    - "Lean `sorry` compiles and EXITS 0 — exit status alone would certify a false theorem; V0's Lean backend closes every obligation with sorry, so NO V0-emitted theorem could ever count as verified"
+    - "the Lean route silently loses probability laws and the reconstruction compiles happily; only content-hash comparison detects it"
+  related: [X91, X92, X120]
+
+- id: X94
+  type: risk
+  proposal: "DISCREPANCY — PRMBench, Socratic-PRMBench, LeanDojo, PutnamBench, NaturalProofs and ProcessBench are named as dormant dataset options in project briefing, but NEITHER REPOSITORY CONTAINS ANY REFERENCE TO ANY OF THEM."
+  origin: "Exhaustive case-insensitive search of both repositories on 2026-08-10 (corpus excluding .git/hml_core/.pytest_cache; HML docs, evaluation, benchmarks, spec) returned ZERO files for each of the six names."
+  reason: "Recorded so the absence is not later mistaken for a lost record. These may be genuine external intentions held only in a human's head or in a chat transcript, but they have no repository provenance, no activation cue written anywhere, and no stated reason for being inactive. Treating them as 'parked project decisions' would manufacture history."
+  status: unresolved
+  project: cross
+  activation_cues:
+    - "Someone supplies a written source for any of these six — at which point split it into its own dataset_option entry with a new permanent id."
+  dependencies: []
+  evidence_for: []
+  evidence_against:
+    - "grep -rli over both repositories: 0 hits for PRMBench, 0 for Socratic, 0 for LeanDojo, 0 for PutnamBench, 0 for NaturalProofs, 0 for ProcessBench"
+    - "by contrast the datasets that DO have provenance are: MATH (Gold-10/25/125), AMPS (X88), PRM800K (X89), FormalMATH as a source summary (X90), miniF2F/ProofNet/Metamath/mathlib in PRIOR_ART.md (X91-X93), and the MiniLang OOPSLA26 artifact (X23)"
+  related: [X88, X89, X90, X91, X92, X93]
+
+- id: X95
+  type: dataset_option
+  proposal: "Gold-100 / further Gold expansion."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'Exact Next Actions'; docs/hml_v2/MATHEMATICAL_LIBRARY_CONTRACT.md §M; docs/PROJECT_LEDGER.md 2026-08-09 entries"
+  reason: "DEFERRED WITH AN EXPLICIT OWNER. 'Only Codex may recommend Gold-100.' The HML side is instructed to stop: do not rerun Gold-10, do not touch the corpus, do not start Gold-100 until the unchanged Gold-10 rerun shows the classifications are stable."
+  status: deferred
+  project: cross
+  activation_cues:
+    - "The corpus repins to 2af4998 and reruns the SAME 23 transitions, judging 23/23 HANDLED · CoreGapRate 0 · AdapterGapRate 0 · LibraryBlockedRate 0 · RegressionRate 0."
+  dependencies: [X122, X86]
+  evidence_for:
+    - "stated predictions to be checked: G07:a1 unblocked by add_zero + unchanged forall_intro; G09:a0 unblocked CONDITIONAL ON RENDERING (needs Event-typed operands and P(A)>0 in gamma); G10:a1 unblocked given x != 0; G10:a2 already independently checked"
+  evidence_against: []
+  related: [X86, X122]
+
+# ---------------------------------------------------------------------------
+# REJECTED AND SUPERSEDED IDEAS — scientific memory
+# ---------------------------------------------------------------------------
+
+- id: X96
+  type: decision
+  proposal: "REJECTED ON MEASUREMENT — a generic Apply/Bind/Attribute AST core for HML (D-041)."
+  origin: "/Users/moheet/hml_v2_worktree/DECISIONS.md D-041; docs/hml_v2/CURRENT_TRUTH.md 'Decisions that must not be reopened'"
+  reason: "The 48 composition specimens were encoded and executed for the first time: STRICT closure 20/48 = 0.417. A generic Apply/Bind/Attribute core would reach 0.563 — BELOW the Level 2 threshold of 0.70 — while targeted repairs reach 0.854. The rewrite is neither necessary nor sufficient. Confidence 0.75, with a written falsification condition."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "New falsifying evidence appears — this decision is explicitly marked as not to be reopened without it."
+  dependencies: []
+  evidence_for:
+    - "failure attribution over 28 failures: GRAMMAR 14 · TYPE 8 · COMPILER 3 · CONSTRAINT 2 · SCOPE 1 · CANONICAL 0 · BACKEND 0 · SPECIMEN 0"
+  evidence_against:
+    - "TENSION WITH X36: a generic S-expression control BEAT HML on quantifier scope in the arena. D-041 rejects a generic core as an INTERNAL representation on compositional-closure grounds; B2 says a generic external rendering may read better. These are different measurements and should not be conflated — but they point in opposite directions and that tension is unresolved."
+  related: [X36, X97]
+
+- id: X97
+  type: decision
+  proposal: "EXCLUDED — AST v1 as an arena control arm."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/ENDPOINT_B2_MANIFEST.json field ast_v1_status"
+  reason: "PRESERVED AND EXCLUDED. All AST-v1 code and results remain untouched. It is not an arm in B2 because the binder diagnostic showed it cannot read nesting, so it would measure the control defect rather than the representations. Replaced by GENERIC_AST_V2, which contains no HML machinery (asserted by test)."
+  status: superseded
+  project: hml_core
+  activation_cues:
+    - "Anyone reuses AST v1 results as a fair control."
+  dependencies: [X34]
+  evidence_for:
+    - "the AST v1 length confound was also reversed by v2: v1 was 576.3 mean tokens against SE 328.8 and HML 338.0; AST_V2 is the shortest arm"
+  evidence_against: []
+  related: [X34, X36, X96]
+
+- id: X98
+  type: decision
+  proposal: "WITHDRAWN — the broad novelty claim for HML (D-012)."
+  origin: "/Users/moheet/hml_v2_worktree/DECISIONS.md D-012; docs/PROJECT_STATUS.md 'Project Objective'"
+  reason: "Minilang/AoA (arXiv 2607.16372, 17 July 2026, retrieved and verified) already demonstrated an LLM-oriented proof language, a JSON AST interface, demonstration-based teaching, prover feedback and reduced token cost. What remains is the CONJUNCTION of eight properties in GOAL.md §1, of which item 8 — optimising the representation itself under matched controls — is the defensible candidate."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "Any document reasserts representational novelty. Wave 1 prior-art review identified prior implementations of EVERY representational claim in Layer 2."
+  dependencies: []
+  evidence_for:
+    - "/Users/moheet/hml_v2_worktree/docs/research/PRIOR_ART.md; PRIOR_ART_MATRIX.csv"
+  evidence_against: []
+  related: [X23, X24]
+
+- id: X99
+  type: decision
+  proposal: "CORRECTED — the central thesis is UNPROVEN, NOT REFUTED."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/V1_GATE_DECISION.md; docs/PROJECT_STATUS.md"
+  reason: "An earlier version of V1_GATE_DECISION.md said 'refuted', contradicting the project's own pilot report §9. The report was right. The precise conclusion is: zero-shot Hamiltonian did not improve answer accuracy on a small, low-discrimination, underpowered pilot with a severe ceiling effect."
+  status: superseded
+  project: hml_core
+  activation_cues:
+    - "Anyone writes 'refuted' about the pilot."
+  dependencies: [X25]
+  evidence_for: []
+  evidence_against:
+    - "NOTE: X35 and X36 are later, cleaner negatives than the pilot. 'Unproven, not refuted' remains correct for the PILOT; it should not be used to soften the arena results."
+  related: [X25, X35, X36]
+
+- id: X100
+  type: decision
+  proposal: "MERGED / EXCLUDED — INDUCT is not counted among the 17 accepted core operations."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/core_operation_adjudication_v1.md (INDUCT row: frequency 7, decision MERGE_INTO_OTHER_CORE, reason 'No independent evidence supports a distinct primitive'); gold125_ontology_quality_gate.json merged_candidate_operations: [INDUCT]"
+  reason: "Rejected as a PRIMITIVE, retained as a VISIBLE CANDIDATE (the 18th value). Ontology-v1 does not delete it; it excludes it from the accepted count pending evidence."
+  status: rejected
+  project: corpus
+  activation_cues:
+    - "A targeted proof-state/induction sample (X81) provides independent evidence of a distinct primitive."
+  dependencies: [X15]
+  evidence_for: []
+  evidence_against:
+    - "7 occurrences across 4 categories is a thin base for either decision"
+  related: [X81, X64, X15]
+
+- id: X101
+  type: decision
+  proposal: "DEFERRED BY MEASUREMENT, NOT BY OMISSION — Pratt/precedence-climbing parser."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_REMEDIATION.md 'Deliberately not done'"
+  reason: "Adoption condition: a demonstrated precedence or associativity failure. Measured status: 5/5 probes correct on 1+2*3, 2^3^2, -2^2, 10-3-2, 12/3/2."
+  status: deferred
+  project: hml_core
+  activation_cues:
+    - "A precedence or associativity failure is demonstrated."
+  dependencies: []
+  evidence_for: []
+  evidence_against: []
+  related: [X102, X103, X77]
+
+- id: X102
+  type: decision
+  proposal: "DEFERRED BY MEASUREMENT — locally nameless binder representation."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_REMEDIATION.md; docs/PROJECT_LEDGER.md"
+  reason: "Adoption condition: a demonstrated binding defect. Measured status: none found; alpha-equivalence property-tested over every binder form."
+  status: deferred
+  project: hml_core
+  activation_cues:
+    - "A binding defect is demonstrated. NOTE: two binder defects HAVE since been found (D-045 shadowing applied to mathematical binders; D-046 free_names returning [] inside integral/derivative/comprehension), and neither was judged to require the rewrite. A third should reopen the question."
+  dependencies: []
+  evidence_for:
+    - "/Users/moheet/hml_v2_worktree/docs/hml_v2/CURRENT_TRUTH.md open defect: free_names returns [] for integral(y, x : Real, 0.0, 1.0) where y is free — latent because an unrelated guard masks it"
+  evidence_against: []
+  related: [X101, X118]
+
+- id: X103
+  type: decision
+  proposal: "DEFERRED BY MEASUREMENT — red-green syntax tree."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_REMEDIATION.md"
+  reason: "Adoption condition: an incremental IDE or large-document reparse requirement. Measured status: none exists."
+  status: deferred
+  project: hml_core
+  activation_cues:
+    - "An incremental editing or IDE requirement appears."
+  dependencies: []
+  evidence_for: []
+  evidence_against: []
+  related: [X101, X102, X77]
+
+- id: X104
+  type: decision
+  proposal: "REJECTED AS EVIDENCE — equivalence/symbolic.py is an untrusted ORACLE, not a registered trusted checker."
+  origin: "/Users/moheet/hml_v2_worktree/docs/hml_v2/GOLD10_CORE_SEMANTICS_SPEC.md §2.7; docs/hml_v2/MATHEMATICAL_LIBRARY_CONTRACT.md §L"
+  reason: "Its verdicts rest on raw SymPy flags (simplify(a-b) == 0, satisfiable(...)) with no independent HML replay. It may PROPOSE; it may never ESTABLISH. Consequence recorded rather than engineered around: Gold-10 G07's body n+0=n therefore remained library-level, so the quantifier core was tested on generically-established bodies and never on a hard-coded arithmetic identity."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "An independent HML replay of a symbolic verdict exists, making the result checkable rather than asserted."
+  dependencies: []
+  evidence_for: []
+  evidence_against: []
+  related: [X75, X80, X86]
+
+- id: X105
+  type: decision
+  proposal: "REJECTED — HML_OBF, the obfuscated-HML condition."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/CAUSAL_SCOUT.json; CAUSAL_DIAGNOSIS_MANIFEST.json"
+  reason: "ORIGINAL REASON, PRESERVED VERBATIM AS PASS 1 RECORDED IT: 'Scored 2/6 and answered UNDETERMINED on ALL SIX items — a degenerate constant. Obfuscation stopped the model engaging rather than degrading it gracefully, so the condition measures disengagement, not representation.' STATUS CHANGED rejected -> unresolved BY AUDIT PASS 2: the rejection of HML_OBF as a usable condition still stands, but the INTERPRETATION above is confounded by a harness defect and can no longer be asserted. The observed degeneracy has a mundane mechanical explanation that was not available to pass 1, and the two explanations are not distinguishable from the existing records."
+  status: unresolved
+  project: hml_core
+  activation_cues:
+    - "A degeneracy check is needed for any new condition: verify the arm produces more than one distinct answer before interpreting its score."
+    - "ADDED BY AUDIT PASS 2: HML_OBF is re-run with the question text left un-obfuscated. Until then it must not be cited in either direction — neither as evidence that obfuscation causes disengagement, nor as a familiarity signal."
+  dependencies: [X39]
+  evidence_for: []
+  evidence_against:
+    - "AUDIT PASS 2, VERIFIED IN SOURCE: /Users/moheet/hml_v2_worktree/evaluation/arena/endpoints/causal_diag.py:121-125 — render_question applies the obfuscation map to the QUESTION text, not only to the state: 'q = _HML.question(w); return _obfuscate(q) if condition == \"HML_OBF\" else q'. OBFUSCATION_MAP at lines 48-58 maps the English words 'or' -> 'zeta8' and 'not' -> 'zeta9'. So in HML_OBF alone, the clause naming the third answer option is destroyed — and HML_OBF is the one condition that then answered UNDETERMINED on all six items. Disengagement and a corrupted question are confounded."
+    - "AUDIT PASS 2: /Users/moheet/hml_v2_worktree/docs/agent_handoffs/CLAUDE_SEMANTIC_FIREWALL_CLOSEOUT.md §5 (still open at HML 7c9137a): 'HML_OBF should be withdrawn as evidence for H2 until re-run.' The HML repository has itself withdrawn this result; the corpus ledger had not."
+  related: [X39, X132]
+
+- id: X106
+  type: decision
+  proposal: "ELIMINATED — candidate surface D in the syntax tournament."
+  origin: "/Users/moheet/hml_v2_worktree/DECISIONS.md D-033"
+  reason: "Eliminated WITHOUT a rerun by upper bound: repaired parse 0/8, one truncated record and only in repair, so the best attainable count is 1/8 against a frozen 6/8 threshold. Failure class is schema conformance — every attempt emitted a TRIPLES encoding where the candidate specifies a STATEMENTS array, and all failed at import, none at the compiler."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "A surface is proposed whose specification and its own examples disagree on encoding shape."
+  dependencies: [X43]
+  evidence_for: []
+  evidence_against: []
+  related: [X43]
+
+- id: X107
+  type: decision
+  proposal: "RETIRED FOR H2 — the eval001 120-problem / 95-deduplicated corpus."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md; benchmarks/eval001/"
+  reason: "Saturated at mean accuracy 0.961. Retired as an H2 instrument. The artifacts (7 arms, 840 prompt files) are preserved."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "A materially weaker organism is selected."
+  dependencies: [X26]
+  evidence_for: []
+  evidence_against: []
+  related: [X26, X108]
+
+- id: X108
+  type: decision
+  proposal: "RETIRED FOR H2 — the purpose-built 24-task v1 benchmark."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/v1_benchmark/tasks.py; docs/evaluation/V1_HEADROOM_GATE_REPORT.md"
+  reason: "Two purpose-built corpora lost to saturation in a row. Its pre-run claims were independently verified — 24 tasks, mean predicted accuracy 0.556 exactly, all inside 0.40-0.70 (range 0.45-0.67), contamination clean against 517 items across 18 corpora, 24/24 independent key verification — and the prediction was still wrong by 0.444."
+  status: rejected
+  project: hml_core
+  activation_cues:
+    - "A difficulty-prediction method is proposed that has been validated against measurement — all prior estimates were marked PREDICTED_NOT_MEASURED and carried no signal."
+  dependencies: [X27, X45]
+  evidence_for:
+    - "where the value landed: the pre-run work returned four demonstrated scorer/prompt defects, two harness defects, one excluded task (v1b_11_negation_scope_choice, non-mutually-exclusive options) and 24/24 independently re-derived answer keys"
+    - "had the corpus not saturated, the run would have proceeded on a scorer that mis-scored exact-form answers DIFFERENTIALLY BY ARM"
+  evidence_against: []
+  related: [X27, X45, X107]
+
+- id: X109
+  type: decision
+  proposal: "NARROWED — D-006 (shadowing is an error) governs value declarations, not mathematical binders (D-045)."
+  origin: "/Users/moheet/hml_v2_worktree/DECISIONS.md D-045"
+  reason: "D-006 was being applied to mathematical binders, so derivative(f, x) was rejected whenever x was declared. Recorded here because the FIX WAS PREDICTED TO HAVE HIGH LEVERAGE AND DID NOT: composition moved 0.438 -> 0.458, one specimen. A prediction that failed is worth as much as one that held."
+  status: implemented
+  project: hml_core
+  activation_cues:
+    - "Any future 'high leverage' prediction about compositional closure — the base rate of such predictions in this repository is poor."
+  dependencies: []
+  evidence_for: []
+  evidence_against:
+    - "D-043 scoped gamma also moved composition only 0.417 -> 0.438, against a gate of 0.85"
+  related: [X102]
+
+# ---------------------------------------------------------------------------
+# RISKS
+# ---------------------------------------------------------------------------
+
+- id: X110
+  type: risk
+  proposal: "The six central scientific threats to the whole programme."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md 'Central scientific threats'"
+  reason: "Preserved verbatim as a checklist because each one has a different remedy. 1 annotation artifact; 2 unresolved tail; 3 distribution bias (curated competition solutions underrepresent pedagogy, formal proof states and discovery failures); 4 SEARCH DISPLACEMENT (a compact execution kernel may coexist with a large high-entropy planner); 5 backend masking (strong tactics or CAS may solve tasks without exposing whether explicit semantics helped); 6 representation control (generic typed AST or Structured English may equal or outperform HML under matched adaptation)."
+  status: active
+  project: cross
+  activation_cues:
+    - "THREAT 6 IS NO LONGER HYPOTHETICAL: X36 measured a generic S-expression beating HML zero-shot on quantifier scope."
+    - "THREAT 5 is directly evidenced by MiniLang: END/NEXT invoke the Sledgehammer-integrated closer, and RULE/SIMPLIFY/APPLY delegate premise selection to Isabelle."
+  dependencies: [X17, X36, X23]
+  evidence_for: []
+  evidence_against: []
+  related: [X17, X23, X36, X46]
+
+- id: X111
+  type: risk
+  proposal: "Out-of-distribution confound — arms A-D are saturated in model pretraining; the HML arm has effectively zero tokens. This may dominate every comparison."
+  origin: "/Users/moheet/hml_v2_worktree/GOAL.md falsification condition 6; docs/PROJECT_STATUS.md 'Risks and Technical Debt'"
+  reason: "Explicitly recorded as UNRESOLVABLE: 'structured formal notation helps' cannot be separated from 'THIS notation helps', because Lean and Stan are far better represented in pretraining than a language invented weeks ago."
+  status: active
+  project: hml_core
+  activation_cues:
+    - "A matched adaptation (fine-tuning / demonstration curriculum) condition equalises exposure — the only known mitigation."
+  dependencies: [X5]
+  evidence_for: []
+  evidence_against: []
+  related: [X5, X6, X112]
+
+- id: X112
+  type: risk
+  proposal: "Published evidence points the other way — Tam et al. (EMNLP 2024) report reasoning degradation under format restriction."
+  origin: "/Users/moheet/hml_v2_worktree/GOAL.md falsification condition 7; docs/evaluation/FORMAT_RESTRICTION_AUDIT.md"
+  reason: "An external prior against the thesis, recorded as a falsification condition rather than argued away. X35 (SE > HML with HML having the shortest prompts) is consistent with it."
+  status: active
+  project: hml_core
+  activation_cues:
+    - "Any positive HML result must be checked against the format-restriction explanation before it is attributed to semantics."
+  dependencies: []
+  evidence_for:
+    - "X35: every error in every arm was a wrong semantic conclusion, with the dominant error being collapse of UNDETERMINED into a definite verdict"
+  evidence_against: []
+  related: [X35, X111]
+
+- id: X113
+  type: risk
+  proposal: "The strongest argument against the project, ADOPTED rather than rebutted — the inference the thesis wants to eliminate happens when the file is WRITTEN, not when it is read."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'Risks and Technical Debt'"
+  reason: "Someone had to decide `jitter` is a scale before `scale := jitter` could be typed. A correct-looking encoding of a misunderstanding compiles clean and is wrong. The reviewer's ESTIMATE is that arm A' (prose plus a matched checklist) closes most of the gap. This is the scaffolding confound: if English plus structural prompting closes the gap, the win is prompting, not representation."
+  status: active
+  project: cross
+  activation_cues:
+    - "Build the scaffolding-ablation arm — PROJECT_STATUS lists it as the arm most likely to falsify the thesis and it has never been built."
+  dependencies: []
+  evidence_for:
+    - "corpus docs/00 OPEN: 'the planner may contain most of the mathematical intelligence while HML remains a useful record/checking interface rather than a reasoning advantage'"
+  evidence_against: []
+  related: [X110, X114]
+
+- id: X114
+  type: risk
+  proposal: "Search displacement — a small checked execution kernel can coexist with a large, high-entropy planner, so a small operation set is not a small intelligence stack."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §1 CORE PRINCIPLE; docs/02 §1 and the MiniLang boundary section"
+  reason: "The most likely way the 17-operation result becomes a misleading headline. MiniLang's 2.726-bit label channel measures SUCCESSFUL SERIALIZED OUTPUTS AFTER translation and filtering; it does not measure the entropy of premise retrieval, tactic search, Sledgehammer candidates, rule instantiation, witness discovery or failed branches."
+  status: active
+  project: cross
+  activation_cues:
+    - "Any claim that a small operation count implies compressed reasoning."
+  dependencies: [X2, X23]
+  evidence_for: []
+  evidence_against: []
+  related: [X2, X23, X110, X113]
+
+- id: X115
+  type: risk
+  proposal: "No training stack exists — torch, transformers, peft, datasets, trl and accelerate are all absent, so H5 and gate G5 cannot be attempted."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'Known Failures and Limitations': 'Phase 6 is blocked ... Recorded as blocked, not dropped.'"
+  reason: "This single missing dependency blocks the ONLY experiment that could satisfy the docs/04 §13 matched-exposure condition (the SE-LoRA vs HML-LoRA vs S-expression-LoRA learning-curve comparison, named as deferred in the Gold-10 handoffs)."
+  status: blocked
+  project: hml_core
+  activation_cues:
+    - "A training environment is provisioned."
+    - "NOTE: this is the gating dependency for X46 (the kill/pivot rule) to be properly discharged rather than merely armed."
+  dependencies: []
+  evidence_for: []
+  evidence_against: []
+  related: [X5, X46, X111]
+
+- id: X116
+  type: risk
+  proposal: "Single-model, single-family generalization risk — every reasoning result in the programme rests on gemma3:4b (4.3B, Q4_K_M)."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/results/FREEZE_FINAL_gemma3-4b.json and every arena result file's model_identity block"
+  reason: "gemma3:4b is a DIFFERENT FAMILY from the gemma4 candidates. Acceptable for within-model contrasts, but its results cannot be pooled with or compared against the gemma4 screens, and no result generalises beyond it."
+  status: active
+  project: hml_core
+  activation_cues:
+    - "Gate G4 (replication on another model or checkpoint) is attempted."
+    - "Any result is quoted without its model digest."
+  dependencies: [X30]
+  evidence_for:
+    - "digest a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a recorded in every result file"
+    - "the separate decisive-run track used gemma4:31b (digest 6316f0629137b426...), a third model, and produced X27"
+  evidence_against: []
+  related: [X30, X32, X35, X36, X50]
+
+- id: X117
+  type: risk
+  proposal: "No official human review has happened anywhere in the programme."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'Current Blockers'; docs/evaluation/ACQ0_V2_INDEPENDENT_SEMANTIC_REVIEW.md"
+  reason: "INDEPENDENT_SEMANTIC_REVIEW is two READ-ONLY AGENT reviews and is labelled as such. It clears a developmental screen; it does not clear a promotion benchmark. Symmetrically, the corpus has no inter-annotator study: docs/HML_RESEARCH_LEDGER.md §12 records 'no ... human inter-rater study is included.'"
+  status: unresolved
+  project: cross
+  activation_cues:
+    - "A promotion benchmark, publication, or kernel freeze is proposed."
+    - "The one genuine Gold-125 annotation error (MATH-GOLD-043 s1) requires human adjudication to close X16."
+  dependencies: [X16]
+  evidence_for: []
+  evidence_against: []
+  related: [X16, X42]
+
+- id: X118
+  type: risk
+  proposal: "Known HML expressive gaps found by building instruments, not by theorising — each one silently shaped an experiment."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'Known Failures and Limitations'; docs/hml_v2/CURRENT_TRUTH.md 'Open defects'"
+  reason: "Preserved as a list because each was discovered by a DIFFERENT activity, which is itself the finding: expressive gaps surface when you build something, not when you audit the ontology."
+  status: active
+  project: hml_core
+  activation_cues:
+    - "Any new instrument is built — expect a new gap, and record which activity surfaced it."
+  dependencies: []
+  evidence_for:
+    - "no uninterpreted predicate: a declared Predicate is not callable (HML-T470), so a finite relation can only be stated in closed form — forced all three arena arms into their own idiom"
+    - "no absolute-value form, so a two-sided bound must be two inequalities; v2_approximation_equality_001 stated one and was satisfiable by an estimate arbitrarily far below the target"
+    - "require area != 0 does not compile (HML-D502): a Quantity[Length^2] is not comparable to a dimensionless 0, so a dimensioned denominator is UNGUARDABLE"
+    - "CT-038 open: (x^2 - 1) / (x - 1) = x + 1 compiles with ZERO obligations"
+    - "two targeted AST additions outstanding: abstraction (no derivative-at-a-point) and a binder over statements (indexed families of laws unwritable)"
+    - "Stan cannot express strict positivity (real<lower=0> admits 0), loses observed values, and destroys interleaved declaration order"
+  evidence_against: []
+  related: [X41, X93, X102]
+
+- id: X119
+  type: risk
+  proposal: "BackendResult.faithful means 'declared no per-construct loss', NOT 'round-trips'."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'Known Failures and Limitations'"
+  reason: "english, json, graph and triples all report faithful=True while being ONE-WAY. The Lean route silently loses probability laws and the reconstruction compiles perfectly happily; only content-hash comparison detects it. A one-way test cannot detect this class of loss at all."
+  status: active
+  project: hml_core
+  activation_cues:
+    - "Any backend claim of faithfulness is used as evidence of preservation."
+    - "The cheapest high-value open step, no model needed: demonstrate HML -> Stan -> HML and HML -> Lean -> HML preserving the content hash, or characterise exactly where it fails. The only round trip verified today is HML -> HML, the one that cannot lose anything."
+  dependencies: []
+  evidence_for: []
+  evidence_against: []
+  related: [X93, X118]
+
+# ---------------------------------------------------------------------------
+# DISCREPANCIES between repeated project claims and repository evidence
+# ---------------------------------------------------------------------------
+
+- id: X120
+  type: risk
+  proposal: "MAJOR DISCREPANCY — the corpus's canonical documents state that no matched AST/HML/Structured-English experiment, no Endpoint-A replication artifact and no standalone implication-direction benchmark exist. All three EXIST, measured, in the HML repository."
+  origin: "Claim: /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md 'Strongest negative and null evidence'; docs/04_INTEGRATION_AND_IMPLEMENTATION.md §10; docs/HML_RESEARCH_LEDGER.md §5."
+  reason: "The corpus statements are scoped 'in this repository' and are literally true of the corpus. But they are used programme-wide as if no such evidence exists anywhere, and the canonical H1-H5 table says H5 is untested because 'no training OR matched HML/AST/Structured-English experiment has been run.' The matched experiments HAVE been run — zero-shot, N small, one 4.3B model — and they are NEGATIVE for HML. Suppressing them from the canonical view makes the programme look more open than it is."
+  status: unresolved
+  project: cross
+  activation_cues:
+    - "The integrator updates docs/00 and docs/04 — this is the entry to hand them."
+    - "Anyone plans a matched experiment 'for the first time'; it would be the fourth."
+  dependencies: [X35, X36, X37, X38]
+  evidence_for: []
+  evidence_against:
+    - "matched AST/HML/SE quantifier-scope experiment: /Users/moheet/hml_v2_worktree/evaluation/arena/results/B2_PILOT.json (AST_V2 4/8, HML 3/8, SE 1/8)"
+    - "standalone implication-direction benchmark: /Users/moheet/hml_v2_worktree/evaluation/arena/results/PILOT_B1_gemma3-4b.json (SE 5/12, HML 1/12, AST 0/12)"
+    - "Endpoint-A replication artifact: /Users/moheet/hml_v2_worktree/evaluation/arena/results/ENDPOINT_A_EXPAND.json (11/18 in both arms, delta 0.000)"
+    - "the corpus H5 row remains correct on TRAINING: no training has been performed anywhere"
+  related: [X5, X35, X36, X38, X46]
+
+- id: X121
+  type: risk
+  proposal: "DISCREPANCY — docs/design/EGRAPH_ADOPTION_GATE.md is cited twice as the authority for the e-graph decision and DOES NOT EXIST."
+  origin: "Citations: /Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_AUDIT.md §6 ('Adoption gate written to docs/design/EGRAPH_ADOPTION_GATE.md') and docs/evaluation/COMPILER_CORE_REMEDIATION.md ('five conditions in EGRAPH_ADOPTION_GATE.md')."
+  reason: "STRENGTHENED BY AUDIT PASS 2 — the finding is not merely that the file is missing now, but that IT WAS NEVER WRITTEN. Pass 1 established absence from the working trees by filesystem search. Pass 2 additionally searched all of git history and found the path has never existed in any commit of any repository. So this is not a deletion to be recovered; it is a citation that was false at the moment it was authored. The FIVE CONDITIONS gating X77 are therefore not merely unrecoverable from the working tree — there is no artifact anywhere that ever contained them. Two of the five survive in prose and are preserved in X130; three are unrecoverable and must not be reconstructed."
+  status: unresolved
+  project: hml_core
+  activation_cues:
+    - "Anyone attempts to evaluate whether the e-graph gate is met — only two of five conditions are known, so the gate CANNOT be evaluated as written."
+    - "Anyone proposes to 'restore' the gate document. Any restored fifth-condition list would be invention unless a source outside these repositories is produced."
+  dependencies: [X77]
+  evidence_for: []
+  evidence_against:
+    - "AUDIT PASS 2, git archaeology across /Users/moheet/hml_v2_worktree, /Users/moheet/hamiltonian_lang, /Users/moheet/hml_audit_worktree, /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus and its hml_core submodule: enumerating every path in every commit of every branch (git rev-list --all + ls-tree -r) returns NO path matching egraph or e-graph, case-insensitive. --diff-filter=A and --diff-filter=D return nothing. git stash list is empty in all repos. Every dangling blob and commit from git fsck --lost-found was grepped; the four that matched are older revisions of docs/PROJECT_LEDGER.md and corpus build scripts, none containing gate content."
+    - "AUDIT PASS 2: the citing commit is 1d14cd6, which introduced docs/evaluation/COMPILER_CORE_AUDIT.md with the claim 'Adoption gate written to docs/design/EGRAPH_ADOPTION_GATE.md'. That same commit added exactly four docs — docs/design/V1_BACKEND_SUPPORT_MATRIX.md, docs/evaluation/COMPILER_CORE_AUDIT.md, docs/evaluation/HML_V1_CONCEPT_ABLATION_REPORT.md, docs/evaluation/LOCAL_MODEL_MANIFEST.md — and its tree does not contain the gate file. The claim was untrue when written."
+    - "AUDIT PASS 2, contrast: the other three deferrals in the same table (Pratt parser, locally nameless binders, red-green tree) each state their adoption condition INLINE in docs/evaluation/COMPILER_CORE_REMEDIATION.md:22-24 and cite no external file. The e-graph row is the only one that delegates to a document, and it is the only one whose condition is lost."
+  related: [X77, X130]
+
+- id: X122
+  type: risk
+  proposal: "DISCREPANCY / PENDING ACTION — the corpus is pinned at hml_core 5688aba while the HML repository has advanced to 2af4998, which shipped the three libraries that were blocking Gold-10."
+  origin: "corpus git submodule status: 5688aba18632b65a8709aa1d85577d31a67dba6a; /Users/moheet/hml_v2_worktree HEAD fc64965 with last source change 2af4998"
+  reason: "Every corpus coverage figure (X18: FULL 11 / PARTIAL 455 / REPRESENTABLE_ONLY 303) and every 'library-blocked' statement is measured at the OLDER pin. The HML side has explicitly stopped and handed off: 'LIVE: hand 2af4998 to Codex and stop.'"
+  status: unresolved
+  project: cross
+  activation_cues:
+    - "ALREADY SATISFIED — the repin is the named live next action on the HML side, with four specific predictions to check (G07:a1, G09:a0 conditional on rendering, G10:a1, G10:a2)."
+  dependencies: [X86, X95]
+  evidence_for:
+    - "handoff: /Users/moheet/hml_v2_worktree/docs/agent_handoffs/CLAUDE_GOLD10_LIBRARY_CLOSEOUT.md"
+    - "target rates to judge: 23/23 HANDLED · CoreGapRate 0 · AdapterGapRate 0 · LibraryBlockedRate 0 · RegressionRate 0"
+  evidence_against: []
+  related: [X18, X86, X95]
+
+- id: X123
+  type: risk
+  proposal: "DISCREPANCY — DECISIONS.md contains DUPLICATE decision identifiers. D-026, D-027 and D-028 each appear twice with different subject matter."
+  origin: "/Users/moheet/hml_v2_worktree/DECISIONS.md: D-026 at both 'the partiality guard must follow definitions' and 'the eleven critical coverage zeros'; D-027 at both 'the Tier-1 name lock' and 'closing the V2 red-team findings'; D-028 at both 'the verifier's dimension re-reader must honour parentheses' and 'wire the refinement environment into the type checker'."
+  reason: "Decision IDs are cited across PROJECT_STATUS.md, PROJECT_LEDGER.md and the hml_v2 docs as unique references. Three of them are ambiguous. A citation of 'D-027' cannot be resolved without reading both."
+  status: unresolved
+  project: hml_core
+  activation_cues:
+    - "Any automated tooling or cross-reference index is built over DECISIONS.md."
+    - "Any commit message or handoff cites D-026, D-027 or D-028."
+  dependencies: []
+  evidence_for: []
+  evidence_against: []
+  related: [X124]
+
+- id: X124
+  type: risk
+  proposal: "DISCREPANCY — stale metadata in /Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md."
+  origin: "The file's own contents."
+  reason: "Three concrete staleness defects, recorded because PROJECT_STATUS is the document a fresh context reads first."
+  status: unresolved
+  project: hml_core
+  activation_cues:
+    - "The next commit under the continuity protocol — these are cheap to fix at the same time."
+  dependencies: []
+  evidence_for: []
+  evidence_against:
+    - "header says 'Snapshot date: 2026-08-04' while the Verification section reports 'Current run — 2026-08-09, the Gold-10 library closeout'"
+    - "Important Files table describes DECISIONS.md as 'D-001..D-032'; the file actually reaches D-047"
+    - "the headroom band is given as '8-16 of 24' while the primary artefact docs/evaluation/V1_HEADROOM_GATE_REPORT.md gives '8-15'"
+  related: [X51, X123]
+
+- id: X125
+  type: risk
+  proposal: "OPEN CORE-ADJACENT GAP, reported not patched — RefinementEnv.entails cannot discharge an obligation whose subject is not a declared variable, even when gamma asserts it verbatim."
+  origin: "/Users/moheet/hml_v2_worktree/docs/PROJECT_STATUS.md 'One new core-adjacent gap found and reported, not silently patched'; docs/hml_v2/MATHEMATICAL_LIBRARY_CONTRACT.md §N"
+  reason: "It destructures an obligation as <Ref> <op> <bound> and returns None the moment the subject is not a declared variable, so probability(X > 0.0) > 0.0 stays UNKNOWN even when the module asserts it. Worked around locally by exact canonical membership (check._assumed_verbatim); the proper widening belongs to the core track."
+  status: unresolved
+  project: hml_core
+  activation_cues:
+    - "Any library or adapter needs a side condition over a non-variable subject — probability laws are the first, calculus will be the second."
+  dependencies: [X86]
+  evidence_for: []
+  evidence_against: []
+  related: [X86, X80]
+
+- id: X126
+  type: decision
+  proposal: "Explicit prohibitions that must survive every context reset — docs/04 §11 and §E."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §11 and 'What Claude must not implement yet'; docs/02 §12; docs/01 'DO-NOT-IMPLEMENT-YET'"
+  reason: "These are the rules most likely to be violated by a fresh agent acting on a partial reading of the evidence. Reproduced here as a single recall point."
+  status: active
+  project: cross
+  activation_cues:
+    - "Any implementation proposal touching the HML kernel or the frozen corpus."
+  dependencies: []
+  evidence_for:
+    - "do not add 17 HML keywords because there are 17 candidates; do not implement every Lakatos heuristic as syntax; do not treat theorem or domain names as core operations; do not silently promote planner proposals, tool outputs or candidates to proofs; DO NOT LET AN LLM SET VERIFIED; do not treat compiler-valid output as semantically aligned; do not treat failed counterexample search as proof; do not silently resolve ambiguous readings or UNKNOWN preconditions; do not modify frozen Gold trajectories; do not claim HML beats generic AST or Structured English; do not process full AMPS or train from the candidate list; do not modify HML core from a context-building mission"
+    - "do not add a user-registerable trusted checker; do not ingest broad theorem libraries merely to satisfy a benchmark; do not replace the 17 candidates with MiniLang's ten keywords; do not infer a 14.72% core-gap rate; do not modify frozen firewall fixtures"
+  evidence_against: []
+  related: [X46, X55, X60, X64, X67, X68, X69, X70, X77, X81, X88]
+
+- id: X127
+  type: decision
+  proposal: "The neutral trajectory S0 -> a0 -> S1 -> ... -> Sn is the canonical research object; HML surface syntax is ONE serialization and is REPLACEABLE."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md DECISION; docs/04 §1 DECISION; docs/HML_RESEARCH_LEDGER.md §2; corpus AGENTS.md 'SOURCE OF TRUTH'"
+  reason: "The load-bearing decision that lets every negative representation result be survivable. If HML text loses to a generic S-expression (X36), the semantic state/event/evidence contract and its conformance tests can still be the durable product."
+  status: active
+  project: cross
+  activation_cues:
+    - "Any negative representation result is read as a project-ending failure — it is not, by this decision."
+    - "Any proposal to make HML text the canonical object rather than a rendering."
+  dependencies: []
+  evidence_for:
+    - "MiniLang convergence: 'Canonical typed semantic state should remain primary, with textual HML treated as one renderer pending a matched ablation.'"
+    - "docs/04 §6 item 14: derive HML, AST and Structured English views from ONE canonical source"
+  evidence_against: []
+  related: [X36, X46, X78, X79, X80]
+
+- id: X128
+  type: decision
+  proposal: "Required next empirical sequence — docs/04 §12, in this order and no other."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/04_INTEGRATION_AND_IMPLEMENTATION.md §12"
+  reason: "Recorded as a conditional strategy so that the ordering is not lost across context resets. 1 resolve or bound UNRESOLVED and OTHER; 2 bounded cross-source AMPS replication; 3 targeted proof-state/induction study; 4 compare against formal proof states; 5 freeze the semantic kernel ONLY after adjudication; 6 implement approved additions, preferring interfaces and libraries before syntax; 7 run the matched representation experiment."
+  status: active
+  project: corpus
+  activation_cues:
+    - "Step 1 is the current live blocker (X16). Steps 2-7 are all downstream of it."
+    - "NOTE the tension with X120: step 7 has in effect already been run three times on the HML side, out of order and zero-shot, with negative results."
+  dependencies: [X16, X88, X81, X120]
+  evidence_for: []
+  evidence_against: []
+  related: [X16, X46, X81, X88, X120]
+
+# ---------------------------------------------------------------------------
+# AUDIT PASS 2 (2026-08-10) — findings produced by the second independent audit
+# itself, at corpus fc9b2a3 and HML 7c9137a. See meta.audits[pass: 2].
+# ---------------------------------------------------------------------------
+
+- id: X129
+  type: risk
+  proposal: "AUDIT PASS 2 SELF-RECORD — the pass-1 status breakdown was wrong, and pass 1 recorded an HML head two commits behind the tree it was auditing."
+  origin: "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/project_cognition/project_memory.yaml meta block and entry bodies, re-measured 2026-08-10 by a second auditor who did not take pass 1 on trust."
+  reason: "Pass 1's structural claims were mostly sound and are independently confirmed: valid YAML, 128 entries X1..X128 with no duplicates and no gaps, 0 dangling cross-references, and all 83 cited absolute paths resolving on disk. Two claims do NOT survive re-measurement. First, the reported breakdown '37 dormant / 23 active / 19 completed / 16 rejected / 11 unresolved / 7 blocked' misstates the rejected count as 16 when it is 14, and sums to 113 against 128 entries because it silently omits five statuses (6 deferred, 5 implemented, 4 superseded, 1 testing, 1 proposed). A breakdown that drops 15 entries is not a breakdown. Second, meta.repositories.hml.head records fc64965, but 4d05aca had already landed before this file was written and 7c9137a landed within the hour; several entries were therefore authored against a tree that had already moved. This entry exists so that the counts in any downstream summary are traceable to a measurement rather than to a previous agent's prose."
+  status: active
+  project: corpus
+  activation_cues:
+    - "Any figure describing this ledger's composition is quoted. Re-measure; do not copy a previous pass's numbers."
+    - "A third audit pass runs — it should re-derive the breakdown independently and dispute this one if it disagrees."
+  dependencies: []
+  evidence_for:
+    - "AUDIT PASS 2, measured by structural parse of the file: dormant 37, active 23, completed 19, rejected 14, unresolved 11, blocked 7, deferred 6, implemented 5, superseded 4, testing 1, proposed 1 = 128 entries, taken BEFORE this pass's edits (which move X78 and X79 dormant -> implemented and X105 rejected -> unresolved)."
+    - "AUDIT PASS 2: ids X1..X128 with next_free_id X129; git log confirms 4d05aca is dated 2026-08-10 14:23:26 +0100 and the ledger file's mtime is 14:26, so the tree had already advanced past the recorded head fc64965 (2026-08-09 16:09:56 +0100) when pass 1 wrote."
+  evidence_against:
+    - "The two defects are in pass 1's REPORT, not in the file: no entry was found to be fabricated, and no cited artifact was found to be missing. Pass 1's substantive work stands."
+  related: [X78, X79, X21, X22, X105, X121, X130, X131, X132, X133]
+
+- id: X130
+  type: risk
+  proposal: "BROKEN HISTORICAL REFERENCE / GATE CONTENT PARTIALLY UNRECOVERABLE — docs/design/EGRAPH_ADOPTION_GATE.md never existed; two of its five conditions survive in prose and three are permanently lost."
+  origin: "/Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_AUDIT.md:171-173 and /Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_REMEDIATION.md:28 — the only two citations of the file, both in the HML repository, neither in the corpus."
+  reason: "VERDICT: PARTIALLY RECOVERABLE, 2 of 5 conditions. Recovered condition 1, 'no syntax has passed the acquisition gate', attested independently by both citing documents. Recovered condition 2, 'no positive reasoning signal exists', attested by COMPILER_CORE_AUDIT.md only. Conditions 3, 4 and 5 are UNRECOVERABLE: no artifact in any repository, any branch, any dangling object or any stash has ever contained them, and they must not be reconstructed from inference. This entry preserves ONLY what a citable source supports. The recovery is bounded not by search effort but by the fact that the document was never written — see X121 for the git-archaeology evidence."
+  status: unresolved
+  project: hml_core
+  activation_cues:
+    - "The e-graph decision (X77) is revisited. It cannot be evaluated against its stated gate; either a new gate is written and recorded as new, or the deferral is re-justified on the two surviving conditions alone."
+    - "Any document is written that cites a file it does not also create in the same commit. That is the exact defect that produced this entry."
+  dependencies: [X77, X121]
+  evidence_for:
+    - "RECOVERED CONDITION 1, verbatim, /Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_AUDIT.md:172-173: 'None of its five conditions is currently met - in particular no syntax has passed the acquisition gate and no positive reasoning signal exists.'"
+    - "RECOVERED CONDITION 1, corroborating source, /Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_REMEDIATION.md:28, table row: '| e-graph | five conditions in EGRAPH_ADOPTION_GATE.md | none met; no syntax has passed the acquisition gate |'"
+    - "RECOVERED CONDITION 2, single source, /Users/moheet/hml_v2_worktree/docs/evaluation/COMPILER_CORE_AUDIT.md:173: 'no positive reasoning signal exists'"
+    - "CONTEXT, not a gate condition, /Users/moheet/hml_v2_worktree/docs/hml_v2/MATHEMATICAL_LIBRARY_CONTRACT.md:223-225: 'equality saturation in particular would add a search subsystem with its own proof-extraction and termination questions to solve a four-step normalisation.' This is the RATIONALE for deferring, recorded separately in X77; it is not one of the five conditions and must not be counted as one."
+  evidence_against:
+    - "CONDITIONS 3, 4 AND 5: NOT FOUND. Recorded as a required answer, not as an omission. The count 'five' is itself attested only by the two citing sentences; no independent source confirms that five conditions were ever enumerated anywhere."
+  related: [X77, X121, X129]
+
+- id: X131
+  type: risk
+  proposal: "PROPOSED CANONICAL-DOC EDITS, NOT APPLIED — every Gold-125 coverage figure and library-blocked claim in the corpus was measured against HML 5688aba and none of the tables says so."
+  origin: "AUDIT PASS 2, verified from the submodule tree rather than from prose: git ls-tree of each corpus commit shows hml_core pinned at 5688aba from e952ac8 through HEAD fc9b2a3, and reports/gold125_hml_coverage.md was added at corpus commit 3bd3ace, where the pin was 5688aba."
+  reason: "The figures are not wrong; they are unlabelled. FULL 11 / PARTIAL 455 / REPRESENTABLE_ONLY 303 was measured against a core that predates the algebra, probability and calculus libraries, which shipped at 2af4998. Verified directly: git ls-tree -r 5688aba contains no src/hamiltonian_lang/libraries/ path at all, while 2af4998 contains algebra.py, calculus.py, probability.py and theorem.py. Every 'library-blocked' and 'library-level' claim resting on that measurement therefore describes a core that no longer exists. HML has since moved two commits further, to 7c9137a. NO UPDATED COVERAGE NUMBER IS PROPOSED HERE and none may be inferred: re-measuring requires repinning hml_core and rerunning the classifier, which is corpus work and integrator-owned. The edits below add provenance only."
+  status: unresolved
+  project: cross
+  activation_cues:
+    - "hml_core is repinned to 2af4998 or later. At that point the figures must be either re-measured or explicitly frozen as historical; they may not be silently carried forward."
+    - "Any Gold-125 coverage figure is quoted outside the corpus, or in a paper, abstract or handoff."
+  dependencies: [X18, X122]
+  evidence_for:
+    - "PROPOSED EDIT 1 (canonical, integrator-owned): /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md:152 — 'Step-weighted Gold-125 support at the pinned HML revision is:' should name the revision, e.g. 'HISTORICAL COVERAGE AT HML 5688aba. Step-weighted Gold-125 support at that revision was:'. Table at lines 154-159 is the FULL 11 / PARTIAL 455 / REPRESENTABLE_ONLY 303 / ABSENT 0 figure."
+    - "PROPOSED EDIT 2 (canonical, integrator-owned): /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/00_HML_MASTER.md:92 — 'Four full transitions remained library-blocked:' should read 'HISTORICAL AT HML 5688aba: four full transitions remained library-blocked', with a pointer that algebra, probability and calculus libraries shipped later at 2af4998 and that the claim has not been re-measured against them."
+    - "PROPOSED EDIT 3 (integrator-owned): /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/docs/HML_RESEARCH_LEDGER.md:165-166 — the rows 'HML FULL / PARTIAL / REPRESENTABLE_ONLY / ABSENT | 11 / 455 / 303 / 0' and 'HML step-weighted fractions | 1.4% / 59.2% / 39.4% / 0.0%' should carry the label HISTORICAL COVERAGE AT HML 5688aba. Note this document DOES record the pin globally at lines 116 and 345, so the defect is inline labelling, not total absence of provenance."
+    - "PROPOSED EDIT 4 (integrator-owned): /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_hml_coverage.md:3 — 'Coverage uses the unchanged pinned HML implementation' names no commit anywhere in the report. It should read 'HISTORICAL COVERAGE AT HML 5688aba'. This is the measurement artifact itself and is the highest-value edit of the four."
+    - "PROPOSED EDIT 5 (integrator-owned): /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/reports/gold125_reasoning_synthesis.md:125-133 — section K 'HML support distribution' repeats the same table with no pin; same label needed."
+  evidence_against:
+    - "AUDIT PASS 2, in fairness to the existing documents: the pin IS recorded at document level in three places — docs/00_HML_MASTER.md:237, docs/04_INTEGRATION_AND_IMPLEMENTATION.md:425 and docs/HML_RESEARCH_LEDGER.md:116 and :345 all give 5688aba18632b65a8709aa1d85577d31a67dba6a. The problem is that the coverage TABLES are quotable in isolation and carry no pin, and that no document anywhere notes that HML has since moved past that pin."
+    - "X18 already records this coverage correctly, naming 5688aba in its proposal and carrying the repin activation cue. The ledger is in better shape here than the canonical documents are."
+  related: [X3, X18, X122, X129]
+
+- id: X132
+  type: risk
+  proposal: "HARNESS DEFECT CONFOUNDS THE HML_OBF ARM — the obfuscation map is applied to the question text, and it contains the English words 'or' and 'not'."
+  origin: "/Users/moheet/hml_v2_worktree/evaluation/arena/endpoints/causal_diag.py:48-58 (OBFUSCATION_MAP) and :121-125 (render_question), read directly at HML 7c9137a; independently flagged in /Users/moheet/hml_v2_worktree/docs/agent_handoffs/CLAUDE_SEMANTIC_FIREWALL_CLOSEOUT.md §5."
+  reason: "THE MOST SERIOUS CONTENT DEFECT THIS AUDIT FOUND IN THE LEDGER, because it is a case of a mechanical artifact having been written up as a finding about model cognition. render_question obfuscates the question for HML_OBF and only for HML_OBF; the map rewrites 'or' to 'zeta8' and 'not' to 'zeta9'; the question is what names the three answer options. So the single condition that answered UNDETERMINED on all six items is the single condition whose question was corrupted. Pass 1 recorded the interpretation 'obfuscation stopped the model engaging rather than degrading it gracefully' in X105 and again in X39's evidence_for, as an established reading. It is not established — it is one of two live explanations, and the mundane one was never ruled out. Both entries have been qualified rather than deleted. The HML repository had already withdrawn this result pending a re-run; the corpus ledger had not caught up."
+  status: unresolved
+  project: hml_core
+  activation_cues:
+    - "HML_OBF is re-run with render_question left un-obfuscated, or with a map containing no English function words. Only then does the arm carry any interpretation."
+    - "The familiarity/H2 direction is argued from arena evidence — check first whether the argument reduces to HML_OBF (X39's activation cue did)."
+    - "Any obfuscation, ablation or masking condition is added to any instrument: verify the transformation touches only the stimulus and never the task instructions or the answer options."
+  dependencies: [X39, X105]
+  evidence_for:
+    - "AUDIT PASS 2, verbatim from source, causal_diag.py:121-125: 'def render_question(w, condition: str) -> str: / if condition == \"SE\": / return _SE.question(w) / q = _HML.question(w) / return _obfuscate(q) if condition == \"HML_OBF\" else q'"
+    - "AUDIT PASS 2, verbatim from source, causal_diag.py:55-57: '\"and\": \"zeta7\", \"or\": \"zeta8\", \"not\": \"zeta9\",' — three English function words in a map whose stated purpose is to obfuscate HML keywords."
+    - "AUDIT PASS 2: CLAUDE_SEMANTIC_FIREWALL_CLOSEOUT.md §5, listed as still open at 7c9137a: the map 'contains the English words or and not, and endpoints/causal_diag.py:124-125 applies the map to the question text, destroying the clause naming the third answer option - in the one condition that then answered UNDETERMINED on all six items.'"
+  evidence_against:
+    - "The confound does not overturn X39's headline. 'NO CONDITION RESCUES HML' rests on SE 5/6 against HML_BASIC 4/6, HML_EPI 3/6 and HML_VERIFY 3/6; none of those three arms passes through _obfuscate. Only the fifth arm is impeached."
+    - "No re-run has been performed, by this audit or by anyone. The defect is verified in source; the counterfactual score is unknown and is not estimated here."
+  related: [X6, X8, X39, X105, X129]
+
+- id: X133
+  type: negative_result
+  proposal: "A 30/30 pass against the frozen reference checker concealed two real divergences, one unsafe — fixture agreement is not oracle agreement."
+  origin: "/Users/moheet/hml_v2_worktree/docs/agent_handoffs/CLAUDE_SEMANTIC_FIREWALL_CLOSEOUT.md §3 and §7; /Users/moheet/hml_v2_worktree/docs/hml_v2/SEMANTIC_STATE_CONTRACT.md §5a; both at HML 7c9137a."
+  reason: "This is a methodological result about the corpus's own acceptance instrument and it outlives the code change that produced it. The Semantic Firewall's 30 fixtures are the corpus's acceptance criteria for any HML claim of firewall support (X21). An implementation passing all 30, on both verdict AND error class, was nonetheless diverging from reference_checker.py in three places. Two were repaired at 7c9137a: input-domain checking moved from equality to a containment walk over the domain lattice, and the warrant premise envelope moved from a subset test to exact list equality. The fixtures could not see either, because every fixture declares the domain its claim already has and every fixture's premise envelope already equals its dependency list. The second divergence failed in the UNSAFE direction — evidence resting on fewer premises than the action declared was accepted, letting a conclusion acquire ancestry its warrant never covered. Both were found by reading the oracle's source; no amount of running the fixtures would have surfaced either. A third divergence is KEPT and unresolved: this verifier checks action.typing.output_domain, which the reference never reads. That one is a corpus judgement and is recorded rather than resolved."
+  status: unresolved
+  project: cross
+  activation_cues:
+    - "THE DECISION THE CORPUS OWNS AND HAS NOT MADE: whether to add the two fixtures that would make the repairs externally detectable. Named in the closeout as a LEGAL case whose claim is Natural where the action requires Integer (reference: VALID), and an ILLEGAL case whose warrant evidence binds a strict subset of the action's dependencies (reference: INVALID, WARRANT_MISMATCH). Until then nothing external catches a regression in either repair."
+    - "THE SECOND DECISION THE CORPUS OWNS: whether output_domain is a gap in reference_checker.py or over-strictness in the implementation. It cannot be settled from the HML side."
+    - "Any acceptance set anywhere in this programme is treated as sufficient because it passes. Ask what the set cannot distinguish."
+  dependencies: [X21]
+  evidence_for:
+    - "CLAUDE_SEMANTIC_FIREWALL_CLOSEOUT.md §7: 'A 30/30 pass rate against an external frozen checker concealed two real defects, one of them in the unsafe direction. Agreement with an oracle on the cases the oracle happens to contain is not agreement with the oracle.'"
+    - "SEMANTIC_STATE_CONTRACT.md §5a table: input domain was 'claim.domain != required', reference uses _is_subtype over _DOMAIN_PARENTS, now inhabits() over the lattice; warrant premises were 'premise_ids subset of dependencies', reference uses '==', now exact list equality."
+    - "AUDIT PASS 2, verified in git: commit 7c9137a's message records 'lattice vs frozen reference _is_subtype, full cross product: 0 disagreements' and '30 acceptance fixtures vs frozen reference checker: 30/30 verdict and error class, unchanged by the repairs'. The repairs changing no verdict is the finding, not a reassurance."
+  evidence_against:
+    - "No fixture, no freeze_manifest.json and no line of reference_checker.py was modified from the HML side, so the corpus's frozen instrument is intact and this result does not impeach the 80/80 FINAL benchmark in X21."
+    - "The differential test now standing between a regression and silence lives in the HML repository and tests against a file that repository does not own. That is a fragile arrangement and is the reason the fixture decision matters."
+  related: [X21, X22, X78, X79, X129]
+
+  - id: X134
+    type: risk
+    project: cross
+    status: unresolved
+    title: "Post-build audit of HML 7c9137a found six accepted transitions that should have been refused; five repaired, one classified BLOCKER"
+    summary: >
+      An independent adversarial audit attacked the semantic-state verifier rather than
+      re-reading its tests. Six transitions were accepted at 7c9137a that should have been
+      refused, every one reproduced against pristine production code before repair. The
+      root cause was a single absence: no frame condition. The ten invariants examine what
+      the action DECLARES; none examined whether state_after is what applying that
+      declaration would produce, so every rule was optional to a producer that declined to
+      declare an effect.
+    evidence_for:
+      - "HML 8bcd9a5 (fix: the frame condition): a claim asserting '0 = 1' with status VERIFIED, materialising with no evidence, warrant or epistemic effect, was VALID at 7c9137a. So was an existing premise rewritten ASSUMED->VERIFIED with its proposition changed; a candidate walked PROPOSED->VERIFIED and from the terminal REJECTED by writing candidate_effect kind NONE with zero constraints checked; and a mandatory OPEN obligation deleted outright."
+      - "One unrelated 'status: UNKNOWN' claim appended to a corrupted transition flipped 10/10 ILLEGAL acceptance fixtures to UNRESOLVED. UNRESOLVED counts as neither accepted nor detected, so this was a complete detection bypass available to anyone who could append a record nothing cites. Measured 0/10 after repair."
+      - "The frozen reference has carried this as reference_checker.py::_exact_state_change all along, over claims. It was not ported. HML's repair extends it to candidates, branches and obligations, because the reference frames claims only and three of the six probes are accepted by the reference too."
+      - "DECISIONS.md D-050 classifies the trust boundary as a BLOCKER and deliberately does NOT repair it: EvidenceRecord.status is read from the imported record and is never produced by anything in src/, there is no attestation or checker identity, and semantic_state imports nothing from reasoning/certificates/. A producer that authors the transition authors the verdict."
+    evidence_against:
+      - "All 30 frozen acceptance fixtures were unchanged by every repair, and could not have detected any of the six defects: all thirty are well-formed records whose delta already matches their action, so a verifier with no frame condition passes every one. This is the corpus instrument's limitation, not HML's alone -- the reference shares three of the six gaps."
+      - "Exposure is bounded today only because semantic_state is imported by nothing outside tests/. It is not on the hml CLI and has no runtime ingestion path."
+    activation_cue: >
+      Wake before any model-authored or otherwise untrusted transition is fed to
+      semantic_state.verify. D-050 must have a design record and a trusted-checker path
+      reusing reasoning/certificates/ before that happens. Also wake if the corpus decides
+      whether to adopt the proposed FX2-* probe suite, which is what would let the corpus
+      instrument detect these classes externally.
+    related: [X21, X22, X129, X133]
+
+  - id: X135
+    type: finding
+    project: cross
+    status: completed
+    title: "HML_OBF formally withdrawn as causal evidence; H2 is unresolved, not refuted"
+    summary: >
+      The confound was verified from source rather than accepted from a report. The
+      obfuscation map substitutes five ordinary English words, and render_question applies
+      it to the QUESTION text, so the clause naming the third answer option was destroyed
+      in the one arm that then answered UNDETERMINED on 6/6 items.
+    evidence_for:
+      - "Re-derived from the frozen deterministic builder at HML 8bcd9a5: HML_BASIC asks 'Is P6 necessarily true, necessarily false, or is it not determined by these assumptions?' and HML_OBF asks 'Is P6 necessarily true, necessarily false, zeta8 is it zeta9 determined by these assumptions?'. causal_diag.py:48-58 maps implies/iff/and/or/not; :121-125 applies the map to the question."
+      - "HML a21fdb7 marks HML_OBF INVALID_AS_CAUSAL_EVIDENCE / WITHDRAWN_PENDING_CLEAN_RERUN. Record: evaluation/arena/results/HML_OBF_WITHDRAWAL.md. Nothing deleted or re-run; the frozen manifest gained one additive WITHDRAWN key, verified to leave all pre-existing fields equal."
+      - "Withdrawn as positive evidence for H2/familiarity and as the justification for the LoRA adaptation experiment. HML_OBF was the ONLY positive signature for H2; no other experiment cites it, so nothing else moves."
+      - "Two further defects: the manifest describes HML_OBF as preserving 'operators', which its own map contradicts -- as implemented the condition removes the logical vocabulary and supplies no key, so it never measured a familiarity tax. And no test covers causal_diag, unlike Endpoint A and B2 which both carry prompt-construction audits."
+    evidence_against:
+      - "Familiarity is NOT refuted. Withdrawing evidence for a hypothesis is not evidence against it. H2 is unresolved because the one experiment offered in its support is confounded."
+      - "The other four scout arms and the CASE D verdict are unaffected: SE 5/6, HML_BASIC 4/6, HML_EPI 3/6, HML_VERIFY 3/6, and HML_OBF scored below HML_BASIC under either reading."
+    activation_cue: >
+      Wake when a clean rerun is proposed. Four conditions must hold: obfuscate the HML
+      material only; do not map ordinary English words without supplying a key; add a
+      prompt-construction audit for this endpoint; and reconcile the manifest description
+      with what the code does before freezing.
+    related: [X39, X105, X132]
