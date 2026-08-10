@@ -1,5 +1,8 @@
 # Gold-125 HML coverage audit
 
+
+> **HISTORICAL COVERAGE AT HML `5688aba`.** Measured against the `hml_core` pin in force at the time. The algebra, probability and calculus libraries shipped later at `2af4998`; `git ls-tree -r 5688aba` contains no `libraries/` path at all. These figures, and every "library-blocked" claim resting on them, therefore describe a core that no longer exists. **No updated coverage has been measured** — do not substitute one. Relabelled 2026-08-10.
+
 Coverage uses the unchanged pinned HML implementation. It is a semantic support classification, not a benchmark score and not a claim that REPRESENTABLE_ONLY transitions are executable.
 
 ## Step-weighted source-granularity coverage

@@ -78,7 +78,7 @@ must not become deductive premises until verified or explicitly assumed.
 | **H2 — small-core thesis** | Exploratory support | **EMPIRICAL:** 125 curated MATH trajectories are consistent with 17 adjudicated reusable core effects plus warrants/libraries, but 17.69% remain unresolved. Do not say “mathematics has 17 primitives.” |
 | **H3 — HML semantic representation thesis** | Provisional support | **EMPIRICAL:** current HML has useful typed AST, claim, rule, scope, obligation, evidence, and fail-closed machinery. Broad executable mathematical coverage remains partial. |
 | **H4 — thinking-language thesis** | Hybrid / inconclusive | **EMPIRICAL:** source-visible planning recurs, but successful MATH solutions omit failed search. **INFERENCE:** an open planner feeding a checked IR is more defensible than a closed keyword-only thinker. |
-| **H5 — learned-representation thesis** | Not tested | No training or matched HML/AST/Structured-English experiment has been run. H1–H4 do not imply H5. |
+| **H5 — learned-representation thesis** | Not tested | No **training** experiment has been run — that half is accurate. The rest is **corrected 2026-08-10**: four matched HML/AST/Structured-English experiments **have** been run in the HML repository, and none favours HML. H1–H4 do not imply H5. |
 
 ## Exact empirical headline
 
@@ -89,7 +89,9 @@ must not become deductive premises until verified or explicitly assumed.
 > transition, producing the historical 13.04% CoreGapRate. Forensic triage reduced
 > the primary core-semantic count to 2/23; after repinning to repaired HML and adding
 > corpus-side certificate adapters, no original transition remained classified as a
-> new core-semantic requirement. Four full transitions remained library-blocked:
+> new core-semantic requirement. Four full transitions remained library-blocked
+> (**at HML `5688aba`, before the libraries shipped at `2af4998`** — relabelled
+> 2026-08-10):
 > n+0=n, a probability product law, reciprocal differentiation, and the dependent
 > final calculus transition.
 
@@ -149,6 +151,8 @@ library, or epistemic-status problems.
 
 ## Current HML coverage and implementation boundary
 
+> **HISTORICAL COVERAGE AT HML `5688aba`.** Measured against the `hml_core` pin in force at the time. The algebra, probability and calculus libraries shipped later at `2af4998`; `git ls-tree -r 5688aba` contains no `libraries/` path at all. These figures, and every "library-blocked" claim resting on them, therefore describe a core that no longer exists. **No updated coverage has been measured** — do not substitute one. Relabelled 2026-08-10.
+>
 > **EMPIRICAL.** Step-weighted Gold-125 support at the pinned HML revision is:
 
 | Support | Steps | Fraction |

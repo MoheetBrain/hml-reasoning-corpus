@@ -264,7 +264,21 @@ default hypothesis; vocabulary proliferation carries the burden of proof.
 - 42 explained by axes/granularity/uncertainty;
 - one genuine annotation error/review at MATH-GOLD-043 s1;
 - no AMPS trajectories annotated;
-- no matched HML/AST/Structured-English experiment.
+- no matched HML/AST/Structured-English experiment **in this repository** — see the
+  scope correction below; four such experiments exist in the HML repository.
+
+> **SCOPE CORRECTION (2026-08-10).** Statements of the form "X is not present" in
+> this document mean *not present in this corpus repository*. Several such
+> experiments **do exist**, measured, in the production HML repository, and the
+> unscoped phrasing was being read programme-wide as though the evidence were
+> absent. It is not absent — it is **negative or null for HML**. Recovered from raw
+> artifacts, all at small N and none licensing a conclusion either way:
+> implication direction, Structured English 5/12 vs HML 1/12 vs generic AST 0/12
+> (HML repo `c0e7520`); next-action, an apparent HML advantage that did **not**
+> survive independent replication, Δ 0.000 (`b87736a`); quantifier scope, won by a
+> generic S-expression with HML between it and Structured English (`22b4bb7`); and
+> the saturated HML-EVAL-001 benchmark, paired difference 0.000, CI [0, 0]
+> (`82d13ca`). Cross-reference `experiments/project_cognition/project_memory.yaml`.
 
 > **DECISION.** Do not freeze or implement the semantic kernel while this gate
 remains open. A flat saturation curve with a material unresolved tail is not success.

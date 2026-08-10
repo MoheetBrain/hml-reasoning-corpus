@@ -79,11 +79,15 @@ in the HML repository, which reports 30/30 verdict and error class.
 * **`schemas/semantic_case.schema.json` rejects its own fixtures.** `$defs/action` declares
   `"additionalProperties": false` with no `properties` block while `required` lists fifteen
   properties — an unsatisfiable subschema. 30/30 frozen fixtures fail validation against it.
-* **Coverage figures are historical.** Gold-125 coverage (FULL 11 / PARTIAL 455 /
-  REPRESENTABLE_ONLY 303) and every "library-blocked" claim were measured against `hml_core`
-  at `5688aba`, before the libraries shipped. Not relabelled yet.
-* **Four unscoped absence-of-evidence statements** assert that experiments do not exist when
-  they exist in the HML repository. Identified, not yet corrected.
+* **Coverage figures are historical — now labelled as such.** Gold-125 coverage (FULL 11 /
+  PARTIAL 455 / REPRESENTABLE_ONLY 303) and every "library-blocked" claim were measured
+  against `hml_core` at `5688aba`; `git ls-tree -r 5688aba` contains no `libraries/` path at
+  all. Labelled `HISTORICAL COVERAGE AT HML 5688aba` in five places. **No updated coverage
+  has been measured, and none was manufactured.**
+* **Four unscoped absence-of-evidence statements — now corrected.** They asserted that
+  experiments do not exist when they exist in the HML repository. Each is now explicitly
+  scoped "in this repository" and carries the programme-level result, which is **negative or
+  null for HML** rather than absent.
 * **The e-graph adoption gate never existed.** `docs/design/EGRAPH_ADOPTION_GATE.md` is cited
   as authority and no such path appears in any commit of any branch of any of the four
   repositories. Two of five conditions survive in prose; three are unrecoverable.
@@ -101,8 +105,8 @@ transitions are model-authored.
 
 ## Exact Next Actions
 
-1. Correct the four unscoped absence-of-evidence statements.
-2. Label Gold-125 coverage `HISTORICAL COVERAGE AT HML 5688aba` in five identified places.
+1. ~~Correct the four unscoped absence-of-evidence statements.~~ **Done 2026-08-10.**
+2. ~~Label Gold-125 coverage historical.~~ **Done 2026-08-10, five places.**
 3. Decide whether to adopt the proposed `FX2-*` probe suite (domain subtyping, warrant
    premise envelope, output domain) as a separately versioned expansion. The frozen 30 are
    immutable.

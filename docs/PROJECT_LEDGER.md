@@ -69,3 +69,53 @@ than to model behaviour.
 **Next intended step.** Correct the four unscoped statements; label Gold-125 coverage
 historical; decide on the proposed `FX2-*` probe suite; record the e-graph gate as a broken
 historical reference; repin `hml_core` and rerun the 30 fixtures.
+
+---
+
+## 2026-08-10 (second entry) — scope corrections and historical coverage labels
+
+**Branch:** `codex/minilang-artifact-audit`, on `8d1d95f`. **Stage:** corpus-side
+reconciliation, integrator holding corpus responsibilities.
+
+**Objective.** Stop this repository's absence-of-evidence statements from being read
+programme-wide as though evidence does not exist, and stop stale coverage figures from being
+read as current.
+
+**Files changed.** `docs/00_HML_MASTER.md`, `docs/04_INTEGRATION_AND_IMPLEMENTATION.md`,
+`docs/HML_RESEARCH_LEDGER.md`, `reports/gold125_hml_coverage.md`. No experiment, fixture or
+reference checker touched.
+
+**What was completed.** Four statements were locally true and globally misleading. Each is
+now explicitly scoped *"in this repository"* and carries the programme-level result. The
+correction is not that the evidence exists — it is that the evidence exists **and is negative
+or null for HML**, which is worse for the thesis than the original phrasing implied, not
+better. Recovered from raw artifacts, all small-N: implication direction SE 5/12 vs HML 1/12
+vs generic AST 0/12; next-action, an apparent HML advantage that did not survive independent
+replication (Δ 0.000); quantifier scope won by a generic S-expression; HML-EVAL-001 paired
+difference 0.000, CI [0, 0].
+
+The sharpest case was `docs/04` line 267 — a bare unscoped bullet inside the **ontology gate**
+fact list, doing decision work ("Do not freeze or implement the semantic kernel while this
+gate…"). A gate condition asserting that evidence does not exist, when it exists and is
+negative, is the worst placement for this class of error.
+
+Gold-125 coverage was labelled `HISTORICAL COVERAGE AT HML 5688aba` in five places, verified
+from the submodule tree rather than from prose: `git ls-tree -r 5688aba` contains no
+`libraries/` path, while `2af4998` has algebra, calculus and probability. The highest-value
+label is on `reports/gold125_hml_coverage.md`, which named no commit anywhere in the artifact.
+
+**Tests and verification actually executed.** Each edit anchored to a verified string and
+applied only on an exact match; every replacement confirmed present afterwards. Rendered
+output re-read for the two block-quote insertions, which are the ones that break silently.
+No test suite exists in this repository to run.
+
+**Failures and unresolved uncertainty.** **No updated coverage number was measured and none
+was manufactured.** The pin is still `5688aba`; repinning and re-measuring is a separate
+mission. The `FX2-*` probe suite decision, the e-graph broken-reference record and the
+unsatisfiable `semantic_case.schema.json` all remain open.
+
+**Effect on the overall project.** The corpus track can no longer reason from a cleaner
+picture than the data supports — which was the cognition audit's most consequential finding.
+
+**Next intended step.** Decide on the `FX2-*` probe suite; repin `hml_core` and rerun the 30
+fixtures; repair the unsatisfiable action subschema.

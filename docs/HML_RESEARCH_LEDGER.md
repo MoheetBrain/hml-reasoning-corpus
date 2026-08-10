@@ -134,12 +134,25 @@ present.
 - No Endpoint-A replication artifact or result is present in this repository. Any
   prior Endpoint-A replication failure must be treated as an external or missing
   record, not silently reconstructed here.
-- No standalone implication-direction benchmark is present. Gold-10 does show that
+- No standalone implication-direction benchmark is present **in this repository** (one exists in the HML repository, and it is negative for HML — see the scope correction at the end of this section). Gold-10 does show that
   modus ponens and modus tollens can be checked, while non-entailment/underdetermination
   required an explicit status/certificate path. This is a local logic result, not a
   broad implication-direction claim.
-- No AST/HML/SE scope experiment is present. The repository therefore cannot support
+- No AST/HML/SE scope experiment is present **in this repository** (B2 exists in the HML repository; a generic S-expression scored highest). The repository therefore cannot support
   a comparative scope conclusion beyond the representability audits described here.
+
+> **SCOPE CORRECTION (2026-08-10).** Statements of the form "X is not present" in
+> this document mean *not present in this corpus repository*. Several such
+> experiments **do exist**, measured, in the production HML repository, and the
+> unscoped phrasing was being read programme-wide as though the evidence were
+> absent. It is not absent — it is **negative or null for HML**. Recovered from raw
+> artifacts, all at small N and none licensing a conclusion either way:
+> implication direction, Structured English 5/12 vs HML 1/12 vs generic AST 0/12
+> (HML repo `c0e7520`); next-action, an apparent HML advantage that did **not**
+> survive independent replication, Δ 0.000 (`b87736a`); quantifier scope, won by a
+> generic S-expression with HML between it and Structured English (`22b4bb7`); and
+> the saturated HML-EVAL-001 benchmark, paired difference 0.000, CI [0, 0]
+> (`82d13ca`). Cross-reference `experiments/project_cognition/project_memory.yaml`.
 - The source-only method cannot observe failed search, rejected proof attempts, or
   the distribution of alternative representations.
 
@@ -162,8 +175,8 @@ present.
 | Annotation errors | 1 |
 | UNRESOLVED transitions | 136 / 769 = 17.69% |
 | Frozen OTHER source labels | 125 / 769 = 16.25% |
-| HML FULL / PARTIAL / REPRESENTABLE_ONLY / ABSENT | 11 / 455 / 303 / 0 |
-| HML step-weighted fractions | 1.4% / 59.2% / 39.4% / 0.0% |
+| HML FULL / PARTIAL / REPRESENTABLE_ONLY / ABSENT *(historical, HML `5688aba`)* | 11 / 455 / 303 / 0 |
+| HML step-weighted fractions *(historical, HML `5688aba`)* | 1.4% / 59.2% / 39.4% / 0.0% |
 | Execution / search-meta / verification / goal-management | 580 / 48 / 28 / 113 |
 
 The HML coverage classification is support evidence, not a benchmark score. FULL,
