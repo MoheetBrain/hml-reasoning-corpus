@@ -1,0 +1,1016 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-040",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-00585",
+  "source_hash": "897497257a2b6bf8c9d96d38ab362a91cffd0cd6cca005e47574a223f8d5f886",
+  "category": "Algebra",
+  "level": "Level 5",
+  "problem": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+  "original_solution": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$. With a rational function of this form, we will have two asymptotes: a vertical one at $x=-d/c$ if $cx+d$ does not divide $ax+b$, and a horizontal one at $y=a/c$, if we take the limit of $f(x)$ as $x$ goes to $\\pm\\infty$. In order for $f$ to be its own inverse, the intersection of the asymptotes must lie on the line $y=x$ so that it and its asymptotes reflect onto themselves. This means that $-d/c=a/c$, and therefore $-d=a$ and $a+d=\\boxed{0}$.",
+  "selection_reason": "Selected for semantic diversity in Algebra at Level 5; targeted calculus, case_analysis, function, rational, symmetry and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "calculus",
+    "case_analysis",
+    "function",
+    "rational",
+    "symmetry"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "APPLY_DEFINITION",
+        "family": "APPLY_DEFINITION",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "APPLY_DEFINITION",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "APPLY_DEFINITION",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "With a rational function of this form, we will have two asymptotes: a vertical one at $x=-d/c$ if $cx+d$ does not divide $ax+b$, and a horizontal one at $y=a/c$, if we take the limit of $f(x)$ as $x$ goes to $\\pm\\infty$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s2",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s2",
+          "discharged_at_step": "s4",
+          "lifetime_steps": 2,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0013"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "With a rational function of this form, we will have two asymptotes: a vertical one at $x=-d/c$ if $cx+d$ does not divide $ax+b$, and a horizontal one at $y=a/c$, if we take the limit of $f(x)$ as $x$ goes to $\\pm\\infty$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [
+          "obl:s2"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TAKE_LIMIT",
+        "family": "TAKE_LIMIT",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "TAKE_LIMIT",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "TAKE_LIMIT",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "With a rational function of this form, we will have two asymptotes: a vertical one at $x=-d/c$ if $cx+d$ does not divide $ax+b$, and a horizontal one at $y=a/c$, if we take the limit of $f(x)$ as $x$ goes to $\\pm\\infty$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "In order for $f$ to be its own inverse, the intersection of the asymptotes must lie on the line $y=x$ so that it and its asymptotes reflect onto themselves.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "With a rational function of this form, we will have two asymptotes: a vertical one at $x=-d/c$ if $cx+d$ does not divide $ax+b$, and a horizontal one at $y=a/c$, if we take the limit of $f(x)$ as $x$ goes to $\\pm\\infty$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "With a rational function of this form, we will have two asymptotes: a vertical one at $x=-d/c$ if $cx+d$ does not divide $ax+b$, and a horizontal one at $y=a/c$, if we take the limit of $f(x)$ as $x$ goes to $\\pm\\infty$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "In order for $f$ to be its own inverse, the intersection of the asymptotes must lie on the line $y=x$ so that it and its asymptotes reflect onto themselves.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "In order for $f$ to be its own inverse, the intersection of the asymptotes must lie on the line $y=x$ so that it and its asymptotes reflect onto themselves.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "This means that $-d/c=a/c$, and therefore $-d=a$ and $a+d=\\boxed{0}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [
+        "obl:s2"
+      ],
+      "dependencies": [
+        "fact:s3",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "With a rational function of this form, we will have two asymptotes: a vertical one at $x=-d/c$ if $cx+d$ does not divide $ax+b$, and a horizontal one at $y=a/c$, if we take the limit of $f(x)$ as $x$ goes to $\\pm\\infty$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "In order for $f$ to be its own inverse, the intersection of the asymptotes must lie on the line $y=x$ so that it and its asymptotes reflect onto themselves.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "With a rational function of this form, we will have two asymptotes: a vertical one at $x=-d/c$ if $cx+d$ does not divide $ax+b$, and a horizontal one at $y=a/c$, if we take the limit of $f(x)$ as $x$ goes to $\\pm\\infty$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "In order for $f$ to be its own inverse, the intersection of the asymptotes must lie on the line $y=x$ so that it and its asymptotes reflect onto themselves.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "This means that $-d/c=a/c$, and therefore $-d=a$ and $a+d=\\boxed{0}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [
+          "obl:s2"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "This means that $-d/c=a/c$, and therefore $-d=a$ and $a+d=\\boxed{0}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "If $f(x)=\\frac{ax+b}{cx+d}, abcd\\not=0$ and $f(f(x))=x$ for all $x$ in the domain of $f$, what is the value of $a+d$?",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "The condition $f(f(x))$ means that $f$ is the inverse of itself, so its graph is symmetrical about the line $y = x$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "With a rational function of this form, we will have two asymptotes: a vertical one at $x=-d/c$ if $cx+d$ does not divide $ax+b$, and a horizontal one at $y=a/c$, if we take the limit of $f(x)$ as $x$ goes to $\\pm\\infty$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "In order for $f$ to be its own inverse, the intersection of the asymptotes must lie on the line $y=x$ so that it and its asymptotes reflect onto themselves.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "This means that $-d/c=a/c$, and therefore $-d=a$ and $a+d=\\boxed{0}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s2",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s2",
+        "discharged_at_step": "s4",
+        "lifetime_steps": 2,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_DEFINITION",
+    "DISCHARGE",
+    "TAKE_LIMIT",
+    "TRANSFORM"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "APPLY_DEFINITION",
+      "frequency": 1,
+      "candidate_core": "APPLY_DEFINITION",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "APPLY_DEFINITION"
+      ]
+    },
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "DISCHARGE"
+      ]
+    },
+    {
+      "observed_operation": "TAKE_LIMIT",
+      "frequency": 1,
+      "candidate_core": "TAKE_LIMIT",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "TAKE_LIMIT"
+      ]
+    },
+    {
+      "observed_operation": "TRANSFORM",
+      "frequency": 1,
+      "candidate_core": "TRANSFORM",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "the transformation requires a nonzero or preserved-denominator condition"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [],
+  "hml_gaps": [
+    "MATH-GAP-0003",
+    "MATH-GAP-0013"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 4,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

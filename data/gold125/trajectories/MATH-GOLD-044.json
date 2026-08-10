@@ -1,0 +1,2079 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-044",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-07067",
+  "source_hash": "31f6e2f0ae05e1e36545b78b74575c654db12ad9062ab202ccbcb352cf3b448f",
+  "category": "Precalculus",
+  "level": "Level 5",
+  "problem": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+  "original_solution": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.\n\nLet $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.  Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).\n\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.\n\nNote: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.  If $wz = 1,$ then from the equation $x = z + w + zwx,$\n\\[z + w = 0.\\]Then $wz = -w^2,$ which cannot be equal to 1, contradiction.  The same holds for the division in the other equations.",
+  "selection_reason": "Selected for semantic diversity in Precalculus at Level 5; targeted case_analysis, contradiction, counting, function, modular and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "case_analysis",
+    "contradiction",
+    "counting",
+    "function",
+    "modular",
+    "polynomial",
+    "trigonometry"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "real domain"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "SUBSTITUTE",
+        "family": "SUBSTITUTE",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "SUBSTITUTE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "SUBSTITUTE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": [
+        "meta:s1:1"
+      ]
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRIG_IDENTITY",
+        "family": "TRIG_IDENTITY",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "TRIG_IDENTITY",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "TRIG_IDENTITY",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRIG_IDENTITY",
+        "family": "TRIG_IDENTITY",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "TRIG_IDENTITY",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "TRIG_IDENTITY",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+      "explicitness": "explicit",
+      "reasoning_mode": "VERIFICATION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "COUNT",
+        "VERIFY",
+        "MODULAR_REASONING"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "candidate acceptance requires original-constraint verification",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s4",
+          "statement": "candidate acceptance requires original-constraint verification",
+          "status": "discharged",
+          "created_at_step": "s4",
+          "discharged_at_step": "s4",
+          "lifetime_steps": 0,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s4"
+      ],
+      "dependencies": [
+        "fact:s3",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0003",
+        "MATH-GAP-0004"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [
+          "obl:s4"
+        ],
+        "removed_obligations": [
+          "obl:s4"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "VERIFY",
+        "family": "VERIFY",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "VERIFY",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "VERIFY",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+      "explicitness": "explicit",
+      "reasoning_mode": "VERIFICATION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "VERIFY"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s5",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s5",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 0,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s5"
+      ],
+      "dependencies": [
+        "fact:s4",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s4",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0003",
+        "MATH-GAP-0004"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "added_obligations": [
+          "obl:s5"
+        ],
+        "removed_obligations": [
+          "obl:s5"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s4",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "VERIFY",
+        "family": "VERIFY",
+        "arguments": {
+          "source_sentence_index": 5,
+          "candidate_core": "VERIFY",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "VERIFY",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s6",
+      "source_span": "If $wz = 1,$ then from the equation $x = z + w + zwx,$\n\\[z + w = 0.\\]Then $wz = -w^2,$ which cannot be equal to 1, contradiction.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the branch partition requires coverage and disjointness",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s6",
+          "statement": "the branch partition requires coverage and disjointness",
+          "status": "open",
+          "created_at_step": "s6",
+          "discharged_at_step": null,
+          "lifetime_steps": null,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s5"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s5",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "If $wz = 1,$ then from the equation $x = z + w + zwx,$\n\\[z + w = 0.\\]Then $wz = -w^2,$ which cannot be equal to 1, contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "added_obligations": [
+          "obl:s6"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s5"
+        ],
+        "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "CONTRADICTION",
+        "family": "CONTRADICTION",
+        "arguments": {
+          "source_sentence_index": 6,
+          "candidate_core": "CONTRADICTION",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "CONTRADICTION",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "If $wz = 1,$ then from the equation $x = z + w + zwx,$\n\\[z + w = 0.\\]Then $wz = -w^2,$ which cannot be equal to 1, contradiction.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s7",
+      "source_span": "The same holds for the division in the other equations.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s6"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s6",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "If $wz = 1,$ then from the equation $x = z + w + zwx,$\n\\[z + w = 0.\\]Then $wz = -w^2,$ which cannot be equal to 1, contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "real domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "If $wz = 1,$ then from the equation $x = z + w + zwx,$\n\\[z + w = 0.\\]Then $wz = -w^2,$ which cannot be equal to 1, contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "The same holds for the division in the other equations.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S7"
+      },
+      "state_change": {
+        "from": "S6",
+        "to": "S7",
+        "added_facts": [
+          "fact:s7"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s6"
+        ],
+        "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 7,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s7",
+        "statement": "The same holds for the division in the other equations.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "real domain"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Compute the number of real solutions $(x,y,z,w)$ to the system of equations:\n\\begin{align*}\nx &= z+w+zwx, \\\\ \ny &= w+x+wxy, \\\\\nz &= x+y+xyz, \\\\\nw &= y+z+yzw.\n\\end{align*}",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "If $wz = 1,$ then from the equation $x = z + w + zwx,$\n\\[z + w = 0.\\]Then $wz = -w^2,$ which cannot be equal to 1, contradiction.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s7",
+        "statement": "The same holds for the division in the other equations.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [
+      {
+        "id": "fact:s4",
+        "statement": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      }
+    ],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5",
+      "fact:s6"
+    ],
+    "open_obligations": [
+      {
+        "id": "obl:s6",
+        "statement": "the branch partition requires coverage and disjointness",
+        "status": "open",
+        "created_at_step": "s6",
+        "discharged_at_step": null,
+        "lifetime_steps": null,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "discharged_obligations": [
+      {
+        "id": "obl:s4",
+        "statement": "candidate acceptance requires original-constraint verification",
+        "status": "discharged",
+        "created_at_step": "s4",
+        "discharged_at_step": "s4",
+        "lifetime_steps": 0,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s5",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s5",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 0,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S7"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "CONTRADICTION",
+    "OTHER",
+    "SUBSTITUTE",
+    "TRIG_IDENTITY",
+    "VERIFY"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "CONTRADICTION",
+      "frequency": 1,
+      "candidate_core": "CONTRADICTION",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "CONTRADICTION"
+      ]
+    },
+    {
+      "observed_operation": "OTHER",
+      "frequency": 1,
+      "candidate_core": "UNRESOLVED",
+      "layer_class": "UNRESOLVED",
+      "atomic_components": [
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "observed_operation": "SUBSTITUTE",
+      "frequency": 1,
+      "candidate_core": "SUBSTITUTE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "SUBSTITUTE"
+      ]
+    },
+    {
+      "observed_operation": "TRIG_IDENTITY",
+      "frequency": 2,
+      "candidate_core": "TRIG_IDENTITY",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "TRIG_IDENTITY"
+      ]
+    },
+    {
+      "observed_operation": "VERIFY",
+      "frequency": 2,
+      "candidate_core": "VERIFY",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "COUNT",
+        "MODULAR_REASONING",
+        "TRANSFORM",
+        "VERIFY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 7,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "candidate acceptance requires original-constraint verification",
+      "the branch partition requires coverage and disjointness",
+      "the transformation requires a nonzero or preserved-denominator condition"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [
+    {
+      "meta_step_id": "meta:s1:1",
+      "source_span": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+      "meta_operation": "CONSIDER_CASES",
+      "target": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+      "current_state": "S0",
+      "resulting_search_constraint_or_subgoal": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+      "changes_mathematical_truth_state": false,
+      "representation_assessment": "structured_metadata",
+      "evidence_status": "EXPLICIT_SOURCE"
+    }
+  ],
+  "hml_gaps": [
+    "MATH-GAP-0002",
+    "MATH-GAP-0003",
+    "MATH-GAP-0004",
+    "MATH-GAP-0007"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 7,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

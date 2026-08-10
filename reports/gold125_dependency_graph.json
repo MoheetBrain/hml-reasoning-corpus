@@ -1,0 +1,1214 @@
+{
+  "trajectories": [
+    {
+      "trajectory_id": "MATH-GOLD-001",
+      "node_count": 7,
+      "edge_count": 6,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:piecewise"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-002",
+      "node_count": 5,
+      "edge_count": 2,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-003",
+      "node_count": 5,
+      "edge_count": 4,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-004",
+      "node_count": 7,
+      "edge_count": 6,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:s1"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-005",
+      "node_count": 6,
+      "edge_count": 4,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-006",
+      "node_count": 5,
+      "edge_count": 4,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-007",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-008",
+      "node_count": 3,
+      "edge_count": 3,
+      "maximum_dependency_depth": 1,
+      "maximum_fan_in": 2,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-009",
+      "node_count": 5,
+      "edge_count": 6,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:product",
+        "fact:s1"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-010",
+      "node_count": 4,
+      "edge_count": 3,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:s1"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-011",
+      "node_count": 7,
+      "edge_count": 10,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 3,
+      "facts_reused": [
+        "fact:population",
+        "fact:s2",
+        "fact:s3",
+        "fact:sample"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-012",
+      "node_count": 9,
+      "edge_count": 11,
+      "maximum_dependency_depth": 7,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:s3",
+        "fact:sample_space"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-013",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:s1"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-014",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-015",
+      "node_count": 7,
+      "edge_count": 8,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 3,
+      "facts_reused": [
+        "fact:congruence_5",
+        "fact:congruence_7"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-016",
+      "node_count": 4,
+      "edge_count": 3,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-017",
+      "node_count": 6,
+      "edge_count": 5,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:s1"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-018",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-019",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:s3"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-020",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 3,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-021",
+      "node_count": 7,
+      "edge_count": 6,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-022",
+      "node_count": 5,
+      "edge_count": 4,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-023",
+      "node_count": 4,
+      "edge_count": 3,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-024",
+      "node_count": 6,
+      "edge_count": 5,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-025",
+      "node_count": 7,
+      "edge_count": 5,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-026",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-027",
+      "node_count": 24,
+      "edge_count": 34,
+      "maximum_dependency_depth": 22,
+      "maximum_fan_in": 11,
+      "facts_reused": [
+        "fact:problem",
+        "fact:s10",
+        "fact:s12",
+        "fact:s14",
+        "fact:s15",
+        "fact:s6",
+        "fact:s7",
+        "fact:s9"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-028",
+      "node_count": 10,
+      "edge_count": 10,
+      "maximum_dependency_depth": 8,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-029",
+      "node_count": 8,
+      "edge_count": 8,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-030",
+      "node_count": 21,
+      "edge_count": 25,
+      "maximum_dependency_depth": 19,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-031",
+      "node_count": 9,
+      "edge_count": 9,
+      "maximum_dependency_depth": 7,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-032",
+      "node_count": 10,
+      "edge_count": 10,
+      "maximum_dependency_depth": 8,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-033",
+      "node_count": 17,
+      "edge_count": 17,
+      "maximum_dependency_depth": 15,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-034",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-035",
+      "node_count": 9,
+      "edge_count": 9,
+      "maximum_dependency_depth": 7,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-036",
+      "node_count": 12,
+      "edge_count": 12,
+      "maximum_dependency_depth": 10,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem",
+        "fact:s5"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-037",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-038",
+      "node_count": 2,
+      "edge_count": 1,
+      "maximum_dependency_depth": 0,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-039",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-040",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-041",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-042",
+      "node_count": 7,
+      "edge_count": 8,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-043",
+      "node_count": 24,
+      "edge_count": 25,
+      "maximum_dependency_depth": 22,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-044",
+      "node_count": 8,
+      "edge_count": 9,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-045",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-046",
+      "node_count": 5,
+      "edge_count": 6,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-047",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-048",
+      "node_count": 15,
+      "edge_count": 15,
+      "maximum_dependency_depth": 13,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-049",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-050",
+      "node_count": 13,
+      "edge_count": 13,
+      "maximum_dependency_depth": 11,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-051",
+      "node_count": 12,
+      "edge_count": 12,
+      "maximum_dependency_depth": 10,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-052",
+      "node_count": 8,
+      "edge_count": 8,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-053",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-054",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-055",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-056",
+      "node_count": 6,
+      "edge_count": 7,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-057",
+      "node_count": 11,
+      "edge_count": 14,
+      "maximum_dependency_depth": 9,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-058",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-059",
+      "node_count": 3,
+      "edge_count": 3,
+      "maximum_dependency_depth": 1,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-060",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-061",
+      "node_count": 8,
+      "edge_count": 7,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-062",
+      "node_count": 6,
+      "edge_count": 5,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-063",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-064",
+      "node_count": 3,
+      "edge_count": 2,
+      "maximum_dependency_depth": 1,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-065",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-066",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-067",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-068",
+      "node_count": 8,
+      "edge_count": 9,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-069",
+      "node_count": 11,
+      "edge_count": 11,
+      "maximum_dependency_depth": 9,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-070",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-071",
+      "node_count": 19,
+      "edge_count": 19,
+      "maximum_dependency_depth": 17,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-072",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-073",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-074",
+      "node_count": 7,
+      "edge_count": 9,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-075",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-076",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-077",
+      "node_count": 8,
+      "edge_count": 8,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-078",
+      "node_count": 11,
+      "edge_count": 11,
+      "maximum_dependency_depth": 9,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-079",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-080",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-081",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-082",
+      "node_count": 9,
+      "edge_count": 9,
+      "maximum_dependency_depth": 7,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-083",
+      "node_count": 11,
+      "edge_count": 11,
+      "maximum_dependency_depth": 9,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-084",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-085",
+      "node_count": 11,
+      "edge_count": 11,
+      "maximum_dependency_depth": 9,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-086",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-087",
+      "node_count": 2,
+      "edge_count": 1,
+      "maximum_dependency_depth": 0,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-088",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-089",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-090",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-091",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-092",
+      "node_count": 18,
+      "edge_count": 18,
+      "maximum_dependency_depth": 16,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-093",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-094",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-095",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-096",
+      "node_count": 8,
+      "edge_count": 8,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-097",
+      "node_count": 11,
+      "edge_count": 12,
+      "maximum_dependency_depth": 9,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-098",
+      "node_count": 9,
+      "edge_count": 9,
+      "maximum_dependency_depth": 7,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-099",
+      "node_count": 10,
+      "edge_count": 11,
+      "maximum_dependency_depth": 8,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-100",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-101",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-102",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-103",
+      "node_count": 8,
+      "edge_count": 8,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-104",
+      "node_count": 8,
+      "edge_count": 8,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-105",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-106",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-107",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-108",
+      "node_count": 6,
+      "edge_count": 5,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-109",
+      "node_count": 11,
+      "edge_count": 10,
+      "maximum_dependency_depth": 9,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-110",
+      "node_count": 7,
+      "edge_count": 8,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-111",
+      "node_count": 8,
+      "edge_count": 9,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-112",
+      "node_count": 10,
+      "edge_count": 11,
+      "maximum_dependency_depth": 8,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-113",
+      "node_count": 7,
+      "edge_count": 7,
+      "maximum_dependency_depth": 5,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-114",
+      "node_count": 4,
+      "edge_count": 3,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-115",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-116",
+      "node_count": 5,
+      "edge_count": 5,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-117",
+      "node_count": 6,
+      "edge_count": 6,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-118",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-119",
+      "node_count": 6,
+      "edge_count": 5,
+      "maximum_dependency_depth": 4,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-120",
+      "node_count": 4,
+      "edge_count": 4,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-121",
+      "node_count": 8,
+      "edge_count": 8,
+      "maximum_dependency_depth": 6,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-122",
+      "node_count": 4,
+      "edge_count": 3,
+      "maximum_dependency_depth": 2,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-123",
+      "node_count": 5,
+      "edge_count": 4,
+      "maximum_dependency_depth": 3,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    },
+    {
+      "trajectory_id": "MATH-GOLD-124",
+      "node_count": 9,
+      "edge_count": 9,
+      "maximum_dependency_depth": 7,
+      "maximum_fan_in": 2,
+      "facts_reused": [
+        "fact:problem"
+      ]
+    },
+    {
+      "trajectory_id": "MATH-GOLD-125",
+      "node_count": 3,
+      "edge_count": 2,
+      "maximum_dependency_depth": 1,
+      "maximum_fan_in": 1,
+      "facts_reused": []
+    }
+  ]
+}

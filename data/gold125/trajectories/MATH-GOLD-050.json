@@ -1,0 +1,4146 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-050",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-10953",
+  "source_hash": "e194be4f2930d61250b454b6419ece136387357626f616bef24ab74ab9773442",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "problem": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+  "original_solution": "Let the integers be $a$ and $b$. Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.  Then $\\gcd(a,b) = 144/36 = 4$.\n\nSince $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.  Therefore, their product $ab$ has at least four factors of 2.  But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.\n\nSince $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.  Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.  Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.  But $\\gcd(a,b) = 4 = 2^2 \\cdot 3^0$, so $\\min\\{u,v\\} = 0$, which means that either $u = 0$ or $v = 0$.\n\nHence, one of the numbers $a$ and $b$ must be 4, and the other number must be $144/4 = 36$.  Therefore, the sum of the numbers is $4 + 36 = \\boxed{40}$.",
+  "selection_reason": "Selected for semantic diversity in Number Theory at Level 3; targeted case_analysis, construction, function, inequality, polynomial and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "case_analysis",
+    "construction",
+    "function",
+    "inequality",
+    "polynomial",
+    "rational"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer/natural domain",
+      "positivity restriction"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Let the integers be $a$ and $b$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "SEARCH_META",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "integer/natural domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "Let the integers be $a$ and $b$.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "CONSTRUCT",
+        "family": "CONSTRUCT",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "CONSTRUCT",
+          "layer_class": "CORE_STATE_OPERATION"
+        },
+        "candidate_core": "CONSTRUCT",
+        "layer_class": "CORE_STATE_OPERATION"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "Let the integers be $a$ and $b$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": [
+        "meta:s1:1"
+      ]
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Then $\\gcd(a,b) = 144/36 = 4$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "BOUND"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "order reasoning requires a valid domain and direction condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s4",
+          "statement": "order reasoning requires a valid domain and direction condition",
+          "status": "discharged",
+          "created_at_step": "s4",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 1,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s3"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0003",
+        "MATH-GAP-0004",
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [
+          "obl:s4"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OPTIMIZE",
+        "family": "OPTIMIZE",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "OPTIMIZE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "OPTIMIZE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Therefore, their product $ab$ has at least four factors of 2.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "BOUND"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "order reasoning requires a valid domain and direction condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s5",
+          "statement": "order reasoning requires a valid domain and direction condition",
+          "status": "discharged",
+          "created_at_step": "s5",
+          "discharged_at_step": "s12",
+          "lifetime_steps": 7,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s4"
+      ],
+      "dependencies": [
+        "fact:s4"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s4",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0003",
+        "MATH-GAP-0004",
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "added_obligations": [
+          "obl:s5"
+        ],
+        "removed_obligations": [
+          "obl:s4"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s4"
+        ],
+        "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OPTIMIZE",
+        "family": "OPTIMIZE",
+        "arguments": {
+          "source_sentence_index": 5,
+          "candidate_core": "OPTIMIZE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "OPTIMIZE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s6",
+      "source_span": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s5"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s5",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s5"
+        ],
+        "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 6,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s7",
+      "source_span": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s7",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s7",
+          "discharged_at_step": "s12",
+          "lifetime_steps": 5,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s6"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s6",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S7"
+      },
+      "state_change": {
+        "from": "S6",
+        "to": "S7",
+        "added_facts": [
+          "fact:s7"
+        ],
+        "added_obligations": [
+          "obl:s7"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s6"
+        ],
+        "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 7,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s7",
+        "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s8",
+      "source_span": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s7"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s7",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S7"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S8"
+      },
+      "state_change": {
+        "from": "S7",
+        "to": "S8",
+        "added_facts": [
+          "fact:s8"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s7"
+        ],
+        "epistemic_update": "Source-grounded result fact:s8 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 8,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s8",
+        "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s9",
+      "source_span": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s8"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s8",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S8"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s9",
+            "statement": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7",
+          "fact:s8"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S9"
+      },
+      "state_change": {
+        "from": "S8",
+        "to": "S9",
+        "added_facts": [
+          "fact:s9"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s8"
+        ],
+        "epistemic_update": "Source-grounded result fact:s9 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 9,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s9",
+        "statement": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s10",
+      "source_span": "But $\\gcd(a,b) = 4 = 2^2 \\cdot 3^0$, so $\\min\\{u,v\\} = 0$, which means that either $u = 0$ or $v = 0$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "SEARCH_META",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the branch partition requires coverage and disjointness",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s10",
+          "statement": "the branch partition requires coverage and disjointness",
+          "status": "discharged",
+          "created_at_step": "s10",
+          "discharged_at_step": "s12",
+          "lifetime_steps": 2,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s9"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s9",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0001",
+        "MATH-GAP-0003",
+        "MATH-GAP-0004",
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s9",
+            "statement": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7",
+          "fact:s8"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S9"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s9",
+            "statement": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s10",
+            "statement": "But $\\gcd(a,b) = 4 = 2^2 \\cdot 3^0$, so $\\min\\{u,v\\} = 0$, which means that either $u = 0$ or $v = 0$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [
+          {
+            "id": "branch:s10",
+            "status": "declared",
+            "source_step": "s10"
+          }
+        ],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7",
+          "fact:s8",
+          "fact:s9"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s10",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s10",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S10"
+      },
+      "state_change": {
+        "from": "S9",
+        "to": "S10",
+        "added_facts": [
+          "fact:s10"
+        ],
+        "added_obligations": [
+          "obl:s10"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "branch-declaration",
+        "dependency_effect": [
+          "fact:s9"
+        ],
+        "epistemic_update": "Source-grounded result fact:s10 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "CASE_SPLIT",
+        "family": "CASE_SPLIT",
+        "arguments": {
+          "source_sentence_index": 10,
+          "candidate_core": "CASE_SPLIT",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "CASE_SPLIT",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s10",
+        "statement": "But $\\gcd(a,b) = 4 = 2^2 \\cdot 3^0$, so $\\min\\{u,v\\} = 0$, which means that either $u = 0$ or $v = 0$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s11",
+      "source_span": "Hence, one of the numbers $a$ and $b$ must be 4, and the other number must be $144/4 = 36$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s10"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s10",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s9",
+            "statement": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s10",
+            "statement": "But $\\gcd(a,b) = 4 = 2^2 \\cdot 3^0$, so $\\min\\{u,v\\} = 0$, which means that either $u = 0$ or $v = 0$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [
+          {
+            "id": "branch:s10",
+            "status": "declared",
+            "source_step": "s10"
+          }
+        ],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7",
+          "fact:s8",
+          "fact:s9"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s10",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s10",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S10"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s9",
+            "statement": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s10",
+            "statement": "But $\\gcd(a,b) = 4 = 2^2 \\cdot 3^0$, so $\\min\\{u,v\\} = 0$, which means that either $u = 0$ or $v = 0$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s11",
+            "statement": "Hence, one of the numbers $a$ and $b$ must be 4, and the other number must be $144/4 = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [
+          {
+            "id": "branch:s10",
+            "status": "declared",
+            "source_step": "s10"
+          }
+        ],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7",
+          "fact:s8",
+          "fact:s9",
+          "fact:s10"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s10",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s10",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S11"
+      },
+      "state_change": {
+        "from": "S10",
+        "to": "S11",
+        "added_facts": [
+          "fact:s11"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s10"
+        ],
+        "epistemic_update": "Source-grounded result fact:s11 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 11,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s11",
+        "statement": "Hence, one of the numbers $a$ and $b$ must be 4, and the other number must be $144/4 = 36$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s12",
+      "source_span": "Therefore, the sum of the numbers is $4 + 36 = \\boxed{40}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [
+        "obl:s5",
+        "obl:s7",
+        "obl:s10"
+      ],
+      "dependencies": [
+        "fact:s11",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s11",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s9",
+            "statement": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s10",
+            "statement": "But $\\gcd(a,b) = 4 = 2^2 \\cdot 3^0$, so $\\min\\{u,v\\} = 0$, which means that either $u = 0$ or $v = 0$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s11",
+            "statement": "Hence, one of the numbers $a$ and $b$ must be 4, and the other number must be $144/4 = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [
+          {
+            "id": "branch:s10",
+            "status": "declared",
+            "source_step": "s10"
+          }
+        ],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7",
+          "fact:s8",
+          "fact:s9",
+          "fact:s10"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s10",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s10",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S11"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let the integers be $a$ and $b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s9",
+            "statement": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s10",
+            "statement": "But $\\gcd(a,b) = 4 = 2^2 \\cdot 3^0$, so $\\min\\{u,v\\} = 0$, which means that either $u = 0$ or $v = 0$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s11",
+            "statement": "Hence, one of the numbers $a$ and $b$ must be 4, and the other number must be $144/4 = 36$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s12",
+            "statement": "Therefore, the sum of the numbers is $4 + 36 = \\boxed{40}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s4",
+            "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [
+          {
+            "id": "branch:s10",
+            "status": "declared",
+            "source_step": "s10"
+          }
+        ],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7",
+          "fact:s8",
+          "fact:s9",
+          "fact:s10",
+          "fact:s11"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s12",
+            "lifetime_steps": 7,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s7",
+            "discharged_at_step": "s12",
+            "lifetime_steps": 5,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s10",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s10",
+            "discharged_at_step": "s12",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S12"
+      },
+      "state_change": {
+        "from": "S11",
+        "to": "S12",
+        "added_facts": [
+          "fact:s12"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [
+          "obl:s5",
+          "obl:s7",
+          "obl:s10"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s11",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s12 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 12,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s12",
+        "statement": "Therefore, the sum of the numbers is $4 + 36 = \\boxed{40}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer/natural domain",
+      "positivity restriction"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "The product of two positive integers is $144$. The ratio of their least common multiple to their greatest common divisor is equal to $9$. What is the sum of the two integers?",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "Let the integers be $a$ and $b$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "Then $ab = 144$ and $$\\frac{\\mathop{\\text{lcm}}[a,b]}{\\gcd(a,b)} = 9.$$The identity $ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b]$ yields that $$ab = \\gcd(a,b) \\cdot \\mathop{\\text{lcm}}[a,b] = 144.$$Multiplying the two equations above yields that $\\big(\\mathop{\\text{lcm}}[a,b]\\big)^2 = 9 \\cdot 144 = 36^2$, so $\\mathop{\\text{lcm}}[a,b] = 36$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "Then $\\gcd(a,b) = 144/36 = 4$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "But $ab = 144 = 2^4 \\cdot 3^2$, which has exactly four factors of 2, so both $a$ and $b$ have exactly two factors of 2.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s7",
+        "statement": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s8",
+        "statement": "Let $a = 2^2 \\cdot 3^u$ and let $b = 2^2 \\cdot 3^v$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s9",
+        "statement": "Then $\\gcd(a,b) = 2^2 \\cdot 3^{\\min\\{u,v\\}}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s10",
+        "statement": "But $\\gcd(a,b) = 4 = 2^2 \\cdot 3^0$, so $\\min\\{u,v\\} = 0$, which means that either $u = 0$ or $v = 0$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s11",
+        "statement": "Hence, one of the numbers $a$ and $b$ must be 4, and the other number must be $144/4 = 36$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s12",
+        "statement": "Therefore, the sum of the numbers is $4 + 36 = \\boxed{40}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [
+      {
+        "id": "fact:s4",
+        "statement": "Since $\\gcd(a,b) = 4$ is a divisor of both $a$ and $b$, $a$ must have at least two factors of 2, and $b$ must have at least two factors of 2.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "Therefore, their product $ab$ has at least four factors of 2.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      }
+    ],
+    "branch_state": [
+      {
+        "id": "branch:s10",
+        "status": "declared",
+        "source_step": "s10"
+      }
+    ],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5",
+      "fact:s6",
+      "fact:s7",
+      "fact:s8",
+      "fact:s9",
+      "fact:s10",
+      "fact:s11"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s4",
+        "statement": "order reasoning requires a valid domain and direction condition",
+        "status": "discharged",
+        "created_at_step": "s4",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 1,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s5",
+        "statement": "order reasoning requires a valid domain and direction condition",
+        "status": "discharged",
+        "created_at_step": "s5",
+        "discharged_at_step": "s12",
+        "lifetime_steps": 7,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s7",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s7",
+        "discharged_at_step": "s12",
+        "lifetime_steps": 5,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s10",
+        "statement": "the branch partition requires coverage and disjointness",
+        "status": "discharged",
+        "created_at_step": "s10",
+        "discharged_at_step": "s12",
+        "lifetime_steps": 2,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S12"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "CASE_SPLIT",
+    "CONSTRUCT",
+    "DISCHARGE",
+    "OPTIMIZE",
+    "TRANSFORM"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "CASE_SPLIT",
+      "frequency": 1,
+      "candidate_core": "CASE_SPLIT",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "CASE_SPLIT"
+      ]
+    },
+    {
+      "observed_operation": "CONSTRUCT",
+      "frequency": 1,
+      "candidate_core": "CONSTRUCT",
+      "layer_class": "CORE_STATE_OPERATION",
+      "atomic_components": [
+        "CONSTRUCT"
+      ]
+    },
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "DISCHARGE"
+      ]
+    },
+    {
+      "observed_operation": "OPTIMIZE",
+      "frequency": 2,
+      "candidate_core": "OPTIMIZE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "BOUND",
+        "TRANSFORM"
+      ]
+    },
+    {
+      "observed_operation": "TRANSFORM",
+      "frequency": 7,
+      "candidate_core": "TRANSFORM",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 12,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "order reasoning requires a valid domain and direction condition",
+      "the branch partition requires coverage and disjointness",
+      "the transformation requires a nonzero or preserved-denominator condition"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [
+    {
+      "meta_step_id": "meta:s1:1",
+      "source_span": "Let the integers be $a$ and $b$.",
+      "meta_operation": "CHOOSE_REPRESENTATION",
+      "target": "Let the integers be $a$ and $b$.",
+      "current_state": "S0",
+      "resulting_search_constraint_or_subgoal": "Let the integers be $a$ and $b$.",
+      "changes_mathematical_truth_state": true,
+      "representation_assessment": "structured_metadata",
+      "evidence_status": "EXPLICIT_SOURCE"
+    }
+  ],
+  "hml_gaps": [
+    "MATH-GAP-0001",
+    "MATH-GAP-0002",
+    "MATH-GAP-0003",
+    "MATH-GAP-0004",
+    "MATH-GAP-0009"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 12,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

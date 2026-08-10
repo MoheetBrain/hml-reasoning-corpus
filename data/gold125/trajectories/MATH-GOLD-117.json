@@ -1,0 +1,1291 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-117",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-03616",
+  "source_hash": "514b76a67b2f62433fe4a7e8a51678543b4d79d3d43dda88db6a3db1f5f1b6ca",
+  "category": "Intermediate Algebra",
+  "level": "Level 1",
+  "problem": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+  "original_solution": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below. The second equation is the general rule.\n\n$$\\frac{1}{99\\times100} = \\frac{1}{99} - \\frac{1}{100}$$$$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$$Each of the fractions in the given sum can be expressed as the difference of two unit fractions like so:\n\n$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out. Therefore the sum is $1-\\frac{1}{6}$ or $\\boxed{\\frac{5}{6}}$.",
+  "selection_reason": "Selected for semantic diversity in Intermediate Algebra at Level 1; targeted meta_observation, polynomial, rational, sequence and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "meta_observation",
+    "polynomial",
+    "rational",
+    "sequence"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "operation denominator/base is valid",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s1",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s1",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 4,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": false
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [
+          "obl:s1"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "The second equation is the general rule.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "The second equation is the general rule.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "The second equation is the general rule.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "$$\\frac{1}{99\\times100} = \\frac{1}{99} - \\frac{1}{100}$$$$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$$Each of the fractions in the given sum can be expressed as the difference of two unit fractions like so:",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "The second equation is the general rule.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "The second equation is the general rule.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "$$\\frac{1}{99\\times100} = \\frac{1}{99} - \\frac{1}{100}$$$$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$$Each of the fractions in the given sum can be expressed as the difference of two unit fractions like so:",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "$$\\frac{1}{99\\times100} = \\frac{1}{99} - \\frac{1}{100}$$$$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$$Each of the fractions in the given sum can be expressed as the difference of two unit fractions like so:",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out.",
+      "explicitness": "explicit",
+      "reasoning_mode": "SEARCH_META",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s3"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007",
+        "MATH-GAP-0010"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "The second equation is the general rule.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "$$\\frac{1}{99\\times100} = \\frac{1}{99} - \\frac{1}{100}$$$$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$$Each of the fractions in the given sum can be expressed as the difference of two unit fractions like so:",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "The second equation is the general rule.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "$$\\frac{1}{99\\times100} = \\frac{1}{99} - \\frac{1}{100}$$$$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$$Each of the fractions in the given sum can be expressed as the difference of two unit fractions like so:",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "SEQUENCE_RECURRENCE",
+        "family": "SEQUENCE_RECURRENCE",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "SEQUENCE_RECURRENCE",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "SEQUENCE_RECURRENCE",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": [
+        "meta:s4:1"
+      ]
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Therefore the sum is $1-\\frac{1}{6}$ or $\\boxed{\\frac{5}{6}}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [
+        "obl:s1"
+      ],
+      "dependencies": [
+        "fact:s4",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s4",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "The second equation is the general rule.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "$$\\frac{1}{99\\times100} = \\frac{1}{99} - \\frac{1}{100}$$$$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$$Each of the fractions in the given sum can be expressed as the difference of two unit fractions like so:",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "The second equation is the general rule.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "$$\\frac{1}{99\\times100} = \\frac{1}{99} - \\frac{1}{100}$$$$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$$Each of the fractions in the given sum can be expressed as the difference of two unit fractions like so:",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore the sum is $1-\\frac{1}{6}$ or $\\boxed{\\frac{5}{6}}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [
+          "obl:s1"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s4",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 5,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "Therefore the sum is $1-\\frac{1}{6}$ or $\\boxed{\\frac{5}{6}}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Express the following sum as a simple fraction in lowest terms.\n\n$$\\frac{1}{1\\times2} + \\frac{1}{2\\times3} + \\frac{1}{3\\times4} + \\frac{1}{4\\times5} + \\frac{1}{5\\times6}$$",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "Any unit fraction whose denominator is the product of two consecutive numbers can be expressed as a difference of unit fractions as shown below.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "The second equation is the general rule.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "$$\\frac{1}{99\\times100} = \\frac{1}{99} - \\frac{1}{100}$$$$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$$Each of the fractions in the given sum can be expressed as the difference of two unit fractions like so:",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "Therefore the sum is $1-\\frac{1}{6}$ or $\\boxed{\\frac{5}{6}}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s1",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s1",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 4,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": false
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S5"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "DISCHARGE",
+    "OTHER",
+    "SEQUENCE_RECURRENCE",
+    "TRANSFORM"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "DISCHARGE"
+      ]
+    },
+    {
+      "observed_operation": "OTHER",
+      "frequency": 1,
+      "candidate_core": "UNRESOLVED",
+      "layer_class": "UNRESOLVED",
+      "atomic_components": [
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "observed_operation": "SEQUENCE_RECURRENCE",
+      "frequency": 1,
+      "candidate_core": "SEQUENCE_RECURRENCE",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "SEQUENCE_RECURRENCE"
+      ]
+    },
+    {
+      "observed_operation": "TRANSFORM",
+      "frequency": 2,
+      "candidate_core": "TRANSFORM",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 5,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [
+    {
+      "meta_step_id": "meta:s4:1",
+      "source_span": "$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out.",
+      "meta_operation": "RECOGNIZE_STRUCTURE",
+      "target": "$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out.",
+      "current_state": "S3",
+      "resulting_search_constraint_or_subgoal": "$$\\left(1-\\frac{1}{2}\\right) + \\left(\\frac{1}{2}-\\frac{1}{3}\\right) + \\left(\\frac{1}{3}-\\frac{1}{4}\\right) + \\left(\\frac{1}{4}-\\frac{1}{5}\\right) + \\left(\\frac{1}{5}-\\frac{1}{6}\\right)$$Observe that when the addition is performed, all terms but the first and last drop out.",
+      "changes_mathematical_truth_state": false,
+      "representation_assessment": "structured_metadata",
+      "evidence_status": "EXPLICIT_SOURCE"
+    }
+  ],
+  "hml_gaps": [
+    "MATH-GAP-0007",
+    "MATH-GAP-0010"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 5,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

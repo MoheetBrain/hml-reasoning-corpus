@@ -1,0 +1,376 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-038",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-03071",
+  "source_hash": "dc1589b1fb0929a503e188e6748e81b9eb4148781279ed9470a3c38c3fd9cf7b",
+  "category": "Geometry",
+  "level": "Level 5",
+  "problem": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+  "original_solution": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+  "selection_reason": "Selected for semantic diversity in Geometry at Level 5; targeted contradiction, geometry, polynomial, radical, sequence and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "contradiction",
+    "geometry",
+    "polynomial",
+    "radical",
+    "sequence",
+    "trigonometry"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer/natural domain",
+      "positivity restriction"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "SUBSTITUTE",
+        "TRANSFORM",
+        "APPLY_INVERSE",
+        "VERIFY"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s1",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s1",
+          "discharged_at_step": "s1",
+          "lifetime_steps": 0,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s1"
+      ],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0004"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s1",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [
+          "obl:s1"
+        ],
+        "removed_obligations": [
+          "obl:s1"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer/natural domain",
+      "positivity restriction"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s1",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s1",
+        "discharged_at_step": "s1",
+        "lifetime_steps": 0,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S1"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "DISCHARGE"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "SUBSTITUTE",
+        "TRANSFORM",
+        "VERIFY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 1,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "the transformation requires a nonzero or preserved-denominator condition"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [],
+  "hml_gaps": [
+    "MATH-GAP-0003",
+    "MATH-GAP-0004"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 1,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

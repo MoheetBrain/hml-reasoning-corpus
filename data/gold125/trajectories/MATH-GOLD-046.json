@@ -1,0 +1,1105 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-046",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-06046",
+  "source_hash": "22b77a4b3b38eeea0053a44949491f0c2f4d9c052408a32c86f69711574de834",
+  "category": "Prealgebra",
+  "level": "Level 4",
+  "problem": "What is the greatest common factor of the numbers 2835 and 8960?",
+  "original_solution": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$. Repeatedly dividing 1792 by 2,  we find that $1792/2^8 = 7$, so $8960 = 2^8 \\cdot 5 \\cdot 7$. At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$. Since $2835 = 28 \\cdot 100 + 35$ is clearly divisible by $7$, then the greatest common factor is $5 \\times 7 = \\boxed{35}$.",
+  "selection_reason": "Selected for semantic diversity in Prealgebra at Level 4; targeted inequality, meta_observation, polynomial, sequence and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "inequality",
+    "meta_observation",
+    "polynomial",
+    "sequence"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "SEARCH_META",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0010"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "SEQUENCE_RECURRENCE",
+        "family": "SEQUENCE_RECURRENCE",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "SEQUENCE_RECURRENCE",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "SEQUENCE_RECURRENCE",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": [
+        "meta:s1:1"
+      ]
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Repeatedly dividing 1792 by 2,  we find that $1792/2^8 = 7$, so $8960 = 2^8 \\cdot 5 \\cdot 7$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Repeatedly dividing 1792 by 2,  we find that $1792/2^8 = 7$, so $8960 = 2^8 \\cdot 5 \\cdot 7$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "Repeatedly dividing 1792 by 2,  we find that $1792/2^8 = 7$, so $8960 = 2^8 \\cdot 5 \\cdot 7$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "VERIFICATION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "VERIFY"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s3",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s3",
+          "discharged_at_step": "s3",
+          "lifetime_steps": 0,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s3"
+      ],
+      "dependencies": [
+        "fact:s2",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0003",
+        "MATH-GAP-0004"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Repeatedly dividing 1792 by 2,  we find that $1792/2^8 = 7$, so $8960 = 2^8 \\cdot 5 \\cdot 7$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Repeatedly dividing 1792 by 2,  we find that $1792/2^8 = 7$, so $8960 = 2^8 \\cdot 5 \\cdot 7$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s3",
+            "statement": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s3",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [
+          "obl:s3"
+        ],
+        "removed_obligations": [
+          "obl:s3"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "VERIFY",
+        "family": "VERIFY",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "VERIFY",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "VERIFY",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Since $2835 = 28 \\cdot 100 + 35$ is clearly divisible by $7$, then the greatest common factor is $5 \\times 7 = \\boxed{35}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "BOUND"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "order reasoning requires a valid domain and direction condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s4",
+          "statement": "order reasoning requires a valid domain and direction condition",
+          "status": "discharged",
+          "created_at_step": "s4",
+          "discharged_at_step": "s4",
+          "lifetime_steps": 0,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s4"
+      ],
+      "dependencies": [
+        "fact:s3",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0004"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Repeatedly dividing 1792 by 2,  we find that $1792/2^8 = 7$, so $8960 = 2^8 \\cdot 5 \\cdot 7$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s3",
+            "statement": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s3",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Repeatedly dividing 1792 by 2,  we find that $1792/2^8 = 7$, so $8960 = 2^8 \\cdot 5 \\cdot 7$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Since $2835 = 28 \\cdot 100 + 35$ is clearly divisible by $7$, then the greatest common factor is $5 \\times 7 = \\boxed{35}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s3",
+            "statement": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s3",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [
+          "obl:s4"
+        ],
+        "removed_obligations": [
+          "obl:s4"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "Since $2835 = 28 \\cdot 100 + 35$ is clearly divisible by $7$, then the greatest common factor is $5 \\times 7 = \\boxed{35}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "What is the greatest common factor of the numbers 2835 and 8960?",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "Repeatedly dividing 1792 by 2,  we find that $1792/2^8 = 7$, so $8960 = 2^8 \\cdot 5 \\cdot 7$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "Since $2835 = 28 \\cdot 100 + 35$ is clearly divisible by $7$, then the greatest common factor is $5 \\times 7 = \\boxed{35}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [
+      {
+        "id": "fact:s3",
+        "statement": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      }
+    ],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s3",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s3",
+        "discharged_at_step": "s3",
+        "lifetime_steps": 0,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s4",
+        "statement": "order reasoning requires a valid domain and direction condition",
+        "status": "discharged",
+        "created_at_step": "s4",
+        "discharged_at_step": "s4",
+        "lifetime_steps": 0,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "DISCHARGE",
+    "SEQUENCE_RECURRENCE",
+    "TRANSFORM",
+    "VERIFY"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "BOUND",
+        "TRANSFORM"
+      ]
+    },
+    {
+      "observed_operation": "SEQUENCE_RECURRENCE",
+      "frequency": 1,
+      "candidate_core": "SEQUENCE_RECURRENCE",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "SEQUENCE_RECURRENCE"
+      ]
+    },
+    {
+      "observed_operation": "TRANSFORM",
+      "frequency": 1,
+      "candidate_core": "TRANSFORM",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM"
+      ]
+    },
+    {
+      "observed_operation": "VERIFY",
+      "frequency": 1,
+      "candidate_core": "VERIFY",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM",
+        "VERIFY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "order reasoning requires a valid domain and direction condition",
+      "the transformation requires a nonzero or preserved-denominator condition"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [
+    {
+      "meta_step_id": "meta:s1:1",
+      "source_span": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+      "meta_operation": "RECOGNIZE_STRUCTURE",
+      "target": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+      "current_state": "S0",
+      "resulting_search_constraint_or_subgoal": "We notice immediately that both terms are divisible by $5$: $2835 = 5 \\cdot 567$ and $8960 = 5 \\cdot 1792$.",
+      "changes_mathematical_truth_state": false,
+      "representation_assessment": "structured_metadata",
+      "evidence_status": "EXPLICIT_SOURCE"
+    }
+  ],
+  "hml_gaps": [
+    "MATH-GAP-0002",
+    "MATH-GAP-0003",
+    "MATH-GAP-0004",
+    "MATH-GAP-0010"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 4,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

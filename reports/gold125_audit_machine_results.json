@@ -1,0 +1,602 @@
+[
+  {
+    "problem_id": "MATH-GOLD-026",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-027",
+    "transition_count": 23,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-028",
+    "transition_count": 9,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-029",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-030",
+    "transition_count": 20,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-031",
+    "transition_count": 8,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-032",
+    "transition_count": 9,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-033",
+    "transition_count": 16,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-034",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-035",
+    "transition_count": 8,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-036",
+    "transition_count": 11,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-037",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-038",
+    "transition_count": 1,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-039",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-040",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-041",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-042",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-043",
+    "transition_count": 23,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-044",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-045",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-046",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-047",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-048",
+    "transition_count": 14,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-049",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-050",
+    "transition_count": 12,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-051",
+    "transition_count": 11,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-052",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-053",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-054",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-055",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-056",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-057",
+    "transition_count": 10,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-058",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-059",
+    "transition_count": 2,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-060",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-061",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-062",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-063",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-064",
+    "transition_count": 2,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-065",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-066",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-067",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-068",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-069",
+    "transition_count": 10,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-070",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-071",
+    "transition_count": 18,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-072",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-073",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-074",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-075",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-076",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-077",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-078",
+    "transition_count": 10,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-079",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-080",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-081",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-082",
+    "transition_count": 8,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-083",
+    "transition_count": 10,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-084",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-085",
+    "transition_count": 10,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-086",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-087",
+    "transition_count": 1,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-088",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-089",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-090",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-091",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-092",
+    "transition_count": 17,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-093",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-094",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-095",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-096",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-097",
+    "transition_count": 10,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-098",
+    "transition_count": 8,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-099",
+    "transition_count": 9,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-100",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-101",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-102",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-103",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-104",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-105",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-106",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-107",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-108",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-109",
+    "transition_count": 10,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-110",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-111",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-112",
+    "transition_count": 9,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-113",
+    "transition_count": 6,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-114",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-115",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-116",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-117",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-118",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-119",
+    "transition_count": 5,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-120",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-121",
+    "transition_count": 7,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-122",
+    "transition_count": 3,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-123",
+    "transition_count": 4,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-124",
+    "transition_count": 8,
+    "failures": [],
+    "status": "PASS"
+  },
+  {
+    "problem_id": "MATH-GOLD-125",
+    "transition_count": 2,
+    "failures": [],
+    "status": "PASS"
+  }
+]

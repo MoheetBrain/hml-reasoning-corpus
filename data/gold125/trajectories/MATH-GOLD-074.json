@@ -1,0 +1,1589 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-074",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-11511",
+  "source_hash": "d4bf936a9de045c86211db69f553f8832bb678c6ae462854eac8cc3dc2a0fab2",
+  "category": "Prealgebra",
+  "level": "Level 3",
+  "problem": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+  "original_solution": "We will find the positive divisors of 14 by finding pairs that multiply to 14.   We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.  We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.  Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.  Therefore, Rick and Steve could be thinking of $\\boxed{4}$ possible numbers.  Note that since $14$ is a factor of $42$, all of the factors of $14$ are also factors of $42$.",
+  "selection_reason": "Selected for semantic diversity in Prealgebra at Level 3; targeted case_analysis, polynomial, sequence and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "case_analysis",
+    "polynomial",
+    "sequence"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "positivity restriction"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "positivity/domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "APPLY_THEOREM",
+        "family": "APPLY_THEOREM",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "APPLY_THEOREM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "APPLY_THEOREM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "VERIFICATION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "VERIFY"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0004"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "VERIFY",
+        "family": "VERIFY",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "VERIFY",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "VERIFY",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "VERIFICATION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0004"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "VERIFY",
+        "family": "VERIFY",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "VERIFY",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "VERIFY",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "VERIFICATION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "VERIFY"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s3",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0004"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "VERIFY",
+        "family": "VERIFY",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "VERIFY",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "VERIFY",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Therefore, Rick and Steve could be thinking of $\\boxed{4}$ possible numbers.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s4"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s4",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, Rick and Steve could be thinking of $\\boxed{4}$ possible numbers.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s4"
+        ],
+        "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 5,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "Therefore, Rick and Steve could be thinking of $\\boxed{4}$ possible numbers.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s6",
+      "source_span": "Note that since $14$ is a factor of $42$, all of the factors of $14$ are also factors of $42$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s5"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s5",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, Rick and Steve could be thinking of $\\boxed{4}$ possible numbers.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, Rick and Steve could be thinking of $\\boxed{4}$ possible numbers.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "Note that since $14$ is a factor of $42$, all of the factors of $14$ are also factors of $42$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s2",
+            "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s5"
+        ],
+        "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 6,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "Note that since $14$ is a factor of $42$, all of the factors of $14$ are also factors of $42$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "positivity restriction"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Rick is thinking of a positive factor of $14$ and Steve is thinking of a positive factor of $42$.  If Rick and Steve are thinking of the same number, how many possible numbers could they be thinking of?",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "Therefore, Rick and Steve could be thinking of $\\boxed{4}$ possible numbers.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "Note that since $14$ is a factor of $42$, all of the factors of $14$ are also factors of $42$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [
+      {
+        "id": "fact:s2",
+        "statement": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      }
+    ],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S6"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "APPLY_THEOREM",
+    "TRANSFORM",
+    "VERIFY"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "APPLY_THEOREM",
+      "frequency": 1,
+      "candidate_core": "APPLY_THEOREM",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "APPLY_THEOREM"
+      ]
+    },
+    {
+      "observed_operation": "TRANSFORM",
+      "frequency": 2,
+      "candidate_core": "TRANSFORM",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM"
+      ]
+    },
+    {
+      "observed_operation": "VERIFY",
+      "frequency": 3,
+      "candidate_core": "VERIFY",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM",
+        "VERIFY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 6,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [],
+  "hml_gaps": [
+    "MATH-GAP-0002",
+    "MATH-GAP-0004"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 6,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

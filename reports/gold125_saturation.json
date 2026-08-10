@@ -1,0 +1,145 @@
+[
+  {
+    "trajectories": 25,
+    "observed_operations": 48,
+    "normalized_atomic_operations": 17,
+    "candidate_core_operations": 16,
+    "new_candidate_core_operations": [
+      "APPLY_DEFINITION",
+      "APPLY_THEOREM",
+      "BOUND",
+      "CASE_SPLIT",
+      "COUNT",
+      "DECLARE",
+      "DISCHARGE",
+      "ENUMERATE",
+      "EVALUATE",
+      "MODEL",
+      "RECORD",
+      "SEARCH_META",
+      "SELECT",
+      "SUBSTITUTE",
+      "TRANSFORM",
+      "VERIFY"
+    ],
+    "new_library_operations": [
+      "ADVANCE_SEQUENCE",
+      "APPLY_IDENTITY",
+      "APPLY_THEOREM",
+      "COMBINE_CASE_COUNTS",
+      "COMPLEMENT_COUNT",
+      "CONDITIONAL_PROBABILITY",
+      "COUNT_EXCLUDED",
+      "COUNT_PERMUTATIONS",
+      "EVALUATE_PROBABILITY",
+      "EXPAND",
+      "FACTOR",
+      "INDEX_TRANSLATION",
+      "MULTIPLY_CONDITIONALS",
+      "MULTIPLY_COUNTS",
+      "PARAMETERIZE_CONGRUENCE",
+      "PRIME_FACTORIZE",
+      "RATIONALIZE"
+    ],
+    "new_state_fields": [
+      "assumptions",
+      "constraints",
+      "declarations",
+      "definitions",
+      "dependencies",
+      "discharged_obligations",
+      "epistemic_status",
+      "facts",
+      "goals",
+      "id",
+      "objects",
+      "open_obligations",
+      "scope",
+      "subgoals",
+      "types_domains"
+    ],
+    "new_semantic_gap_classes": [
+      "MATH-GAP-0001",
+      "MATH-GAP-0002",
+      "MATH-GAP-0003",
+      "MATH-GAP-0004",
+      "MATH-GAP-0005",
+      "MATH-GAP-0006",
+      "MATH-GAP-0007",
+      "MATH-GAP-0008",
+      "MATH-GAP-0009",
+      "MATH-GAP-0010"
+    ]
+  },
+  {
+    "trajectories": 50,
+    "observed_operations": 64,
+    "normalized_atomic_operations": 27,
+    "candidate_core_operations": 26,
+    "new_candidate_core_operations": [
+      "CONSTRUCT",
+      "CONTRADICTION",
+      "DIFFERENTIATE",
+      "INCLUSION_EXCLUSION",
+      "MODULAR_REASONING",
+      "OPTIMIZE",
+      "PROBABILITY",
+      "SEQUENCE_RECURRENCE",
+      "TAKE_LIMIT",
+      "TRIG_IDENTITY"
+    ],
+    "new_library_operations": [
+      "COUNT",
+      "DIFFERENTIATE",
+      "EVALUATE",
+      "INCLUSION_EXCLUSION",
+      "MODULAR_REASONING",
+      "PROBABILITY",
+      "SEQUENCE_RECURRENCE",
+      "TAKE_LIMIT",
+      "TRIG_IDENTITY"
+    ],
+    "new_state_fields": [
+      "branch_state",
+      "candidates"
+    ],
+    "new_semantic_gap_classes": [
+      "MATH-GAP-0011",
+      "MATH-GAP-0013"
+    ]
+  },
+  {
+    "trajectories": 75,
+    "observed_operations": 65,
+    "normalized_atomic_operations": 28,
+    "candidate_core_operations": 27,
+    "new_candidate_core_operations": [
+      "INDUCT"
+    ],
+    "new_library_operations": [],
+    "new_state_fields": [],
+    "new_semantic_gap_classes": [
+      "MATH-GAP-0012"
+    ]
+  },
+  {
+    "trajectories": 100,
+    "observed_operations": 66,
+    "normalized_atomic_operations": 28,
+    "candidate_core_operations": 27,
+    "new_candidate_core_operations": [],
+    "new_library_operations": [],
+    "new_state_fields": [],
+    "new_semantic_gap_classes": []
+  },
+  {
+    "trajectories": 125,
+    "observed_operations": 66,
+    "normalized_atomic_operations": 28,
+    "candidate_core_operations": 27,
+    "new_candidate_core_operations": [],
+    "new_library_operations": [],
+    "new_state_fields": [],
+    "new_semantic_gap_classes": []
+  }
+]

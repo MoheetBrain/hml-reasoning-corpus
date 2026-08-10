@@ -1,0 +1,2555 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-035",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-02077",
+  "source_hash": "b1282405511261ba5b6eb2bdd3ef34c85fd328a1212ccd6dc5abd2659962ac18",
+  "category": "Counting & Probability",
+  "level": "Level 5",
+  "problem": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+  "original_solution": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees. (If you don't believe this reasoning, think about it. You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches. Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other. That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees. We can think of these trees as 5 dividers of 8 slots that the birch trees can go in, making ${8\\choose5} = 56$ different ways to arrange this.\nThere are ${12 \\choose 5} = 792$ total ways to arrange the twelve trees, so the probability is $\\frac{56}{792} = \\frac{7}{99}$.\nThe answer is $7 + 99 = \\boxed{106}$.",
+  "selection_reason": "Selected for semantic diversity in Counting & Probability at Level 5; targeted calculus, case_analysis, construction, counting, meta_observation and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "calculus",
+    "case_analysis",
+    "construction",
+    "counting",
+    "meta_observation",
+    "probability",
+    "rational",
+    "sequence"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "source probability model"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+      "explicitness": "explicit",
+      "reasoning_mode": "SEARCH_META",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008",
+        "MATH-GAP-0011"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "SEARCH_META",
+        "family": "SEARCH_META",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "SEARCH_META",
+          "layer_class": "SEARCH_META_OPERATION"
+        },
+        "candidate_core": "SEARCH_META",
+        "layer_class": "SEARCH_META_OPERATION"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": [
+        "meta:s1:1"
+      ]
+    },
+    {
+      "step_id": "s2",
+      "source_span": "(If you don't believe this reasoning, think about it.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the branch partition requires coverage and disjointness",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s2",
+          "statement": "the branch partition requires coverage and disjointness",
+          "status": "discharged",
+          "created_at_step": "s2",
+          "discharged_at_step": "s8",
+          "lifetime_steps": 6,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [
+          "obl:s2"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "(If you don't believe this reasoning, think about it.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008",
+        "MATH-GAP-0013"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DIFFERENTIATE",
+        "family": "DIFFERENTIATE",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "DIFFERENTIATE",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "DIFFERENTIATE",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "probability reasoning requires a declared sample space and sampling model",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s4",
+          "statement": "probability reasoning requires a declared sample space and sampling model",
+          "status": "discharged",
+          "created_at_step": "s4",
+          "discharged_at_step": "s8",
+          "lifetime_steps": 4,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s3"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [
+          "obl:s4"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "PROBABILITY",
+        "family": "PROBABILITY",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "PROBABILITY",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "PROBABILITY",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s5",
+      "source_span": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "COUNT"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "operation denominator/base is valid",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s5",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s5",
+          "discharged_at_step": "s8",
+          "lifetime_steps": 3,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": false
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s4"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s4",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0004",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "added_obligations": [
+          "obl:s5"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s4"
+        ],
+        "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "COUNT",
+        "family": "COUNT",
+        "arguments": {
+          "source_sentence_index": 5,
+          "candidate_core": "COUNT",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "COUNT",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s6",
+      "source_span": "We can think of these trees as 5 dividers of 8 slots that the birch trees can go in, making ${8\\choose5} = 56$ different ways to arrange this.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "COUNT"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s6",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s6",
+          "discharged_at_step": "s8",
+          "lifetime_steps": 2,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s5"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s5",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0004",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We can think of these trees as 5 dividers of 8 slots that the birch trees can go in, making ${8\\choose5} = 56$ different ways to arrange this.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s6",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "added_obligations": [
+          "obl:s6"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s5"
+        ],
+        "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "COUNT",
+        "family": "COUNT",
+        "arguments": {
+          "source_sentence_index": 6,
+          "candidate_core": "COUNT",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "COUNT",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "We can think of these trees as 5 dividers of 8 slots that the birch trees can go in, making ${8\\choose5} = 56$ different ways to arrange this.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s7",
+      "source_span": "There are ${12 \\choose 5} = 792$ total ways to arrange the twelve trees, so the probability is $\\frac{56}{792} = \\frac{7}{99}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "EVALUATE",
+        "COUNT"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "probability reasoning requires a declared sample space and sampling model",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s7",
+          "statement": "probability reasoning requires a declared sample space and sampling model",
+          "status": "discharged",
+          "created_at_step": "s7",
+          "discharged_at_step": "s8",
+          "lifetime_steps": 1,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s6"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s6",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0004",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We can think of these trees as 5 dividers of 8 slots that the birch trees can go in, making ${8\\choose5} = 56$ different ways to arrange this.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s6",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We can think of these trees as 5 dividers of 8 slots that the birch trees can go in, making ${8\\choose5} = 56$ different ways to arrange this.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "There are ${12 \\choose 5} = 792$ total ways to arrange the twelve trees, so the probability is $\\frac{56}{792} = \\frac{7}{99}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s6",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S7"
+      },
+      "state_change": {
+        "from": "S6",
+        "to": "S7",
+        "added_facts": [
+          "fact:s7"
+        ],
+        "added_obligations": [
+          "obl:s7"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s6"
+        ],
+        "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "PROBABILITY",
+        "family": "PROBABILITY",
+        "arguments": {
+          "source_sentence_index": 7,
+          "candidate_core": "PROBABILITY",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "PROBABILITY",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s7",
+        "statement": "There are ${12 \\choose 5} = 792$ total ways to arrange the twelve trees, so the probability is $\\frac{56}{792} = \\frac{7}{99}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s8",
+      "source_span": "The answer is $7 + 99 = \\boxed{106}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [
+        "obl:s2",
+        "obl:s4",
+        "obl:s5",
+        "obl:s6",
+        "obl:s7"
+      ],
+      "dependencies": [
+        "fact:s7",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s7",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We can think of these trees as 5 dividers of 8 slots that the birch trees can go in, making ${8\\choose5} = 56$ different ways to arrange this.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "There are ${12 \\choose 5} = 792$ total ways to arrange the twelve trees, so the probability is $\\frac{56}{792} = \\frac{7}{99}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s5",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s6",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S7"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "(If you don't believe this reasoning, think about it.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We can think of these trees as 5 dividers of 8 slots that the birch trees can go in, making ${8\\choose5} = 56$ different ways to arrange this.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "There are ${12 \\choose 5} = 792$ total ways to arrange the twelve trees, so the probability is $\\frac{56}{792} = \\frac{7}{99}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "The answer is $7 + 99 = \\boxed{106}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 6,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s4",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s6",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s6",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "discharged",
+            "created_at_step": "s7",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S8"
+      },
+      "state_change": {
+        "from": "S7",
+        "to": "S8",
+        "added_facts": [
+          "fact:s8"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [
+          "obl:s2",
+          "obl:s4",
+          "obl:s5",
+          "obl:s6",
+          "obl:s7"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s7",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s8 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 8,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s8",
+        "statement": "The answer is $7 + 99 = \\boxed{106}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "source probability model"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "A gardener plants three maple trees, four oaks, and five birch trees in a row. He plants them in random order, each arrangement being equally likely. Let $\\frac m n$ in lowest terms be the probability that no two birch trees are next to one another. Find $m+n$.\n",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "(If you don't believe this reasoning, think about it.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "You could also differentiate the tall oak trees from the short oak trees, and the maple trees with many branches as opposed to those with few branches.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "Indeed, you could keep dividing until you have them each in their own category, but in the end it will not change the probability of the birch trees being near each other.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "We can think of these trees as 5 dividers of 8 slots that the birch trees can go in, making ${8\\choose5} = 56$ different ways to arrange this.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s7",
+        "statement": "There are ${12 \\choose 5} = 792$ total ways to arrange the twelve trees, so the probability is $\\frac{56}{792} = \\frac{7}{99}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s8",
+        "statement": "The answer is $7 + 99 = \\boxed{106}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5",
+      "fact:s6",
+      "fact:s7"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s2",
+        "statement": "the branch partition requires coverage and disjointness",
+        "status": "discharged",
+        "created_at_step": "s2",
+        "discharged_at_step": "s8",
+        "lifetime_steps": 6,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s4",
+        "statement": "probability reasoning requires a declared sample space and sampling model",
+        "status": "discharged",
+        "created_at_step": "s4",
+        "discharged_at_step": "s8",
+        "lifetime_steps": 4,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s5",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s5",
+        "discharged_at_step": "s8",
+        "lifetime_steps": 3,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": false
+      },
+      {
+        "id": "obl:s6",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s6",
+        "discharged_at_step": "s8",
+        "lifetime_steps": 2,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s7",
+        "statement": "probability reasoning requires a declared sample space and sampling model",
+        "status": "discharged",
+        "created_at_step": "s7",
+        "discharged_at_step": "s8",
+        "lifetime_steps": 1,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S8"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "COUNT",
+    "DIFFERENTIATE",
+    "DISCHARGE",
+    "OTHER",
+    "PROBABILITY",
+    "SEARCH_META"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "COUNT",
+      "frequency": 2,
+      "candidate_core": "COUNT",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "COUNT",
+        "TRANSFORM"
+      ]
+    },
+    {
+      "observed_operation": "DIFFERENTIATE",
+      "frequency": 1,
+      "candidate_core": "DIFFERENTIATE",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "DIFFERENTIATE"
+      ]
+    },
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "DISCHARGE"
+      ]
+    },
+    {
+      "observed_operation": "OTHER",
+      "frequency": 1,
+      "candidate_core": "UNRESOLVED",
+      "layer_class": "UNRESOLVED",
+      "atomic_components": [
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "observed_operation": "PROBABILITY",
+      "frequency": 2,
+      "candidate_core": "PROBABILITY",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "COUNT",
+        "EVALUATE"
+      ]
+    },
+    {
+      "observed_operation": "SEARCH_META",
+      "frequency": 1,
+      "candidate_core": "SEARCH_META",
+      "layer_class": "SEARCH_META_OPERATION",
+      "atomic_components": [
+        "SEARCH_META"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 8,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "probability reasoning requires a declared sample space and sampling model",
+      "the branch partition requires coverage and disjointness",
+      "the transformation requires a nonzero or preserved-denominator condition"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [
+    {
+      "meta_step_id": "meta:s1:1",
+      "source_span": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+      "meta_operation": "RECOGNIZE_STRUCTURE",
+      "target": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+      "current_state": "S0",
+      "resulting_search_constraint_or_subgoal": "First notice that there is no difference between the maple trees and the oak trees; we have only two types, birch trees and \"non-birch\" trees.",
+      "changes_mathematical_truth_state": false,
+      "representation_assessment": "structured_metadata",
+      "evidence_status": "EXPLICIT_SOURCE"
+    }
+  ],
+  "hml_gaps": [
+    "MATH-GAP-0003",
+    "MATH-GAP-0004",
+    "MATH-GAP-0008",
+    "MATH-GAP-0011",
+    "MATH-GAP-0013"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 8,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

@@ -1,0 +1,2410 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-068",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-01368",
+  "source_hash": "fb27628535bc89ef9ef53a896f1ab3311730edae69ee8b8d784ead7f4916a8ce",
+  "category": "Algebra",
+  "level": "Level 3",
+  "problem": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+  "original_solution": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$). Since $a$ must be at least 2, $a$ only has two possible values. If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$. However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction. Therefore, $a=3$, and we have $3^b+3b=15$. A quick check shows that $3^2+3(2)=15$, or $b=2$. Thus, the only solution to $a\\star b = 15$ is $3\\star2$, giving us $a+b=3+2=\\boxed{5}$.",
+  "selection_reason": "Selected for semantic diversity in Algebra at Level 3; targeted case_analysis, contradiction, inequality and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "case_analysis",
+    "contradiction",
+    "inequality"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer/natural domain",
+      "positivity restriction"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "positivity/domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+          "source_omission": false
+        },
+        {
+          "condition": "integer/natural domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s1",
+          "statement": "order reasoning requires a valid domain and direction condition",
+          "status": "discharged",
+          "created_at_step": "s1",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 4,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": false
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [
+          "obl:s1"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OPTIMIZE",
+        "family": "OPTIMIZE",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "OPTIMIZE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "OPTIMIZE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Since $a$ must be at least 2, $a$ only has two possible values.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "order reasoning requires a valid domain and direction condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s2",
+          "statement": "order reasoning requires a valid domain and direction condition",
+          "status": "discharged",
+          "created_at_step": "s2",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 3,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0003"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [
+          "obl:s2"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OPTIMIZE",
+        "family": "OPTIMIZE",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "OPTIMIZE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "OPTIMIZE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the branch partition requires coverage and disjointness",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s3",
+          "statement": "the branch partition requires coverage and disjointness",
+          "status": "discharged",
+          "created_at_step": "s3",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 2,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [
+          "obl:s3"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "positivity/domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+          "source_omission": false
+        },
+        {
+          "condition": "integer/natural domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s3"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "CONTRADICTION",
+        "family": "CONTRADICTION",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "CONTRADICTION",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "CONTRADICTION",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Therefore, $a=3$, and we have $3^b+3b=15$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [
+        "obl:s1",
+        "obl:s2",
+        "obl:s3"
+      ],
+      "dependencies": [
+        "fact:s4"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s4",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, $a=3$, and we have $3^b+3b=15$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [
+          "obl:s1",
+          "obl:s2",
+          "obl:s3"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s4"
+        ],
+        "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 5,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "Therefore, $a=3$, and we have $3^b+3b=15$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s6",
+      "source_span": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "VERIFICATION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s5",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s5",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0004"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, $a=3$, and we have $3^b+3b=15$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, $a=3$, and we have $3^b+3b=15$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s5",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "VERIFY",
+        "family": "VERIFY",
+        "arguments": {
+          "source_sentence_index": 6,
+          "candidate_core": "VERIFY",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "VERIFY",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s7",
+      "source_span": "Thus, the only solution to $a\\star b = 15$ is $3\\star2$, giving us $a+b=3+2=\\boxed{5}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "candidate acceptance requires original-constraint verification",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s7",
+          "statement": "candidate acceptance requires original-constraint verification",
+          "status": "discharged",
+          "created_at_step": "s7",
+          "discharged_at_step": "s7",
+          "lifetime_steps": 0,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s7"
+      ],
+      "dependencies": [
+        "fact:s6",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s6",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, $a=3$, and we have $3^b+3b=15$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain",
+          "positivity restriction"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Therefore, $a=3$, and we have $3^b+3b=15$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Thus, the only solution to $a\\star b = 15$ is $3\\star2$, giving us $a+b=3+2=\\boxed{5}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s1",
+            "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s2",
+            "statement": "order reasoning requires a valid domain and direction condition",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s7",
+            "discharged_at_step": "s7",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S7"
+      },
+      "state_change": {
+        "from": "S6",
+        "to": "S7",
+        "added_facts": [
+          "fact:s7"
+        ],
+        "added_obligations": [
+          "obl:s7"
+        ],
+        "removed_obligations": [
+          "obl:s7"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s6",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 7,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s7",
+        "statement": "Thus, the only solution to $a\\star b = 15$ is $3\\star2$, giving us $a+b=3+2=\\boxed{5}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer/natural domain",
+      "positivity restriction"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Let $a\\star b = a^b+ab$. If $a$ and $b$ are positive integers greater than or equal to 2 and $a\\star b =15$, find $a+b$.",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "If $a=2$, then we have $2^b+2b=15$, or $2(2^{b-1}+b)=15$, or $2^{b-1}+b=7.5$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "However, since $b$ must be a positive integer, $2^{b-1}+b$ must also be an integer, and we have a contradiction.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "Therefore, $a=3$, and we have $3^b+3b=15$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s7",
+        "statement": "Thus, the only solution to $a\\star b = 15$ is $3\\star2$, giving us $a+b=3+2=\\boxed{5}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [
+      {
+        "id": "fact:s1",
+        "statement": "Since $a$ and $b$ must be positive integers and since $b$ must be at least 2, we know that the maximum value of $a$ is 3 (because $4^2+4(2)=24>15$).",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "Since $a$ must be at least 2, $a$ only has two possible values.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "A quick check shows that $3^2+3(2)=15$, or $b=2$.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      }
+    ],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5",
+      "fact:s6"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s1",
+        "statement": "order reasoning requires a valid domain and direction condition",
+        "status": "discharged",
+        "created_at_step": "s1",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 4,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": false
+      },
+      {
+        "id": "obl:s2",
+        "statement": "order reasoning requires a valid domain and direction condition",
+        "status": "discharged",
+        "created_at_step": "s2",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 3,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s3",
+        "statement": "the branch partition requires coverage and disjointness",
+        "status": "discharged",
+        "created_at_step": "s3",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 2,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s7",
+        "statement": "candidate acceptance requires original-constraint verification",
+        "status": "discharged",
+        "created_at_step": "s7",
+        "discharged_at_step": "s7",
+        "lifetime_steps": 0,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S7"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "CONTRADICTION",
+    "DISCHARGE",
+    "OPTIMIZE",
+    "TRANSFORM",
+    "VERIFY"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "CONTRADICTION",
+      "frequency": 1,
+      "candidate_core": "CONTRADICTION",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "CONTRADICTION"
+      ]
+    },
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "DISCHARGE"
+      ]
+    },
+    {
+      "observed_operation": "OPTIMIZE",
+      "frequency": 2,
+      "candidate_core": "OPTIMIZE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "OPTIMIZE"
+      ]
+    },
+    {
+      "observed_operation": "TRANSFORM",
+      "frequency": 2,
+      "candidate_core": "TRANSFORM",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM"
+      ]
+    },
+    {
+      "observed_operation": "VERIFY",
+      "frequency": 1,
+      "candidate_core": "VERIFY",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "VERIFY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 7,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "candidate acceptance requires original-constraint verification",
+      "order reasoning requires a valid domain and direction condition",
+      "the branch partition requires coverage and disjointness"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [],
+  "hml_gaps": [
+    "MATH-GAP-0002",
+    "MATH-GAP-0003",
+    "MATH-GAP-0004"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 7,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

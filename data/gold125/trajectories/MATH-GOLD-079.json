@@ -1,0 +1,1429 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-079",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-06858",
+  "source_hash": "1fe610eb860b8f6e45e98b2c282b35c8d46d47f5c601ea8b2949086025fbc16e",
+  "category": "Precalculus",
+  "level": "Level 4",
+  "problem": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+  "original_solution": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.\n\nBy rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).\n\\end{align*}We want $|v + w|^2\\ge 2 + \\sqrt {3}.$  From what we just obtained, this is equivalent to $\\cos\\left(\\frac {2\\pi k}{1997}\\right)\\ge \\frac {\\sqrt {3}}2.$  This occurs when $\\frac {\\pi}6\\ge \\frac {2\\pi k}{1997}\\ge - \\frac {\\pi}6$ which is satisfied by $k = 166,165,\\ldots, - 165, - 166$ (we don't include 0 because that corresponds to $v$).  So out of the $1996$ possible $k$, $332$ work.  Thus, the desired probability is $\\frac{332}{1996} = \\boxed{\\frac{83}{499}}.$",
+  "selection_reason": "Selected for semantic diversity in Precalculus at Level 4; targeted complex, construction, polynomial, probability, radical and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "complex",
+    "construction",
+    "polynomial",
+    "probability",
+    "radical",
+    "trigonometry"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "source probability model"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the power/root transformation requires sign and domain conditions",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s1",
+          "statement": "the power/root transformation requires sign and domain conditions",
+          "status": "discharged",
+          "created_at_step": "s1",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 4,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0007"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [
+          "obl:s1"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRIG_IDENTITY",
+        "family": "TRIG_IDENTITY",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "TRIG_IDENTITY",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "TRIG_IDENTITY",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRIG_IDENTITY",
+        "family": "TRIG_IDENTITY",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "TRIG_IDENTITY",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "TRIG_IDENTITY",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "\\end{align*}We want $|v + w|^2\\ge 2 + \\sqrt {3}.$  From what we just obtained, this is equivalent to $\\cos\\left(\\frac {2\\pi k}{1997}\\right)\\ge \\frac {\\sqrt {3}}2.$  This occurs when $\\frac {\\pi}6\\ge \\frac {2\\pi k}{1997}\\ge - \\frac {\\pi}6$ which is satisfied by $k = 166,165,\\ldots, - 165, - 166$ (we don't include 0 because that corresponds to $v$).",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the power/root transformation requires sign and domain conditions",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s3",
+          "statement": "the power/root transformation requires sign and domain conditions",
+          "status": "discharged",
+          "created_at_step": "s3",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 2,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0007"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "\\end{align*}We want $|v + w|^2\\ge 2 + \\sqrt {3}.$  From what we just obtained, this is equivalent to $\\cos\\left(\\frac {2\\pi k}{1997}\\right)\\ge \\frac {\\sqrt {3}}2.$  This occurs when $\\frac {\\pi}6\\ge \\frac {2\\pi k}{1997}\\ge - \\frac {\\pi}6$ which is satisfied by $k = 166,165,\\ldots, - 165, - 166$ (we don't include 0 because that corresponds to $v$).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [
+          "obl:s3"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRIG_IDENTITY",
+        "family": "TRIG_IDENTITY",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "TRIG_IDENTITY",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "TRIG_IDENTITY",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "\\end{align*}We want $|v + w|^2\\ge 2 + \\sqrt {3}.$  From what we just obtained, this is equivalent to $\\cos\\left(\\frac {2\\pi k}{1997}\\right)\\ge \\frac {\\sqrt {3}}2.$  This occurs when $\\frac {\\pi}6\\ge \\frac {2\\pi k}{1997}\\ge - \\frac {\\pi}6$ which is satisfied by $k = 166,165,\\ldots, - 165, - 166$ (we don't include 0 because that corresponds to $v$).",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "So out of the $1996$ possible $k$, $332$ work.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s3"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "\\end{align*}We want $|v + w|^2\\ge 2 + \\sqrt {3}.$  From what we just obtained, this is equivalent to $\\cos\\left(\\frac {2\\pi k}{1997}\\right)\\ge \\frac {\\sqrt {3}}2.$  This occurs when $\\frac {\\pi}6\\ge \\frac {2\\pi k}{1997}\\ge - \\frac {\\pi}6$ which is satisfied by $k = 166,165,\\ldots, - 165, - 166$ (we don't include 0 because that corresponds to $v$).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "\\end{align*}We want $|v + w|^2\\ge 2 + \\sqrt {3}.$  From what we just obtained, this is equivalent to $\\cos\\left(\\frac {2\\pi k}{1997}\\right)\\ge \\frac {\\sqrt {3}}2.$  This occurs when $\\frac {\\pi}6\\ge \\frac {2\\pi k}{1997}\\ge - \\frac {\\pi}6$ which is satisfied by $k = 166,165,\\ldots, - 165, - 166$ (we don't include 0 because that corresponds to $v$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "So out of the $1996$ possible $k$, $332$ work.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "So out of the $1996$ possible $k$, $332$ work.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Thus, the desired probability is $\\frac{332}{1996} = \\boxed{\\frac{83}{499}}.$",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "probability reasoning requires a declared sample space and sampling model",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s5",
+          "statement": "probability reasoning requires a declared sample space and sampling model",
+          "status": "discharged",
+          "created_at_step": "s5",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 0,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s1",
+        "obl:s3",
+        "obl:s5"
+      ],
+      "dependencies": [
+        "fact:s4",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s4",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "\\end{align*}We want $|v + w|^2\\ge 2 + \\sqrt {3}.$  From what we just obtained, this is equivalent to $\\cos\\left(\\frac {2\\pi k}{1997}\\right)\\ge \\frac {\\sqrt {3}}2.$  This occurs when $\\frac {\\pi}6\\ge \\frac {2\\pi k}{1997}\\ge - \\frac {\\pi}6$ which is satisfied by $k = 166,165,\\ldots, - 165, - 166$ (we don't include 0 because that corresponds to $v$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "So out of the $1996$ possible $k$, $332$ work.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "\\end{align*}We want $|v + w|^2\\ge 2 + \\sqrt {3}.$  From what we just obtained, this is equivalent to $\\cos\\left(\\frac {2\\pi k}{1997}\\right)\\ge \\frac {\\sqrt {3}}2.$  This occurs when $\\frac {\\pi}6\\ge \\frac {2\\pi k}{1997}\\ge - \\frac {\\pi}6$ which is satisfied by $k = 166,165,\\ldots, - 165, - 166$ (we don't include 0 because that corresponds to $v$).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "So out of the $1996$ possible $k$, $332$ work.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Thus, the desired probability is $\\frac{332}{1996} = \\boxed{\\frac{83}{499}}.$",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "probability reasoning requires a declared sample space and sampling model",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "added_obligations": [
+          "obl:s5"
+        ],
+        "removed_obligations": [
+          "obl:s1",
+          "obl:s3",
+          "obl:s5"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s4",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 5,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "Thus, the desired probability is $\\frac{332}{1996} = \\boxed{\\frac{83}{499}}.$",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "source probability model"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Let $v$ and $w$ be distinct, randomly chosen roots of the equation $z^{1997}-1=0.$  Find the probability that\n\\[\\sqrt{2+\\sqrt{3}}\\le\\left|v+w\\right|.\\]",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "The solutions of the equation $z^{1997} = 1$ are the $1997$th roots of unity and are equal to $\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)$ for $k = 0,1,\\ldots,1996.$  They are also located at the vertices of a regular $1997$-gon that is centered at the origin in the complex plane.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "By rotating around the origin, we can assume that $v = 1.$  Then\n\\begin{align*}\n|v + w|^2 & = \\left|\\cos\\left(\\frac {2\\pi k}{1997}\\right) + i\\sin\\left(\\frac {2\\pi k}{1997}\\right) + 1 \\right|^2 \\\\\n& = \\left|\\left[\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1\\right] + i\\sin\\left(\\frac {2\\pi k}{1997}\\right)\\right|^2 \\\\\n& = \\cos^2\\left(\\frac {2\\pi k}{1997}\\right) + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right) + 1 + \\sin^2\\left(\\frac {2\\pi k}{1997}\\right) \\\\\n& = 2 + 2\\cos\\left(\\frac {2\\pi k}{1997}\\right).",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "\\end{align*}We want $|v + w|^2\\ge 2 + \\sqrt {3}.$  From what we just obtained, this is equivalent to $\\cos\\left(\\frac {2\\pi k}{1997}\\right)\\ge \\frac {\\sqrt {3}}2.$  This occurs when $\\frac {\\pi}6\\ge \\frac {2\\pi k}{1997}\\ge - \\frac {\\pi}6$ which is satisfied by $k = 166,165,\\ldots, - 165, - 166$ (we don't include 0 because that corresponds to $v$).",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "So out of the $1996$ possible $k$, $332$ work.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "Thus, the desired probability is $\\frac{332}{1996} = \\boxed{\\frac{83}{499}}.$",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s1",
+        "statement": "the power/root transformation requires sign and domain conditions",
+        "status": "discharged",
+        "created_at_step": "s1",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 4,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s3",
+        "statement": "the power/root transformation requires sign and domain conditions",
+        "status": "discharged",
+        "created_at_step": "s3",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 2,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s5",
+        "statement": "probability reasoning requires a declared sample space and sampling model",
+        "status": "discharged",
+        "created_at_step": "s5",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 0,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S5"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "DISCHARGE",
+    "OTHER",
+    "TRIG_IDENTITY"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "DISCHARGE"
+      ]
+    },
+    {
+      "observed_operation": "OTHER",
+      "frequency": 1,
+      "candidate_core": "UNRESOLVED",
+      "layer_class": "UNRESOLVED",
+      "atomic_components": [
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "observed_operation": "TRIG_IDENTITY",
+      "frequency": 3,
+      "candidate_core": "TRIG_IDENTITY",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "TRIG_IDENTITY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 5,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "probability reasoning requires a declared sample space and sampling model",
+      "the power/root transformation requires sign and domain conditions"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [],
+  "hml_gaps": [
+    "MATH-GAP-0003",
+    "MATH-GAP-0007"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 5,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

@@ -1,0 +1,1834 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-042",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-02088",
+  "source_hash": "4145f3321b881087d7adead6506e42165645020ea3e4e2875671d8ae3800bd9b",
+  "category": "Counting & Probability",
+  "level": "Level 5",
+  "problem": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+  "original_solution": "Let $r$ and $b$ denote the number of red and blue socks, respectively. Also, let $t=r+b$. The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$. Hence, $r=n(n\\pm 1)/2$ would correspond to the general solution. For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.\nIn summary, the solution is that the maximum number of red socks is $r=\\boxed{990}$.",
+  "selection_reason": "Selected for semantic diversity in Counting & Probability at Level 5; targeted case_analysis, counting, inequality, polynomial, probability and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "case_analysis",
+    "counting",
+    "inequality",
+    "polynomial",
+    "probability",
+    "radical",
+    "sequence"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "source probability model"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "Also, let $t=r+b$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Also, let $t=r+b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "Also, let $t=r+b$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "SUBSTITUTE",
+        "CASE_SPLIT",
+        "APPLY_INVERSE",
+        "EVALUATE"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "positivity/domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+          "source_omission": false
+        },
+        {
+          "condition": "integer/natural domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+          "source_omission": false
+        },
+        {
+          "condition": "sampling-space or independence assumption",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s3",
+          "statement": "the power/root transformation requires sign and domain conditions",
+          "status": "discharged",
+          "created_at_step": "s3",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 2,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": false
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0004",
+        "MATH-GAP-0008",
+        "MATH-GAP-0010"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Also, let $t=r+b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Also, let $t=r+b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [
+          "obl:s3"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "SEQUENCE_RECURRENCE",
+        "family": "SEQUENCE_RECURRENCE",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "SEQUENCE_RECURRENCE",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "SEQUENCE_RECURRENCE",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": [
+        "meta:s3:1"
+      ]
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Hence, $r=n(n\\pm 1)/2$ would correspond to the general solution.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "candidate acceptance requires original-constraint verification",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s4",
+          "statement": "candidate acceptance requires original-constraint verification",
+          "status": "discharged",
+          "created_at_step": "s4",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 1,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s3"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Also, let $t=r+b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Also, let $t=r+b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Hence, $r=n(n\\pm 1)/2$ would correspond to the general solution.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [
+          "obl:s4"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "Hence, $r=n(n\\pm 1)/2$ would correspond to the general solution.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s5",
+      "source_span": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+      "explicitness": "explicit",
+      "reasoning_mode": "VERIFICATION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "CASE_SPLIT",
+        "VERIFY"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "integer/natural domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s5",
+          "statement": "the branch partition requires coverage and disjointness",
+          "status": "discharged",
+          "created_at_step": "s5",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 0,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": false
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s3",
+        "obl:s4",
+        "obl:s5"
+      ],
+      "dependencies": [
+        "fact:s4",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s4",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0004",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Also, let $t=r+b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Hence, $r=n(n\\pm 1)/2$ would correspond to the general solution.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "open",
+            "created_at_step": "s4",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Also, let $t=r+b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Hence, $r=n(n\\pm 1)/2$ would correspond to the general solution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "added_obligations": [
+          "obl:s5"
+        ],
+        "removed_obligations": [
+          "obl:s3",
+          "obl:s4",
+          "obl:s5"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s4",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "VERIFY",
+        "family": "VERIFY",
+        "arguments": {
+          "source_sentence_index": 5,
+          "candidate_core": "VERIFY",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "VERIFY",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": [
+        "meta:s5:1"
+      ]
+    },
+    {
+      "step_id": "s6",
+      "source_span": "In summary, the solution is that the maximum number of red socks is $r=\\boxed{990}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "COUNT",
+        "BOUND"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "candidate acceptance requires original-constraint verification",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s6",
+          "statement": "candidate acceptance requires original-constraint verification",
+          "status": "discharged",
+          "created_at_step": "s6",
+          "discharged_at_step": "s6",
+          "lifetime_steps": 0,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [
+        "obl:s6"
+      ],
+      "dependencies": [
+        "fact:s5",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s5",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0004",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Also, let $t=r+b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Hence, $r=n(n\\pm 1)/2$ would correspond to the general solution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "source probability model"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "Also, let $t=r+b$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Hence, $r=n(n\\pm 1)/2$ would correspond to the general solution.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "In summary, the solution is that the maximum number of red socks is $r=\\boxed{990}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s4",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s4",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s5",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s5",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": false
+          },
+          {
+            "id": "obl:s6",
+            "statement": "candidate acceptance requires original-constraint verification",
+            "status": "discharged",
+            "created_at_step": "s6",
+            "discharged_at_step": "s6",
+            "lifetime_steps": 0,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "added_obligations": [
+          "obl:s6"
+        ],
+        "removed_obligations": [
+          "obl:s6"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s5",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 6,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "In summary, the solution is that the maximum number of red socks is $r=\\boxed{990}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "source probability model"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "A drawer contains a mixture of red socks and blue socks, at most $1991$ in all. It so happens that, when two socks are selected randomly without replacement, there is a probability of exactly $\\frac{1}{2}$ that both are red or both are blue. What is the largest possible number of red socks in the drawer that is consistent with this data?\n",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "Let $r$ and $b$ denote the number of red and blue socks, respectively.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "Also, let $t=r+b$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "Hence, $r=n(n\\pm 1)/2$ would correspond to the general solution.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "In summary, the solution is that the maximum number of red socks is $r=\\boxed{990}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [
+      {
+        "id": "fact:s5",
+        "statement": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      }
+    ],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s3",
+        "statement": "the power/root transformation requires sign and domain conditions",
+        "status": "discharged",
+        "created_at_step": "s3",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 2,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": false
+      },
+      {
+        "id": "obl:s4",
+        "statement": "candidate acceptance requires original-constraint verification",
+        "status": "discharged",
+        "created_at_step": "s4",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 1,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s5",
+        "statement": "the branch partition requires coverage and disjointness",
+        "status": "discharged",
+        "created_at_step": "s5",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 0,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": false
+      },
+      {
+        "id": "obl:s6",
+        "statement": "candidate acceptance requires original-constraint verification",
+        "status": "discharged",
+        "created_at_step": "s6",
+        "discharged_at_step": "s6",
+        "lifetime_steps": 0,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S6"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "DISCHARGE",
+    "OTHER",
+    "SEQUENCE_RECURRENCE",
+    "TRANSFORM",
+    "VERIFY"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "BOUND",
+        "COUNT"
+      ]
+    },
+    {
+      "observed_operation": "OTHER",
+      "frequency": 1,
+      "candidate_core": "UNRESOLVED",
+      "layer_class": "UNRESOLVED",
+      "atomic_components": [
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "observed_operation": "SEQUENCE_RECURRENCE",
+      "frequency": 1,
+      "candidate_core": "SEQUENCE_RECURRENCE",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "CASE_SPLIT",
+        "EVALUATE",
+        "SUBSTITUTE"
+      ]
+    },
+    {
+      "observed_operation": "TRANSFORM",
+      "frequency": 2,
+      "candidate_core": "TRANSFORM",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM"
+      ]
+    },
+    {
+      "observed_operation": "VERIFY",
+      "frequency": 1,
+      "candidate_core": "VERIFY",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "CASE_SPLIT",
+        "VERIFY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 6,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "candidate acceptance requires original-constraint verification"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [
+    {
+      "meta_step_id": "meta:s3:1",
+      "source_span": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+      "meta_operation": "CONSIDER_CASES",
+      "target": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+      "current_state": "S2",
+      "resulting_search_constraint_or_subgoal": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+      "changes_mathematical_truth_state": false,
+      "representation_assessment": "structured_metadata",
+      "evidence_status": "EXPLICIT_SOURCE"
+    },
+    {
+      "meta_step_id": "meta:s5:1",
+      "source_span": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+      "meta_operation": "CONSIDER_CASES",
+      "target": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+      "current_state": "S4",
+      "resulting_search_constraint_or_subgoal": "For the present case $t\\leq 1991$, and so one easily finds that $n=44$ is the largest possible integer satisfying the problem conditions.",
+      "changes_mathematical_truth_state": false,
+      "representation_assessment": "structured_metadata",
+      "evidence_status": "EXPLICIT_SOURCE"
+    }
+  ],
+  "hml_gaps": [
+    "MATH-GAP-0002",
+    "MATH-GAP-0003",
+    "MATH-GAP-0004",
+    "MATH-GAP-0008",
+    "MATH-GAP-0010"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 6,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

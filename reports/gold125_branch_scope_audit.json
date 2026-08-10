@@ -1,0 +1,17 @@
+{
+  "trajectory_count": 125,
+  "trajectories_with_branch_steps": 5,
+  "branch_step_count": 26,
+  "max_branch_depth": 1,
+  "branch_join_count": 1,
+  "case_split_step_count": 15,
+  "invariant_join_count": 0,
+  "exhaustive_partition_count": 0,
+  "join_and_partition_note": "The builder records explicit branch joins but does not infer invariant proofs or exhaustive/disjoint partition certificates from textbook prose.",
+  "joins": [
+    {
+      "trajectory_id": "MATH-GOLD-027",
+      "step_id": "s17"
+    }
+  ]
+}

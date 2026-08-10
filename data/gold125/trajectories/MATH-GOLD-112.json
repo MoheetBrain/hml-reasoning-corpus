@@ -1,0 +1,2892 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-112",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-02495",
+  "source_hash": "0e1bbe4582a43b758919e9595b5244cee43f9fbd4f42042b489c5cb9db033409",
+  "category": "Counting & Probability",
+  "level": "Level 1",
+  "problem": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+  "original_solution": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.  If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.  For example, we can choose a 150-year period that starts with a leap year. For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.  Now we check that under no circumstance will 39 work. We see the optimal situation would be if we start with a leap year and end with a leap year. Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150. Therefore no 150-year period will contain 39 leap years. Hence, the answer is $\\boxed{38}$.",
+  "selection_reason": "Selected for semantic diversity in Counting & Probability at Level 1; targeted case_analysis, construction, counting, inequality and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "case_analysis",
+    "construction",
+    "counting",
+    "inequality"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s1",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s1",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 4,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [
+          "obl:s1"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the branch partition requires coverage and disjointness",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s2",
+          "statement": "the branch partition requires coverage and disjointness",
+          "status": "discharged",
+          "created_at_step": "s2",
+          "discharged_at_step": "s5",
+          "lifetime_steps": 3,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [
+          "obl:s2"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": [
+        "meta:s2:1"
+      ]
+    },
+    {
+      "step_id": "s3",
+      "source_span": "For example, we can choose a 150-year period that starts with a leap year.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "COUNT",
+        "family": "COUNT",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "COUNT",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "COUNT",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s3"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s5",
+      "source_span": "Now we check that under no circumstance will 39 work.",
+      "explicitness": "explicit",
+      "reasoning_mode": "VERIFICATION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [
+        "obl:s1",
+        "obl:s2"
+      ],
+      "dependencies": [
+        "fact:s4",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s4",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "state",
+          "goal",
+          "scope",
+          "evidence"
+        ],
+        "notes": "The state shape is representable; full executable support depends on the exact rule and evidence."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0002",
+        "MATH-GAP-0004",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s2",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S4"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_change": {
+        "from": "S4",
+        "to": "S5",
+        "added_facts": [
+          "fact:s5"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [
+          "obl:s1",
+          "obl:s2"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s4",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "VERIFY",
+        "family": "VERIFY",
+        "arguments": {
+          "source_sentence_index": 5,
+          "candidate_core": "VERIFY",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "VERIFY",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s5",
+        "statement": "Now we check that under no circumstance will 39 work.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s6",
+      "source_span": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the branch partition requires coverage and disjointness",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s6",
+          "statement": "the branch partition requires coverage and disjointness",
+          "status": "discharged",
+          "created_at_step": "s6",
+          "discharged_at_step": "s8",
+          "lifetime_steps": 2,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s5"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s5",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S5"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_change": {
+        "from": "S5",
+        "to": "S6",
+        "added_facts": [
+          "fact:s6"
+        ],
+        "added_obligations": [
+          "obl:s6"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s5"
+        ],
+        "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 6,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s6",
+        "statement": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s7",
+      "source_span": "Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the branch partition requires coverage and disjointness",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s7",
+          "statement": "the branch partition requires coverage and disjointness",
+          "status": "discharged",
+          "created_at_step": "s7",
+          "discharged_at_step": "s8",
+          "lifetime_steps": 1,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s6"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s6",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S6"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S7"
+      },
+      "state_change": {
+        "from": "S6",
+        "to": "S7",
+        "added_facts": [
+          "fact:s7"
+        ],
+        "added_obligations": [
+          "obl:s7"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s6"
+        ],
+        "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 7,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s7",
+        "statement": "Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s8",
+      "source_span": "Therefore no 150-year period will contain 39 leap years.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [
+        "obl:s6",
+        "obl:s7"
+      ],
+      "dependencies": [
+        "fact:s7"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s7",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s6",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "open",
+            "created_at_step": "s7",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S7"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Therefore no 150-year period will contain 39 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s6",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s7",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S8"
+      },
+      "state_change": {
+        "from": "S7",
+        "to": "S8",
+        "added_facts": [
+          "fact:s8"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [
+          "obl:s6",
+          "obl:s7"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s7"
+        ],
+        "epistemic_update": "Source-grounded result fact:s8 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRANSFORM",
+        "family": "TRANSFORM",
+        "arguments": {
+          "source_sentence_index": 8,
+          "candidate_core": "TRANSFORM",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "TRANSFORM",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s8",
+        "statement": "Therefore no 150-year period will contain 39 leap years.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s9",
+      "source_span": "Hence, the answer is $\\boxed{38}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s8",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s8",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Therefore no 150-year period will contain 39 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s6",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s7",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [],
+        "id": "S8"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s6",
+            "statement": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s7",
+            "statement": "Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s8",
+            "statement": "Therefore no 150-year period will contain 39 leap years.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s9",
+            "statement": "Hence, the answer is $\\boxed{38}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [
+          {
+            "id": "fact:s5",
+            "statement": "Now we check that under no circumstance will 39 work.",
+            "status": "candidate_or_selection",
+            "scope": "global"
+          }
+        ],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3",
+          "fact:s4",
+          "fact:s5",
+          "fact:s6",
+          "fact:s7",
+          "fact:s8"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 4,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s2",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s2",
+            "discharged_at_step": "s5",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s6",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s6",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 2,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          },
+          {
+            "id": "obl:s7",
+            "statement": "the branch partition requires coverage and disjointness",
+            "status": "discharged",
+            "created_at_step": "s7",
+            "discharged_at_step": "s8",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S9"
+      },
+      "state_change": {
+        "from": "S8",
+        "to": "S9",
+        "added_facts": [
+          "fact:s9"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s8",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s9 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 9,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s9",
+        "statement": "Hence, the answer is $\\boxed{38}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Assume we have a calendrical system in which leap years happen every four years, no matter what. In a 150-year period, what is the maximum possible number of leap years?",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "Since 150 divided by 4 is 37.5, there are 37 blocks of 4 years in 150 years, plus two extra years.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "For example, we can choose a 150-year period that starts with a leap year.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "For example, 1904-2053 is a 150-year period with 38 leap years $(1904, 1908, \\ldots, 2052)$.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s5",
+        "statement": "Now we check that under no circumstance will 39 work.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s6",
+        "statement": "We see the optimal situation would be if we start with a leap year and end with a leap year.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s7",
+        "statement": "Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s8",
+        "statement": "Therefore no 150-year period will contain 39 leap years.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s9",
+        "statement": "Hence, the answer is $\\boxed{38}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [
+      {
+        "id": "fact:s5",
+        "statement": "Now we check that under no circumstance will 39 work.",
+        "status": "candidate_or_selection",
+        "scope": "global"
+      }
+    ],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3",
+      "fact:s4",
+      "fact:s5",
+      "fact:s6",
+      "fact:s7",
+      "fact:s8"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s1",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s1",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 4,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s2",
+        "statement": "the branch partition requires coverage and disjointness",
+        "status": "discharged",
+        "created_at_step": "s2",
+        "discharged_at_step": "s5",
+        "lifetime_steps": 3,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s6",
+        "statement": "the branch partition requires coverage and disjointness",
+        "status": "discharged",
+        "created_at_step": "s6",
+        "discharged_at_step": "s8",
+        "lifetime_steps": 2,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      },
+      {
+        "id": "obl:s7",
+        "statement": "the branch partition requires coverage and disjointness",
+        "status": "discharged",
+        "created_at_step": "s7",
+        "discharged_at_step": "s8",
+        "lifetime_steps": 1,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S9"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "COUNT",
+    "DISCHARGE",
+    "OTHER",
+    "TRANSFORM",
+    "VERIFY"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "COUNT",
+      "frequency": 1,
+      "candidate_core": "COUNT",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "COUNT"
+      ]
+    },
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "DISCHARGE"
+      ]
+    },
+    {
+      "observed_operation": "OTHER",
+      "frequency": 3,
+      "candidate_core": "UNRESOLVED",
+      "layer_class": "UNRESOLVED",
+      "atomic_components": [
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "observed_operation": "TRANSFORM",
+      "frequency": 3,
+      "candidate_core": "TRANSFORM",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "TRANSFORM"
+      ]
+    },
+    {
+      "observed_operation": "VERIFY",
+      "frequency": 1,
+      "candidate_core": "VERIFY",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "VERIFY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 9,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "the branch partition requires coverage and disjointness",
+      "the transformation requires a nonzero or preserved-denominator condition"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [
+    {
+      "meta_step_id": "meta:s2:1",
+      "source_span": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+      "meta_operation": "CHOOSE_REPRESENTATION",
+      "target": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+      "current_state": "S1",
+      "resulting_search_constraint_or_subgoal": "If we let one of those two extra years be a leap year, and we have one leap year in each of the 37 blocks, then we have 38 leap years.",
+      "changes_mathematical_truth_state": true,
+      "representation_assessment": "structured_metadata",
+      "evidence_status": "EXPLICIT_SOURCE"
+    }
+  ],
+  "hml_gaps": [
+    "MATH-GAP-0002",
+    "MATH-GAP-0003",
+    "MATH-GAP-0004",
+    "MATH-GAP-0008"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 9,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

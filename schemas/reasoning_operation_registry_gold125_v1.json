@@ -1,0 +1,2275 @@
+{
+  "registry_version": "gold125_operation_registry_v1",
+  "operations": [
+    {
+      "observed_operation": "ADD_BOTH_SIDES",
+      "frequency_source_granularity": 2,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 2
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 2
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Algebra",
+        "Intermediate Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-003",
+        "MATH-GOLD-007"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "ADVANCE_SEQUENCE",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-016"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "APPLY_DEFINITION",
+      "frequency_source_granularity": 19,
+      "candidate_core": "APPLY_DEFINITION",
+      "candidate_core_distribution": {
+        "UNRESOLVED": 8,
+        "APPLY_DEFINITION": 11
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "UNRESOLVED": 8,
+        "CORE_PROOF_OPERATION": 11
+      },
+      "atomic_components": [
+        "APPLY_DEFINITION",
+        "APPLY_INVERSE",
+        "COUNT",
+        "MODEL",
+        "SEARCH_META",
+        "TRANSFORM",
+        "UNRESOLVED"
+      ],
+      "atomicity_counts": {
+        "COMPOUND_MACRO": 3,
+        "ATOMIC": 16
+      },
+      "reasoning_modes": {
+        "EXECUTION": 17,
+        "SEARCH_META": 2
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Geometry",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-001",
+        "MATH-GOLD-006",
+        "MATH-GOLD-008",
+        "MATH-GOLD-013",
+        "MATH-GOLD-017",
+        "MATH-GOLD-020",
+        "MATH-GOLD-022",
+        "MATH-GOLD-040"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "APPLY_IDENTITY",
+      "frequency_source_granularity": 2,
+      "candidate_core": "APPLY_THEOREM",
+      "candidate_core_distribution": {
+        "APPLY_THEOREM": 2
+      },
+      "layer_class": "THEOREM_LIBRARY",
+      "layer_distribution": {
+        "THEOREM_LIBRARY": 2
+      },
+      "atomic_components": [
+        "APPLY_THEOREM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Algebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-002",
+        "MATH-GOLD-019"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "APPLY_PRECEDENCE",
+      "frequency_source_granularity": 1,
+      "candidate_core": "APPLY_DEFINITION",
+      "candidate_core_distribution": {
+        "APPLY_DEFINITION": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "APPLY_DEFINITION"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-024"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "APPLY_THEOREM",
+      "frequency_source_granularity": 29,
+      "candidate_core": "APPLY_THEOREM",
+      "candidate_core_distribution": {
+        "APPLY_THEOREM": 29
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "THEOREM_LIBRARY": 5,
+        "CORE_PROOF_OPERATION": 24
+      },
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "APPLY_THEOREM",
+        "SEARCH_META",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 27,
+        "COMPOUND_MACRO": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 28,
+        "SEARCH_META": 1
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Geometry",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-009",
+        "MATH-GOLD-014",
+        "MATH-GOLD-018",
+        "MATH-GOLD-023",
+        "MATH-GOLD-026",
+        "MATH-GOLD-031",
+        "MATH-GOLD-032",
+        "MATH-GOLD-034"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "BOUND",
+      "frequency_source_granularity": 2,
+      "candidate_core": "BOUND",
+      "candidate_core_distribution": {
+        "BOUND": 2
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 2
+      },
+      "atomic_components": [
+        "BOUND",
+        "SUBSTITUTE"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1,
+        "COMPOUND_MACRO": 1
+      },
+      "reasoning_modes": {
+        "GOAL_MANAGEMENT": 2
+      },
+      "categories": [
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-092",
+        "MATH-GOLD-099"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "BOUND_REASONING",
+      "frequency_source_granularity": 2,
+      "candidate_core": "BOUND",
+      "candidate_core_distribution": {
+        "BOUND": 2
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 2
+      },
+      "atomic_components": [
+        "BOUND"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Counting & Probability",
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-012",
+        "MATH-GOLD-015"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "BOUND_SEARCH",
+      "frequency_source_granularity": 2,
+      "candidate_core": "SEARCH_META",
+      "candidate_core_distribution": {
+        "SEARCH_META": 2
+      },
+      "layer_class": "SEARCH_META_OPERATION",
+      "layer_distribution": {
+        "SEARCH_META_OPERATION": 2
+      },
+      "atomic_components": [
+        "SEARCH_META"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-014",
+        "MATH-GOLD-015"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "CANCEL_SYMMETRIC_TERMS",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-020"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "CASE_SPLIT",
+      "frequency_source_granularity": 15,
+      "candidate_core": "CASE_SPLIT",
+      "candidate_core_distribution": {
+        "CASE_SPLIT": 15
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 15
+      },
+      "atomic_components": [
+        "CASE_SPLIT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 15
+      },
+      "reasoning_modes": {
+        "EXECUTION": 5,
+        "SEARCH_META": 10
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-004",
+        "MATH-GOLD-007",
+        "MATH-GOLD-010",
+        "MATH-GOLD-019",
+        "MATH-GOLD-027",
+        "MATH-GOLD-030",
+        "MATH-GOLD-050",
+        "MATH-GOLD-106"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "CLEAR_DENOMINATOR",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-019"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "COMBINE_CASES",
+      "frequency_source_granularity": 1,
+      "candidate_core": "UNRESOLVED",
+      "candidate_core_distribution": {
+        "UNRESOLVED": 1
+      },
+      "layer_class": "UNRESOLVED",
+      "layer_distribution": {
+        "UNRESOLVED": 1
+      },
+      "atomic_components": [
+        "UNRESOLVED"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-019"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "COMBINE_CASE_COUNTS",
+      "frequency_source_granularity": 3,
+      "candidate_core": "COUNT",
+      "candidate_core_distribution": {
+        "COUNT": 3
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 3
+      },
+      "atomic_components": [
+        "COUNT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 3
+      },
+      "reasoning_modes": {
+        "EXECUTION": 3
+      },
+      "categories": [
+        "Counting & Probability",
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-010",
+        "MATH-GOLD-012",
+        "MATH-GOLD-017"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "COMBINE_LIKE_TERMS",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Intermediate Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-006"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "COMPLEMENT_COUNT",
+      "frequency_source_granularity": 2,
+      "candidate_core": "COUNT",
+      "candidate_core_distribution": {
+        "COUNT": 2
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 2
+      },
+      "atomic_components": [
+        "COUNT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Counting & Probability"
+      ],
+      "examples": [
+        "MATH-GOLD-011"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "CONDITIONAL_PROBABILITY",
+      "frequency_source_granularity": 3,
+      "candidate_core": "EVALUATE",
+      "candidate_core_distribution": {
+        "EVALUATE": 3
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 3
+      },
+      "atomic_components": [
+        "EVALUATE"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 3
+      },
+      "reasoning_modes": {
+        "EXECUTION": 3
+      },
+      "categories": [
+        "Counting & Probability"
+      ],
+      "examples": [
+        "MATH-GOLD-011"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "CONSTRAINT_PROPAGATION",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Counting & Probability"
+      ],
+      "examples": [
+        "MATH-GOLD-012"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "CONSTRUCT",
+      "frequency_source_granularity": 9,
+      "candidate_core": "CONSTRUCT",
+      "candidate_core_distribution": {
+        "CONSTRUCT": 9
+      },
+      "layer_class": "CORE_STATE_OPERATION",
+      "layer_distribution": {
+        "CORE_STATE_OPERATION": 9
+      },
+      "atomic_components": [
+        "CONSTRUCT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 9
+      },
+      "reasoning_modes": {
+        "SEARCH_META": 9
+      },
+      "categories": [
+        "Algebra",
+        "Geometry",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-027",
+        "MATH-GOLD-029",
+        "MATH-GOLD-039",
+        "MATH-GOLD-050",
+        "MATH-GOLD-092",
+        "MATH-GOLD-099",
+        "MATH-GOLD-101",
+        "MATH-GOLD-113"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "CONTRADICTION",
+      "frequency_source_granularity": 6,
+      "candidate_core": "CONTRADICTION",
+      "candidate_core_distribution": {
+        "CONTRADICTION": 6
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 6
+      },
+      "atomic_components": [
+        "BOUND",
+        "CASE_SPLIT",
+        "CONTRADICTION"
+      ],
+      "atomicity_counts": {
+        "COMPOUND_MACRO": 1,
+        "ATOMIC": 5
+      },
+      "reasoning_modes": {
+        "EXECUTION": 6
+      },
+      "categories": [
+        "Algebra",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-043",
+        "MATH-GOLD-044",
+        "MATH-GOLD-058",
+        "MATH-GOLD-068",
+        "MATH-GOLD-069",
+        "MATH-GOLD-083"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "COUNT",
+      "frequency_source_granularity": 12,
+      "candidate_core": "COUNT",
+      "candidate_core_distribution": {
+        "COUNT": 12
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 12
+      },
+      "atomic_components": [
+        "CASE_SPLIT",
+        "COUNT",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 8,
+        "COMPOUND_MACRO": 4
+      },
+      "reasoning_modes": {
+        "EXECUTION": 12
+      },
+      "categories": [
+        "Counting & Probability",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-032",
+        "MATH-GOLD-035",
+        "MATH-GOLD-036",
+        "MATH-GOLD-043",
+        "MATH-GOLD-051",
+        "MATH-GOLD-056",
+        "MATH-GOLD-091",
+        "MATH-GOLD-112"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "COUNT_CASES",
+      "frequency_source_granularity": 4,
+      "candidate_core": "UNRESOLVED",
+      "candidate_core_distribution": {
+        "UNRESOLVED": 4
+      },
+      "layer_class": "UNRESOLVED",
+      "layer_distribution": {
+        "UNRESOLVED": 4
+      },
+      "atomic_components": [
+        "UNRESOLVED"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 4
+      },
+      "reasoning_modes": {
+        "EXECUTION": 4
+      },
+      "categories": [
+        "Counting & Probability",
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-010",
+        "MATH-GOLD-013",
+        "MATH-GOLD-017"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "COUNT_EXCLUDED",
+      "frequency_source_granularity": 1,
+      "candidate_core": "COUNT",
+      "candidate_core_distribution": {
+        "COUNT": 1
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 1
+      },
+      "atomic_components": [
+        "COUNT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-016"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "COUNT_PERMUTATIONS",
+      "frequency_source_granularity": 2,
+      "candidate_core": "COUNT",
+      "candidate_core_distribution": {
+        "COUNT": 2
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 2
+      },
+      "atomic_components": [
+        "COUNT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Counting & Probability"
+      ],
+      "examples": [
+        "MATH-GOLD-012"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "CROSS_MULTIPLY",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-003"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "DIFFERENTIATE",
+      "frequency_source_granularity": 1,
+      "candidate_core": "DIFFERENTIATE",
+      "candidate_core_distribution": {
+        "DIFFERENTIATE": 1
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 1
+      },
+      "atomic_components": [
+        "DIFFERENTIATE"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Counting & Probability"
+      ],
+      "examples": [
+        "MATH-GOLD-035"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency_source_granularity": 87,
+      "candidate_core": "DISCHARGE",
+      "candidate_core_distribution": {
+        "DISCHARGE": 87
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 87
+      },
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "BOUND",
+        "CASE_SPLIT",
+        "COUNT",
+        "DISCHARGE",
+        "EVALUATE",
+        "MODULAR_REASONING",
+        "SEARCH_META",
+        "SUBSTITUTE",
+        "TRANSFORM",
+        "VERIFY"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 72,
+        "COMPOUND_MACRO": 15
+      },
+      "reasoning_modes": {
+        "GOAL_MANAGEMENT": 87
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Geometry",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-026",
+        "MATH-GOLD-027",
+        "MATH-GOLD-028",
+        "MATH-GOLD-029",
+        "MATH-GOLD-030",
+        "MATH-GOLD-031",
+        "MATH-GOLD-032",
+        "MATH-GOLD-033"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "DISCHARGE_GOAL",
+      "frequency_source_granularity": 3,
+      "candidate_core": "DISCHARGE",
+      "candidate_core_distribution": {
+        "DISCHARGE": 3
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 3
+      },
+      "atomic_components": [
+        "DISCHARGE"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 3
+      },
+      "reasoning_modes": {
+        "GOAL_MANAGEMENT": 3
+      },
+      "categories": [
+        "Algebra",
+        "Intermediate Algebra",
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-005",
+        "MATH-GOLD-008",
+        "MATH-GOLD-024"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "DIVIDE_BOTH_SIDES",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-003"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "ENUMERATE",
+      "frequency_source_granularity": 2,
+      "candidate_core": "ENUMERATE",
+      "candidate_core_distribution": {
+        "ENUMERATE": 2
+      },
+      "layer_class": "SEARCH_META_OPERATION",
+      "layer_distribution": {
+        "SEARCH_META_OPERATION": 2
+      },
+      "atomic_components": [
+        "ENUMERATE"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Counting & Probability",
+        "Geometry"
+      ],
+      "examples": [
+        "MATH-GOLD-012",
+        "MATH-GOLD-023"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "EVALUATE",
+      "frequency_source_granularity": 30,
+      "candidate_core": "EVALUATE",
+      "candidate_core_distribution": {
+        "EVALUATE": 30
+      },
+      "layer_class": "NUMERIC_BACKEND_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 11,
+        "NUMERIC_BACKEND_OPERATION": 19
+      },
+      "atomic_components": [
+        "APPLY_THEOREM",
+        "EVALUATE",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 27,
+        "COMPOUND_MACRO": 3
+      },
+      "reasoning_modes": {
+        "EXECUTION": 30
+      },
+      "categories": [
+        "Algebra",
+        "Geometry",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-001",
+        "MATH-GOLD-006",
+        "MATH-GOLD-007",
+        "MATH-GOLD-009",
+        "MATH-GOLD-018",
+        "MATH-GOLD-020",
+        "MATH-GOLD-021",
+        "MATH-GOLD-023"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "EVALUATE_PROBABILITY",
+      "frequency_source_granularity": 2,
+      "candidate_core": "EVALUATE",
+      "candidate_core_distribution": {
+        "EVALUATE": 2
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 2
+      },
+      "atomic_components": [
+        "EVALUATE"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Counting & Probability"
+      ],
+      "examples": [
+        "MATH-GOLD-012"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "EXPAND",
+      "frequency_source_granularity": 4,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 4
+      },
+      "layer_class": "SYMBOLIC_BACKEND_OPERATION",
+      "layer_distribution": {
+        "SYMBOLIC_BACKEND_OPERATION": 4
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 4
+      },
+      "reasoning_modes": {
+        "EXECUTION": 4
+      },
+      "categories": [
+        "Algebra",
+        "Geometry",
+        "Intermediate Algebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-003",
+        "MATH-GOLD-007",
+        "MATH-GOLD-020",
+        "MATH-GOLD-021"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "EXTRACT_ROOT",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-002"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "FACTOR",
+      "frequency_source_granularity": 3,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 3
+      },
+      "layer_class": "SYMBOLIC_BACKEND_OPERATION",
+      "layer_distribution": {
+        "SYMBOLIC_BACKEND_OPERATION": 3
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 3
+      },
+      "reasoning_modes": {
+        "EXECUTION": 3
+      },
+      "categories": [
+        "Geometry",
+        "Intermediate Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-007",
+        "MATH-GOLD-021",
+        "MATH-GOLD-022"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "FORMULATE_EQUATION",
+      "frequency_source_granularity": 6,
+      "candidate_core": "MODEL",
+      "candidate_core_distribution": {
+        "MODEL": 6
+      },
+      "layer_class": "CORE_STATE_OPERATION",
+      "layer_distribution": {
+        "CORE_STATE_OPERATION": 6
+      },
+      "atomic_components": [
+        "MODEL",
+        "SUBSTITUTE",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 5,
+        "COMPOUND_MACRO": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 6
+      },
+      "categories": [
+        "Algebra",
+        "Geometry",
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-001",
+        "MATH-GOLD-005",
+        "MATH-GOLD-021",
+        "MATH-GOLD-022",
+        "MATH-GOLD-025"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "FORMULATE_INEQUALITY",
+      "frequency_source_granularity": 1,
+      "candidate_core": "MODEL",
+      "candidate_core_distribution": {
+        "MODEL": 1
+      },
+      "layer_class": "CORE_STATE_OPERATION",
+      "layer_distribution": {
+        "CORE_STATE_OPERATION": 1
+      },
+      "atomic_components": [
+        "MODEL"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-025"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "INCLUSION_EXCLUSION",
+      "frequency_source_granularity": 2,
+      "candidate_core": "INCLUSION_EXCLUSION",
+      "candidate_core_distribution": {
+        "INCLUSION_EXCLUSION": 2
+      },
+      "layer_class": "THEOREM_LIBRARY",
+      "layer_distribution": {
+        "THEOREM_LIBRARY": 2
+      },
+      "atomic_components": [
+        "INCLUSION_EXCLUSION"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Counting & Probability",
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-028",
+        "MATH-GOLD-036"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "INDEX_TRANSLATION",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-016"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "INDUCT",
+      "frequency_source_granularity": 7,
+      "candidate_core": "INDUCT",
+      "candidate_core_distribution": {
+        "INDUCT": 7
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 7
+      },
+      "atomic_components": [
+        "CASE_SPLIT",
+        "INDUCT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 6,
+        "COMPOUND_MACRO": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 7
+      },
+      "categories": [
+        "Algebra",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-051",
+        "MATH-GOLD-061",
+        "MATH-GOLD-064",
+        "MATH-GOLD-076"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "INTRODUCE_VARIABLE",
+      "frequency_source_granularity": 5,
+      "candidate_core": "DECLARE",
+      "candidate_core_distribution": {
+        "DECLARE": 5
+      },
+      "layer_class": "CORE_STATE_OPERATION",
+      "layer_distribution": {
+        "CORE_STATE_OPERATION": 5
+      },
+      "atomic_components": [
+        "DECLARE"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 5
+      },
+      "reasoning_modes": {
+        "EXECUTION": 5
+      },
+      "categories": [
+        "Algebra",
+        "Geometry",
+        "Number Theory",
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-002",
+        "MATH-GOLD-005",
+        "MATH-GOLD-015",
+        "MATH-GOLD-021",
+        "MATH-GOLD-025"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "MODULAR_REASONING",
+      "frequency_source_granularity": 26,
+      "candidate_core": "MODULAR_REASONING",
+      "candidate_core_distribution": {
+        "MODULAR_REASONING": 26
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 26
+      },
+      "atomic_components": [
+        "COUNT",
+        "MODULAR_REASONING",
+        "SEARCH_META",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 12,
+        "COMPOUND_MACRO": 14
+      },
+      "reasoning_modes": {
+        "EXECUTION": 24,
+        "SEARCH_META": 2
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-027",
+        "MATH-GOLD-028",
+        "MATH-GOLD-043",
+        "MATH-GOLD-047",
+        "MATH-GOLD-053",
+        "MATH-GOLD-062",
+        "MATH-GOLD-071",
+        "MATH-GOLD-072"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "MULTIPLY_CONDITIONALS",
+      "frequency_source_granularity": 1,
+      "candidate_core": "EVALUATE",
+      "candidate_core_distribution": {
+        "EVALUATE": 1
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 1
+      },
+      "atomic_components": [
+        "EVALUATE"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Counting & Probability"
+      ],
+      "examples": [
+        "MATH-GOLD-011"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "MULTIPLY_COUNTS",
+      "frequency_source_granularity": 1,
+      "candidate_core": "COUNT",
+      "candidate_core_distribution": {
+        "COUNT": 1
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 1
+      },
+      "atomic_components": [
+        "COUNT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Counting & Probability"
+      ],
+      "examples": [
+        "MATH-GOLD-013"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "OPTIMIZE",
+      "frequency_source_granularity": 17,
+      "candidate_core": "OPTIMIZE",
+      "candidate_core_distribution": {
+        "OPTIMIZE": 17
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 17
+      },
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "BOUND",
+        "COUNT",
+        "OPTIMIZE",
+        "SUBSTITUTE",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 13,
+        "COMPOUND_MACRO": 4
+      },
+      "reasoning_modes": {
+        "GOAL_MANAGEMENT": 17
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Geometry",
+        "Number Theory",
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-029",
+        "MATH-GOLD-031",
+        "MATH-GOLD-033",
+        "MATH-GOLD-050",
+        "MATH-GOLD-052",
+        "MATH-GOLD-057",
+        "MATH-GOLD-068",
+        "MATH-GOLD-070"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "OTHER",
+      "frequency_source_granularity": 125,
+      "candidate_core": "UNRESOLVED",
+      "candidate_core_distribution": {
+        "UNRESOLVED": 125
+      },
+      "layer_class": "UNRESOLVED",
+      "layer_distribution": {
+        "UNRESOLVED": 125
+      },
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "COUNT",
+        "UNRESOLVED"
+      ],
+      "atomicity_counts": {
+        "UNCERTAIN": 124,
+        "COMPOUND_MACRO": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 125
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Geometry",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-026",
+        "MATH-GOLD-027",
+        "MATH-GOLD-028",
+        "MATH-GOLD-030",
+        "MATH-GOLD-031",
+        "MATH-GOLD-032",
+        "MATH-GOLD-033",
+        "MATH-GOLD-034"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "PARAMETERIZE_CONGRUENCE",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-015"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "PRIME_FACTORIZE",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-017"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "PROBABILITY",
+      "frequency_source_granularity": 12,
+      "candidate_core": "PROBABILITY",
+      "candidate_core_distribution": {
+        "PROBABILITY": 12
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 12
+      },
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "BOUND",
+        "CASE_SPLIT",
+        "COUNT",
+        "EVALUATE",
+        "PROBABILITY",
+        "SEARCH_META"
+      ],
+      "atomicity_counts": {
+        "COMPOUND_MACRO": 6,
+        "ATOMIC": 6
+      },
+      "reasoning_modes": {
+        "EXECUTION": 11,
+        "SEARCH_META": 1
+      },
+      "categories": [
+        "Counting & Probability",
+        "Geometry",
+        "Intermediate Algebra",
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-031",
+        "MATH-GOLD-035",
+        "MATH-GOLD-048",
+        "MATH-GOLD-077",
+        "MATH-GOLD-088"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "RATIONALIZE",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "SYMBOLIC_BACKEND_OPERATION",
+      "layer_distribution": {
+        "SYMBOLIC_BACKEND_OPERATION": 1
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-018"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "RECORD_EQUALITY_CONDITION",
+      "frequency_source_granularity": 1,
+      "candidate_core": "RECORD",
+      "candidate_core_distribution": {
+        "RECORD": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "RECORD"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Intermediate Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-009"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "RECORD_GIVEN",
+      "frequency_source_granularity": 1,
+      "candidate_core": "RECORD",
+      "candidate_core_distribution": {
+        "RECORD": 1
+      },
+      "layer_class": "CORE_STATE_OPERATION",
+      "layer_distribution": {
+        "CORE_STATE_OPERATION": 1
+      },
+      "atomic_components": [
+        "RECORD"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-002"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "ROUND_TO_DOMAIN",
+      "frequency_source_granularity": 1,
+      "candidate_core": "UNRESOLVED",
+      "candidate_core_distribution": {
+        "UNRESOLVED": 1
+      },
+      "layer_class": "UNRESOLVED",
+      "layer_distribution": {
+        "UNRESOLVED": 1
+      },
+      "atomic_components": [
+        "UNRESOLVED"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-025"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "SEARCH_META",
+      "frequency_source_granularity": 7,
+      "candidate_core": "SEARCH_META",
+      "candidate_core_distribution": {
+        "SEARCH_META": 7
+      },
+      "layer_class": "SEARCH_META_OPERATION",
+      "layer_distribution": {
+        "SEARCH_META_OPERATION": 7
+      },
+      "atomic_components": [
+        "COUNT",
+        "SEARCH_META"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 6,
+        "COMPOUND_MACRO": 1
+      },
+      "reasoning_modes": {
+        "SEARCH_META": 7
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Geometry",
+        "Number Theory",
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-031",
+        "MATH-GOLD-032",
+        "MATH-GOLD-033",
+        "MATH-GOLD-035",
+        "MATH-GOLD-036",
+        "MATH-GOLD-066",
+        "MATH-GOLD-096"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "SELECT_CANDIDATE",
+      "frequency_source_granularity": 3,
+      "candidate_core": "SELECT",
+      "candidate_core_distribution": {
+        "SELECT": 3
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 3
+      },
+      "atomic_components": [
+        "SELECT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 3
+      },
+      "reasoning_modes": {
+        "GOAL_MANAGEMENT": 3
+      },
+      "categories": [
+        "Geometry",
+        "Number Theory"
+      ],
+      "examples": [
+        "MATH-GOLD-014",
+        "MATH-GOLD-021",
+        "MATH-GOLD-022"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "SELECT_EXTREMUM",
+      "frequency_source_granularity": 1,
+      "candidate_core": "SELECT",
+      "candidate_core_distribution": {
+        "SELECT": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "SELECT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "GOAL_MANAGEMENT": 1
+      },
+      "categories": [
+        "Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-004"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "SEQUENCE_RECURRENCE",
+      "frequency_source_granularity": 23,
+      "candidate_core": "SEQUENCE_RECURRENCE",
+      "candidate_core_distribution": {
+        "SEQUENCE_RECURRENCE": 23
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 23
+      },
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "CASE_SPLIT",
+        "EVALUATE",
+        "SEARCH_META",
+        "SEQUENCE_RECURRENCE",
+        "SUBSTITUTE",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 19,
+        "COMPOUND_MACRO": 4
+      },
+      "reasoning_modes": {
+        "EXECUTION": 20,
+        "SEARCH_META": 3
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-027",
+        "MATH-GOLD-033",
+        "MATH-GOLD-041",
+        "MATH-GOLD-042",
+        "MATH-GOLD-043",
+        "MATH-GOLD-046",
+        "MATH-GOLD-051",
+        "MATH-GOLD-061"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "SOLVE",
+      "frequency_source_granularity": 6,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 6
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 6
+      },
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 4,
+        "COMPOUND_MACRO": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 6
+      },
+      "categories": [
+        "Algebra",
+        "Intermediate Algebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-001",
+        "MATH-GOLD-005",
+        "MATH-GOLD-006",
+        "MATH-GOLD-009",
+        "MATH-GOLD-019"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "SOLVE_CASE",
+      "frequency_source_granularity": 2,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 2
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 2
+      },
+      "atomic_components": [
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 2
+      },
+      "reasoning_modes": {
+        "EXECUTION": 2
+      },
+      "categories": [
+        "Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-004"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "SUBSTITUTE",
+      "frequency_source_granularity": 7,
+      "candidate_core": "SUBSTITUTE",
+      "candidate_core_distribution": {
+        "SUBSTITUTE": 7
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 7
+      },
+      "atomic_components": [
+        "SUBSTITUTE"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 7
+      },
+      "reasoning_modes": {
+        "EXECUTION": 7
+      },
+      "categories": [
+        "Algebra",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-005",
+        "MATH-GOLD-007",
+        "MATH-GOLD-015",
+        "MATH-GOLD-018",
+        "MATH-GOLD-044",
+        "MATH-GOLD-086",
+        "MATH-GOLD-121"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "SUBTRACT_BOTH_SIDES",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 1
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 1
+      },
+      "atomic_components": [
+        "BOUND",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "COMPOUND_MACRO": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-025"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": false
+    },
+    {
+      "observed_operation": "TAKE_LIMIT",
+      "frequency_source_granularity": 1,
+      "candidate_core": "TAKE_LIMIT",
+      "candidate_core_distribution": {
+        "TAKE_LIMIT": 1
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 1
+      },
+      "atomic_components": [
+        "TAKE_LIMIT"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 1
+      },
+      "reasoning_modes": {
+        "EXECUTION": 1
+      },
+      "categories": [
+        "Algebra"
+      ],
+      "examples": [
+        "MATH-GOLD-040"
+      ],
+      "singleton_or_doubleton": true,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "TRANSFORM",
+      "frequency_source_granularity": 200,
+      "candidate_core": "TRANSFORM",
+      "candidate_core_distribution": {
+        "TRANSFORM": 200
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 200
+      },
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "CASE_SPLIT",
+        "COUNT",
+        "SEARCH_META",
+        "TRANSFORM"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 190,
+        "COMPOUND_MACRO": 10
+      },
+      "reasoning_modes": {
+        "SEARCH_META": 10,
+        "EXECUTION": 190
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Geometry",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-026",
+        "MATH-GOLD-027",
+        "MATH-GOLD-028",
+        "MATH-GOLD-029",
+        "MATH-GOLD-030",
+        "MATH-GOLD-033",
+        "MATH-GOLD-034",
+        "MATH-GOLD-036"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "TRIG_IDENTITY",
+      "frequency_source_granularity": 23,
+      "candidate_core": "TRIG_IDENTITY",
+      "candidate_core_distribution": {
+        "TRIG_IDENTITY": 23
+      },
+      "layer_class": "DOMAIN_LIBRARY",
+      "layer_distribution": {
+        "DOMAIN_LIBRARY": 23
+      },
+      "atomic_components": [
+        "SEARCH_META",
+        "TRANSFORM",
+        "TRIG_IDENTITY"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 22,
+        "COMPOUND_MACRO": 1
+      },
+      "reasoning_modes": {
+        "SEARCH_META": 3,
+        "EXECUTION": 20
+      },
+      "categories": [
+        "Intermediate Algebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-030",
+        "MATH-GOLD-037",
+        "MATH-GOLD-041",
+        "MATH-GOLD-044",
+        "MATH-GOLD-058",
+        "MATH-GOLD-072",
+        "MATH-GOLD-079",
+        "MATH-GOLD-100"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "VERIFY",
+      "frequency_source_granularity": 24,
+      "candidate_core": "VERIFY",
+      "candidate_core_distribution": {
+        "VERIFY": 24
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 24
+      },
+      "atomic_components": [
+        "APPLY_INVERSE",
+        "CASE_SPLIT",
+        "COUNT",
+        "MODULAR_REASONING",
+        "TRANSFORM",
+        "VERIFY"
+      ],
+      "atomicity_counts": {
+        "COMPOUND_MACRO": 14,
+        "ATOMIC": 10
+      },
+      "reasoning_modes": {
+        "VERIFICATION": 24
+      },
+      "categories": [
+        "Algebra",
+        "Counting & Probability",
+        "Intermediate Algebra",
+        "Number Theory",
+        "Prealgebra",
+        "Precalculus"
+      ],
+      "examples": [
+        "MATH-GOLD-030",
+        "MATH-GOLD-042",
+        "MATH-GOLD-043",
+        "MATH-GOLD-044",
+        "MATH-GOLD-046",
+        "MATH-GOLD-056",
+        "MATH-GOLD-057",
+        "MATH-GOLD-068"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": true
+    },
+    {
+      "observed_operation": "VERIFY_CANDIDATE",
+      "frequency_source_granularity": 4,
+      "candidate_core": "VERIFY",
+      "candidate_core_distribution": {
+        "VERIFY": 4
+      },
+      "layer_class": "CORE_PROOF_OPERATION",
+      "layer_distribution": {
+        "CORE_PROOF_OPERATION": 4
+      },
+      "atomic_components": [
+        "VERIFY"
+      ],
+      "atomicity_counts": {
+        "ATOMIC": 4
+      },
+      "reasoning_modes": {
+        "VERIFICATION": 4
+      },
+      "categories": [
+        "Algebra",
+        "Number Theory",
+        "Prealgebra"
+      ],
+      "examples": [
+        "MATH-GOLD-004",
+        "MATH-GOLD-015",
+        "MATH-GOLD-025"
+      ],
+      "singleton_or_doubleton": false,
+      "core_semantics_new_since_gold25": false
+    }
+  ]
+}

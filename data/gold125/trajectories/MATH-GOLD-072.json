@@ -1,0 +1,1067 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-072",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-12377",
+  "source_hash": "2482707914e79a0e3e59235aec969b736f80d14a8486b5013095ba75e0bdcd0f",
+  "category": "Precalculus",
+  "level": "Level 3",
+  "problem": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+  "original_solution": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.\n\\end{align*}Since the sequences $(a_n)$ and $(\\tan \\theta_n)$ have the same initial terms, and the same recursion, they coincide.\n\nSince $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.\n\nTherefore,\n\\[a_{2009} = \\tan \\theta_{2009} = \\tan \\theta_5 = \\boxed{0}.\\]",
+  "selection_reason": "Selected for semantic diversity in Precalculus at Level 3; targeted geometry, meta_observation, modular, radical, sequence and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "geometry",
+    "meta_observation",
+    "modular",
+    "radical",
+    "sequence",
+    "trigonometry"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the power/root transformation requires sign and domain conditions",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s1",
+          "statement": "the power/root transformation requires sign and domain conditions",
+          "status": "discharged",
+          "created_at_step": "s1",
+          "discharged_at_step": "s4",
+          "lifetime_steps": 3,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0007"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [
+          "obl:s1"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRIG_IDENTITY",
+        "family": "TRIG_IDENTITY",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "TRIG_IDENTITY",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "TRIG_IDENTITY",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "\\end{align*}Since the sequences $(a_n)$ and $(\\tan \\theta_n)$ have the same initial terms, and the same recursion, they coincide.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007",
+        "MATH-GAP-0010"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "\\end{align*}Since the sequences $(a_n)$ and $(\\tan \\theta_n)$ have the same initial terms, and the same recursion, they coincide.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "SEQUENCE_RECURRENCE",
+        "family": "SEQUENCE_RECURRENCE",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "SEQUENCE_RECURRENCE",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "SEQUENCE_RECURRENCE",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "\\end{align*}Since the sequences $(a_n)$ and $(\\tan \\theta_n)$ have the same initial terms, and the same recursion, they coincide.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Since $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.",
+      "explicitness": "explicit",
+      "reasoning_mode": "SEARCH_META",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "MODULAR_REASONING",
+        "SEARCH_META"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0004",
+        "MATH-GAP-0007",
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "\\end{align*}Since the sequences $(a_n)$ and $(\\tan \\theta_n)$ have the same initial terms, and the same recursion, they coincide.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "\\end{align*}Since the sequences $(a_n)$ and $(\\tan \\theta_n)$ have the same initial terms, and the same recursion, they coincide.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Since $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "MODULAR_REASONING",
+        "family": "MODULAR_REASONING",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "MODULAR_REASONING",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "MODULAR_REASONING",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "Since $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": [
+        "meta:s3:1"
+      ]
+    },
+    {
+      "step_id": "s4",
+      "source_span": "Therefore,\n\\[a_{2009} = \\tan \\theta_{2009} = \\tan \\theta_5 = \\boxed{0}.\\]",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [
+        "obl:s1"
+      ],
+      "dependencies": [
+        "fact:s3",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "\\end{align*}Since the sequences $(a_n)$ and $(\\tan \\theta_n)$ have the same initial terms, and the same recursion, they coincide.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Since $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "open",
+            "created_at_step": "s1",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "\\end{align*}Since the sequences $(a_n)$ and $(\\tan \\theta_n)$ have the same initial terms, and the same recursion, they coincide.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Since $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "Therefore,\n\\[a_{2009} = \\tan \\theta_{2009} = \\tan \\theta_5 = \\boxed{0}.\\]",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s1",
+            "statement": "the power/root transformation requires sign and domain conditions",
+            "status": "discharged",
+            "created_at_step": "s1",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 3,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [
+          "obl:s1"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "Therefore,\n\\[a_{2009} = \\tan \\theta_{2009} = \\tan \\theta_5 = \\boxed{0}.\\]",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "The first two terms of a sequence are $a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. For $n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}What is $a_{2009}$?",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "\\end{align*}Since the sequences $(a_n)$ and $(\\tan \\theta_n)$ have the same initial terms, and the same recursion, they coincide.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "Since $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "Therefore,\n\\[a_{2009} = \\tan \\theta_{2009} = \\tan \\theta_5 = \\boxed{0}.\\]",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s1",
+        "statement": "the power/root transformation requires sign and domain conditions",
+        "status": "discharged",
+        "created_at_step": "s1",
+        "discharged_at_step": "s4",
+        "lifetime_steps": 3,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "DISCHARGE",
+    "MODULAR_REASONING",
+    "SEQUENCE_RECURRENCE",
+    "TRIG_IDENTITY"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "DISCHARGE"
+      ]
+    },
+    {
+      "observed_operation": "MODULAR_REASONING",
+      "frequency": 1,
+      "candidate_core": "MODULAR_REASONING",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "MODULAR_REASONING",
+        "SEARCH_META"
+      ]
+    },
+    {
+      "observed_operation": "SEQUENCE_RECURRENCE",
+      "frequency": 1,
+      "candidate_core": "SEQUENCE_RECURRENCE",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "SEQUENCE_RECURRENCE"
+      ]
+    },
+    {
+      "observed_operation": "TRIG_IDENTITY",
+      "frequency": 1,
+      "candidate_core": "TRIG_IDENTITY",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "TRIG_IDENTITY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "the power/root transformation requires sign and domain conditions"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [
+    {
+      "meta_step_id": "meta:s3:1",
+      "source_span": "Since $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.",
+      "meta_operation": "CREATE_SUBGOAL",
+      "target": "Since $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.",
+      "current_state": "S2",
+      "resulting_search_constraint_or_subgoal": "Since $\\tan \\theta$ is periodic with period $\\pi,$ to compute further terms of $\\tan \\theta_n,$ it suffices to compute $f_n$ modulo 12:\n\\[\n\\begin{array}{c|c}\nn & f_n \\pmod{12} \\\\ \\hline\n1 & 3 \\\\\n2 & 2 \\\\\n3 & 5 \\\\\n4 & 7 \\\\\n5 & 0 \\\\\n6 & 7 \\\\\n7 & 7 \\\\\n8 & 2 \\\\\n9 & 9 \\\\\n10 & 11 \\\\\n11 & 8 \\\\\n12 & 7 \\\\\n13 & 3 \\\\\n14 & 10 \\\\\n15 & 1 \\\\\n16 & 11 \\\\\n17 & 0 \\\\\n18 & 11 \\\\\n19 & 11 \\\\\n20 & 10 \\\\\n21 & 9 \\\\\n22 & 7 \\\\\n23 & 4 \\\\\n24 & 11 \\\\\n25 & 3 \\\\\n26 & 2\n\\end{array}\n\\]Since $a_{25} \\equiv a_1 \\pmod{12}$ and $a_{26} \\equiv a_2 \\pmod{12},$ the sequence modulo 12 become periodic at this point, with period 12.",
+      "changes_mathematical_truth_state": false,
+      "representation_assessment": "structured_metadata",
+      "evidence_status": "EXPLICIT_SOURCE"
+    }
+  ],
+  "hml_gaps": [
+    "MATH-GAP-0003",
+    "MATH-GAP-0004",
+    "MATH-GAP-0007",
+    "MATH-GAP-0009",
+    "MATH-GAP-0010"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 4,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hml.reasoning.local/schemas/math-gold125-trajectory.schema.json",
+  "title": "Gold-125 source-grounded semantic trajectory",
+  "description": "Representation-neutral trajectory schema for frozen Gold-25 plus 100 new source-grounded MATH trajectories. HML is not required.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "problem_id",
+    "source_dataset",
+    "source_row_id",
+    "source_hash",
+    "category",
+    "level",
+    "problem",
+    "original_solution",
+    "selection_reason",
+    "targeted_semantic_features",
+    "initial_state",
+    "steps",
+    "final_state",
+    "goal_status",
+    "operations_observed",
+    "operation_profile",
+    "source_quality",
+    "meta_reasoning",
+    "hml_gaps",
+    "canonical_verification"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "math-gold125-trajectory-0.1.0"
+    },
+    "problem_id": {
+      "type": "string",
+      "pattern": "^MATH-GOLD-(?:0[0-9]{2}|1[0-1][0-9]|12[0-5])$"
+    },
+    "source_dataset": {
+      "type": "string"
+    },
+    "source_row_id": {
+      "type": "string"
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "category": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "problem": {
+      "type": "string",
+      "minLength": 1
+    },
+    "original_solution": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selection_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "targeted_semantic_features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "initial_state": {
+      "$ref": "#/$defs/state"
+    },
+    "final_state": {
+      "$ref": "#/$defs/state"
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    },
+    "goal_status": {
+      "const": "discharged"
+    },
+    "operations_observed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "operation_profile": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "source_quality": {
+      "type": "object"
+    },
+    "meta_reasoning": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "hml_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_verification": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "state": {
+      "type": "object",
+      "required": [
+        "objects",
+        "declarations",
+        "types_domains",
+        "facts",
+        "assumptions",
+        "constraints",
+        "definitions",
+        "goals",
+        "subgoals",
+        "candidates",
+        "branch_state",
+        "scope",
+        "dependencies",
+        "open_obligations",
+        "discharged_obligations",
+        "epistemic_status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "objects": {
+          "type": "array"
+        },
+        "declarations": {
+          "type": "array"
+        },
+        "types_domains": {
+          "type": "array"
+        },
+        "facts": {
+          "type": "array"
+        },
+        "assumptions": {
+          "type": "array"
+        },
+        "constraints": {
+          "type": "array"
+        },
+        "definitions": {
+          "type": "array"
+        },
+        "goals": {
+          "type": "array"
+        },
+        "subgoals": {
+          "type": "array"
+        },
+        "candidates": {
+          "type": "array"
+        },
+        "branch_state": {
+          "type": "array"
+        },
+        "scope": {
+          "type": "array"
+        },
+        "dependencies": {
+          "type": "array"
+        },
+        "open_obligations": {
+          "type": "array"
+        },
+        "discharged_obligations": {
+          "type": "array"
+        },
+        "epistemic_status": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    },
+    "step": {
+      "type": "object",
+      "required": [
+        "step_id",
+        "source_span",
+        "explicitness",
+        "reasoning_mode",
+        "atomicity",
+        "macro_components",
+        "warrant",
+        "preconditions",
+        "creates_obligations",
+        "discharges_obligations",
+        "dependencies",
+        "dependency_evidence",
+        "scope",
+        "verification",
+        "hml_support",
+        "semantic_gap_ids",
+        "state_before",
+        "state_after",
+        "state_change",
+        "action",
+        "result",
+        "meta_step_ids"
+      ],
+      "properties": {
+        "step_id": {
+          "type": "string"
+        },
+        "source_span": {
+          "type": "string"
+        },
+        "explicitness": {
+          "enum": [
+            "explicit",
+            "implicit"
+          ]
+        },
+        "reasoning_mode": {
+          "enum": [
+            "EXECUTION",
+            "SEARCH_META",
+            "GOAL_MANAGEMENT",
+            "VERIFICATION",
+            "MODELING",
+            "OTHER"
+          ]
+        },
+        "atomicity": {
+          "enum": [
+            "ATOMIC",
+            "COMPOUND_MACRO",
+            "UNCERTAIN"
+          ]
+        },
+        "macro_components": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "warrant": {
+          "type": "object"
+        },
+        "preconditions": {
+          "type": "array"
+        },
+        "creates_obligations": {
+          "type": "array"
+        },
+        "discharges_obligations": {
+          "type": "array"
+        },
+        "dependencies": {
+          "type": "array"
+        },
+        "dependency_evidence": {
+          "type": "array"
+        },
+        "scope": {
+          "type": "object"
+        },
+        "verification": {
+          "type": "object"
+        },
+        "hml_support": {
+          "type": "object"
+        },
+        "semantic_gap_ids": {
+          "type": "array"
+        },
+        "state_before": {
+          "$ref": "#/$defs/state"
+        },
+        "state_after": {
+          "$ref": "#/$defs/state"
+        },
+        "state_change": {
+          "type": "object"
+        },
+        "action": {
+          "type": "object"
+        },
+        "result": {
+          "type": "object"
+        },
+        "meta_step_ids": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

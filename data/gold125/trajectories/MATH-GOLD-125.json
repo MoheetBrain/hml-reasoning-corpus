@@ -1,0 +1,490 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-125",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-06915",
+  "source_hash": "94b8399502093249359d318629e0a7bf2a8c840cdd0730afcd3251faf63f8de6",
+  "category": "Precalculus",
+  "level": "Level 1",
+  "problem": "Compute\n\\[\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right).\\]",
+  "original_solution": "We can write\n\\begin{align*}\n&\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right) \\\\\n&= \\frac{\\cos 23^\\circ - 1}{\\cos 23^\\circ} \\cdot \\frac{\\sin 67^\\circ + 1}{\\sin 67^\\circ} \\cdot \\frac{\\sin 23^\\circ - 1}{\\sin 23^\\circ} \\cdot \\frac{\\cos 67^\\circ + 1}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\sin 67^\\circ}{\\sin 67^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\cos 67^\\circ}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\sin 23^\\circ}{\\sin 23^\\circ} \\\\\n&= \\frac{(1 - \\cos^2 23^\\circ)(1 - \\sin^2 23^\\circ)}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\frac{\\sin^2 23^\\circ \\cos^2 23^\\circ}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\boxed{1}.\n\\end{align*}",
+  "selection_reason": "Selected for semantic diversity in Precalculus at Level 1; targeted trigonometry and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "trigonometry"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Compute\n\\[\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right).\\]",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "We can write\n\\begin{align*}\n&\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right) \\\\\n&= \\frac{\\cos 23^\\circ - 1}{\\cos 23^\\circ} \\cdot \\frac{\\sin 67^\\circ + 1}{\\sin 67^\\circ} \\cdot \\frac{\\sin 23^\\circ - 1}{\\sin 23^\\circ} \\cdot \\frac{\\cos 67^\\circ + 1}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\sin 67^\\circ}{\\sin 67^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\cos 67^\\circ}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\sin 23^\\circ}{\\sin 23^\\circ} \\\\\n&= \\frac{(1 - \\cos^2 23^\\circ)(1 - \\sin^2 23^\\circ)}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\frac{\\sin^2 23^\\circ \\cos^2 23^\\circ}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\boxed{1}.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0007"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute\n\\[\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right).\\]",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute\n\\[\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right).\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can write\n\\begin{align*}\n&\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right) \\\\\n&= \\frac{\\cos 23^\\circ - 1}{\\cos 23^\\circ} \\cdot \\frac{\\sin 67^\\circ + 1}{\\sin 67^\\circ} \\cdot \\frac{\\sin 23^\\circ - 1}{\\sin 23^\\circ} \\cdot \\frac{\\cos 67^\\circ + 1}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\sin 67^\\circ}{\\sin 67^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\cos 67^\\circ}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\sin 23^\\circ}{\\sin 23^\\circ} \\\\\n&= \\frac{(1 - \\cos^2 23^\\circ)(1 - \\sin^2 23^\\circ)}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\frac{\\sin^2 23^\\circ \\cos^2 23^\\circ}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\boxed{1}.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "TRIG_IDENTITY",
+        "family": "TRIG_IDENTITY",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "TRIG_IDENTITY",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "TRIG_IDENTITY",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "We can write\n\\begin{align*}\n&\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right) \\\\\n&= \\frac{\\cos 23^\\circ - 1}{\\cos 23^\\circ} \\cdot \\frac{\\sin 67^\\circ + 1}{\\sin 67^\\circ} \\cdot \\frac{\\sin 23^\\circ - 1}{\\sin 23^\\circ} \\cdot \\frac{\\cos 67^\\circ + 1}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\sin 67^\\circ}{\\sin 67^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\cos 67^\\circ}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\sin 23^\\circ}{\\sin 23^\\circ} \\\\\n&= \\frac{(1 - \\cos^2 23^\\circ)(1 - \\sin^2 23^\\circ)}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\frac{\\sin^2 23^\\circ \\cos^2 23^\\circ}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\boxed{1}.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "\\end{align*}",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute\n\\[\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right).\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can write\n\\begin{align*}\n&\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right) \\\\\n&= \\frac{\\cos 23^\\circ - 1}{\\cos 23^\\circ} \\cdot \\frac{\\sin 67^\\circ + 1}{\\sin 67^\\circ} \\cdot \\frac{\\sin 23^\\circ - 1}{\\sin 23^\\circ} \\cdot \\frac{\\cos 67^\\circ + 1}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\sin 67^\\circ}{\\sin 67^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\cos 67^\\circ}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\sin 23^\\circ}{\\sin 23^\\circ} \\\\\n&= \\frac{(1 - \\cos^2 23^\\circ)(1 - \\sin^2 23^\\circ)}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\frac{\\sin^2 23^\\circ \\cos^2 23^\\circ}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\boxed{1}.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Compute\n\\[\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right).\\]",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can write\n\\begin{align*}\n&\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right) \\\\\n&= \\frac{\\cos 23^\\circ - 1}{\\cos 23^\\circ} \\cdot \\frac{\\sin 67^\\circ + 1}{\\sin 67^\\circ} \\cdot \\frac{\\sin 23^\\circ - 1}{\\sin 23^\\circ} \\cdot \\frac{\\cos 67^\\circ + 1}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\sin 67^\\circ}{\\sin 67^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\cos 67^\\circ}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\sin 23^\\circ}{\\sin 23^\\circ} \\\\\n&= \\frac{(1 - \\cos^2 23^\\circ)(1 - \\sin^2 23^\\circ)}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\frac{\\sin^2 23^\\circ \\cos^2 23^\\circ}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\boxed{1}.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "\\end{align*}",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "\\end{align*}",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Compute\n\\[\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right).\\]",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "We can write\n\\begin{align*}\n&\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right) \\\\\n&= \\frac{\\cos 23^\\circ - 1}{\\cos 23^\\circ} \\cdot \\frac{\\sin 67^\\circ + 1}{\\sin 67^\\circ} \\cdot \\frac{\\sin 23^\\circ - 1}{\\sin 23^\\circ} \\cdot \\frac{\\cos 67^\\circ + 1}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\sin 67^\\circ}{\\sin 67^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\cos 67^\\circ}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\sin 23^\\circ}{\\sin 23^\\circ} \\\\\n&= \\frac{(1 - \\cos^2 23^\\circ)(1 - \\sin^2 23^\\circ)}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\frac{\\sin^2 23^\\circ \\cos^2 23^\\circ}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\boxed{1}.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "\\end{align*}",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S2"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "OTHER",
+    "TRIG_IDENTITY"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "OTHER",
+      "frequency": 1,
+      "candidate_core": "UNRESOLVED",
+      "layer_class": "UNRESOLVED",
+      "atomic_components": [
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "observed_operation": "TRIG_IDENTITY",
+      "frequency": 1,
+      "candidate_core": "TRIG_IDENTITY",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "TRIG_IDENTITY"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 2,
+    "implicit_steps": 0,
+    "source_omissions": [],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [],
+  "hml_gaps": [
+    "MATH-GAP-0007"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 2,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}

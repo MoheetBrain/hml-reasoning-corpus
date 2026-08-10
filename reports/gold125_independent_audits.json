@@ -1,0 +1,1439 @@
+[
+  {
+    "problem_id": "MATH-GOLD-030",
+    "category": "Precalculus",
+    "complexity_score": 5224,
+    "original_solution": "There are 20 possible values of $a$ and $b,$ namely\n\\[S = \\left\\{ 0, 1, \\frac{1}{2}, \\frac{3}{2}, \\frac{1}{3}, \\frac{2}{3}, \\frac{4}{3}, \\frac{5}{3}, \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4}, \\frac{1}{5}, \\frac{2}{5}, \\frac{3}{5}, \\frac{4}{5}, \\frac{6}{5}, \\frac{7}{5}, \\frac{8}{5}, \\frac{9}{5} \\right\\}.\\]Let $x = \\cos a \\pi$ and $y = \\sin b \\pi.$  We want to see when\n\\[(x + yi)^4 = x^4 + 4ix^3 y - 6x^2 y^2 - 4ixy^3 + y^4\\]is real.  This occurs exactly when $4x^3 y - 4xy^3 = 4xy(x^2 - y^2) = 0,$ so either $x = 0,$ $y = 0,$ $x = y,$ or $x = -y.$  In other words, $\\cos a \\pi = 0,$ $\\sin b \\pi = 0,$ $\\cos a \\pi = \\sin b \\pi,$ or $\\cos a \\pi = -\\sin b \\pi.$\n\nIf $\\cos a \\pi = 0,$ then $a = \\frac{1}{2}$ or $a = \\frac{3}{2},$ and $b$ can be any value in $S.$  This gives us 40 pairs $(a,b).$\n\nIf $\\sin b \\pi = 0,$ then $b = 0$ or $b = 1,$ and $a$ can be any value in $S.$  This gives us 40 pairs $(a,b),$ but the four pairs $\\left( \\frac{1}{2}, 0 \\right),$ $\\left( \\frac{1}{2}, 1 \\right),$ $\\left( \\frac{3}{2}, 0 \\right),$ and $\\left( \\frac{3}{2}, 1 \\right)$ have already been counted, so it gives us only 36 additional pairs.\n\nIf $\\cos a \\pi = \\sin b \\pi,$ then\n\\[\\cos a \\pi = \\cos \\left( \\frac{\\pi}{2} - b \\pi \\right),\\]which implies $a \\pi - \\left( \\frac{\\pi}{2} - b \\pi \\right) = 2 \\pi k$ for some integer $k,$ or $a \\pi + \\left( \\frac{\\pi}{2} - b \\pi \\right) = 2 \\pi k'$ for some integer $k'.$  These lead to $a + b - \\frac{1}{2} = 2k$ or $a - b + \\frac{1}{2} = 2k'.$  We have already counted the pairs where $b = 0$ or $b = 1,$ so we exclude these values.  We can check that if the denominator of $b$ is 3 or 5, then there are no possible values of $a.$\n\nIf $b = \\frac{1}{2},$ then $a = 0$ for either equation.  If $b = \\frac{3}{2},$ then $a = 1$ for either equation.  Finally, we can check that if $b \\in \\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\},$ then there is exactly one solution for $a$ for the equation $a + b - \\frac{1}{2} = 2k$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$), and one solution for $a$ for the equation $a - b + \\frac{1}{2} = 2k'$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$).  Furthermore, if $a + b - \\frac{1}{2} = 2k$ and $a - b + \\frac{1}{2} = 2k',$ then subtracting these equations, we get\n\\[2b - 1 = 2k - 2k',\\]so $b = k - k' + \\frac{1}{2}.$  Thus, $b = \\frac{1}{2}$ or $b = \\frac{3}{2},$ and we count these values just once.  This gives us $2 + 8 = 10$ pairs $(a,b).$\n\nSimilarly, if $\\cos a \\pi = -\\sin b \\pi,$ then\n\\[\\cos a \\pi = -\\sin b \\pi = \\sin (-b \\pi) = \\cos \\left( \\frac{\\pi}{2} + b \\pi \\right),\\]which implies $a \\pi - \\left( \\frac{\\pi}{2} + b \\pi \\right) = 2 \\pi k$ for some integer $k,$ or $a \\pi + \\left( \\frac{\\pi}{2} + b \\pi \\right) = 2 \\pi k'$ for some integer $k'.$  These lead to $a - b - \\frac{1}{2} = 2k$ or $a + b + \\frac{1}{2} = 2k'.$  We have already counted the pairs where $b = 0$ or $b = 1,$ so we exclude these values.  We can check that if the denominator of $b$ is 3 or 5, then there are no possible values of $a.$\n\nIf $b = \\frac{1}{2},$ then $a = 1$ for either equation.  If $b = \\frac{3}{2},$ then $a = 0$ for either equation.  Finally, we can check that if $b \\in \\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\},$ then there is exactly one solution for $a$ for the equation $a - b - \\frac{1}{2} = 2k$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$), and one solution for $a$ for the equation $a + b + \\frac{1}{2} = 2k'$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$).  Furthermore, if $a - b - \\frac{1}{2} = 2k$ and $a + b + \\frac{1}{2} = 2k',$ then subtracting these equations, we get\n\\[2b + 1 = 2k' - 2k,\\]so $b = k' - k - \\frac{1}{2}.$  Thus, $b = \\frac{1}{2}$ or $b = \\frac{3}{2},$ and we count these values just once.  We can also confirm that all of the pairs in this case are different from the pairs in the previous case.  This gives us $2 + 8 = 10$ pairs $(a,b).$\n\nThus, there are a total of $40 + 36 + 10 + 10 = 96$ possible pairs $(a,b).$  There are $20^2 = 400$ ways to choose the pair $(a,b),$ which gives us a probability of $\\frac{96}{400} = \\boxed{\\frac{6}{25}}.$",
+    "independent_reconstruction": [
+      {
+        "source_span": "There are 20 possible values of $a$ and $b,$ namely\n\\[S = \\left\\{ 0, 1, \\frac{1}{2}, \\frac{3}{2}, \\frac{1}{3}, \\frac{2}{3}, \\frac{4}{3}, \\frac{5}{3}, \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4}, \\frac{1}{5}, \\frac{2}{5}, \\frac{3}{5}, \\frac{4}{5}, \\frac{6}{5}, \\frac{7}{5}, \\frac{8}{5}, \\frac{9}{5} \\right\\}.\\]Let $x = \\cos a \\pi$ and $y = \\sin b \\pi.$  We want to see when\n\\[(x + yi)^4 = x^4 + 4ix^3 y - 6x^2 y^2 - 4ixy^3 + y^4\\]is real.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "This occurs exactly when $4x^3 y - 4xy^3 = 4xy(x^2 - y^2) = 0,$ so either $x = 0,$ $y = 0,$ $x = y,$ or $x = -y.$  In other words, $\\cos a \\pi = 0,$ $\\sin b \\pi = 0,$ $\\cos a \\pi = \\sin b \\pi,$ or $\\cos a \\pi = -\\sin b \\pi.$",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "If $\\cos a \\pi = 0,$ then $a = \\frac{1}{2}$ or $a = \\frac{3}{2},$ and $b$ can be any value in $S.$  This gives us 40 pairs $(a,b).$",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "If $\\sin b \\pi = 0,$ then $b = 0$ or $b = 1,$ and $a$ can be any value in $S.$  This gives us 40 pairs $(a,b),$ but the four pairs $\\left( \\frac{1}{2}, 0 \\right),$ $\\left( \\frac{1}{2}, 1 \\right),$ $\\left( \\frac{3}{2}, 0 \\right),$ and $\\left( \\frac{3}{2}, 1 \\right)$ have already been counted, so it gives us only 36 additional pairs.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "If $\\cos a \\pi = \\sin b \\pi,$ then\n\\[\\cos a \\pi = \\cos \\left( \\frac{\\pi}{2} - b \\pi \\right),\\]which implies $a \\pi - \\left( \\frac{\\pi}{2} - b \\pi \\right) = 2 \\pi k$ for some integer $k,$ or $a \\pi + \\left( \\frac{\\pi}{2} - b \\pi \\right) = 2 \\pi k'$ for some integer $k'.$  These lead to $a + b - \\frac{1}{2} = 2k$ or $a - b + \\frac{1}{2} = 2k'.$  We have already counted the pairs where $b = 0$ or $b = 1,$ so we exclude these values.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "We can check that if the denominator of $b$ is 3 or 5, then there are no possible values of $a.$",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "If $b = \\frac{1}{2},$ then $a = 0$ for either equation.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "If $b = \\frac{3}{2},$ then $a = 1$ for either equation.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "Finally, we can check that if $b \\in \\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\},$ then there is exactly one solution for $a$ for the equation $a + b - \\frac{1}{2} = 2k$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$), and one solution for $a$ for the equation $a - b + \\frac{1}{2} = 2k'$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$).",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "Furthermore, if $a + b - \\frac{1}{2} = 2k$ and $a - b + \\frac{1}{2} = 2k',$ then subtracting these equations, we get\n\\[2b - 1 = 2k - 2k',\\]so $b = k - k' + \\frac{1}{2}.$  Thus, $b = \\frac{1}{2}$ or $b = \\frac{3}{2},$ and we count these values just once.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "This gives us $2 + 8 = 10$ pairs $(a,b).$",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Similarly, if $\\cos a \\pi = -\\sin b \\pi,$ then\n\\[\\cos a \\pi = -\\sin b \\pi = \\sin (-b \\pi) = \\cos \\left( \\frac{\\pi}{2} + b \\pi \\right),\\]which implies $a \\pi - \\left( \\frac{\\pi}{2} + b \\pi \\right) = 2 \\pi k$ for some integer $k,$ or $a \\pi + \\left( \\frac{\\pi}{2} + b \\pi \\right) = 2 \\pi k'$ for some integer $k'.$  These lead to $a - b - \\frac{1}{2} = 2k$ or $a + b + \\frac{1}{2} = 2k'.$  We have already counted the pairs where $b = 0$ or $b = 1,$ so we exclude these values.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "We can check that if the denominator of $b$ is 3 or 5, then there are no possible values of $a.$",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "If $b = \\frac{1}{2},$ then $a = 1$ for either equation.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "If $b = \\frac{3}{2},$ then $a = 0$ for either equation.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "Finally, we can check that if $b \\in \\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\},$ then there is exactly one solution for $a$ for the equation $a - b - \\frac{1}{2} = 2k$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$), and one solution for $a$ for the equation $a + b + \\frac{1}{2} = 2k'$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$).",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "Furthermore, if $a - b - \\frac{1}{2} = 2k$ and $a + b + \\frac{1}{2} = 2k',$ then subtracting these equations, we get\n\\[2b + 1 = 2k' - 2k,\\]so $b = k' - k - \\frac{1}{2}.$  Thus, $b = \\frac{1}{2}$ or $b = \\frac{3}{2},$ and we count these values just once.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "We can also confirm that all of the pairs in this case are different from the pairs in the previous case.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "This gives us $2 + 8 = 10$ pairs $(a,b).$",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Thus, there are a total of $40 + 36 + 10 + 10 = 96$ possible pairs $(a,b).$  There are $20^2 = 400$ ways to choose the pair $(a,b),$ which gives us a probability of $\\frac{96}{400} = \\boxed{\\frac{6}{25}}.$",
+        "independent_operation": "PROBABILITY"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "TRIG_IDENTITY",
+      "TRIG_IDENTITY",
+      "TRIG_IDENTITY",
+      "TRIG_IDENTITY",
+      "TRIG_IDENTITY",
+      "VERIFY",
+      "CASE_SPLIT",
+      "CASE_SPLIT",
+      "VERIFY",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRIG_IDENTITY",
+      "VERIFY",
+      "CASE_SPLIT",
+      "CASE_SPLIT",
+      "VERIFY",
+      "TRANSFORM",
+      "OTHER",
+      "TRANSFORM",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 1,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "There are 20 possible values of $a$ and $b,$ namely\n\\[S = \\left\\{ 0, 1, \\frac{1}{2}, \\frac{3}{2}, \\frac{1}{3}, \\frac{2}{3}, \\frac{4}{3}, \\frac{5}{3}, \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4}, \\frac{1}{5}, \\frac{2}{5}, \\frac{3}{5}, \\frac{4}{5}, \\frac{6}{5}, \\frac{7}{5}, \\frac{8}{5}, \\frac{9}{5} \\right\\}.\\]Let $x = \\cos a \\pi$ and $y = \\sin b \\pi.$  We want to see when\n\\[(x + yi)^4 = x^4 + 4ix^3 y - 6x^2 y^2 - 4ixy^3 + y^4\\]is real."
+      },
+      {
+        "index": 2,
+        "independent": "CASE_SPLIT",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "This occurs exactly when $4x^3 y - 4xy^3 = 4xy(x^2 - y^2) = 0,$ so either $x = 0,$ $y = 0,$ $x = y,$ or $x = -y.$  In other words, $\\cos a \\pi = 0,$ $\\sin b \\pi = 0,$ $\\cos a \\pi = \\sin b \\pi,$ or $\\cos a \\pi = -\\sin b \\pi.$"
+      },
+      {
+        "index": 3,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "If $\\cos a \\pi = 0,$ then $a = \\frac{1}{2}$ or $a = \\frac{3}{2},$ and $b$ can be any value in $S.$  This gives us 40 pairs $(a,b).$"
+      },
+      {
+        "index": 4,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "If $\\sin b \\pi = 0,$ then $b = 0$ or $b = 1,$ and $a$ can be any value in $S.$  This gives us 40 pairs $(a,b),$ but the four pairs $\\left( \\frac{1}{2}, 0 \\right),$ $\\left( \\frac{1}{2}, 1 \\right),$ $\\left( \\frac{3}{2}, 0 \\right),$ and $\\left( \\frac{3}{2}, 1 \\right)$ have already been counted, so it gives us only 36 additional pairs."
+      },
+      {
+        "index": 5,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "If $\\cos a \\pi = \\sin b \\pi,$ then\n\\[\\cos a \\pi = \\cos \\left( \\frac{\\pi}{2} - b \\pi \\right),\\]which implies $a \\pi - \\left( \\frac{\\pi}{2} - b \\pi \\right) = 2 \\pi k$ for some integer $k,$ or $a \\pi + \\left( \\frac{\\pi}{2} - b \\pi \\right) = 2 \\pi k'$ for some integer $k'.$  These lead to $a + b - \\frac{1}{2} = 2k$ or $a - b + \\frac{1}{2} = 2k'.$  We have already counted the pairs where $b = 0$ or $b = 1,$ so we exclude these values."
+      },
+      {
+        "index": 12,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "Similarly, if $\\cos a \\pi = -\\sin b \\pi,$ then\n\\[\\cos a \\pi = -\\sin b \\pi = \\sin (-b \\pi) = \\cos \\left( \\frac{\\pi}{2} + b \\pi \\right),\\]which implies $a \\pi - \\left( \\frac{\\pi}{2} + b \\pi \\right) = 2 \\pi k$ for some integer $k,$ or $a \\pi + \\left( \\frac{\\pi}{2} + b \\pi \\right) = 2 \\pi k'$ for some integer $k'.$  These lead to $a - b - \\frac{1}{2} = 2k$ or $a + b + \\frac{1}{2} = 2k'.$  We have already counted the pairs where $b = 0$ or $b = 1,$ so we exclude these values."
+      },
+      {
+        "index": 18,
+        "independent": "CASE_SPLIT",
+        "annotated": "OTHER",
+        "source_span": "We can also confirm that all of the pairs in this case are different from the pairs in the previous case."
+      },
+      {
+        "index": 20,
+        "independent": "PROBABILITY",
+        "annotated": "DISCHARGE",
+        "source_span": "Thus, there are a total of $40 + 36 + 10 + 10 = 96$ possible pairs $(a,b).$  There are $20^2 = 400$ ways to choose the pair $(a,b),$ which gives us a probability of $\\frac{96}{400} = \\boxed{\\frac{6}{25}}.$"
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-027",
+    "category": "Intermediate Algebra",
+    "complexity_score": 4366,
+    "original_solution": "Let $k$ be a positive integer.  Then for $k^2 \\le x < (k + 1)^2,$\n\\[x \\lfloor \\sqrt{x} \\rfloor = kx.\\]Thus, on this interval, the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid, with left height $k^3,$ right height $k(k + 1)^2,$ and base $(k + 1)^2 - k^2 = 2k + 1,$ so its area is\n\\[\\frac{k^3 + k(k + 1)^2}{2} \\cdot (2k + 1) = 2k^4 + 3k^3 + 2k^2 + \\frac{k}{2}.\\]Let $n$ be a positive integer such that $k^2 + 1 \\le n \\le (k + 1)^2.$  Then for $k^2 \\le x < n,$ the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid with left height $k^3,$ right height $kn,$ and base $n - k^2,$ so its area is\n\\[\\frac{k^3 + kn}{2} \\cdot (n - k^2) = \\frac{k(k^2 + n)(n - k^2)}{2} = \\frac{k(n^2 - k^4)}{2}.\\]We want to compute the area of the graph for $1 \\le x \\le n$; in particular, we want this area to be an integer.  We know that the area for $k^2 \\le x \\le (k + 1)^2$ is\n\\[2k^4 + 3k^3 + 2k^2 + \\frac{k}{2}.\\]Since $2k^4 + 3k^3 + 2k^2$ is always an integer, for our purposes, we keep only the $\\frac{k}{2}$ term.  This gives us\n\\begin{align*}\n\\sum_{i = 1}^{k - 1} \\frac{i}{2} + \\frac{k(n^2 - k^4)}{2} &= \\frac{1}{2} \\cdot \\frac{(k - 1)k}{2} + \\frac{k(n^2 - k^4)}{2} \\\\\n&= \\frac{k(k - 1)}{4} + \\frac{k(n^2 - k^4)}{2} \\\\\n&= \\frac{k[2k(n^2 - k^4) + k - 1]}{4}.\n\\end{align*}Thus, we want $k[2k(n^2 - k^4) + k - 1]$ to be divisible by 4.  We compute $k[2k(n^2 - k^4) + k - 1]$ modulo 4 for $0 \\le k \\le 3$ and $0 \\le n \\le 3,$ and obtain the following results:\n\n\\[\n\\begin{array}{c||c|c|c|c}\nk \\backslash n & 0 & 1 & 2 & 3 \\\\ \\hline \\hline\n0 & 0 & 0 & 0 & 0 \\\\ \\hline\n1 & 2 & 0 & 2 & 0 \\\\ \\hline\n2 & 2 & 2 & 2 & 2 \\\\ \\hline\n3 & 0 & 2 & 0 & 2\n\\end{array}\n\\]Case 1: $k = 4m$ for some integer $m.$\n\nAll integers $n$ in the range $k^2 + 1 \\le n \\le (k + 1)^2$ work, for a total of $2k + 1$ integers.\n\nCase 2: $k = 4m + 1$ for some integer $m.$\n\nOnly odd integers $n$ in the range $k^2 + 1 \\le n \\le (k + 1)^2$ work.  These are $k^2 + 2,$ $k^2 + 4,$ $\\dots,$ $(k + 1)^2 - 1,$ for a total of $k$ integers.\n\nCase 3: $k = 4m + 2$ for some integer $m.$\n\nNo integers $n$ in the range $k^2 + 1 \\le n \\le (k + 1)^2$ work.\n\nCase 4: $k = 4m + 3$ for some integer $m.$\n\nOnly even integers $n$ in the range $k^2 + 1 \\le n \\le (k + 1)^2$ work.  These are $k^2 + 1,$ $k^2 + 3,$ $\\dots,$ $(k + 1)^2,$ for a total of $k + 1$ integers.\n\nThus, the four cases $k = 4m + 1,$ $4m + 2,$ $4m + 3,$ and $4m + 4$ contribute\n\\[4m + 1 + 4m + 4 + 2(4m + 4) + 1 = 16m + 14.\\]integers.\n\nSumming over $0 \\le m \\le 6$ covers the cases $2 \\le n \\le 841,$ and gives us\n\\[\\sum_{m = 0}^6 (16m + 14) = 434\\]integers.\n\nFor $k = 29,$ which covers the cases $529 \\le n \\le 900,$ we have another 29 integers.\n\nFor $k = 30,$ which covers the cases $901 \\le n \\le 961,$ there are no integers.\n\nFor $k = 31,$ only the even integers in the range $962 \\le n \\le 1024$ work.  We want the integers up to 1000, which are\n\\[962, 964, \\dots, 1000,\\]and there are 20 of them.\n\nThus, the total number of integers we seek is $434 + 29 + 20 = \\boxed{483}.$",
+    "independent_reconstruction": [
+      {
+        "source_span": "Let $k$ be a positive integer.",
+        "independent_operation": "CONSTRUCT"
+      },
+      {
+        "source_span": "Then for $k^2 \\le x < (k + 1)^2,$\n\\[x \\lfloor \\sqrt{x} \\rfloor = kx.\\]Thus, on this interval, the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid, with left height $k^3,$ right height $k(k + 1)^2,$ and base $(k + 1)^2 - k^2 = 2k + 1,$ so its area is\n\\[\\frac{k^3 + k(k + 1)^2}{2} \\cdot (2k + 1) = 2k^4 + 3k^3 + 2k^2 + \\frac{k}{2}.\\]Let $n$ be a positive integer such that $k^2 + 1 \\le n \\le (k + 1)^2.$  Then for $k^2 \\le x < n,$ the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid with left height $k^3,$ right height $kn,$ and base $n - k^2,$ so its area is\n\\[\\frac{k^3 + kn}{2} \\cdot (n - k^2) = \\frac{k(k^2 + n)(n - k^2)}{2} = \\frac{k(n^2 - k^4)}{2}.\\]We want to compute the area of the graph for $1 \\le x \\le n$; in particular, we want this area to be an integer.",
+        "independent_operation": "CONSTRUCT"
+      },
+      {
+        "source_span": "We know that the area for $k^2 \\le x \\le (k + 1)^2$ is\n\\[2k^4 + 3k^3 + 2k^2 + \\frac{k}{2}.\\]Since $2k^4 + 3k^3 + 2k^2$ is always an integer, for our purposes, we keep only the $\\frac{k}{2}$ term.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "This gives us\n\\begin{align*}\n\\sum_{i = 1}^{k - 1} \\frac{i}{2} + \\frac{k(n^2 - k^4)}{2} &= \\frac{1}{2} \\cdot \\frac{(k - 1)k}{2} + \\frac{k(n^2 - k^4)}{2} \\\\\n&= \\frac{k(k - 1)}{4} + \\frac{k(n^2 - k^4)}{2} \\\\\n&= \\frac{k[2k(n^2 - k^4) + k - 1]}{4}.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Thus, we want $k[2k(n^2 - k^4) + k - 1]$ to be divisible by 4.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "We compute $k[2k(n^2 - k^4) + k - 1]$ modulo 4 for $0 \\le k \\le 3$ and $0 \\le n \\le 3,$ and obtain the following results:",
+        "independent_operation": "MODULAR_REASONING"
+      },
+      {
+        "source_span": "\\[\n\\begin{array}{c||c|c|c|c}\nk \\backslash n & 0 & 1 & 2 & 3 \\\\ \\hline \\hline\n0 & 0 & 0 & 0 & 0 \\\\ \\hline\n1 & 2 & 0 & 2 & 0 \\\\ \\hline\n2 & 2 & 2 & 2 & 2 \\\\ \\hline\n3 & 0 & 2 & 0 & 2\n\\end{array}\n\\]Case 1: $k = 4m$ for some integer $m.$",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "All integers $n$ in the range $k^2 + 1 \\le n \\le (k + 1)^2$ work, for a total of $2k + 1$ integers.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Case 2: $k = 4m + 1$ for some integer $m.$",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "Only odd integers $n$ in the range $k^2 + 1 \\le n \\le (k + 1)^2$ work.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "These are $k^2 + 2,$ $k^2 + 4,$ $\\dots,$ $(k + 1)^2 - 1,$ for a total of $k$ integers.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Case 3: $k = 4m + 2$ for some integer $m.$",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "No integers $n$ in the range $k^2 + 1 \\le n \\le (k + 1)^2$ work.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Case 4: $k = 4m + 3$ for some integer $m.$",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "Only even integers $n$ in the range $k^2 + 1 \\le n \\le (k + 1)^2$ work.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "These are $k^2 + 1,$ $k^2 + 3,$ $\\dots,$ $(k + 1)^2,$ for a total of $k + 1$ integers.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Thus, the four cases $k = 4m + 1,$ $4m + 2,$ $4m + 3,$ and $4m + 4$ contribute\n\\[4m + 1 + 4m + 4 + 2(4m + 4) + 1 = 16m + 14.\\]integers.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "Summing over $0 \\le m \\le 6$ covers the cases $2 \\le n \\le 841,$ and gives us\n\\[\\sum_{m = 0}^6 (16m + 14) = 434\\]integers.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "For $k = 29,$ which covers the cases $529 \\le n \\le 900,$ we have another 29 integers.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "For $k = 30,$ which covers the cases $901 \\le n \\le 961,$ there are no integers.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "For $k = 31,$ only the even integers in the range $962 \\le n \\le 1024$ work.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "We want the integers up to 1000, which are\n\\[962, 964, \\dots, 1000,\\]and there are 20 of them.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Thus, the total number of integers we seek is $434 + 29 + 20 = \\boxed{483}.$",
+        "independent_operation": "TRANSFORM"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "CONSTRUCT",
+      "TRANSFORM",
+      "SEQUENCE_RECURRENCE",
+      "TRANSFORM",
+      "TRANSFORM",
+      "MODULAR_REASONING",
+      "CASE_SPLIT",
+      "OTHER",
+      "CASE_SPLIT",
+      "OTHER",
+      "OTHER",
+      "CASE_SPLIT",
+      "OTHER",
+      "CASE_SPLIT",
+      "OTHER",
+      "OTHER",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "OTHER",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 23,
+        "independent": "TRANSFORM",
+        "annotated": "DISCHARGE",
+        "source_span": "Thus, the total number of integers we seek is $434 + 29 + 20 = \\boxed{483}.$"
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-043",
+    "category": "Number Theory",
+    "complexity_score": 3657,
+    "original_solution": "First, for simplicity, let's make all the amounts of money into integers by considering them all in cents. For example, $\\$5.43$ becomes 543. Let the purchase price be $A=A_1A_2A_3$ and the amount of change be $B_1B_2B_3$ where $A_1$ represents the first digit of $A$, $B_1$ represents the first digit of $B$, $A_2$ represents the second digit of $A$, etc.\n\nWe know that $A+B=1000$, and we can conclude that $A_1+B_1=9$ because if $A_1+B_1<9$ then $A+B<1000$ and if $A_1+B_1=10$ then $A_2=B_2=A_3=B_3=0$, but then the only way that B can be a rearrangement of the digits of A is if $A_1=B_1=5$, which means $A=B=500$, but the problem states that the price and the amount of change are different.\n\nSince 9 is odd, we can also conclude that $A_1$ and $B_1$ are distinct, which, using the fact that $A$'s digits can be rearranged to get B's digits, implies that $A_1=B_2$ or $A_1=B_3$ and $B_1=A_2$ or $B_1=A_3$. We can also observe that A and B have the same remainder when divided by 9 because the remainder when $n$ is divided by 9 is equal to the remainder when the sum of the digits of $n$ is divided by 9 for all $n$ and the sum of the digits of A is obviously equal to the sum of the digits of B.\n\nSince the remainder when 1000 is divided by 9 is 1, we can in fact conclude that the remainder when A and B are divided by 9 (and when the sum of their digits is divided by 9) is 5. Keeping in mind that two of the digits of $A$ are $A_1$ and $B_1$ and that $A_1+B_1=9$, we can conclude that the other digit is 5, which is the only digit that would result in the sum having a remainder of 5 when divided by 9. By similar logic we can conclude that 5 is also one of the digits of $B$. A little thought makes it clear that at least one of these 5's appears as the last digit in its number (that is, $A_3=5$ or $B_3=5$) since if neither of them appears as the last digit in a number, then $A_1=B_3$ and $B_1=A_3$ and $A_3+B_3=9\\Rightarrow A+B$ ends in a 9, which is a contradiction. But if $A_3=5$ then the only way for the sum of $A$ and $B$ to end in a 0 is for $B_3=5$, so we can conclude that $A_3=B_3=5$, $A_1=B_2$, and $A_2=B_1$. So once we have picked a value for $A_1$, the other 5 digits are all determined. Since both amounts are greater than a dollar, we know that $A_1$ can be any number between 1 and 8 for a total of 8 possible prices (and thus 8 possible amounts of change). To double check, we can work out $A$ and $B$ for each value of $A_1$ and reconvert them to dollars to make sure that the price and the amount of change satisfy the given conditions:\n\n$A_1=1\\Rightarrow A=\\$1.85, B=\\$8.15$;\n\n$A_1=2\\Rightarrow A=\\$2.75, B=\\$7.25$;\n\n$A_1=3\\Rightarrow A=\\$3.65, B=\\$6.35$;\n\n$A_1=4\\Rightarrow A=\\$4.55, B=\\$5.45$;\n\n$A_1=5\\Rightarrow A=\\$5.45, B=\\$4.55$;\n\n$A_1=6\\Rightarrow A=\\$6.35, B=\\$3.65$;\n\n$A_1=7\\Rightarrow A=\\$7.25, B=\\$2.75$; and finally\n\n$A_1=8\\Rightarrow A=\\$8.15, B=\\$1.85$.\n\nThis confirms that there are $\\boxed{8}$ possible amounts of change.",
+    "independent_reconstruction": [
+      {
+        "source_span": "First, for simplicity, let's make all the amounts of money into integers by considering them all in cents.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "For example, $\\$5.43$ becomes 543.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Let the purchase price be $A=A_1A_2A_3$ and the amount of change be $B_1B_2B_3$ where $A_1$ represents the first digit of $A$, $B_1$ represents the first digit of $B$, $A_2$ represents the second digit of $A$, etc.",
+        "independent_operation": "CONSTRUCT"
+      },
+      {
+        "source_span": "We know that $A+B=1000$, and we can conclude that $A_1+B_1=9$ because if $A_1+B_1<9$ then $A+B<1000$ and if $A_1+B_1=10$ then $A_2=B_2=A_3=B_3=0$, but then the only way that B can be a rearrangement of the digits of A is if $A_1=B_1=5$, which means $A=B=500$, but the problem states that the price and the amount of change are different.",
+        "independent_operation": "COUNT"
+      },
+      {
+        "source_span": "Since 9 is odd, we can also conclude that $A_1$ and $B_1$ are distinct, which, using the fact that $A$'s digits can be rearranged to get B's digits, implies that $A_1=B_2$ or $A_1=B_3$ and $B_1=A_2$ or $B_1=A_3$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "We can also observe that A and B have the same remainder when divided by 9 because the remainder when $n$ is divided by 9 is equal to the remainder when the sum of the digits of $n$ is divided by 9 for all $n$ and the sum of the digits of A is obviously equal to the sum of the digits of B.",
+        "independent_operation": "MODULAR_REASONING"
+      },
+      {
+        "source_span": "Since the remainder when 1000 is divided by 9 is 1, we can in fact conclude that the remainder when A and B are divided by 9 (and when the sum of their digits is divided by 9) is 5.",
+        "independent_operation": "MODULAR_REASONING"
+      },
+      {
+        "source_span": "Keeping in mind that two of the digits of $A$ are $A_1$ and $B_1$ and that $A_1+B_1=9$, we can conclude that the other digit is 5, which is the only digit that would result in the sum having a remainder of 5 when divided by 9.",
+        "independent_operation": "MODULAR_REASONING"
+      },
+      {
+        "source_span": "By similar logic we can conclude that 5 is also one of the digits of $B$.",
+        "independent_operation": "APPLY_THEOREM"
+      },
+      {
+        "source_span": "A little thought makes it clear that at least one of these 5's appears as the last digit in its number (that is, $A_3=5$ or $B_3=5$) since if neither of them appears as the last digit in a number, then $A_1=B_3$ and $B_1=A_3$ and $A_3+B_3=9\\Rightarrow A+B$ ends in a 9, which is a contradiction.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "But if $A_3=5$ then the only way for the sum of $A$ and $B$ to end in a 0 is for $B_3=5$, so we can conclude that $A_3=B_3=5$, $A_1=B_2$, and $A_2=B_1$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "So once we have picked a value for $A_1$, the other 5 digits are all determined.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Since both amounts are greater than a dollar, we know that $A_1$ can be any number between 1 and 8 for a total of 8 possible prices (and thus 8 possible amounts of change).",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "To double check, we can work out $A$ and $B$ for each value of $A_1$ and reconvert them to dollars to make sure that the price and the amount of change satisfy the given conditions:",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "$A_1=1\\Rightarrow A=\\$1.85, B=\\$8.15$;",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "$A_1=2\\Rightarrow A=\\$2.75, B=\\$7.25$;",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "$A_1=3\\Rightarrow A=\\$3.65, B=\\$6.35$;",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "$A_1=4\\Rightarrow A=\\$4.55, B=\\$5.45$;",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "$A_1=5\\Rightarrow A=\\$5.45, B=\\$4.55$;",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "$A_1=6\\Rightarrow A=\\$6.35, B=\\$3.65$;",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "$A_1=7\\Rightarrow A=\\$7.25, B=\\$2.75$; and finally",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "$A_1=8\\Rightarrow A=\\$8.15, B=\\$1.85$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "This confirms that there are $\\boxed{8}$ possible amounts of change.",
+        "independent_operation": "EVALUATE"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "APPLY_THEOREM",
+      "OTHER",
+      "TRANSFORM",
+      "COUNT",
+      "TRANSFORM",
+      "MODULAR_REASONING",
+      "MODULAR_REASONING",
+      "MODULAR_REASONING",
+      "APPLY_THEOREM",
+      "CONTRADICTION",
+      "TRANSFORM",
+      "SEQUENCE_RECURRENCE",
+      "TRANSFORM",
+      "VERIFY",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 1,
+        "independent": "CASE_SPLIT",
+        "annotated": "APPLY_THEOREM",
+        "source_span": "First, for simplicity, let's make all the amounts of money into integers by considering them all in cents."
+      },
+      {
+        "index": 10,
+        "independent": "CASE_SPLIT",
+        "annotated": "CONTRADICTION",
+        "source_span": "A little thought makes it clear that at least one of these 5's appears as the last digit in its number (that is, $A_3=5$ or $B_3=5$) since if neither of them appears as the last digit in a number, then $A_1=B_3$ and $B_1=A_3$ and $A_3+B_3=9\\Rightarrow A+B$ ends in a 9, which is a contradiction."
+      },
+      {
+        "index": 23,
+        "independent": "EVALUATE",
+        "annotated": "DISCHARGE",
+        "source_span": "This confirms that there are $\\boxed{8}$ possible amounts of change."
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-048",
+    "category": "Intermediate Algebra",
+    "complexity_score": 2729,
+    "original_solution": "The first two vertices of $V$ have magnitude $\\sqrt{2}$, while the other four have magnitude $\\dfrac{1}{2}$. In order for $P=-1$, it must be the case that $|P|=1$, which only happens if there are two magnitude-$\\sqrt{2}$ vertices for each magnitude-$\\dfrac{1}{2}$ one. Define $P_1$ as the product of the magnitude-$\\sqrt{2}$ vertices chosen and $P_2$ as the product of the magnitude-$\\dfrac{1}{2}$ vertices chosen.\n\nThere are $\\dbinom{12}{8}$ ways to select which of the 12 draws come up with a magnitude-$\\sqrt{2}$ number. The arguments of those numbers are all $\\pm\\dfrac{\\pi}{2}$, so $P_1$ has an argument that is a multiple of $\\pi$. Half of the $2^8$ draw sequences will produce a result with argument equivalent to $0$ and the other half will have an argument equivalent to $\\pi$.\n\nSimilarly, the arguments of the other four numbers are $\\dfrac{\\pi}{4}+k\\cdot\\dfrac{\\pi}{2}$, so $P_2$ has argument $k\\cdot\\dfrac{\\pi}{2}$ for some integer $k$. The $4^4$ ways to select four magnitude-$\\dfrac{1}{2}$ numbers are equally likely to produce any of the four possible product arguments.\n\nIn order for $P=-1$, the argument of the product must be $-\\dfrac{\\pi}{2}$. That happens only if:\n(a) $P_1$ has argument $0$ and $P_2$ has argument $-\\dfrac{\\pi}{2}$, which happens with probability $\\dfrac{1}{2}\\cdot\\dfrac{1}{4}=\\dfrac{1}{8}$.\n(b) $P_2$ has argument $\\pi$ and $P_2$ has argument $\\dfrac{\\pi}{2}$, which also happens with probability $\\dfrac{1}{2}\\cdot\\dfrac{1}{4}=\\dfrac{1}{8}$.\nPutting these cases together, we find that $\\dfrac{1}{8}+\\dfrac{1}{8}=\\dfrac{1}{4}$ of the $2^8\\cdot 4^4=2^{16}$ sequences of eight magnitude-$\\sqrt{2}$ and four magnitude-$\\dfrac{1}{2}$ vertices will have the correct argument for $P=-1$.\n\nThe probability that $P=-1$ is\n\\begin{align*}\n  \\dfrac{\\dbinom{12}{4}\\cdot\\dfrac{1}{4}\\cdot 2^{16}}{6^{12}} &= \\dfrac{\\dbinom{12}{4}4}{3^{12}} \\\\\n   &= \\dfrac{12\\cdot 11\\cdot 10\\cdot 9\\cdot 4}{4!\\cdot 3^{12}} \\\\\n   &= \\dfrac{220}{3^{10}}. \\\\\n\\end{align*}The final answer is $220 + 3 + 10 = \\boxed{233}.$",
+    "independent_reconstruction": [
+      {
+        "source_span": "The first two vertices of $V$ have magnitude $\\sqrt{2}$, while the other four have magnitude $\\dfrac{1}{2}$.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "In order for $P=-1$, it must be the case that $|P|=1$, which only happens if there are two magnitude-$\\sqrt{2}$ vertices for each magnitude-$\\dfrac{1}{2}$ one.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "Define $P_1$ as the product of the magnitude-$\\sqrt{2}$ vertices chosen and $P_2$ as the product of the magnitude-$\\dfrac{1}{2}$ vertices chosen.",
+        "independent_operation": "APPLY_DEFINITION"
+      },
+      {
+        "source_span": "There are $\\dbinom{12}{8}$ ways to select which of the 12 draws come up with a magnitude-$\\sqrt{2}$ number.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "The arguments of those numbers are all $\\pm\\dfrac{\\pi}{2}$, so $P_1$ has an argument that is a multiple of $\\pi$.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Half of the $2^8$ draw sequences will produce a result with argument equivalent to $0$ and the other half will have an argument equivalent to $\\pi$.",
+        "independent_operation": "SEQUENCE_RECURRENCE"
+      },
+      {
+        "source_span": "Similarly, the arguments of the other four numbers are $\\dfrac{\\pi}{4}+k\\cdot\\dfrac{\\pi}{2}$, so $P_2$ has argument $k\\cdot\\dfrac{\\pi}{2}$ for some integer $k$.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "The $4^4$ ways to select four magnitude-$\\dfrac{1}{2}$ numbers are equally likely to produce any of the four possible product arguments.",
+        "independent_operation": "EVALUATE"
+      },
+      {
+        "source_span": "In order for $P=-1$, the argument of the product must be $-\\dfrac{\\pi}{2}$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "That happens only if:\n(a) $P_1$ has argument $0$ and $P_2$ has argument $-\\dfrac{\\pi}{2}$, which happens with probability $\\dfrac{1}{2}\\cdot\\dfrac{1}{4}=\\dfrac{1}{8}$.",
+        "independent_operation": "PROBABILITY"
+      },
+      {
+        "source_span": "(b) $P_2$ has argument $\\pi$ and $P_2$ has argument $\\dfrac{\\pi}{2}$, which also happens with probability $\\dfrac{1}{2}\\cdot\\dfrac{1}{4}=\\dfrac{1}{8}$.",
+        "independent_operation": "PROBABILITY"
+      },
+      {
+        "source_span": "Putting these cases together, we find that $\\dfrac{1}{8}+\\dfrac{1}{8}=\\dfrac{1}{4}$ of the $2^8\\cdot 4^4=2^{16}$ sequences of eight magnitude-$\\sqrt{2}$ and four magnitude-$\\dfrac{1}{2}$ vertices will have the correct argument for $P=-1$.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "The probability that $P=-1$ is\n\\begin{align*}\n  \\dfrac{\\dbinom{12}{4}\\cdot\\dfrac{1}{4}\\cdot 2^{16}}{6^{12}} &= \\dfrac{\\dbinom{12}{4}4}{3^{12}} \\\\\n   &= \\dfrac{12\\cdot 11\\cdot 10\\cdot 9\\cdot 4}{4!\\cdot 3^{12}} \\\\\n   &= \\dfrac{220}{3^{10}}.",
+        "independent_operation": "PROBABILITY"
+      },
+      {
+        "source_span": "\\\\\n\\end{align*}The final answer is $220 + 3 + 10 = \\boxed{233}.$",
+        "independent_operation": "TRANSFORM"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "OTHER",
+      "TRANSFORM",
+      "APPLY_DEFINITION",
+      "OTHER",
+      "OTHER",
+      "OTHER",
+      "OTHER",
+      "EVALUATE",
+      "TRANSFORM",
+      "PROBABILITY",
+      "PROBABILITY",
+      "TRANSFORM",
+      "PROBABILITY",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 6,
+        "independent": "SEQUENCE_RECURRENCE",
+        "annotated": "OTHER",
+        "source_span": "Half of the $2^8$ draw sequences will produce a result with argument equivalent to $0$ and the other half will have an argument equivalent to $\\pi$."
+      },
+      {
+        "index": 14,
+        "independent": "TRANSFORM",
+        "annotated": "DISCHARGE",
+        "source_span": "\\\\\n\\end{align*}The final answer is $220 + 3 + 10 = \\boxed{233}.$"
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-107",
+    "category": "Precalculus",
+    "complexity_score": 2356,
+    "original_solution": "Let $\\mathbf{a}$ denote $\\overrightarrow{A},$ etc.   Then\n\\begin{align*}\nPA^2 &= \\|\\mathbf{p} - \\mathbf{a}\\|^2 = \\mathbf{p} \\cdot \\mathbf{p} - 2 \\mathbf{a} \\cdot \\mathbf{p} + \\mathbf{a} \\cdot \\mathbf{a}, \\\\\nPB^2 &= \\mathbf{p} \\cdot \\mathbf{p} - 2 \\mathbf{b} \\cdot \\mathbf{p} + \\mathbf{b} \\cdot \\mathbf{b}, \\\\\nPC^2 &= \\mathbf{p} \\cdot \\mathbf{p} - 2 \\mathbf{c} \\cdot \\mathbf{p} + \\mathbf{c} \\cdot \\mathbf{c}.\n\\end{align*}Also, $\\mathbf{g} = \\frac{\\mathbf{a} + \\mathbf{b} + \\mathbf{c}}{3},$ so\n\\begin{align*}\nGA^2 &= \\|\\mathbf{g} - \\mathbf{a}\\|^2 \\\\\n&= \\left\\| \\frac{\\mathbf{a} + \\mathbf{b} + \\mathbf{c}}{3} - \\mathbf{a} \\right\\|^2 \\\\\n&= \\frac{1}{9} \\|\\mathbf{b} + \\mathbf{c} - 2 \\mathbf{a}\\|^2 \\\\\n&= \\frac{1}{9} (4 \\mathbf{a} \\cdot \\mathbf{a} + \\mathbf{b} \\cdot \\mathbf{b} + \\mathbf{c} \\cdot \\mathbf{c} - 4 \\mathbf{a} \\cdot \\mathbf{b} - 4 \\mathbf{a} \\cdot \\mathbf{c} + 2 \\mathbf{b} \\cdot \\mathbf{c}).\n\\end{align*}Similarly,\n\\begin{align*}\nGB^2 &= \\frac{1}{9} (\\mathbf{a} \\cdot \\mathbf{a} + 4 \\mathbf{b} \\cdot \\mathbf{b} + \\mathbf{c} \\cdot \\mathbf{c} - 4 \\mathbf{a} \\cdot \\mathbf{b} + 2 \\mathbf{a} \\cdot \\mathbf{c} - 4 \\mathbf{b} \\cdot \\mathbf{c}), \\\\\nGC^2 &= \\frac{1}{9} (\\mathbf{a} \\cdot \\mathbf{a} + \\mathbf{b} \\cdot \\mathbf{b} + 4 \\mathbf{c} \\cdot \\mathbf{c} + 2 \\mathbf{a} \\cdot \\mathbf{b} - 4 \\mathbf{a} \\cdot \\mathbf{c} - 4 \\mathbf{b} \\cdot \\mathbf{c}),\n\\end{align*}so\n\\begin{align*}\n&PA^2 + PB^2 + PC^2 - GA^2 - GB^2 - GC^2 \\\\\n&= \\frac{1}{9} (3 \\mathbf{a} \\cdot \\mathbf{a} + 3 \\mathbf{b} \\cdot \\mathbf{b} + 3 \\mathbf{c} \\cdot \\mathbf{c} + 27 \\mathbf{p} \\cdot \\mathbf{p} \\\\\n&\\quad + 6 \\mathbf{a} \\cdot \\mathbf{b} + 6 \\mathbf{a} \\cdot \\mathbf{b} + 6 \\mathbf{b} \\cdot \\mathbf{c} - 18 \\mathbf{a} \\cdot \\mathbf{p} - 18 \\mathbf{b} \\cdot \\mathbf{p} - 18 \\mathbf{c} \\cdot \\mathbf{p}).\n\\end{align*}Also,\n\\begin{align*}\nPG^2 &= \\left\\| \\mathbf{p} - \\frac{\\mathbf{a} + \\mathbf{b} + \\mathbf{c}}{3} \\right\\|^2 \\\\\n&= \\frac{1}{9} \\|3 \\mathbf{p} - (\\mathbf{a} + \\mathbf{b} + \\mathbf{c})\\|^2 \\\\\n&= \\frac{1}{9} (\\mathbf{a} \\cdot \\mathbf{a} + \\mathbf{b} \\cdot \\mathbf{b} + \\mathbf{c} \\cdot \\mathbf{c} + 9 \\mathbf{p} \\cdot \\mathbf{p} \\\\\n&\\quad + 2 \\mathbf{a} \\cdot \\mathbf{b} + 2 \\mathbf{a} \\cdot \\mathbf{b} + 2 \\mathbf{b} \\cdot \\mathbf{c} - 6 \\mathbf{a} \\cdot \\mathbf{p} - 6 \\mathbf{b} \\cdot \\mathbf{p} - 6 \\mathbf{c} \\cdot \\mathbf{p}).\n\\end{align*}Therefore, $k = \\boxed{3}.$",
+    "independent_reconstruction": [
+      {
+        "source_span": "Let $\\mathbf{a}$ denote $\\overrightarrow{A},$ etc.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Then\n\\begin{align*}\nPA^2 &= \\|\\mathbf{p} - \\mathbf{a}\\|^2 = \\mathbf{p} \\cdot \\mathbf{p} - 2 \\mathbf{a} \\cdot \\mathbf{p} + \\mathbf{a} \\cdot \\mathbf{a}, \\\\\nPB^2 &= \\mathbf{p} \\cdot \\mathbf{p} - 2 \\mathbf{b} \\cdot \\mathbf{p} + \\mathbf{b} \\cdot \\mathbf{b}, \\\\\nPC^2 &= \\mathbf{p} \\cdot \\mathbf{p} - 2 \\mathbf{c} \\cdot \\mathbf{p} + \\mathbf{c} \\cdot \\mathbf{c}.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Also, $\\mathbf{g} = \\frac{\\mathbf{a} + \\mathbf{b} + \\mathbf{c}}{3},$ so\n\\begin{align*}\nGA^2 &= \\|\\mathbf{g} - \\mathbf{a}\\|^2 \\\\\n&= \\left\\| \\frac{\\mathbf{a} + \\mathbf{b} + \\mathbf{c}}{3} - \\mathbf{a} \\right\\|^2 \\\\\n&= \\frac{1}{9} \\|\\mathbf{b} + \\mathbf{c} - 2 \\mathbf{a}\\|^2 \\\\\n&= \\frac{1}{9} (4 \\mathbf{a} \\cdot \\mathbf{a} + \\mathbf{b} \\cdot \\mathbf{b} + \\mathbf{c} \\cdot \\mathbf{c} - 4 \\mathbf{a} \\cdot \\mathbf{b} - 4 \\mathbf{a} \\cdot \\mathbf{c} + 2 \\mathbf{b} \\cdot \\mathbf{c}).",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Similarly,\n\\begin{align*}\nGB^2 &= \\frac{1}{9} (\\mathbf{a} \\cdot \\mathbf{a} + 4 \\mathbf{b} \\cdot \\mathbf{b} + \\mathbf{c} \\cdot \\mathbf{c} - 4 \\mathbf{a} \\cdot \\mathbf{b} + 2 \\mathbf{a} \\cdot \\mathbf{c} - 4 \\mathbf{b} \\cdot \\mathbf{c}), \\\\\nGC^2 &= \\frac{1}{9} (\\mathbf{a} \\cdot \\mathbf{a} + \\mathbf{b} \\cdot \\mathbf{b} + 4 \\mathbf{c} \\cdot \\mathbf{c} + 2 \\mathbf{a} \\cdot \\mathbf{b} - 4 \\mathbf{a} \\cdot \\mathbf{c} - 4 \\mathbf{b} \\cdot \\mathbf{c}),\n\\end{align*}so\n\\begin{align*}\n&PA^2 + PB^2 + PC^2 - GA^2 - GB^2 - GC^2 \\\\\n&= \\frac{1}{9} (3 \\mathbf{a} \\cdot \\mathbf{a} + 3 \\mathbf{b} \\cdot \\mathbf{b} + 3 \\mathbf{c} \\cdot \\mathbf{c} + 27 \\mathbf{p} \\cdot \\mathbf{p} \\\\\n&\\quad + 6 \\mathbf{a} \\cdot \\mathbf{b} + 6 \\mathbf{a} \\cdot \\mathbf{b} + 6 \\mathbf{b} \\cdot \\mathbf{c} - 18 \\mathbf{a} \\cdot \\mathbf{p} - 18 \\mathbf{b} \\cdot \\mathbf{p} - 18 \\mathbf{c} \\cdot \\mathbf{p}).",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Also,\n\\begin{align*}\nPG^2 &= \\left\\| \\mathbf{p} - \\frac{\\mathbf{a} + \\mathbf{b} + \\mathbf{c}}{3} \\right\\|^2 \\\\\n&= \\frac{1}{9} \\|3 \\mathbf{p} - (\\mathbf{a} + \\mathbf{b} + \\mathbf{c})\\|^2 \\\\\n&= \\frac{1}{9} (\\mathbf{a} \\cdot \\mathbf{a} + \\mathbf{b} \\cdot \\mathbf{b} + \\mathbf{c} \\cdot \\mathbf{c} + 9 \\mathbf{p} \\cdot \\mathbf{p} \\\\\n&\\quad + 2 \\mathbf{a} \\cdot \\mathbf{b} + 2 \\mathbf{a} \\cdot \\mathbf{b} + 2 \\mathbf{b} \\cdot \\mathbf{c} - 6 \\mathbf{a} \\cdot \\mathbf{p} - 6 \\mathbf{b} \\cdot \\mathbf{p} - 6 \\mathbf{c} \\cdot \\mathbf{p}).",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Therefore, $k = \\boxed{3}.$",
+        "independent_operation": "TRANSFORM"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "OTHER",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 6,
+        "independent": "TRANSFORM",
+        "annotated": "DISCHARGE",
+        "source_span": "\\end{align*}Therefore, $k = \\boxed{3}.$"
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-100",
+    "category": "Precalculus",
+    "complexity_score": 2290,
+    "original_solution": "We can expand the determinant as follows:\n\\begin{align*}\n\\begin{vmatrix} \\sin^2 A & \\cot A & 1 \\\\ \\sin^2 B & \\cot B & 1 \\\\ \\sin^2 C & \\cot C & 1 \\end{vmatrix} &= \\sin^2 A \\begin{vmatrix} \\cot B & 1 \\\\ \\cot C & 1 \\end{vmatrix} - \\cot A \\begin{vmatrix} \\sin^2 B & 1 \\\\ \\sin^2 C & 1 \\end{vmatrix} + \\begin{vmatrix} \\sin^2 B & \\cot B \\\\ \\sin^2 C & \\cot C \\end{vmatrix} \\\\\n&= \\sin^2 A (\\cot B - \\cot C) - \\cot A (\\sin^2 B - \\sin^2 C) + (\\sin^2 B \\cot C - \\cot B \\sin^2 C) \\\\\n&= \\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B).\n\\end{align*}In general,\n\\begin{align*}\n\\cot x - \\cot y &= \\frac{\\cos x}{\\sin x} - \\frac{\\cos y}{\\sin y} \\\\\n&= \\frac{\\cos x \\sin y - \\sin x \\cos y}{\\sin x \\sin y} \\\\\n&= \\frac{\\sin (y - x)}{\\sin x \\sin y}.\n\\end{align*}Then the determinant is equal to\n\\begin{align*}\n&\\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B) \\\\\n&= \\sin^2 A \\cdot \\frac{\\sin (C - B)}{\\sin B \\sin C} + \\sin^2 B \\cdot \\frac{\\sin (A - C)}{\\sin A \\sin C} + \\sin^2 C \\cdot \\frac{\\sin (B - A)}{\\sin A \\sin B} \\\\\n&= \\frac{\\sin^3 A \\sin (C - B) + \\sin^3 B \\sin (A - C) + \\sin^3 C \\sin (B - A)}{\\sin A \\sin B \\sin C}.\n\\end{align*}Now,\n\\begin{align*}\n\\sin^3 A &= \\sin A \\sin^2 A \\\\\n&= \\sin (180^\\circ - B - C) \\sin^2 A \\\\\n&= \\sin (B + C) \\sin^2 A,\n\\end{align*}so $\\sin^3 A \\sin (C - B) = \\sin^2 A \\sin (C - B) \\sin (B + C).$  Then\n\\begin{align*}\n\\sin (C - B) \\sin (B + C) &= (\\sin C \\cos B - \\cos C \\sin B)(\\sin B \\cos C + \\cos B \\sin C) \\\\\n&= \\cos B \\sin B \\cos C \\sin C + \\cos^2 B \\sin^2 C - \\sin^2 B \\cos^2 C - \\cos B \\sin B \\cos C \\sin C \\\\\n&= \\cos^2 B \\sin^2 C - \\sin^2 B \\cos^2 C \\\\\n&= (1 - \\sin^2 B) \\sin^2 C - \\sin^2 B (1 - \\sin^2 C) \\\\\n&= \\sin^2 C - \\sin^2 B \\sin^2 C - \\sin^2 B + \\sin^2 B \\sin^2 C \\\\\n&= \\sin^2 C - \\sin^2 B,\n\\end{align*}so\n\\[\\sin^3  A \\sin (C - B) = \\sin^2 A (\\sin^2 C - \\sin^2 B).\\]Similarly,\n\\begin{align*}\n\\sin^3 B \\sin (A - C) &= \\sin^2 B (\\sin^2 A - \\sin^2 C), \\\\\n\\sin^3 C \\sin (B - A) &= \\sin^2 C (\\sin^2 B - \\sin^2 A).\n\\end{align*}Therefore,\n\\begin{align*}\n&\\sin^3 A \\sin (C - B) + \\sin^3 B \\sin (A - C) + \\sin^3 C \\sin (B - A) \\\\\n&= \\sin^2 A (\\sin^2 C - \\sin^2 B) + \\sin^2 B (\\sin^2 A - \\sin^2 C) + \\sin^2 C (\\sin^2 B - \\sin^2 A) \\\\\n&= 0,\n\\end{align*}which means the determinant is equal to $\\boxed{0}.$",
+    "independent_reconstruction": [
+      {
+        "source_span": "We can expand the determinant as follows:\n\\begin{align*}\n\\begin{vmatrix} \\sin^2 A & \\cot A & 1 \\\\ \\sin^2 B & \\cot B & 1 \\\\ \\sin^2 C & \\cot C & 1 \\end{vmatrix} &= \\sin^2 A \\begin{vmatrix} \\cot B & 1 \\\\ \\cot C & 1 \\end{vmatrix} - \\cot A \\begin{vmatrix} \\sin^2 B & 1 \\\\ \\sin^2 C & 1 \\end{vmatrix} + \\begin{vmatrix} \\sin^2 B & \\cot B \\\\ \\sin^2 C & \\cot C \\end{vmatrix} \\\\\n&= \\sin^2 A (\\cot B - \\cot C) - \\cot A (\\sin^2 B - \\sin^2 C) + (\\sin^2 B \\cot C - \\cot B \\sin^2 C) \\\\\n&= \\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B).",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}In general,\n\\begin{align*}\n\\cot x - \\cot y &= \\frac{\\cos x}{\\sin x} - \\frac{\\cos y}{\\sin y} \\\\\n&= \\frac{\\cos x \\sin y - \\sin x \\cos y}{\\sin x \\sin y} \\\\\n&= \\frac{\\sin (y - x)}{\\sin x \\sin y}.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Then the determinant is equal to\n\\begin{align*}\n&\\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B) \\\\\n&= \\sin^2 A \\cdot \\frac{\\sin (C - B)}{\\sin B \\sin C} + \\sin^2 B \\cdot \\frac{\\sin (A - C)}{\\sin A \\sin C} + \\sin^2 C \\cdot \\frac{\\sin (B - A)}{\\sin A \\sin B} \\\\\n&= \\frac{\\sin^3 A \\sin (C - B) + \\sin^3 B \\sin (A - C) + \\sin^3 C \\sin (B - A)}{\\sin A \\sin B \\sin C}.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Now,\n\\begin{align*}\n\\sin^3 A &= \\sin A \\sin^2 A \\\\\n&= \\sin (180^\\circ - B - C) \\sin^2 A \\\\\n&= \\sin (B + C) \\sin^2 A,\n\\end{align*}so $\\sin^3 A \\sin (C - B) = \\sin^2 A \\sin (C - B) \\sin (B + C).$  Then\n\\begin{align*}\n\\sin (C - B) \\sin (B + C) &= (\\sin C \\cos B - \\cos C \\sin B)(\\sin B \\cos C + \\cos B \\sin C) \\\\\n&= \\cos B \\sin B \\cos C \\sin C + \\cos^2 B \\sin^2 C - \\sin^2 B \\cos^2 C - \\cos B \\sin B \\cos C \\sin C \\\\\n&= \\cos^2 B \\sin^2 C - \\sin^2 B \\cos^2 C \\\\\n&= (1 - \\sin^2 B) \\sin^2 C - \\sin^2 B (1 - \\sin^2 C) \\\\\n&= \\sin^2 C - \\sin^2 B \\sin^2 C - \\sin^2 B + \\sin^2 B \\sin^2 C \\\\\n&= \\sin^2 C - \\sin^2 B,\n\\end{align*}so\n\\[\\sin^3  A \\sin (C - B) = \\sin^2 A (\\sin^2 C - \\sin^2 B).\\]Similarly,\n\\begin{align*}\n\\sin^3 B \\sin (A - C) &= \\sin^2 B (\\sin^2 A - \\sin^2 C), \\\\\n\\sin^3 C \\sin (B - A) &= \\sin^2 C (\\sin^2 B - \\sin^2 A).",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Therefore,\n\\begin{align*}\n&\\sin^3 A \\sin (C - B) + \\sin^3 B \\sin (A - C) + \\sin^3 C \\sin (B - A) \\\\\n&= \\sin^2 A (\\sin^2 C - \\sin^2 B) + \\sin^2 B (\\sin^2 A - \\sin^2 C) + \\sin^2 C (\\sin^2 B - \\sin^2 A) \\\\\n&= 0,\n\\end{align*}which means the determinant is equal to $\\boxed{0}.$",
+        "independent_operation": "TRANSFORM"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "TRIG_IDENTITY",
+      "TRIG_IDENTITY",
+      "TRIG_IDENTITY",
+      "TRIG_IDENTITY",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 1,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "We can expand the determinant as follows:\n\\begin{align*}\n\\begin{vmatrix} \\sin^2 A & \\cot A & 1 \\\\ \\sin^2 B & \\cot B & 1 \\\\ \\sin^2 C & \\cot C & 1 \\end{vmatrix} &= \\sin^2 A \\begin{vmatrix} \\cot B & 1 \\\\ \\cot C & 1 \\end{vmatrix} - \\cot A \\begin{vmatrix} \\sin^2 B & 1 \\\\ \\sin^2 C & 1 \\end{vmatrix} + \\begin{vmatrix} \\sin^2 B & \\cot B \\\\ \\sin^2 C & \\cot C \\end{vmatrix} \\\\\n&= \\sin^2 A (\\cot B - \\cot C) - \\cot A (\\sin^2 B - \\sin^2 C) + (\\sin^2 B \\cot C - \\cot B \\sin^2 C) \\\\\n&= \\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B)."
+      },
+      {
+        "index": 2,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "\\end{align*}In general,\n\\begin{align*}\n\\cot x - \\cot y &= \\frac{\\cos x}{\\sin x} - \\frac{\\cos y}{\\sin y} \\\\\n&= \\frac{\\cos x \\sin y - \\sin x \\cos y}{\\sin x \\sin y} \\\\\n&= \\frac{\\sin (y - x)}{\\sin x \\sin y}."
+      },
+      {
+        "index": 3,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "\\end{align*}Then the determinant is equal to\n\\begin{align*}\n&\\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B) \\\\\n&= \\sin^2 A \\cdot \\frac{\\sin (C - B)}{\\sin B \\sin C} + \\sin^2 B \\cdot \\frac{\\sin (A - C)}{\\sin A \\sin C} + \\sin^2 C \\cdot \\frac{\\sin (B - A)}{\\sin A \\sin B} \\\\\n&= \\frac{\\sin^3 A \\sin (C - B) + \\sin^3 B \\sin (A - C) + \\sin^3 C \\sin (B - A)}{\\sin A \\sin B \\sin C}."
+      },
+      {
+        "index": 4,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "\\end{align*}Now,\n\\begin{align*}\n\\sin^3 A &= \\sin A \\sin^2 A \\\\\n&= \\sin (180^\\circ - B - C) \\sin^2 A \\\\\n&= \\sin (B + C) \\sin^2 A,\n\\end{align*}so $\\sin^3 A \\sin (C - B) = \\sin^2 A \\sin (C - B) \\sin (B + C).$  Then\n\\begin{align*}\n\\sin (C - B) \\sin (B + C) &= (\\sin C \\cos B - \\cos C \\sin B)(\\sin B \\cos C + \\cos B \\sin C) \\\\\n&= \\cos B \\sin B \\cos C \\sin C + \\cos^2 B \\sin^2 C - \\sin^2 B \\cos^2 C - \\cos B \\sin B \\cos C \\sin C \\\\\n&= \\cos^2 B \\sin^2 C - \\sin^2 B \\cos^2 C \\\\\n&= (1 - \\sin^2 B) \\sin^2 C - \\sin^2 B (1 - \\sin^2 C) \\\\\n&= \\sin^2 C - \\sin^2 B \\sin^2 C - \\sin^2 B + \\sin^2 B \\sin^2 C \\\\\n&= \\sin^2 C - \\sin^2 B,\n\\end{align*}so\n\\[\\sin^3  A \\sin (C - B) = \\sin^2 A (\\sin^2 C - \\sin^2 B).\\]Similarly,\n\\begin{align*}\n\\sin^3 B \\sin (A - C) &= \\sin^2 B (\\sin^2 A - \\sin^2 C), \\\\\n\\sin^3 C \\sin (B - A) &= \\sin^2 C (\\sin^2 B - \\sin^2 A)."
+      },
+      {
+        "index": 5,
+        "independent": "TRANSFORM",
+        "annotated": "DISCHARGE",
+        "source_span": "\\end{align*}Therefore,\n\\begin{align*}\n&\\sin^3 A \\sin (C - B) + \\sin^3 B \\sin (A - C) + \\sin^3 C \\sin (B - A) \\\\\n&= \\sin^2 A (\\sin^2 C - \\sin^2 B) + \\sin^2 B (\\sin^2 A - \\sin^2 C) + \\sin^2 C (\\sin^2 B - \\sin^2 A) \\\\\n&= 0,\n\\end{align*}which means the determinant is equal to $\\boxed{0}.$"
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-069",
+    "category": "Intermediate Algebra",
+    "complexity_score": 2231,
+    "original_solution": "By inspection, $(\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17})$ and $(-\\sqrt{17},-\\sqrt{17},-\\sqrt{17},-\\sqrt{17})$ are solutions.  We claim that these are the only solutions.\n\nLet\n\\[f(x) = \\frac{1}{2} \\left( x + \\frac{17}{x} \\right) = \\frac{x^2 + 17}{2x}.\\]Then the given equations become $f(x) = y,$ $f(y) = z,$ $f(z) = w,$ and $f(w) = x.$  Note that none of these variables can be 0.\n\nSuppose $t > 0.$  Then\n\\[f(t) - \\sqrt{17} = \\frac{t^2 + 17}{2t} - \\sqrt{17} = \\frac{t^2 - 2t \\sqrt{17} + 17}{2t} = \\frac{(t - \\sqrt{17})^2}{2t} \\ge 0,\\]so $f(t) \\ge \\sqrt{17}.$  Hence, if any of $x,$ $y,$ $z,$ $w$ are positive, then they are all positive, and greater than or equal to $\\sqrt{17}.$\n\nFurthermore, if $t > \\sqrt{17},$ then\n\\[f(t) - \\sqrt{17} = \\frac{(t - \\sqrt{17})^2}{2t} = \\frac{1}{2} \\cdot \\frac{t - \\sqrt{17}}{t} (t - \\sqrt{17}) < \\frac{1}{2} (t - \\sqrt{17}).\\]Hence, if $x > \\sqrt{17},$ then\n\\begin{align*}\ny - \\sqrt{17} &< \\frac{1}{2} (x - \\sqrt{17}), \\\\\nz - \\sqrt{17} &< \\frac{1}{2} (y - \\sqrt{17}), \\\\\nw - \\sqrt{17} &< \\frac{1}{2} (z - \\sqrt{17}), \\\\\nx - \\sqrt{17} &< \\frac{1}{2} (w - \\sqrt{17}).\n\\end{align*}This means\n\\[x - \\sqrt{17} < \\frac{1}{2} (w - \\sqrt{17}) < \\frac{1}{4} (z - \\sqrt{17}) < \\frac{1}{8} (y - \\sqrt{17}) < \\frac{1}{16} (x - \\sqrt{17}),\\]contradiction.\n\nTherefore, $(\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17})$ is the only solution where any of the variables are positive.\n\nIf any of the variables are negative, then they are all negative.  Let $x' = -x,$ $y' = -y,$ $z' = -z,$ and $w' = -w.$  Then\n\\begin{align*}\n2y' &= x' + \\frac{17}{x'}, \\\\\n2z' &= y' + \\frac{17}{y'}, \\\\\n2w' &= z' + \\frac{17}{z'}, \\\\\n2x' &= w' + \\frac{17}{w'},\n\\end{align*}and $x',$ $y',$ $z',$ $w'$ are all positive, which means $(x',y',z',w') = (\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17}),$ so $(x,y,z,w) = (-\\sqrt{17},-\\sqrt{17},-\\sqrt{17},-\\sqrt{17}).$\n\nThus, there are $\\boxed{2}$ solutions.",
+    "independent_reconstruction": [
+      {
+        "source_span": "By inspection, $(\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17})$ and $(-\\sqrt{17},-\\sqrt{17},-\\sqrt{17},-\\sqrt{17})$ are solutions.",
+        "independent_operation": "APPLY_THEOREM"
+      },
+      {
+        "source_span": "We claim that these are the only solutions.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Let\n\\[f(x) = \\frac{1}{2} \\left( x + \\frac{17}{x} \\right) = \\frac{x^2 + 17}{2x}.\\]Then the given equations become $f(x) = y,$ $f(y) = z,$ $f(z) = w,$ and $f(w) = x.$  Note that none of these variables can be 0.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Suppose $t > 0.$  Then\n\\[f(t) - \\sqrt{17} = \\frac{t^2 + 17}{2t} - \\sqrt{17} = \\frac{t^2 - 2t \\sqrt{17} + 17}{2t} = \\frac{(t - \\sqrt{17})^2}{2t} \\ge 0,\\]so $f(t) \\ge \\sqrt{17}.$  Hence, if any of $x,$ $y,$ $z,$ $w$ are positive, then they are all positive, and greater than or equal to $\\sqrt{17}.$",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Furthermore, if $t > \\sqrt{17},$ then\n\\[f(t) - \\sqrt{17} = \\frac{(t - \\sqrt{17})^2}{2t} = \\frac{1}{2} \\cdot \\frac{t - \\sqrt{17}}{t} (t - \\sqrt{17}) < \\frac{1}{2} (t - \\sqrt{17}).\\]Hence, if $x > \\sqrt{17},$ then\n\\begin{align*}\ny - \\sqrt{17} &< \\frac{1}{2} (x - \\sqrt{17}), \\\\\nz - \\sqrt{17} &< \\frac{1}{2} (y - \\sqrt{17}), \\\\\nw - \\sqrt{17} &< \\frac{1}{2} (z - \\sqrt{17}), \\\\\nx - \\sqrt{17} &< \\frac{1}{2} (w - \\sqrt{17}).",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}This means\n\\[x - \\sqrt{17} < \\frac{1}{2} (w - \\sqrt{17}) < \\frac{1}{4} (z - \\sqrt{17}) < \\frac{1}{8} (y - \\sqrt{17}) < \\frac{1}{16} (x - \\sqrt{17}),\\]contradiction.",
+        "independent_operation": "CONTRADICTION"
+      },
+      {
+        "source_span": "Therefore, $(\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17})$ is the only solution where any of the variables are positive.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "If any of the variables are negative, then they are all negative.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Let $x' = -x,$ $y' = -y,$ $z' = -z,$ and $w' = -w.$  Then\n\\begin{align*}\n2y' &= x' + \\frac{17}{x'}, \\\\\n2z' &= y' + \\frac{17}{y'}, \\\\\n2w' &= z' + \\frac{17}{z'}, \\\\\n2x' &= w' + \\frac{17}{w'},\n\\end{align*}and $x',$ $y',$ $z',$ $w'$ are all positive, which means $(x',y',z',w') = (\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17}),$ so $(x,y,z,w) = (-\\sqrt{17},-\\sqrt{17},-\\sqrt{17},-\\sqrt{17}).$",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Thus, there are $\\boxed{2}$ solutions.",
+        "independent_operation": "EVALUATE"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "APPLY_THEOREM",
+      "OTHER",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "CONTRADICTION",
+      "TRANSFORM",
+      "OTHER",
+      "TRANSFORM",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 10,
+        "independent": "EVALUATE",
+        "annotated": "DISCHARGE",
+        "source_span": "Thus, there are $\\boxed{2}$ solutions."
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-031",
+    "category": "Geometry",
+    "complexity_score": 2047,
+    "original_solution": "Divide the boundary of the square into halves, thereby forming $8$ segments. Without loss of generality, let the first point $A$ be in the bottom-left segment. Then, it is easy to see that any point in the $5$ segments not bordering the bottom-left segment will be distance at least $\\dfrac{1}{2}$ apart from $A$. Now, consider choosing the second point on the bottom-right segment. The probability for it to be distance at least $0.5$ apart from $A$ is $\\dfrac{0 + 1}{2} = \\dfrac{1}{2}$ because of linearity of the given probability. (Alternatively, one can set up a coordinate system and use geometric probability.)\nIf the second point $B$ is on the left-bottom segment, then if $A$ is distance $x$ away from the left-bottom vertex, then $B$ must be up to $\\dfrac{1}{2} - \\sqrt{0.25 - x^2}$ away from the left-middle point. Thus, using an averaging argument we find that the probability in this case is\\[\\frac{1}{\\left( \\frac{1}{2} \\right)^2} \\int_0^{\\frac{1}{2}} \\dfrac{1}{2} - \\sqrt{0.25 - x^2} dx = 4\\left( \\frac{1}{4} - \\frac{\\pi}{16} \\right) = 1 - \\frac{\\pi}{4}.\\]\n(Alternatively, one can equate the problem to finding all valid $(x, y)$ with $0 < x, y < \\dfrac{1}{2}$ such that $x^2 + y^2 \\ge \\dfrac{1}{4}$, i.e. $(x, y)$ is outside the unit circle with radius $0.5.$)\nThus, averaging the probabilities gives\\[P = \\frac{1}{8} \\left( 5 + \\frac{1}{2} + 1 - \\frac{\\pi}{4} \\right) = \\frac{1}{32} \\left( 26 - \\pi \\right).\\]\nOur answer is $\\boxed{59}$.",
+    "independent_reconstruction": [
+      {
+        "source_span": "Divide the boundary of the square into halves, thereby forming $8$ segments.",
+        "independent_operation": "APPLY_THEOREM"
+      },
+      {
+        "source_span": "Without loss of generality, let the first point $A$ be in the bottom-left segment.",
+        "independent_operation": "CONSTRUCT"
+      },
+      {
+        "source_span": "Then, it is easy to see that any point in the $5$ segments not bordering the bottom-left segment will be distance at least $\\dfrac{1}{2}$ apart from $A$.",
+        "independent_operation": "BOUND"
+      },
+      {
+        "source_span": "Now, consider choosing the second point on the bottom-right segment.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "The probability for it to be distance at least $0.5$ apart from $A$ is $\\dfrac{0 + 1}{2} = \\dfrac{1}{2}$ because of linearity of the given probability.",
+        "independent_operation": "PROBABILITY"
+      },
+      {
+        "source_span": "(Alternatively, one can set up a coordinate system and use geometric probability.)\nIf the second point $B$ is on the left-bottom segment, then if $A$ is distance $x$ away from the left-bottom vertex, then $B$ must be up to $\\dfrac{1}{2} - \\sqrt{0.25 - x^2}$ away from the left-middle point.",
+        "independent_operation": "PROBABILITY"
+      },
+      {
+        "source_span": "Thus, using an averaging argument we find that the probability in this case is\\[\\frac{1}{\\left( \\frac{1}{2} \\right)^2} \\int_0^{\\frac{1}{2}} \\dfrac{1}{2} - \\sqrt{0.25 - x^2} dx = 4\\left( \\frac{1}{4} - \\frac{\\pi}{16} \\right) = 1 - \\frac{\\pi}{4}.\\]\n(Alternatively, one can equate the problem to finding all valid $(x, y)$ with $0 < x, y < \\dfrac{1}{2}$ such that $x^2 + y^2 \\ge \\dfrac{1}{4}$, i.e.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "$(x, y)$ is outside the unit circle with radius $0.5.$)\nThus, averaging the probabilities gives\\[P = \\frac{1}{8} \\left( 5 + \\frac{1}{2} + 1 - \\frac{\\pi}{4} \\right) = \\frac{1}{32} \\left( 26 - \\pi \\right).\\]\nOur answer is $\\boxed{59}$.",
+        "independent_operation": "PROBABILITY"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "APPLY_THEOREM",
+      "SEARCH_META",
+      "OPTIMIZE",
+      "OTHER",
+      "PROBABILITY",
+      "PROBABILITY",
+      "PROBABILITY",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 2,
+        "independent": "CONSTRUCT",
+        "annotated": "SEARCH_META",
+        "source_span": "Without loss of generality, let the first point $A$ be in the bottom-left segment."
+      },
+      {
+        "index": 3,
+        "independent": "BOUND",
+        "annotated": "GOAL_MANAGEMENT",
+        "source_span": "Then, it is easy to see that any point in the $5$ segments not bordering the bottom-left segment will be distance at least $\\dfrac{1}{2}$ apart from $A$."
+      },
+      {
+        "index": 4,
+        "independent": "CASE_SPLIT",
+        "annotated": "OTHER",
+        "source_span": "Now, consider choosing the second point on the bottom-right segment."
+      },
+      {
+        "index": 8,
+        "independent": "PROBABILITY",
+        "annotated": "DISCHARGE",
+        "source_span": "$(x, y)$ is outside the unit circle with radius $0.5.$)\nThus, averaging the probabilities gives\\[P = \\frac{1}{8} \\left( 5 + \\frac{1}{2} + 1 - \\frac{\\pi}{4} \\right) = \\frac{1}{32} \\left( 26 - \\pi \\right).\\]\nOur answer is $\\boxed{59}$."
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-074",
+    "category": "Prealgebra",
+    "complexity_score": 1963,
+    "original_solution": "We will find the positive divisors of 14 by finding pairs that multiply to 14.   We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.  We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.  Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.  Therefore, Rick and Steve could be thinking of $\\boxed{4}$ possible numbers.  Note that since $14$ is a factor of $42$, all of the factors of $14$ are also factors of $42$.",
+    "independent_reconstruction": [
+      {
+        "source_span": "We will find the positive divisors of 14 by finding pairs that multiply to 14.",
+        "independent_operation": "APPLY_THEOREM"
+      },
+      {
+        "source_span": "We begin our list as follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$  Checking $2$, we find that $2\\cdot 7=14$, so our list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$  Checking $3$, $4$, $5$, and $6$, we find that none of these are divisors of $14$, so our final list is $$1 \\quad 2 \\quad 7 \\quad 14.$$  Next, we use the buddy method to determine the factors of $42$.",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "We begin our list as follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$  Checking $2$, we find that $2\\cdot 21=42$, so our list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$  Checking $3$, we find that $3\\cdot 14=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$  Checking $4$ and $5$ we find that $4$ and $5$ are not divisors of $42$.",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "Therefore, Rick and Steve could be thinking of $\\boxed{4}$ possible numbers.",
+        "independent_operation": "EVALUATE"
+      },
+      {
+        "source_span": "Note that since $14$ is a factor of $42$, all of the factors of $14$ are also factors of $42$.",
+        "independent_operation": "TRANSFORM"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "APPLY_THEOREM",
+      "VERIFY",
+      "VERIFY",
+      "VERIFY",
+      "TRANSFORM",
+      "TRANSFORM"
+    ],
+    "operation_mismatches": [],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-028",
+    "category": "Counting & Probability",
+    "complexity_score": 1927,
+    "original_solution": "We use the Principle of Inclusion-Exclusion (PIE).\nIf we join the adjacent vertices of the regular $n$-star, we get a regular $n$-gon. We number the vertices of this $n$-gon in a counterclockwise direction: $0, 1, 2, 3, \\ldots, n-1.$\nA regular $n$-star will be formed if we choose a vertex number $m$, where $0 \\le m \\le n-1$, and then form the line segments by joining the following pairs of vertex numbers: $(0 \\mod{n}, m \\mod{n}),$ $(m \\mod{n}, 2m \\mod{n}),$ $(2m \\mod{n}, 3m \\mod{n}),$ $\\cdots,$ $((n-2)m \\mod{n}, (n-1)m \\mod{n}),$ $((n-1)m \\mod{n}, 0 \\mod{n}).$\nIf $\\gcd(m,n) > 1$, then the star degenerates into a regular $\\frac{n}{\\gcd(m,n)}$-gon or a (2-vertex) line segment if $\\frac{n}{\\gcd(m,n)}= 2$. Therefore, we need to find all $m$ such that $\\gcd(m,n) = 1$.\nNote that $n = 1000 = 2^{3}5^{3}.$\nLet $S = \\{1,2,3,\\ldots, 1000\\}$, and $A_{i}= \\{i \\in S \\mid i\\, \\textrm{ divides }\\,1000\\}$. The number of $m$'s that are not relatively prime to $1000$ is: $\\mid A_{2}\\cup A_{5}\\mid = \\mid A_{2}\\mid+\\mid A_{5}\\mid-\\mid A_{2}\\cap A_{5}\\mid$ $= \\left\\lfloor \\frac{1000}{2}\\right\\rfloor+\\left\\lfloor \\frac{1000}{5}\\right\\rfloor-\\left\\lfloor \\frac{1000}{2 \\cdot 5}\\right\\rfloor$ $= 500+200-100 = 600.$\nVertex numbers $1$ and $n-1=999$ must be excluded as values for $m$ since otherwise a regular n-gon, instead of an n-star, is formed.\nThe cases of a 1st line segment of (0, m) and (0, n-m) give the same star. Therefore we should halve the count to get non-similar stars.\nTherefore, the number of non-similar 1000-pointed stars is $\\frac{1000-600-2}{2}= \\boxed{199}.$",
+    "independent_reconstruction": [
+      {
+        "source_span": "We use the Principle of Inclusion-Exclusion (PIE).",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "If we join the adjacent vertices of the regular $n$-star, we get a regular $n$-gon.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "We number the vertices of this $n$-gon in a counterclockwise direction: $0, 1, 2, 3, \\ldots, n-1.$\nA regular $n$-star will be formed if we choose a vertex number $m$, where $0 \\le m \\le n-1$, and then form the line segments by joining the following pairs of vertex numbers: $(0 \\mod{n}, m \\mod{n}),$ $(m \\mod{n}, 2m \\mod{n}),$ $(2m \\mod{n}, 3m \\mod{n}),$ $\\cdots,$ $((n-2)m \\mod{n}, (n-1)m \\mod{n}),$ $((n-1)m \\mod{n}, 0 \\mod{n}).$\nIf $\\gcd(m,n) > 1$, then the star degenerates into a regular $\\frac{n}{\\gcd(m,n)}$-gon or a (2-vertex) line segment if $\\frac{n}{\\gcd(m,n)}= 2$.",
+        "independent_operation": "COUNT"
+      },
+      {
+        "source_span": "Therefore, we need to find all $m$ such that $\\gcd(m,n) = 1$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Note that $n = 1000 = 2^{3}5^{3}.$\nLet $S = \\{1,2,3,\\ldots, 1000\\}$, and $A_{i}= \\{i \\in S \\mid i\\, \\textrm{ divides }\\,1000\\}$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "The number of $m$'s that are not relatively prime to $1000$ is: $\\mid A_{2}\\cup A_{5}\\mid = \\mid A_{2}\\mid+\\mid A_{5}\\mid-\\mid A_{2}\\cap A_{5}\\mid$ $= \\left\\lfloor \\frac{1000}{2}\\right\\rfloor+\\left\\lfloor \\frac{1000}{5}\\right\\rfloor-\\left\\lfloor \\frac{1000}{2 \\cdot 5}\\right\\rfloor$ $= 500+200-100 = 600.$\nVertex numbers $1$ and $n-1=999$ must be excluded as values for $m$ since otherwise a regular n-gon, instead of an n-star, is formed.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "The cases of a 1st line segment of (0, m) and (0, n-m) give the same star.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "Therefore we should halve the count to get non-similar stars.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Therefore, the number of non-similar 1000-pointed stars is $\\frac{1000-600-2}{2}= \\boxed{199}.$",
+        "independent_operation": "TRANSFORM"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "INCLUSION_EXCLUSION",
+      "TRANSFORM",
+      "MODULAR_REASONING",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "OTHER",
+      "TRANSFORM",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 3,
+        "independent": "COUNT",
+        "annotated": "MODULAR_REASONING",
+        "source_span": "We number the vertices of this $n$-gon in a counterclockwise direction: $0, 1, 2, 3, \\ldots, n-1.$\nA regular $n$-star will be formed if we choose a vertex number $m$, where $0 \\le m \\le n-1$, and then form the line segments by joining the following pairs of vertex numbers: $(0 \\mod{n}, m \\mod{n}),$ $(m \\mod{n}, 2m \\mod{n}),$ $(2m \\mod{n}, 3m \\mod{n}),$ $\\cdots,$ $((n-2)m \\mod{n}, (n-1)m \\mod{n}),$ $((n-1)m \\mod{n}, 0 \\mod{n}).$\nIf $\\gcd(m,n) > 1$, then the star degenerates into a regular $\\frac{n}{\\gcd(m,n)}$-gon or a (2-vertex) line segment if $\\frac{n}{\\gcd(m,n)}= 2$."
+      },
+      {
+        "index": 7,
+        "independent": "CASE_SPLIT",
+        "annotated": "OTHER",
+        "source_span": "The cases of a 1st line segment of (0, m) and (0, n-m) give the same star."
+      },
+      {
+        "index": 9,
+        "independent": "TRANSFORM",
+        "annotated": "DISCHARGE",
+        "source_span": "Therefore, the number of non-similar 1000-pointed stars is $\\frac{1000-600-2}{2}= \\boxed{199}.$"
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-092",
+    "category": "Number Theory",
+    "complexity_score": 1881,
+    "original_solution": "Let $m^2$ and $n^2$ be the two-digit square numbers; we then have $4 \\leq m, n \\leq 9$. Putting them next to each other yields a number $100m^2 + n^2$, which must be equal to some other square $x^2$. Rearranging, we have $100m^2 = x^2 - n^2 = (x+n)(x-n)$, so the RHS contains a factor of 100. The biggest possible square is 8181, whose square root is about 90.5, and the smallest is 1616, whose square root is about 40.2, so $41 \\leq x \\leq 90$. To get the factor of 100, we have two cases:\n\n1. Both $x+n$ and $x-n$ must be multiples of 5. In fact, this means $n = 5$, $x$ is a multiple of 5, and $x-n$, $x$, and $x+n$ are consecutive multiples of 5. Trying possibilities up to $x = 85$, we see that this case doesn't work.\n\n2. One of $x+n$ and $x-n$ is a multiple of 25. Since $x+n = 25$ is impossible, the simplest possibilities are $x-n = 50$ and $x + n = 50$.  The case $x - n = 25$ implies $x + n = 4p^2$ for $(x+n)(x-n)$ to be a perfect square multiple of 100, and thus $57 \\leq 4p^2 \\leq 77$ from $41 \\leq x \\leq 90$. The only possibility is $4p^2 = 64$, which leads to non-integral $x$ and $n$. The case $x + n = 50$ requires $x -n = 2p^2$ for $(x+n)(x-n)$ to be a perfect square. To have $x \\geq 41$ we must have $x - n \\geq 32$, and in fact the lower bound works: $(50)(32) = 1600 = 40^2$. Thus $x = 41$, and $x^2 = \\boxed{1681}$.",
+    "independent_reconstruction": [
+      {
+        "source_span": "Let $m^2$ and $n^2$ be the two-digit square numbers; we then have $4 \\leq m, n \\leq 9$.",
+        "independent_operation": "CONSTRUCT"
+      },
+      {
+        "source_span": "Putting them next to each other yields a number $100m^2 + n^2$, which must be equal to some other square $x^2$.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Rearranging, we have $100m^2 = x^2 - n^2 = (x+n)(x-n)$, so the RHS contains a factor of 100.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "The biggest possible square is 8181, whose square root is about 90.5, and the smallest is 1616, whose square root is about 40.2, so $41 \\leq x \\leq 90$.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "To get the factor of 100, we have two cases:",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "1.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Both $x+n$ and $x-n$ must be multiples of 5.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "In fact, this means $n = 5$, $x$ is a multiple of 5, and $x-n$, $x$, and $x+n$ are consecutive multiples of 5.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Trying possibilities up to $x = 85$, we see that this case doesn't work.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "2.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "One of $x+n$ and $x-n$ is a multiple of 25.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Since $x+n = 25$ is impossible, the simplest possibilities are $x-n = 50$ and $x + n = 50$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "The case $x - n = 25$ implies $x + n = 4p^2$ for $(x+n)(x-n)$ to be a perfect square multiple of 100, and thus $57 \\leq 4p^2 \\leq 77$ from $41 \\leq x \\leq 90$.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "The only possibility is $4p^2 = 64$, which leads to non-integral $x$ and $n$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "The case $x + n = 50$ requires $x -n = 2p^2$ for $(x+n)(x-n)$ to be a perfect square.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "To have $x \\geq 41$ we must have $x - n \\geq 32$, and in fact the lower bound works: $(50)(32) = 1600 = 40^2$.",
+        "independent_operation": "BOUND"
+      },
+      {
+        "source_span": "Thus $x = 41$, and $x^2 = \\boxed{1681}$.",
+        "independent_operation": "TRANSFORM"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "CONSTRUCT",
+      "OTHER",
+      "TRANSFORM",
+      "OTHER",
+      "TRANSFORM",
+      "OTHER",
+      "OTHER",
+      "TRANSFORM",
+      "TRANSFORM",
+      "OTHER",
+      "OTHER",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "BOUND",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 16,
+        "independent": "BOUND",
+        "annotated": "GOAL_MANAGEMENT",
+        "source_span": "To have $x \\geq 41$ we must have $x - n \\geq 32$, and in fact the lower bound works: $(50)(32) = 1600 = 40^2$."
+      },
+      {
+        "index": 17,
+        "independent": "TRANSFORM",
+        "annotated": "DISCHARGE",
+        "source_span": "Thus $x = 41$, and $x^2 = \\boxed{1681}$."
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-033",
+    "category": "Algebra",
+    "complexity_score": 1821,
+    "original_solution": "Moving all the terms to the LHS, we have the equation $x^2-14x+y^2-48y=0$. Completing the square on the quadratic in $x$, we add $(14/2)^2=49$ to both sides. Completing the square on the quadratic in $y$, we add $(48/2)^2=576$ to both sides. We have the equation  \\[(x^2-14x+49)+(y^2-48y+576)=625 \\Rightarrow (x-7)^2+(y-24)^2=625\\]Rearranging, we have $(y-24)^2=625-(x-7)^2$. Taking the square root and solving for $y$, we get $y=\\pm \\sqrt{625-(x-7)^2}+24$. Since $\\sqrt{625-(x-7)^2}$ is always nonnegative, the minimum value of $y$ is achieved when we use a negative sign in front of the square root. Now, we want the largest possible value of the square root. In other words, we want to maximize $625-(x-7)^2$. Since $(x-7)^2$ is always nonnegative, $625-(x-7)^2$ is maximized when $(x-7)^2=0$ or when $x=7$. At this point, $625-(x-7)^2=625$ and $y=-\\sqrt{625}+24=-1$. Thus, the minimum $y$ value is $\\boxed{-1}$.\n\n--OR--\n\nSimilar to the solution above, we can complete the square to get the equation $(x-7)^2+(y-24)^2=625$. This equation describes a circle with center at $(7,24)$ and radius $\\sqrt{625}=25$. The minimum value of $y$ is achieved at the point on the bottom of the circle, which is located at $(7,24-25)=(7,-1)$. Thus, the minimum value of $y$ is $\\boxed{-1}$.",
+    "independent_reconstruction": [
+      {
+        "source_span": "Moving all the terms to the LHS, we have the equation $x^2-14x+y^2-48y=0$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Completing the square on the quadratic in $x$, we add $(14/2)^2=49$ to both sides.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Completing the square on the quadratic in $y$, we add $(48/2)^2=576$ to both sides.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "We have the equation  \\[(x^2-14x+49)+(y^2-48y+576)=625 \\Rightarrow (x-7)^2+(y-24)^2=625\\]Rearranging, we have $(y-24)^2=625-(x-7)^2$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Taking the square root and solving for $y$, we get $y=\\pm \\sqrt{625-(x-7)^2}+24$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Since $\\sqrt{625-(x-7)^2}$ is always nonnegative, the minimum value of $y$ is achieved when we use a negative sign in front of the square root.",
+        "independent_operation": "BOUND"
+      },
+      {
+        "source_span": "Now, we want the largest possible value of the square root.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "In other words, we want to maximize $625-(x-7)^2$.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Since $(x-7)^2$ is always nonnegative, $625-(x-7)^2$ is maximized when $(x-7)^2=0$ or when $x=7$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "At this point, $625-(x-7)^2=625$ and $y=-\\sqrt{625}+24=-1$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Thus, the minimum $y$ value is $\\boxed{-1}$.",
+        "independent_operation": "BOUND"
+      },
+      {
+        "source_span": "--OR--",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "Similar to the solution above, we can complete the square to get the equation $(x-7)^2+(y-24)^2=625$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "This equation describes a circle with center at $(7,24)$ and radius $\\sqrt{625}=25$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "The minimum value of $y$ is achieved at the point on the bottom of the circle, which is located at $(7,24-25)=(7,-1)$.",
+        "independent_operation": "BOUND"
+      },
+      {
+        "source_span": "Thus, the minimum value of $y$ is $\\boxed{-1}$.",
+        "independent_operation": "BOUND"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "SEQUENCE_RECURRENCE",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "OPTIMIZE",
+      "OTHER",
+      "SEARCH_META",
+      "TRANSFORM",
+      "TRANSFORM",
+      "OPTIMIZE",
+      "OTHER",
+      "TRANSFORM",
+      "TRANSFORM",
+      "OPTIMIZE",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 1,
+        "independent": "TRANSFORM",
+        "annotated": "SEQUENCE_RECURRENCE",
+        "source_span": "Moving all the terms to the LHS, we have the equation $x^2-14x+y^2-48y=0$."
+      },
+      {
+        "index": 6,
+        "independent": "BOUND",
+        "annotated": "GOAL_MANAGEMENT",
+        "source_span": "Since $\\sqrt{625-(x-7)^2}$ is always nonnegative, the minimum value of $y$ is achieved when we use a negative sign in front of the square root."
+      },
+      {
+        "index": 11,
+        "independent": "BOUND",
+        "annotated": "GOAL_MANAGEMENT",
+        "source_span": "Thus, the minimum $y$ value is $\\boxed{-1}$."
+      },
+      {
+        "index": 15,
+        "independent": "BOUND",
+        "annotated": "GOAL_MANAGEMENT",
+        "source_span": "The minimum value of $y$ is achieved at the point on the bottom of the circle, which is located at $(7,24-25)=(7,-1)$."
+      },
+      {
+        "index": 16,
+        "independent": "BOUND",
+        "annotated": "DISCHARGE",
+        "source_span": "Thus, the minimum value of $y$ is $\\boxed{-1}$."
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-086",
+    "category": "Precalculus",
+    "complexity_score": 1782,
+    "original_solution": "The normal vectors of the planes are $\\mathbf{n}_1 = \\begin{pmatrix} -1 \\\\ c \\\\ b \\end{pmatrix},$ $\\mathbf{n}_2 = \\begin{pmatrix} c \\\\ -1 \\\\ a \\end{pmatrix},$ and $\\mathbf{n}_3 = \\begin{pmatrix} b \\\\ a \\\\ -1 \\end{pmatrix}.$  So, the direction vector of the common line is proportional to\n\\[\\mathbf{n}_1 \\times \\mathbf{n}_2 = \\begin{pmatrix} ac + b \\\\ a + bc \\\\ 1 - c^2 \\end{pmatrix}.\\]It is also proportional to\n\\[\\mathbf{n}_1 \\times \\mathbf{n}_3 = \\begin{pmatrix} -ab - c \\\\ b^2 - 1 \\\\ -a - bc \\end{pmatrix}.\\]Since these vectors are proportional,\n\\[(ac + b)(b^2 - 1) = (a + bc)(-ab - c).\\]Then $(ac + b)(b^2 - 1) - (a + bc)(-ab - c) = 0,$ which simplifies to\n\\[a^2 b + 2ab^2 c + b^3 + bc^2 - b = 0.\\]This factors as $b(a^2 + b^2 + c^2 + 2abc - 1) = 0.$\n\nSimilarly,\n\\[(ac + b)(-a - bc) = (1 - c^2)(-ab - c).\\]This becomes $c(a^2 + b^2 + c^2 + 2abc - 1) = 0.$\n\nIf both $b = 0$ and $c = 0,$ then the equations of the planes become\n\\begin{align*}\nx &= 0, \\\\\n-y + az &= 0, \\\\\nay - z &= 0.\n\\end{align*}Then $y = az.$  Substituting into the third equation, we get $a^2 z - z = 0,$ so $(a^2 - 1) z = 0.$  If $a^2 \\neq 1,$ then we must have $z = 0,$ which leads to $y = 0,$ so the three planes only have the point $(0,0,0)$ in common.  Hence, $a^2 = 1.$  Then the equations of the planes become $x = 0,$ $y = z,$ and $y = z,$ and their intersection is a line.  Also,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]Otherwise, at least one of $b$ and $c$ is nonzero, so $a^2 + b^2 + c^2 + 2abc - 1 = 0.$  Hence,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]We conclude that $a^2 + b^2 + c^2 + 2abc$ is always equal to $\\boxed{1}.$",
+    "independent_reconstruction": [
+      {
+        "source_span": "The normal vectors of the planes are $\\mathbf{n}_1 = \\begin{pmatrix} -1 \\\\ c \\\\ b \\end{pmatrix},$ $\\mathbf{n}_2 = \\begin{pmatrix} c \\\\ -1 \\\\ a \\end{pmatrix},$ and $\\mathbf{n}_3 = \\begin{pmatrix} b \\\\ a \\\\ -1 \\end{pmatrix}.$  So, the direction vector of the common line is proportional to\n\\[\\mathbf{n}_1 \\times \\mathbf{n}_2 = \\begin{pmatrix} ac + b \\\\ a + bc \\\\ 1 - c^2 \\end{pmatrix}.\\]It is also proportional to\n\\[\\mathbf{n}_1 \\times \\mathbf{n}_3 = \\begin{pmatrix} -ab - c \\\\ b^2 - 1 \\\\ -a - bc \\end{pmatrix}.\\]Since these vectors are proportional,\n\\[(ac + b)(b^2 - 1) = (a + bc)(-ab - c).\\]Then $(ac + b)(b^2 - 1) - (a + bc)(-ab - c) = 0,$ which simplifies to\n\\[a^2 b + 2ab^2 c + b^3 + bc^2 - b = 0.\\]This factors as $b(a^2 + b^2 + c^2 + 2abc - 1) = 0.$",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Similarly,\n\\[(ac + b)(-a - bc) = (1 - c^2)(-ab - c).\\]This becomes $c(a^2 + b^2 + c^2 + 2abc - 1) = 0.$",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "If both $b = 0$ and $c = 0,$ then the equations of the planes become\n\\begin{align*}\nx &= 0, \\\\\n-y + az &= 0, \\\\\nay - z &= 0.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Then $y = az.$  Substituting into the third equation, we get $a^2 z - z = 0,$ so $(a^2 - 1) z = 0.$  If $a^2 \\neq 1,$ then we must have $z = 0,$ which leads to $y = 0,$ so the three planes only have the point $(0,0,0)$ in common.",
+        "independent_operation": "SUBSTITUTE"
+      },
+      {
+        "source_span": "Hence, $a^2 = 1.$  Then the equations of the planes become $x = 0,$ $y = z,$ and $y = z,$ and their intersection is a line.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Also,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]Otherwise, at least one of $b$ and $c$ is nonzero, so $a^2 + b^2 + c^2 + 2abc - 1 = 0.$  Hence,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]We conclude that $a^2 + b^2 + c^2 + 2abc$ is always equal to $\\boxed{1}.$",
+        "independent_operation": "BOUND"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "TRANSFORM",
+      "TRANSFORM",
+      "TRANSFORM",
+      "SUBSTITUTE",
+      "TRANSFORM",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 6,
+        "independent": "BOUND",
+        "annotated": "DISCHARGE",
+        "source_span": "Also,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]Otherwise, at least one of $b$ and $c$ is nonzero, so $a^2 + b^2 + c^2 + 2abc - 1 = 0.$  Hence,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]We conclude that $a^2 + b^2 + c^2 + 2abc$ is always equal to $\\boxed{1}.$"
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-044",
+    "category": "Precalculus",
+    "complexity_score": 1771,
+    "original_solution": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.\n\nLet $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.  Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).\n\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.\n\nNote: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.  If $wz = 1,$ then from the equation $x = z + w + zwx,$\n\\[z + w = 0.\\]Then $wz = -w^2,$ which cannot be equal to 1, contradiction.  The same holds for the division in the other equations.",
+    "independent_reconstruction": [
+      {
+        "source_span": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+        "independent_operation": "CASE_SPLIT"
+      },
+      {
+        "source_span": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "Note: We divided the first equation to get\n\\[x = \\frac{w + z}{1 - wz},\\]so we should check that $wz \\neq 1$ for all five solutions.",
+        "independent_operation": "VERIFY"
+      },
+      {
+        "source_span": "If $wz = 1,$ then from the equation $x = z + w + zwx,$\n\\[z + w = 0.\\]Then $wz = -w^2,$ which cannot be equal to 1, contradiction.",
+        "independent_operation": "CONTRADICTION"
+      },
+      {
+        "source_span": "The same holds for the division in the other equations.",
+        "independent_operation": "OTHER"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "SUBSTITUTE",
+      "TRIG_IDENTITY",
+      "TRIG_IDENTITY",
+      "VERIFY",
+      "VERIFY",
+      "CONTRADICTION",
+      "OTHER"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 1,
+        "independent": "CASE_SPLIT",
+        "annotated": "SUBSTITUTE",
+        "source_span": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution."
+      },
+      {
+        "index": 2,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$."
+      },
+      {
+        "index": 3,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c)."
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  },
+  {
+    "problem_id": "MATH-GOLD-037",
+    "category": "Precalculus",
+    "complexity_score": 1752,
+    "original_solution": "Note that $\\frac{\\sum_{n=1}^{44} \\cos n}{\\sum_{n=1}^{44} \\sin n} = \\frac {\\cos 1 + \\cos 2 + \\dots + \\cos 44}{\\cos 89 + \\cos 88 + \\dots + \\cos 46}$\nNow use the sum-product formula $\\cos x + \\cos y = 2\\cos(\\frac{x+y}{2})\\cos(\\frac{x-y}{2})$ We want to pair up $[1, 44]$, $[2, 43]$, $[3, 42]$, etc. from the numerator and $[46, 89]$, $[47, 88]$, $[48, 87]$ etc. from the denominator. Then we get:\\[\\frac{\\sum_{n=1}^{44} \\cos n}{\\sum_{n=1}^{44} \\sin n} = \\frac{2\\cos(\\frac{45}{2})[\\cos(\\frac{43}{2})+\\cos(\\frac{41}{2})+\\dots+\\cos(\\frac{1}{2})}{2\\cos(\\frac{135}{2})[\\cos(\\frac{43}{2})+\\cos(\\frac{41}{2})+\\dots+\\cos(\\frac{1}{2})} \\Rightarrow \\frac{\\cos(\\frac{45}{2})}{\\cos(\\frac{135}{2})}\\]\nTo calculate this number, use the half angle formula. Since $\\cos(\\frac{x}{2}) = \\pm \\sqrt{\\frac{\\cos x + 1}{2}}$, then our number becomes:\\[\\frac{\\sqrt{\\frac{\\frac{\\sqrt{2}}{2} + 1}{2}}}{\\sqrt{\\frac{\\frac{-\\sqrt{2}}{2} + 1}{2}}}\\]in which we drop the negative roots (as it is clear cosine of $22.5$ and $67.5$ are positive). We can easily simplify this:\n\\begin{eqnarray*} \\frac{\\sqrt{\\frac{\\frac{\\sqrt{2}}{2} + 1}{2}}}{\\sqrt{\\frac{\\frac{-\\sqrt{2}}{2} + 1}{2}}} &=& \\sqrt{\\frac{\\frac{2+\\sqrt{2}}{4}}{\\frac{2-\\sqrt{2}}{4}}} \\\\ &=& \\sqrt{\\frac{2+\\sqrt{2}}{2-\\sqrt{2}}} \\cdot \\sqrt{\\frac{2+\\sqrt{2}}{2+\\sqrt{2}}} \\\\ &=& \\sqrt{\\frac{(2+\\sqrt{2})^2}{2}} \\\\ &=& \\frac{2+\\sqrt{2}}{\\sqrt{2}} \\cdot \\sqrt{2} \\\\ &=& \\sqrt{2}+1 \\end{eqnarray*}\nAnd hence our answer is $\\lfloor 100x \\rfloor =  \\lfloor 100(1 + \\sqrt {2}) \\rfloor = \\boxed{241}$.",
+    "independent_reconstruction": [
+      {
+        "source_span": "Note that $\\frac{\\sum_{n=1}^{44} \\cos n}{\\sum_{n=1}^{44} \\sin n} = \\frac {\\cos 1 + \\cos 2 + \\dots + \\cos 44}{\\cos 89 + \\cos 88 + \\dots + \\cos 46}$\nNow use the sum-product formula $\\cos x + \\cos y = 2\\cos(\\frac{x+y}{2})\\cos(\\frac{x-y}{2})$ We want to pair up $[1, 44]$, $[2, 43]$, $[3, 42]$, etc.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "from the numerator and $[46, 89]$, $[47, 88]$, $[48, 87]$ etc.",
+        "independent_operation": "OTHER"
+      },
+      {
+        "source_span": "from the denominator.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Then we get:\\[\\frac{\\sum_{n=1}^{44} \\cos n}{\\sum_{n=1}^{44} \\sin n} = \\frac{2\\cos(\\frac{45}{2})[\\cos(\\frac{43}{2})+\\cos(\\frac{41}{2})+\\dots+\\cos(\\frac{1}{2})}{2\\cos(\\frac{135}{2})[\\cos(\\frac{43}{2})+\\cos(\\frac{41}{2})+\\dots+\\cos(\\frac{1}{2})} \\Rightarrow \\frac{\\cos(\\frac{45}{2})}{\\cos(\\frac{135}{2})}\\]\nTo calculate this number, use the half angle formula.",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "Since $\\cos(\\frac{x}{2}) = \\pm \\sqrt{\\frac{\\cos x + 1}{2}}$, then our number becomes:\\[\\frac{\\sqrt{\\frac{\\frac{\\sqrt{2}}{2} + 1}{2}}}{\\sqrt{\\frac{\\frac{-\\sqrt{2}}{2} + 1}{2}}}\\]in which we drop the negative roots (as it is clear cosine of $22.5$ and $67.5$ are positive).",
+        "independent_operation": "TRANSFORM"
+      },
+      {
+        "source_span": "We can easily simplify this:\n\\begin{eqnarray*} \\frac{\\sqrt{\\frac{\\frac{\\sqrt{2}}{2} + 1}{2}}}{\\sqrt{\\frac{\\frac{-\\sqrt{2}}{2} + 1}{2}}} &=& \\sqrt{\\frac{\\frac{2+\\sqrt{2}}{4}}{\\frac{2-\\sqrt{2}}{4}}} \\\\ &=& \\sqrt{\\frac{2+\\sqrt{2}}{2-\\sqrt{2}}} \\cdot \\sqrt{\\frac{2+\\sqrt{2}}{2+\\sqrt{2}}} \\\\ &=& \\sqrt{\\frac{(2+\\sqrt{2})^2}{2}} \\\\ &=& \\frac{2+\\sqrt{2}}{\\sqrt{2}} \\cdot \\sqrt{2} \\\\ &=& \\sqrt{2}+1 \\end{eqnarray*}\nAnd hence our answer is $\\lfloor 100x \\rfloor =  \\lfloor 100(1 + \\sqrt {2}) \\rfloor = \\boxed{241}$.",
+        "independent_operation": "TRANSFORM"
+      }
+    ],
+    "annotated_operation_sequence": [
+      "TRIG_IDENTITY",
+      "OTHER",
+      "TRANSFORM",
+      "TRIG_IDENTITY",
+      "TRIG_IDENTITY",
+      "DISCHARGE"
+    ],
+    "operation_mismatches": [
+      {
+        "index": 1,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "Note that $\\frac{\\sum_{n=1}^{44} \\cos n}{\\sum_{n=1}^{44} \\sin n} = \\frac {\\cos 1 + \\cos 2 + \\dots + \\cos 44}{\\cos 89 + \\cos 88 + \\dots + \\cos 46}$\nNow use the sum-product formula $\\cos x + \\cos y = 2\\cos(\\frac{x+y}{2})\\cos(\\frac{x-y}{2})$ We want to pair up $[1, 44]$, $[2, 43]$, $[3, 42]$, etc."
+      },
+      {
+        "index": 4,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "Then we get:\\[\\frac{\\sum_{n=1}^{44} \\cos n}{\\sum_{n=1}^{44} \\sin n} = \\frac{2\\cos(\\frac{45}{2})[\\cos(\\frac{43}{2})+\\cos(\\frac{41}{2})+\\dots+\\cos(\\frac{1}{2})}{2\\cos(\\frac{135}{2})[\\cos(\\frac{43}{2})+\\cos(\\frac{41}{2})+\\dots+\\cos(\\frac{1}{2})} \\Rightarrow \\frac{\\cos(\\frac{45}{2})}{\\cos(\\frac{135}{2})}\\]\nTo calculate this number, use the half angle formula."
+      },
+      {
+        "index": 5,
+        "independent": "TRANSFORM",
+        "annotated": "TRIG_IDENTITY",
+        "source_span": "Since $\\cos(\\frac{x}{2}) = \\pm \\sqrt{\\frac{\\cos x + 1}{2}}$, then our number becomes:\\[\\frac{\\sqrt{\\frac{\\frac{\\sqrt{2}}{2} + 1}{2}}}{\\sqrt{\\frac{\\frac{-\\sqrt{2}}{2} + 1}{2}}}\\]in which we drop the negative roots (as it is clear cosine of $22.5$ and $67.5$ are positive)."
+      },
+      {
+        "index": 6,
+        "independent": "TRANSFORM",
+        "annotated": "DISCHARGE",
+        "source_span": "We can easily simplify this:\n\\begin{eqnarray*} \\frac{\\sqrt{\\frac{\\frac{\\sqrt{2}}{2} + 1}{2}}}{\\sqrt{\\frac{\\frac{-\\sqrt{2}}{2} + 1}{2}}} &=& \\sqrt{\\frac{\\frac{2+\\sqrt{2}}{4}}{\\frac{2-\\sqrt{2}}{4}}} \\\\ &=& \\sqrt{\\frac{2+\\sqrt{2}}{2-\\sqrt{2}}} \\cdot \\sqrt{\\frac{2+\\sqrt{2}}{2+\\sqrt{2}}} \\\\ &=& \\sqrt{\\frac{(2+\\sqrt{2})^2}{2}} \\\\ &=& \\frac{2+\\sqrt{2}}{\\sqrt{2}} \\cdot \\sqrt{2} \\\\ &=& \\sqrt{2}+1 \\end{eqnarray*}\nAnd hence our answer is $\\lfloor 100x \\rfloor =  \\lfloor 100(1 + \\sqrt {2}) \\rfloor = \\boxed{241}$."
+      }
+    ],
+    "structural_checks": {
+      "source_span_count_matches": true,
+      "all_independent_spans_exact": true,
+      "all_results_verbatim": true,
+      "mechanical_audit_passes": true
+    },
+    "verdict": "PASS",
+    "audit_limit": "Independent reconstruction is source-grounded and adversarial against annotation structure; it is not a theorem prover and does not replace a human mathematical proof audit."
+  }
+]

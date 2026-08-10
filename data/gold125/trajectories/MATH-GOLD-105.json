@@ -1,0 +1,1022 @@
+{
+  "schema_version": "math-gold125-trajectory-0.1.0",
+  "problem_id": "MATH-GOLD-105",
+  "source_dataset": "Hendrycks MATH train parquet",
+  "source_row_id": "train-row-09108",
+  "source_hash": "8d5e6b171f8b3a598b25e4e35a11842d465b8880b723c4965a8e7e53c8043ae8",
+  "category": "Counting & Probability",
+  "level": "Level 2",
+  "problem": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+  "original_solution": "We can treat this list as a sequence with a repetitive pattern. We see the sequence repeats itself every 16 elements (from 1 to 9 then back to 2). Because 1000 divided by 16 is 62 with a remainder of 8, to get 1000 terms in this list, we repeat the block 62 times, and then go 8 more elements.  This means that the $1000^{\\text{th}}$ integer is the same as the $8^{\\text{th}}$ integer, which is $\\boxed{8}$.",
+  "selection_reason": "Selected for semantic diversity in Counting & Probability at Level 2; targeted modular, sequence and active-coverage pressure beyond the frozen Gold-25.",
+  "targeted_semantic_features": [
+    "modular",
+    "sequence"
+  ],
+  "initial_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer/natural domain"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+        "status": "given"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_open"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [],
+    "open_obligations": [],
+    "discharged_obligations": [],
+    "epistemic_status": [],
+    "id": "S0"
+  },
+  "steps": [
+    {
+      "step_id": "s1",
+      "source_span": "We can treat this list as a sequence with a repetitive pattern.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+            "status": "given"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S0"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can treat this list as a sequence with a repetitive pattern.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_change": {
+        "from": "S0",
+        "to": "S1",
+        "added_facts": [
+          "fact:s1"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 1,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s1",
+        "statement": "We can treat this list as a sequence with a repetitive pattern.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s2",
+      "source_span": "We see the sequence repeats itself every 16 elements (from 1 to 9 then back to 2).",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "UNCERTAIN",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [],
+      "creates_obligations": [],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s1"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s1",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can treat this list as a sequence with a repetitive pattern.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S1"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can treat this list as a sequence with a repetitive pattern.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We see the sequence repeats itself every 16 elements (from 1 to 9 then back to 2).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_change": {
+        "from": "S1",
+        "to": "S2",
+        "added_facts": [
+          "fact:s2"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s1"
+        ],
+        "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "OTHER",
+        "family": "UNRESOLVED",
+        "arguments": {
+          "source_sentence_index": 2,
+          "candidate_core": "UNRESOLVED",
+          "layer_class": "UNRESOLVED"
+        },
+        "candidate_core": "UNRESOLVED",
+        "layer_class": "UNRESOLVED"
+      },
+      "result": {
+        "id": "fact:s2",
+        "statement": "We see the sequence repeats itself every 16 elements (from 1 to 9 then back to 2).",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s3",
+      "source_span": "Because 1000 divided by 16 is 62 with a remainder of 8, to get 1000 terms in this list, we repeat the block 62 times, and then go 8 more elements.",
+      "explicitness": "explicit",
+      "reasoning_mode": "EXECUTION",
+      "atomicity": "COMPOUND_MACRO",
+      "macro_components": [
+        "TRANSFORM",
+        "MODULAR_REASONING"
+      ],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "UNKNOWN",
+          "evidence": "No matching applicability condition is explicit in this source span.",
+          "source_omission": true
+        }
+      ],
+      "creates_obligations": [
+        {
+          "id": "obl:s3",
+          "statement": "the transformation requires a nonzero or preserved-denominator condition",
+          "status": "discharged",
+          "created_at_step": "s3",
+          "discharged_at_step": "s4",
+          "lifetime_steps": 1,
+          "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+          "source_omission": true
+        }
+      ],
+      "discharges_obligations": [],
+      "dependencies": [
+        "fact:s2"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s2",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "REPRESENTABLE_ONLY",
+        "constructs": [
+          "assume",
+          "evidence",
+          "goal"
+        ],
+        "notes": "The claim can be recorded as state, but current HML does not provide a trusted domain/meta checker for this transition."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0003",
+        "MATH-GAP-0004",
+        "MATH-GAP-0008",
+        "MATH-GAP-0009"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can treat this list as a sequence with a repetitive pattern.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We see the sequence repeats itself every 16 elements (from 1 to 9 then back to 2).",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S2"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can treat this list as a sequence with a repetitive pattern.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We see the sequence repeats itself every 16 elements (from 1 to 9 then back to 2).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Because 1000 divided by 16 is 62 with a remainder of 8, to get 1000 terms in this list, we repeat the block 62 times, and then go 8 more elements.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_change": {
+        "from": "S2",
+        "to": "S3",
+        "added_facts": [
+          "fact:s3"
+        ],
+        "added_obligations": [
+          "obl:s3"
+        ],
+        "removed_obligations": [],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s2"
+        ],
+        "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "MODULAR_REASONING",
+        "family": "MODULAR_REASONING",
+        "arguments": {
+          "source_sentence_index": 3,
+          "candidate_core": "MODULAR_REASONING",
+          "layer_class": "DOMAIN_LIBRARY"
+        },
+        "candidate_core": "MODULAR_REASONING",
+        "layer_class": "DOMAIN_LIBRARY"
+      },
+      "result": {
+        "id": "fact:s3",
+        "statement": "Because 1000 divided by 16 is 62 with a remainder of 8, to get 1000 terms in this list, we repeat the block 62 times, and then go 8 more elements.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    },
+    {
+      "step_id": "s4",
+      "source_span": "This means that the $1000^{\\text{th}}$ integer is the same as the $8^{\\text{th}}$ integer, which is $\\boxed{8}$.",
+      "explicitness": "explicit",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "atomicity": "ATOMIC",
+      "macro_components": [],
+      "warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "preconditions": [
+        {
+          "condition": "integer/natural domain restriction",
+          "status": "EXPLICIT_SOURCE",
+          "evidence": "This means that the $1000^{\\text{th}}$ integer is the same as the $8^{\\text{th}}$ integer, which is $\\boxed{8}$.",
+          "source_omission": false
+        }
+      ],
+      "creates_obligations": [],
+      "discharges_obligations": [
+        "obl:s3"
+      ],
+      "dependencies": [
+        "fact:s3",
+        "fact:problem"
+      ],
+      "dependency_evidence": [
+        {
+          "dependency": "fact:s3",
+          "kind": "adjacent-source-result",
+          "confidence": "medium"
+        },
+        {
+          "dependency": "fact:problem",
+          "kind": "initial-given",
+          "confidence": "medium"
+        }
+      ],
+      "scope": {
+        "name": "global",
+        "branch": null,
+        "branch_depth": 0
+      },
+      "verification": {
+        "status": "SOURCE_GROUNDED",
+        "category": "EXACT_SOURCE_AND_STATE_AUDIT",
+        "backend": "source-span and structural audit",
+        "notes": "The result statement is exactly the source span; formal mathematical replay is not claimed for automatic extraction."
+      },
+      "hml_support": {
+        "status": "PARTIAL",
+        "constructs": [
+          "closed_eval_v1",
+          "reasoning_kernel"
+        ],
+        "notes": "A generic/local component exists, but this source-grounded transition is not rendered or replayed here."
+      },
+      "semantic_gap_ids": [
+        "MATH-GAP-0008"
+      ],
+      "state_before": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can treat this list as a sequence with a repetitive pattern.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We see the sequence repeats itself every 16 elements (from 1 to 9 then back to 2).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Because 1000 divided by 16 is 62 with a remainder of 8, to get 1000 terms in this list, we repeat the block 62 times, and then go 8 more elements.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_open"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2"
+        ],
+        "open_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "open",
+            "created_at_step": "s3",
+            "discharged_at_step": null,
+            "lifetime_steps": null,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "discharged_obligations": [],
+        "epistemic_status": [],
+        "id": "S3"
+      },
+      "state_after": {
+        "objects": [
+          "source mathematical problem"
+        ],
+        "declarations": [],
+        "types_domains": [
+          "integer/natural domain"
+        ],
+        "facts": [
+          {
+            "id": "fact:problem",
+            "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+            "status": "given"
+          },
+          {
+            "id": "fact:s1",
+            "statement": "We can treat this list as a sequence with a repetitive pattern.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s2",
+            "statement": "We see the sequence repeats itself every 16 elements (from 1 to 9 then back to 2).",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s3",
+            "statement": "Because 1000 divided by 16 is 62 with a remainder of 8, to get 1000 terms in this list, we repeat the block 62 times, and then go 8 more elements.",
+            "status": "source_grounded",
+            "scope": "global"
+          },
+          {
+            "id": "fact:s4",
+            "statement": "This means that the $1000^{\\text{th}}$ integer is the same as the $8^{\\text{th}}$ integer, which is $\\boxed{8}$.",
+            "status": "source_grounded",
+            "scope": "global"
+          }
+        ],
+        "assumptions": [],
+        "constraints": [],
+        "definitions": [],
+        "goals": [
+          {
+            "id": "goal:answer",
+            "statement": "answer the source problem",
+            "status": "goal_discharged"
+          }
+        ],
+        "subgoals": [],
+        "candidates": [],
+        "branch_state": [],
+        "scope": [
+          "global"
+        ],
+        "dependencies": [
+          "fact:problem",
+          "fact:s1",
+          "fact:s2",
+          "fact:s3"
+        ],
+        "open_obligations": [],
+        "discharged_obligations": [
+          {
+            "id": "obl:s3",
+            "statement": "the transformation requires a nonzero or preserved-denominator condition",
+            "status": "discharged",
+            "created_at_step": "s3",
+            "discharged_at_step": "s4",
+            "lifetime_steps": 1,
+            "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+            "source_omission": true
+          }
+        ],
+        "epistemic_status": [
+          {
+            "id": "goal_status",
+            "statement": "source solution reaches its stated answer",
+            "status": "goal_discharged"
+          }
+        ],
+        "id": "S4"
+      },
+      "state_change": {
+        "from": "S3",
+        "to": "S4",
+        "added_facts": [
+          "fact:s4"
+        ],
+        "added_obligations": [],
+        "removed_obligations": [
+          "obl:s3"
+        ],
+        "scope_effect": "global/current",
+        "dependency_effect": [
+          "fact:s3",
+          "fact:problem"
+        ],
+        "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+      },
+      "action": {
+        "operation_id": "DISCHARGE",
+        "family": "DISCHARGE",
+        "arguments": {
+          "source_sentence_index": 4,
+          "candidate_core": "DISCHARGE",
+          "layer_class": "CORE_PROOF_OPERATION"
+        },
+        "candidate_core": "DISCHARGE",
+        "layer_class": "CORE_PROOF_OPERATION"
+      },
+      "result": {
+        "id": "fact:s4",
+        "statement": "This means that the $1000^{\\text{th}}$ integer is the same as the $8^{\\text{th}}$ integer, which is $\\boxed{8}$.",
+        "status": "source_grounded",
+        "claim_source": "verbatim_source_span"
+      },
+      "meta_step_ids": []
+    }
+  ],
+  "final_state": {
+    "objects": [
+      "source mathematical problem"
+    ],
+    "declarations": [],
+    "types_domains": [
+      "integer/natural domain"
+    ],
+    "facts": [
+      {
+        "id": "fact:problem",
+        "statement": "Suelyn counts up from 1 to 9, and then immediately counts down again to 1, and then back up to 9, and so on, alternately counting up and down $$(1, 2, 3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,\\ldots ).$$ What is the $1000^{\\text{th}}$ integer in her list?",
+        "status": "given"
+      },
+      {
+        "id": "fact:s1",
+        "statement": "We can treat this list as a sequence with a repetitive pattern.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s2",
+        "statement": "We see the sequence repeats itself every 16 elements (from 1 to 9 then back to 2).",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s3",
+        "statement": "Because 1000 divided by 16 is 62 with a remainder of 8, to get 1000 terms in this list, we repeat the block 62 times, and then go 8 more elements.",
+        "status": "source_grounded",
+        "scope": "global"
+      },
+      {
+        "id": "fact:s4",
+        "statement": "This means that the $1000^{\\text{th}}$ integer is the same as the $8^{\\text{th}}$ integer, which is $\\boxed{8}$.",
+        "status": "source_grounded",
+        "scope": "global"
+      }
+    ],
+    "assumptions": [],
+    "constraints": [],
+    "definitions": [],
+    "goals": [
+      {
+        "id": "goal:answer",
+        "statement": "answer the source problem",
+        "status": "goal_discharged"
+      }
+    ],
+    "subgoals": [],
+    "candidates": [],
+    "branch_state": [],
+    "scope": [
+      "global"
+    ],
+    "dependencies": [
+      "fact:problem",
+      "fact:s1",
+      "fact:s2",
+      "fact:s3"
+    ],
+    "open_obligations": [],
+    "discharged_obligations": [
+      {
+        "id": "obl:s3",
+        "statement": "the transformation requires a nonzero or preserved-denominator condition",
+        "status": "discharged",
+        "created_at_step": "s3",
+        "discharged_at_step": "s4",
+        "lifetime_steps": 1,
+        "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+        "source_omission": true
+      }
+    ],
+    "epistemic_status": [
+      {
+        "id": "goal_status",
+        "statement": "source solution reaches its stated answer",
+        "status": "goal_discharged"
+      }
+    ],
+    "id": "S4"
+  },
+  "goal_status": "discharged",
+  "operations_observed": [
+    "DISCHARGE",
+    "MODULAR_REASONING",
+    "OTHER"
+  ],
+  "operation_profile": [
+    {
+      "observed_operation": "DISCHARGE",
+      "frequency": 1,
+      "candidate_core": "DISCHARGE",
+      "layer_class": "CORE_PROOF_OPERATION",
+      "atomic_components": [
+        "DISCHARGE"
+      ]
+    },
+    {
+      "observed_operation": "MODULAR_REASONING",
+      "frequency": 1,
+      "candidate_core": "MODULAR_REASONING",
+      "layer_class": "DOMAIN_LIBRARY",
+      "atomic_components": [
+        "MODULAR_REASONING",
+        "TRANSFORM"
+      ]
+    },
+    {
+      "observed_operation": "OTHER",
+      "frequency": 2,
+      "candidate_core": "UNRESOLVED",
+      "layer_class": "UNRESOLVED",
+      "atomic_components": [
+        "UNRESOLVED"
+      ]
+    }
+  ],
+  "source_quality": {
+    "source_spans_exact": true,
+    "explicit_steps": 4,
+    "implicit_steps": 0,
+    "source_omissions": [
+      "the transformation requires a nonzero or preserved-denominator condition"
+    ],
+    "solution_variants": false,
+    "annotation_mode": "source-grounded semantic extraction with explicit uncertainty; not a formal proof replay"
+  },
+  "meta_reasoning": [],
+  "hml_gaps": [
+    "MATH-GAP-0003",
+    "MATH-GAP-0004",
+    "MATH-GAP-0008",
+    "MATH-GAP-0009"
+  ],
+  "canonical_verification": {
+    "status": "STRUCTURAL_SOURCE_AUDIT",
+    "source_span_count": 4,
+    "source_span_failures": [],
+    "formal_math_replay": "not claimed for automatic extraction; hard trajectories receive an independent source reconstruction"
+  }
+}
