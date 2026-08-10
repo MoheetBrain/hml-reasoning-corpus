@@ -1,0 +1,104 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-027",
+  "step_id": "s17",
+  "category": "Intermediate Algebra",
+  "level": "Level 5",
+  "source_span": "Thus, the four cases $k = 4m + 1,$ $4m + 2,$ $4m + 3,$ and $4m + 4$ contribute\n\\[4m + 1 + 4m + 4 + 2(4m + 4) + 1 = 16m + 14.\\]integers.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Thus, the four cases $k = 4m + 1,$ $4m + 2,$ $4m + 3,$ and $4m + 4$ contribute\n\\[4m + 1 + 4m + 4 + 2(4m + 4) + 1 = 16m + 14.\\]integers.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s17",
+      "statement": "the branch partition requires coverage and disjointness",
+      "status": "discharged",
+      "created_at_step": "s17",
+      "discharged_at_step": "s23",
+      "lifetime_steps": 6,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s7",
+    "obl:s9",
+    "obl:s12",
+    "obl:s14"
+  ],
+  "dependencies": [
+    "fact:s6",
+    "fact:s7",
+    "fact:s8",
+    "fact:s9",
+    "fact:s10",
+    "fact:s11",
+    "fact:s12",
+    "fact:s13",
+    "fact:s14",
+    "fact:s15",
+    "fact:s16"
+  ],
+  "state_delta": {
+    "from": "S16",
+    "to": "S17",
+    "added_facts": [
+      "fact:s17"
+    ],
+    "added_obligations": [
+      "obl:s17"
+    ],
+    "removed_obligations": [
+      "obl:s7",
+      "obl:s9",
+      "obl:s12",
+      "obl:s14"
+    ],
+    "scope_effect": "branch-join",
+    "dependency_effect": [
+      "fact:s6",
+      "fact:s7",
+      "fact:s8",
+      "fact:s9",
+      "fact:s10",
+      "fact:s11",
+      "fact:s12",
+      "fact:s13",
+      "fact:s14",
+      "fact:s15",
+      "fact:s16"
+    ],
+    "epistemic_update": "Source-grounded result fact:s17 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

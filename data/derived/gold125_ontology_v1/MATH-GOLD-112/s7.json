@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-112",
+  "step_id": "s7",
+  "category": "Counting & Probability",
+  "level": "Level 1",
+  "source_span": "Leap years happen every four years, so if we start with year $x$, $x$ being a leap year, the $38^{\\text{th}}$ leap year after $x$ is $x+4\\times38 = x+152$, so including $x$ there must be a total of 153 years, which is greater than 150.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the branch partition requires coverage and disjointness",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s7",
+      "statement": "the branch partition requires coverage and disjointness",
+      "status": "discharged",
+      "created_at_step": "s7",
+      "discharged_at_step": "s8",
+      "lifetime_steps": 1,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s6"
+  ],
+  "state_delta": {
+    "from": "S6",
+    "to": "S7",
+    "added_facts": [
+      "fact:s7"
+    ],
+    "added_obligations": [
+      "obl:s7"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s6"
+    ],
+    "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

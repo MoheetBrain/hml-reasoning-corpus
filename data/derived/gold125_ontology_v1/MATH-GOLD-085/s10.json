@@ -1,0 +1,84 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-085",
+  "step_id": "s10",
+  "category": "Number Theory",
+  "level": "Level 4",
+  "source_span": "Since there are 90 three-digit palindromes in all, we get a probability of $\\frac{30}{90}=\\boxed{\\frac{1}{3}}$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "probability reasoning requires a declared sample space and sampling model",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s10",
+      "statement": "probability reasoning requires a declared sample space and sampling model",
+      "status": "discharged",
+      "created_at_step": "s10",
+      "discharged_at_step": "s10",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s4",
+    "obl:s5",
+    "obl:s10"
+  ],
+  "dependencies": [
+    "fact:s9",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S9",
+    "to": "S10",
+    "added_facts": [
+      "fact:s10"
+    ],
+    "added_obligations": [
+      "obl:s10"
+    ],
+    "removed_obligations": [
+      "obl:s4",
+      "obl:s5",
+      "obl:s10"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s9",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s10 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-104",
+  "step_id": "s5",
+  "category": "Intermediate Algebra",
+  "level": "Level 2",
+  "source_span": "Thus any integer root of $h(x)$ is a divisor of $77$; the possibilities are\n$$-77,\\ -11,\\ -7,\\ -1,\\ 1,\\ 7,\\ 11,\\ 77.$$This is useful because, if $x$ is a root of $g(x)$, then $h(x-1)=g(x)=0$, so $x-1$ must appear in the list of roots of $h(x)$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Thus any integer root of $h(x)$ is a divisor of $77$; the possibilities are\n$$-77,\\ -11,\\ -7,\\ -1,\\ 1,\\ 7,\\ 11,\\ 77.$$This is useful because, if $x$ is a root of $g(x)$, then $h(x-1)=g(x)=0$, so $x-1$ must appear in the list of roots of $h(x)$.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s5",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s5",
+      "discharged_at_step": "s7",
+      "lifetime_steps": 2,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s4"
+  ],
+  "dependencies": [
+    "fact:s4"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [
+      "obl:s5"
+    ],
+    "removed_obligations": [
+      "obl:s4"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s4"
+    ],
+    "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

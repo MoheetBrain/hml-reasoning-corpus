@@ -1,0 +1,80 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-099",
+  "step_id": "s5",
+  "category": "Number Theory",
+  "level": "Level 2",
+  "source_span": "$33$ happens to satisfy both congruences, so it is the smallest common solution.",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [
+    {
+      "condition": "candidate acceptance requires original-constraint verification",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s5",
+      "statement": "candidate acceptance requires original-constraint verification",
+      "status": "discharged",
+      "created_at_step": "s5",
+      "discharged_at_step": "s5",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s5"
+  ],
+  "dependencies": [
+    "fact:s4",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [
+      "obl:s5"
+    ],
+    "removed_obligations": [
+      "obl:s5"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s4",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "VERIFY",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

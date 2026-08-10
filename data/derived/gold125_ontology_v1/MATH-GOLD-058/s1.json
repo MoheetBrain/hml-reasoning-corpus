@@ -1,0 +1,57 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-058",
+  "step_id": "s1",
+  "category": "Precalculus",
+  "level": "Level 3",
+  "source_span": "Without loss of generality, let the triangle be $ABC,$ where $AB = 9,$ $AC = 15,$ and $\\angle B = 2 \\angle C.$  Let $a = BC.$  Then by the Law of Cosines,\n\\[\\cos C = \\frac{a^2 + 15^2 - 9^2}{2 \\cdot a \\cdot 15} = \\frac{a^2 + 144}{30a}.\\]By the Law of Sines,\n\\[\\frac{9}{\\sin C} = \\frac{15}{\\sin B} = \\frac{15}{\\sin 2C} = \\frac{15}{2 \\sin C \\cos C},\\]so $\\cos C = \\frac{5}{6}.$  Hence,\n\\[\\frac{a^2 + 144}{30a} = \\frac{5}{6}.\\]This gives us $a^2 + 144 = 25a,$ or $a^2 - 25a + 144 = 0.$  This factors as $(a - 9)(a - 16) = 0.$",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "TRIGONOMETRY_IDENTITY",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [
+    "USE_SYMMETRY",
+    "CHOOSE_REPRESENTATION"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRIG_IDENTITY",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "TRIG_IDENTITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

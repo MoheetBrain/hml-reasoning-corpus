@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-003",
+  "step_id": "s3",
+  "category": "Algebra",
+  "level": "Level 1",
+  "source_span": "Adding 10 to both sides gives $2x = 22$",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "equality_preservation",
+      "description": "Add the same term to both sides.",
+      "source": "core"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s3: 2x=22",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s2"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "ADD_BOTH_SIDES",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-050",
+  "step_id": "s7",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "source_span": "Since $ab = 2^4 \\cdot 3^2$, the only primes that can divide $a$ and $b$ are 2 and 3.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the transformation requires a nonzero or preserved-denominator condition",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s7",
+      "statement": "the transformation requires a nonzero or preserved-denominator condition",
+      "status": "discharged",
+      "created_at_step": "s7",
+      "discharged_at_step": "s12",
+      "lifetime_steps": 5,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s6"
+  ],
+  "state_delta": {
+    "from": "S6",
+    "to": "S7",
+    "added_facts": [
+      "fact:s7"
+    ],
+    "added_obligations": [
+      "obl:s7"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s6"
+    ],
+    "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

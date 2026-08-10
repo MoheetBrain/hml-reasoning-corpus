@@ -1,0 +1,57 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-096",
+  "step_id": "s3",
+  "category": "Algebra",
+  "level": "Level 2",
+  "source_span": "So, without loss of generality, we will let the first number be the larger of the two.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "CONSTRUCT",
+  "warrant": {
+    "type": "HEURISTIC_OR_REPRESENTATION_CHOICE",
+    "basis": "source-meta-cue",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "SEARCH_META",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s2"
+    ],
+    "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "USE_SYMMETRY",
+    "CHOOSE_REPRESENTATION"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SEARCH_META",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "SEARCH_META",
+    "original_layer": "SEARCH_META_OPERATION",
+    "disagreement": null
+  }
+}

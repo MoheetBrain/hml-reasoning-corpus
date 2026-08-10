@@ -1,0 +1,103 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-033",
+  "step_id": "s15",
+  "category": "Algebra",
+  "level": "Level 5",
+  "source_span": "The minimum value of $y$ is achieved at the point on the bottom of the circle, which is located at $(7,24-25)=(7,-1)$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "BOUND",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "order reasoning requires a valid domain and direction condition",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s15",
+      "statement": "order reasoning requires a valid domain and direction condition",
+      "status": "discharged",
+      "created_at_step": "s15",
+      "discharged_at_step": "s16",
+      "lifetime_steps": 1,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s14"
+  ],
+  "state_delta": {
+    "from": "S14",
+    "to": "S15",
+    "added_facts": [
+      "fact:s15"
+    ],
+    "added_obligations": [
+      "obl:s15"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s14"
+    ],
+    "epistemic_update": "Source-grounded result fact:s15 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "OPTIMIZE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "OPTIMIZE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-033",
+      "step": "s15",
+      "category": "Algebra",
+      "source_span": "The minimum value of $y$ is achieved at the point on the bottom of the circle, which is located at $(7,24-25)=(7,-1)$.",
+      "existing_label": "OPTIMIZE",
+      "independent_label": "BOUND",
+      "existing_reasoning_mode": "GOAL_MANAGEMENT",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "OPTIMIZE",
+      "current_layer": "CORE_PROOF_OPERATION",
+      "cause": "GRANULARITY_DISAGREEMENT",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "The labels converge after broad normalization; the apparent difference is granularity or goal framing.",
+      "proposed_axis_view": {
+        "core_operation": "BOUND",
+        "reasoning_mode": "GOAL_MANAGEMENT",
+        "warrant": "SOURCE_GROUNDED",
+        "knowledge_layer": "CORE",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

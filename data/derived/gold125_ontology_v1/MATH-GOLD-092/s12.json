@@ -1,0 +1,54 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-092",
+  "step_id": "s12",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "source_span": "Since $x+n = 25$ is impossible, the simplest possibilities are $x-n = 50$ and $x + n = 50$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s11"
+  ],
+  "state_delta": {
+    "from": "S11",
+    "to": "S12",
+    "added_facts": [
+      "fact:s12"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s11"
+    ],
+    "epistemic_update": "Source-grounded result fact:s12 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

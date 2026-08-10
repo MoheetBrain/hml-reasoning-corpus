@@ -1,0 +1,54 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-029",
+  "step_id": "s5",
+  "category": "Number Theory",
+  "level": "Level 5",
+  "source_span": "Then,\n\\[\\frac{x}{a} = \\frac{a}{1995} = \\frac{1995}{c} \\Longrightarrow ac = 1995^2 = 3^25^27^219^2.\\]\nThe number of factors of $3^25^27^219^2$ is $(2+1)(2+1)(2+1)(2+1) = 81$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s4"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s4"
+    ],
+    "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

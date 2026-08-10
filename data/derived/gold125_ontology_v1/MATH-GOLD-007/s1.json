@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-007",
+  "step_id": "s1",
+  "category": "Intermediate Algebra",
+  "level": "Level 1",
+  "source_span": "The first equation gives $x = y+4$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "equality_preservation",
+      "description": "Add y to both sides of x-y=4.",
+      "source": "core"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:diff"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: x=y+4",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:diff"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "ADD_BOTH_SIDES",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

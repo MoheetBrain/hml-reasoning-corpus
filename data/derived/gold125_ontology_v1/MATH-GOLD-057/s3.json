@@ -1,0 +1,62 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-057",
+  "step_id": "s3",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "source_span": "We just need to check that this number is a prime.",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [
+    "obl:s1",
+    "obl:s2"
+  ],
+  "dependencies": [
+    "fact:s2",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [
+      "obl:s1",
+      "obl:s2"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s2",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "VERIFY",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

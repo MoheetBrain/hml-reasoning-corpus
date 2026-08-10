@@ -1,0 +1,82 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-026",
+  "step_id": "s6",
+  "category": "Algebra",
+  "level": "Level 5",
+  "source_span": "The probability that I chose one of the numbers 7, 8, 9, or 10 is $\\boxed{\\frac{2}{5}}$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "probability reasoning requires a declared sample space and sampling model",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s6",
+      "statement": "probability reasoning requires a declared sample space and sampling model",
+      "status": "discharged",
+      "created_at_step": "s6",
+      "discharged_at_step": "s6",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s4",
+    "obl:s6"
+  ],
+  "dependencies": [
+    "fact:s5",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [
+      "obl:s6"
+    ],
+    "removed_obligations": [
+      "obl:s4",
+      "obl:s6"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s5",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-044",
+  "step_id": "s2",
+  "category": "Precalculus",
+  "level": "Level 5",
+  "source_span": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "TRIGONOMETRY_IDENTITY",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s1"
+    ],
+    "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRIG_IDENTITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRIG_IDENTITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-044",
+      "step": "s2",
+      "category": "Precalculus",
+      "source_span": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+      "existing_label": "TRIG_IDENTITY",
+      "independent_label": "TRANSFORM",
+      "existing_reasoning_mode": "EXECUTION",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "TRIG_IDENTITY",
+      "current_layer": "DOMAIN_LIBRARY",
+      "cause": "OPERATION_VS_WARRANT_COLLISION",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+      "proposed_axis_view": {
+        "core_operation": "TRANSFORM",
+        "reasoning_mode": "EXECUTION",
+        "warrant": "TRIGONOMETRY_IDENTITY",
+        "knowledge_layer": "DOMAIN_LIBRARY",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

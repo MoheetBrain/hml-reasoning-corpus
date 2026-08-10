@@ -1,0 +1,55 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-022",
+  "step_id": "s3",
+  "category": "Geometry",
+  "level": "Level 2",
+  "source_span": "We want to find two integers whose product is 80, such that one integer is two more than the other.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "SYMBOLIC_NORMALIZATION",
+    "basis": "backend-operation-factored-to-warrant",
+    "original": {
+      "kind": "factor_pair_reasoning",
+      "description": "Interpret the quadratic product constraint over positive r.",
+      "source": "implicit"
+    }
+  },
+  "knowledge_layer": "SYMBOLIC_BACKEND",
+  "goal_effect": "CREATE_SUBGOAL",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s3: seek consecutive-offset factor pair (r,r+2)",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s2"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CREATE_SUBGOAL"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "FACTOR",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

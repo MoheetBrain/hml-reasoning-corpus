@@ -1,0 +1,61 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-027",
+  "step_id": "s22",
+  "category": "Intermediate Algebra",
+  "level": "Level 5",
+  "source_span": "We want the integers up to 1000, which are\n\\[962, 964, \\dots, 1000,\\]and there are 20 of them.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "UNKNOWN",
+    "basis": "insufficient-source-evidence",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "UNKNOWN",
+  "goal_effect": "NONE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "We want the integers up to 1000, which are\n\\[962, 964, \\dots, 1000,\\]and there are 20 of them.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s21"
+  ],
+  "state_delta": {
+    "from": "S21",
+    "to": "S22",
+    "added_facts": [
+      "fact:s22"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s21"
+    ],
+    "epistemic_update": "Source-grounded result fact:s22 recorded from the exact motivating span."
+  },
+  "atomicity": "UNCERTAIN",
+  "meta_operations": [],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "OTHER",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

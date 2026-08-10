@@ -1,0 +1,41 @@
+{
+  "source_path": "/Users/moheet/Desktop/0000.parquet",
+  "rows": 103059,
+  "columns": [
+    "topic_name",
+    "problem",
+    "hints/solutions"
+  ],
+  "byte_size": 11125600,
+  "sha256": "b48c40afd262a8ac587504bc3008a2b0d688c0144b5d9fddd083f0b576a5df41",
+  "null_counts": {
+    "topic_name": 0,
+    "problem": 5,
+    "hints/solutions": 0
+  },
+  "empty_counts": {
+    "topic_name": 0,
+    "problem": 5,
+    "hints/solutions": 0
+  },
+  "topic_count": 721,
+  "numeric_topic_id_count": 75302,
+  "opaque_topic_id_count": 27757,
+  "visual_dependent_count": 3293,
+  "multiple_choice_count": 21094,
+  "latex_heavy_count": 102402,
+  "planning_cue_count": 47530,
+  "duplicate_problem_count": 1666,
+  "duplicate_problem_solution_pair_count": 15,
+  "malformed_or_incomplete_proxy_count": 5,
+  "solution_length": {
+    "min": 5,
+    "p25": 242.0,
+    "median": 455,
+    "p75": 799.0,
+    "p90": 1189.0,
+    "p95": 1428.0,
+    "p99": 2023.2,
+    "max": 3297
+  }
+}

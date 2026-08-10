@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-013",
+  "step_id": "s3",
+  "category": "Counting & Probability",
+  "level": "Level 2",
+  "source_span": "and there are 10 options for the second/third digit (0 through 9).",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "independent_digit_choice",
+      "description": "The repeated inner digit may be any decimal digit.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "NONE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s3: d2 has 10 choices",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s1"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "COUNT_CASES",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

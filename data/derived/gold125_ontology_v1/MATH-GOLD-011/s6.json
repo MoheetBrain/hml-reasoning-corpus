@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-011",
+  "step_id": "s6",
+  "category": "Counting & Probability",
+  "level": "Level 4",
+  "source_span": "Now we subtract from 1 to find the probability that at least one woman is selected. The probability is $1-\\frac{7}{24}=\\boxed{\\frac{17}{24}}$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "COUNT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "complement_rule",
+      "description": "Subtract the exact complement from one.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s5"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s6: P(at least one woman)=17/24",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s5"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "COMPLEMENT_COUNT",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

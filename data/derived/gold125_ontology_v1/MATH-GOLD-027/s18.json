@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-027",
+  "step_id": "s18",
+  "category": "Intermediate Algebra",
+  "level": "Level 5",
+  "source_span": "Summing over $0 \\le m \\le 6$ covers the cases $2 \\le n \\le 841,$ and gives us\n\\[\\sum_{m = 0}^6 (16m + 14) = 434\\]integers.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Summing over $0 \\le m \\le 6$ covers the cases $2 \\le n \\le 841,$ and gives us\n\\[\\sum_{m = 0}^6 (16m + 14) = 434\\]integers.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s18",
+      "statement": "the branch partition requires coverage and disjointness",
+      "status": "discharged",
+      "created_at_step": "s18",
+      "discharged_at_step": "s23",
+      "lifetime_steps": 5,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s17"
+  ],
+  "state_delta": {
+    "from": "S17",
+    "to": "S18",
+    "added_facts": [
+      "fact:s18"
+    ],
+    "added_obligations": [
+      "obl:s18"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s17"
+    ],
+    "epistemic_update": "Source-grounded result fact:s18 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

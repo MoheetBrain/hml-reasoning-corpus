@@ -1,0 +1,80 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-076",
+  "step_id": "s3",
+  "category": "Intermediate Algebra",
+  "level": "Level 3",
+  "source_span": "More generally, we can prove by induction that\n\\begin{align*}\na_{2k} &= [(k - 1)r - (k - 2)][kr - (k - 1)], \\\\\na_{2k + 1} &= [kr - (k - 1)]^2\n\\end{align*}for any positive integer $k.$",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "INDUCT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "positivity/domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "More generally, we can prove by induction that\n\\begin{align*}\na_{2k} &= [(k - 1)r - (k - 2)][kr - (k - 1)], \\\\\na_{2k + 1} &= [kr - (k - 1)]^2\n\\end{align*}for any positive integer $k.$",
+      "source_omission": false
+    },
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "More generally, we can prove by induction that\n\\begin{align*}\na_{2k} &= [(k - 1)r - (k - 2)][kr - (k - 1)], \\\\\na_{2k + 1} &= [kr - (k - 1)]^2\n\\end{align*}for any positive integer $k.$",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s3",
+      "statement": "induction requires a base case and an inductive-step hypothesis",
+      "status": "discharged",
+      "created_at_step": "s3",
+      "discharged_at_step": "s5",
+      "lifetime_steps": 2,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [
+      "obl:s3"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s2"
+    ],
+    "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "INDUCT",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "INDUCT",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

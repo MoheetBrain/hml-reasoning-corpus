@@ -1,0 +1,80 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-051",
+  "step_id": "s10",
+  "category": "Precalculus",
+  "level": "Level 5",
+  "source_span": "We have $\\theta_0 = \\frac{k \\pi}{2^{2008} - 1}$, so $k$ can be any integer between $1$ and $2^{2008}-2$ inclusive (and note that since the denominator is odd, the sequence never terminates).",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "SEQUENCE_RULE",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "We have $\\theta_0 = \\frac{k \\pi}{2^{2008} - 1}$, so $k$ can be any integer between $1$ and $2^{2008}-2$ inclusive (and note that since the denominator is odd, the sequence never terminates).",
+      "source_omission": false
+    },
+    {
+      "condition": "operation denominator/base is valid",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "We have $\\theta_0 = \\frac{k \\pi}{2^{2008} - 1}$, so $k$ can be any integer between $1$ and $2^{2008}-2$ inclusive (and note that since the denominator is odd, the sequence never terminates).",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s10",
+      "statement": "the transformation requires a nonzero or preserved-denominator condition",
+      "status": "discharged",
+      "created_at_step": "s10",
+      "discharged_at_step": "s11",
+      "lifetime_steps": 1,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s9"
+  ],
+  "state_delta": {
+    "from": "S9",
+    "to": "S10",
+    "added_facts": [
+      "fact:s10"
+    ],
+    "added_obligations": [
+      "obl:s10"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s9"
+    ],
+    "epistemic_update": "Source-grounded result fact:s10 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SEQUENCE_RECURRENCE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "SEQUENCE_RECURRENCE",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

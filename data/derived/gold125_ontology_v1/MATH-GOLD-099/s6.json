@@ -1,0 +1,54 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-099",
+  "step_id": "s6",
+  "category": "Number Theory",
+  "level": "Level 2",
+  "source_span": "Since she has less than $10$ dollars worth of quarters, she has less than $40$ quarters.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "UNKNOWN",
+    "basis": "insufficient-source-evidence",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "UNKNOWN",
+  "goal_effect": "NONE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s5"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s5"
+    ],
+    "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+  },
+  "atomicity": "UNCERTAIN",
+  "meta_operations": [],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "OTHER",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

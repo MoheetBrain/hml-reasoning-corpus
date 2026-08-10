@@ -1,0 +1,84 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-088",
+  "step_id": "s3",
+  "category": "Prealgebra",
+  "level": "Level 1",
+  "source_span": "If we let the probability of randomly selecting a yellow jelly bean be $x$, then we have \\begin{align*}0.2+0.5+x&=1\\\\\\Rightarrow0.7+x&=1\\\\\\Rightarrow{x}&=1-0.7\\\\\\Rightarrow{x}&=0.3\\end{align*} Therefore, the probability of randomly selecting a yellow jelly bean from this jar is $\\boxed{0.3}$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the branch partition requires coverage and disjointness",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s3",
+      "statement": "the branch partition requires coverage and disjointness",
+      "status": "discharged",
+      "created_at_step": "s3",
+      "discharged_at_step": "s3",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s2",
+    "obl:s3"
+  ],
+  "dependencies": [
+    "fact:s2",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [
+      "obl:s3"
+    ],
+    "removed_obligations": [
+      "obl:s2",
+      "obl:s3"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s2",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CHOOSE_REPRESENTATION"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

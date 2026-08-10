@@ -1,0 +1,66 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-004",
+  "step_id": "s1",
+  "category": "Algebra",
+  "level": "Level 1",
+  "source_span": "We can split the expression $|5x-1|=x+3$ into two separate cases.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "CASE_SPLIT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "absolute_value_definition",
+      "description": "Apply the two-branch definition of absolute value.",
+      "source": "core"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "OPEN_BRANCH",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "x+3≥0",
+      "status": "implicit",
+      "evidence": "The worked solution does not state this condition explicitly.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:abs_case_cover",
+      "statement": "the absolute-value branches are exhaustive and disjoint",
+      "status": "discharged",
+      "evidence": "The sign partition 5x-1≥0 or 5x-1<0 is exhaustive; x+3≥0 is also necessary for any solution.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [
+      "obl:abs_case_cover"
+    ],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: case 1: 5x-1=x+3; case 2: 5x-1=-(x+3)",
+    "scope_effect": "branch-declaration",
+    "dependency_effect": []
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "CASE_SPLIT",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

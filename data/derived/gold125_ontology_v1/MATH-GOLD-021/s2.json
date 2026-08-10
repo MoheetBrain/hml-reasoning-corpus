@@ -1,0 +1,55 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-021",
+  "step_id": "s2",
+  "category": "Geometry",
+  "level": "Level 2",
+  "source_span": "Using the Pythagorean Theorem, we write the equation $x^2 + (x + 1)^2 = 29^2$",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "MODEL",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "pythagorean_theorem",
+      "description": "Apply the Pythagorean theorem to a right triangle.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:hypotenuse",
+    "fact:consecutive"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s2: x²+(x+1)²=29²",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:hypotenuse",
+      "fact:consecutive"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "FORMULATE_EQUATION",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

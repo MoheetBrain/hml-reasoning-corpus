@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-016",
+  "step_id": "s2",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "source_span": "Therefore, 200 is the 186th term.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "index_shift",
+      "description": "Subtract the 14 omitted values from the ambient integer index.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s2: value 200 has sequence index 186",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s1"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "INDEX_TRANSLATION",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

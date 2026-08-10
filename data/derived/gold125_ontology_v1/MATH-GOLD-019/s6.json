@@ -1,0 +1,67 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-019",
+  "step_id": "s6",
+  "category": "Precalculus",
+  "level": "Level 2",
+  "source_span": "In either case, $x^{18} = \\boxed{-1}$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "case_invariant",
+      "description": "Merge the two complete root cases because their target values agree.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [],
+  "obligations_created": [
+    {
+      "id": "obl:root_case_join",
+      "statement": "both complex-root branches are covered before the invariant is global",
+      "status": "discharged",
+      "evidence": "The two quadratic roots are enumerated and both yield -1.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s4",
+    "fact:s5"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [
+      "obl:root_case_join"
+    ],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s6: both branches give x¹⁸=-1",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s4",
+      "fact:s5"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CONSIDER_CASES"
+  ],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "COMBINE_CASES",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

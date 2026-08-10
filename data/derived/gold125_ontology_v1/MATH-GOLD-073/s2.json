@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-073",
+  "step_id": "s2",
+  "category": "Geometry",
+  "level": "Level 3",
+  "source_span": "By Pythagorean theorem, the radius measures $\\sqrt{13^2-12^2}=5$ cm.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_THEOREM",
+  "warrant": {
+    "type": "THEOREM",
+    "basis": "theorem-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "THEOREM_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the power/root transformation requires sign and domain conditions",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s2",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s2",
+      "discharged_at_step": "s3",
+      "lifetime_steps": 1,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [
+      "obl:s2"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s1"
+    ],
+    "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_THEOREM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "APPLY_THEOREM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-014",
+  "step_id": "s1",
+  "category": "Number Theory",
+  "level": "Level 1",
+  "source_span": "We know that the prime factorization of 18 is $2\\cdot 3^2$, so in order for the four digit number to be divisible by 18 it must also be divisible by 9 and 2.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_THEOREM",
+  "warrant": {
+    "type": "THEOREM",
+    "basis": "theorem-operation-factored-to-warrant",
+    "original": {
+      "kind": "divisibility_factorization",
+      "description": "A number divisible by 18 is divisible by each prime-power factor 2 and 9.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "THEOREM_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:number",
+    "fact:divisor"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: 374n must be divisible by 9 and by 2",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:number",
+      "fact:divisor"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_THEOREM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

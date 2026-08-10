@@ -1,0 +1,80 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-046",
+  "step_id": "s3",
+  "category": "Prealgebra",
+  "level": "Level 4",
+  "source_span": "At this point, we are almost done: we know that $2$ does not divide into $2835$, so the only other factor we need to check is $7$.",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [
+    {
+      "condition": "the transformation requires a nonzero or preserved-denominator condition",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s3",
+      "statement": "the transformation requires a nonzero or preserved-denominator condition",
+      "status": "discharged",
+      "created_at_step": "s3",
+      "discharged_at_step": "s3",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s3"
+  ],
+  "dependencies": [
+    "fact:s2",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [
+      "obl:s3"
+    ],
+    "removed_obligations": [
+      "obl:s3"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s2",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "VERIFY",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

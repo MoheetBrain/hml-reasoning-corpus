@@ -1,0 +1,88 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-042",
+  "step_id": "s3",
+  "category": "Counting & Probability",
+  "level": "Level 5",
+  "source_span": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "SEQUENCE_RULE",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "positivity/domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+      "source_omission": false
+    },
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+      "source_omission": false
+    },
+    {
+      "condition": "sampling-space or independence assumption",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "The probability $P$ that when two socks are drawn randomly, without replacement, both are red or both are blue is given by\n\\[\\frac{r(r-1)}{(r+b)(r+b-1)}+\\frac{b(b-1)}{(r+b)(r+b-1)}=\\frac{r(r-1)+(t-r)(t-r-1)}{t(t-1)}=\\frac{1}{2}.\\]\nSolving the resulting quadratic equation $r^{2}-rt+t(t-1)/4=0$, for $r$ in terms of $t$, one obtains that\n\\[r=\\frac{t\\pm\\sqrt{t}}{2}\\, .\\]\nNow, since $r$ and $t$ are positive integers, it must be the case that $t=n^{2}$, with $n\\in\\mathbb{N}$.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s3",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s3",
+      "discharged_at_step": "s5",
+      "lifetime_steps": 2,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [
+      "obl:s3"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s2"
+    ],
+    "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [
+    "CONSIDER_CASES"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SEQUENCE_RECURRENCE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "SEQUENCE_RECURRENCE",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

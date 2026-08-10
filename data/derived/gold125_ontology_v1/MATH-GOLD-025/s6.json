@@ -1,0 +1,63 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-025",
+  "step_id": "s6",
+  "category": "Prealgebra",
+  "level": "Level 5",
+  "source_span": "Therefore, Bob must use at least",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "candidate_verification",
+      "description": "Check the candidate in the original inequality and use the strict threshold for minimality.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [],
+  "obligations_created": [
+    {
+      "id": "obl:threshold_minimality",
+      "statement": "x=401 is the least natural number satisfying x>400",
+      "status": "discharged",
+      "evidence": "The strict inequality gives x>400 and 401 is the next integer.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s5"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [
+      "obl:threshold_minimality"
+    ],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s6: x=401 satisfies cost_B<cost_A and is minimal",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s5"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY_CANDIDATE",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

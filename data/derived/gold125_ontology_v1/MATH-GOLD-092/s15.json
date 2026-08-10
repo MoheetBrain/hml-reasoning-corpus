@@ -1,0 +1,76 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-092",
+  "step_id": "s15",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "source_span": "The case $x + n = 50$ requires $x -n = 2p^2$ for $(x+n)(x-n)$ to be a perfect square.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the power/root transformation requires sign and domain conditions",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s15",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s15",
+      "discharged_at_step": "s17",
+      "lifetime_steps": 2,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s14"
+  ],
+  "state_delta": {
+    "from": "S14",
+    "to": "S15",
+    "added_facts": [
+      "fact:s15"
+    ],
+    "added_obligations": [
+      "obl:s15"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s14"
+    ],
+    "epistemic_update": "Source-grounded result fact:s15 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CONSIDER_CASES"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

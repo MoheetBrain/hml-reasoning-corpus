@@ -1,0 +1,56 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-051",
+  "step_id": "s5",
+  "category": "Precalculus",
+  "level": "Level 5",
+  "source_span": "\\]Choose a $\\theta_0 \\in (0, \\pi)$ with $\\cot\\theta_0 = x_0$, and define $\\theta_n = 2^n \\theta_0$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "COUNT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s4"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s4"
+    ],
+    "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CHOOSE_REPRESENTATION"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "COUNT",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "COUNT",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

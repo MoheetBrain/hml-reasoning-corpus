@@ -1,0 +1,83 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-033",
+  "step_id": "s1",
+  "category": "Algebra",
+  "level": "Level 5",
+  "source_span": "Moving all the terms to the LHS, we have the equation $x^2-14x+y^2-48y=0$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "SEQUENCE_RULE",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SEQUENCE_RECURRENCE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "SEQUENCE_RECURRENCE",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-033",
+      "step": "s1",
+      "category": "Algebra",
+      "source_span": "Moving all the terms to the LHS, we have the equation $x^2-14x+y^2-48y=0$.",
+      "existing_label": "SEQUENCE_RECURRENCE",
+      "independent_label": "TRANSFORM",
+      "existing_reasoning_mode": "EXECUTION",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "SEQUENCE_RECURRENCE",
+      "current_layer": "DOMAIN_LIBRARY",
+      "cause": "OPERATION_VS_DOMAIN_COLLISION",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "The named mathematical procedure belongs on a domain/theorem warrant over a reusable core effect.",
+      "proposed_axis_view": {
+        "core_operation": "TRANSFORM",
+        "reasoning_mode": "EXECUTION",
+        "warrant": "SEQUENCE_RULE",
+        "knowledge_layer": "DOMAIN_LIBRARY",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

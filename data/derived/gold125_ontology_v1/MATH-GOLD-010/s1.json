@@ -1,0 +1,49 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-010",
+  "step_id": "s1",
+  "category": "Counting & Probability",
+  "level": "Level 5",
+  "source_span": "There are two cases here: either Tom chooses two yellow marbles (1 result), or he chooses two marbles of different colors",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "CASE_SPLIT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "combinatorial_partition",
+      "description": "Partition the outcomes by whether the indistinguishable yellow multiplicity is used twice.",
+      "source": "explicit"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "OPEN_BRANCH",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: case Y/Y; case two distinct colors",
+    "scope_effect": "branch-declaration",
+    "dependency_effect": []
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "CASE_SPLIT",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

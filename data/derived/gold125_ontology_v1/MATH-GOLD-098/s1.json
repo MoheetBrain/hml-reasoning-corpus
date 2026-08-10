@@ -1,0 +1,54 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-098",
+  "step_id": "s1",
+  "category": "Counting & Probability",
+  "level": "Level 2",
+  "source_span": "To have a zero at the end of a number means that the number is divisible by $10$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_DEFINITION",
+  "warrant": {
+    "type": "DEFINITION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_DEFINITION",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "APPLY_DEFINITION",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

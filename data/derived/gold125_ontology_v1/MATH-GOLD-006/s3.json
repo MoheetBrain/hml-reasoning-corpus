@@ -1,0 +1,66 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-006",
+  "step_id": "s3",
+  "category": "Intermediate Algebra",
+  "level": "Level 1",
+  "source_span": "Dividing each side by $\\frac{3}{2},",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "inverse_function",
+      "description": "Undo the logarithm using the definition of base-2 logarithm.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "3/2≠0",
+      "status": "satisfied",
+      "evidence": "Given or established in the current state.",
+      "source_omission": false
+    },
+    {
+      "condition": "2>0 and 2≠1",
+      "status": "satisfied",
+      "evidence": "Given or established in the current state.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s3: log₂x=4 and x=2⁴",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s2"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SOLVE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

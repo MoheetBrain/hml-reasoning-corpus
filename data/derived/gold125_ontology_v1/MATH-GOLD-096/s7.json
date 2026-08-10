@@ -1,0 +1,58 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-096",
+  "step_id": "s7",
+  "category": "Algebra",
+  "level": "Level 2",
+  "source_span": "As before, the two digit number can be expressed as $10x + y,$ and the number with its digits reversed is $10y + x.$ We want to find the sum of these two numbers, which is $$(10x + y) + (10y + x) = 11x + 11y = 11(x + y).$$ We are given that the sum of the digits is $13,$ so $x + y = 13.$ Since all we want is $11(x + y),$ we can substitute for $x + y$ to obtain our answer of $11\\cdot 13 = \\boxed{143}.$",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s6",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S6",
+    "to": "S7",
+    "added_facts": [
+      "fact:s7"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s6",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [
+    "CREATE_SUBGOAL"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

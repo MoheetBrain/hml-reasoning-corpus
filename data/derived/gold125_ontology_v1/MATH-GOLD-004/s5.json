@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-004",
+  "step_id": "s5",
+  "category": "Algebra",
+  "level": "Level 1",
+  "source_span": "If we plug $-\\frac13$ back into the initial equation, we get that",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "substitution_check",
+      "description": "Re-evaluate the original equation at the second generated candidate.",
+      "source": "explicit"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "OPEN_BRANCH",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s4"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s5: candidate x=-1/3 satisfies the original equation",
+    "scope_effect": "branch-local",
+    "dependency_effect": [
+      "fact:s4"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY_CANDIDATE",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

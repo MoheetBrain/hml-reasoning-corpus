@@ -1,0 +1,56 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-021",
+  "step_id": "s1",
+  "category": "Geometry",
+  "level": "Level 2",
+  "source_span": "Let's call the length of the shorter leg $x$. Then the length of the longer leg is $x + 1$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "DECLARE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "consecutive_integer_definition",
+      "description": "Parameterize consecutive whole-number legs by x and x+1.",
+      "source": "explicit"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "x≥1",
+      "status": "satisfied",
+      "evidence": "Given or established in the current state.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: legs x and x+1",
+    "scope_effect": "global/current scope",
+    "dependency_effect": []
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "INTRODUCE_VARIABLE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

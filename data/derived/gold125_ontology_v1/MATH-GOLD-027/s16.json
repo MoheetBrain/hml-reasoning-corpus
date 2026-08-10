@@ -1,0 +1,61 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-027",
+  "step_id": "s16",
+  "category": "Intermediate Algebra",
+  "level": "Level 5",
+  "source_span": "These are $k^2 + 1,$ $k^2 + 3,$ $\\dots,$ $(k + 1)^2,$ for a total of $k + 1$ integers.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "UNKNOWN",
+    "basis": "insufficient-source-evidence",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "UNKNOWN",
+  "goal_effect": "NONE",
+  "scope_effect": "OPEN_BRANCH",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "These are $k^2 + 1,$ $k^2 + 3,$ $\\dots,$ $(k + 1)^2,$ for a total of $k + 1$ integers.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s15"
+  ],
+  "state_delta": {
+    "from": "S15",
+    "to": "S16",
+    "added_facts": [
+      "fact:s16"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "branch-local",
+    "dependency_effect": [
+      "fact:s15"
+    ],
+    "epistemic_update": "Source-grounded result fact:s16 recorded from the exact motivating span."
+  },
+  "atomicity": "UNCERTAIN",
+  "meta_operations": [],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "OTHER",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

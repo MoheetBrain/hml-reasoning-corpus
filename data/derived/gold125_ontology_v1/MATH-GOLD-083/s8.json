@@ -1,0 +1,61 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-083",
+  "step_id": "s8",
+  "category": "Intermediate Algebra",
+  "level": "Level 3",
+  "source_span": "We can rewrite $g(x)$ as follows:\n$$g(x) = \\frac{3x+1}{x+8} = \\frac{3x+24}{x+8}-\\frac{23}{x+8} = 3 - \\frac{23}{x+8}.$$Then we note that $x+8$ takes on all real values, so $\\frac{1}{x+8}$ takes on every value which is the reciprocal of some nonzero real number, i.e., $\\frac{1}{x+8}$ takes on all nonzero values.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "a denominator or divisor is nonzero",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "We can rewrite $g(x)$ as follows:\n$$g(x) = \\frac{3x+1}{x+8} = \\frac{3x+24}{x+8}-\\frac{23}{x+8} = 3 - \\frac{23}{x+8}.$$Then we note that $x+8$ takes on all real values, so $\\frac{1}{x+8}$ takes on every value which is the reciprocal of some nonzero real number, i.e., $\\frac{1}{x+8}$ takes on all nonzero values.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s7"
+  ],
+  "state_delta": {
+    "from": "S7",
+    "to": "S8",
+    "added_facts": [
+      "fact:s8"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s7"
+    ],
+    "epistemic_update": "Source-grounded result fact:s8 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

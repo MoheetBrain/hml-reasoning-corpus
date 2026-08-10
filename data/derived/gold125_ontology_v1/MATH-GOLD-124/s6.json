@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-124",
+  "step_id": "s6",
+  "category": "Number Theory",
+  "level": "Level 1",
+  "source_span": "Alternatively, a number is divisible by 9 if the sum of its digits is a multiple of 9.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "NUMERIC_EVALUATION",
+    "basis": "backend-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "NUMERIC_BACKEND",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the branch partition requires coverage and disjointness",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s6",
+      "statement": "the branch partition requires coverage and disjointness",
+      "status": "discharged",
+      "created_at_step": "s6",
+      "discharged_at_step": "s8",
+      "lifetime_steps": 2,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s5"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [
+      "obl:s6"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s5"
+    ],
+    "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "EVALUATE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "EVALUATE",
+    "original_layer": "NUMERIC_BACKEND_OPERATION",
+    "disagreement": null
+  }
+}

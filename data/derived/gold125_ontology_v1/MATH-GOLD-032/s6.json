@@ -1,0 +1,76 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-032",
+  "step_id": "s6",
+  "category": "Prealgebra",
+  "level": "Level 5",
+  "source_span": "If you have an ordinary die, you may notice that the pairs of numbers which add up to $7$ are all on pairs of opposite faces.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "HEURISTIC_OR_REPRESENTATION_CHOICE",
+    "basis": "source-meta-cue",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "SEARCH_META",
+  "goal_effect": "NONE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [
+    {
+      "condition": "the branch partition requires coverage and disjointness",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s6",
+      "statement": "the branch partition requires coverage and disjointness",
+      "status": "discharged",
+      "created_at_step": "s6",
+      "discharged_at_step": "s9",
+      "lifetime_steps": 3,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s5"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [
+      "obl:s6"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s5"
+    ],
+    "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "RECOGNIZE_STRUCTURE"
+  ],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "SEARCH_META",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "SEARCH_META",
+    "original_layer": "SEARCH_META_OPERATION",
+    "disagreement": null
+  }
+}

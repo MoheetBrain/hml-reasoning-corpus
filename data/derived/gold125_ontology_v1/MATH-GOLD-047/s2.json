@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-047",
+  "step_id": "s2",
+  "category": "Algebra",
+  "level": "Level 4",
+  "source_span": "So to determine $i^n$, where $n$ is an integer, we only need to find the remainder of $n$ when it is divided by 4.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "MODULAR_ARITHMETIC",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "So to determine $i^n$, where $n$ is an integer, we only need to find the remainder of $n$ when it is divided by 4.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s2",
+      "statement": "the transformation requires a nonzero or preserved-denominator condition",
+      "status": "discharged",
+      "created_at_step": "s2",
+      "discharged_at_step": "s3",
+      "lifetime_steps": 1,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [
+      "obl:s2"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s1"
+    ],
+    "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "MODULAR_REASONING",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "MODULAR_REASONING",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

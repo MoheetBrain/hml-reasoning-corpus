@@ -1,0 +1,55 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-011",
+  "step_id": "s1",
+  "category": "Counting & Probability",
+  "level": "Level 4",
+  "source_span": "We can find the probability that no women are selected and subtract it from 1",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "COUNT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "complement_rule",
+      "description": "For a binary event partition, P(at least one woman)=1-P(no woman).",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:population",
+    "fact:sample"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: target = 1-P(no women)",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:population",
+      "fact:sample"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "COMPLEMENT_COUNT",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

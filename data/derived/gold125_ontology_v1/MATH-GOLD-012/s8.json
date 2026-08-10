@@ -1,0 +1,55 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-012",
+  "step_id": "s8",
+  "category": "Counting & Probability",
+  "level": "Level 4",
+  "source_span": "Adding the probabilities of these two cases gives us a total probability of $\\frac{1}{72} + \\frac{1}{72} = \\boxed{\\frac{1}{36}}$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "COUNT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "disjoint_case_sum",
+      "description": "The cases are disjoint and exhaustive, so add their probabilities.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s5",
+    "fact:s7"
+  ],
+  "state_delta": {
+    "from": "S7",
+    "to": "S8",
+    "added_facts": [
+      "fact:s8"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s8: P(sum=16)=1/36",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s5",
+      "fact:s7"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "COMBINE_CASE_COUNTS",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

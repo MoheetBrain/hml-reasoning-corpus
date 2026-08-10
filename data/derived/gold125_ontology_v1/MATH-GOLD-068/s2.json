@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-068",
+  "step_id": "s2",
+  "category": "Algebra",
+  "level": "Level 3",
+  "source_span": "Since $a$ must be at least 2, $a$ only has two possible values.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "BOUND",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "order reasoning requires a valid domain and direction condition",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s2",
+      "statement": "order reasoning requires a valid domain and direction condition",
+      "status": "discharged",
+      "created_at_step": "s2",
+      "discharged_at_step": "s5",
+      "lifetime_steps": 3,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [
+      "obl:s2"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s1"
+    ],
+    "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "OPTIMIZE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "OPTIMIZE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

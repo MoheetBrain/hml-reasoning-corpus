@@ -1,0 +1,76 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-003",
+  "step_id": "s1",
+  "category": "Algebra",
+  "level": "Level 1",
+  "source_span": "Multiplying both sides by $x-5$ and by 3 gives $2(x-5) = 4(3)$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "equality_preservation",
+      "description": "Multiply both sides by the common factors.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "x-5≠0",
+      "status": "implicit",
+      "evidence": "The worked solution does not state this condition explicitly.",
+      "source_omission": true
+    },
+    {
+      "condition": "3≠0",
+      "status": "satisfied",
+      "evidence": "Given or established in the current state.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:denominator",
+      "statement": "x-5≠0",
+      "status": "discharged",
+      "evidence": "The resulting solution x=11 makes x-5=6≠0.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:eq"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [
+      "obl:denominator"
+    ],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: 2(x-5)=12",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:eq"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "CROSS_MULTIPLY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

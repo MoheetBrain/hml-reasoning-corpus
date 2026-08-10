@@ -1,0 +1,61 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-048",
+  "step_id": "s8",
+  "category": "Intermediate Algebra",
+  "level": "Level 5",
+  "source_span": "The $4^4$ ways to select four magnitude-$\\dfrac{1}{2}$ numbers are equally likely to produce any of the four possible product arguments.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "NUMERIC_EVALUATION",
+    "basis": "backend-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "NUMERIC_BACKEND",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "sampling-space or independence assumption",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "The $4^4$ ways to select four magnitude-$\\dfrac{1}{2}$ numbers are equally likely to produce any of the four possible product arguments.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s7"
+  ],
+  "state_delta": {
+    "from": "S7",
+    "to": "S8",
+    "added_facts": [
+      "fact:s8"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s7"
+    ],
+    "epistemic_update": "Source-grounded result fact:s8 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "EVALUATE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "EVALUATE",
+    "original_layer": "NUMERIC_BACKEND_OPERATION",
+    "disagreement": null
+  }
+}

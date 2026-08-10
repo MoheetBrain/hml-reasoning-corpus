@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-021",
+  "step_id": "s6",
+  "category": "Geometry",
+  "level": "Level 2",
+  "source_span": "Their sum is $20 + 21 = \\boxed{41}$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "NUMERIC_EVALUATION",
+    "basis": "backend-operation-factored-to-warrant",
+    "original": {
+      "kind": "exact_arithmetic",
+      "description": "Add the two established leg lengths.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "NUMERIC_BACKEND",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s5"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s6: leg sum=41",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s5"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "EVALUATE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

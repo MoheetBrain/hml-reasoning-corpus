@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-014",
+  "step_id": "s2",
+  "category": "Number Theory",
+  "level": "Level 1",
+  "source_span": "In order for a number to be divisible by 9, the sum of its digits must be divisible by 9 as well.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_THEOREM",
+  "warrant": {
+    "type": "THEOREM",
+    "basis": "theorem-operation-factored-to-warrant",
+    "original": {
+      "kind": "digit_sum_rule",
+      "description": "Apply the base-10 divisibility-by-9 theorem.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "THEOREM_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s2: 14+n is divisible by 9",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s1"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_THEOREM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

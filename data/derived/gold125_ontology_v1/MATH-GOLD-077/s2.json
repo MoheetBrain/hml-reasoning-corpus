@@ -1,0 +1,56 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-077",
+  "step_id": "s2",
+  "category": "Counting & Probability",
+  "level": "Level 3",
+  "source_span": "Consider the situation when coin $A$ has been tossed $n$ times and coin $B$ has been tossed $n$ times.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "UNKNOWN",
+    "basis": "insufficient-source-evidence",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "UNKNOWN",
+  "goal_effect": "NONE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s1"
+    ],
+    "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+  },
+  "atomicity": "UNCERTAIN",
+  "meta_operations": [
+    "CONSIDER_CASES"
+  ],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "OTHER",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

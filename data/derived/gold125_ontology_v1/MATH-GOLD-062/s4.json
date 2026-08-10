@@ -1,0 +1,58 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-062",
+  "step_id": "s4",
+  "category": "Intermediate Algebra",
+  "level": "Level 4",
+  "source_span": "So, let $s_k = b_1 + b_2 + \\dots + b_k.$  Using the recurrence $b_n = b_{n - 1} + 2b_{n - 2},$ we can compute the first few terms of $(b_n)$ and $(s_n)$ modulo 19:\n\\[\n\\begin{array}{c|c|c}\nn & b_n & s_n \\\\ \\hline\n1 & 1 & 1 \\\\\n2 & 1 & 2 \\\\\n3 & 3 & 5 \\\\\n4 & 5 & 10 \\\\\n5 & 11 & 2 \\\\\n6 & 2 & 4 \\\\\n7 & 5 & 9 \\\\\n8 & 9 & 18 \\\\\n9 & 0 & 18 \\\\\n10 & 18 & 17 \\\\\n11 & 18 & 16 \\\\\n12 & 16 & 13 \\\\\n13 & 14 & 8 \\\\\n14 & 8 & 16 \\\\\n15 & 17 & 14 \\\\\n16 & 14 & 9 \\\\\n17 & 10 & 0\n\\end{array}\n\\]Thus, the smallest such $k$ is $\\boxed{17}.$",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "MODULAR_ARITHMETIC",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [
+    "obl:s1"
+  ],
+  "dependencies": [
+    "fact:s3"
+  ],
+  "state_delta": {
+    "from": "S3",
+    "to": "S4",
+    "added_facts": [
+      "fact:s4"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [
+      "obl:s1"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s3"
+    ],
+    "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "MODULAR_REASONING",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "MODULAR_REASONING",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

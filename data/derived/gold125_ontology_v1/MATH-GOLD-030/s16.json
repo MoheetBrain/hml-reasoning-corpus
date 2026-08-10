@@ -1,0 +1,84 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-030",
+  "step_id": "s16",
+  "category": "Precalculus",
+  "level": "Level 4",
+  "source_span": "Finally, we can check that if $b \\in \\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\},$ then there is exactly one solution for $a$ for the equation $a - b - \\frac{1}{2} = 2k$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$), and one solution for $a$ for the equation $a + b + \\frac{1}{2} = 2k'$ (which lies in $\\left\\{ \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4} \\right\\}$).",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [
+    {
+      "condition": "the branch partition requires coverage and disjointness",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s16",
+      "statement": "the branch partition requires coverage and disjointness",
+      "status": "discharged",
+      "created_at_step": "s16",
+      "discharged_at_step": "s16",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s14",
+    "obl:s15",
+    "obl:s16"
+  ],
+  "dependencies": [
+    "fact:s15",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S15",
+    "to": "S16",
+    "added_facts": [
+      "fact:s16"
+    ],
+    "added_obligations": [
+      "obl:s16"
+    ],
+    "removed_obligations": [
+      "obl:s14",
+      "obl:s15",
+      "obl:s16"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s15",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s16 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "VERIFY",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

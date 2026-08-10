@@ -1,0 +1,68 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-035",
+  "step_id": "s8",
+  "category": "Counting & Probability",
+  "level": "Level 5",
+  "source_span": "The answer is $7 + 99 = \\boxed{106}$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [
+    "obl:s2",
+    "obl:s4",
+    "obl:s5",
+    "obl:s6",
+    "obl:s7"
+  ],
+  "dependencies": [
+    "fact:s7",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S7",
+    "to": "S8",
+    "added_facts": [
+      "fact:s8"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [
+      "obl:s2",
+      "obl:s4",
+      "obl:s5",
+      "obl:s6",
+      "obl:s7"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s7",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s8 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

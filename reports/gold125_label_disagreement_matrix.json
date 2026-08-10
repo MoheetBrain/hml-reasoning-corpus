@@ -1,0 +1,1292 @@
+[
+  {
+    "trajectory": "MATH-GOLD-030",
+    "step": "s1",
+    "category": "Precalculus",
+    "source_span": "There are 20 possible values of $a$ and $b,$ namely\n\\[S = \\left\\{ 0, 1, \\frac{1}{2}, \\frac{3}{2}, \\frac{1}{3}, \\frac{2}{3}, \\frac{4}{3}, \\frac{5}{3}, \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4}, \\frac{1}{5}, \\frac{2}{5}, \\frac{3}{5}, \\frac{4}{5}, \\frac{6}{5}, \\frac{7}{5}, \\frac{8}{5}, \\frac{9}{5} \\right\\}.\\]Let $x = \\cos a \\pi$ and $y = \\sin b \\pi.$  We want to see when\n\\[(x + yi)^4 = x^4 + 4ix^3 y - 6x^2 y^2 - 4ixy^3 + y^4\\]is real.",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "SEARCH_META",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "SEARCH_META",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "CREATE_SUBGOAL",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-030",
+    "step": "s2",
+    "category": "Precalculus",
+    "source_span": "This occurs exactly when $4x^3 y - 4xy^3 = 4xy(x^2 - y^2) = 0,$ so either $x = 0,$ $y = 0,$ $x = y,$ or $x = -y.$  In other words, $\\cos a \\pi = 0,$ $\\sin b \\pi = 0,$ $\\cos a \\pi = \\sin b \\pi,$ or $\\cos a \\pi = -\\sin b \\pi.$",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "CASE_SPLIT",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "GRANULARITY_DISAGREEMENT",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The labels describe different parts of a compound source span; both are retained in provenance and axes.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-030",
+    "step": "s3",
+    "category": "Precalculus",
+    "source_span": "If $\\cos a \\pi = 0,$ then $a = \\frac{1}{2}$ or $a = \\frac{3}{2},$ and $b$ can be any value in $S.$  This gives us 40 pairs $(a,b).$",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-030",
+    "step": "s4",
+    "category": "Precalculus",
+    "source_span": "If $\\sin b \\pi = 0,$ then $b = 0$ or $b = 1,$ and $a$ can be any value in $S.$  This gives us 40 pairs $(a,b),$ but the four pairs $\\left( \\frac{1}{2}, 0 \\right),$ $\\left( \\frac{1}{2}, 1 \\right),$ $\\left( \\frac{3}{2}, 0 \\right),$ and $\\left( \\frac{3}{2}, 1 \\right)$ have already been counted, so it gives us only 36 additional pairs.",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-030",
+    "step": "s5",
+    "category": "Precalculus",
+    "source_span": "If $\\cos a \\pi = \\sin b \\pi,$ then\n\\[\\cos a \\pi = \\cos \\left( \\frac{\\pi}{2} - b \\pi \\right),\\]which implies $a \\pi - \\left( \\frac{\\pi}{2} - b \\pi \\right) = 2 \\pi k$ for some integer $k,$ or $a \\pi + \\left( \\frac{\\pi}{2} - b \\pi \\right) = 2 \\pi k'$ for some integer $k'.$  These lead to $a + b - \\frac{1}{2} = 2k$ or $a - b + \\frac{1}{2} = 2k'.$  We have already counted the pairs where $b = 0$ or $b = 1,$ so we exclude these values.",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-030",
+    "step": "s12",
+    "category": "Precalculus",
+    "source_span": "Similarly, if $\\cos a \\pi = -\\sin b \\pi,$ then\n\\[\\cos a \\pi = -\\sin b \\pi = \\sin (-b \\pi) = \\cos \\left( \\frac{\\pi}{2} + b \\pi \\right),\\]which implies $a \\pi - \\left( \\frac{\\pi}{2} + b \\pi \\right) = 2 \\pi k$ for some integer $k,$ or $a \\pi + \\left( \\frac{\\pi}{2} + b \\pi \\right) = 2 \\pi k'$ for some integer $k'.$  These lead to $a - b - \\frac{1}{2} = 2k$ or $a + b + \\frac{1}{2} = 2k'.$  We have already counted the pairs where $b = 0$ or $b = 1,$ so we exclude these values.",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-030",
+    "step": "s18",
+    "category": "Precalculus",
+    "source_span": "We can also confirm that all of the pairs in this case are different from the pairs in the previous case.",
+    "existing_label": "OTHER",
+    "independent_label": "CASE_SPLIT",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "UNRESOLVED",
+    "current_layer": "UNRESOLVED",
+    "cause": "AMBIGUOUS_SOURCE",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The source has a possible operation cue, but the existing annotation correctly preserved uncertainty rather than fabricating a precise label.",
+    "proposed_axis_view": {
+      "core_operation": "UNRESOLVED",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "UNKNOWN",
+      "knowledge_layer": "UNKNOWN",
+      "goal_effect": "NONE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "UNKNOWN"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-030",
+    "step": "s20",
+    "category": "Precalculus",
+    "source_span": "Thus, there are a total of $40 + 36 + 10 + 10 = 96$ possible pairs $(a,b).$  There are $20^2 = 400$ ways to choose the pair $(a,b),$ which gives us a probability of $\\frac{96}{400} = \\boxed{\\frac{6}{25}}.$",
+    "existing_label": "DISCHARGE",
+    "independent_label": "PROBABILITY",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-027",
+    "step": "s23",
+    "category": "Intermediate Algebra",
+    "source_span": "Thus, the total number of integers we seek is $434 + 29 + 20 = \\boxed{483}.$",
+    "existing_label": "DISCHARGE",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-043",
+    "step": "s1",
+    "category": "Number Theory",
+    "source_span": "First, for simplicity, let's make all the amounts of money into integers by considering them all in cents.",
+    "existing_label": "APPLY_THEOREM",
+    "independent_label": "CASE_SPLIT",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "APPLY_THEOREM",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "ANNOTATION_ERROR",
+    "genuine_semantic_disagreement": true,
+    "resolved_by_ontology_axes": false,
+    "explanation": "The source says to change representation into cents; it does not invoke a theorem. This is a genuine old-label error requiring review.",
+    "proposed_axis_view": {
+      "core_operation": "APPLY_THEOREM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "THEOREM",
+      "knowledge_layer": "THEOREM_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-043",
+    "step": "s10",
+    "category": "Number Theory",
+    "source_span": "A little thought makes it clear that at least one of these 5's appears as the last digit in its number (that is, $A_3=5$ or $B_3=5$) since if neither of them appears as the last digit in a number, then $A_1=B_3$ and $B_1=A_3$ and $A_3+B_3=9\\Rightarrow A+B$ ends in a 9, which is a contradiction.",
+    "existing_label": "CONTRADICTION",
+    "independent_label": "CASE_SPLIT",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "CONTRADICTION",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "GRANULARITY_DISAGREEMENT",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The source span contains both branch analysis and contradiction-based rejection.",
+    "proposed_axis_view": {
+      "core_operation": "CONTRADICTION",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "REJECT_CANDIDATE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-043",
+    "step": "s23",
+    "category": "Number Theory",
+    "source_span": "This confirms that there are $\\boxed{8}$ possible amounts of change.",
+    "existing_label": "DISCHARGE",
+    "independent_label": "EVALUATE",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-048",
+    "step": "s6",
+    "category": "Intermediate Algebra",
+    "source_span": "Half of the $2^8$ draw sequences will produce a result with argument equivalent to $0$ and the other half will have an argument equivalent to $\\pi$.",
+    "existing_label": "OTHER",
+    "independent_label": "SEQUENCE_RECURRENCE",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "UNRESOLVED",
+    "current_layer": "UNRESOLVED",
+    "cause": "AMBIGUOUS_SOURCE",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The source has a possible operation cue, but the existing annotation correctly preserved uncertainty rather than fabricating a precise label.",
+    "proposed_axis_view": {
+      "core_operation": "UNRESOLVED",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "UNKNOWN",
+      "knowledge_layer": "UNKNOWN",
+      "goal_effect": "NONE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "UNKNOWN"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-048",
+    "step": "s14",
+    "category": "Intermediate Algebra",
+    "source_span": "\\\\\n\\end{align*}The final answer is $220 + 3 + 10 = \\boxed{233}.$",
+    "existing_label": "DISCHARGE",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-107",
+    "step": "s6",
+    "category": "Precalculus",
+    "source_span": "\\end{align*}Therefore, $k = \\boxed{3}.$",
+    "existing_label": "DISCHARGE",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-100",
+    "step": "s1",
+    "category": "Precalculus",
+    "source_span": "We can expand the determinant as follows:\n\\begin{align*}\n\\begin{vmatrix} \\sin^2 A & \\cot A & 1 \\\\ \\sin^2 B & \\cot B & 1 \\\\ \\sin^2 C & \\cot C & 1 \\end{vmatrix} &= \\sin^2 A \\begin{vmatrix} \\cot B & 1 \\\\ \\cot C & 1 \\end{vmatrix} - \\cot A \\begin{vmatrix} \\sin^2 B & 1 \\\\ \\sin^2 C & 1 \\end{vmatrix} + \\begin{vmatrix} \\sin^2 B & \\cot B \\\\ \\sin^2 C & \\cot C \\end{vmatrix} \\\\\n&= \\sin^2 A (\\cot B - \\cot C) - \\cot A (\\sin^2 B - \\sin^2 C) + (\\sin^2 B \\cot C - \\cot B \\sin^2 C) \\\\\n&= \\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B).",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-100",
+    "step": "s2",
+    "category": "Precalculus",
+    "source_span": "\\end{align*}In general,\n\\begin{align*}\n\\cot x - \\cot y &= \\frac{\\cos x}{\\sin x} - \\frac{\\cos y}{\\sin y} \\\\\n&= \\frac{\\cos x \\sin y - \\sin x \\cos y}{\\sin x \\sin y} \\\\\n&= \\frac{\\sin (y - x)}{\\sin x \\sin y}.",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-100",
+    "step": "s3",
+    "category": "Precalculus",
+    "source_span": "\\end{align*}Then the determinant is equal to\n\\begin{align*}\n&\\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B) \\\\\n&= \\sin^2 A \\cdot \\frac{\\sin (C - B)}{\\sin B \\sin C} + \\sin^2 B \\cdot \\frac{\\sin (A - C)}{\\sin A \\sin C} + \\sin^2 C \\cdot \\frac{\\sin (B - A)}{\\sin A \\sin B} \\\\\n&= \\frac{\\sin^3 A \\sin (C - B) + \\sin^3 B \\sin (A - C) + \\sin^3 C \\sin (B - A)}{\\sin A \\sin B \\sin C}.",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-100",
+    "step": "s4",
+    "category": "Precalculus",
+    "source_span": "\\end{align*}Now,\n\\begin{align*}\n\\sin^3 A &= \\sin A \\sin^2 A \\\\\n&= \\sin (180^\\circ - B - C) \\sin^2 A \\\\\n&= \\sin (B + C) \\sin^2 A,\n\\end{align*}so $\\sin^3 A \\sin (C - B) = \\sin^2 A \\sin (C - B) \\sin (B + C).$  Then\n\\begin{align*}\n\\sin (C - B) \\sin (B + C) &= (\\sin C \\cos B - \\cos C \\sin B)(\\sin B \\cos C + \\cos B \\sin C) \\\\\n&= \\cos B \\sin B \\cos C \\sin C + \\cos^2 B \\sin^2 C - \\sin^2 B \\cos^2 C - \\cos B \\sin B \\cos C \\sin C \\\\\n&= \\cos^2 B \\sin^2 C - \\sin^2 B \\cos^2 C \\\\\n&= (1 - \\sin^2 B) \\sin^2 C - \\sin^2 B (1 - \\sin^2 C) \\\\\n&= \\sin^2 C - \\sin^2 B \\sin^2 C - \\sin^2 B + \\sin^2 B \\sin^2 C \\\\\n&= \\sin^2 C - \\sin^2 B,\n\\end{align*}so\n\\[\\sin^3  A \\sin (C - B) = \\sin^2 A (\\sin^2 C - \\sin^2 B).\\]Similarly,\n\\begin{align*}\n\\sin^3 B \\sin (A - C) &= \\sin^2 B (\\sin^2 A - \\sin^2 C), \\\\\n\\sin^3 C \\sin (B - A) &= \\sin^2 C (\\sin^2 B - \\sin^2 A).",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-100",
+    "step": "s5",
+    "category": "Precalculus",
+    "source_span": "\\end{align*}Therefore,\n\\begin{align*}\n&\\sin^3 A \\sin (C - B) + \\sin^3 B \\sin (A - C) + \\sin^3 C \\sin (B - A) \\\\\n&= \\sin^2 A (\\sin^2 C - \\sin^2 B) + \\sin^2 B (\\sin^2 A - \\sin^2 C) + \\sin^2 C (\\sin^2 B - \\sin^2 A) \\\\\n&= 0,\n\\end{align*}which means the determinant is equal to $\\boxed{0}.$",
+    "existing_label": "DISCHARGE",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-069",
+    "step": "s10",
+    "category": "Intermediate Algebra",
+    "source_span": "Thus, there are $\\boxed{2}$ solutions.",
+    "existing_label": "DISCHARGE",
+    "independent_label": "EVALUATE",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-031",
+    "step": "s2",
+    "category": "Geometry",
+    "source_span": "Without loss of generality, let the first point $A$ be in the bottom-left segment.",
+    "existing_label": "SEARCH_META",
+    "independent_label": "CONSTRUCT",
+    "existing_reasoning_mode": "SEARCH_META",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "SEARCH_META",
+    "current_layer": "SEARCH_META_OPERATION",
+    "cause": "MODE_VS_OPERATION_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "SEARCH_META names the selection mode while the source still has an underlying operation.",
+    "proposed_axis_view": {
+      "core_operation": "CONSTRUCT",
+      "reasoning_mode": "SEARCH_META",
+      "warrant": "HEURISTIC_OR_REPRESENTATION_CHOICE",
+      "knowledge_layer": "SEARCH_META",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-031",
+    "step": "s3",
+    "category": "Geometry",
+    "source_span": "Then, it is easy to see that any point in the $5$ segments not bordering the bottom-left segment will be distance at least $\\dfrac{1}{2}$ apart from $A$.",
+    "existing_label": "OPTIMIZE",
+    "independent_label": "BOUND",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "OPTIMIZE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "GRANULARITY_DISAGREEMENT",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The labels converge after broad normalization; the apparent difference is granularity or goal framing.",
+    "proposed_axis_view": {
+      "core_operation": "BOUND",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-031",
+    "step": "s4",
+    "category": "Geometry",
+    "source_span": "Now, consider choosing the second point on the bottom-right segment.",
+    "existing_label": "OTHER",
+    "independent_label": "CASE_SPLIT",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "UNRESOLVED",
+    "current_layer": "UNRESOLVED",
+    "cause": "AMBIGUOUS_SOURCE",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The source has a possible operation cue, but the existing annotation correctly preserved uncertainty rather than fabricating a precise label.",
+    "proposed_axis_view": {
+      "core_operation": "UNRESOLVED",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "UNKNOWN",
+      "knowledge_layer": "UNKNOWN",
+      "goal_effect": "NONE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "UNKNOWN"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-031",
+    "step": "s8",
+    "category": "Geometry",
+    "source_span": "$(x, y)$ is outside the unit circle with radius $0.5.$)\nThus, averaging the probabilities gives\\[P = \\frac{1}{8} \\left( 5 + \\frac{1}{2} + 1 - \\frac{\\pi}{4} \\right) = \\frac{1}{32} \\left( 26 - \\pi \\right).\\]\nOur answer is $\\boxed{59}$.",
+    "existing_label": "DISCHARGE",
+    "independent_label": "PROBABILITY",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-028",
+    "step": "s3",
+    "category": "Counting & Probability",
+    "source_span": "We number the vertices of this $n$-gon in a counterclockwise direction: $0, 1, 2, 3, \\ldots, n-1.$\nA regular $n$-star will be formed if we choose a vertex number $m$, where $0 \\le m \\le n-1$, and then form the line segments by joining the following pairs of vertex numbers: $(0 \\mod{n}, m \\mod{n}),$ $(m \\mod{n}, 2m \\mod{n}),$ $(2m \\mod{n}, 3m \\mod{n}),$ $\\cdots,$ $((n-2)m \\mod{n}, (n-1)m \\mod{n}),$ $((n-1)m \\mod{n}, 0 \\mod{n}).$\nIf $\\gcd(m,n) > 1$, then the star degenerates into a regular $\\frac{n}{\\gcd(m,n)}$-gon or a (2-vertex) line segment if $\\frac{n}{\\gcd(m,n)}= 2$.",
+    "existing_label": "MODULAR_REASONING",
+    "independent_label": "COUNT",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "MODULAR_REASONING",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_DOMAIN_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The named mathematical procedure belongs on a domain/theorem warrant over a reusable core effect.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "MODULAR_ARITHMETIC",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-028",
+    "step": "s7",
+    "category": "Counting & Probability",
+    "source_span": "The cases of a 1st line segment of (0, m) and (0, n-m) give the same star.",
+    "existing_label": "OTHER",
+    "independent_label": "CASE_SPLIT",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "UNRESOLVED",
+    "current_layer": "UNRESOLVED",
+    "cause": "AMBIGUOUS_SOURCE",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The source has a possible operation cue, but the existing annotation correctly preserved uncertainty rather than fabricating a precise label.",
+    "proposed_axis_view": {
+      "core_operation": "UNRESOLVED",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "UNKNOWN",
+      "knowledge_layer": "UNKNOWN",
+      "goal_effect": "NONE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "UNKNOWN"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-028",
+    "step": "s9",
+    "category": "Counting & Probability",
+    "source_span": "Therefore, the number of non-similar 1000-pointed stars is $\\frac{1000-600-2}{2}= \\boxed{199}.$",
+    "existing_label": "DISCHARGE",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-092",
+    "step": "s16",
+    "category": "Number Theory",
+    "source_span": "To have $x \\geq 41$ we must have $x - n \\geq 32$, and in fact the lower bound works: $(50)(32) = 1600 = 40^2$.",
+    "existing_label": "BOUND",
+    "independent_label": "BOUND",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "BOUND",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "GRANULARITY_DISAGREEMENT",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The labels converge after broad normalization; the apparent difference is granularity or goal framing.",
+    "proposed_axis_view": {
+      "core_operation": "BOUND",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-092",
+    "step": "s17",
+    "category": "Number Theory",
+    "source_span": "Thus $x = 41$, and $x^2 = \\boxed{1681}$.",
+    "existing_label": "DISCHARGE",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-033",
+    "step": "s1",
+    "category": "Algebra",
+    "source_span": "Moving all the terms to the LHS, we have the equation $x^2-14x+y^2-48y=0$.",
+    "existing_label": "SEQUENCE_RECURRENCE",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "SEQUENCE_RECURRENCE",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_DOMAIN_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The named mathematical procedure belongs on a domain/theorem warrant over a reusable core effect.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "SEQUENCE_RULE",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-033",
+    "step": "s6",
+    "category": "Algebra",
+    "source_span": "Since $\\sqrt{625-(x-7)^2}$ is always nonnegative, the minimum value of $y$ is achieved when we use a negative sign in front of the square root.",
+    "existing_label": "OPTIMIZE",
+    "independent_label": "BOUND",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "OPTIMIZE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "GRANULARITY_DISAGREEMENT",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The labels converge after broad normalization; the apparent difference is granularity or goal framing.",
+    "proposed_axis_view": {
+      "core_operation": "BOUND",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-033",
+    "step": "s11",
+    "category": "Algebra",
+    "source_span": "Thus, the minimum $y$ value is $\\boxed{-1}$.",
+    "existing_label": "OPTIMIZE",
+    "independent_label": "BOUND",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "OPTIMIZE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "GRANULARITY_DISAGREEMENT",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The labels converge after broad normalization; the apparent difference is granularity or goal framing.",
+    "proposed_axis_view": {
+      "core_operation": "BOUND",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-033",
+    "step": "s15",
+    "category": "Algebra",
+    "source_span": "The minimum value of $y$ is achieved at the point on the bottom of the circle, which is located at $(7,24-25)=(7,-1)$.",
+    "existing_label": "OPTIMIZE",
+    "independent_label": "BOUND",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "OPTIMIZE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "GRANULARITY_DISAGREEMENT",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The labels converge after broad normalization; the apparent difference is granularity or goal framing.",
+    "proposed_axis_view": {
+      "core_operation": "BOUND",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-033",
+    "step": "s16",
+    "category": "Algebra",
+    "source_span": "Thus, the minimum value of $y$ is $\\boxed{-1}$.",
+    "existing_label": "DISCHARGE",
+    "independent_label": "BOUND",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-086",
+    "step": "s6",
+    "category": "Precalculus",
+    "source_span": "Also,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]Otherwise, at least one of $b$ and $c$ is nonzero, so $a^2 + b^2 + c^2 + 2abc - 1 = 0.$  Hence,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]We conclude that $a^2 + b^2 + c^2 + 2abc$ is always equal to $\\boxed{1}.$",
+    "existing_label": "DISCHARGE",
+    "independent_label": "BOUND",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-044",
+    "step": "s1",
+    "category": "Precalculus",
+    "source_span": "We can re-write the first equation as\n\\[x = \\frac{w+z}{1-wz}.\\]which is an indication to consider trigonometric substitution.",
+    "existing_label": "SUBSTITUTE",
+    "independent_label": "CASE_SPLIT",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "SUBSTITUTE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "GRANULARITY_DISAGREEMENT",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The labels describe different parts of a compound source span; both are retained in provenance and axes.",
+    "proposed_axis_view": {
+      "core_operation": "SUBSTITUTE",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "ALGEBRAIC_PRESERVATION",
+      "knowledge_layer": "CORE",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-044",
+    "step": "s2",
+    "category": "Precalculus",
+    "source_span": "Let $x = \\tan a,$ $y = \\tan b,$ $z = \\tan c,$ and $w = \\tan d,$ where $-90^{\\circ} < a,$ $b,$ $c,$ $d < 90^{\\circ}$.",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-044",
+    "step": "s3",
+    "category": "Precalculus",
+    "source_span": "Then\n\\[\\tan a = \\frac{\\tan d + \\tan c}{1 - \\tan d \\tan c} = \\tan (c + d).\\]Similarly,\n\\begin{align*}\n\\tan b &= \\tan (d + a), \\\\\n\\tan c &= \\tan (a + b), \\\\\n\\tan d &= \\tan (b + c).",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-037",
+    "step": "s1",
+    "category": "Precalculus",
+    "source_span": "Note that $\\frac{\\sum_{n=1}^{44} \\cos n}{\\sum_{n=1}^{44} \\sin n} = \\frac {\\cos 1 + \\cos 2 + \\dots + \\cos 44}{\\cos 89 + \\cos 88 + \\dots + \\cos 46}$\nNow use the sum-product formula $\\cos x + \\cos y = 2\\cos(\\frac{x+y}{2})\\cos(\\frac{x-y}{2})$ We want to pair up $[1, 44]$, $[2, 43]$, $[3, 42]$, etc.",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "SEARCH_META",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "SEARCH_META",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "CREATE_SUBGOAL",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-037",
+    "step": "s4",
+    "category": "Precalculus",
+    "source_span": "Then we get:\\[\\frac{\\sum_{n=1}^{44} \\cos n}{\\sum_{n=1}^{44} \\sin n} = \\frac{2\\cos(\\frac{45}{2})[\\cos(\\frac{43}{2})+\\cos(\\frac{41}{2})+\\dots+\\cos(\\frac{1}{2})}{2\\cos(\\frac{135}{2})[\\cos(\\frac{43}{2})+\\cos(\\frac{41}{2})+\\dots+\\cos(\\frac{1}{2})} \\Rightarrow \\frac{\\cos(\\frac{45}{2})}{\\cos(\\frac{135}{2})}\\]\nTo calculate this number, use the half angle formula.",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-037",
+    "step": "s5",
+    "category": "Precalculus",
+    "source_span": "Since $\\cos(\\frac{x}{2}) = \\pm \\sqrt{\\frac{\\cos x + 1}{2}}$, then our number becomes:\\[\\frac{\\sqrt{\\frac{\\frac{\\sqrt{2}}{2} + 1}{2}}}{\\sqrt{\\frac{\\frac{-\\sqrt{2}}{2} + 1}{2}}}\\]in which we drop the negative roots (as it is clear cosine of $22.5$ and $67.5$ are positive).",
+    "existing_label": "TRIG_IDENTITY",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "EXECUTION",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "TRIG_IDENTITY",
+    "current_layer": "DOMAIN_LIBRARY",
+    "cause": "OPERATION_VS_WARRANT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+    "proposed_axis_view": {
+      "core_operation": "TRANSFORM",
+      "reasoning_mode": "EXECUTION",
+      "warrant": "TRIGONOMETRY_IDENTITY",
+      "knowledge_layer": "DOMAIN_LIBRARY",
+      "goal_effect": "ADVANCE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  },
+  {
+    "trajectory": "MATH-GOLD-037",
+    "step": "s6",
+    "category": "Precalculus",
+    "source_span": "We can easily simplify this:\n\\begin{eqnarray*} \\frac{\\sqrt{\\frac{\\frac{\\sqrt{2}}{2} + 1}{2}}}{\\sqrt{\\frac{\\frac{-\\sqrt{2}}{2} + 1}{2}}} &=& \\sqrt{\\frac{\\frac{2+\\sqrt{2}}{4}}{\\frac{2-\\sqrt{2}}{4}}} \\\\ &=& \\sqrt{\\frac{2+\\sqrt{2}}{2-\\sqrt{2}}} \\cdot \\sqrt{\\frac{2+\\sqrt{2}}{2+\\sqrt{2}}} \\\\ &=& \\sqrt{\\frac{(2+\\sqrt{2})^2}{2}} \\\\ &=& \\frac{2+\\sqrt{2}}{\\sqrt{2}} \\cdot \\sqrt{2} \\\\ &=& \\sqrt{2}+1 \\end{eqnarray*}\nAnd hence our answer is $\\lfloor 100x \\rfloor =  \\lfloor 100(1 + \\sqrt {2}) \\rfloor = \\boxed{241}$.",
+    "existing_label": "DISCHARGE",
+    "independent_label": "TRANSFORM",
+    "existing_reasoning_mode": "GOAL_MANAGEMENT",
+    "existing_warrant": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    },
+    "current_candidate_core": "DISCHARGE",
+    "current_layer": "CORE_PROOF_OPERATION",
+    "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+    "genuine_semantic_disagreement": false,
+    "resolved_by_ontology_axes": true,
+    "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+    "proposed_axis_view": {
+      "core_operation": "DISCHARGE",
+      "reasoning_mode": "GOAL_MANAGEMENT",
+      "warrant": "SOURCE_GROUNDED",
+      "knowledge_layer": "CORE",
+      "goal_effect": "DISCHARGE",
+      "scope_effect": "NONE",
+      "epistemic_effect": "DERIVE"
+    }
+  }
+]

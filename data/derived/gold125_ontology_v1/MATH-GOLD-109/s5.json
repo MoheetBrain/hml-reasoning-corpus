@@ -1,0 +1,56 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-109",
+  "step_id": "s5",
+  "category": "Prealgebra",
+  "level": "Level 2",
+  "source_span": "The numbers he has are \\begin{align*}\n2^3&\\underset{\\swarrow}{=}8 \\\\\n8^3&\\underset{\\swarrow}{=}512 \\\\\n512^3&\\underset{\\swarrow}{=}134217728 \\\\\n\\vdots\n\\end{align*}We can see that these numbers get out of hand pretty quickly (no wonder it took them so long), so instead, we look at the sum of the results because that is what we are trying to find.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s4"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s4"
+    ],
+    "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "REFRAME"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

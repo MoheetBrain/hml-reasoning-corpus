@@ -1,0 +1,60 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-034",
+  "step_id": "s6",
+  "category": "Intermediate Algebra",
+  "level": "Level 4",
+  "source_span": "Similarly,\n\\[|c|^2=\\frac{4}{9}\\cdot \\left(x^2 + \\left( \\frac{y}{2} \\right)^2 \\right)=\\frac{4x^2}{9}+\\frac{y^2}{9}.\\]Furthermore,\n\\[|b|^2=\\frac{4}{9}\\cdot\\frac{x^2+y^2}{4}=\\frac{x^2}{9}+\\frac{y^2}{9}.\\]Hence,\n\\[|a|^2+|b|^2+|c|^2=\\frac{6x^2+6y^2}{9}=\\frac{2x^2+2y^2}{3}=250.\\]Thus, $h^2=x^2+y^2=\\frac{3}{2}\\cdot 250=\\boxed{375}.$",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [
+    "obl:s4"
+  ],
+  "dependencies": [
+    "fact:s5",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [
+      "obl:s4"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s5",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

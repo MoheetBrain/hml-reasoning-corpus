@@ -1,0 +1,55 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-015",
+  "step_id": "s3",
+  "category": "Number Theory",
+  "level": "Level 2",
+  "source_span": "Substituting this into the second congruence yields \\[4+5n\\equiv 6\\pmod 7\\implies n\\equiv 6\\pmod 7\\]",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "SUBSTITUTE",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "modular_substitution",
+      "description": "Substitute the parameterization and reduce modulo 7.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2",
+    "fact:congruence_7"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s3: n≡6 mod 7",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s2",
+      "fact:congruence_7"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SUBSTITUTE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

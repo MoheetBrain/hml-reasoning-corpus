@@ -1,0 +1,55 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-009",
+  "step_id": "s3",
+  "category": "Intermediate Algebra",
+  "level": "Level 2",
+  "source_span": "Equality occurs when $x = 2y = 4z$ and $xyz = 8.$",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "AM_GM_equality",
+      "description": "Use the equality condition of AM-GM together with the product constraint.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "NONE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1",
+    "fact:product"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s3: equality condition x=2y=4z",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s1",
+      "fact:product"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "RECORD_EQUALITY_CONDITION",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

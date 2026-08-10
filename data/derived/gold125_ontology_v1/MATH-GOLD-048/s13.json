@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-048",
+  "step_id": "s13",
+  "category": "Intermediate Algebra",
+  "level": "Level 5",
+  "source_span": "The probability that $P=-1$ is\n\\begin{align*}\n  \\dfrac{\\dbinom{12}{4}\\cdot\\dfrac{1}{4}\\cdot 2^{16}}{6^{12}} &= \\dfrac{\\dbinom{12}{4}4}{3^{12}} \\\\\n   &= \\dfrac{12\\cdot 11\\cdot 10\\cdot 9\\cdot 4}{4!\\cdot 3^{12}} \\\\\n   &= \\dfrac{220}{3^{10}}.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "PROBABILITY_LAW",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "probability reasoning requires a declared sample space and sampling model",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s13",
+      "statement": "probability reasoning requires a declared sample space and sampling model",
+      "status": "discharged",
+      "created_at_step": "s13",
+      "discharged_at_step": "s14",
+      "lifetime_steps": 1,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s12"
+  ],
+  "state_delta": {
+    "from": "S12",
+    "to": "S13",
+    "added_facts": [
+      "fact:s13"
+    ],
+    "added_obligations": [
+      "obl:s13"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s12"
+    ],
+    "epistemic_update": "Source-grounded result fact:s13 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "PROBABILITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "PROBABILITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-068",
+  "step_id": "s7",
+  "category": "Algebra",
+  "level": "Level 3",
+  "source_span": "Thus, the only solution to $a\\star b = 15$ is $3\\star2$, giving us $a+b=3+2=\\boxed{5}$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "candidate acceptance requires original-constraint verification",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s7",
+      "statement": "candidate acceptance requires original-constraint verification",
+      "status": "discharged",
+      "created_at_step": "s7",
+      "discharged_at_step": "s7",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s7"
+  ],
+  "dependencies": [
+    "fact:s6",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S6",
+    "to": "S7",
+    "added_facts": [
+      "fact:s7"
+    ],
+    "added_obligations": [
+      "obl:s7"
+    ],
+    "removed_obligations": [
+      "obl:s7"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s6",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

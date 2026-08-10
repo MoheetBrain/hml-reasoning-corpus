@@ -1,0 +1,72 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-006",
+  "step_id": "s1",
+  "category": "Intermediate Algebra",
+  "level": "Level 1",
+  "source_span": "to turn $\\log_4 x$ into",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_DEFINITION",
+  "warrant": {
+    "type": "DEFINITION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "change_of_base",
+      "description": "Apply the change-of-base theorem with valid positive log arguments and bases not equal to 1.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "x>0",
+      "status": "implicit",
+      "evidence": "The worked solution does not state this condition explicitly.",
+      "source_omission": true
+    },
+    {
+      "condition": "2>0 and 2≠1",
+      "status": "satisfied",
+      "evidence": "Given or established in the current state.",
+      "source_omission": false
+    },
+    {
+      "condition": "4>0 and 4≠1",
+      "status": "satisfied",
+      "evidence": "Given or established in the current state.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:log_eq"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: log₄x=(1/2)log₂x",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:log_eq"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_DEFINITION",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

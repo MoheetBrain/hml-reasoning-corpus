@@ -1,0 +1,78 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-038",
+  "step_id": "s1",
+  "category": "Geometry",
+  "level": "Level 5",
+  "source_span": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the transformation requires a nonzero or preserved-denominator condition",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s1",
+      "statement": "the transformation requires a nonzero or preserved-denominator condition",
+      "status": "discharged",
+      "created_at_step": "s1",
+      "discharged_at_step": "s1",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s1"
+  ],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [
+      "obl:s1"
+    ],
+    "removed_obligations": [
+      "obl:s1"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

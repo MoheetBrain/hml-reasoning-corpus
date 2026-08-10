@@ -1,0 +1,77 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-093",
+  "step_id": "s1",
+  "category": "Precalculus",
+  "level": "Level 4",
+  "source_span": "The function $f(x) = \\arcsin (\\log_m (nx))$ is defined when\n\\[-1 \\le \\log_m (nx) \\le 1.\\]This is equivalent to\n\\[\\frac{1}{m} \\le nx \\le m,\\]or\n\\[\\frac{1}{mn} \\le x \\le \\frac{m}{n}.\\]Thus, the length of the interval is $\\frac{m}{n} - \\frac{1}{mn} = \\frac{m^2 - 1}{mn},$ giving us the equation\n\\[\\frac{m^2 - 1}{mn} = \\frac{1}{2013}.\\]Hence\n\\[n = \\frac{2013 (m^2 - 1)}{m} = \\frac{2013m^2 - 2013}{m}.\\]We want to minimize $n + m = \\frac{2014m^2 - 2013}{m}.$  It is not hard to prove that this is an increasing function for $m \\ge 1;$ thus, we want to find the smallest possible value of $m.$",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "APPLY_DEFINITION",
+  "warrant": {
+    "type": "DEFINITION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "CREATE_SUBGOAL",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "logarithm reasoning requires positive arguments and valid bases",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s1",
+      "statement": "logarithm reasoning requires positive arguments and valid bases",
+      "status": "discharged",
+      "created_at_step": "s1",
+      "discharged_at_step": "s4",
+      "lifetime_steps": 3,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [
+      "obl:s1"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [
+    "CREATE_SUBGOAL",
+    "CHOOSE_REPRESENTATION"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_DEFINITION",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "APPLY_DEFINITION",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

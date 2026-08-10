@@ -1,0 +1,85 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-031",
+  "step_id": "s4",
+  "category": "Geometry",
+  "level": "Level 5",
+  "source_span": "Now, consider choosing the second point on the bottom-right segment.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "UNKNOWN",
+    "basis": "insufficient-source-evidence",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "UNKNOWN",
+  "goal_effect": "NONE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s3"
+  ],
+  "state_delta": {
+    "from": "S3",
+    "to": "S4",
+    "added_facts": [
+      "fact:s4"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s3"
+    ],
+    "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+  },
+  "atomicity": "UNCERTAIN",
+  "meta_operations": [
+    "CONSIDER_CASES"
+  ],
+  "uncertainty": "SOURCE_AMBIGUOUS",
+  "provenance": {
+    "observed_operation": "OTHER",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-031",
+      "step": "s4",
+      "category": "Geometry",
+      "source_span": "Now, consider choosing the second point on the bottom-right segment.",
+      "existing_label": "OTHER",
+      "independent_label": "CASE_SPLIT",
+      "existing_reasoning_mode": "EXECUTION",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "UNRESOLVED",
+      "current_layer": "UNRESOLVED",
+      "cause": "AMBIGUOUS_SOURCE",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "The source has a possible operation cue, but the existing annotation correctly preserved uncertainty rather than fabricating a precise label.",
+      "proposed_axis_view": {
+        "core_operation": "UNRESOLVED",
+        "reasoning_mode": "EXECUTION",
+        "warrant": "UNKNOWN",
+        "knowledge_layer": "UNKNOWN",
+        "goal_effect": "NONE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "UNKNOWN"
+      }
+    }
+  }
+}

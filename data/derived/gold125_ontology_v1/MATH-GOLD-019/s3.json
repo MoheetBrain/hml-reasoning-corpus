@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-019",
+  "step_id": "s3",
+  "category": "Precalculus",
+  "level": "Level 2",
+  "source_span": "which means $x = e^{\\pi i/6}$ or $x = e^{11 \\pi i/6}$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "IDENTITY",
+    "basis": "theorem-operation-factored-to-warrant",
+    "original": {
+      "kind": "polar_form",
+      "description": "Convert the two complex roots to exponential/polar form.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "THEOREM_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s3: two unit-complex candidate forms",
+    "scope_effect": "branch-declaration",
+    "dependency_effect": [
+      "fact:s2"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_IDENTITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

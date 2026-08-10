@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-052",
+  "step_id": "s4",
+  "category": "Geometry",
+  "level": "Level 4",
+  "source_span": "If we focus on the variable $a$, we have\n\\[b+c>a\\quad\\Rightarrow \\quad 7-a>a\\quad\\Rightarrow \\quad 3.5>a.\\]We could easily replace $a$ with $b$ or $c$, so the maximum length of any of the three sides is $3$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "BOUND",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the branch partition requires coverage and disjointness",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s4",
+      "statement": "the branch partition requires coverage and disjointness",
+      "status": "discharged",
+      "created_at_step": "s4",
+      "discharged_at_step": "s7",
+      "lifetime_steps": 3,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s3"
+  ],
+  "state_delta": {
+    "from": "S3",
+    "to": "S4",
+    "added_facts": [
+      "fact:s4"
+    ],
+    "added_obligations": [
+      "obl:s4"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s3"
+    ],
+    "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "OPTIMIZE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "OPTIMIZE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

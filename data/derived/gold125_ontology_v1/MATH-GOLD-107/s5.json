@@ -1,0 +1,54 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-107",
+  "step_id": "s5",
+  "category": "Precalculus",
+  "level": "Level 2",
+  "source_span": "\\end{align*}Also,\n\\begin{align*}\nPG^2 &= \\left\\| \\mathbf{p} - \\frac{\\mathbf{a} + \\mathbf{b} + \\mathbf{c}}{3} \\right\\|^2 \\\\\n&= \\frac{1}{9} \\|3 \\mathbf{p} - (\\mathbf{a} + \\mathbf{b} + \\mathbf{c})\\|^2 \\\\\n&= \\frac{1}{9} (\\mathbf{a} \\cdot \\mathbf{a} + \\mathbf{b} \\cdot \\mathbf{b} + \\mathbf{c} \\cdot \\mathbf{c} + 9 \\mathbf{p} \\cdot \\mathbf{p} \\\\\n&\\quad + 2 \\mathbf{a} \\cdot \\mathbf{b} + 2 \\mathbf{a} \\cdot \\mathbf{b} + 2 \\mathbf{b} \\cdot \\mathbf{c} - 6 \\mathbf{a} \\cdot \\mathbf{p} - 6 \\mathbf{b} \\cdot \\mathbf{p} - 6 \\mathbf{c} \\cdot \\mathbf{p}).",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s4"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s4"
+    ],
+    "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

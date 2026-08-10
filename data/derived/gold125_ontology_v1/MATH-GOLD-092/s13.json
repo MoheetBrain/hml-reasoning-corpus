@@ -1,0 +1,88 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-092",
+  "step_id": "s13",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "source_span": "The case $x - n = 25$ implies $x + n = 4p^2$ for $(x+n)(x-n)$ to be a perfect square multiple of 100, and thus $57 \\leq 4p^2 \\leq 77$ from $41 \\leq x \\leq 90$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the power/root transformation requires sign and domain conditions",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s13",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s13",
+      "discharged_at_step": "s17",
+      "lifetime_steps": 4,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s1",
+    "obl:s2",
+    "obl:s4",
+    "obl:s5",
+    "obl:s9"
+  ],
+  "dependencies": [
+    "fact:s12"
+  ],
+  "state_delta": {
+    "from": "S12",
+    "to": "S13",
+    "added_facts": [
+      "fact:s13"
+    ],
+    "added_obligations": [
+      "obl:s13"
+    ],
+    "removed_obligations": [
+      "obl:s1",
+      "obl:s2",
+      "obl:s4",
+      "obl:s5",
+      "obl:s9"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s12"
+    ],
+    "epistemic_update": "Source-grounded result fact:s13 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CONSIDER_CASES"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

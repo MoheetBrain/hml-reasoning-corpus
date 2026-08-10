@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-088",
+  "step_id": "s2",
+  "category": "Prealgebra",
+  "level": "Level 1",
+  "source_span": "This means that the sum of the probability of randomly selecting a red jelly bean, the probability of randomly selecting an orange jelly bean, and the probability of randomly selecting a yellow jelly bean is equal to 1.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "PROBABILITY_LAW",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "probability reasoning requires a declared sample space and sampling model",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s2",
+      "statement": "probability reasoning requires a declared sample space and sampling model",
+      "status": "discharged",
+      "created_at_step": "s2",
+      "discharged_at_step": "s3",
+      "lifetime_steps": 1,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [
+      "obl:s2"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s1"
+    ],
+    "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "PROBABILITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "PROBABILITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

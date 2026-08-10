@@ -1,0 +1,86 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-031",
+  "step_id": "s2",
+  "category": "Geometry",
+  "level": "Level 5",
+  "source_span": "Without loss of generality, let the first point $A$ be in the bottom-left segment.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "CONSTRUCT",
+  "warrant": {
+    "type": "HEURISTIC_OR_REPRESENTATION_CHOICE",
+    "basis": "source-meta-cue",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "SEARCH_META",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s1"
+    ],
+    "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "USE_SYMMETRY",
+    "CHOOSE_REPRESENTATION"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SEARCH_META",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "SEARCH_META",
+    "original_layer": "SEARCH_META_OPERATION",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-031",
+      "step": "s2",
+      "category": "Geometry",
+      "source_span": "Without loss of generality, let the first point $A$ be in the bottom-left segment.",
+      "existing_label": "SEARCH_META",
+      "independent_label": "CONSTRUCT",
+      "existing_reasoning_mode": "SEARCH_META",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "source_interpretation",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "SEARCH_META",
+      "current_layer": "SEARCH_META_OPERATION",
+      "cause": "MODE_VS_OPERATION_COLLISION",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "SEARCH_META names the selection mode while the source still has an underlying operation.",
+      "proposed_axis_view": {
+        "core_operation": "CONSTRUCT",
+        "reasoning_mode": "SEARCH_META",
+        "warrant": "HEURISTIC_OR_REPRESENTATION_CHOICE",
+        "knowledge_layer": "SEARCH_META",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-009",
+  "step_id": "s1",
+  "category": "Intermediate Algebra",
+  "level": "Level 2",
+  "source_span": "By AM-GM,",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_THEOREM",
+  "warrant": {
+    "type": "THEOREM",
+    "basis": "theorem-operation-factored-to-warrant",
+    "original": {
+      "kind": "AM_GM",
+      "description": "Apply AM-GM to the three positive quantities x, 2y, and 4z.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "THEOREM_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "x>0,y>0,z>0",
+      "status": "satisfied",
+      "evidence": "Given in the problem.",
+      "source_omission": false
+    },
+    {
+      "condition": "three positive terms",
+      "status": "satisfied",
+      "evidence": "x,2y,4z are positive.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:product"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: x+2y+4z ≥ 3∛((x)(2y)(4z))",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:product"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_THEOREM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

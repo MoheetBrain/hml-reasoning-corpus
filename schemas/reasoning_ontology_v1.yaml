@@ -1,0 +1,127 @@
+version: "reasoning-ontology-v1"
+title: "Multi-axis mathematical reasoning ontology"
+status: "derived research view; does not modify frozen trajectories or HML"
+
+principles:
+  - "A source transition may have one semantic operation plus independent mode, warrant, knowledge, goal, scope, and epistemic effects."
+  - "A named theorem, formula, algorithm, or domain procedure is not automatically a core operation."
+  - "Unknown and ambiguous evidence remain explicit."
+  - "Representability is not reasoning superiority."
+
+axes:
+  reasoning_mode:
+    values:
+      - EXECUTION
+      - SEARCH_META
+      - VERIFICATION
+      - MODELING
+      - GOAL_MANAGEMENT
+      - OTHER
+    description: "Why the step is being performed in the successful source trajectory."
+  core_operation:
+    values:
+      - DECLARE
+      - RECORD
+      - MODEL
+      - CONSTRUCT
+      - TRANSFORM
+      - SUBSTITUTE
+      - APPLY_DEFINITION
+      - APPLY_THEOREM
+      - CASE_SPLIT
+      - ENUMERATE
+      - COUNT
+      - EVALUATE
+      - BOUND
+      - SELECT
+      - VERIFY
+      - CONTRADICTION
+      - DISCHARGE
+      - INDUCT
+      - UNRESOLVED
+    description: "Reusable state/proof action after domain names and orthogonal effects are factored out."
+  warrant:
+    values:
+      - SOURCE_GROUNDED
+      - DEFINITION
+      - THEOREM
+      - IDENTITY
+      - ALGEBRAIC_PRESERVATION
+      - MODULAR_ARITHMETIC
+      - COUNTING_RULE
+      - PROBABILITY_LAW
+      - SEQUENCE_RULE
+      - TRIGONOMETRY_IDENTITY
+      - CALCULUS_RULE
+      - GEOMETRY_RULE
+      - NUMERIC_EVALUATION
+      - SYMBOLIC_NORMALIZATION
+      - HEURISTIC_OR_REPRESENTATION_CHOICE
+      - UNKNOWN
+  knowledge_layer:
+    values:
+      - CORE
+      - THEOREM_LIBRARY
+      - DOMAIN_LIBRARY
+      - SYMBOLIC_BACKEND
+      - NUMERIC_BACKEND
+      - SEARCH_META
+      - UNKNOWN
+  goal_effect:
+    values:
+      - NONE
+      - ADVANCE
+      - CREATE_SUBGOAL
+      - DISCHARGE
+  scope_effect:
+    values:
+      - NONE
+      - OPEN_BRANCH
+      - CLOSE_BRANCH
+      - JOIN_BRANCHES
+      - INTRODUCE_ASSUMPTION
+      - DISCHARGE_ASSUMPTION
+      - UNKNOWN
+  epistemic_effect:
+    values:
+      - ASSERT
+      - DERIVE
+      - PROPOSE_CANDIDATE
+      - VERIFY_CANDIDATE
+      - REJECT_CANDIDATE
+      - UNKNOWN
+
+record:
+  required:
+    - trajectory_id
+    - step_id
+    - source_span
+    - reasoning_mode
+    - core_operation
+    - warrant
+    - knowledge_layer
+    - goal_effect
+    - scope_effect
+    - epistemic_effect
+    - preconditions
+    - obligations_created
+    - obligations_discharged
+    - dependencies
+    - state_delta
+    - atomicity
+    - provenance
+  provenance:
+    preserve:
+      - observed_operation
+      - original_reasoning_mode
+      - original_warrant
+      - original_candidate_core
+      - original_layer
+      - independent_operation
+      - disagreement_status
+  uncertainty:
+    allowed_values:
+      - CERTAIN
+      - SOURCE_AMBIGUOUS
+      - ANNOTATION_REVIEW
+      - UNRESOLVED

@@ -1,0 +1,55 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-007",
+  "step_id": "s2",
+  "category": "Intermediate Algebra",
+  "level": "Level 1",
+  "source_span": "Substituting into the second equation, we get",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "SUBSTITUTE",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "equality_substitution",
+      "description": "Replace x by y+4 in the cubic equation.",
+      "source": "core"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1",
+    "fact:cubes"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s2: (y+4)³-y³=28",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s1",
+      "fact:cubes"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SUBSTITUTE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-020",
+  "step_id": "s4",
+  "category": "Precalculus",
+  "level": "Level 1",
+  "source_span": "= 3^2 - 6^2 = \\boxed{-27}.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "NUMERIC_EVALUATION",
+    "basis": "backend-operation-factored-to-warrant",
+    "original": {
+      "kind": "exact_arithmetic",
+      "description": "Substitute the given norms and evaluate.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "NUMERIC_BACKEND",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s3",
+    "fact:norm_a",
+    "fact:norm_b"
+  ],
+  "state_delta": {
+    "from": "S3",
+    "to": "S4",
+    "added_facts": [
+      "fact:s4"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s4: (a+b)·(a-b)=-27",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s3",
+      "fact:norm_a",
+      "fact:norm_b"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "EVALUATE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-057",
+  "step_id": "s5",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "source_span": "Actually, we don't have to check every such integer: it's enough to check divisibility by 2, 3, 5, 7, 11, and 13.",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "CREATE_SUBGOAL",
+  "scope_effect": "NONE",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Actually, we don't have to check every such integer: it's enough to check divisibility by 2, 3, 5, 7, 11, and 13.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s4",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s4",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CREATE_SUBGOAL"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "VERIFY",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

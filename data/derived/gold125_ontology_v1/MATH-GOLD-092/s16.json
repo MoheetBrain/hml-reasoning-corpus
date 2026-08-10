@@ -1,0 +1,83 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-092",
+  "step_id": "s16",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "source_span": "To have $x \\geq 41$ we must have $x - n \\geq 32$, and in fact the lower bound works: $(50)(32) = 1600 = 40^2$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "BOUND",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s15"
+  ],
+  "state_delta": {
+    "from": "S15",
+    "to": "S16",
+    "added_facts": [
+      "fact:s16"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s15"
+    ],
+    "epistemic_update": "Source-grounded result fact:s16 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "BOUND",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "BOUND",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-092",
+      "step": "s16",
+      "category": "Number Theory",
+      "source_span": "To have $x \\geq 41$ we must have $x - n \\geq 32$, and in fact the lower bound works: $(50)(32) = 1600 = 40^2$.",
+      "existing_label": "BOUND",
+      "independent_label": "BOUND",
+      "existing_reasoning_mode": "GOAL_MANAGEMENT",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "BOUND",
+      "current_layer": "CORE_PROOF_OPERATION",
+      "cause": "GRANULARITY_DISAGREEMENT",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "The labels converge after broad normalization; the apparent difference is granularity or goal framing.",
+      "proposed_axis_view": {
+        "core_operation": "BOUND",
+        "reasoning_mode": "GOAL_MANAGEMENT",
+        "warrant": "SOURCE_GROUNDED",
+        "knowledge_layer": "CORE",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-001",
+  "step_id": "s1",
+  "category": "Algebra",
+  "level": "Level 5",
+  "source_span": "For the piecewise function to be continuous, the cases must \"meet\" at $2$ and $-2$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_DEFINITION",
+  "warrant": {
+    "type": "DEFINITION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "definition_application",
+      "description": "Apply the definition of continuity for a piecewise function at a boundary.",
+      "source": "core"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: continuity reduces to matching adjacent branch values at x=2 and x=-2",
+    "scope_effect": "global/current scope",
+    "dependency_effect": []
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_DEFINITION",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-012",
+  "step_id": "s7",
+  "category": "Counting & Probability",
+  "level": "Level 4",
+  "source_span": "So, the probability of this case is $3(1/216) = 1/72$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "uniform_product_space",
+      "description": "Use the same ordered-outcome probability for case B.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "OPEN_BRANCH",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s6",
+    "fact:sample_space"
+  ],
+  "state_delta": {
+    "from": "S6",
+    "to": "S7",
+    "added_facts": [
+      "fact:s7"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s7: P(case B)=3/216=1/72",
+    "scope_effect": "branch-local",
+    "dependency_effect": [
+      "fact:s6",
+      "fact:sample_space"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CONSIDER_CASES"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "EVALUATE_PROBABILITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

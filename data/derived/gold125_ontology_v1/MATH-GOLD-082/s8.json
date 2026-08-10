@@ -1,0 +1,90 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-082",
+  "step_id": "s8",
+  "category": "Algebra",
+  "level": "Level 3",
+  "source_span": "We want to find $\\frac{1}{\\log_{9}3}=\\frac{1}{a}=\\frac{1}{\\frac{1}{2}}=\\boxed{2}$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "logarithm reasoning requires positive arguments and valid bases",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s8",
+      "statement": "logarithm reasoning requires positive arguments and valid bases",
+      "status": "discharged",
+      "created_at_step": "s8",
+      "discharged_at_step": "s8",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s2",
+    "obl:s3",
+    "obl:s4",
+    "obl:s5",
+    "obl:s8"
+  ],
+  "dependencies": [
+    "fact:s7",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S7",
+    "to": "S8",
+    "added_facts": [
+      "fact:s8"
+    ],
+    "added_obligations": [
+      "obl:s8"
+    ],
+    "removed_obligations": [
+      "obl:s2",
+      "obl:s3",
+      "obl:s4",
+      "obl:s5",
+      "obl:s8"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s7",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s8 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [
+    "CREATE_SUBGOAL"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

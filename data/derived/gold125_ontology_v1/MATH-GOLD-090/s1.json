@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-090",
+  "step_id": "s1",
+  "category": "Intermediate Algebra",
+  "level": "Level 2",
+  "source_span": "Writing $6=2\\cdot 3$ and applying the logarithmic identity $\\log_a(xy) = \\log_a(x)+\\log_a(y)$ for all positive real numbers $x$, $y$, and $a$ (with $a\\neq 1$), we obtain \\begin{align*}\n\\log_3 6=\\log_3 (2\\cdot3)&=\\log_3 2 + \\log_{3} 3 \\\\\n\\qquad&=\\log_3 2 + 1.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "positivity/domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Writing $6=2\\cdot 3$ and applying the logarithmic identity $\\log_a(xy) = \\log_a(x)+\\log_a(y)$ for all positive real numbers $x$, $y$, and $a$ (with $a\\neq 1$), we obtain \\begin{align*}\n\\log_3 6=\\log_3 (2\\cdot3)&=\\log_3 2 + \\log_{3} 3 \\\\\n\\qquad&=\\log_3 2 + 1.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s1",
+      "statement": "logarithm reasoning requires positive arguments and valid bases",
+      "status": "discharged",
+      "created_at_step": "s1",
+      "discharged_at_step": "s3",
+      "lifetime_steps": 2,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [
+      "obl:s1"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

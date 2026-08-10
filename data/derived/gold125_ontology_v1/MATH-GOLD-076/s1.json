@@ -1,0 +1,54 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-076",
+  "step_id": "s1",
+  "category": "Intermediate Algebra",
+  "level": "Level 3",
+  "source_span": "Let $r = a_2.$  Then the first few terms are\n\\begin{align*}\na_1 &= 1, \\\\\na_2 &= r, \\\\\na_3 &= \\frac{a_2^2}{a_1} = r^2, \\\\\na_4 &= 2a_3 - a_2 = 2r^2 - r = r(2r - 1), \\\\\na_5 &= \\frac{a_4^2}{a_3} = \\frac{r^2 (2r - 1)^2}{r^2} = (2r - 1)^2, \\\\\na_6 &= 2a_5 - a_4 = (2r - 1)^2 - r(2r - 1) = (2r - 1)(3r - 2), \\\\\na_7 &= \\frac{a_6^2}{a_5} = \\frac{(2r - 1)^2 (3r - 2)^2}{(2r - 1)^2} = (3r - 2)^2, \\\\\na_8 &= 2a_7 - a_6 = 2(3r - 2)^2 - (2r - 1)(3r - 2) = (3r - 2)(4r - 3), \\\\\na_9 &= \\frac{a_8^2}{a_7} = \\frac{(3r - 2)^2 (4r - 3)^2}{(3r - 2)^2} = (4r - 3)^2, \\\\\na_{10} &= 2a_9 - a_8 = 2(4r - 3)^2 - (3r - 2)(4r - 3) = (4r - 3)(5r - 4).",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "SEQUENCE_RULE",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SEQUENCE_RECURRENCE",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "SEQUENCE_RECURRENCE",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

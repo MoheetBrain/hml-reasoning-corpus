@@ -1,0 +1,86 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-031",
+  "step_id": "s7",
+  "category": "Geometry",
+  "level": "Level 5",
+  "source_span": "Thus, using an averaging argument we find that the probability in this case is\\[\\frac{1}{\\left( \\frac{1}{2} \\right)^2} \\int_0^{\\frac{1}{2}} \\dfrac{1}{2} - \\sqrt{0.25 - x^2} dx = 4\\left( \\frac{1}{4} - \\frac{\\pi}{16} \\right) = 1 - \\frac{\\pi}{4}.\\]\n(Alternatively, one can equate the problem to finding all valid $(x, y)$ with $0 < x, y < \\dfrac{1}{2}$ such that $x^2 + y^2 \\ge \\dfrac{1}{4}$, i.e.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "PROBABILITY_LAW",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the power/root transformation requires sign and domain conditions",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s7",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s7",
+      "discharged_at_step": "s8",
+      "lifetime_steps": 1,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s1",
+    "obl:s3",
+    "obl:s5",
+    "obl:s6"
+  ],
+  "dependencies": [
+    "fact:s6"
+  ],
+  "state_delta": {
+    "from": "S6",
+    "to": "S7",
+    "added_facts": [
+      "fact:s7"
+    ],
+    "added_obligations": [
+      "obl:s7"
+    ],
+    "removed_obligations": [
+      "obl:s1",
+      "obl:s3",
+      "obl:s5",
+      "obl:s6"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s6"
+    ],
+    "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [
+    "CONSIDER_CASES"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "PROBABILITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "PROBABILITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

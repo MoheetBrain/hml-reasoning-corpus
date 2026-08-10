@@ -1,0 +1,60 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-018",
+  "step_id": "s1",
+  "category": "Precalculus",
+  "level": "Level 1",
+  "source_span": "From the angle addition formula,",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_THEOREM",
+  "warrant": {
+    "type": "THEOREM",
+    "basis": "theorem-operation-factored-to-warrant",
+    "original": {
+      "kind": "tangent_addition",
+      "description": "Apply the tangent addition formula; denominator must be nonzero.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "THEOREM_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "1-tan45°tan30°≠0",
+      "status": "implicit",
+      "evidence": "The worked solution does not state this condition explicitly.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:angle_split"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: tan(45°+30°)=(tan45°+tan30°)/(1-tan45°tan30°)",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:angle_split"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_THEOREM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

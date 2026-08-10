@@ -1,0 +1,86 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-069",
+  "step_id": "s7",
+  "category": "Intermediate Algebra",
+  "level": "Level 4",
+  "source_span": "Therefore, $(\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17})$ is the only solution where any of the variables are positive.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "positivity/domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Therefore, $(\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17})$ is the only solution where any of the variables are positive.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s7",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s7",
+      "discharged_at_step": "s10",
+      "lifetime_steps": 3,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s1",
+    "obl:s2",
+    "obl:s4",
+    "obl:s5",
+    "obl:s6"
+  ],
+  "dependencies": [
+    "fact:s6"
+  ],
+  "state_delta": {
+    "from": "S6",
+    "to": "S7",
+    "added_facts": [
+      "fact:s7"
+    ],
+    "added_obligations": [
+      "obl:s7"
+    ],
+    "removed_obligations": [
+      "obl:s1",
+      "obl:s2",
+      "obl:s4",
+      "obl:s5",
+      "obl:s6"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s6"
+    ],
+    "epistemic_update": "Source-grounded result fact:s7 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

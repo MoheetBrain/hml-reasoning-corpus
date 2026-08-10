@@ -1,0 +1,54 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-086",
+  "step_id": "s1",
+  "category": "Precalculus",
+  "level": "Level 3",
+  "source_span": "The normal vectors of the planes are $\\mathbf{n}_1 = \\begin{pmatrix} -1 \\\\ c \\\\ b \\end{pmatrix},$ $\\mathbf{n}_2 = \\begin{pmatrix} c \\\\ -1 \\\\ a \\end{pmatrix},$ and $\\mathbf{n}_3 = \\begin{pmatrix} b \\\\ a \\\\ -1 \\end{pmatrix}.$  So, the direction vector of the common line is proportional to\n\\[\\mathbf{n}_1 \\times \\mathbf{n}_2 = \\begin{pmatrix} ac + b \\\\ a + bc \\\\ 1 - c^2 \\end{pmatrix}.\\]It is also proportional to\n\\[\\mathbf{n}_1 \\times \\mathbf{n}_3 = \\begin{pmatrix} -ab - c \\\\ b^2 - 1 \\\\ -a - bc \\end{pmatrix}.\\]Since these vectors are proportional,\n\\[(ac + b)(b^2 - 1) = (a + bc)(-ab - c).\\]Then $(ac + b)(b^2 - 1) - (a + bc)(-ab - c) = 0,$ which simplifies to\n\\[a^2 b + 2ab^2 c + b^3 + bc^2 - b = 0.\\]This factors as $b(a^2 + b^2 + c^2 + 2abc - 1) = 0.$",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

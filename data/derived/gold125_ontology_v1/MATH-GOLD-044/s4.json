@@ -1,0 +1,80 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-044",
+  "step_id": "s4",
+  "category": "Precalculus",
+  "level": "Level 5",
+  "source_span": "\\end{align*}Since the tangent function has period $180^\\circ,$\n\\begin{align*}\na &\\equiv c + d, \\\\\nb &\\equiv d + a, \\\\\nc &\\equiv a + b, \\\\\nd &\\equiv b + c,\n\\end{align*}where all the congruences are taken modulo $180^\\circ.$  Adding all these congruences, we get $a + b + c + d \\equiv 0.$  Then\n\\[a \\equiv c + d \\equiv -a - b,\\]so $b \\equiv -2a.$  Similarly, $c \\equiv -2b,$ $d \\equiv -2c,$ and $a \\equiv -2d.$  Then\n\\[a \\equiv -2d \\equiv 4c \\equiv -8b \\equiv 16a,\\]so $15a \\equiv 0.$  Hence, $(a,b,c,d) \\equiv (t,-2t,4t,-8t),$ where $15t \\equiv 0.$  Since $a \\equiv c + d,$\n\\[t \\equiv 4t - 8t \\equiv -4t,\\]so $5t \\equiv 0.$  We can check that this condition always leads to a solution, giving us $\\boxed{5}$ solutions.",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [
+    {
+      "condition": "candidate acceptance requires original-constraint verification",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s4",
+      "statement": "candidate acceptance requires original-constraint verification",
+      "status": "discharged",
+      "created_at_step": "s4",
+      "discharged_at_step": "s4",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s4"
+  ],
+  "dependencies": [
+    "fact:s3",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S3",
+    "to": "S4",
+    "added_facts": [
+      "fact:s4"
+    ],
+    "added_obligations": [
+      "obl:s4"
+    ],
+    "removed_obligations": [
+      "obl:s4"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s3",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "VERIFY",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

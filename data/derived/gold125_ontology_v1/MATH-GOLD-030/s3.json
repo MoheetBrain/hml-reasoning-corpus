@@ -1,0 +1,103 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-030",
+  "step_id": "s3",
+  "category": "Precalculus",
+  "level": "Level 4",
+  "source_span": "If $\\cos a \\pi = 0,$ then $a = \\frac{1}{2}$ or $a = \\frac{3}{2},$ and $b$ can be any value in $S.$  This gives us 40 pairs $(a,b).$",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "TRIGONOMETRY_IDENTITY",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the branch partition requires coverage and disjointness",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s3",
+      "statement": "the branch partition requires coverage and disjointness",
+      "status": "discharged",
+      "created_at_step": "s3",
+      "discharged_at_step": "s6",
+      "lifetime_steps": 3,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [
+      "obl:s3"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s2"
+    ],
+    "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRIG_IDENTITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRIG_IDENTITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-030",
+      "step": "s3",
+      "category": "Precalculus",
+      "source_span": "If $\\cos a \\pi = 0,$ then $a = \\frac{1}{2}$ or $a = \\frac{3}{2},$ and $b$ can be any value in $S.$  This gives us 40 pairs $(a,b).$",
+      "existing_label": "TRIG_IDENTITY",
+      "independent_label": "TRANSFORM",
+      "existing_reasoning_mode": "EXECUTION",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "TRIG_IDENTITY",
+      "current_layer": "DOMAIN_LIBRARY",
+      "cause": "OPERATION_VS_WARRANT_COLLISION",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+      "proposed_axis_view": {
+        "core_operation": "TRANSFORM",
+        "reasoning_mode": "EXECUTION",
+        "warrant": "TRIGONOMETRY_IDENTITY",
+        "knowledge_layer": "DOMAIN_LIBRARY",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

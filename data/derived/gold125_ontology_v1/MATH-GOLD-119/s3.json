@@ -1,0 +1,56 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-119",
+  "step_id": "s3",
+  "category": "Number Theory",
+  "level": "Level 1",
+  "source_span": "This means we only need to consider the modulo 10 residues of the numbers of marbles each of them brought:  \\begin{align*} 239 &\\equiv 9 \\pmod{10} \\\\\n174 &\\equiv 4 \\pmod{10} \\\\\n83 &\\equiv 3 \\pmod{10}\n\\end{align*}  Our goal is to find the modulo 10 residue of the total number of marbles.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "MODULAR_ARITHMETIC",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "CREATE_SUBGOAL",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s2"
+    ],
+    "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [
+    "CONSIDER_CASES"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "MODULAR_REASONING",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "MODULAR_REASONING",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-100",
+  "step_id": "s1",
+  "category": "Precalculus",
+  "level": "Level 2",
+  "source_span": "We can expand the determinant as follows:\n\\begin{align*}\n\\begin{vmatrix} \\sin^2 A & \\cot A & 1 \\\\ \\sin^2 B & \\cot B & 1 \\\\ \\sin^2 C & \\cot C & 1 \\end{vmatrix} &= \\sin^2 A \\begin{vmatrix} \\cot B & 1 \\\\ \\cot C & 1 \\end{vmatrix} - \\cot A \\begin{vmatrix} \\sin^2 B & 1 \\\\ \\sin^2 C & 1 \\end{vmatrix} + \\begin{vmatrix} \\sin^2 B & \\cot B \\\\ \\sin^2 C & \\cot C \\end{vmatrix} \\\\\n&= \\sin^2 A (\\cot B - \\cot C) - \\cot A (\\sin^2 B - \\sin^2 C) + (\\sin^2 B \\cot C - \\cot B \\sin^2 C) \\\\\n&= \\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B).",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "TRIGONOMETRY_IDENTITY",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRIG_IDENTITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRIG_IDENTITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-100",
+      "step": "s1",
+      "category": "Precalculus",
+      "source_span": "We can expand the determinant as follows:\n\\begin{align*}\n\\begin{vmatrix} \\sin^2 A & \\cot A & 1 \\\\ \\sin^2 B & \\cot B & 1 \\\\ \\sin^2 C & \\cot C & 1 \\end{vmatrix} &= \\sin^2 A \\begin{vmatrix} \\cot B & 1 \\\\ \\cot C & 1 \\end{vmatrix} - \\cot A \\begin{vmatrix} \\sin^2 B & 1 \\\\ \\sin^2 C & 1 \\end{vmatrix} + \\begin{vmatrix} \\sin^2 B & \\cot B \\\\ \\sin^2 C & \\cot C \\end{vmatrix} \\\\\n&= \\sin^2 A (\\cot B - \\cot C) - \\cot A (\\sin^2 B - \\sin^2 C) + (\\sin^2 B \\cot C - \\cot B \\sin^2 C) \\\\\n&= \\sin^2 A (\\cot B - \\cot C) + \\sin^2 B (\\cot C - \\cot A) + \\sin^2 C (\\cot A - \\cot B).",
+      "existing_label": "TRIG_IDENTITY",
+      "independent_label": "TRANSFORM",
+      "existing_reasoning_mode": "EXECUTION",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "TRIG_IDENTITY",
+      "current_layer": "DOMAIN_LIBRARY",
+      "cause": "OPERATION_VS_WARRANT_COLLISION",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+      "proposed_axis_view": {
+        "core_operation": "TRANSFORM",
+        "reasoning_mode": "EXECUTION",
+        "warrant": "TRIGONOMETRY_IDENTITY",
+        "knowledge_layer": "DOMAIN_LIBRARY",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

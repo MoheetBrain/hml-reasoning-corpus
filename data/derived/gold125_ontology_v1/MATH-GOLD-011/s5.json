@@ -1,0 +1,57 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-011",
+  "step_id": "s5",
+  "category": "Counting & Probability",
+  "level": "Level 4",
+  "source_span": "So the probability that only men are selected is $$\\frac{7}{10}\\cdot\\frac{2}{3}\\cdot\\frac{5}{8}=\\frac{7}{24}.$$",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "chain_rule",
+      "description": "Multiply the successive conditional probabilities.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2",
+    "fact:s3",
+    "fact:s4"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s5: P(no women)=7/24",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s2",
+      "fact:s3",
+      "fact:s4"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "MULTIPLY_CONDITIONALS",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

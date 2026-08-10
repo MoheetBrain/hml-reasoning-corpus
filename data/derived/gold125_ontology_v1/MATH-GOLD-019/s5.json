@@ -1,0 +1,53 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-019",
+  "step_id": "s5",
+  "category": "Precalculus",
+  "level": "Level 2",
+  "source_span": "and if $x = e^{11 \\pi i/6}$, then",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "CASE_SPLIT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "case_evaluation",
+      "description": "Evaluate the target power in the second root branch.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "OPEN_BRANCH",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s3"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s5: branch 2 x¹⁸=e^{33πi}=-1",
+    "scope_effect": "branch-local",
+    "dependency_effect": [
+      "fact:s3"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "CASE_SPLIT",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

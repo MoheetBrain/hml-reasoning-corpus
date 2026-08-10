@@ -1,0 +1,145 @@
+[
+  {
+    "trajectories": 25,
+    "transitions": 118,
+    "observed_labels": 48,
+    "ontology_core_operations": 15,
+    "new_core_operations": [
+      "APPLY_DEFINITION",
+      "APPLY_THEOREM",
+      "BOUND",
+      "CASE_SPLIT",
+      "COUNT",
+      "DECLARE",
+      "DISCHARGE",
+      "ENUMERATE",
+      "EVALUATE",
+      "MODEL",
+      "RECORD",
+      "SELECT",
+      "SUBSTITUTE",
+      "TRANSFORM",
+      "VERIFY"
+    ],
+    "candidate_ontology_core_operations": 15,
+    "candidate_new_core_operations": [
+      "APPLY_DEFINITION",
+      "APPLY_THEOREM",
+      "BOUND",
+      "CASE_SPLIT",
+      "COUNT",
+      "DECLARE",
+      "DISCHARGE",
+      "ENUMERATE",
+      "EVALUATE",
+      "MODEL",
+      "RECORD",
+      "SELECT",
+      "SUBSTITUTE",
+      "TRANSFORM",
+      "VERIFY"
+    ],
+    "library_operations": 1,
+    "new_library_operations": [
+      "THEOREM_LIBRARY"
+    ],
+    "meta_operations": 3,
+    "new_meta_operations": [
+      "CHOOSE_REPRESENTATION",
+      "CONSIDER_CASES",
+      "CREATE_SUBGOAL"
+    ],
+    "warrant_types": 7,
+    "new_warrant_types": [
+      "ALGEBRAIC_PRESERVATION",
+      "DEFINITION",
+      "IDENTITY",
+      "NUMERIC_EVALUATION",
+      "SOURCE_GROUNDED",
+      "SYMBOLIC_NORMALIZATION",
+      "THEOREM"
+    ]
+  },
+  {
+    "trajectories": 50,
+    "transitions": 337,
+    "observed_labels": 64,
+    "ontology_core_operations": 17,
+    "new_core_operations": [
+      "CONSTRUCT",
+      "CONTRADICTION"
+    ],
+    "candidate_ontology_core_operations": 17,
+    "candidate_new_core_operations": [
+      "CONSTRUCT",
+      "CONTRADICTION"
+    ],
+    "library_operations": 2,
+    "new_library_operations": [
+      "DOMAIN_LIBRARY"
+    ],
+    "meta_operations": 6,
+    "new_meta_operations": [
+      "RECOGNIZE_STRUCTURE",
+      "REFRAME",
+      "USE_SYMMETRY"
+    ],
+    "warrant_types": 14,
+    "new_warrant_types": [
+      "CALCULUS_RULE",
+      "COUNTING_RULE",
+      "HEURISTIC_OR_REPRESENTATION_CHOICE",
+      "MODULAR_ARITHMETIC",
+      "PROBABILITY_LAW",
+      "SEQUENCE_RULE",
+      "TRIGONOMETRY_IDENTITY"
+    ]
+  },
+  {
+    "trajectories": 75,
+    "transitions": 476,
+    "observed_labels": 65,
+    "ontology_core_operations": 17,
+    "new_core_operations": [],
+    "candidate_ontology_core_operations": 18,
+    "candidate_new_core_operations": [
+      "INDUCT"
+    ],
+    "library_operations": 2,
+    "new_library_operations": [],
+    "meta_operations": 6,
+    "new_meta_operations": [],
+    "warrant_types": 14,
+    "new_warrant_types": []
+  },
+  {
+    "trajectories": 100,
+    "transitions": 636,
+    "observed_labels": 66,
+    "ontology_core_operations": 17,
+    "new_core_operations": [],
+    "candidate_ontology_core_operations": 18,
+    "candidate_new_core_operations": [],
+    "library_operations": 2,
+    "new_library_operations": [],
+    "meta_operations": 6,
+    "new_meta_operations": [],
+    "warrant_types": 14,
+    "new_warrant_types": []
+  },
+  {
+    "trajectories": 125,
+    "transitions": 769,
+    "observed_labels": 66,
+    "ontology_core_operations": 17,
+    "new_core_operations": [],
+    "candidate_ontology_core_operations": 18,
+    "candidate_new_core_operations": [],
+    "library_operations": 2,
+    "new_library_operations": [],
+    "meta_operations": 6,
+    "new_meta_operations": [],
+    "warrant_types": 14,
+    "new_warrant_types": []
+  }
+]

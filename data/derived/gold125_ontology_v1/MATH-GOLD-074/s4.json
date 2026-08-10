@@ -1,0 +1,56 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-074",
+  "step_id": "s4",
+  "category": "Prealgebra",
+  "level": "Level 3",
+  "source_span": "Checking $6$, we find that $6\\cdot 7=42$, so our list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  Since $7$ is already on our list, our final list is $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$  We compare our lists for the factors of $14$ and the factors of $42$ to see that the factors that $14$ and $42$ share are $1$, $2$, $7$, and $14$.",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s3",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S3",
+    "to": "S4",
+    "added_facts": [
+      "fact:s4"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s3",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s4 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "VERIFY",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

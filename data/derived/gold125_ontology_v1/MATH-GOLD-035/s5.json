@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-035",
+  "step_id": "s5",
+  "category": "Counting & Probability",
+  "level": "Level 5",
+  "source_span": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "COUNT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "operation denominator/base is valid",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "That is, in the end, you multiply the numerator by the number of ways to arrange the oak and maple trees and you also multiply the denominator by the number of ways to arrange the oak and maple trees, making them cancel out.)\nThe five birch trees must be placed amongst the seven previous trees.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s5",
+      "statement": "the transformation requires a nonzero or preserved-denominator condition",
+      "status": "discharged",
+      "created_at_step": "s5",
+      "discharged_at_step": "s8",
+      "lifetime_steps": 3,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s4"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [
+      "obl:s5"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s4"
+    ],
+    "epistemic_update": "Source-grounded result fact:s5 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "COUNT",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "COUNT",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

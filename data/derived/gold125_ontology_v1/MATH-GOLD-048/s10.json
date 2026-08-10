@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-048",
+  "step_id": "s10",
+  "category": "Intermediate Algebra",
+  "level": "Level 5",
+  "source_span": "That happens only if:\n(a) $P_1$ has argument $0$ and $P_2$ has argument $-\\dfrac{\\pi}{2}$, which happens with probability $\\dfrac{1}{2}\\cdot\\dfrac{1}{4}=\\dfrac{1}{8}$.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "EVALUATE",
+  "warrant": {
+    "type": "PROBABILITY_LAW",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "probability reasoning requires a declared sample space and sampling model",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s10",
+      "statement": "probability reasoning requires a declared sample space and sampling model",
+      "status": "discharged",
+      "created_at_step": "s10",
+      "discharged_at_step": "s14",
+      "lifetime_steps": 4,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s9"
+  ],
+  "state_delta": {
+    "from": "S9",
+    "to": "S10",
+    "added_facts": [
+      "fact:s10"
+    ],
+    "added_obligations": [
+      "obl:s10"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s9"
+    ],
+    "epistemic_update": "Source-grounded result fact:s10 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "PROBABILITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "PROBABILITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

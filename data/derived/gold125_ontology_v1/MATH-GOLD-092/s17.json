@@ -1,0 +1,93 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-092",
+  "step_id": "s17",
+  "category": "Number Theory",
+  "level": "Level 3",
+  "source_span": "Thus $x = 41$, and $x^2 = \\boxed{1681}$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [
+    "obl:s13",
+    "obl:s14",
+    "obl:s15"
+  ],
+  "dependencies": [
+    "fact:s16",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S16",
+    "to": "S17",
+    "added_facts": [
+      "fact:s17"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [
+      "obl:s13",
+      "obl:s14",
+      "obl:s15"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s16",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s17 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-092",
+      "step": "s17",
+      "category": "Number Theory",
+      "source_span": "Thus $x = 41$, and $x^2 = \\boxed{1681}$.",
+      "existing_label": "DISCHARGE",
+      "independent_label": "TRANSFORM",
+      "existing_reasoning_mode": "GOAL_MANAGEMENT",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "DISCHARGE",
+      "current_layer": "CORE_PROOF_OPERATION",
+      "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+      "proposed_axis_view": {
+        "core_operation": "DISCHARGE",
+        "reasoning_mode": "GOAL_MANAGEMENT",
+        "warrant": "SOURCE_GROUNDED",
+        "knowledge_layer": "CORE",
+        "goal_effect": "DISCHARGE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

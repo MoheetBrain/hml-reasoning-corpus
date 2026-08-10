@@ -1,0 +1,63 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-012",
+  "step_id": "s3",
+  "category": "Counting & Probability",
+  "level": "Level 4",
+  "source_span": "There are two ways two dice add to 10: $4+6$ and $5+5$.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "ENUMERATE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "finite_exhaustion",
+      "description": "Enumerate all pairs in {1,…,6} summing to 10, up to order.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [
+    {
+      "id": "obl:dice_case_cover",
+      "statement": "the listed dice patterns exhaust the finite pairs summing to 10",
+      "status": "discharged",
+      "evidence": "The bounded pair enumeration lists 4+6 and 5+5.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [
+      "obl:dice_case_cover"
+    ],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s3: patterns (6,6,4) and (6,5,5)",
+    "scope_effect": "branch-declaration",
+    "dependency_effect": [
+      "fact:s2"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "ENUMERATE",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

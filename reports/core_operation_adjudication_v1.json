@@ -1,0 +1,311 @@
+[
+  {
+    "core_operation": "TRANSFORM",
+    "frequency": 305,
+    "domain_spread": [
+      "Algebra",
+      "Counting & Probability",
+      "Geometry",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Prealgebra",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 221,
+      "THEOREM_LIBRARY": 2,
+      "SYMBOLIC_BACKEND": 9,
+      "DOMAIN_LIBRARY": 73
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "UNRESOLVED",
+    "frequency": 136,
+    "domain_spread": [
+      "Algebra",
+      "Counting & Probability",
+      "Geometry",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Prealgebra",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 7,
+      "UNKNOWN": 125,
+      "SEARCH_META": 4
+    },
+    "decision": "UNRESOLVED",
+    "evidence": "Insufficient source evidence or explicitly ambiguous OTHER/search text."
+  },
+  {
+    "core_operation": "DISCHARGE",
+    "frequency": 90,
+    "domain_spread": [
+      "Algebra",
+      "Counting & Probability",
+      "Geometry",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Prealgebra",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 90
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "EVALUATE",
+    "frequency": 50,
+    "domain_spread": [
+      "Algebra",
+      "Counting & Probability",
+      "Geometry",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Prealgebra",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "NUMERIC_BACKEND": 31,
+      "CORE": 6,
+      "DOMAIN_LIBRARY": 13
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "APPLY_THEOREM",
+    "frequency": 29,
+    "domain_spread": [
+      "Algebra",
+      "Counting & Probability",
+      "Geometry",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Prealgebra",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "THEOREM_LIBRARY": 29
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "VERIFY",
+    "frequency": 28,
+    "domain_spread": [
+      "Algebra",
+      "Counting & Probability",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Prealgebra",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 28
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "BOUND",
+    "frequency": 23,
+    "domain_spread": [
+      "Algebra",
+      "Counting & Probability",
+      "Geometry",
+      "Number Theory",
+      "Prealgebra"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 23
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "COUNT",
+    "frequency": 23,
+    "domain_spread": [
+      "Counting & Probability",
+      "Number Theory",
+      "Prealgebra",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 21,
+      "THEOREM_LIBRARY": 2
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "APPLY_DEFINITION",
+    "frequency": 19,
+    "domain_spread": [
+      "Algebra",
+      "Counting & Probability",
+      "Geometry",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 19
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "CASE_SPLIT",
+    "frequency": 15,
+    "domain_spread": [
+      "Algebra",
+      "Counting & Probability",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 15
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "CONSTRUCT",
+    "frequency": 12,
+    "domain_spread": [
+      "Algebra",
+      "Geometry",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Prealgebra"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 9,
+      "SEARCH_META": 3
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "INDUCT",
+    "frequency": 7,
+    "domain_spread": [
+      "Algebra",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 7
+    },
+    "decision": "MERGE_INTO_OTHER_CORE",
+    "evidence": "No independent evidence supports a distinct primitive."
+  },
+  {
+    "core_operation": "MODEL",
+    "frequency": 7,
+    "domain_spread": [
+      "Algebra",
+      "Geometry",
+      "Prealgebra"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 7
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "SUBSTITUTE",
+    "frequency": 7,
+    "domain_spread": [
+      "Algebra",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 7
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "CONTRADICTION",
+    "frequency": 6,
+    "domain_spread": [
+      "Algebra",
+      "Intermediate Algebra",
+      "Number Theory",
+      "Precalculus"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 6
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "DECLARE",
+    "frequency": 5,
+    "domain_spread": [
+      "Algebra",
+      "Geometry",
+      "Number Theory",
+      "Prealgebra"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 5
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "SELECT",
+    "frequency": 4,
+    "domain_spread": [
+      "Algebra",
+      "Geometry",
+      "Number Theory"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 4
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "ENUMERATE",
+    "frequency": 2,
+    "domain_spread": [
+      "Counting & Probability",
+      "Geometry"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 2
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  },
+  {
+    "core_operation": "RECORD",
+    "frequency": 1,
+    "domain_spread": [
+      "Algebra"
+    ],
+    "knowledge_layer_evidence": {
+      "CORE": 1
+    },
+    "decision": "KEEP_AS_CORE",
+    "evidence": "Generic state/proof/control effect recurs; named mathematical knowledge is factored onto warrant/layer axes."
+  }
+]

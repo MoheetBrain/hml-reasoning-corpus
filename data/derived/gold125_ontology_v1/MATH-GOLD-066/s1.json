@@ -1,0 +1,56 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-066",
+  "step_id": "s1",
+  "category": "Geometry",
+  "level": "Level 4",
+  "source_span": "Without loss of generality, suppose that $BA < BC$.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "HEURISTIC_OR_REPRESENTATION_CHOICE",
+    "basis": "source-meta-cue",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "SEARCH_META",
+  "goal_effect": "NONE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "USE_SYMMETRY"
+  ],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "SEARCH_META",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "SEARCH_META",
+    "original_layer": "SEARCH_META_OPERATION",
+    "disagreement": null
+  }
+}

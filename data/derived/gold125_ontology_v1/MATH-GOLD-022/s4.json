@@ -1,0 +1,60 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-022",
+  "step_id": "s4",
+  "category": "Geometry",
+  "level": "Level 2",
+  "source_span": "We note that 80 can be factored as $8\\cdot 10$. Therefore, $r = \\boxed{8}$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "SELECT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "positive_root_selection",
+      "description": "Choose the positive factor-pair root; the other quadratic root is negative.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "PROPOSE_CANDIDATE",
+  "preconditions": [
+    {
+      "condition": "r>0",
+      "status": "satisfied",
+      "evidence": "Given or established in the current state.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s3"
+  ],
+  "state_delta": {
+    "from": "S3",
+    "to": "S4",
+    "added_facts": [
+      "fact:s4"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s4: r=8",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s3"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SELECT_CANDIDATE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "before_disagreement_count": 43,
+  "explained_by_axes_or_uncertainty": 42,
+  "genuine_semantic_disagreement_count": 1,
+  "annotation_error_count": 1,
+  "ontology_core_operation_count": 17,
+  "ontology_core_candidate_operation_count": 18,
+  "merged_candidate_operations": [
+    "INDUCT"
+  ],
+  "unresolved_transition_count": 136,
+  "unresolved_fraction": 0.17685305591677503,
+  "other_source_label_count": 125,
+  "other_source_label_fraction": 0.1625487646293888,
+  "ontology_stabilization_status": "UNSTABLE_REVIEW_REQUIRED",
+  "reason": "UNRESOLVED remains material and the annotation-error review remains open."
+}

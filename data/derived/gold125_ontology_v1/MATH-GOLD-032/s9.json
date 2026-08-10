@@ -1,0 +1,60 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-032",
+  "step_id": "s9",
+  "category": "Prealgebra",
+  "level": "Level 5",
+  "source_span": "Since a cube has $12$ edges, there are $\\boxed{12}$ choices I can make.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [
+    "obl:s6"
+  ],
+  "dependencies": [
+    "fact:s8",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S8",
+    "to": "S9",
+    "added_facts": [
+      "fact:s9"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [
+      "obl:s6"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s8",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s9 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

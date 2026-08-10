@@ -1,0 +1,60 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-014",
+  "step_id": "s4",
+  "category": "Number Theory",
+  "level": "Level 1",
+  "source_span": "Since 18 is the smallest multiple of 9 that is greater than 10, $14+n=18$, and $n=18-14=\\boxed{4}$.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "SELECT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "minimal_candidate",
+      "description": "Select the digit-compatible multiple and compute n.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "PROPOSE_CANDIDATE",
+  "preconditions": [
+    {
+      "condition": "374n divisible by 2",
+      "status": "implicit",
+      "evidence": "The worked solution does not state this condition explicitly.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s3"
+  ],
+  "state_delta": {
+    "from": "S3",
+    "to": "S4",
+    "added_facts": [
+      "fact:s4"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s4: n=4",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s3"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SELECT_CANDIDATE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

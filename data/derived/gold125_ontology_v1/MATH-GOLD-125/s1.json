@@ -1,0 +1,54 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-125",
+  "step_id": "s1",
+  "category": "Precalculus",
+  "level": "Level 1",
+  "source_span": "We can write\n\\begin{align*}\n&\\left( 1 - \\frac{1}{\\cos 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\sin 67^\\circ} \\right) \\left( 1 - \\frac{1}{\\sin 23^\\circ} \\right) \\left( 1 + \\frac{1}{\\cos 67^\\circ} \\right) \\\\\n&= \\frac{\\cos 23^\\circ - 1}{\\cos 23^\\circ} \\cdot \\frac{\\sin 67^\\circ + 1}{\\sin 67^\\circ} \\cdot \\frac{\\sin 23^\\circ - 1}{\\sin 23^\\circ} \\cdot \\frac{\\cos 67^\\circ + 1}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\sin 67^\\circ}{\\sin 67^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\cos 67^\\circ}{\\cos 67^\\circ} \\\\\n&= \\frac{1 - \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 + \\cos 23^\\circ}{\\cos 23^\\circ} \\cdot \\frac{1 - \\sin 23^\\circ}{\\sin 23^\\circ} \\cdot \\frac{1 + \\sin 23^\\circ}{\\sin 23^\\circ} \\\\\n&= \\frac{(1 - \\cos^2 23^\\circ)(1 - \\sin^2 23^\\circ)}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\frac{\\sin^2 23^\\circ \\cos^2 23^\\circ}{\\cos^2 23^\\circ \\sin^2 23^\\circ} \\\\\n&= \\boxed{1}.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "TRIGONOMETRY_IDENTITY",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRIG_IDENTITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRIG_IDENTITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

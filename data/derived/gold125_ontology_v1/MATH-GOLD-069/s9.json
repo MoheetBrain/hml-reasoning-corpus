@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-069",
+  "step_id": "s9",
+  "category": "Intermediate Algebra",
+  "level": "Level 4",
+  "source_span": "Let $x' = -x,$ $y' = -y,$ $z' = -z,$ and $w' = -w.$  Then\n\\begin{align*}\n2y' &= x' + \\frac{17}{x'}, \\\\\n2z' &= y' + \\frac{17}{y'}, \\\\\n2w' &= z' + \\frac{17}{z'}, \\\\\n2x' &= w' + \\frac{17}{w'},\n\\end{align*}and $x',$ $y',$ $z',$ $w'$ are all positive, which means $(x',y',z',w') = (\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17}),$ so $(x,y,z,w) = (-\\sqrt{17},-\\sqrt{17},-\\sqrt{17},-\\sqrt{17}).$",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "positivity/domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Let $x' = -x,$ $y' = -y,$ $z' = -z,$ and $w' = -w.$  Then\n\\begin{align*}\n2y' &= x' + \\frac{17}{x'}, \\\\\n2z' &= y' + \\frac{17}{y'}, \\\\\n2w' &= z' + \\frac{17}{z'}, \\\\\n2x' &= w' + \\frac{17}{w'},\n\\end{align*}and $x',$ $y',$ $z',$ $w'$ are all positive, which means $(x',y',z',w') = (\\sqrt{17},\\sqrt{17},\\sqrt{17},\\sqrt{17}),$ so $(x,y,z,w) = (-\\sqrt{17},-\\sqrt{17},-\\sqrt{17},-\\sqrt{17}).$",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s9",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s9",
+      "discharged_at_step": "s10",
+      "lifetime_steps": 1,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s8"
+  ],
+  "state_delta": {
+    "from": "S8",
+    "to": "S9",
+    "added_facts": [
+      "fact:s9"
+    ],
+    "added_obligations": [
+      "obl:s9"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s8"
+    ],
+    "epistemic_update": "Source-grounded result fact:s9 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

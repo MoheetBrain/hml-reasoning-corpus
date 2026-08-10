@@ -1,0 +1,70 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-043",
+  "step_id": "s13",
+  "category": "Number Theory",
+  "level": "Level 5",
+  "source_span": "Since both amounts are greater than a dollar, we know that $A_1$ can be any number between 1 and 8 for a total of 8 possible prices (and thus 8 possible amounts of change).",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [
+    "obl:s4",
+    "obl:s6",
+    "obl:s7",
+    "obl:s8",
+    "obl:s9",
+    "obl:s10",
+    "obl:s11"
+  ],
+  "dependencies": [
+    "fact:s12"
+  ],
+  "state_delta": {
+    "from": "S12",
+    "to": "S13",
+    "added_facts": [
+      "fact:s13"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [
+      "obl:s4",
+      "obl:s6",
+      "obl:s7",
+      "obl:s8",
+      "obl:s9",
+      "obl:s10",
+      "obl:s11"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s12"
+    ],
+    "epistemic_update": "Source-grounded result fact:s13 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

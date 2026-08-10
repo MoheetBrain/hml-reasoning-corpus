@@ -1,0 +1,57 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-015",
+  "step_id": "s6",
+  "category": "Number Theory",
+  "level": "Level 2",
+  "source_span": "$\\boxed{34}$ is the smallest solution since it is a lower bound of $a$ and satisfies both original congruences.",
+  "reasoning_mode": "VERIFICATION",
+  "core_operation": "VERIFY",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "candidate_verification",
+      "description": "Check the lower-bound candidate against both original modular constraints.",
+      "source": "explicit"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "VERIFY_CANDIDATE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s5",
+    "fact:congruence_5",
+    "fact:congruence_7"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s6: a=34 is minimal and satisfies both congruences",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s5",
+      "fact:congruence_5",
+      "fact:congruence_7"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "VERIFY_CANDIDATE",
+    "original_reasoning_mode": "VERIFICATION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

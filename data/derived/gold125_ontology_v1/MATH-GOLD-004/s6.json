@@ -1,0 +1,55 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-004",
+  "step_id": "s6",
+  "category": "Algebra",
+  "level": "Level 1",
+  "source_span": "the final answer is the larger of the two",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "SELECT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "finite_order",
+      "description": "Compare the verified finite candidate set.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "PROPOSE_CANDIDATE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s3",
+    "fact:s5"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s6: largest valid solution is x=1",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s3",
+      "fact:s5"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SELECT_EXTREMUM",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

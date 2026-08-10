@@ -1,0 +1,90 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-043",
+  "step_id": "s1",
+  "category": "Number Theory",
+  "level": "Level 5",
+  "source_span": "First, for simplicity, let's make all the amounts of money into integers by considering them all in cents.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_THEOREM",
+  "warrant": {
+    "type": "THEOREM",
+    "basis": "theorem-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "THEOREM_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "First, for simplicity, let's make all the amounts of money into integers by considering them all in cents.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "ANNOTATION_REVIEW",
+  "provenance": {
+    "observed_operation": "APPLY_THEOREM",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "APPLY_THEOREM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-043",
+      "step": "s1",
+      "category": "Number Theory",
+      "source_span": "First, for simplicity, let's make all the amounts of money into integers by considering them all in cents.",
+      "existing_label": "APPLY_THEOREM",
+      "independent_label": "CASE_SPLIT",
+      "existing_reasoning_mode": "EXECUTION",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "APPLY_THEOREM",
+      "current_layer": "CORE_PROOF_OPERATION",
+      "cause": "ANNOTATION_ERROR",
+      "genuine_semantic_disagreement": true,
+      "resolved_by_ontology_axes": false,
+      "explanation": "The source says to change representation into cents; it does not invoke a theorem. This is a genuine old-label error requiring review.",
+      "proposed_axis_view": {
+        "core_operation": "APPLY_THEOREM",
+        "reasoning_mode": "EXECUTION",
+        "warrant": "THEOREM",
+        "knowledge_layer": "THEOREM_LIBRARY",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

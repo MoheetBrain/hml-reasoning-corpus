@@ -1,0 +1,56 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-033",
+  "step_id": "s8",
+  "category": "Algebra",
+  "level": "Level 5",
+  "source_span": "In other words, we want to maximize $625-(x-7)^2$.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "UNRESOLVED",
+  "warrant": {
+    "type": "HEURISTIC_OR_REPRESENTATION_CHOICE",
+    "basis": "source-meta-cue",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "source_interpretation",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "SEARCH_META",
+  "goal_effect": "CREATE_SUBGOAL",
+  "scope_effect": "NONE",
+  "epistemic_effect": "UNKNOWN",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s7"
+  ],
+  "state_delta": {
+    "from": "S7",
+    "to": "S8",
+    "added_facts": [
+      "fact:s8"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s7"
+    ],
+    "epistemic_update": "Source-grounded result fact:s8 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CREATE_SUBGOAL"
+  ],
+  "uncertainty": "UNRESOLVED",
+  "provenance": {
+    "observed_operation": "SEARCH_META",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "SEARCH_META",
+    "original_layer": "SEARCH_META_OPERATION",
+    "disagreement": null
+  }
+}

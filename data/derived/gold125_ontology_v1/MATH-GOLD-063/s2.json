@@ -1,0 +1,56 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-063",
+  "step_id": "s2",
+  "category": "Counting & Probability",
+  "level": "Level 3",
+  "source_span": "Expanding powers of $x+y$ (where $x = 10$ and $y = 1$) helps us see why the first few powers of 11 are all palindromes:  \\begin{align*}\n(x + y)^2 &= x^2 + 2xy + y^2 \\\\\n11^2 &= 121 \\\\\n(x + y)^3 &= x^3 + 3x^2y + 3xy^2 + y^3 \\\\\n11^3 &= 1331 \\\\\n(x + y)^4 &= x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4\\\\\n11^4 &= 14641 \\\\\n(x + y)^5 &= x^5 + 5x^4y + 10x^3y^2 + 10x^2y^3 + 5xy^4 + y^5 \\\\\n11^5 &= 161051 \\end{align*} Notice that each term of the form $x^i y^{n-i}$ ends up being a power of $10$, and the digits of $(x+y)^n$ end up being the binomial coefficients when these coefficients are less than $10$, as there is no carrying.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "SEQUENCE_RULE",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s1"
+    ],
+    "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [
+    "RECOGNIZE_STRUCTURE"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SEQUENCE_RECURRENCE",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "SEQUENCE_RECURRENCE",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

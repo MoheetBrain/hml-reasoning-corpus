@@ -1,0 +1,60 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-021",
+  "step_id": "s5",
+  "category": "Geometry",
+  "level": "Level 2",
+  "source_span": "Indeed, $20 \\times 21 = 420$, so the legs must be 20 and 21.",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "SELECT",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "finite_factor_search",
+      "description": "Select the consecutive positive factor pair solving x(x+1)=420.",
+      "source": "derived"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "PROPOSE_CANDIDATE",
+  "preconditions": [
+    {
+      "condition": "x and x+1 are positive consecutive integers",
+      "status": "satisfied",
+      "evidence": "Given or established in the current state.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s4"
+  ],
+  "state_delta": {
+    "from": "S4",
+    "to": "S5",
+    "added_facts": [
+      "fact:s5"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s5: legs=(20,21)",
+    "scope_effect": "global/current scope",
+    "dependency_effect": [
+      "fact:s4"
+    ]
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "SELECT_CANDIDATE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

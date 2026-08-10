@@ -1,0 +1,54 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-094",
+  "step_id": "s3",
+  "category": "Geometry",
+  "level": "Level 2",
+  "source_span": "Since the cylindrical beaker has a height of 8 centimeters and a radius of 3 centimeters, that means that its volume is $3^2\\cdot8\\cdot\\pi=72\\pi$ cubic centimeters.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "APPLY_DEFINITION",
+  "warrant": {
+    "type": "DEFINITION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s2"
+  ],
+  "state_delta": {
+    "from": "S2",
+    "to": "S3",
+    "added_facts": [
+      "fact:s3"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s2"
+    ],
+    "epistemic_update": "Source-grounded result fact:s3 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "APPLY_DEFINITION",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "APPLY_DEFINITION",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-072",
+  "step_id": "s1",
+  "category": "Precalculus",
+  "level": "Level 3",
+  "source_span": "Note the similarity of the recursion to the angle addition identity\n\\[\\tan (x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}.\\]We can take advantage of this similarity as follows: Let $f_1 = 3,$ $f_2 = 2,$ and let $f_n = f_{n - 1} + f_{n - 2}$ for all $n \\ge 3.$  Let $\\theta_n = \\frac{f_n \\pi}{12}.$  Then $\\tan \\theta_1 = \\tan \\frac{\\pi}{4} = 1$ and $\\tan \\theta_2 = \\tan \\frac{\\pi}{6} = \\frac{1}{\\sqrt{3}}.$  Also,\n\\begin{align*}\n\\tan \\theta_{n + 2} &= \\tan (\\theta_{n + 1} + \\theta_n) \\\\\n&= \\frac{\\tan \\theta_{n + 1} + \\tan \\theta_n}{1 - \\tan \\theta_n \\tan \\theta_{n + 1}}.",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "TRIGONOMETRY_IDENTITY",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "the power/root transformation requires sign and domain conditions",
+      "status": "UNKNOWN",
+      "evidence": "No matching applicability condition is explicit in this source span.",
+      "source_omission": true
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s1",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s1",
+      "discharged_at_step": "s4",
+      "lifetime_steps": 3,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": true
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [
+      "obl:s1"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRIG_IDENTITY",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "TRIG_IDENTITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": null
+  }
+}

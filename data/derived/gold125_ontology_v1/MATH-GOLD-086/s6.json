@@ -1,0 +1,113 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-086",
+  "step_id": "s6",
+  "category": "Precalculus",
+  "level": "Level 3",
+  "source_span": "Also,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]Otherwise, at least one of $b$ and $c$ is nonzero, so $a^2 + b^2 + c^2 + 2abc - 1 = 0.$  Hence,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]We conclude that $a^2 + b^2 + c^2 + 2abc$ is always equal to $\\boxed{1}.$",
+  "reasoning_mode": "GOAL_MANAGEMENT",
+  "core_operation": "DISCHARGE",
+  "warrant": {
+    "type": "SOURCE_GROUNDED",
+    "basis": "source-span",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "DISCHARGE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "a denominator or divisor is nonzero",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Also,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]Otherwise, at least one of $b$ and $c$ is nonzero, so $a^2 + b^2 + c^2 + 2abc - 1 = 0.$  Hence,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]We conclude that $a^2 + b^2 + c^2 + 2abc$ is always equal to $\\boxed{1}.$",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s6",
+      "statement": "order reasoning requires a valid domain and direction condition",
+      "status": "discharged",
+      "created_at_step": "s6",
+      "discharged_at_step": "s6",
+      "lifetime_steps": 0,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [
+    "obl:s3",
+    "obl:s4",
+    "obl:s6"
+  ],
+  "dependencies": [
+    "fact:s5",
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S5",
+    "to": "S6",
+    "added_facts": [
+      "fact:s6"
+    ],
+    "added_obligations": [
+      "obl:s6"
+    ],
+    "removed_obligations": [
+      "obl:s3",
+      "obl:s4",
+      "obl:s6"
+    ],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s5",
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s6 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "DISCHARGE",
+    "original_reasoning_mode": "GOAL_MANAGEMENT",
+    "original_candidate_core": "DISCHARGE",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-086",
+      "step": "s6",
+      "category": "Precalculus",
+      "source_span": "Also,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]Otherwise, at least one of $b$ and $c$ is nonzero, so $a^2 + b^2 + c^2 + 2abc - 1 = 0.$  Hence,\n\\[a^2 + b^2 + c^2 + 2abc = 1.\\]We conclude that $a^2 + b^2 + c^2 + 2abc$ is always equal to $\\boxed{1}.$",
+      "existing_label": "DISCHARGE",
+      "independent_label": "BOUND",
+      "existing_reasoning_mode": "GOAL_MANAGEMENT",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "DISCHARGE",
+      "current_layer": "CORE_PROOF_OPERATION",
+      "cause": "OPERATION_VS_GOAL_EFFECT_COLLISION",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "DISCHARGE is a goal effect; the same span may also evaluate, transform, bound, or count.",
+      "proposed_axis_view": {
+        "core_operation": "DISCHARGE",
+        "reasoning_mode": "GOAL_MANAGEMENT",
+        "warrant": "SOURCE_GROUNDED",
+        "knowledge_layer": "CORE",
+        "goal_effect": "DISCHARGE",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-020",
+  "step_id": "s1",
+  "category": "Precalculus",
+  "level": "Level 1",
+  "source_span": "Expanding the dot product, we get",
+  "reasoning_mode": "EXECUTION",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "SYMBOLIC_NORMALIZATION",
+    "basis": "backend-operation-factored-to-warrant",
+    "original": {
+      "kind": "bilinearity",
+      "description": "Apply bilinearity of the dot product.",
+      "source": "library"
+    }
+  },
+  "knowledge_layer": "SYMBOLIC_BACKEND",
+  "goal_effect": "ADVANCE",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "epistemic_update": "Established fact:s1: (a+b)·(a-b)=a·a+b·a-a·b-b·b",
+    "scope_effect": "global/current scope",
+    "dependency_effect": []
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "EXPAND",
+    "original_reasoning_mode": "EXECUTION",
+    "original_candidate_core": "UNRESOLVED",
+    "original_layer": "UNRESOLVED",
+    "disagreement": null
+  }
+}

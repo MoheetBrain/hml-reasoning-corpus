@@ -1,0 +1,42 @@
+[
+  {
+    "k": 5,
+    "k_numeric": 5,
+    "coverage": 0.8019169329073482,
+    "units": 626,
+    "distinct_core_operations": 17,
+    "candidate_distinct_core_operations": 18
+  },
+  {
+    "k": 10,
+    "k_numeric": 10,
+    "coverage": 0.9488817891373802,
+    "units": 626,
+    "distinct_core_operations": 17,
+    "candidate_distinct_core_operations": 18
+  },
+  {
+    "k": 15,
+    "k_numeric": 15,
+    "coverage": 0.9952076677316294,
+    "units": 626,
+    "distinct_core_operations": 17,
+    "candidate_distinct_core_operations": 18
+  },
+  {
+    "k": 20,
+    "k_numeric": 20,
+    "coverage": 1.0,
+    "units": 626,
+    "distinct_core_operations": 17,
+    "candidate_distinct_core_operations": 18
+  },
+  {
+    "k": "all",
+    "k_numeric": 17,
+    "coverage": 1.0,
+    "units": 626,
+    "distinct_core_operations": 17,
+    "candidate_distinct_core_operations": 18
+  }
+]

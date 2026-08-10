@@ -1,0 +1,85 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-030",
+  "step_id": "s1",
+  "category": "Precalculus",
+  "level": "Level 4",
+  "source_span": "There are 20 possible values of $a$ and $b,$ namely\n\\[S = \\left\\{ 0, 1, \\frac{1}{2}, \\frac{3}{2}, \\frac{1}{3}, \\frac{2}{3}, \\frac{4}{3}, \\frac{5}{3}, \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4}, \\frac{1}{5}, \\frac{2}{5}, \\frac{3}{5}, \\frac{4}{5}, \\frac{6}{5}, \\frac{7}{5}, \\frac{8}{5}, \\frac{9}{5} \\right\\}.\\]Let $x = \\cos a \\pi$ and $y = \\sin b \\pi.$  We want to see when\n\\[(x + yi)^4 = x^4 + 4ix^3 y - 6x^2 y^2 - 4ixy^3 + y^4\\]is real.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "TRIGONOMETRY_IDENTITY",
+    "basis": "domain-operation-factored-to-warrant",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "DOMAIN_LIBRARY",
+  "goal_effect": "CREATE_SUBGOAL",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [],
+  "obligations_created": [],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:problem"
+  ],
+  "state_delta": {
+    "from": "S0",
+    "to": "S1",
+    "added_facts": [
+      "fact:s1"
+    ],
+    "added_obligations": [],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:problem"
+    ],
+    "epistemic_update": "Source-grounded result fact:s1 recorded from the exact motivating span."
+  },
+  "atomicity": "ATOMIC",
+  "meta_operations": [
+    "CREATE_SUBGOAL"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRIG_IDENTITY",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "TRIG_IDENTITY",
+    "original_layer": "DOMAIN_LIBRARY",
+    "disagreement": {
+      "trajectory": "MATH-GOLD-030",
+      "step": "s1",
+      "category": "Precalculus",
+      "source_span": "There are 20 possible values of $a$ and $b,$ namely\n\\[S = \\left\\{ 0, 1, \\frac{1}{2}, \\frac{3}{2}, \\frac{1}{3}, \\frac{2}{3}, \\frac{4}{3}, \\frac{5}{3}, \\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4}, \\frac{1}{5}, \\frac{2}{5}, \\frac{3}{5}, \\frac{4}{5}, \\frac{6}{5}, \\frac{7}{5}, \\frac{8}{5}, \\frac{9}{5} \\right\\}.\\]Let $x = \\cos a \\pi$ and $y = \\sin b \\pi.$  We want to see when\n\\[(x + yi)^4 = x^4 + 4ix^3 y - 6x^2 y^2 - 4ixy^3 + y^4\\]is real.",
+      "existing_label": "TRIG_IDENTITY",
+      "independent_label": "TRANSFORM",
+      "existing_reasoning_mode": "SEARCH_META",
+      "existing_warrant": {
+        "kind": "source_sentence_warrant",
+        "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+        "source": "explicit_source",
+        "evidence_status": "SOURCE_GROUNDED"
+      },
+      "current_candidate_core": "TRIG_IDENTITY",
+      "current_layer": "DOMAIN_LIBRARY",
+      "cause": "OPERATION_VS_WARRANT_COLLISION",
+      "genuine_semantic_disagreement": false,
+      "resolved_by_ontology_axes": true,
+      "explanation": "The trigonometric identity is a warrant for generic TRANSFORM, not a distinct core operation.",
+      "proposed_axis_view": {
+        "core_operation": "TRANSFORM",
+        "reasoning_mode": "SEARCH_META",
+        "warrant": "TRIGONOMETRY_IDENTITY",
+        "knowledge_layer": "DOMAIN_LIBRARY",
+        "goal_effect": "CREATE_SUBGOAL",
+        "scope_effect": "NONE",
+        "epistemic_effect": "DERIVE"
+      }
+    }
+  }
+}

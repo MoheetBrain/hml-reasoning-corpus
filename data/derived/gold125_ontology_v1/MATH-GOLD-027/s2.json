@@ -1,0 +1,89 @@
+{
+  "schema_version": "reasoning-ontology-v1",
+  "trajectory_id": "MATH-GOLD-027",
+  "step_id": "s2",
+  "category": "Intermediate Algebra",
+  "level": "Level 5",
+  "source_span": "Then for $k^2 \\le x < (k + 1)^2,$\n\\[x \\lfloor \\sqrt{x} \\rfloor = kx.\\]Thus, on this interval, the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid, with left height $k^3,$ right height $k(k + 1)^2,$ and base $(k + 1)^2 - k^2 = 2k + 1,$ so its area is\n\\[\\frac{k^3 + k(k + 1)^2}{2} \\cdot (2k + 1) = 2k^4 + 3k^3 + 2k^2 + \\frac{k}{2}.\\]Let $n$ be a positive integer such that $k^2 + 1 \\le n \\le (k + 1)^2.$  Then for $k^2 \\le x < n,$ the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid with left height $k^3,$ right height $kn,$ and base $n - k^2,$ so its area is\n\\[\\frac{k^3 + kn}{2} \\cdot (n - k^2) = \\frac{k(k^2 + n)(n - k^2)}{2} = \\frac{k(n^2 - k^4)}{2}.\\]We want to compute the area of the graph for $1 \\le x \\le n$; in particular, we want this area to be an integer.",
+  "reasoning_mode": "SEARCH_META",
+  "core_operation": "TRANSFORM",
+  "warrant": {
+    "type": "ALGEBRAIC_PRESERVATION",
+    "basis": "operation-registry",
+    "original": {
+      "kind": "source_sentence_warrant",
+      "description": "The source solution presents this operation/result in the preserved span; no stronger formal theorem certificate is inferred.",
+      "source": "explicit_source",
+      "evidence_status": "SOURCE_GROUNDED"
+    }
+  },
+  "knowledge_layer": "CORE",
+  "goal_effect": "CREATE_SUBGOAL",
+  "scope_effect": "NONE",
+  "epistemic_effect": "DERIVE",
+  "preconditions": [
+    {
+      "condition": "positivity/domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Then for $k^2 \\le x < (k + 1)^2,$\n\\[x \\lfloor \\sqrt{x} \\rfloor = kx.\\]Thus, on this interval, the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid, with left height $k^3,$ right height $k(k + 1)^2,$ and base $(k + 1)^2 - k^2 = 2k + 1,$ so its area is\n\\[\\frac{k^3 + k(k + 1)^2}{2} \\cdot (2k + 1) = 2k^4 + 3k^3 + 2k^2 + \\frac{k}{2}.\\]Let $n$ be a positive integer such that $k^2 + 1 \\le n \\le (k + 1)^2.$  Then for $k^2 \\le x < n,$ the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid with left height $k^3,$ right height $kn,$ and base $n - k^2,$ so its area is\n\\[\\frac{k^3 + kn}{2} \\cdot (n - k^2) = \\frac{k(k^2 + n)(n - k^2)}{2} = \\frac{k(n^2 - k^4)}{2}.\\]We want to compute the area of the graph for $1 \\le x \\le n$; in particular, we want this area to be an integer.",
+      "source_omission": false
+    },
+    {
+      "condition": "integer/natural domain restriction",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Then for $k^2 \\le x < (k + 1)^2,$\n\\[x \\lfloor \\sqrt{x} \\rfloor = kx.\\]Thus, on this interval, the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid, with left height $k^3,$ right height $k(k + 1)^2,$ and base $(k + 1)^2 - k^2 = 2k + 1,$ so its area is\n\\[\\frac{k^3 + k(k + 1)^2}{2} \\cdot (2k + 1) = 2k^4 + 3k^3 + 2k^2 + \\frac{k}{2}.\\]Let $n$ be a positive integer such that $k^2 + 1 \\le n \\le (k + 1)^2.$  Then for $k^2 \\le x < n,$ the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid with left height $k^3,$ right height $kn,$ and base $n - k^2,$ so its area is\n\\[\\frac{k^3 + kn}{2} \\cdot (n - k^2) = \\frac{k(k^2 + n)(n - k^2)}{2} = \\frac{k(n^2 - k^4)}{2}.\\]We want to compute the area of the graph for $1 \\le x \\le n$; in particular, we want this area to be an integer.",
+      "source_omission": false
+    },
+    {
+      "condition": "operation denominator/base is valid",
+      "status": "EXPLICIT_SOURCE",
+      "evidence": "Then for $k^2 \\le x < (k + 1)^2,$\n\\[x \\lfloor \\sqrt{x} \\rfloor = kx.\\]Thus, on this interval, the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid, with left height $k^3,$ right height $k(k + 1)^2,$ and base $(k + 1)^2 - k^2 = 2k + 1,$ so its area is\n\\[\\frac{k^3 + k(k + 1)^2}{2} \\cdot (2k + 1) = 2k^4 + 3k^3 + 2k^2 + \\frac{k}{2}.\\]Let $n$ be a positive integer such that $k^2 + 1 \\le n \\le (k + 1)^2.$  Then for $k^2 \\le x < n,$ the graph of $0 \\le y \\le x \\lfloor \\sqrt{x} \\rfloor$ is a trapezoid with left height $k^3,$ right height $kn,$ and base $n - k^2,$ so its area is\n\\[\\frac{k^3 + kn}{2} \\cdot (n - k^2) = \\frac{k(k^2 + n)(n - k^2)}{2} = \\frac{k(n^2 - k^4)}{2}.\\]We want to compute the area of the graph for $1 \\le x \\le n$; in particular, we want this area to be an integer.",
+      "source_omission": false
+    }
+  ],
+  "obligations_created": [
+    {
+      "id": "obl:s2",
+      "statement": "the power/root transformation requires sign and domain conditions",
+      "status": "discharged",
+      "created_at_step": "s2",
+      "discharged_at_step": "s5",
+      "lifetime_steps": 3,
+      "evidence": "Generated from a source-grounded applicability risk; the source span does not by itself prove discharge.",
+      "source_omission": false
+    }
+  ],
+  "obligations_discharged": [],
+  "dependencies": [
+    "fact:s1"
+  ],
+  "state_delta": {
+    "from": "S1",
+    "to": "S2",
+    "added_facts": [
+      "fact:s2"
+    ],
+    "added_obligations": [
+      "obl:s2"
+    ],
+    "removed_obligations": [],
+    "scope_effect": "global/current",
+    "dependency_effect": [
+      "fact:s1"
+    ],
+    "epistemic_update": "Source-grounded result fact:s2 recorded from the exact motivating span."
+  },
+  "atomicity": "COMPOUND_MACRO",
+  "meta_operations": [
+    "CREATE_SUBGOAL",
+    "CHOOSE_REPRESENTATION"
+  ],
+  "uncertainty": "CERTAIN",
+  "provenance": {
+    "observed_operation": "TRANSFORM",
+    "original_reasoning_mode": "SEARCH_META",
+    "original_candidate_core": "TRANSFORM",
+    "original_layer": "CORE_PROOF_OPERATION",
+    "disagreement": null
+  }
+}
