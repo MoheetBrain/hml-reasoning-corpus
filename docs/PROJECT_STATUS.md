@@ -61,6 +61,14 @@ live in the HML repository's `DECISIONS.md`.
 
 ## Verification and Test Results
 
+**2026-08-10, cognition ledger, THIRD independent audit.** The file committed at `8d1d95f`
+**did not parse** under a real YAML parser: X134 and X135 were indented two spaces deeper
+than every other sequence item, making them block content of X133 rather than entries. The
+regex-based verification used at commit time could not see it. Repaired by de-indenting 52
+lines with no content change. After repair: parses under Ruby Psych, **148 entries, X1-X148
+contiguous, 0 duplicates, 0 dangling references**; all 94 cited paths and all 15 cited
+commits resolve.
+
 **2026-08-10, cognition ledger, second independent audit.** Executed: 135 entries, ids
 X1–X135, no duplicates, no gaps, no dangling cross-references; 83 cited absolute paths all
 resolve; all cited commits resolve. Two disagreements with the first pass were recorded

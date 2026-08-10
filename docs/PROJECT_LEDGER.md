@@ -119,3 +119,52 @@ picture than the data supports — which was the cognition audit's most conseque
 
 **Next intended step.** Decide on the `FX2-*` probe suite; repin `hml_core` and rerun the 30
 fixtures; repair the unsatisfiable action subschema.
+
+---
+
+## 2026-08-10 (third entry) — the ledger had never parsed; third audit, 14 corrections, X136–X148
+
+**Branch:** `codex/minilang-artifact-audit`, on `d5b5ffa`.
+
+**Objective.** Audit the cognition ledger against the newest evidence and append the
+architectural findings from the three-source audit and the Phase-I repairs.
+
+**The defect found first.** The file committed at `8d1d95f` **has never been valid YAML**.
+X134 and X135 were written two spaces too deep, so they were block-mapping content of X133
+rather than sequence entries; Ruby Psych fails at line 2275. Verified against the committed
+object, not merely the working tree. The verification run at commit time was a regex scan
+over `- id:` lines, which cannot see indentation structure — **a check that validated the
+artefact against itself**, the failure mode X133 records and this repository has now hit
+three times. Repaired by de-indenting 52 lines; no content changed.
+
+**What was completed.** 14 existing entries corrected in place, every original `reason:`
+preserved verbatim as a prefix. Two are substantive: **X84 is CONTRADICTED** — its
+four-dimension evaluation proposal survives as two, because blind adjudication of 260 PRM
+candidates collapsed `GOAL_RELEVANCE` and `INFORMATION_GAIN` into `PROGRESS`; **X94 is
+partially discharged** — LeanDojo acquired real provenance, so the "no repository
+provenance" discrepancy drops from six datasets to five.
+
+Appended **X136–X148** for the frame condition, effect-over-label, in-place transformation,
+goal ancestry, `Candidate` ≠ `ActionCandidate`, dynamic-k, validity ≠ quality,
+no-acceptable-action, the narration filter, the separable warrant, dormant failure/repair,
+the interpretation layer, and the three compression hypotheses kept separate. Three briefed
+items already existed and were **reconciled rather than duplicated**.
+
+**Corrections to my own briefing, recorded because they matter.** I briefed "six probes VALID
+at `7c9137a`" — **five** were accepted; the sixth was the appended-`UNKNOWN` detection bypass
+returning UNRESOLVED, which is a suppression, not an acceptance. All six were repaired at
+`8bcd9a5`. `created_by_action` appears nowhere in either repository — it came from the
+mission brief, not from an artifact, and was recorded as unsourced rather than adopted.
+
+**Tests and verification actually executed.** Ruby Psych parse (the check that caught this);
+148 entries; X1–X148 contiguous; 0 duplicates; 0 dangling cross-references; 0
+self-references; `next_free_id: X149`; all 94 cited absolute paths resolve; all 15 cited
+commit hashes resolve in their stated repository; all 133 pre-existing `reason:` fields
+verified to retain their original text.
+
+**Failures and unresolved uncertainty.** One proposed Gold-125 edit from X131 **did not
+land**: `reports/gold125_reasoning_synthesis.md` §K still carries an unlabelled copy of the
+coverage table. Recorded, not fixed.
+
+**Next intended step.** Fix the remaining unlabelled coverage table; repair the unsatisfiable
+`semantic_case.schema.json`; adopt the second-generation fixture suite.
