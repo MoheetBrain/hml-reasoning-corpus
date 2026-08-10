@@ -1,0 +1,232 @@
+{
+  "mapping_basis": {
+    "hml_ontology": "Gold-125 ontology-v1: 17 KEEP_AS_CORE candidates plus unresolved INDUCT candidate",
+    "minilang": "Ten paper semantic operations, not the larger executable command registry",
+    "warning": "The compared units differ. HML candidates factor operation, warrant, goal/scope/epistemic effects, while MiniLang commands often compose those axes and delegate mathematical work to Isabelle."
+  },
+  "minilang_to_hml": [
+    {
+      "minilang": "INTRO",
+      "relationship": ["HML_COMPOSITION", "SCOPE_EFFECT_NOT_OPERATION"],
+      "hml_axes": {
+        "reasoning_mode": "proof-context preparation",
+        "core_operation": ["DECLARE", "RECORD"],
+        "warrant": "universal/implication introduction",
+        "knowledge_layer": "CORE/ISABELLE_KERNEL",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "OPEN_BINDERS_AND_ASSUMPTIONS",
+        "epistemic_effect": "ASSUME_LOCAL",
+        "preconditions": "leading goal has quantified variables/premises",
+        "obligations": "residual conclusion",
+        "dependencies": "introduced assumptions support all descendants in scope",
+        "state_delta": "fix variables, name premises, strip leading HHF"
+      },
+      "collapse_implication": "HML should not add INTRO as a mathematical primitive; retain explicit binder/scope effects."
+    },
+    {
+      "minilang": "HAVE",
+      "relationship": ["HML_COMPOSITION"],
+      "hml_axes": {
+        "reasoning_mode": "lemma decomposition",
+        "core_operation": ["CONSTRUCT", "RECORD", "DISCHARGE"],
+        "warrant": "nested kernel proof",
+        "knowledge_layer": "CORE + verifier/backend",
+        "goal_effect": "CREATE_SUBGOALS_THEN_ADVANCE",
+        "scope_effect": "OPEN_AND_CLOSE_PROOF_BLOCK",
+        "epistemic_effect": "PROPOSE_CLAIM_THEN_DERIVE_VERIFIED_FACT",
+        "preconditions": "well-typed statement under active context",
+        "obligations": "one proof debt per stated lemma",
+        "dependencies": "certified lemma records exact proof/context ancestry",
+        "state_delta": "insert lemma goals; after closure add verified local facts"
+      },
+      "collapse_implication": "Evidence that goal creation, fact introduction, discharge, and scope should compose; not evidence for a monolithic HAVE kernel opcode."
+    },
+    {
+      "minilang": "CONSIDER_OR",
+      "relationship": ["EXACT_OR_NEAR_1_TO_1", "HML_COMPOSITION"],
+      "hml_axes": {
+        "reasoning_mode": "case analysis",
+        "core_operation": ["CASE_SPLIT", "DISCHARGE"],
+        "warrant": "proved disjunction plus disjunction elimination",
+        "knowledge_layer": "CORE/ISABELLE_KERNEL",
+        "goal_effect": "CREATE_COVERAGE_AND_BRANCH_GOALS",
+        "scope_effect": "OPEN_BRANCHES_CLOSE_AND_CERTIFIED_JOIN",
+        "epistemic_effect": "ASSUME_LOCAL_THEN_DERIVE_GLOBAL",
+        "preconditions": "typed cases; fresh witnesses",
+        "obligations": "explicit exhaustiveness and every branch goal",
+        "dependencies": "branch results remain local; joined theorem depends on coverage and all branches",
+        "state_delta": "replace goal with coverage plus branch bundle; later reconstruct parent theorem"
+      },
+      "collapse_implication": "Strong independent evidence for HML's missing certified branch/join object; MiniLang obtains safety from a kernel theorem, not from CASE_SPLIT spelling alone."
+    },
+    {
+      "minilang": "CONSIDER_EXISTS",
+      "relationship": ["HML_COMPOSITION"],
+      "hml_axes": {
+        "reasoning_mode": "witness extraction",
+        "core_operation": ["DECLARE", "RECORD", "DISCHARGE"],
+        "warrant": "existential elimination/obtain theorem",
+        "knowledge_layer": "CORE/ISABELLE_KERNEL",
+        "goal_effect": "CREATE_EXISTENCE_SUBGOAL_THEN_RESUME",
+        "scope_effect": "OPEN_WITNESS_SCOPE",
+        "epistemic_effect": "INTRODUCE_CERTIFIED_ABSTRACT_WITNESS",
+        "preconditions": "fresh typed variables and object-logic proposition",
+        "obligations": "existence proposition",
+        "dependencies": "witness properties depend on existence proof and enclosing context",
+        "state_delta": "prove existence; add local witness variables/facts to original goal"
+      },
+      "collapse_implication": "Do not conflate existential elimination with HML SELECT or candidate promotion."
+    },
+    {
+      "minilang": "RULE",
+      "relationship": ["EXACT_OR_NEAR_1_TO_1", "WARRANT_NOT_OPERATION"],
+      "hml_axes": {
+        "reasoning_mode": "rule-directed refinement",
+        "core_operation": "APPLY_THEOREM",
+        "warrant": "named theorem/rule and inferred intro-elim-dest mode",
+        "knowledge_layer": "THEOREM_LIBRARY + ISABELLE_KERNEL",
+        "goal_effect": "ADVANCE_OR_CREATE_SUBGOALS_OR_DISCHARGE",
+        "scope_effect": "UNCHANGED",
+        "epistemic_effect": "DERIVE",
+        "preconditions": "rule applies and hypotheses/instantiations type-check",
+        "obligations": "unproved theorem premises",
+        "dependencies": "rule identity, supplied facts, and generated premises",
+        "state_delta": "replace current goal by rule premises"
+      },
+      "collapse_implication": "Supports keeping theorem identity as warrant/library evidence; contradiction/discharge remain effects of rule application."
+    },
+    {
+      "minilang": "CHOOSE",
+      "relationship": ["HML_COMPOSITION", "EPISTEMIC_EFFECT_NOT_OPERATION"],
+      "hml_axes": {
+        "reasoning_mode": "witness construction",
+        "core_operation": "CONSTRUCT",
+        "warrant": "existential introduction rule",
+        "knowledge_layer": "CORE/ISABELLE_KERNEL",
+        "goal_effect": "ADVANCE",
+        "scope_effect": "UNCHANGED",
+        "epistemic_effect": "PROPOSE_WITNESS_INSIDE_PROOF",
+        "preconditions": "existential goal and typed witness",
+        "obligations": "instantiated witness property",
+        "dependencies": "witness term and existential rule",
+        "state_delta": "replace existential goal by witness-specific goal"
+      },
+      "collapse_implication": "MiniLang lacks HML's independent PROPOSED/UNVERIFIED/VERIFIED/REJECTED candidate lifecycle; CHOOSE is not evidence that SELECT and VERIFY should disappear."
+    },
+    {
+      "minilang": "SIMPLIFY",
+      "relationship": ["MINILANG_COMPOSITION", "BACKEND_OR_LIBRARY"],
+      "hml_axes": {
+        "reasoning_mode": "normalization/automation",
+        "core_operation": ["TRANSFORM", "APPLY_DEFINITION", "APPLY_THEOREM", "EVALUATE", "VERIFY", "DISCHARGE"],
+        "warrant": "active simp theorem set and tactic proof",
+        "knowledge_layer": "THEOREM_LIBRARY/SYMBOLIC_BACKEND/ISABELLE_SIMPLIFIER",
+        "goal_effect": "ADVANCE_OR_DISCHARGE_OR_SPLIT",
+        "scope_effect": "UNCHANGED",
+        "epistemic_effect": "DERIVE",
+        "preconditions": "well-typed goal and applicable simplifier configuration",
+        "obligations": "residual subgoals; internal side conditions may be hidden by tactic proof",
+        "dependencies": "simp set, WITH/WITHOUT facts, backend trace/proof term",
+        "state_delta": "replace goal with checked simplified residual(s)"
+      },
+      "collapse_implication": "Does not show that all named HML effects are redundant; it shows a broad verified backend interface can implement several effects. HML must preserve warrant/dependency visibility that SIMP's surface hides."
+    },
+    {
+      "minilang": "CASE_SPLIT",
+      "relationship": ["EXACT_OR_NEAR_1_TO_1", "BACKEND_OR_LIBRARY"],
+      "hml_axes": {
+        "reasoning_mode": "structural case analysis",
+        "core_operation": "CASE_SPLIT",
+        "warrant": "Isabelle cases theorem/tactic",
+        "knowledge_layer": "THEOREM_LIBRARY + ISABELLE_TACTIC",
+        "goal_effect": "CREATE_BRANCH_GOALS",
+        "scope_effect": "OPEN_BRANCHES_CLOSE_AND_CERTIFIED_JOIN",
+        "epistemic_effect": "ASSUME_LOCAL_THEN_DERIVE_GLOBAL",
+        "preconditions": "cases tactic applies",
+        "obligations": "all generated cases",
+        "dependencies": "case theorem and every branch proof",
+        "state_delta": "replace goal with tactic-generated case bundle"
+      },
+      "collapse_implication": "The safe semantics live in Isabelle Rule_Cases and theorem export. HML needs equivalent certificates, not merely the operation name."
+    },
+    {
+      "minilang": "INDUCT",
+      "relationship": ["EXACT_OR_NEAR_1_TO_1", "MINILANG_COMPOSITION", "BACKEND_OR_LIBRARY"],
+      "hml_axes": {
+        "reasoning_mode": "inductive proof strategy",
+        "core_operation": "INDUCT candidate plus DECLARE/RECORD/CASE_SPLIT/DISCHARGE composition",
+        "warrant": "Isabelle induction theorem/tactic",
+        "knowledge_layer": "THEOREM_LIBRARY + ISABELLE_TACTIC",
+        "goal_effect": "CREATE_BASE_STEP_CASE_GOALS",
+        "scope_effect": "OPEN_HYPOTHESIS_CASES_AND_CERTIFIED_JOIN",
+        "epistemic_effect": "ASSUME_IH_LOCAL_THEN_DERIVE_GLOBAL",
+        "preconditions": "valid induction target/schema and generalization",
+        "obligations": "all generated base/step/side goals",
+        "dependencies": "induction theorem, case assumptions, every branch",
+        "state_delta": "replace goal with induction case bundle"
+      },
+      "collapse_implication": "Raises targeted priority for HML's induction protocol experiment but does not prove INDUCT is a primitive; MiniLang delegates the hard schema/generalization work to Isabelle."
+    },
+    {
+      "minilang": "END_OR_NEXT",
+      "relationship": ["GOAL_EFFECT_NOT_OPERATION", "SCOPE_EFFECT_NOT_OPERATION", "BACKEND_OR_LIBRARY"],
+      "hml_axes": {
+        "reasoning_mode": "automated closure/navigation",
+        "core_operation": "DISCHARGE",
+        "warrant": "Isabelle-checked Sledgehammer* proof or already-solved kernel goal",
+        "knowledge_layer": "AUTOMATION/SEARCH + THEOREM_LIBRARY + KERNEL",
+        "goal_effect": "DISCHARGE_AND_SELECT_NEXT_GOAL",
+        "scope_effect": "CLOSE_BLOCK_OR_BRANCH",
+        "epistemic_effect": "CHECKER_VERIFIED",
+        "preconditions": "current goal provable and expected delimiter matches stack",
+        "obligations": "consumes current goal only",
+        "dependencies": "selected premises, generated proof, enclosing callback",
+        "state_delta": "remove solved leaf, collapse block, move to sibling/parent/terminal"
+      },
+      "collapse_implication": "Supports factoring DISCHARGE from mathematical operations and keeping checker-owned status; does not justify hiding proof evidence behind an opaque END."
+    }
+  ],
+  "hml_to_minilang": [
+    {"hml": "DECLARE", "minilang_expression": "INTRO, CONSIDER_EXISTS, HAVE structured fixes, or DEFINE escape hatch", "relationship": "MINILANG_COMPOSITION", "note": "No general neutral object-declaration operation in the ten."},
+    {"hml": "RECORD", "minilang_expression": "INTRO premises, completed HAVE, or CONSIDER witness/case facts", "relationship": "MINILANG_COMPOSITION", "note": "Only proof-context facts; external/given provenance is mostly inherited from Isabelle context."},
+    {"hml": "MODEL", "minilang_expression": "Not represented as a proof operation; formal model already exists in Isabelle terms/context", "relationship": "MINILANG_MISSING", "note": "Source-distribution/phase difference, not necessarily a language defect."},
+    {"hml": "CONSTRUCT", "minilang_expression": "CHOOSE for existential witnesses; terms in HAVE; DEFINE escape hatch", "relationship": "HML_COMPOSITION", "note": "No independent candidate object/status."},
+    {"hml": "TRANSFORM", "minilang_expression": "SIMP, RULE, APPLY/UNFOLD escape hatches, or END automation", "relationship": "MINILANG_COMPOSITION", "note": "Transformation kind/warrant is collapsed into backend configuration."},
+    {"hml": "SUBSTITUTE", "minilang_expression": "SIMP/RULE/APPLY or Isabelle term instantiation", "relationship": "BACKEND_OR_LIBRARY", "note": "No first-class substitution command among the ten."},
+    {"hml": "APPLY_DEFINITION", "minilang_expression": "SIMP/RULE/END hints; UNFOLD escape hatch", "relationship": "BACKEND_OR_LIBRARY", "note": "Definition identity may appear as a fact hint."},
+    {"hml": "APPLY_THEOREM", "minilang_expression": "RULE; also SIMP/END WITH theorem hints", "relationship": "EXACT_OR_NEAR_1_TO_1", "note": "RULE is the clearest correspondence."},
+    {"hml": "CASE_SPLIT", "minilang_expression": "CONSIDER_OR or CASE_SPLIT", "relationship": "EXACT_OR_NEAR_1_TO_1", "note": "MiniLang additionally relies on explicit/kernel-certified coverage and joins."},
+    {"hml": "ENUMERATE", "minilang_expression": "CONSIDER_OR cases or library/tactic output", "relationship": "MINILANG_MISSING", "note": "Finite collection generation is not independently represented."},
+    {"hml": "COUNT", "minilang_expression": "RULE/SIMP/END using combinatorics libraries", "relationship": "WARRANT_NOT_OPERATION", "note": "Counting is mathematical library content, not MiniLang control."},
+    {"hml": "EVALUATE", "minilang_expression": "SIMP/APPLY/END backend", "relationship": "BACKEND_OR_LIBRARY", "note": "No value-result/certificate interface distinct from proof closure."},
+    {"hml": "BOUND", "minilang_expression": "HAVE/RULE/SIMP/END with order theorems", "relationship": "WARRANT_NOT_OPERATION", "note": "Bounding is proposition content, not control."},
+    {"hml": "SELECT", "minilang_expression": "CHOOSE only when supplying an existential witness", "relationship": "MINILANG_MISSING", "note": "No generic candidate selection/promotion semantics."},
+    {"hml": "VERIFY", "minilang_expression": "Implicit in Isabelle checking and END; explicit goal may be stated with HAVE", "relationship": "EPISTEMIC_EFFECT_NOT_OPERATION", "note": "No separate candidate/claim verification status transition."},
+    {"hml": "CONTRADICTION", "minilang_expression": "RULE proof_by_contradiction followed by proof operations", "relationship": "WARRANT_NOT_OPERATION", "note": "Contradiction is a theorem/rule and resulting scope/goal effect."},
+    {"hml": "DISCHARGE", "minilang_expression": "END/NEXT or any RULE/SIMP that solves a goal", "relationship": "GOAL_EFFECT_NOT_OPERATION", "note": "Strong evidence DISCHARGE is primarily a goal/control effect."},
+    {"hml": "INDUCT (candidate)", "minilang_expression": "INDUCT", "relationship": "EXACT_OR_NEAR_1_TO_1", "note": "MiniLang delegates schema/generalization/case semantics to Isabelle; targeted HML protocol evidence is still needed."}
+  ],
+  "semantic_firewall": [
+    {"id": "SF-R01", "topic": "dependency preservation", "classification": "IMPLICIT_IN_ISABELLE", "evidence": "Kernel theorems and contexts carry logical premises, but MiniLang surface/JSONL does not expose a neutral dependency graph."},
+    {"id": "SF-R02", "topic": "lexical scope", "classification": "EXPLICITLY_SUPPORTED", "evidence": "Proof-tree contexts, BLOCK, Rule_Cases, Obtain exports, fixed variables, and named local facts."},
+    {"id": "SF-R03", "topic": "neutral importer", "classification": "NOT_APPLICABLE", "evidence": "The Isar translator is source-specific and emits MiniLang; it is not a representation-neutral corpus adapter."},
+    {"id": "SF-R04", "topic": "preconditions", "classification": "IMPLICIT_IN_ISABELLE", "evidence": "Type/rule/tactic applicability is checked, but domain preconditions are theorem hypotheses rather than uniform first-class records."},
+    {"id": "SF-R05", "topic": "obligation round-trip", "classification": "EXPLICITLY_SUPPORTED", "evidence": "Goals/subgoals persist in the proof tree and must close; semantic metadata/provenance round-trip is less explicit."},
+    {"id": "SF-R06", "topic": "candidate state", "classification": "ABSENT", "evidence": "CHOOSE refines an existential goal; there is no PROPOSED/UNVERIFIED/VERIFIED/REJECTED lifecycle."},
+    {"id": "SF-R07", "topic": "candidate promotion", "classification": "ABSENT", "evidence": "Witness proof checking exists, but no generic candidate promotion transition exists."},
+    {"id": "SF-R08", "topic": "certified branch join", "classification": "EXPLICITLY_SUPPORTED", "evidence": "CONSIDER_OR constructs a disjunction-elimination theorem; CASE_SPLIT/INDUCT use Isabelle case/induction theorems and branch exports."},
+    {"id": "SF-R09", "topic": "evidence adapter", "classification": "IMPLICIT_IN_ISABELLE", "evidence": "Kernel theorems/tactic proofs are authoritative; the serialized corpus omits a uniform evidence object."},
+    {"id": "SF-R10", "topic": "theorem/domain evidence", "classification": "DELEGATED_TO_BACKEND", "evidence": "RULE, simp sets, theorem libraries, premise selection, Sledgehammer* and external provers supply knowledge."},
+    {"id": "SF-R11", "topic": "checker-owned status", "classification": "EXPLICITLY_SUPPORTED", "evidence": "Goals close only from Isabelle theorem values; failures do not promote claims."},
+    {"id": "SF-R12", "topic": "exact goal discharge", "classification": "EXPLICITLY_SUPPORTED", "evidence": "END/NEXT use Goal.conclude/finalize and enforce stack completion."},
+    {"id": "SF-R13", "topic": "type/domain propagation", "classification": "IMPLICIT_IN_ISABELLE", "evidence": "HOL types, contexts, term checking, theorem instantiation, and exports enforce types; mathematical domains remain propositions/classes."},
+    {"id": "SF-R14", "topic": "domain applicability", "classification": "DELEGATED_TO_BACKEND", "evidence": "Theorem hypotheses, type classes, simp/rule applicability and automation discharge domain facts; no generic domain contract."},
+    {"id": "SF-R15", "topic": "rendering separation", "classification": "ABSENT", "evidence": "The artifact's training corpus is concrete text; the later external AoA work supplies AST/JSON separation, not this OOPSLA artifact itself."}
+  ],
+  "bottom_line": {
+    "convergence": "Both projects support a small execution/control interface over rich state, libraries, automation, and a checker.",
+    "strongest_disagreement": "MiniLang intentionally collapses warrants, dependencies, preconditions, process quality, candidates, and backend behavior behind Isabelle commands; HML's research object requires those axes to remain recoverable.",
+    "hml_candidates_most_likely_not_kernel_primitives": ["DISCHARGE", "VERIFY", "CONTRADICTION", "APPLY_DEFINITION", "COUNT", "BOUND", "EVALUATE"],
+    "interpretation_of_list": "They may remain stable semantic interface values, but MiniLang strengthens the case for implementing them as compositions, goal/epistemic effects, or library/backend calls rather than dedicated syntax/kernel instructions."
+  }
+}

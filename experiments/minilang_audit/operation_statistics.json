@@ -1,0 +1,1400 @@
+{
+  "coverage": {
+    "top_1": 0.3893202644307948,
+    "top_10": 0.960606443395283,
+    "top_3": 0.7496276178596053,
+    "top_5": 0.860910665129768
+  },
+  "effective_operation_perplexity": 6.616426354216302,
+  "evaluation_csv_reconstruction": [
+    {
+      "artifact_csv_success_rate": 0.594330070874114,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "isar-SH*_DPSK_pass1_result.db.csv",
+      "sha256": "79fe0a53a51520890f2c49d18c02b813e0e93029c10425a70293738dd3d4e4e3",
+      "successful_cases": 1761
+    },
+    {
+      "artifact_csv_success_rate": 0.6911913601079986,
+      "case_count": 2963,
+      "csv_rows": 9131,
+      "file": "isar-SH*_DPSK_pass8_result.db.csv",
+      "sha256": "c642b96b86e78835e234cd298e61b2934e6f5e4a4c5db0ae367066c245cb51e0",
+      "successful_cases": 2048
+    },
+    {
+      "artifact_csv_success_rate": 0.5885926425919676,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "isar-SH*_Llemma_pass1_result.db.csv",
+      "sha256": "13e7068de40239201bc638120fd905934eb57a23528707d3e3290216b90d4dc5",
+      "successful_cases": 1744
+    },
+    {
+      "artifact_csv_success_rate": 0.6709416132298346,
+      "case_count": 2963,
+      "csv_rows": 9663,
+      "file": "isar-SH*_Llemma_pass8_result.db.csv",
+      "sha256": "c9d8f3a521a71fadebc2c9265a2572211ea34e773004470f3ff6642dbfec7923",
+      "successful_cases": 1988
+    },
+    {
+      "artifact_csv_success_rate": 0.42538825118163404,
+      "case_count": 2962,
+      "csv_rows": 2962,
+      "file": "isar-SH_DPSK_pass1_result.db.csv",
+      "sha256": "3de53579e411590ae706be99b0e01e4cb050d5ae3e0b95e814f5b7d33c07093d",
+      "successful_cases": 1260
+    },
+    {
+      "artifact_csv_success_rate": 0.5546927751519244,
+      "case_count": 2962,
+      "csv_rows": 2962,
+      "file": "isar-SH_DPSK_pass8_result.db.csv",
+      "sha256": "e385cf3e51247fd588bb836e3c7ee9d0cd185918a8b7d148a7d5e2a7c601910c",
+      "successful_cases": 1643
+    },
+    {
+      "artifact_csv_success_rate": 0.42808912896691426,
+      "case_count": 2962,
+      "csv_rows": 2962,
+      "file": "isar-SH_Llemma_pass1_result.db.csv",
+      "sha256": "f19db024c23a61a6b30cdfc09c7b2eec912e88c5c70157730700e65b903746e3",
+      "successful_cases": 1268
+    },
+    {
+      "artifact_csv_success_rate": 0.5347738014854828,
+      "case_count": 2962,
+      "csv_rows": 2962,
+      "file": "isar-SH_Llemma_pass8_result.db.csv",
+      "sha256": "7a6d6390bd74ea53bf001643fa29cb7ee3af0e6e24e2aae7ac9cbf3632a13022",
+      "successful_cases": 1584
+    },
+    {
+      "artifact_csv_success_rate": 0.0006749915626054674,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "isar-no-SH_DPSK_pass1_result.db.csv",
+      "sha256": "ff0c06e98a16a55a41d02a14656206d610d885cb467911cb99211d0814677843",
+      "successful_cases": 2
+    },
+    {
+      "artifact_csv_success_rate": 0.5052311846101923,
+      "case_count": 2963,
+      "csv_rows": 14592,
+      "file": "isar-no-SH_DPSK_pass8_result.db.csv",
+      "sha256": "9205b3437963dae80eade5540ff2bc65fd57ca178f05900cfbc9a78aca42c88c",
+      "successful_cases": 1497
+    },
+    {
+      "artifact_csv_success_rate": 0.3860951738103274,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "isar-no-SH_Llemma_pass1_result.db.csv",
+      "sha256": "e126c4f889d12326fd1d8f4369ab142e7e1b4e98feb0ec0191b0303886670dad",
+      "successful_cases": 1144
+    },
+    {
+      "artifact_csv_success_rate": 0.486668916638542,
+      "case_count": 2963,
+      "csv_rows": 14947,
+      "file": "isar-no-SH_Llemma_pass8_result.db.csv",
+      "sha256": "8146c2e21797a726b43b9c56d757ce7a0b6ad4182a496098d5cbe4d1090ab7f2",
+      "successful_cases": 1442
+    },
+    {
+      "artifact_csv_success_rate": 0.6915288558893014,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "minilang-SH*_DPSK_pass1_result.db.csv",
+      "sha256": "75113bdd72ffed596fdd6748b63188f06cfd0e8e1ca9bc0221ec81afef721949",
+      "successful_cases": 2049
+    },
+    {
+      "artifact_csv_success_rate": 0.7916948008102633,
+      "case_count": 2962,
+      "csv_rows": 8463,
+      "file": "minilang-SH*_DPSK_pass8_result.db.csv",
+      "sha256": "5039f6ec761f0ccfc01e99a8c8470363eb3de8156b4913ae62f42e321de9b99b",
+      "successful_cases": 2345
+    },
+    {
+      "artifact_csv_success_rate": 0.6803914951063111,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "minilang-SH*_Llemma_pass1_result.db.csv",
+      "sha256": "f9d335ab94c1c480879a5396aed6a588c2042dd200cd40cbaf03d224923278af",
+      "successful_cases": 2016
+    },
+    {
+      "artifact_csv_success_rate": 0.7894026324670942,
+      "case_count": 2963,
+      "csv_rows": 8644,
+      "file": "minilang-SH*_Llemma_pass8_result.db.csv",
+      "sha256": "7155799796040de8dab834e0dafce5425f8cb9b16ab3326fa1abce87f318b44d",
+      "successful_cases": 2339
+    },
+    {
+      "artifact_csv_success_rate": 0.5983800202497469,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "minilang-SH_DPSK_pass1_result.db.csv",
+      "sha256": "08869d828a4421318ac09acd1d48ed6d527131cdbf5b0ef2f1c9fac3310dd0ff",
+      "successful_cases": 1773
+    },
+    {
+      "artifact_csv_success_rate": 0.7221471978392978,
+      "case_count": 2962,
+      "csv_rows": 2962,
+      "file": "minilang-SH_DPSK_pass8_result.db.csv",
+      "sha256": "2a766b0fb9982a107c9c0980bf6dab785f0cad46cf59fdef4514bcf6e52ae6e5",
+      "successful_cases": 2139
+    },
+    {
+      "artifact_csv_success_rate": 0.5852176847789403,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "minilang-SH_Llemma_pass1_result.db.csv",
+      "sha256": "7e9a46b73ebbc2fd5a3aba1ed1ff2c6f3b09402218dffe0fb57d7fcd4c549349",
+      "successful_cases": 1734
+    },
+    {
+      "artifact_csv_success_rate": 0.7205534930813365,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "minilang-SH_Llemma_pass8_result.db.csv",
+      "sha256": "98271fea82f083ffdb4a8f1e99953f50cf27d475c43799356a6a21e0f756f962",
+      "successful_cases": 2135
+    },
+    {
+      "artifact_csv_success_rate": 0.6915288558893014,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "minilang-no-SH_DPSK_pass1_result.db.csv",
+      "sha256": "75113bdd72ffed596fdd6748b63188f06cfd0e8e1ca9bc0221ec81afef721949",
+      "successful_cases": 2049
+    },
+    {
+      "artifact_csv_success_rate": 0.7916948008102633,
+      "case_count": 2962,
+      "csv_rows": 8463,
+      "file": "minilang-no-SH_DPSK_pass8_result.db.csv",
+      "sha256": "5039f6ec761f0ccfc01e99a8c8470363eb3de8156b4913ae62f42e321de9b99b",
+      "successful_cases": 2345
+    },
+    {
+      "artifact_csv_success_rate": 0.6803914951063111,
+      "case_count": 2963,
+      "csv_rows": 2963,
+      "file": "minilang-no-SH_Llemma_pass1_result.db.csv",
+      "sha256": "f9d335ab94c1c480879a5396aed6a588c2042dd200cd40cbaf03d224923278af",
+      "successful_cases": 2016
+    },
+    {
+      "artifact_csv_success_rate": 0.7894026324670942,
+      "case_count": 2963,
+      "csv_rows": 8644,
+      "file": "minilang-no-SH_Llemma_pass8_result.db.csv",
+      "sha256": "7155799796040de8dab834e0dafce5425f8cb9b16ab3326fa1abce87f318b44d",
+      "successful_cases": 2339
+    }
+  ],
+  "measurement_caveats": [
+    "The corpus command labels include pragmatic escape hatches beyond the paper's ten semantic operations.",
+    "Command counts are not mathematical-transition counts and are not directly comparable to Gold-125 annotation units.",
+    "WITH-token counts are lexical premise-hint proxies, not certified dependency fan-in.",
+    "Subgoal and branch effects are only structurally characterized without replaying 290,185 proofs."
+  ],
+  "nesting_depth_proxy": {
+    "interpretation": "Printer indentation from the nested translator mast AST; a reproducible lower-bound proxy. Exact interpreter proof-tree depth requires replay and is not claimed.",
+    "max": 107.0,
+    "mean": 0.297455071764564,
+    "median": 0.0,
+    "min": 0.0,
+    "p25": 0.0,
+    "p75": 0.0,
+    "p90": 1.0,
+    "p95": 2.0,
+    "p99": 3.0
+  },
+  "operation_frequencies": {
+    "APPLY": 99725,
+    "CASE_SPLIT": 30861,
+    "CHOOSE": 11950,
+    "CONFIG": 7879,
+    "CONSIDER": 30733,
+    "DEFINE": 6150,
+    "END": 591745,
+    "HAVE": 263985,
+    "INDUCT": 32526,
+    "INTRO": 36121,
+    "LET": 13815,
+    "NEXT": 283662,
+    "NOTATION": 41,
+    "OPEN_MODULE": 7206,
+    "RULE": 69419,
+    "SIMP": 12835,
+    "UNFOLD": 21291
+  },
+  "operations_per_proof": {
+    "max": 807.0,
+    "mean": 5.2378448231300725,
+    "median": 1.0,
+    "min": 1.0,
+    "p25": 1.0,
+    "p75": 5.0,
+    "p90": 12.0,
+    "p95": 20.0,
+    "p99": 50.0
+  },
+  "paper_semantic_family_coverage_proxy": {
+    "top_1": 0.6418706927587388,
+    "top_10": 0.9996964446631086,
+    "top_3": 0.886330991166833,
+    "top_5": 0.9366647187310507
+  },
+  "paper_semantic_family_frequency_proxy": {
+    "CASE_SPLIT": 30861,
+    "CHOOSE": 11950,
+    "CONSIDER_disjunctive_or_mixed": 489,
+    "CONSIDER_single_clause_ambiguous": 414,
+    "CONSIDER_single_existential": 29830,
+    "END_OR_NEXT": 875407,
+    "HAVE": 263985,
+    "INDUCT": 32526,
+    "INTRO": 36121,
+    "RULE": 69419,
+    "SIMP": 12835
+  },
+  "paper_surface_command_frequencies": {
+    "CASE_SPLIT": 30861,
+    "CHOOSE": 11950,
+    "CONSIDER": 30733,
+    "END": 591745,
+    "HAVE": 263985,
+    "INDUCT": 32526,
+    "INTRO": 36121,
+    "NEXT": 283662,
+    "RULE": 69419,
+    "SIMP": 12835
+  },
+  "pragmatic_escape_hatch_frequencies": {
+    "APPLY": 99725,
+    "CONFIG": 7879,
+    "DEFINE": 6150,
+    "LET": 13815,
+    "NOTATION": 41,
+    "OPEN_MODULE": 7206,
+    "UNFOLD": 21291
+  },
+  "premise_hint_lexical_fanin": {
+    "max": 304.0,
+    "mean": 1.6911524371950546,
+    "median": 1.0,
+    "min": 0.0,
+    "p25": 0.0,
+    "p75": 2.0,
+    "p90": 5.0,
+    "p95": 7.0,
+    "p99": 13.0
+  },
+  "rare_operation_tail": [
+    {
+      "count": 41,
+      "operation": "NOTATION",
+      "share": 2.6974678014453165e-05
+    }
+  ],
+  "shannon_entropy_bits_per_command": 2.72605220296369,
+  "source_file": "/tmp/minilang-audit-large.GAgA0a/OOPSLA26 Artifact/results/translation/minilang.jsonl",
+  "structural_event_counts": {
+    "NEXT_commands": 283662,
+    "proofs_exactly_END": 145123,
+    "proofs_exactly_NEXT": 0,
+    "proofs_with_CASE_SPLIT": 21442,
+    "proofs_with_CONSIDER": 17944,
+    "proofs_with_HAVE": 54580,
+    "proofs_with_INDUCT": 30685,
+    "proofs_with_NEXT": 90923,
+    "proofs_with_escape_hatch": 71594,
+    "subgoal_refinement_commands": 427524
+  },
+  "top_bigrams": [
+    {
+      "count": 205461,
+      "sequence": [
+        "HAVE",
+        "END"
+      ]
+    },
+    {
+      "count": 177783,
+      "sequence": [
+        "END",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 131981,
+      "sequence": [
+        "NEXT",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 87328,
+      "sequence": [
+        "NEXT",
+        "END"
+      ]
+    },
+    {
+      "count": 64304,
+      "sequence": [
+        "END",
+        "END"
+      ]
+    },
+    {
+      "count": 39733,
+      "sequence": [
+        "APPLY",
+        "END"
+      ]
+    },
+    {
+      "count": 30347,
+      "sequence": [
+        "APPLY",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 28456,
+      "sequence": [
+        "INDUCT",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 27641,
+      "sequence": [
+        "CONSIDER",
+        "END"
+      ]
+    },
+    {
+      "count": 27581,
+      "sequence": [
+        "RULE",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 19062,
+      "sequence": [
+        "END",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 18829,
+      "sequence": [
+        "CASE_SPLIT",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 16411,
+      "sequence": [
+        "NEXT",
+        "APPLY"
+      ]
+    },
+    {
+      "count": 16249,
+      "sequence": [
+        "NEXT",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 15544,
+      "sequence": [
+        "INTRO",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 15496,
+      "sequence": [
+        "RULE",
+        "INTRO"
+      ]
+    },
+    {
+      "count": 14136,
+      "sequence": [
+        "RULE",
+        "RULE"
+      ]
+    },
+    {
+      "count": 13906,
+      "sequence": [
+        "END",
+        "CONSIDER"
+      ]
+    },
+    {
+      "count": 13795,
+      "sequence": [
+        "HAVE",
+        "APPLY"
+      ]
+    },
+    {
+      "count": 12790,
+      "sequence": [
+        "HAVE",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 12175,
+      "sequence": [
+        "APPLY",
+        "APPLY"
+      ]
+    },
+    {
+      "count": 10940,
+      "sequence": [
+        "NEXT",
+        "INTRO"
+      ]
+    },
+    {
+      "count": 9896,
+      "sequence": [
+        "UNFOLD",
+        "APPLY"
+      ]
+    },
+    {
+      "count": 9573,
+      "sequence": [
+        "HAVE",
+        "RULE"
+      ]
+    },
+    {
+      "count": 9220,
+      "sequence": [
+        "HAVE",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 8509,
+      "sequence": [
+        "CHOOSE",
+        "CHOOSE"
+      ]
+    },
+    {
+      "count": 7087,
+      "sequence": [
+        "LET",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 6523,
+      "sequence": [
+        "OPEN_MODULE",
+        "END"
+      ]
+    },
+    {
+      "count": 6464,
+      "sequence": [
+        "APPLY",
+        "RULE"
+      ]
+    },
+    {
+      "count": 5650,
+      "sequence": [
+        "INTRO",
+        "CONSIDER"
+      ]
+    }
+  ],
+  "top_sessions": [
+    {
+      "operation_count": 217732,
+      "operation_frequencies": {
+        "APPLY": 14828,
+        "CASE_SPLIT": 4407,
+        "CHOOSE": 1905,
+        "CONFIG": 832,
+        "CONSIDER": 3794,
+        "DEFINE": 682,
+        "END": 89003,
+        "HAVE": 29767,
+        "INDUCT": 5246,
+        "INTRO": 5289,
+        "LET": 1080,
+        "NEXT": 44278,
+        "OPEN_MODULE": 810,
+        "RULE": 10864,
+        "SIMP": 1922,
+        "UNFOLD": 3025
+      },
+      "session": "Isabelle/HOL"
+    },
+    {
+      "operation_count": 21182,
+      "operation_frequencies": {
+        "APPLY": 871,
+        "CASE_SPLIT": 786,
+        "CHOOSE": 27,
+        "CONFIG": 161,
+        "CONSIDER": 363,
+        "DEFINE": 6,
+        "END": 5679,
+        "HAVE": 1777,
+        "INDUCT": 784,
+        "INTRO": 273,
+        "LET": 134,
+        "NEXT": 9235,
+        "OPEN_MODULE": 49,
+        "RULE": 749,
+        "SIMP": 135,
+        "UNFOLD": 153
+      },
+      "session": "AFP/JinjaThreads"
+    },
+    {
+      "operation_count": 21049,
+      "operation_frequencies": {
+        "APPLY": 5900,
+        "CASE_SPLIT": 205,
+        "CHOOSE": 2,
+        "CONSIDER": 2,
+        "END": 2500,
+        "HAVE": 16,
+        "INTRO": 9,
+        "NEXT": 7847,
+        "RULE": 3452,
+        "SIMP": 1057,
+        "UNFOLD": 59
+      },
+      "session": "AFP/Group-Ring-Module"
+    },
+    {
+      "operation_count": 19264,
+      "operation_frequencies": {
+        "APPLY": 1797,
+        "CASE_SPLIT": 641,
+        "CHOOSE": 29,
+        "CONFIG": 106,
+        "CONSIDER": 243,
+        "DEFINE": 21,
+        "END": 8662,
+        "HAVE": 1339,
+        "INDUCT": 362,
+        "INTRO": 463,
+        "LET": 13,
+        "NEXT": 3426,
+        "OPEN_MODULE": 51,
+        "RULE": 1155,
+        "SIMP": 608,
+        "UNFOLD": 348
+      },
+      "session": "AFP/AutoCorres2"
+    },
+    {
+      "operation_count": 16163,
+      "operation_frequencies": {
+        "APPLY": 679,
+        "CASE_SPLIT": 361,
+        "CONFIG": 8,
+        "CONSIDER": 648,
+        "DEFINE": 278,
+        "END": 6375,
+        "HAVE": 4556,
+        "INDUCT": 307,
+        "INTRO": 495,
+        "LET": 247,
+        "NEXT": 1735,
+        "RULE": 229,
+        "SIMP": 3,
+        "UNFOLD": 242
+      },
+      "session": "AFP/FSM_Tests"
+    },
+    {
+      "operation_count": 14667,
+      "operation_frequencies": {
+        "APPLY": 4644,
+        "CASE_SPLIT": 59,
+        "CONSIDER": 30,
+        "DEFINE": 1,
+        "END": 7289,
+        "HAVE": 1778,
+        "INDUCT": 52,
+        "INTRO": 2,
+        "LET": 600,
+        "NEXT": 193,
+        "RULE": 4,
+        "SIMP": 11,
+        "UNFOLD": 4
+      },
+      "session": "AFP/Crypto_Standards"
+    },
+    {
+      "operation_count": 12851,
+      "operation_frequencies": {
+        "APPLY": 256,
+        "CASE_SPLIT": 32,
+        "CONSIDER": 137,
+        "END": 5516,
+        "HAVE": 3261,
+        "INDUCT": 53,
+        "INTRO": 248,
+        "LET": 119,
+        "NEXT": 2204,
+        "OPEN_MODULE": 586,
+        "RULE": 371,
+        "SIMP": 4,
+        "UNFOLD": 64
+      },
+      "session": "AFP/Bicategory"
+    },
+    {
+      "operation_count": 12812,
+      "operation_frequencies": {
+        "APPLY": 1621,
+        "CASE_SPLIT": 7,
+        "CONFIG": 147,
+        "CONSIDER": 215,
+        "DEFINE": 8,
+        "END": 4173,
+        "HAVE": 1099,
+        "INTRO": 330,
+        "LET": 22,
+        "NEXT": 3071,
+        "OPEN_MODULE": 892,
+        "RULE": 646,
+        "SIMP": 55,
+        "UNFOLD": 526
+      },
+      "session": "AFP/CZH_Elementary_Categories"
+    },
+    {
+      "operation_count": 12323,
+      "operation_frequencies": {
+        "APPLY": 457,
+        "CASE_SPLIT": 103,
+        "CONSIDER": 100,
+        "DEFINE": 78,
+        "END": 5640,
+        "HAVE": 3910,
+        "INDUCT": 93,
+        "INTRO": 176,
+        "LET": 446,
+        "NEXT": 822,
+        "OPEN_MODULE": 3,
+        "RULE": 166,
+        "SIMP": 10,
+        "UNFOLD": 319
+      },
+      "session": "AFP/Cook_Levin"
+    },
+    {
+      "operation_count": 11363,
+      "operation_frequencies": {
+        "APPLY": 855,
+        "CASE_SPLIT": 26,
+        "CHOOSE": 1,
+        "CONFIG": 56,
+        "CONSIDER": 197,
+        "DEFINE": 21,
+        "END": 4666,
+        "HAVE": 1074,
+        "INDUCT": 25,
+        "INTRO": 360,
+        "LET": 3,
+        "NEXT": 2507,
+        "OPEN_MODULE": 560,
+        "RULE": 770,
+        "SIMP": 14,
+        "UNFOLD": 228
+      },
+      "session": "AFP/CZH_Foundations"
+    },
+    {
+      "operation_count": 10898,
+      "operation_frequencies": {
+        "APPLY": 251,
+        "CASE_SPLIT": 342,
+        "CONFIG": 13,
+        "CONSIDER": 578,
+        "DEFINE": 15,
+        "END": 5258,
+        "HAVE": 2586,
+        "INDUCT": 438,
+        "INTRO": 110,
+        "LET": 164,
+        "NEXT": 872,
+        "OPEN_MODULE": 105,
+        "RULE": 136,
+        "SIMP": 6,
+        "UNFOLD": 24
+      },
+      "session": "AFP/Query_Optimization"
+    },
+    {
+      "operation_count": 10689,
+      "operation_frequencies": {
+        "APPLY": 317,
+        "CASE_SPLIT": 183,
+        "CHOOSE": 70,
+        "CONFIG": 38,
+        "CONSIDER": 335,
+        "DEFINE": 17,
+        "END": 4459,
+        "HAVE": 2116,
+        "INDUCT": 164,
+        "INTRO": 730,
+        "LET": 52,
+        "NEXT": 1133,
+        "OPEN_MODULE": 12,
+        "RULE": 850,
+        "SIMP": 95,
+        "UNFOLD": 118
+      },
+      "session": "AFP/Polynomials"
+    },
+    {
+      "operation_count": 10307,
+      "operation_frequencies": {
+        "APPLY": 241,
+        "CASE_SPLIT": 163,
+        "CHOOSE": 38,
+        "CONFIG": 189,
+        "CONSIDER": 192,
+        "DEFINE": 64,
+        "END": 3634,
+        "HAVE": 2230,
+        "INDUCT": 158,
+        "INTRO": 166,
+        "LET": 346,
+        "NEXT": 2027,
+        "OPEN_MODULE": 64,
+        "RULE": 538,
+        "SIMP": 34,
+        "UNFOLD": 223
+      },
+      "session": "AFP/Jordan_Normal_Form"
+    },
+    {
+      "operation_count": 8913,
+      "operation_frequencies": {
+        "APPLY": 327,
+        "CASE_SPLIT": 133,
+        "CHOOSE": 3,
+        "CONSIDER": 256,
+        "END": 3864,
+        "HAVE": 2114,
+        "INDUCT": 68,
+        "INTRO": 346,
+        "LET": 4,
+        "NEXT": 960,
+        "RULE": 671,
+        "SIMP": 1,
+        "UNFOLD": 166
+      },
+      "session": "AFP/Padic_Field"
+    },
+    {
+      "operation_count": 8862,
+      "operation_frequencies": {
+        "APPLY": 135,
+        "CASE_SPLIT": 242,
+        "CHOOSE": 1,
+        "CONFIG": 45,
+        "CONSIDER": 358,
+        "DEFINE": 35,
+        "END": 3338,
+        "HAVE": 1813,
+        "INDUCT": 379,
+        "INTRO": 168,
+        "LET": 145,
+        "NEXT": 2029,
+        "RULE": 132,
+        "SIMP": 1,
+        "UNFOLD": 41
+      },
+      "session": "AFP/Stateful_Protocol_Composition_and_Typing"
+    },
+    {
+      "operation_count": 8761,
+      "operation_frequencies": {
+        "APPLY": 390,
+        "CASE_SPLIT": 188,
+        "CHOOSE": 140,
+        "CONFIG": 237,
+        "CONSIDER": 242,
+        "DEFINE": 59,
+        "END": 3260,
+        "HAVE": 1931,
+        "INDUCT": 128,
+        "INTRO": 190,
+        "LET": 177,
+        "NEXT": 1201,
+        "OPEN_MODULE": 49,
+        "RULE": 304,
+        "SIMP": 37,
+        "UNFOLD": 228
+      },
+      "session": "AFP/Berlekamp_Zassenhaus"
+    },
+    {
+      "operation_count": 8356,
+      "operation_frequencies": {
+        "APPLY": 1758,
+        "CASE_SPLIT": 81,
+        "CHOOSE": 46,
+        "CONFIG": 79,
+        "CONSIDER": 339,
+        "DEFINE": 1,
+        "END": 3112,
+        "HAVE": 2111,
+        "INTRO": 244,
+        "NEXT": 256,
+        "RULE": 72,
+        "SIMP": 10,
+        "UNFOLD": 247
+      },
+      "session": "AFP/Category_Set"
+    },
+    {
+      "operation_count": 8340,
+      "operation_frequencies": {
+        "APPLY": 231,
+        "CASE_SPLIT": 49,
+        "CONSIDER": 69,
+        "DEFINE": 4,
+        "END": 3747,
+        "HAVE": 1934,
+        "INTRO": 324,
+        "LET": 129,
+        "NEXT": 957,
+        "NOTATION": 5,
+        "OPEN_MODULE": 466,
+        "RULE": 369,
+        "SIMP": 9,
+        "UNFOLD": 47
+      },
+      "session": "AFP/Category3"
+    },
+    {
+      "operation_count": 8226,
+      "operation_frequencies": {
+        "APPLY": 799,
+        "CASE_SPLIT": 188,
+        "CHOOSE": 16,
+        "CONFIG": 168,
+        "CONSIDER": 120,
+        "DEFINE": 4,
+        "END": 2636,
+        "HAVE": 665,
+        "INDUCT": 186,
+        "INTRO": 172,
+        "LET": 31,
+        "NEXT": 1958,
+        "OPEN_MODULE": 72,
+        "RULE": 711,
+        "SIMP": 135,
+        "UNFOLD": 365
+      },
+      "session": "AFP/Collections"
+    },
+    {
+      "operation_count": 8050,
+      "operation_frequencies": {
+        "APPLY": 401,
+        "CASE_SPLIT": 376,
+        "CHOOSE": 197,
+        "CONSIDER": 150,
+        "DEFINE": 5,
+        "END": 3023,
+        "HAVE": 1643,
+        "INDUCT": 219,
+        "INTRO": 275,
+        "LET": 9,
+        "NEXT": 1345,
+        "RULE": 252,
+        "SIMP": 109,
+        "UNFOLD": 46
+      },
+      "session": "AFP/Universal_Turing_Machine"
+    },
+    {
+      "operation_count": 7972,
+      "operation_frequencies": {
+        "APPLY": 166,
+        "CASE_SPLIT": 256,
+        "CHOOSE": 6,
+        "CONFIG": 286,
+        "CONSIDER": 353,
+        "DEFINE": 146,
+        "END": 2607,
+        "HAVE": 1677,
+        "INDUCT": 176,
+        "INTRO": 199,
+        "LET": 175,
+        "NEXT": 1705,
+        "RULE": 145,
+        "UNFOLD": 75
+      },
+      "session": "AFP/Automated_Stateful_Protocol_Verification"
+    },
+    {
+      "operation_count": 7411,
+      "operation_frequencies": {
+        "APPLY": 494,
+        "CASE_SPLIT": 217,
+        "CHOOSE": 56,
+        "CONFIG": 23,
+        "CONSIDER": 149,
+        "DEFINE": 7,
+        "END": 2179,
+        "HAVE": 805,
+        "INDUCT": 148,
+        "INTRO": 153,
+        "LET": 18,
+        "NEXT": 2635,
+        "RULE": 438,
+        "SIMP": 59,
+        "UNFOLD": 30
+      },
+      "session": "AFP/Simpl"
+    },
+    {
+      "operation_count": 7386,
+      "operation_frequencies": {
+        "APPLY": 175,
+        "CASE_SPLIT": 51,
+        "CHOOSE": 1,
+        "CONFIG": 63,
+        "CONSIDER": 182,
+        "END": 3202,
+        "HAVE": 2057,
+        "INDUCT": 81,
+        "INTRO": 414,
+        "LET": 174,
+        "NEXT": 509,
+        "RULE": 381,
+        "SIMP": 22,
+        "UNFOLD": 74
+      },
+      "session": "AFP/SuffixArray"
+    },
+    {
+      "operation_count": 7352,
+      "operation_frequencies": {
+        "APPLY": 225,
+        "CASE_SPLIT": 71,
+        "CHOOSE": 34,
+        "CONFIG": 16,
+        "CONSIDER": 406,
+        "END": 3131,
+        "HAVE": 2000,
+        "INDUCT": 243,
+        "INTRO": 154,
+        "LET": 38,
+        "NEXT": 932,
+        "RULE": 53,
+        "SIMP": 49
+      },
+      "session": "AFP/Pi_Calculus"
+    },
+    {
+      "operation_count": 7192,
+      "operation_frequencies": {
+        "APPLY": 215,
+        "CASE_SPLIT": 54,
+        "CHOOSE": 34,
+        "CONFIG": 32,
+        "CONSIDER": 238,
+        "DEFINE": 17,
+        "END": 2649,
+        "HAVE": 1605,
+        "INDUCT": 96,
+        "INTRO": 416,
+        "LET": 128,
+        "NEXT": 922,
+        "RULE": 665,
+        "SIMP": 42,
+        "UNFOLD": 79
+      },
+      "session": "AFP/Groebner_Bases"
+    },
+    {
+      "operation_count": 7185,
+      "operation_frequencies": {
+        "APPLY": 837,
+        "CASE_SPLIT": 56,
+        "CHOOSE": 106,
+        "CONFIG": 120,
+        "CONSIDER": 79,
+        "DEFINE": 16,
+        "END": 2787,
+        "HAVE": 768,
+        "INDUCT": 40,
+        "INTRO": 187,
+        "LET": 29,
+        "NEXT": 1420,
+        "OPEN_MODULE": 27,
+        "RULE": 325,
+        "SIMP": 60,
+        "UNFOLD": 328
+      },
+      "session": "AFP/Ordinary_Differential_Equations"
+    },
+    {
+      "operation_count": 7163,
+      "operation_frequencies": {
+        "CONSIDER": 115,
+        "END": 3623,
+        "HAVE": 3392,
+        "INTRO": 15,
+        "NEXT": 3,
+        "RULE": 15
+      },
+      "session": "AFP/Foundation_of_geometry"
+    },
+    {
+      "operation_count": 6997,
+      "operation_frequencies": {
+        "APPLY": 278,
+        "CASE_SPLIT": 255,
+        "CHOOSE": 23,
+        "CONFIG": 131,
+        "CONSIDER": 384,
+        "END": 2264,
+        "HAVE": 1421,
+        "INDUCT": 224,
+        "INTRO": 138,
+        "LET": 1,
+        "NEXT": 1670,
+        "RULE": 174,
+        "SIMP": 29,
+        "UNFOLD": 5
+      },
+      "session": "AFP/HRB-Slicing"
+    },
+    {
+      "operation_count": 6826,
+      "operation_frequencies": {
+        "APPLY": 492,
+        "CASE_SPLIT": 258,
+        "CHOOSE": 11,
+        "CONFIG": 52,
+        "CONSIDER": 56,
+        "DEFINE": 1,
+        "END": 1653,
+        "HAVE": 565,
+        "INDUCT": 386,
+        "INTRO": 71,
+        "LET": 36,
+        "NEXT": 2948,
+        "RULE": 182,
+        "SIMP": 61,
+        "UNFOLD": 54
+      },
+      "session": "AFP/Iptables_Semantics"
+    },
+    {
+      "operation_count": 6773,
+      "operation_frequencies": {
+        "APPLY": 1106,
+        "CASE_SPLIT": 2,
+        "CONFIG": 37,
+        "CONSIDER": 18,
+        "END": 1931,
+        "HAVE": 320,
+        "INDUCT": 2,
+        "INTRO": 55,
+        "LET": 4,
+        "NEXT": 2751,
+        "OPEN_MODULE": 1,
+        "RULE": 485,
+        "SIMP": 15,
+        "UNFOLD": 46
+      },
+      "session": "AFP/Transport"
+    }
+  ],
+  "top_trigrams": [
+    {
+      "count": 141292,
+      "sequence": [
+        "END",
+        "HAVE",
+        "END"
+      ]
+    },
+    {
+      "count": 127627,
+      "sequence": [
+        "HAVE",
+        "END",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 86782,
+      "sequence": [
+        "NEXT",
+        "NEXT",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 43909,
+      "sequence": [
+        "HAVE",
+        "END",
+        "END"
+      ]
+    },
+    {
+      "count": 31860,
+      "sequence": [
+        "NEXT",
+        "NEXT",
+        "END"
+      ]
+    },
+    {
+      "count": 16232,
+      "sequence": [
+        "CONSIDER",
+        "END",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 15447,
+      "sequence": [
+        "NEXT",
+        "END",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 13729,
+      "sequence": [
+        "HAVE",
+        "END",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 13217,
+      "sequence": [
+        "INDUCT",
+        "NEXT",
+        "END"
+      ]
+    },
+    {
+      "count": 12705,
+      "sequence": [
+        "END",
+        "CONSIDER",
+        "END"
+      ]
+    },
+    {
+      "count": 12613,
+      "sequence": [
+        "RULE",
+        "NEXT",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 12423,
+      "sequence": [
+        "NEXT",
+        "HAVE",
+        "END"
+      ]
+    },
+    {
+      "count": 12175,
+      "sequence": [
+        "INTRO",
+        "HAVE",
+        "END"
+      ]
+    },
+    {
+      "count": 10916,
+      "sequence": [
+        "APPLY",
+        "NEXT",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 10061,
+      "sequence": [
+        "RULE",
+        "NEXT",
+        "END"
+      ]
+    },
+    {
+      "count": 9940,
+      "sequence": [
+        "END",
+        "HAVE",
+        "APPLY"
+      ]
+    },
+    {
+      "count": 9275,
+      "sequence": [
+        "HAVE",
+        "NEXT",
+        "END"
+      ]
+    },
+    {
+      "count": 8213,
+      "sequence": [
+        "CASE_SPLIT",
+        "NEXT",
+        "END"
+      ]
+    },
+    {
+      "count": 8192,
+      "sequence": [
+        "APPLY",
+        "NEXT",
+        "APPLY"
+      ]
+    },
+    {
+      "count": 8125,
+      "sequence": [
+        "HAVE",
+        "APPLY",
+        "END"
+      ]
+    },
+    {
+      "count": 8018,
+      "sequence": [
+        "CHOOSE",
+        "CHOOSE",
+        "CHOOSE"
+      ]
+    },
+    {
+      "count": 7884,
+      "sequence": [
+        "NEXT",
+        "APPLY",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 7677,
+      "sequence": [
+        "END",
+        "END",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 7580,
+      "sequence": [
+        "APPLY",
+        "NEXT",
+        "END"
+      ]
+    },
+    {
+      "count": 7567,
+      "sequence": [
+        "END",
+        "NEXT",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 7486,
+      "sequence": [
+        "INDUCT",
+        "NEXT",
+        "NEXT"
+      ]
+    },
+    {
+      "count": 7475,
+      "sequence": [
+        "HAVE",
+        "END",
+        "CONSIDER"
+      ]
+    },
+    {
+      "count": 7139,
+      "sequence": [
+        "HAVE",
+        "HAVE",
+        "END"
+      ]
+    },
+    {
+      "count": 6946,
+      "sequence": [
+        "RULE",
+        "INTRO",
+        "HAVE"
+      ]
+    },
+    {
+      "count": 6827,
+      "sequence": [
+        "APPLY",
+        "END",
+        "HAVE"
+      ]
+    }
+  ],
+  "total_serialized_commands": 1519944,
+  "translated_proof_count": 290185,
+  "translation_characters_per_proof": {
+    "max": 2757850.0,
+    "mean": 1597.2698726674364,
+    "median": 107.0,
+    "min": 4.0,
+    "p25": 38.0,
+    "p75": 1118.0,
+    "p90": 3455.0,
+    "p95": 6334.0,
+    "p99": 20090.0
+  },
+  "unique_implemented_command_labels_observed": 17
+}

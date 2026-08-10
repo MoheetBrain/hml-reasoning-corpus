@@ -1,0 +1,17 @@
+MLML / OOPSLA26 Artifact retained-source notice
+
+Copyright 2025-2026, Qiyuan Xu
+
+The source artifact states that MLML is free software under the GNU Affero General
+Public License, version 3 or (at your option) any later version. It is distributed
+without warranty. The full license and corresponding source are available in:
+
+  Zenodo record 18454706, artifact v2
+  https://zenodo.org/records/18454706
+  OOPSLA26 Artifact.tar.zst
+  MD5 6f5a1fe82aa182945f6520f7682fa05f
+
+This audit retains small exact source/translation excerpts with their original
+paths and provenance hashes. Those excerpts remain subject to the source
+artifact's AGPL-3.0-or-later terms. The audit's independently authored analysis
+and measurements do not alter the license of retained source excerpts.
