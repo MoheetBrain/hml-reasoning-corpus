@@ -349,3 +349,77 @@ Before any proposed addition is approved, answer:
 10. What regression, conformance, and adversarial tests prevent unsound promotion?
 
 If these questions cannot be answered, record a research gap; do not invent syntax.
+
+## Latest empirical builder handoff — Semantic Firewall
+
+### A. What the experiment established
+
+**EMPIRICAL.** A frozen corpus-side reference checker accepted 80/80 valid FINAL
+transitions and detected 80/80 minimally corrupted invalid transitions across
+dependency, scope, precondition, obligation, candidate, branch/join, warrant,
+epistemic, goal-discharge, and type/domain invariants. FINAL uses 80 unique MATH
+Level 4/5 source rows with zero Gold-125 overlap. Against a source-presence control,
+relative error reduction was 100%; this is controlled protocol sensitivity, not open
+mathematical reasoning accuracy.
+
+### B. What it did not establish
+
+No arbitrary theorem replay, external-model comparison, training result, or pure
+HML-vs-generic-AST-vs-Structured-English advantage was established. Current HML needs
+a transparent adapter envelope to preserve every neutral candidate and branch field,
+so the three prepared representations remain unscored.
+
+### C. Exact high-confidence HML requirements
+
+1. Preserve existing dependency graph, lexical scope, checker-owned status, and exact
+   goal adjudication semantics.
+2. Add a versioned neutral-transition importer and narrow trusted evidence adapter.
+3. Add one generic first-class candidate lifecycle plus original-constraint checking.
+4. Add one generic exhaustive/disjoint branch and safe-join proof protocol reusing
+   lexical frames and certificate envelopes.
+5. Extend fail-closed precondition and type/domain contracts; keep theorem/domain
+   knowledge in libraries.
+6. Round-trip obligations and all approved semantic fields losslessly before claiming
+   pure-HML representation parity.
+
+### D. Requirement-to-build map
+
+| Requirement | Current support | Gap class | Minimal builder change | Acceptance fixtures |
+|---|---|---|---|---|
+| Dependencies | supported | `NO_CHANGE_ALREADY_SUPPORTED` | retain graph and premise checks | `FX-DEP-*` |
+| Lexical scope | supported | `NO_CHANGE_ALREADY_SUPPORTED` | retain scoped Γ | `FX-SCP-LEGAL`, `FX-SCP-ILLEGAL` |
+| Neutral import | partial | `CORPUS_ADAPTER` | versioned lossless importer | `FX-DEP-*`, `FX-OBL-*` |
+| Preconditions | partial | `VERIFIER_CHANGE` | extend term/domain contracts fail-closed | `FX-PRE-*` |
+| Obligation round-trip | core supported, adapter partial | `CORPUS_ADAPTER` | expose existing lifecycle | `FX-OBL-*` |
+| Candidate state | absent | `CORE_STATE_CHANGE` | generic candidate object/lifecycle | `FX-CAN-*` |
+| Candidate promotion | absent | `VERIFIER_CHANGE` | check every original constraint | `FX-CAN-*` |
+| Branch/join | absent beyond lexical scope | `CORE_PROOF_CHANGE` | certified partition/branch/join protocol | `FX-BRN-*` |
+| Evidence envelope adapter | static core boundary exists | `EVIDENCE_ADAPTER` | narrow trusted adapter API | `FX-WAR-*` |
+| Theorem/domain evidence | broad libraries absent | `LIBRARY_CHANGE` | minimal replayable entries | `FX-WAR-*`, `FX-TYP-*` |
+| Epistemic status | supported for derivations/evidence | `NO_CHANGE_ALREADY_SUPPORTED` | extend ownership rule to new objects | `FX-EPI-*` |
+| Goal discharge | supported | `NO_CHANGE_ALREADY_SUPPORTED` | retain exact-target adjudication | `FX-GOL-*` |
+| Type/domain propagation | partial | `VERIFIER_CHANGE` | propagate declared types into adapters/checkers | `FX-TYP-*` |
+| Lossless HML view | partial | `RENDERER_CHANGE` | render only after semantic objects stabilize | `FX-CAN-*`, `FX-BRN-*` |
+
+Every fixture is tested now against the reference checker by
+`tests/test_semantic_firewall.py`. A future HML implementation claiming Semantic
+Firewall support must run the same fixtures without rewriting them.
+
+### E. What Claude must not implement yet
+
+Do not implement open proof search or add `REFRAME`, `WORK_BACKWARDS`,
+`STRENGTHEN_HYPOTHESIS`, `PRUNE`, `REPAIR_LEMMA`, `REVISE_CONJECTURE`, `INDUCT`, or
+domain-specific core keywords. Do not add a user-registerable trusted checker, let
+source set `VERIFIED`, ingest broad theorem libraries merely to satisfy this benchmark,
+or claim representation superiority.
+
+### F. Immutable handoff
+
+- Experiment commit:
+  `80b1640495d6c4ad9acc32da0353ad0c9bf91201`.
+- Full report: `reports/semantic_firewall_experiment.md`.
+- Machine requirements: `experiments/semantic_firewall/requirements_handoff.json`.
+- Fixtures: `experiments/semantic_firewall/acceptance/fixtures.json`.
+- Frozen protocol: `experiments/semantic_firewall/freeze_manifest.json`.
+- Raw metrics: `experiments/semantic_firewall/results/metrics.json`.
+- Pinned HML: `5688aba18632b65a8709aa1d85577d31a67dba6a`.
