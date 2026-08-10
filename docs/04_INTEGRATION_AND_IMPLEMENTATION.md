@@ -423,3 +423,70 @@ or claim representation superiority.
 - Frozen protocol: `experiments/semantic_firewall/freeze_manifest.json`.
 - Raw metrics: `experiments/semantic_firewall/results/metrics.json`.
 - Pinned HML: `5688aba18632b65a8709aa1d85577d31a67dba6a`.
+
+## Latest external-semantic handoff — MiniLang
+
+Detailed audit commit:
+`a417890bbc24cd7bf444c2d1f4a622a22cffb653`.
+
+### Established facts
+
+- The exact OOPSLA26 v2 archive is identified by SHA-256
+  `1562c84524c0851682e47b32243c0e2dcbfb47daaf6820bcb5c216ae8f12bc82`;
+  its compact manifest retains all 42,699 paths, source hashes, license, and inventory.
+- The paper's ten semantics are `INTRO`, `HAVE`, disjunctive `CONSIDER`, existential
+  `CONSIDER`, `RULE`, `CHOOSE`, `SIMPLIFY`, `CASE_SPLIT`, `INDUCT`, and `END`;
+  `NEXT` is its sibling-navigation alias. The verified corpus uses 17 concrete labels.
+- 290,185/340,267 source goals have verified refined translations (85.2816%). The
+  50,082 failed/missing tail is not an observed core-gap denominator.
+- The control vocabulary is small, but complete proving is MiniLang + Isabelle state
+  + kernel/libraries + automation/search.
+
+### Build interpretation
+
+The strongest convergence with HML is explicit typed state, obligations, scoped local
+facts, certified discharge, backend-separated evidence, and verifier-owned promotion.
+The strongest disagreement is granularity: MiniLang deliberately packages several
+effects into ergonomic commands, while HML factors operation, warrant, goal, scope,
+epistemic status, dependencies, and rendering. Do not force either inventory onto the
+other.
+
+Potentially redundant HML **kernel opcodes**, subject to conformance tests, are
+`APPLY_DEFINITION`, `APPLY_THEOREM`, `SIMPLIFY`, `SUBSTITUTE`, `EVALUATE`, and
+`DISCHARGE`: these may be typed warrant/backend adapters or effects over a smaller
+state kernel rather than independent primitives. This does not make their trajectory
+events or evidence records redundant.
+
+HML semantics absent or non-explicit in MiniLang are the generic candidate lifecycle,
+candidate rejection/promotion history, first-class obligations and dependencies,
+explicit warrant provenance, planner/search intent, and process-quality dimensions.
+MiniLang semantics HML must test more concretely are executable nested proof blocks,
+existential-obtain scope, rule-driven case/induction reconstruction, and exact
+sibling/parent traversal. Hidden automation is material: `END`/`NEXT` call the
+Sledgehammer-integrated closer, while `RULE`, `SIMPLIFY`, and escape `APPLY` delegate
+premise selection and tactics to Isabelle facilities.
+
+### Semantic Firewall and representation implications
+
+No SF requirement is weakened. MiniLang explicitly supports or inherits from Isabelle
+scope, branch reconstruction, types, goal discharge, and checker-owned status; it
+leaves candidate lifecycle absent and makes several precondition, obligation,
+dependency, and warrant-provenance requirements implicit in Isabelle. Priorities remain:
+
+1. canonical typed semantic AST/state and exact delta contract;
+2. generic candidate lifecycle;
+3. certified branch/join plus nested-block protocol;
+4. typed warrant/backend envelope with dependencies and obligations;
+5. lossless parser/renderer only after those objects stabilize.
+
+Before implementation acceptance, replay fixtures for nested `HAVE`, both `CONSIDER`
+modes, datatype cases, induction hypotheses, failed branch export, theorem application,
+simplification, and `END`/`NEXT` traversal. Add matched text-vs-generic-AST-vs-semantic-
+AST tests. The AoA follow-up strengthens AST/state-first interaction, but its bundled
+tree-edit design does not isolate AST representation causally. Textual HML remains a
+rendering/interface, not the canonical mathematical object.
+
+Do **not** replace the 17 candidates with ten keywords, import Isabelle-specific
+surface concepts, encode Sledgehammer/search as semantics, infer a 14.72% core-gap
+rate, or modify frozen trajectories/firewall fixtures. Full evidence and exact
+recommendations are in `reports/minilang_*.md` and `experiments/minilang_audit/`.

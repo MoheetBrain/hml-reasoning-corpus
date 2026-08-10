@@ -366,3 +366,32 @@ High-confidence requirements are:
 - How should proof and counterexample search share resource limits and context?
 - Which verifier disagreements indicate source ambiguity versus implementation bugs?
 - What human-adjudication protocol is sufficient to freeze ontology migrations?
+
+## MiniLang/Isabelle verification boundary
+
+> **EXTERNAL ARTIFACT EVIDENCE.** MiniLang does not make its command text true.
+> Isabelle elaborates terms in a typed context, constructs or applies kernel theorems,
+> exports results across scope, checks branch/induction reconstruction, and accepts the
+> final goal. The executable meaning is the checked proof-state transition, not the
+> surface command spelling.
+
+This reinforces four separations:
+
+1. The language/compiler specifies state and control effects.
+2. Theorem libraries and local facts provide mathematical warrants and premises.
+3. Tactics, simplification, premise retrieval, and Sledgehammer search for evidence.
+4. Isabelle's trusted proof machinery owns acceptance and epistemic promotion.
+
+`HAVE`, `CONSIDER`, `CASE_SPLIT`, and `INDUCT` demonstrate that proposed claims and
+branch assumptions are usable globally only after checked discharge/export/join.
+`RULE`, `SIMPLIFY`, and `END` demonstrate that a compact operation label can conceal
+substantial library/backend work. HML should retain warrant identity, exact premise
+dependencies, backend configuration, generated obligations, and verifier result even
+when the user-facing rendering is minimal.
+
+The artifact provides strong evidence for formal proof validity and proof-state
+discipline, not for all PRM process-quality dimensions. A verified step can still be
+redundant, strategically poor, or irrelevant to the intended task; conversely, a
+useful speculative candidate must not become a fact before verification. Compiler
+success, backend success, denotational preservation, and task alignment must remain
+distinct recorded judgments.

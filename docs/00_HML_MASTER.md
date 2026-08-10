@@ -264,3 +264,33 @@ not mean executable or theorem-verified.
   [03_MEANING_EVIDENCE_AND_VERIFICATION.md](03_MEANING_EVIDENCE_AND_VERIFICATION.md).
 - For architecture and gated implementation decisions, read
   [04_INTEGRATION_AND_IMPLEMENTATION.md](04_INTEGRATION_AND_IMPLEMENTATION.md).
+
+## External MiniLang convergence — 2026-08-10
+
+> **EXTERNAL ARTIFACT EVIDENCE.** The audited OOPSLA26 v2 artifact (Zenodo
+> 18454706; archive SHA-256
+> `1562c84524c0851682e47b32243c0e2dcbfb47daaf6820bcb5c216ae8f12bc82`)
+> contains 290,185 verifier-accepted Isabelle-to-MiniLang translations. Its paper
+> interface has ten semantic operations, while successful executable renderings use
+> 17 labels once pragmatic escape commands are counted.
+
+Independent formal-proof evidence therefore supports a **small execution/control
+vocabulary**: 1,519,944 serialized commands have 2.726 bits of label entropy and
+effective label perplexity 6.62. This converges with Gold-125's long-tail compression,
+but the percentages are not directly comparable: MiniLang commands are coarse proof
+control compositions; HML's 17 are finer candidate state effects factored from
+warrant, scope, goal, epistemic, and rendering axes.
+
+The scientific impact is architectural, not a mandate to rename or collapse HML.
+MiniLang's complete system is its control language **plus** Isabelle proof state,
+kernel, libraries, simplifier, tactics, premise selection, and Sledgehammer. The
+14.7184% failed-or-missing translation tail is dominated by translator, replay,
+automation, implementation, and resource diagnostics; it does not establish a
+14.7184% core-semantic gap rate. The later AoA lineage strengthens an AST/state-first
+interface hypothesis, but neither study isolates semantic minimality from concrete
+representation and backend effects. Canonical typed semantic state should therefore
+remain primary, with textual HML treated as one renderer pending a matched ablation.
+
+Detailed evidence is frozen in `reports/minilang_*.md` and
+`experiments/minilang_audit/` at commit
+`a417890bbc24cd7bf444c2d1f4a622a22cffb653`.

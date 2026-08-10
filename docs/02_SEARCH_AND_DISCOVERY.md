@@ -291,3 +291,30 @@ language.
 > RELAX_CONSTRAINT, STRENGTHEN_HYPOTHESIS, REPAIR_LEMMA,
 > REVISE_CONJECTURE, and CHOOSE_REPRESENTATION are research candidates, not approved
 > HML keywords.
+
+## MiniLang boundary: operation selection is not execution
+
+> **EXTERNAL ARTIFACT EVIDENCE.** MiniLang specifies how a selected proof command
+> transforms an Isabelle proof state. It does not natively represent rejected actions,
+> planner intent, progress, novelty, relevance, uncertainty over strategies, conjecture
+> revision, counterexample-led repair, or the reason one valid next command was chosen
+> over another.
+
+This matches the PRM800K same-prefix finding: identical valid prefixes can support
+multiple next actions of different usefulness. Kernel acceptance of `RULE`, `HAVE`, or
+`END` answers validity and discharge questions; it does not by itself establish that
+the step was novel, globally useful, clear, or the best use of search budget.
+
+The verified corpus has a small label channel—2.726 bits per command and effective
+perplexity 6.62—but those figures measure successful serialized outputs after
+translation and filtering. They do not measure the entropy of premise retrieval,
+tactic search, Sledgehammer candidates, rule instantiation, witness discovery, or
+failed branches. `END`/`NEXT` alone comprise 57.59% of tokens and invoke hidden
+automation when needed; that frequency cannot be interpreted as 57.59% of reasoning.
+
+The evidence therefore strengthens the architecture of a **high-entropy planner and
+small checked execution kernel**. Persist the selected semantic action, exact state
+delta, warrants, and search provenance, while keeping policy/search state outside the
+trusted executor. A decisive experiment must hold proof states, data, verifier,
+backend access, and budgets constant while varying text, generic AST, and semantic
+AST/state interfaces.

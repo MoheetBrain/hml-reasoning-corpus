@@ -397,3 +397,42 @@ These are specification goals, not claims that current HML has proved them globa
 - Do not promote domain procedure names into the kernel.
 - Do not make UNKNOWN preconditions silently true.
 - Do not mutate frozen Gold trajectories to fit this model.
+
+## MiniLang state/execution comparison — 2026-08-10
+
+> **EXTERNAL ARTIFACT EVIDENCE.** MiniLang executes over a labelled Isabelle proof
+> tree whose leaves are contexts and goals. Its implementation represents this as a
+> scoped stack/history/cache state and uses kernel theorems and callbacks to rebuild
+> parent results. A command is therefore not just a token transition: it changes
+> goals, local context, block/branch structure, and sometimes fact status.
+
+| MiniLang paper operation | Nearest HML state account |
+|---|---|
+| `INTRO` | binder/assumption scope delta; chiefly `DECLARE`/`RECORD` composition |
+| `HAVE` | create lemma obligation, nested proof scope, verified `RECORD`, then resume |
+| `CONSIDER` disjunction | `CASE_SPLIT` plus coverage obligation and certified join |
+| `CONSIDER` existential | witness scope plus existence proof; not candidate `SELECT` |
+| `RULE` | theorem application warrant plus goal replacement/unification |
+| `CHOOSE` | existential witness construction plus residual goal; not planner choice |
+| `SIMPLIFY` | backend/library rewrite warrant plus exact checked goal delta |
+| `CASE_SPLIT` | type/datatype case rule, branch-local assumptions, certified join |
+| `INDUCT` | induction-rule protocol, cases, hypotheses, and certified reconstruction |
+| `END`/`NEXT` | discharge/traverse block; `NEXT` is the paper-level alias of `END` |
+
+The comparison does not show “10 primitives beat 17.” MiniLang's ten count two
+`CONSIDER` meanings separately and collapse multiple HML axes into commands; HML's 17
+are adjudicated candidate effects, not approved opcodes. MiniLang additionally uses
+seven escape labels (`APPLY`, `CONFIG`, `DEFINE`, `LET`, `NOTATION`, `OPEN_MODULE`,
+`UNFOLD`) in verified output.
+
+State-safety convergence is strongest for explicit goals, lexical scope, local branch
+facts, proof obligations, kernel-owned promotion, and checked parent reconstruction.
+MiniLang independently reinforces the need for a certified branch/join object: its
+safety comes from Isabelle elimination/induction theorems and export callbacks, not
+from the surface case label. It does **not** provide HML's generic candidate lifecycle,
+explicit dependency/provenance objects, or operation/warrant/effect factorization.
+
+The 39,504 diagnosed refined failures plus 10,578 missing refined rows identify
+engineering and translation pressure, especially branch/scope/induction handling,
+but no defensible absent-core rate. Preserve fail-closed preconditions and obligations;
+do not promote these clusters into new syntax without replay-level semantic evidence.
