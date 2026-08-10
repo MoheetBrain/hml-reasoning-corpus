@@ -1,0 +1,292 @@
+{
+  "case_id": "SF-FINAL-EPI-002-A",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": "e_verify",
+          "to_status": "VERIFIED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "\\end{align*}Solving for $f(x),$ we find\n\\[f(x) = \\frac{1}{x} + 1.\\]We can check that this function works.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-EPI-002-A",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "305dacccfc6e689b546de45478a86b6a8274caaaf407e2b6ec7f7fc4ba87084c",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        },
+        "e_verify": {
+          "id": "e_verify",
+          "kind": "TRANSITION_CHECK",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "PROPOSED",
+          "supports_rule": "VERIFY_TRANSITION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-EPI-002",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "EPISTEMIC_STATUS",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "Let $S$ be the set of all nonzero real numbers.  The function $f : S \\to S$ satisfies the following two properties:\n\n(i) First,\n\\[f \\left( \\frac{1}{x} \\right) = xf(x)\\]for all $x \\in S.$\n\n(ii) Second,\n\\[f \\left( \\frac{1}{x} \\right) +  f \\left( \\frac{1}{y} \\right) = 1 + f \\left( \\frac{1}{x + y} \\right)\\]for all $x \\in S$ and $y \\in S$ such that $x + y \\in S.$\n\nLet $n$ be the number of possible values of $f(1),$ and let $s$ be the sum of all possible values of $f(1).$  Find $n \\times s.$",
+        "solution_span": "\\end{align*}Solving for $f(x),$ we find\n\\[f(x) = \\frac{1}{x} + 1.\\]We can check that this function works.",
+        "solution_span_hash": "305dacccfc6e689b546de45478a86b6a8274caaaf407e2b6ec7f7fc4ba87084c",
+        "source_hash": "da0ceac229670886218364b1f73aaa6f6d51e3c335cb7b04a4f5ea8203d7dbf8",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03423"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "\\end{align*}Solving for $f(x),$ we find\n\\[f(x) = \\frac{1}{x} + 1.\\]We can check that this function works.",
+            "scope": "global",
+            "status": "VERIFIED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Let $S$ be the set of all nonzero real numbers.  The function $f : S \\to S$ satisfies the following two properties:\n\n(i) First,\n\\[f \\left( \\frac{1}{x} \\right) = xf(x)\\]for all $x \\in S.$\n\n(ii) Second,\n\\[f \\left( \\frac{1}{x} \\right) +  f \\left( \\frac{1}{y} \\right) = 1 + f \\left( \\frac{1}{x + y} \\right)\\]for all $x \\in S$ and $y \\in S$ such that $x + y \\in S.$\n\nLet $n$ be the number of possible values of $f(1),$ and let $s$ be the sum of all possible values of $f(1).$  Find $n \\times s.$",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Let $S$ be the set of all nonzero real numbers.  The function $f : S \\to S$ satisfies the following two properties:\n\n(i) First,\n\\[f \\left( \\frac{1}{x} \\right) = xf(x)\\]for all $x \\in S.$\n\n(ii) Second,\n\\[f \\left( \\frac{1}{x} \\right) +  f \\left( \\frac{1}{y} \\right) = 1 + f \\left( \\frac{1}{x + y} \\right)\\]for all $x \\in S$ and $y \\in S$ such that $x + y \\in S.$\n\nLet $n$ be the number of possible values of $f(1),$ and let $s$ be the sum of all possible values of $f(1).$  Find $n \\times s.$",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": "e_verify",
+          "to_status": "VERIFIED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "\\end{align*}Solving for $f(x),$ we find\n\\[f(x) = \\frac{1}{x} + 1.\\]We can check that this function works.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-EPI-002-A",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "305dacccfc6e689b546de45478a86b6a8274caaaf407e2b6ec7f7fc4ba87084c",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        },
+        "e_verify": {
+          "id": "e_verify",
+          "kind": "TRANSITION_CHECK",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "PROPOSED",
+          "supports_rule": "VERIFY_TRANSITION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-EPI-002",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "EPISTEMIC_STATUS",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "Let $S$ be the set of all nonzero real numbers.  The function $f : S \\to S$ satisfies the following two properties:\n\n(i) First,\n\\[f \\left( \\frac{1}{x} \\right) = xf(x)\\]for all $x \\in S.$\n\n(ii) Second,\n\\[f \\left( \\frac{1}{x} \\right) +  f \\left( \\frac{1}{y} \\right) = 1 + f \\left( \\frac{1}{x + y} \\right)\\]for all $x \\in S$ and $y \\in S$ such that $x + y \\in S.$\n\nLet $n$ be the number of possible values of $f(1),$ and let $s$ be the sum of all possible values of $f(1).$  Find $n \\times s.$",
+        "solution_span": "\\end{align*}Solving for $f(x),$ we find\n\\[f(x) = \\frac{1}{x} + 1.\\]We can check that this function works.",
+        "solution_span_hash": "305dacccfc6e689b546de45478a86b6a8274caaaf407e2b6ec7f7fc4ba87084c",
+        "source_hash": "da0ceac229670886218364b1f73aaa6f6d51e3c335cb7b04a4f5ea8203d7dbf8",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03423"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "\\end{align*}Solving for $f(x),$ we find\n\\[f(x) = \\frac{1}{x} + 1.\\]We can check that this function works.",
+            "scope": "global",
+            "status": "VERIFIED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Let $S$ be the set of all nonzero real numbers.  The function $f : S \\to S$ satisfies the following two properties:\n\n(i) First,\n\\[f \\left( \\frac{1}{x} \\right) = xf(x)\\]for all $x \\in S.$\n\n(ii) Second,\n\\[f \\left( \\frac{1}{x} \\right) +  f \\left( \\frac{1}{y} \\right) = 1 + f \\left( \\frac{1}{x + y} \\right)\\]for all $x \\in S$ and $y \\in S$ such that $x + y \\in S.$\n\nLet $n$ be the number of possible values of $f(1),$ and let $s$ be the sum of all possible values of $f(1).$  Find $n \\times s.$",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Let $S$ be the set of all nonzero real numbers.  The function $f : S \\to S$ satisfies the following two properties:\n\n(i) First,\n\\[f \\left( \\frac{1}{x} \\right) = xf(x)\\]for all $x \\in S.$\n\n(ii) Second,\n\\[f \\left( \\frac{1}{x} \\right) +  f \\left( \\frac{1}{y} \\right) = 1 + f \\left( \\frac{1}{x + y} \\right)\\]for all $x \\in S$ and $y \\in S$ such that $x + y \\in S.$\n\nLet $n$ be the number of possible values of $f(1),$ and let $s$ be the sum of all possible values of $f(1).$  Find $n \\times s.$",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_FINAL_EPI_002_A\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "67cd084fcda384a93e025f1038bcfb223c7c14a3ef8755ed0e419b9c871365ee",
+  "structured_english": "Case SF-FINAL-EPI-002-A (pair SF-FINAL-EPI-002).\nSource row: train-row-03423 (Intermediate Algebra, Level 4).\nSource problem: Let $S$ be the set of all nonzero real numbers.  The function $f : S \\to S$ satisfies the following two properties:\n\n(i) First,\n\\[f \\left( \\frac{1}{x} \\right) = xf(x)\\]for all $x \\in S.$\n\n(ii) Second,\n\\[f \\left( \\frac{1}{x} \\right) +  f \\left( \\frac{1}{y} \\right) = 1 + f \\left( \\frac{1}{x + y} \\right)\\]for all $x \\in S$ and $y \\in S$ such that $x + y \\in S.$\n\nLet $n$ be the number of possible values of $f(1),$ and let $s$ be the sum of all possible values of $f(1).$  Find $n \\times s.$\nProposed action: \\end{align*}Solving for $f(x),$ we find\n\\[f(x) = \\frac{1}{x} + 1.\\]We can check that this function works.\nOperation: DERIVE.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Let $S$ be the set of all nonzero real numbers.  The function $f : S \\\\to S$ satisfies the following two properties:\\n\\n(i) First,\\n\\\\[f \\\\left( \\\\frac{1}{x} \\\\right) = xf(x)\\\\]for all $x \\\\in S.$\\n\\n(ii) Second,\\n\\\\[f \\\\left( \\\\frac{1}{x} \\\\right) +  f \\\\left( \\\\frac{1}{y} \\\\right) = 1 + f \\\\left( \\\\frac{1}{x + y} \\\\right)\\\\]for all $x \\\\in S$ and $y \\\\in S$ such that $x + y \\\\in S.$\\n\\nLet $n$ be the number of possible values of $f(1),$ and let $s$ be the sum of all possible values of $f(1).$  Find $n \\\\times s.$\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": \"e_verify\", \"to_status\": \"VERIFIED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"305dacccfc6e689b546de45478a86b6a8274caaaf407e2b6ec7f7fc4ba87084c\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}, \"e_verify\": {\"id\": \"e_verify\", \"kind\": \"TRANSITION_CHECK\", \"premise_ids\": [\"p0\"], \"status\": \"PROPOSED\", \"supports_rule\": \"VERIFY_TRANSITION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"\\\\end{align*}Solving for $f(x),$ we find\\n\\\\[f(x) = \\\\frac{1}{x} + 1.\\\\]We can check that this function works.\", \"scope\": \"global\", \"status\": \"VERIFIED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Let $S$ be the set of all nonzero real numbers.  The function $f : S \\\\to S$ satisfies the following two properties:\\n\\n(i) First,\\n\\\\[f \\\\left( \\\\frac{1}{x} \\\\right) = xf(x)\\\\]for all $x \\\\in S.$\\n\\n(ii) Second,\\n\\\\[f \\\\left( \\\\frac{1}{x} \\\\right) +  f \\\\left( \\\\frac{1}{y} \\\\right) = 1 + f \\\\left( \\\\frac{1}{x + y} \\\\right)\\\\]for all $x \\\\in S$ and $y \\\\in S$ such that $x + y \\\\in S.$\\n\\nLet $n$ be the number of possible values of $f(1),$ and let $s$ be the sum of all possible values of $f(1).$  Find $n \\\\times s.$\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

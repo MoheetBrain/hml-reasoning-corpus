@@ -1,0 +1,368 @@
+{
+  "SF-DEV-BRN-001-A": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-BRN-001"
+  },
+  "SF-DEV-BRN-001-B": {
+    "corruption": {
+      "description": "join closed branches without an exhaustive partition certificate",
+      "ordinal": 11,
+      "target_paths": [
+        "action.branch_effect.coverage_evidence_id"
+      ]
+    },
+    "error_class": "INVALID_BRANCH_JOIN",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-BRN-001"
+  },
+  "SF-DEV-BRN-002-A": {
+    "corruption": {
+      "description": "join closed branches without an exhaustive partition certificate",
+      "ordinal": 12,
+      "target_paths": [
+        "action.branch_effect.coverage_evidence_id"
+      ]
+    },
+    "error_class": "INVALID_BRANCH_JOIN",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-BRN-002"
+  },
+  "SF-DEV-BRN-002-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-BRN-002"
+  },
+  "SF-DEV-CAN-001-A": {
+    "corruption": {
+      "description": "promote a candidate without independent original-constraint evidence",
+      "ordinal": 9,
+      "target_paths": [
+        "action.candidate_effect.evidence_id"
+      ]
+    },
+    "error_class": "CANDIDATE_PROMOTION",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-CAN-001"
+  },
+  "SF-DEV-CAN-001-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-CAN-001"
+  },
+  "SF-DEV-CAN-002-A": {
+    "corruption": {
+      "description": "promote a candidate without independent original-constraint evidence",
+      "ordinal": 10,
+      "target_paths": [
+        "action.candidate_effect.evidence_id"
+      ]
+    },
+    "error_class": "CANDIDATE_PROMOTION",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-CAN-002"
+  },
+  "SF-DEV-CAN-002-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-CAN-002"
+  },
+  "SF-DEV-DEP-001-A": {
+    "corruption": {
+      "description": "replace complete ancestry with an unavailable future dependency",
+      "ordinal": 1,
+      "target_paths": [
+        "action.dependencies",
+        "state_after.claims.c1.dependencies",
+        "evidence.e_source.premise_ids"
+      ]
+    },
+    "error_class": "DEPENDENCY_VIOLATION",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-DEP-001"
+  },
+  "SF-DEV-DEP-001-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-DEP-001"
+  },
+  "SF-DEV-DEP-002-A": {
+    "corruption": {
+      "description": "replace complete ancestry with an unavailable future dependency",
+      "ordinal": 2,
+      "target_paths": [
+        "action.dependencies",
+        "state_after.claims.c1.dependencies",
+        "evidence.e_source.premise_ids"
+      ]
+    },
+    "error_class": "DEPENDENCY_VIOLATION",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-DEP-002"
+  },
+  "SF-DEV-DEP-002-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-DEP-002"
+  },
+  "SF-DEV-EPI-001-A": {
+    "corruption": {
+      "description": "assert VERIFIED while the checking evidence is only proposed",
+      "ordinal": 15,
+      "target_paths": [
+        "evidence.e_verify.status"
+      ]
+    },
+    "error_class": "EPISTEMIC_PROMOTION",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-EPI-001"
+  },
+  "SF-DEV-EPI-001-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-EPI-001"
+  },
+  "SF-DEV-EPI-002-A": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-EPI-002"
+  },
+  "SF-DEV-EPI-002-B": {
+    "corruption": {
+      "description": "assert VERIFIED while the checking evidence is only proposed",
+      "ordinal": 16,
+      "target_paths": [
+        "evidence.e_verify.status"
+      ]
+    },
+    "error_class": "EPISTEMIC_PROMOTION",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-EPI-002"
+  },
+  "SF-DEV-GOL-001-A": {
+    "corruption": {
+      "description": "close a goal with a verified claim about a different proposition",
+      "ordinal": 17,
+      "target_paths": [
+        "state_after.claims.c1.proposition"
+      ]
+    },
+    "error_class": "FALSE_GOAL_DISCHARGE",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-GOL-001"
+  },
+  "SF-DEV-GOL-001-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-GOL-001"
+  },
+  "SF-DEV-GOL-002-A": {
+    "corruption": {
+      "description": "close a goal with a verified claim about a different proposition",
+      "ordinal": 18,
+      "target_paths": [
+        "state_after.claims.c1.proposition"
+      ]
+    },
+    "error_class": "FALSE_GOAL_DISCHARGE",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-GOL-002"
+  },
+  "SF-DEV-GOL-002-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-GOL-002"
+  },
+  "SF-DEV-OBL-001-A": {
+    "corruption": {
+      "description": "silently delete newly created proof debt",
+      "ordinal": 7,
+      "target_paths": [
+        "state_after.obligations.o1"
+      ]
+    },
+    "error_class": "OBLIGATION_DROP",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-OBL-001"
+  },
+  "SF-DEV-OBL-001-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-OBL-001"
+  },
+  "SF-DEV-OBL-002-A": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-OBL-002"
+  },
+  "SF-DEV-OBL-002-B": {
+    "corruption": {
+      "description": "silently delete newly created proof debt",
+      "ordinal": 8,
+      "target_paths": [
+        "state_after.obligations.o1"
+      ]
+    },
+    "error_class": "OBLIGATION_DROP",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-OBL-002"
+  },
+  "SF-DEV-PRE-001-A": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-PRE-001"
+  },
+  "SF-DEV-PRE-001-B": {
+    "corruption": {
+      "description": "execute despite a failed mandatory applicability condition",
+      "ordinal": 5,
+      "target_paths": [
+        "action.preconditions[0].status"
+      ]
+    },
+    "error_class": "PRECONDITION_VIOLATION",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-PRE-001"
+  },
+  "SF-DEV-PRE-002-A": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-PRE-002"
+  },
+  "SF-DEV-PRE-002-B": {
+    "corruption": {
+      "description": "execute despite a failed mandatory applicability condition",
+      "ordinal": 6,
+      "target_paths": [
+        "action.preconditions[0].status"
+      ]
+    },
+    "error_class": "PRECONDITION_VIOLATION",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-PRE-002"
+  },
+  "SF-DEV-SCP-001-A": {
+    "corruption": {
+      "description": "promote a branch-local conclusion to global scope without discharge",
+      "ordinal": 3,
+      "target_paths": [
+        "state_after.claims.c1.scope"
+      ]
+    },
+    "error_class": "SCOPE_LEAK",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-SCP-001"
+  },
+  "SF-DEV-SCP-001-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-SCP-001"
+  },
+  "SF-DEV-SCP-002-A": {
+    "corruption": {
+      "description": "promote a branch-local conclusion to global scope without discharge",
+      "ordinal": 4,
+      "target_paths": [
+        "state_after.claims.c1.scope"
+      ]
+    },
+    "error_class": "SCOPE_LEAK",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-SCP-002"
+  },
+  "SF-DEV-SCP-002-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-SCP-002"
+  },
+  "SF-DEV-TYP-001-A": {
+    "corruption": {
+      "description": "supply a Boolean where the operation contract requires an Integer",
+      "ordinal": 19,
+      "target_paths": [
+        "state_before.claims.p0.domain",
+        "state_after.claims.p0.domain"
+      ]
+    },
+    "error_class": "TYPE_OR_DOMAIN_MISMATCH",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-TYP-001"
+  },
+  "SF-DEV-TYP-001-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-TYP-001"
+  },
+  "SF-DEV-TYP-002-A": {
+    "corruption": {
+      "description": "supply a Boolean where the operation contract requires an Integer",
+      "ordinal": 20,
+      "target_paths": [
+        "state_before.claims.p0.domain",
+        "state_after.claims.p0.domain"
+      ]
+    },
+    "error_class": "TYPE_OR_DOMAIN_MISMATCH",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-TYP-002"
+  },
+  "SF-DEV-TYP-002-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-TYP-002"
+  },
+  "SF-DEV-WAR-001-A": {
+    "corruption": {
+      "description": "name a rule not supported by the attached evidence envelope",
+      "ordinal": 13,
+      "target_paths": [
+        "action.warrant.rule"
+      ]
+    },
+    "error_class": "WARRANT_MISMATCH",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-WAR-001"
+  },
+  "SF-DEV-WAR-001-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-WAR-001"
+  },
+  "SF-DEV-WAR-002-A": {
+    "corruption": {
+      "description": "name a rule not supported by the attached evidence envelope",
+      "ordinal": 14,
+      "target_paths": [
+        "action.warrant.rule"
+      ]
+    },
+    "error_class": "WARRANT_MISMATCH",
+    "expected": "INVALID",
+    "pair_id": "SF-DEV-WAR-002"
+  },
+  "SF-DEV-WAR-002-B": {
+    "corruption": null,
+    "error_class": null,
+    "expected": "VALID",
+    "pair_id": "SF-DEV-WAR-002"
+  }
+}

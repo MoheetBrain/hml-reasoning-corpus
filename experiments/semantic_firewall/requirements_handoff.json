@@ -1,0 +1,142 @@
+{
+  "handoff_version": "semantic-firewall-builder-requirements-0.1.0",
+  "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+  "requirements": [
+    {
+      "id": "SF-R01",
+      "requirement": "Reject missing, future, circular, and non-evidence dependencies; preserve exact premise ancestry.",
+      "current_hml_support": "SUPPORTED",
+      "gap_classification": "NO_CHANGE_ALREADY_SUPPORTED",
+      "minimal_builder_change": "No core change. Retain EvidenceGraph validation and ordered premise resolution.",
+      "acceptance_fixtures": ["FX-DEP-LEGAL", "FX-DEP-ILLEGAL", "FX-DEP-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/reasoning/evidence.py", "src/hamiltonian_lang/reasoning/check.py"]
+    },
+    {
+      "id": "SF-R02",
+      "requirement": "Preserve lexical assumption locality and prevent local facts from escaping without discharge.",
+      "current_hml_support": "SUPPORTED_FOR_LEXICAL_SCOPE",
+      "gap_classification": "NO_CHANGE_ALREADY_SUPPORTED",
+      "minimal_builder_change": "No core change for lexical scope; preserve ScopeStmt and RefinementEnv frame behavior.",
+      "acceptance_fixtures": ["FX-SCP-LEGAL", "FX-SCP-ILLEGAL"],
+      "relevant_hml_files": ["src/hamiltonian_lang/ast/nodes.py", "src/hamiltonian_lang/reasoning/refinement.py", "src/hamiltonian_lang/reasoning/check.py"]
+    },
+    {
+      "id": "SF-R03",
+      "requirement": "Map neutral state, action, dependencies, scopes, and exact deltas into HML-owned objects without dropping provenance.",
+      "current_hml_support": "PARTIAL",
+      "gap_classification": "CORPUS_ADAPTER",
+      "minimal_builder_change": "Add a versioned neutral-transition import adapter; do not add syntax.",
+      "acceptance_fixtures": ["FX-DEP-LEGAL", "FX-SCP-LEGAL", "FX-OBL-LEGAL"],
+      "relevant_hml_files": ["src/hamiltonian_lang/importers/__init__.py", "src/hamiltonian_lang/ast/nodes.py"]
+    },
+    {
+      "id": "SF-R04",
+      "requirement": "Apply one fail-closed precondition contract to every partial operation, including unsupported/unknown outcomes.",
+      "current_hml_support": "PARTIAL",
+      "gap_classification": "VERIFIER_CHANGE",
+      "minimal_builder_change": "Extend the existing term-level contract registry and side-condition dispatch; unknown contracts must block.",
+      "acceptance_fixtures": ["FX-PRE-LEGAL", "FX-PRE-ILLEGAL", "FX-PRE-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/reasoning/partiality.py", "src/hamiltonian_lang/reasoning/side_conditions.py", "src/hamiltonian_lang/reasoning/check.py"]
+    },
+    {
+      "id": "SF-R05",
+      "requirement": "Preserve obligation identity, origin, dependencies, scope, persistence, and named discharge across neutral imports and renderings.",
+      "current_hml_support": "SUPPORTED_IN_REASONING_CORE_PARTIAL_AT_ADAPTER_BOUNDARY",
+      "gap_classification": "CORPUS_ADAPTER",
+      "minimal_builder_change": "Expose existing ReasoningObligation records through the neutral adapter and round-trip them losslessly.",
+      "acceptance_fixtures": ["FX-OBL-LEGAL", "FX-OBL-ILLEGAL", "FX-OBL-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/reasoning/check.py", "src/hamiltonian_lang/reasoning/evidence.py", "src/hamiltonian_lang/verification/obligations/records.py"]
+    },
+    {
+      "id": "SF-R06",
+      "requirement": "Represent candidates separately from facts with PROPOSED, UNVERIFIED, VERIFIED, and REJECTED lifecycle states.",
+      "current_hml_support": "NOT_EXPRESSIBLE",
+      "gap_classification": "CORE_STATE_CHANGE",
+      "minimal_builder_change": "Add one first-class candidate state object and verifier-owned lifecycle; do not add domain-specific candidate keywords.",
+      "acceptance_fixtures": ["FX-CAN-LEGAL", "FX-CAN-ILLEGAL", "FX-CAN-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/ast/nodes.py", "src/hamiltonian_lang/reasoning/check.py", "src/hamiltonian_lang/reasoning/evidence.py"]
+    },
+    {
+      "id": "SF-R07",
+      "requirement": "Promote a candidate only after independent evidence checks every recorded original constraint in the same scope.",
+      "current_hml_support": "MISSING",
+      "gap_classification": "VERIFIER_CHANGE",
+      "minimal_builder_change": "Add a generic candidate-check verdict consuming candidate id, constraint ids, context hash, and trusted evidence.",
+      "acceptance_fixtures": ["FX-CAN-LEGAL", "FX-CAN-ILLEGAL", "FX-CAN-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/reasoning/check.py", "src/hamiltonian_lang/reasoning/certificates/__init__.py"]
+    },
+    {
+      "id": "SF-R08",
+      "requirement": "Join branch-local conclusions only when required branches are closed and exhaustive/disjoint coverage is certified.",
+      "current_hml_support": "NOT_EXPRESSIBLE",
+      "gap_classification": "CORE_PROOF_CHANGE",
+      "minimal_builder_change": "Add a generic case-partition/branch-result/join proof protocol reusing lexical frames and evidence envelopes.",
+      "acceptance_fixtures": ["FX-BRN-LEGAL", "FX-BRN-ILLEGAL", "FX-BRN-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/ast/nodes.py", "src/hamiltonian_lang/reasoning/check.py", "src/hamiltonian_lang/reasoning/refinement.py"]
+    },
+    {
+      "id": "SF-R09",
+      "requirement": "Bind warrant identity, exact premise list, target claim, checker version, and context hash in a replay-resistant evidence envelope.",
+      "current_hml_support": "SUPPORTED_STATIC_REGISTRY_PARTIAL_EXTERNAL_ADAPTER",
+      "gap_classification": "EVIDENCE_ADAPTER",
+      "minimal_builder_change": "Define a narrow trusted adapter API over CertificateEnvelope; source must never register its own trusted checker.",
+      "acceptance_fixtures": ["FX-WAR-LEGAL", "FX-WAR-ILLEGAL", "FX-WAR-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/reasoning/certificates/__init__.py", "src/hamiltonian_lang/reasoning/certificates/builtin.py", "src/hamiltonian_lang/reasoning/check.py"]
+    },
+    {
+      "id": "SF-R10",
+      "requirement": "Supply theorem and domain warrants through replayable library evidence rather than new core operations.",
+      "current_hml_support": "MISSING_BROAD_LIBRARIES",
+      "gap_classification": "LIBRARY_CHANGE",
+      "minimal_builder_change": "Add only the minimal generic library registration/evidence path needed by approved fixtures; defer broad theorem ingestion.",
+      "acceptance_fixtures": ["FX-WAR-LEGAL", "FX-PRE-LEGAL", "FX-TYP-LEGAL"],
+      "relevant_hml_files": ["src/hamiltonian_lang/reasoning/certificates/__init__.py", "src/hamiltonian_lang/reasoning/certificates/builtin.py"]
+    },
+    {
+      "id": "SF-R11",
+      "requirement": "Keep PROPOSED/CHECKED/VERIFIED/REJECTED outcomes checker-owned and block VERIFIED under unresolved mandatory debt.",
+      "current_hml_support": "SUPPORTED_FOR_DERIVATIONS_AND_EVIDENCE",
+      "gap_classification": "NO_CHANGE_ALREADY_SUPPORTED",
+      "minimal_builder_change": "No semantic change; extend the same ownership rule to candidates and branch joins.",
+      "acceptance_fixtures": ["FX-EPI-LEGAL", "FX-EPI-ILLEGAL", "FX-EPI-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/ast/nodes.py", "src/hamiltonian_lang/reasoning/check.py"]
+    },
+    {
+      "id": "SF-R12",
+      "requirement": "Discharge a goal only from a VERIFIED derivation of the canonically identical target.",
+      "current_hml_support": "SUPPORTED",
+      "gap_classification": "NO_CHANGE_ALREADY_SUPPORTED",
+      "minimal_builder_change": "No core change. Preserve ProvedStmt adjudication and canonical target identity checks.",
+      "acceptance_fixtures": ["FX-GOL-LEGAL", "FX-GOL-ILLEGAL", "FX-GOL-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/ast/nodes.py", "src/hamiltonian_lang/reasoning/check.py"]
+    },
+    {
+      "id": "SF-R13",
+      "requirement": "Reject type/domain mismatches and return unresolved rather than guessing when domain evidence is unavailable.",
+      "current_hml_support": "PARTIAL",
+      "gap_classification": "VERIFIER_CHANGE",
+      "minimal_builder_change": "Extend declared-type propagation into certificate and adapter contexts; preserve fail-closed unknown types.",
+      "acceptance_fixtures": ["FX-TYP-LEGAL", "FX-TYP-ILLEGAL", "FX-TYP-UNKNOWN"],
+      "relevant_hml_files": ["src/hamiltonian_lang/types.py", "src/hamiltonian_lang/type_system/__init__.py", "src/hamiltonian_lang/reasoning/side_conditions.py"]
+    },
+    {
+      "id": "SF-R14",
+      "requirement": "Provide domain-specific applicability facts through libraries, not kernel keywords.",
+      "current_hml_support": "MISSING_BROAD_DOMAIN_CHECKERS",
+      "gap_classification": "LIBRARY_CHANGE",
+      "minimal_builder_change": "Add typed, versioned domain checker entries only as demanded by accepted fixtures and independent evidence.",
+      "acceptance_fixtures": ["FX-PRE-LEGAL", "FX-TYP-LEGAL"],
+      "relevant_hml_files": ["src/hamiltonian_lang/reasoning/certificates/builtin.py", "src/hamiltonian_lang/verification/obligations/checkers.py"]
+    },
+    {
+      "id": "SF-R15",
+      "requirement": "Render every accepted neutral semantic field without hiding adapter state or claiming unsupported pure-HML equivalence.",
+      "current_hml_support": "PARTIAL",
+      "gap_classification": "RENDERER_CHANGE",
+      "minimal_builder_change": "After R03/R06/R08, add a lossless versioned renderer and reject unsupported fields instead of commenting them away.",
+      "acceptance_fixtures": ["FX-CAN-LEGAL", "FX-BRN-LEGAL", "FX-OBL-LEGAL"],
+      "relevant_hml_files": ["src/hamiltonian_lang/backends/hml.py", "src/hamiltonian_lang/backends/canonical.py"]
+    }
+  ]
+}
+

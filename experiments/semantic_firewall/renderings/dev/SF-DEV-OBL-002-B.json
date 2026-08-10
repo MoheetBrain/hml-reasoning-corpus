@@ -1,0 +1,290 @@
+{
+  "case_id": "SF-DEV-OBL-002-B",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [
+          {
+            "dependencies": [
+              "c1"
+            ],
+            "id": "o1",
+            "mandatory": true,
+            "proposition": "Check the source operation against its original constraints."
+          }
+        ],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-DEV-OBL-002-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "60c051ce3371c6fc335c02e3cb5269756ea34f0402a261ce6d38f5d1d044f514",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-DEV-OBL-002",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "OBLIGATIONS",
+      "source": {
+        "category": "Geometry",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": true,
+        "level": "Level 5",
+        "problem": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+        "solution_span": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+        "solution_span_hash": "60c051ce3371c6fc335c02e3cb5269756ea34f0402a261ce6d38f5d1d044f514",
+        "source_hash": "dc1589b1fb0929a503e188e6748e81b9eb4148781279ed9470a3c38c3fd9cf7b",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03071"
+      },
+      "split": "DEV",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [
+          {
+            "dependencies": [
+              "c1"
+            ],
+            "id": "o1",
+            "mandatory": true,
+            "proposition": "Check the source operation against its original constraints."
+          }
+        ],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-DEV-OBL-002-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "60c051ce3371c6fc335c02e3cb5269756ea34f0402a261ce6d38f5d1d044f514",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-DEV-OBL-002",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "OBLIGATIONS",
+      "source": {
+        "category": "Geometry",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": true,
+        "level": "Level 5",
+        "problem": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+        "solution_span": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+        "solution_span_hash": "60c051ce3371c6fc335c02e3cb5269756ea34f0402a261ce6d38f5d1d044f514",
+        "source_hash": "dc1589b1fb0929a503e188e6748e81b9eb4148781279ed9470a3c38c3fd9cf7b",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03071"
+      },
+      "split": "DEV",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_DEV_OBL_002_B\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "9c0929f8cd02740030a87a6ad1ba6a737e0da55692e07ab42ec5635e90c6a4b9",
+  "structured_english": "Case SF-DEV-OBL-002-B (pair SF-DEV-OBL-002).\nSource row: train-row-03071 (Geometry, Level 5).\nSource problem: In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n\nProposed action: Let $AP=a, AQ=b, \\cos\\angle A = k$\nTherefore $AB= \\frac{b}{k} , AC= \\frac{a}{k}$\nBy power of point, we have $AP\\cdot BP=XP\\cdot YP , AQ\\cdot CQ=YQ\\cdot XQ$ Which are simplified to\n$400= \\frac{ab}{k} - a^2$\n$525= \\frac{ab}{k} - b^2$\nOr\n$a^2= \\frac{ab}{k} - 400$\n$b^2= \\frac{ab}{k} - 525$\n(1)\nOr\n$k= \\frac{ab}{a^2+400} = \\frac{ab}{b^2+525}$\nLet $u=a^2+400=b^2+525$ Then, $a=\\sqrt{u-400},b=\\sqrt{u-525},k=\\frac{\\sqrt{(u-400)(u-525)}}{u}$\nIn triangle $APQ$, by law of cosine\n$25^2= a^2 + b^2 - 2abk$\nPluging (1)\n$625=  \\frac{ab}{k} - 400 + \\frac{ab}{k} - 525 -2abk$\nOr\n$\\frac{ab}{k} - abk =775$\nSubstitute everything by $u$\n$u- \\frac{(u-400)(u-525)}{u} =775$\nThe quadratic term is cancelled out after simplified\nWhich gives $u=1400$\nPlug back in, $a= \\sqrt{1000} , b=\\sqrt{875}$\nThen\n$AB\\cdot AC= \\frac{a}{k} \\frac{b}{k} = \\frac{ab}{\\frac{ab}{u} \\cdot\\frac{ab}{u} } = \\frac{u^2}{ab} = \\frac{1400 \\cdot 1400}{ \\sqrt{ 1000\\cdot 875 }} = 560 \\sqrt{14}$\nSo the final answer is $560 + 14 = \\boxed{574}$\nOperation: DERIVE.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\\\overline{AB}$ and from $B$ to $\\\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\\\cdot AC$ can be written in the form $m\\\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\\n\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [{\"dependencies\": [\"c1\"], \"id\": \"o1\", \"mandatory\": true, \"proposition\": \"Check the source operation against its original constraints.\"}], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": null, \"to_status\": \"DERIVED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"60c051ce3371c6fc335c02e3cb5269756ea34f0402a261ce6d38f5d1d044f514\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"Let $AP=a, AQ=b, \\\\cos\\\\angle A = k$\\nTherefore $AB= \\\\frac{b}{k} , AC= \\\\frac{a}{k}$\\nBy power of point, we have $AP\\\\cdot BP=XP\\\\cdot YP , AQ\\\\cdot CQ=YQ\\\\cdot XQ$ Which are simplified to\\n$400= \\\\frac{ab}{k} - a^2$\\n$525= \\\\frac{ab}{k} - b^2$\\nOr\\n$a^2= \\\\frac{ab}{k} - 400$\\n$b^2= \\\\frac{ab}{k} - 525$\\n(1)\\nOr\\n$k= \\\\frac{ab}{a^2+400} = \\\\frac{ab}{b^2+525}$\\nLet $u=a^2+400=b^2+525$ Then, $a=\\\\sqrt{u-400},b=\\\\sqrt{u-525},k=\\\\frac{\\\\sqrt{(u-400)(u-525)}}{u}$\\nIn triangle $APQ$, by law of cosine\\n$25^2= a^2 + b^2 - 2abk$\\nPluging (1)\\n$625=  \\\\frac{ab}{k} - 400 + \\\\frac{ab}{k} - 525 -2abk$\\nOr\\n$\\\\frac{ab}{k} - abk =775$\\nSubstitute everything by $u$\\n$u- \\\\frac{(u-400)(u-525)}{u} =775$\\nThe quadratic term is cancelled out after simplified\\nWhich gives $u=1400$\\nPlug back in, $a= \\\\sqrt{1000} , b=\\\\sqrt{875}$\\nThen\\n$AB\\\\cdot AC= \\\\frac{a}{k} \\\\frac{b}{k} = \\\\frac{ab}{\\\\frac{ab}{u} \\\\cdot\\\\frac{ab}{u} } = \\\\frac{u^2}{ab} = \\\\frac{1400 \\\\cdot 1400}{ \\\\sqrt{ 1000\\\\cdot 875 }} = 560 \\\\sqrt{14}$\\nSo the final answer is $560 + 14 = \\\\boxed{574}$\", \"scope\": \"global\", \"status\": \"DERIVED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\\\overline{AB}$ and from $B$ to $\\\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\\\cdot AC$ can be written in the form $m\\\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\\n\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

@@ -1,0 +1,276 @@
+{
+  "case_id": "SF-DEV-SCP-002-A",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Without loss of generality, let the right angle be at $b.$  Let $x = |b - c|$ and $y = |a - b|.$  The magnitudes of $a$, $b$, and $c$ are just $\\frac{2}{3}$ of the medians because the origin, or the centroid in this case, cuts the median in a ratio of $2:1$.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-DEV-SCP-002-A",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "1899a1d18245449070e5e71312033226e56bc6e9992f34d0f38b1f5c9363dcf7",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-DEV-SCP-002",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "SCOPE",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": true,
+        "level": "Level 4",
+        "problem": "Complex numbers $a,$ $b,$ and $c$ are zeros of a polynomial $P(z) = z^3 + qz + r,$ and $|a|^2 + |b|^2 + |c|^2 = 250.$ The points corresponding to $a,$ $b,$ and $c$ in the complex plane are the vertices of a right triangle with hypotenuse $h.$ Find $h^2.$",
+        "solution_span": "Without loss of generality, let the right angle be at $b.$  Let $x = |b - c|$ and $y = |a - b|.$  The magnitudes of $a$, $b$, and $c$ are just $\\frac{2}{3}$ of the medians because the origin, or the centroid in this case, cuts the median in a ratio of $2:1$.",
+        "solution_span_hash": "1899a1d18245449070e5e71312033226e56bc6e9992f34d0f38b1f5c9363dcf7",
+        "source_hash": "98740513666fe16741b31b279352aa90db6233150f170ca158beb44e9951161e",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-04566"
+      },
+      "split": "DEV",
+      "state_after": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Without loss of generality, let the right angle be at $b.$  Let $x = |b - c|$ and $y = |a - b|.$  The magnitudes of $a$, $b$, and $c$ are just $\\frac{2}{3}$ of the medians because the origin, or the centroid in this case, cuts the median in a ratio of $2:1$.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Complex numbers $a,$ $b,$ and $c$ are zeros of a polynomial $P(z) = z^3 + qz + r,$ and $|a|^2 + |b|^2 + |c|^2 = 250.$ The points corresponding to $a,$ $b,$ and $c$ in the complex plane are the vertices of a right triangle with hypotenuse $h.$ Find $h^2.$",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Complex numbers $a,$ $b,$ and $c$ are zeros of a polynomial $P(z) = z^3 + qz + r,$ and $|a|^2 + |b|^2 + |c|^2 = 250.$ The points corresponding to $a,$ $b,$ and $c$ in the complex plane are the vertices of a right triangle with hypotenuse $h.$ Find $h^2.$",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Without loss of generality, let the right angle be at $b.$  Let $x = |b - c|$ and $y = |a - b|.$  The magnitudes of $a$, $b$, and $c$ are just $\\frac{2}{3}$ of the medians because the origin, or the centroid in this case, cuts the median in a ratio of $2:1$.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-DEV-SCP-002-A",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "1899a1d18245449070e5e71312033226e56bc6e9992f34d0f38b1f5c9363dcf7",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-DEV-SCP-002",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "SCOPE",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": true,
+        "level": "Level 4",
+        "problem": "Complex numbers $a,$ $b,$ and $c$ are zeros of a polynomial $P(z) = z^3 + qz + r,$ and $|a|^2 + |b|^2 + |c|^2 = 250.$ The points corresponding to $a,$ $b,$ and $c$ in the complex plane are the vertices of a right triangle with hypotenuse $h.$ Find $h^2.$",
+        "solution_span": "Without loss of generality, let the right angle be at $b.$  Let $x = |b - c|$ and $y = |a - b|.$  The magnitudes of $a$, $b$, and $c$ are just $\\frac{2}{3}$ of the medians because the origin, or the centroid in this case, cuts the median in a ratio of $2:1$.",
+        "solution_span_hash": "1899a1d18245449070e5e71312033226e56bc6e9992f34d0f38b1f5c9363dcf7",
+        "source_hash": "98740513666fe16741b31b279352aa90db6233150f170ca158beb44e9951161e",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-04566"
+      },
+      "split": "DEV",
+      "state_after": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Without loss of generality, let the right angle be at $b.$  Let $x = |b - c|$ and $y = |a - b|.$  The magnitudes of $a$, $b$, and $c$ are just $\\frac{2}{3}$ of the medians because the origin, or the centroid in this case, cuts the median in a ratio of $2:1$.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Complex numbers $a,$ $b,$ and $c$ are zeros of a polynomial $P(z) = z^3 + qz + r,$ and $|a|^2 + |b|^2 + |c|^2 = 250.$ The points corresponding to $a,$ $b,$ and $c$ in the complex plane are the vertices of a right triangle with hypotenuse $h.$ Find $h^2.$",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Complex numbers $a,$ $b,$ and $c$ are zeros of a polynomial $P(z) = z^3 + qz + r,$ and $|a|^2 + |b|^2 + |c|^2 = 250.$ The points corresponding to $a,$ $b,$ and $c$ in the complex plane are the vertices of a right triangle with hypotenuse $h.$ Find $h^2.$",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_DEV_SCP_002_A\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "1498d884c45a04631334a55ea83eb65700a2f75a4b7d73529165f35064ba40b8",
+  "structured_english": "Case SF-DEV-SCP-002-A (pair SF-DEV-SCP-002).\nSource row: train-row-04566 (Intermediate Algebra, Level 4).\nSource problem: Complex numbers $a,$ $b,$ and $c$ are zeros of a polynomial $P(z) = z^3 + qz + r,$ and $|a|^2 + |b|^2 + |c|^2 = 250.$ The points corresponding to $a,$ $b,$ and $c$ in the complex plane are the vertices of a right triangle with hypotenuse $h.$ Find $h^2.$\nProposed action: Without loss of generality, let the right angle be at $b.$  Let $x = |b - c|$ and $y = |a - b|.$  The magnitudes of $a$, $b$, and $c$ are just $\\frac{2}{3}$ of the medians because the origin, or the centroid in this case, cuts the median in a ratio of $2:1$.\nOperation: DERIVE.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\", \"branch:b1\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Complex numbers $a,$ $b,$ and $c$ are zeros of a polynomial $P(z) = z^3 + qz + r,$ and $|a|^2 + |b|^2 + |c|^2 = 250.$ The points corresponding to $a,$ $b,$ and $c$ in the complex plane are the vertices of a right triangle with hypotenuse $h.$ Find $h^2.$\", \"scope\": \"branch:b1\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": null, \"to_status\": \"DERIVED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"1899a1d18245449070e5e71312033226e56bc6e9992f34d0f38b1f5c9363dcf7\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\", \"branch:b1\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"Without loss of generality, let the right angle be at $b.$  Let $x = |b - c|$ and $y = |a - b|.$  The magnitudes of $a$, $b$, and $c$ are just $\\\\frac{2}{3}$ of the medians because the origin, or the centroid in this case, cuts the median in a ratio of $2:1$.\", \"scope\": \"global\", \"status\": \"DERIVED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Complex numbers $a,$ $b,$ and $c$ are zeros of a polynomial $P(z) = z^3 + qz + r,$ and $|a|^2 + |b|^2 + |c|^2 = 250.$ The points corresponding to $a,$ $b,$ and $c$ in the complex plane are the vertices of a right triangle with hypotenuse $h.$ Find $h^2.$\", \"scope\": \"branch:b1\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

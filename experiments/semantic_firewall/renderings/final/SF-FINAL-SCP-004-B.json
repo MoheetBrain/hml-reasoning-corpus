@@ -1,0 +1,276 @@
+{
+  "case_id": "SF-FINAL-SCP-004-B",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Therefore, if $\\mathop{\\text{lcm}}[\\nu,20]=60$, then $\\nu$ must be divisible by 3 and we may write $\\nu=3n$ (where $n$ is a positive integer).",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-SCP-004-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "30eee9af887ab8bd8c1ca43ab795537a89f80468f76a4721c8301ea1fb4b8ad2",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-SCP-004",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "SCOPE",
+      "source": {
+        "category": "Number Theory",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 5",
+        "problem": "What is the sum of all positive integers $\\nu$ for which $\\mathop{\\text{lcm}}[\\nu,20]=60$?",
+        "solution_span": "Therefore, if $\\mathop{\\text{lcm}}[\\nu,20]=60$, then $\\nu$ must be divisible by 3 and we may write $\\nu=3n$ (where $n$ is a positive integer).",
+        "solution_span_hash": "30eee9af887ab8bd8c1ca43ab795537a89f80468f76a4721c8301ea1fb4b8ad2",
+        "source_hash": "35882715ec1aae0b1fa706a8ffea19ced48065ff1a4c77b883562f8fabe9a5b0",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-04733"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Therefore, if $\\mathop{\\text{lcm}}[\\nu,20]=60$, then $\\nu$ must be divisible by 3 and we may write $\\nu=3n$ (where $n$ is a positive integer).",
+            "scope": "branch:b1",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "What is the sum of all positive integers $\\nu$ for which $\\mathop{\\text{lcm}}[\\nu,20]=60$?",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "What is the sum of all positive integers $\\nu$ for which $\\mathop{\\text{lcm}}[\\nu,20]=60$?",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Therefore, if $\\mathop{\\text{lcm}}[\\nu,20]=60$, then $\\nu$ must be divisible by 3 and we may write $\\nu=3n$ (where $n$ is a positive integer).",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-SCP-004-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "30eee9af887ab8bd8c1ca43ab795537a89f80468f76a4721c8301ea1fb4b8ad2",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-SCP-004",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "SCOPE",
+      "source": {
+        "category": "Number Theory",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 5",
+        "problem": "What is the sum of all positive integers $\\nu$ for which $\\mathop{\\text{lcm}}[\\nu,20]=60$?",
+        "solution_span": "Therefore, if $\\mathop{\\text{lcm}}[\\nu,20]=60$, then $\\nu$ must be divisible by 3 and we may write $\\nu=3n$ (where $n$ is a positive integer).",
+        "solution_span_hash": "30eee9af887ab8bd8c1ca43ab795537a89f80468f76a4721c8301ea1fb4b8ad2",
+        "source_hash": "35882715ec1aae0b1fa706a8ffea19ced48065ff1a4c77b883562f8fabe9a5b0",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-04733"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Therefore, if $\\mathop{\\text{lcm}}[\\nu,20]=60$, then $\\nu$ must be divisible by 3 and we may write $\\nu=3n$ (where $n$ is a positive integer).",
+            "scope": "branch:b1",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "What is the sum of all positive integers $\\nu$ for which $\\mathop{\\text{lcm}}[\\nu,20]=60$?",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "What is the sum of all positive integers $\\nu$ for which $\\mathop{\\text{lcm}}[\\nu,20]=60$?",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_FINAL_SCP_004_B\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "8e2504b8ded105bc7e98afa964d43b37d6cfe936dc77b9aae956604d7ae08a06",
+  "structured_english": "Case SF-FINAL-SCP-004-B (pair SF-FINAL-SCP-004).\nSource row: train-row-04733 (Number Theory, Level 5).\nSource problem: What is the sum of all positive integers $\\nu$ for which $\\mathop{\\text{lcm}}[\\nu,20]=60$?\nProposed action: Therefore, if $\\mathop{\\text{lcm}}[\\nu,20]=60$, then $\\nu$ must be divisible by 3 and we may write $\\nu=3n$ (where $n$ is a positive integer).\nOperation: DERIVE.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\", \"branch:b1\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"What is the sum of all positive integers $\\\\nu$ for which $\\\\mathop{\\\\text{lcm}}[\\\\nu,20]=60$?\", \"scope\": \"branch:b1\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": null, \"to_status\": \"DERIVED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"30eee9af887ab8bd8c1ca43ab795537a89f80468f76a4721c8301ea1fb4b8ad2\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\", \"branch:b1\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"Therefore, if $\\\\mathop{\\\\text{lcm}}[\\\\nu,20]=60$, then $\\\\nu$ must be divisible by 3 and we may write $\\\\nu=3n$ (where $n$ is a positive integer).\", \"scope\": \"branch:b1\", \"status\": \"DERIVED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"What is the sum of all positive integers $\\\\nu$ for which $\\\\mathop{\\\\text{lcm}}[\\\\nu,20]=60$?\", \"scope\": \"branch:b1\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

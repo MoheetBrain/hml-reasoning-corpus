@@ -1,0 +1,276 @@
+{
+  "case_id": "SF-FINAL-SCP-005-B",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "If her favorite song is the first song, she obviously hears the whole thing, and then there are $9!$ ways to order the other songs.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-SCP-005-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "61d9531ff54d7602b7b3d31333236ded08138e0c4a894fa57ba79471f4981be4",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-SCP-005",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "SCOPE",
+      "source": {
+        "category": "Counting & Probability",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 5",
+        "problem": "An o-Pod MP3 player stores and plays entire songs. Celeste has 10 songs stored on her o-Pod. The time length of each song is different. When the songs are ordered by length, the shortest song is only 30 seconds long and each subsequent song is 30 seconds longer than the previous song. Her favorite song is 3 minutes, 30 seconds long. The o-Pod will play all the songs in random order before repeating any song. What is the probability that she hears the first 4 minutes, 30 seconds of music - there are no pauses between songs - without hearing every second of her favorite song? Express your answer as a common fraction.",
+        "solution_span": "If her favorite song is the first song, she obviously hears the whole thing, and then there are $9!$ ways to order the other songs.",
+        "solution_span_hash": "61d9531ff54d7602b7b3d31333236ded08138e0c4a894fa57ba79471f4981be4",
+        "source_hash": "4d904b0cf49fd9909e36047bb453f48ca82f31a0937bca601e8228e659a21a2f",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-01765"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "If her favorite song is the first song, she obviously hears the whole thing, and then there are $9!$ ways to order the other songs.",
+            "scope": "branch:b1",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "An o-Pod MP3 player stores and plays entire songs. Celeste has 10 songs stored on her o-Pod. The time length of each song is different. When the songs are ordered by length, the shortest song is only 30 seconds long and each subsequent song is 30 seconds longer than the previous song. Her favorite song is 3 minutes, 30 seconds long. The o-Pod will play all the songs in random order before repeating any song. What is the probability that she hears the first 4 minutes, 30 seconds of music - there are no pauses between songs - without hearing every second of her favorite song? Express your answer as a common fraction.",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "An o-Pod MP3 player stores and plays entire songs. Celeste has 10 songs stored on her o-Pod. The time length of each song is different. When the songs are ordered by length, the shortest song is only 30 seconds long and each subsequent song is 30 seconds longer than the previous song. Her favorite song is 3 minutes, 30 seconds long. The o-Pod will play all the songs in random order before repeating any song. What is the probability that she hears the first 4 minutes, 30 seconds of music - there are no pauses between songs - without hearing every second of her favorite song? Express your answer as a common fraction.",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "If her favorite song is the first song, she obviously hears the whole thing, and then there are $9!$ ways to order the other songs.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-SCP-005-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "61d9531ff54d7602b7b3d31333236ded08138e0c4a894fa57ba79471f4981be4",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-SCP-005",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "SCOPE",
+      "source": {
+        "category": "Counting & Probability",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 5",
+        "problem": "An o-Pod MP3 player stores and plays entire songs. Celeste has 10 songs stored on her o-Pod. The time length of each song is different. When the songs are ordered by length, the shortest song is only 30 seconds long and each subsequent song is 30 seconds longer than the previous song. Her favorite song is 3 minutes, 30 seconds long. The o-Pod will play all the songs in random order before repeating any song. What is the probability that she hears the first 4 minutes, 30 seconds of music - there are no pauses between songs - without hearing every second of her favorite song? Express your answer as a common fraction.",
+        "solution_span": "If her favorite song is the first song, she obviously hears the whole thing, and then there are $9!$ ways to order the other songs.",
+        "solution_span_hash": "61d9531ff54d7602b7b3d31333236ded08138e0c4a894fa57ba79471f4981be4",
+        "source_hash": "4d904b0cf49fd9909e36047bb453f48ca82f31a0937bca601e8228e659a21a2f",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-01765"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "If her favorite song is the first song, she obviously hears the whole thing, and then there are $9!$ ways to order the other songs.",
+            "scope": "branch:b1",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "An o-Pod MP3 player stores and plays entire songs. Celeste has 10 songs stored on her o-Pod. The time length of each song is different. When the songs are ordered by length, the shortest song is only 30 seconds long and each subsequent song is 30 seconds longer than the previous song. Her favorite song is 3 minutes, 30 seconds long. The o-Pod will play all the songs in random order before repeating any song. What is the probability that she hears the first 4 minutes, 30 seconds of music - there are no pauses between songs - without hearing every second of her favorite song? Express your answer as a common fraction.",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global",
+          "branch:b1"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "An o-Pod MP3 player stores and plays entire songs. Celeste has 10 songs stored on her o-Pod. The time length of each song is different. When the songs are ordered by length, the shortest song is only 30 seconds long and each subsequent song is 30 seconds longer than the previous song. Her favorite song is 3 minutes, 30 seconds long. The o-Pod will play all the songs in random order before repeating any song. What is the probability that she hears the first 4 minutes, 30 seconds of music - there are no pauses between songs - without hearing every second of her favorite song? Express your answer as a common fraction.",
+            "scope": "branch:b1",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_FINAL_SCP_005_B\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "00b45504af99873734cd49c3771f78f3c537fe5eeea3db22a18f589ec0e5dfa9",
+  "structured_english": "Case SF-FINAL-SCP-005-B (pair SF-FINAL-SCP-005).\nSource row: train-row-01765 (Counting & Probability, Level 5).\nSource problem: An o-Pod MP3 player stores and plays entire songs. Celeste has 10 songs stored on her o-Pod. The time length of each song is different. When the songs are ordered by length, the shortest song is only 30 seconds long and each subsequent song is 30 seconds longer than the previous song. Her favorite song is 3 minutes, 30 seconds long. The o-Pod will play all the songs in random order before repeating any song. What is the probability that she hears the first 4 minutes, 30 seconds of music - there are no pauses between songs - without hearing every second of her favorite song? Express your answer as a common fraction.\nProposed action: If her favorite song is the first song, she obviously hears the whole thing, and then there are $9!$ ways to order the other songs.\nOperation: DERIVE.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\", \"branch:b1\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"An o-Pod MP3 player stores and plays entire songs. Celeste has 10 songs stored on her o-Pod. The time length of each song is different. When the songs are ordered by length, the shortest song is only 30 seconds long and each subsequent song is 30 seconds longer than the previous song. Her favorite song is 3 minutes, 30 seconds long. The o-Pod will play all the songs in random order before repeating any song. What is the probability that she hears the first 4 minutes, 30 seconds of music - there are no pauses between songs - without hearing every second of her favorite song? Express your answer as a common fraction.\", \"scope\": \"branch:b1\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": null, \"to_status\": \"DERIVED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"61d9531ff54d7602b7b3d31333236ded08138e0c4a894fa57ba79471f4981be4\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\", \"branch:b1\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"If her favorite song is the first song, she obviously hears the whole thing, and then there are $9!$ ways to order the other songs.\", \"scope\": \"branch:b1\", \"status\": \"DERIVED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"An o-Pod MP3 player stores and plays entire songs. Celeste has 10 songs stored on her o-Pod. The time length of each song is different. When the songs are ordered by length, the shortest song is only 30 seconds long and each subsequent song is 30 seconds longer than the previous song. Her favorite song is 3 minutes, 30 seconds long. The o-Pod will play all the songs in random order before repeating any song. What is the probability that she hears the first 4 minutes, 30 seconds of music - there are no pauses between songs - without hearing every second of her favorite song? Express your answer as a common fraction.\", \"scope\": \"branch:b1\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

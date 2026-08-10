@@ -1,0 +1,155 @@
+{
+  "action": {
+    "branch_effect": {
+      "branch_ids": [],
+      "coverage_evidence_id": null,
+      "kind": "NONE"
+    },
+    "candidate_effect": {
+      "candidate_id": null,
+      "evidence_id": null,
+      "kind": "NONE"
+    },
+    "dependencies": [
+      "p0",
+      "p1",
+      "future_claim",
+      "future_claim"
+    ],
+    "epistemic_effect": {
+      "evidence_id": null,
+      "to_status": "DERIVED"
+    },
+    "goal_effect": {
+      "goal_id": null,
+      "kind": "NONE"
+    },
+    "id": "a0",
+    "obligations_created": [],
+    "obligations_discharged": [],
+    "operation": "DERIVE",
+    "output_id": "c1",
+    "preconditions": [],
+    "scope_effect": {
+      "discharge_evidence_id": null,
+      "kind": "NONE"
+    },
+    "summary": "Thus, the solutions are $\\boxed{-\\sqrt{2}, -\\sqrt{2} + i, -\\sqrt{2} - i}.$",
+    "typing": {
+      "input_domains": {
+        "p0": "Proposition",
+        "p1": "Proposition"
+      },
+      "output_domain": "Proposition"
+    },
+    "warrant": {
+      "evidence_id": "e_source",
+      "kind": "EVIDENCE_ADAPTER",
+      "rule": "SOURCE_REVIEWED_DERIVATION"
+    }
+  },
+  "case_id": "SF-FINAL-DEP-002-A",
+  "evidence": {
+    "e_source": {
+      "id": "e_source",
+      "kind": "SOURCE_REVIEW",
+      "premise_ids": [
+        "p0",
+        "p1",
+        "future_claim",
+        "future_claim"
+      ],
+      "source_span_hash": "f462663101169fcf0cc3eecc338df923d827ca76556fd985511088fd5d3466be",
+      "status": "VALID",
+      "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+      "trusted": true
+    }
+  },
+  "pair_id": "SF-FINAL-DEP-002",
+  "schema_version": "semantic-firewall-case-0.1.0",
+  "semantic_focus": "DEPENDENCY",
+  "source": {
+    "category": "Intermediate Algebra",
+    "dataset": "Hendrycks MATH train parquet",
+    "gold125_overlap": false,
+    "level": "Level 4",
+    "problem": "Solve\n\\[(x^3 + 3x^2 \\sqrt{2} + 6x + 2 \\sqrt{2}) + (x + \\sqrt{2}) = 0.\\]Enter all the solutions, separated by commas.",
+    "solution_span": "Thus, the solutions are $\\boxed{-\\sqrt{2}, -\\sqrt{2} + i, -\\sqrt{2} - i}.$",
+    "solution_span_hash": "f462663101169fcf0cc3eecc338df923d827ca76556fd985511088fd5d3466be",
+    "source_hash": "5e2a67b611613429dadae6daba5363ab15f91b2a3c8822001b6fd7bc2a8cc1af",
+    "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+    "source_row_id": "train-row-03389"
+  },
+  "split": "FINAL",
+  "state_after": {
+    "active_scopes": [
+      "global"
+    ],
+    "branches": {},
+    "candidates": {},
+    "claims": {
+      "c1": {
+        "dependencies": [
+          "p0",
+          "p1",
+          "future_claim",
+          "future_claim"
+        ],
+        "domain": "Proposition",
+        "id": "c1",
+        "proposition": "Thus, the solutions are $\\boxed{-\\sqrt{2}, -\\sqrt{2} + i, -\\sqrt{2} - i}.$",
+        "scope": "global",
+        "status": "DERIVED"
+      },
+      "p0": {
+        "dependencies": [],
+        "domain": "Proposition",
+        "id": "p0",
+        "proposition": "Solve\n\\[(x^3 + 3x^2 \\sqrt{2} + 6x + 2 \\sqrt{2}) + (x + \\sqrt{2}) = 0.\\]Enter all the solutions, separated by commas.",
+        "scope": "global",
+        "status": "GIVEN"
+      },
+      "p1": {
+        "dependencies": [
+          "p0"
+        ],
+        "domain": "Proposition",
+        "id": "p1",
+        "proposition": "A prior source-supported intermediate fact needed by this transition.",
+        "scope": "global",
+        "status": "DERIVED"
+      }
+    },
+    "goals": {},
+    "obligations": {}
+  },
+  "state_before": {
+    "active_scopes": [
+      "global"
+    ],
+    "branches": {},
+    "candidates": {},
+    "claims": {
+      "p0": {
+        "dependencies": [],
+        "domain": "Proposition",
+        "id": "p0",
+        "proposition": "Solve\n\\[(x^3 + 3x^2 \\sqrt{2} + 6x + 2 \\sqrt{2}) + (x + \\sqrt{2}) = 0.\\]Enter all the solutions, separated by commas.",
+        "scope": "global",
+        "status": "GIVEN"
+      },
+      "p1": {
+        "dependencies": [
+          "p0"
+        ],
+        "domain": "Proposition",
+        "id": "p1",
+        "proposition": "A prior source-supported intermediate fact needed by this transition.",
+        "scope": "global",
+        "status": "DERIVED"
+      }
+    },
+    "goals": {},
+    "obligations": {}
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "case_id": "SF-FINAL-OBL-007-A",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [
+          {
+            "dependencies": [
+              "c1"
+            ],
+            "id": "o1",
+            "mandatory": true,
+            "proposition": "Check the source operation against its original constraints."
+          }
+        ],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Checking the six resulting cases, we find that the prime numbers of the form $10x+y$ where $x$ and $y$ are both prime digits are 23, 53, 73, and 37.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-OBL-007-A",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "f7cf9275768e0e647be584e59d115e76323a07b842b96ef13e099f8951acd836",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-OBL-007",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "OBLIGATIONS",
+      "source": {
+        "category": "Number Theory",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "The number $m$ is a three-digit positive integer and is the product of the three distinct prime factors $x$, $y$ and $10x+y$, where $x$ and $y$ are each less than 10. What is the largest possible value of $m$?",
+        "solution_span": "Checking the six resulting cases, we find that the prime numbers of the form $10x+y$ where $x$ and $y$ are both prime digits are 23, 53, 73, and 37.",
+        "solution_span_hash": "f7cf9275768e0e647be584e59d115e76323a07b842b96ef13e099f8951acd836",
+        "source_hash": "9a00de1cade9e1db3feaf1429667d9d48cc5691458d8ddc9f91bbdd71c5ccd65",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-04842"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Checking the six resulting cases, we find that the prime numbers of the form $10x+y$ where $x$ and $y$ are both prime digits are 23, 53, 73, and 37.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "The number $m$ is a three-digit positive integer and is the product of the three distinct prime factors $x$, $y$ and $10x+y$, where $x$ and $y$ are each less than 10. What is the largest possible value of $m$?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {
+          "o1": {
+            "dependencies": [
+              "c1"
+            ],
+            "id": "o1",
+            "mandatory": true,
+            "proposition": "Check the source operation against its original constraints.",
+            "status": "OPEN"
+          }
+        }
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "The number $m$ is a three-digit positive integer and is the product of the three distinct prime factors $x$, $y$ and $10x+y$, where $x$ and $y$ are each less than 10. What is the largest possible value of $m$?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [
+          {
+            "dependencies": [
+              "c1"
+            ],
+            "id": "o1",
+            "mandatory": true,
+            "proposition": "Check the source operation against its original constraints."
+          }
+        ],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Checking the six resulting cases, we find that the prime numbers of the form $10x+y$ where $x$ and $y$ are both prime digits are 23, 53, 73, and 37.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-OBL-007-A",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "f7cf9275768e0e647be584e59d115e76323a07b842b96ef13e099f8951acd836",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-OBL-007",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "OBLIGATIONS",
+      "source": {
+        "category": "Number Theory",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "The number $m$ is a three-digit positive integer and is the product of the three distinct prime factors $x$, $y$ and $10x+y$, where $x$ and $y$ are each less than 10. What is the largest possible value of $m$?",
+        "solution_span": "Checking the six resulting cases, we find that the prime numbers of the form $10x+y$ where $x$ and $y$ are both prime digits are 23, 53, 73, and 37.",
+        "solution_span_hash": "f7cf9275768e0e647be584e59d115e76323a07b842b96ef13e099f8951acd836",
+        "source_hash": "9a00de1cade9e1db3feaf1429667d9d48cc5691458d8ddc9f91bbdd71c5ccd65",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-04842"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Checking the six resulting cases, we find that the prime numbers of the form $10x+y$ where $x$ and $y$ are both prime digits are 23, 53, 73, and 37.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "The number $m$ is a three-digit positive integer and is the product of the three distinct prime factors $x$, $y$ and $10x+y$, where $x$ and $y$ are each less than 10. What is the largest possible value of $m$?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {
+          "o1": {
+            "dependencies": [
+              "c1"
+            ],
+            "id": "o1",
+            "mandatory": true,
+            "proposition": "Check the source operation against its original constraints.",
+            "status": "OPEN"
+          }
+        }
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "The number $m$ is a three-digit positive integer and is the product of the three distinct prime factors $x$, $y$ and $10x+y$, where $x$ and $y$ are each less than 10. What is the largest possible value of $m$?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_FINAL_OBL_007_A\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "25bf705e049a9c99dd0bb35ac76e6b20dc98027ed3d872dce139a077f548e435",
+  "structured_english": "Case SF-FINAL-OBL-007-A (pair SF-FINAL-OBL-007).\nSource row: train-row-04842 (Number Theory, Level 4).\nSource problem: The number $m$ is a three-digit positive integer and is the product of the three distinct prime factors $x$, $y$ and $10x+y$, where $x$ and $y$ are each less than 10. What is the largest possible value of $m$?\nProposed action: Checking the six resulting cases, we find that the prime numbers of the form $10x+y$ where $x$ and $y$ are both prime digits are 23, 53, 73, and 37.\nOperation: DERIVE.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"The number $m$ is a three-digit positive integer and is the product of the three distinct prime factors $x$, $y$ and $10x+y$, where $x$ and $y$ are each less than 10. What is the largest possible value of $m$?\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [{\"dependencies\": [\"c1\"], \"id\": \"o1\", \"mandatory\": true, \"proposition\": \"Check the source operation against its original constraints.\"}], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": null, \"to_status\": \"DERIVED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"f7cf9275768e0e647be584e59d115e76323a07b842b96ef13e099f8951acd836\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"Checking the six resulting cases, we find that the prime numbers of the form $10x+y$ where $x$ and $y$ are both prime digits are 23, 53, 73, and 37.\", \"scope\": \"global\", \"status\": \"DERIVED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"The number $m$ is a three-digit positive integer and is the product of the three distinct prime factors $x$, $y$ and $10x+y$, where $x$ and $y$ are each less than 10. What is the largest possible value of $m$?\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {\"o1\": {\"dependencies\": [\"c1\"], \"id\": \"o1\", \"mandatory\": true, \"proposition\": \"Check the source operation against its original constraints.\", \"status\": \"OPEN\"}}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

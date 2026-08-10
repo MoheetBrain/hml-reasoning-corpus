@@ -1,0 +1,2094 @@
+{
+  "benchmark_scope": "Controlled invariant-level semantic corruptions; not open theorem proving and not full source-solution replay.",
+  "corpus_start_commit": "23f06b9ff91dd7ac8632af99c0582591d621b15d",
+  "counts": {
+    "acceptance_fixtures": 30,
+    "dev_cases": 40,
+    "final_cases": 160,
+    "final_gold125_overlap": 0,
+    "invalid": 100,
+    "pairs": 100,
+    "valid": 100
+  },
+  "error_classes": [
+    "DEPENDENCY_VIOLATION",
+    "SCOPE_LEAK",
+    "PRECONDITION_VIOLATION",
+    "OBLIGATION_DROP",
+    "CANDIDATE_PROMOTION",
+    "INVALID_BRANCH_JOIN",
+    "WARRANT_MISMATCH",
+    "EPISTEMIC_PROMOTION",
+    "FALSE_GOAL_DISCHARGE",
+    "TYPE_OR_DOMAIN_MISMATCH"
+  ],
+  "files": [
+    {
+      "bytes": 1670,
+      "path": "experiments/semantic_firewall/README.md",
+      "sha256": "b64435cba32db4a910ce82557ede8e2cd56196b17a355796c91a35db870404e0"
+    },
+    {
+      "bytes": 182516,
+      "path": "experiments/semantic_firewall/acceptance/fixtures.json",
+      "sha256": "618b88beb9b0018903827c8b7d8ba8976c2c04bb87e2759047b7feceabd9b5b9"
+    },
+    {
+      "bytes": 33785,
+      "path": "experiments/semantic_firewall/build_benchmark.py",
+      "sha256": "860d45346101918191bd3de7e539659e2fb30365596f726fdffdbafcc047f8de"
+    },
+    {
+      "bytes": 6620,
+      "path": "experiments/semantic_firewall/current_hml_probe.py",
+      "sha256": "8fd2db9dd67c79989cc80753dc4304f50d2174df691db01e7113ccae3ecd085e"
+    },
+    {
+      "bytes": 5272,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-BRN-001-A.json",
+      "sha256": "23f15d05ef4141ac13986a7aefde599e5491027b299c8fdbfdd306015beb001b"
+    },
+    {
+      "bytes": 5278,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-BRN-001-B.json",
+      "sha256": "6b0769d42b19f8ea9205449f36b5563c65205db97003b0fe29fedfa7d938649e"
+    },
+    {
+      "bytes": 4367,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-BRN-002-A.json",
+      "sha256": "5a0d7409254e7ebb44a9ccaf1b4af724951709b5f132263e65e8b0ae2b6dedae"
+    },
+    {
+      "bytes": 4361,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-BRN-002-B.json",
+      "sha256": "2fcfdb502537c522b21f4f6ffb8e7184e9efe5cdfcc2befa43e52110086e2a48"
+    },
+    {
+      "bytes": 4997,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-CAN-001-A.json",
+      "sha256": "6aaa89a3d2a94f8236ad81d9f591de58f4a93822614961e99d4bac89616892e9"
+    },
+    {
+      "bytes": 4985,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-CAN-001-B.json",
+      "sha256": "ad4589fb167983b44f64f5683b668ef055e52f355c09cf07fbfad273efe2df51"
+    },
+    {
+      "bytes": 4361,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-CAN-002-A.json",
+      "sha256": "65ecb737c4dd611fcd6511ad6dbefe273a021db00435f84ef67907951c33b5ad"
+    },
+    {
+      "bytes": 4349,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-CAN-002-B.json",
+      "sha256": "060d012a27bdab0f47d6a2fc001e7a08e80620a994cb264e8295f94747cf15b5"
+    },
+    {
+      "bytes": 4987,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-DEP-001-A.json",
+      "sha256": "fa5b6fc74a3b350989c14cb6619136a1352fba3abcc4d8af1e90ecda22874d35"
+    },
+    {
+      "bytes": 4843,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-DEP-001-B.json",
+      "sha256": "b9bbc5d4bb4d5ee0fcc1e12057cfcf3c2e9a6ec3610b7dc702ebecbddf6076a3"
+    },
+    {
+      "bytes": 9466,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-DEP-002-A.json",
+      "sha256": "4ef6e0ec6ee3722834f44d45cb2312aade5cda26a9bc897da303609e8f592586"
+    },
+    {
+      "bytes": 9322,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-DEP-002-B.json",
+      "sha256": "ccbdef9c7ebb7d8d9fb6bd509327e2fe8aa0079e0a400cf307340731b79874c1"
+    },
+    {
+      "bytes": 4608,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-EPI-001-A.json",
+      "sha256": "67a2786188eafdc5702b51982cbd1332c64229a8d09d2c46cc0da1eca09f5f9a"
+    },
+    {
+      "bytes": 4605,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-EPI-001-B.json",
+      "sha256": "a162c5f2690e747c21cb8d02fafef153913da6456603a1576107207e11d94f15"
+    },
+    {
+      "bytes": 4710,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-EPI-002-A.json",
+      "sha256": "b8ab291c5dcaa6f9ac14859364636758cf5388a3d165a65c07860133e0b99b3d"
+    },
+    {
+      "bytes": 4713,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-EPI-002-B.json",
+      "sha256": "07ade41d505c94f42bbfb36021c9a67510608e48abef62a78aa469655bd60774"
+    },
+    {
+      "bytes": 5604,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-GOL-001-A.json",
+      "sha256": "5718d7f70f18a7d84a5f44e77fedc06580b0565977504923f27f56807a19d5c7"
+    },
+    {
+      "bytes": 5623,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-GOL-001-B.json",
+      "sha256": "e7649481a0da1c9c000d7823bb1529cdd3c729a98e790a2c0f2a53f5fd173b41"
+    },
+    {
+      "bytes": 5477,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-GOL-002-A.json",
+      "sha256": "e5b9f456a8c44d680114a7499716ee92e5a48df66b83cad0e4febfb11aa72922"
+    },
+    {
+      "bytes": 5484,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-GOL-002-B.json",
+      "sha256": "552f0af12bd48e8924110ba141bf44e446e67e7112d5e0441b8a65343282e47d"
+    },
+    {
+      "bytes": 4489,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-OBL-001-A.json",
+      "sha256": "cb330b84d7b6e601d2c8fa78aee0f17880145b4700253c448aa48c21b2c53a40"
+    },
+    {
+      "bytes": 4727,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-OBL-001-B.json",
+      "sha256": "86eb5ffc0920fc79ee9e3ae876b572022cf871f625529fe2c6630edb63a33c18"
+    },
+    {
+      "bytes": 7917,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-OBL-002-A.json",
+      "sha256": "37a9d10041789ccd22c93b8cfb3ed9a63146a7fd01cbff7f2754d8ed128c4253"
+    },
+    {
+      "bytes": 7679,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-OBL-002-B.json",
+      "sha256": "97ec840a25d65b5a8badddc0c9e68211cda287640291f97191fa1200a0b96fb2"
+    },
+    {
+      "bytes": 4814,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-PRE-001-A.json",
+      "sha256": "4466337a9e2928849bd47c4543220101bf523204c3f12f40bbe95d154e80f321"
+    },
+    {
+      "bytes": 4811,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-PRE-001-B.json",
+      "sha256": "b9dafc01fda9c86d9d72fe841d9ef04fe78194c3f6ad63eacc32851edc599e76"
+    },
+    {
+      "bytes": 5357,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-PRE-002-A.json",
+      "sha256": "74c4f360c6f31ed33e171cf9007c0c453a4dc0a39be46d9f564d1f0ef2f5fd0d"
+    },
+    {
+      "bytes": 5354,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-PRE-002-B.json",
+      "sha256": "aec50898bebf98beda8fb28f0b900c44bdc98e523821c975e175e86746122adb"
+    },
+    {
+      "bytes": 4370,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-SCP-001-A.json",
+      "sha256": "03fed2084f7cddb7c287761699c021f3e3a38acdbd4813c14e319cf79f4f8c9a"
+    },
+    {
+      "bytes": 4373,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-SCP-001-B.json",
+      "sha256": "0252fa2a241b6ed4b0464333083fdcea1806cc3ed058fd8d85bd19f9b2ee894c"
+    },
+    {
+      "bytes": 4508,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-SCP-002-A.json",
+      "sha256": "ff4a8e27683c398a0ace251d7569bc25479f417f449643659351a5193249787c"
+    },
+    {
+      "bytes": 4511,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-SCP-002-B.json",
+      "sha256": "88d4c1a9c05283866529170cf2612ebd6b0903f381b753de8a74ceef9a1ac5d0"
+    },
+    {
+      "bytes": 3728,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-TYP-001-A.json",
+      "sha256": "4361a2acff07997e748dbbc80dca95202f61febbfbd7c8f8f9720ae912d6293f"
+    },
+    {
+      "bytes": 3728,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-TYP-001-B.json",
+      "sha256": "607870138896e5a3d781f9f7b836e23091eb7b3df49027cb9b3fd636d0c7ef9b"
+    },
+    {
+      "bytes": 3887,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-TYP-002-A.json",
+      "sha256": "637e51c2864cec3530c75ca4408212e644eecb30bfe5cf2db58a4d71cad8ae90"
+    },
+    {
+      "bytes": 3887,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-TYP-002-B.json",
+      "sha256": "3da2ee12bfe41cb5fa68cfbee024d79ac15142af4d125bd52003c6cbe8636ade"
+    },
+    {
+      "bytes": 4504,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-WAR-001-A.json",
+      "sha256": "59417a7af4793f94827f2b7fc28d96633553053c2696869b742bf17c72ac20b6"
+    },
+    {
+      "bytes": 4516,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-WAR-001-B.json",
+      "sha256": "31e1c8d9ba4c1c5e5f154b77e23c2610eecb49dc91c5ad473b40e221a7b8c00f"
+    },
+    {
+      "bytes": 4454,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-WAR-002-A.json",
+      "sha256": "a05d0dc135eb1299a4a512a2a2a6d4a3d88154335529eda193662ae1eb8dff59"
+    },
+    {
+      "bytes": 4466,
+      "path": "experiments/semantic_firewall/data/dev/cases/SF-DEV-WAR-002-B.json",
+      "sha256": "7c7ef5ee1ba443694942c8d1b62009af87676cfa646da332c878245601a36d76"
+    },
+    {
+      "bytes": 9636,
+      "path": "experiments/semantic_firewall/data/dev/labels.json",
+      "sha256": "408512ffb1b4f7c9a48b6574a4df0238b76da288520a709c8ba9f2f5f10b7e45"
+    },
+    {
+      "bytes": 5403,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-001-A.json",
+      "sha256": "76a443a0f44c8d07e3f14c7edc457c2973f3ce9fbe1e45c81d6445446204debe"
+    },
+    {
+      "bytes": 5397,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-001-B.json",
+      "sha256": "f4668c8e413d4b16b77a496442b9785d4e6bd0d76adcc9157e897e1386b6479d"
+    },
+    {
+      "bytes": 4658,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-002-A.json",
+      "sha256": "cfbd4feb13aef7d0e2e7eb17456be250f9f6eec5096dedbe845feeee1db7c50c"
+    },
+    {
+      "bytes": 4652,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-002-B.json",
+      "sha256": "6534005394be91fd610a16bf99cc42886bd62ca259e3606c404bf5621af79c9d"
+    },
+    {
+      "bytes": 4505,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-003-A.json",
+      "sha256": "4fd04c64c41fa296db9c7b1bf53d9075f464bceae5d35d1a48abddeb76bdc55d"
+    },
+    {
+      "bytes": 4499,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-003-B.json",
+      "sha256": "ce20c03580464f17feb1862863e3da573bab95f018c4f8eb8f22e2a03ede55a5"
+    },
+    {
+      "bytes": 5154,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-004-A.json",
+      "sha256": "3f1aee619dad5b32987752831d4af74de867ac84b15dff94b3855093232a93a2"
+    },
+    {
+      "bytes": 5160,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-004-B.json",
+      "sha256": "cc5717e7836a1c473bb56f93566265eaf6b858dd256baeb06fe59fa103265e17"
+    },
+    {
+      "bytes": 4206,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-005-A.json",
+      "sha256": "0d533108f605109ca4fc2c9204f8d103e77c5d116766df5d0dd8d2e262e958e8"
+    },
+    {
+      "bytes": 4212,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-005-B.json",
+      "sha256": "71b611af4c95405e03ff86fe0b9ad0984c6cdb09cc72a5795eb18fc1c06bacc9"
+    },
+    {
+      "bytes": 4541,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-006-A.json",
+      "sha256": "cf709bfaed62496e0d1d109915bfe41b8c84e3f081293014d3dd92999d1ffdf6"
+    },
+    {
+      "bytes": 4547,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-006-B.json",
+      "sha256": "bc1dd7d31c44ed10026c56fe02ee6174e905a0def43af0f64e250ca38e118f74"
+    },
+    {
+      "bytes": 4444,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-007-A.json",
+      "sha256": "f1ddb340eebf01c788c886b7140e81993d17a6fe40f12535633297530394354f"
+    },
+    {
+      "bytes": 4438,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-007-B.json",
+      "sha256": "e689d85dcf11ae46054bfbe186b7044fa11969ae896fa4cf2f3a5cf314b82186"
+    },
+    {
+      "bytes": 5544,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-008-A.json",
+      "sha256": "9b134080808ae5cdd951371e9e5d3edb610048458d9bb000ed3a3ce6e9b6d708"
+    },
+    {
+      "bytes": 5538,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-BRN-008-B.json",
+      "sha256": "f48a3f08f703e5bfac68e9ba0ed90529cb9f8cd75fc6d52faabf8f60217e7193"
+    },
+    {
+      "bytes": 4730,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-001-A.json",
+      "sha256": "c0b0fe375e6cbb2d46ddc583cd55de938af2928dfa74694da9dc7596ded448ef"
+    },
+    {
+      "bytes": 4718,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-001-B.json",
+      "sha256": "54d0498aa85b238e28400e9ee98faaf46ebf035b0a51cf090a6165e9b3437313"
+    },
+    {
+      "bytes": 4492,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-002-A.json",
+      "sha256": "85df341ca29336b75fd493713e782a6cf7e079dc75b24d5c32dfc46ccd3b4b31"
+    },
+    {
+      "bytes": 4480,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-002-B.json",
+      "sha256": "80daa4a6e03aa7ede30c342e9ec8e11af4f210352a8cf6f211165f4a6c35685c"
+    },
+    {
+      "bytes": 5345,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-003-A.json",
+      "sha256": "e5b57d872f96655bab74319c7a383f37ef68579b8a7d6f31e42f1c15eeb10d2e"
+    },
+    {
+      "bytes": 5357,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-003-B.json",
+      "sha256": "e845914a6f79913c1deeafa55027a5141f2907a1ea16e1d27529d373d9527bde"
+    },
+    {
+      "bytes": 5344,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-004-A.json",
+      "sha256": "28fdf9ab2218f81df9c8f567f06a9ecc4942fb4936823b0bcbc5dc808b1cc366"
+    },
+    {
+      "bytes": 5356,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-004-B.json",
+      "sha256": "f3c24d56f9f205088c114007096c384eb9b935f96139f70c8a35740dd5f0dd39"
+    },
+    {
+      "bytes": 4977,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-005-A.json",
+      "sha256": "eea8bff8de10aa84c1711a267cce3e75fc91d188c0fe8cf6bf31c7727646dfdd"
+    },
+    {
+      "bytes": 4965,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-005-B.json",
+      "sha256": "550e9b2a7d81d5cedbe1d4519720a3dae4ff0ba7dd40ea173a1167175bc361da"
+    },
+    {
+      "bytes": 4524,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-006-A.json",
+      "sha256": "4fcc162eb62b89addfb994e17e6377fb92844b419069e8bbb6ca2e47c9628ea4"
+    },
+    {
+      "bytes": 4536,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-006-B.json",
+      "sha256": "55cab9905e65bc262916e1e5d5d657f618abda85e4924c8c382a57d88919489c"
+    },
+    {
+      "bytes": 5041,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-007-A.json",
+      "sha256": "b5bf3b3cc2ac6fd053097b5606210202939874bd88a49c7d5c3b3a41a8d2e1ce"
+    },
+    {
+      "bytes": 5029,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-007-B.json",
+      "sha256": "ddda848bd1c953ee43d336e747d43aa538bffad044f536ae58051ecdd759593f"
+    },
+    {
+      "bytes": 4631,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-008-A.json",
+      "sha256": "6d5989967dbe2b0f8899a96caa11c6e64e7b02d22d8dece2592ff09c24188ffd"
+    },
+    {
+      "bytes": 4619,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-CAN-008-B.json",
+      "sha256": "30177e08eaaaed8fe0000a97fa0a549b503894eaff440eab945d302cea1b626b"
+    },
+    {
+      "bytes": 4649,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-001-A.json",
+      "sha256": "86153884cdf6d64221cc712dd2425905ffd7b55f1f7fa18c29ff4a04115d9bc7"
+    },
+    {
+      "bytes": 4505,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-001-B.json",
+      "sha256": "0056034e434a51e8738afbdd485046fe092543d2ea9a9fd1e28229b117f5e0cf"
+    },
+    {
+      "bytes": 4310,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-002-A.json",
+      "sha256": "3e34fb842f144d8646d0070778c5979f59b7c881c8572e31d0213d7fbbddfe7e"
+    },
+    {
+      "bytes": 4166,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-002-B.json",
+      "sha256": "fe6fc1594c2cfff40046b23bf8e73b8ca3c237414ea9a4cd0b02383d5266da31"
+    },
+    {
+      "bytes": 4832,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-003-A.json",
+      "sha256": "05b73f9d2ab89e7e254a86200cb67b0ab310805ac0065984c72772eb04ebb3d8"
+    },
+    {
+      "bytes": 4688,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-003-B.json",
+      "sha256": "6d3a347069d95b7a48dddf02ecfef43a4c21d6d3b0c5a07799399676794d8101"
+    },
+    {
+      "bytes": 5041,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-004-A.json",
+      "sha256": "a5a3256a2d999e132a79fba8dec32999f128e7098255927aa98fdd8ace8dc852"
+    },
+    {
+      "bytes": 4897,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-004-B.json",
+      "sha256": "0b31821d8359972051b971aa301887925edc74293b08edfd0899599169207fb9"
+    },
+    {
+      "bytes": 4570,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-005-A.json",
+      "sha256": "94e2450da1a01acf58fe0fef3ef2e025ae4f20b331fbc0c9379f131f0436b0b9"
+    },
+    {
+      "bytes": 4714,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-005-B.json",
+      "sha256": "2a2c4325a31b4803e89a2a278df48f8c852439f4cd4d5c5660d6edaedef83900"
+    },
+    {
+      "bytes": 4405,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-006-A.json",
+      "sha256": "4c45eaf5fbfde77b1f5316400a49c53290f4747b19a755bf326723951b3ae3bd"
+    },
+    {
+      "bytes": 4549,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-006-B.json",
+      "sha256": "0de5b8a23ab4fea27b91fc285208d49a1f7bc2640ee83e6fc37073fb9b9844a0"
+    },
+    {
+      "bytes": 4315,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-007-A.json",
+      "sha256": "927ac31dc6ed596ace3f88123a1cbb628e039599cbb13d0490bda2d2d56eb3d4"
+    },
+    {
+      "bytes": 4171,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-007-B.json",
+      "sha256": "b425b7e2ef5c5e757acbc96d9bd43c27fbde9b79fe95c66ae7f29458f0533d85"
+    },
+    {
+      "bytes": 4141,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-008-A.json",
+      "sha256": "4b7c6ab6872860e8fab246e1d28ff674ff5f8e67f732529dabb88446d6f0bb4b"
+    },
+    {
+      "bytes": 4285,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-DEP-008-B.json",
+      "sha256": "a99a90db527f71d4678b3af86e28e0da839685ff961ab8bb681f28beea7a13c2"
+    },
+    {
+      "bytes": 3746,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-001-A.json",
+      "sha256": "03f795d04a2328b9c3418f82e0e9ce0181a806b0f9469548eda5ca506867f6e0"
+    },
+    {
+      "bytes": 3743,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-001-B.json",
+      "sha256": "416b168c6b4a5229151dc1f96e22a7eff163c6236fd21d5db500ae1165d1d779"
+    },
+    {
+      "bytes": 5063,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-002-A.json",
+      "sha256": "c257663f77a75ed0c51047bc49652beb74fb9189d114d70f150c2cb7a5ded1b8"
+    },
+    {
+      "bytes": 5060,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-002-B.json",
+      "sha256": "1c9788f22f73a5a19741de8c04c7b930f1d9c30682efd225ec2aaf8b5852a59a"
+    },
+    {
+      "bytes": 4697,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-003-A.json",
+      "sha256": "a8f21c384847d760d376a2cd4b627dbd4c55323cf8541016d9983e7ef93f9c53"
+    },
+    {
+      "bytes": 4694,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-003-B.json",
+      "sha256": "4295f69a7d3ad9bab6519e6f20e3f67c7052bc23820862057fb71b3221375275"
+    },
+    {
+      "bytes": 4301,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-004-A.json",
+      "sha256": "a22989e4fe13fbed53a51428ad97d46041f078519a08ffad2b11aefaebb1d705"
+    },
+    {
+      "bytes": 4304,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-004-B.json",
+      "sha256": "45e6ed6fb39bab3b141463244c7f7e2c15ab1a7b5a6b8c86d3ebbaa006dde0cd"
+    },
+    {
+      "bytes": 3583,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-005-A.json",
+      "sha256": "d112d1829fa5189145e92ab50ddf27de5a78c16afc53f54eada2ba922e5eb34a"
+    },
+    {
+      "bytes": 3580,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-005-B.json",
+      "sha256": "c03c3172bf1db0dd9870dc4b029839f629ac3dec28d06b234b6c6576d75aab20"
+    },
+    {
+      "bytes": 4099,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-006-A.json",
+      "sha256": "0c35d95711f4ebd7624d19a0c279d5875adcaa5a823c124fa123412410129064"
+    },
+    {
+      "bytes": 4096,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-006-B.json",
+      "sha256": "346e024794f93243efcd0c387602314a053ee3c1295d8f506332c8d86ee5c26c"
+    },
+    {
+      "bytes": 4597,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-007-A.json",
+      "sha256": "91a0b8092c64715b35d8a24ea45d752ffaffb815e9b1fd1fc4c2dec2e37cbc7c"
+    },
+    {
+      "bytes": 4594,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-007-B.json",
+      "sha256": "4e0ac64bb218420cc7c24f3f8474a5ec4498b242e4d462826f1f61bbebb5b9dd"
+    },
+    {
+      "bytes": 4546,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-008-A.json",
+      "sha256": "4782d94c3849a0b6e221e0c5fdd44f40aa01da3a994fed615fbe1d55a3a9743d"
+    },
+    {
+      "bytes": 4549,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-EPI-008-B.json",
+      "sha256": "96f00bd76aebc05183e264312bed1d08828cf3c058163c4038212b9c1b72d255"
+    },
+    {
+      "bytes": 4277,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-001-A.json",
+      "sha256": "21631c878ada1e85f1c065bc062f98b75dfac0868272d5dd9af0ab7813266cc2"
+    },
+    {
+      "bytes": 4264,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-001-B.json",
+      "sha256": "d9f3778e22684b692e7c0d55ae27bef4c54fab3fe13a8b0fe8406cdcff24fa43"
+    },
+    {
+      "bytes": 5093,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-002-A.json",
+      "sha256": "44f1e0a43307714508956e4830eefb7aa963d8d57b5ccf8e6e1767dc6535bf3d"
+    },
+    {
+      "bytes": 4870,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-002-B.json",
+      "sha256": "4156d4ece02fca4b02556aac55405b9a896b9f6e9398cea026b7fe0d35d00e22"
+    },
+    {
+      "bytes": 4426,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-003-A.json",
+      "sha256": "fe6d8fc22156fac6a795ac06042a26305641a23318bb6eb67b183b3b9fb3761b"
+    },
+    {
+      "bytes": 4376,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-003-B.json",
+      "sha256": "0557865b5d1e1481a79d64d3d2cf2cbcdd1bca7f8f953e79aa1070c4337c6175"
+    },
+    {
+      "bytes": 4174,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-004-A.json",
+      "sha256": "55f176a7d62773bf32bf2fe7224c48e3fba7d88f8154a5b15ca907a60f462760"
+    },
+    {
+      "bytes": 4173,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-004-B.json",
+      "sha256": "b6eb5e869a78632960960a07cff365ccbbc2bbb7172e9c1a86f5748ed4264617"
+    },
+    {
+      "bytes": 4866,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-005-A.json",
+      "sha256": "07b5acf5431eefea3155e90c8581945234a1a83e1998562866855a87c0d5e6a1"
+    },
+    {
+      "bytes": 5095,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-005-B.json",
+      "sha256": "f35413eaa8c4664fe584b021641768bb637fda76d211c604f521a0f371ce2f75"
+    },
+    {
+      "bytes": 3831,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-006-A.json",
+      "sha256": "447120f8ece71438feaf8e56d79522489519a43a8c2c21fcd25a9a3c95b1dc5f"
+    },
+    {
+      "bytes": 3838,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-006-B.json",
+      "sha256": "147075bcf5b1ddb5c8fad0f90caad580feacfe4f86b8b1d161d3a83b50ff7e8a"
+    },
+    {
+      "bytes": 4384,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-007-A.json",
+      "sha256": "180b8136681e53e629ca51857ea8b00bc19655fcbc53fa496da8f09d25b35147"
+    },
+    {
+      "bytes": 4476,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-007-B.json",
+      "sha256": "e7cd79bc920327b4828b4f17636a559b3752cf86f42fb674d64d5b27102a1a97"
+    },
+    {
+      "bytes": 4363,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-008-A.json",
+      "sha256": "23a70082282a2e67ddc09bb9502875246b08aaab9ab47f7cbe42c5a573508dd6"
+    },
+    {
+      "bytes": 4464,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-GOL-008-B.json",
+      "sha256": "ac120984414e324cb71d345bf9b0482534e939dbb1018add52b16a2c4a504e2a"
+    },
+    {
+      "bytes": 5416,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-001-A.json",
+      "sha256": "f9742cef5fc0713b5c777c2193f7dc35d22587b1924acc5870f32b24aa2d7d2c"
+    },
+    {
+      "bytes": 5178,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-001-B.json",
+      "sha256": "d750fa23a3aa2f05d8f2670c5000f6ffb8f87d43b709d8ec09b0819d76bb486a"
+    },
+    {
+      "bytes": 4392,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-002-A.json",
+      "sha256": "ca1f3b47d298c2711115fe9a5adfa24cf47e5ce2a038ef8e14366013b07f6154"
+    },
+    {
+      "bytes": 4630,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-002-B.json",
+      "sha256": "3c56ef5b3e074947130f94b58716488f1ae8f97755e8b7816c0343e962e2c766"
+    },
+    {
+      "bytes": 3696,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-003-A.json",
+      "sha256": "a5e006ce7a268ec5925cc81e1c60dae4a2fd7c1262a3f396e4cf9cfbc1b8d8ad"
+    },
+    {
+      "bytes": 3934,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-003-B.json",
+      "sha256": "4aa36498168292ccfd9a61ad704b50502f3bf61f99ca0e0a6580c3c69630997f"
+    },
+    {
+      "bytes": 5371,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-004-A.json",
+      "sha256": "553a7f6968fba6bd526a0776b7e1ad8e44488885cbfd122e4d0aca7f104fec21"
+    },
+    {
+      "bytes": 5133,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-004-B.json",
+      "sha256": "b49663a43ce65e1e6ab5086fad42f2eb8090e44536822c6c58f0746125ee04a2"
+    },
+    {
+      "bytes": 4050,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-005-A.json",
+      "sha256": "b6450a16fc105c140987bf7c5ee140644820108c92ded8f51d621e0f7e7c5b0a"
+    },
+    {
+      "bytes": 4288,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-005-B.json",
+      "sha256": "6292e7122563bd84c47c6fb869bd809cda792e25453359e2e751fa6e6e975123"
+    },
+    {
+      "bytes": 4845,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-006-A.json",
+      "sha256": "26f23656bdca5567308168d4a7d2f9aa62cbc5b9cb8664f43f9689be060d42c0"
+    },
+    {
+      "bytes": 4607,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-006-B.json",
+      "sha256": "f5013a328a47c9fd2b4c00dae64da709436bda8154376e0df5aabbf589d001f3"
+    },
+    {
+      "bytes": 4446,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-007-A.json",
+      "sha256": "4c8e21224628fc31fcc90eebf17a7457d0c8af9a437b87c47e77ffd1f34e9e43"
+    },
+    {
+      "bytes": 4208,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-007-B.json",
+      "sha256": "61015609bb317df789a17973eb4edb46c809e8b8af0198d1799212dabbbd5258"
+    },
+    {
+      "bytes": 4520,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-008-A.json",
+      "sha256": "7b3dc58c9505c439616ce702d6612156289a890f0f36f95f47d5b761060e4a2a"
+    },
+    {
+      "bytes": 4758,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-OBL-008-B.json",
+      "sha256": "dbea1383c75af4cef93e30f5eab673fe81568ad8e8c46fcf196bc964b479555a"
+    },
+    {
+      "bytes": 5860,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-001-A.json",
+      "sha256": "36328cc0f9fa1833142c6d83ca3440a377442c9c9f129870c6e5f9bc5871b385"
+    },
+    {
+      "bytes": 5863,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-001-B.json",
+      "sha256": "682750b4cc02d884e37b9e11caa9c58b48616c6a67a162ef2e634eba0cb02da3"
+    },
+    {
+      "bytes": 5683,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-002-A.json",
+      "sha256": "9c9d20d9c75fb9306126e4c39524ea1ad689d61e0626478f2b9c8d0c10c2c3c5"
+    },
+    {
+      "bytes": 5680,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-002-B.json",
+      "sha256": "984187074a5a70404300bc69da3f463e46aaecf98c80952ec8f5644242c10203"
+    },
+    {
+      "bytes": 4063,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-003-A.json",
+      "sha256": "aed9ea802ef99c1c6a930956ef67a62331329a061cf347f42e2037fdf7003ac1"
+    },
+    {
+      "bytes": 4066,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-003-B.json",
+      "sha256": "4398f1e9e55294ac29869c8afaf21c5892c8e32c11a3af32976909d25094c975"
+    },
+    {
+      "bytes": 7912,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-004-A.json",
+      "sha256": "9372a94134f7e111b6912f5f805198d6d2173d2e6d8c1ea4a9a8b196dd57571d"
+    },
+    {
+      "bytes": 7909,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-004-B.json",
+      "sha256": "70970bc7cbf181645dace99cc3203cd4074a38e02752b631751779c249deacae"
+    },
+    {
+      "bytes": 4008,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-005-A.json",
+      "sha256": "696daaa8f234e9314db77715a4daacbdc58537107fac9d4c395bba579a5bcd7e"
+    },
+    {
+      "bytes": 4005,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-005-B.json",
+      "sha256": "08d8d561099552d09cb036ae440b2c725ab644a43483a2ea91859a8fcc4d844b"
+    },
+    {
+      "bytes": 3831,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-006-A.json",
+      "sha256": "945909d3da0fe9fe37867ec2b07d5d77d0e43b1c23d16441bafe153ef25a3489"
+    },
+    {
+      "bytes": 3834,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-006-B.json",
+      "sha256": "98faa173257fa34db7128c8520b8480843a51a050a6f081980ff7ba1c795c4cf"
+    },
+    {
+      "bytes": 5295,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-007-A.json",
+      "sha256": "c0296de5d3d88c7dc1d05c753496c827c1e1994c6c2cd0cb8b1406cff751f9c8"
+    },
+    {
+      "bytes": 5292,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-007-B.json",
+      "sha256": "73614a170a2d00624960c04bbc455f3765c40fb4b28d667acd8837283964687d"
+    },
+    {
+      "bytes": 4134,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-008-A.json",
+      "sha256": "5af47b74513fc78a8b2d392977e59bff61d7a93e07ef691d9d0166a90465a213"
+    },
+    {
+      "bytes": 4137,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-PRE-008-B.json",
+      "sha256": "c655022ce13bd6c454ede6ecb708b34557dcaaae6c364008726d926a69fd9cf3"
+    },
+    {
+      "bytes": 3858,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-001-A.json",
+      "sha256": "11016e3ea8e83c657c6aaf4cc2e067b6c85a68173bf92d4e93fcda5880158dbc"
+    },
+    {
+      "bytes": 3855,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-001-B.json",
+      "sha256": "b27b8021c3c6963c75e1e993ff1073075e3a2d96d042d1c7b2fefbb1c68b5dfb"
+    },
+    {
+      "bytes": 4458,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-002-A.json",
+      "sha256": "c042cd89470c7461ca9d568ae31b5aa646e133ae91546508719ce71f4b2304c7"
+    },
+    {
+      "bytes": 4455,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-002-B.json",
+      "sha256": "0c497c3eb5a4a6cb7bbb8bb7e1a5ab8339ab4774ddc114967cfde3044c28e69c"
+    },
+    {
+      "bytes": 3683,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-003-A.json",
+      "sha256": "4e741ceafed9808349226b508fba4e24367f94a5c623b8267b0a68ad524d2fa6"
+    },
+    {
+      "bytes": 3686,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-003-B.json",
+      "sha256": "b3a695c10420026fe9c200086585ad20dea2c8ff30ceb36bb01674ac612bcbd7"
+    },
+    {
+      "bytes": 3692,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-004-A.json",
+      "sha256": "2bd19f619472462f68b0219e70fb17b2c7b03d648531029eb6a988f24a736c06"
+    },
+    {
+      "bytes": 3695,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-004-B.json",
+      "sha256": "a6fefec469bfb47c0d7bda8a2366162f011200edd237310fdc6bac488b98dbf4"
+    },
+    {
+      "bytes": 5237,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-005-A.json",
+      "sha256": "b758a10f2be5f3a7b2fbd3775f348c44865672c483ad59f54f80e2a5a05e0c8c"
+    },
+    {
+      "bytes": 5240,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-005-B.json",
+      "sha256": "958a047e918f46dc089ec3c3858b0c8cfa422e1a66a1c3ca313f8d97ee2d741f"
+    },
+    {
+      "bytes": 3926,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-006-A.json",
+      "sha256": "4fd5888d49df73e54e35ea28eef65fe3761e2b0644d493ac2248f8f52bd18df8"
+    },
+    {
+      "bytes": 3923,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-006-B.json",
+      "sha256": "67ba1cd252451a16ca08e25fe144e06943362e5aa55ca766ddcccaedf06cb47f"
+    },
+    {
+      "bytes": 3692,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-007-A.json",
+      "sha256": "b2661c4003883265e7e2d5967204c7ff26c724a342d518db00d6b68688e8eb75"
+    },
+    {
+      "bytes": 3689,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-007-B.json",
+      "sha256": "1a4f36c24aefbef8bed8218a73f891b589416f8dce082e67c07b72587c30bfb9"
+    },
+    {
+      "bytes": 4265,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-008-A.json",
+      "sha256": "466844a8675b1ca3841c577bc9178eb840b5c153bb27b4f81f43fc8b4d9336c8"
+    },
+    {
+      "bytes": 4268,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-SCP-008-B.json",
+      "sha256": "521e4b00a51296b24dceb9c7ee8ef69dc7e914ea6b5ec7352d002d2f3a7ac59c"
+    },
+    {
+      "bytes": 3451,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-001-A.json",
+      "sha256": "b6f7dcc96be17b0da101587f8dffb58f402349b3840def9e1a0fe524230be30d"
+    },
+    {
+      "bytes": 3451,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-001-B.json",
+      "sha256": "073448ec5a4509d0a4ec7b2ee6889b4c6758b455e7b84f21e6a5b2fe4848a091"
+    },
+    {
+      "bytes": 4423,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-002-A.json",
+      "sha256": "dd0d04142911fa1c62ab0a630d0c88cc356eb46256cb403d2df10d6a5dd2c3bc"
+    },
+    {
+      "bytes": 4423,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-002-B.json",
+      "sha256": "d03cb075f5f27a36e16ef0e7fd808b73ee5574fc69a40e6d1a340099ffc2d4eb"
+    },
+    {
+      "bytes": 5662,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-003-A.json",
+      "sha256": "5d626c119117fec25fe6ca05e8f22dcc3fa702c5ec8152258487f2a9c11948ad"
+    },
+    {
+      "bytes": 5662,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-003-B.json",
+      "sha256": "270d987c12183af7359270a9702982efb8c3fd0b66787762d34827649213cbc9"
+    },
+    {
+      "bytes": 3600,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-004-A.json",
+      "sha256": "1656080c70a329ada91b4b2daa9450458814c1bcaa9d78eafae7ba69de4623e9"
+    },
+    {
+      "bytes": 3600,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-004-B.json",
+      "sha256": "3944af48b09dd11e370f5df5672a6b97ff551027f30a94ead8d79fc355862727"
+    },
+    {
+      "bytes": 3312,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-005-A.json",
+      "sha256": "d55b88cf11c82b772b94a3f071990ced3be8a8765742d97cd2fc906469770bc0"
+    },
+    {
+      "bytes": 3312,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-005-B.json",
+      "sha256": "5814342673605a73abee6d7d651e88408b3599e5aec8b475749cdc6bb1fe4133"
+    },
+    {
+      "bytes": 3738,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-006-A.json",
+      "sha256": "23a88d070f5745e7737fc19ed568d7b70556cc6b6f2778adfc088f31750cf418"
+    },
+    {
+      "bytes": 3738,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-006-B.json",
+      "sha256": "e9aca4be8c6b426e80b6b9cb418217c6f8a17ed4e0b4f9d23a89eb878ddae7e9"
+    },
+    {
+      "bytes": 3381,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-007-A.json",
+      "sha256": "d1c48321942668cceb8b8524011b74ba037aac1649d94999eb16e0cc0cc6d237"
+    },
+    {
+      "bytes": 3381,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-007-B.json",
+      "sha256": "525b0dd50eee5110675fbc8519cc4efe6ab0ba53a672442a67494ef426c91d54"
+    },
+    {
+      "bytes": 4395,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-008-A.json",
+      "sha256": "3e289260eb96adf5bdd8c28eda18b7a02dbdd3a5c7b2191f84e6a0bcd7a78467"
+    },
+    {
+      "bytes": 4395,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-TYP-008-B.json",
+      "sha256": "2bce18d6658c5e644fe355b2bf058dcdea67c9ffe3dda189987769e61bd872d4"
+    },
+    {
+      "bytes": 3870,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-001-A.json",
+      "sha256": "5d0fb386a55d12d921cdb936aab50261d79cf374d63b875f895426c3d2292f39"
+    },
+    {
+      "bytes": 3858,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-001-B.json",
+      "sha256": "8eaa818a2d5079938a9cf6a32f982a4e5658f9b52b9bf248753eb07a44af0c27"
+    },
+    {
+      "bytes": 3750,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-002-A.json",
+      "sha256": "fa5ddce57e431d57af249569219d3249b48769379c439bca8a8326886973f5bc"
+    },
+    {
+      "bytes": 3762,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-002-B.json",
+      "sha256": "d4702940423d290fbade120ba2ffd36f05f9f34fdd5c2e6c6113efeb43b71f1f"
+    },
+    {
+      "bytes": 4095,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-003-A.json",
+      "sha256": "d6c72de1e7c01d64a6a386d5104ff89a0b75bdb7fca192a5efee63fb02fb918a"
+    },
+    {
+      "bytes": 4083,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-003-B.json",
+      "sha256": "ceb38af4ece7723d1fee44f2b51f4eef743b8cac56fe6bc7354326025cd094d4"
+    },
+    {
+      "bytes": 4124,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-004-A.json",
+      "sha256": "cc6a0d231fae4b73e8788fe10c0dab2785d2fd9936e2ea3021a5ae8199623ace"
+    },
+    {
+      "bytes": 4112,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-004-B.json",
+      "sha256": "1ee13497ab06d78efbccd6437560ba505636def6d882dc77b541989be0992e70"
+    },
+    {
+      "bytes": 3608,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-005-A.json",
+      "sha256": "45723c8a2737110d72f3758e911b9ed9a2f6a621c380333824c2fcd02c51cf8f"
+    },
+    {
+      "bytes": 3596,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-005-B.json",
+      "sha256": "4b94fe0fff2ffd537bfaaaad7345abb353410c7b0627e72a8003ed753d9bcddc"
+    },
+    {
+      "bytes": 3926,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-006-A.json",
+      "sha256": "7ce5dce6a6d6da5ac8b64b9d07666cea1e8b194a6a1c5f9232413134871b493a"
+    },
+    {
+      "bytes": 3914,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-006-B.json",
+      "sha256": "3a81a1eed40e8930dd852bd92bf522144e00a81ab1270ea9162bf67d43fffae6"
+    },
+    {
+      "bytes": 3941,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-007-A.json",
+      "sha256": "ee6bdee9dada80ccee18b4e6800d6b32e2cc46b12bdd0f8b9467110682db3a84"
+    },
+    {
+      "bytes": 3929,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-007-B.json",
+      "sha256": "60212b9a8980710d20db56679be1e74f49a5804cb794fffef5559d52a7f9127f"
+    },
+    {
+      "bytes": 3521,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-008-A.json",
+      "sha256": "2a632b8739a94eb5cf9376c1dd00e71fda86b8f80d4d4df13236f2907aee3c5a"
+    },
+    {
+      "bytes": 3533,
+      "path": "experiments/semantic_firewall/data/final/cases/SF-FINAL-WAR-008-B.json",
+      "sha256": "a07cf1a3bd9e1ef1f548e2d703958e6254d1144aaf699da08b0f7f507fea9a02"
+    },
+    {
+      "bytes": 39202,
+      "path": "experiments/semantic_firewall/data/final/labels.json",
+      "sha256": "7738f72e5b96d39511e253e14650f62c0151d6475ff4a243ab6a75f34d1b6b0e"
+    },
+    {
+      "bytes": 814,
+      "path": "experiments/semantic_firewall/prompts/classification_prompt.json",
+      "sha256": "1efe3b6d60fe5091fd90b9616517270cd5aff32da1225d00eb831c9638ad86c0"
+    },
+    {
+      "bytes": 22641,
+      "path": "experiments/semantic_firewall/reference_checker.py",
+      "sha256": "24d1644143fc586003b0564c0f202a4921a0a017cb8dc32bc42750f945f97a33"
+    },
+    {
+      "bytes": 16590,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-BRN-001-A.json",
+      "sha256": "3e671c71416ff73114a509de4df4012a374bf8d4d411b686c4679e2db8581044"
+    },
+    {
+      "bytes": 16608,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-BRN-001-B.json",
+      "sha256": "dda98214328c53f26696e840ae04884b7b96c3202768b9dd82a548b63e6a726f"
+    },
+    {
+      "bytes": 13981,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-BRN-002-A.json",
+      "sha256": "64b6f96a0041a4b54106794aa255ff2f789b2c22acd4e3fc35c7f361e4e4f1bd"
+    },
+    {
+      "bytes": 13963,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-BRN-002-B.json",
+      "sha256": "47e2dd1b68be9a5f8116589e91838ddf71f21a5c6832163fec34943bce160530"
+    },
+    {
+      "bytes": 15843,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-CAN-001-A.json",
+      "sha256": "5f075188ab2c7aa7a6bc653c3242131015cb9720a766c820eee7e1f0d95e651d"
+    },
+    {
+      "bytes": 15807,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-CAN-001-B.json",
+      "sha256": "059a1410f5879336fa6e7d03ed1545d4345b4f6f7226e14848c03c34ba4ea584"
+    },
+    {
+      "bytes": 13870,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-CAN-002-A.json",
+      "sha256": "f3573d0d7715a79026c10a1975fe8ddf823efe35ba01750c1a887b4e9699641c"
+    },
+    {
+      "bytes": 13834,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-CAN-002-B.json",
+      "sha256": "19f339165a621c4679d42392ac7bc31cdba330dcdc070b4c1e8b25d554827bc1"
+    },
+    {
+      "bytes": 15607,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-DEP-001-A.json",
+      "sha256": "ec4e5b6a9f7090955bcfedd609da7c248567cb96a7d05293e1b76af107d54204"
+    },
+    {
+      "bytes": 15171,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-DEP-001-B.json",
+      "sha256": "e8a915eaf798dcc54c87b32fc26f1101534cade5cc070bd5a204e2275e18d5d3"
+    },
+    {
+      "bytes": 28055,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-DEP-002-A.json",
+      "sha256": "b3ad0c7a783665ccc236401973db6637910df3594516dc9426ff9be6120da2cd"
+    },
+    {
+      "bytes": 27619,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-DEP-002-B.json",
+      "sha256": "862f816462a532ab9437e2f37ac5d6aeeed6973c5d28a7de11f34585ddd3190a"
+    },
+    {
+      "bytes": 14507,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-EPI-001-A.json",
+      "sha256": "80613d3888484fd17d2ee7558edee3165eee01594c23f8d36dfb343aebab60f1"
+    },
+    {
+      "bytes": 14498,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-EPI-001-B.json",
+      "sha256": "77e7708a6cf36d40c5350586787d03c7364c476f7c5dc8a259984d8a139d8ccd"
+    },
+    {
+      "bytes": 14854,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-EPI-002-A.json",
+      "sha256": "76720a0b0c2f9c4c9ad012aa738faf37d48ce0e2c0876b2b7d335bcd1bbac5bc"
+    },
+    {
+      "bytes": 14863,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-EPI-002-B.json",
+      "sha256": "802aba56b903d26e834b71570d9657bd65a26ef14bba07f36ef37d43482c9aff"
+    },
+    {
+      "bytes": 17712,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-GOL-001-A.json",
+      "sha256": "6d9077e42fd158a236a71230f5facb8eed18b7ca4d6d627a553d5049bc8420f1"
+    },
+    {
+      "bytes": 17773,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-GOL-001-B.json",
+      "sha256": "1641fbd40aa2d6ffcc158282c93d4f835153b92dab53d0ae531a25d225dc3059"
+    },
+    {
+      "bytes": 17273,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-GOL-002-A.json",
+      "sha256": "4ec8d8861049c358e4fd0c7a75a95d5400e9f3341e12c2248304cc47f0684f95"
+    },
+    {
+      "bytes": 17296,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-GOL-002-B.json",
+      "sha256": "7c34c6cdb2f57ca630b4f14f2141a0a61d05144d3dbc6ec8e659f2232532b4c5"
+    },
+    {
+      "bytes": 14171,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-OBL-001-A.json",
+      "sha256": "ef561aa7022c98d96882e4d0b9723d63d896f383be9d51d3d3ea3d963d5b206d"
+    },
+    {
+      "bytes": 14905,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-OBL-001-B.json",
+      "sha256": "c88ae7f8ca13873e354b1da43e31749564820870fdaed70fc0db0ccb138773e3"
+    },
+    {
+      "bytes": 23626,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-OBL-002-A.json",
+      "sha256": "a623386c5cba7d8d7797ad339f5cdd2e336622397ebd857e48e378a7abdeeb24"
+    },
+    {
+      "bytes": 22892,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-OBL-002-B.json",
+      "sha256": "499e5e1dd25938f851979a165c36760663bb306a7ddde3a2cb2df9328c5b8bb3"
+    },
+    {
+      "bytes": 15171,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-PRE-001-A.json",
+      "sha256": "28a4423d336b2f899c4d21f44625b197c70bc8f7ccbddfe2a49f9fff30ec6dd8"
+    },
+    {
+      "bytes": 15162,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-PRE-001-B.json",
+      "sha256": "b3f7f9de52bd79a9df4d71b9a1eba9b63fb4b83df2a4b18a48be54ff9feeb450"
+    },
+    {
+      "bytes": 16629,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-PRE-002-A.json",
+      "sha256": "38623252f9543bccc9e4660efedc99487caa6b22d2bca312bc9618eafc1dccfb"
+    },
+    {
+      "bytes": 16620,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-PRE-002-B.json",
+      "sha256": "bb8f24a20419004b8c029e2aa37210a8d0f1d063a4d87188a93e310ce5c7e90d"
+    },
+    {
+      "bytes": 13896,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-SCP-001-A.json",
+      "sha256": "21d6a73a3793dac60af5db54d3a51d92205f0fb8106b026d15277587513fe037"
+    },
+    {
+      "bytes": 13905,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-SCP-001-B.json",
+      "sha256": "ef157c10657338644171da8f3e211f18c15ff93cd982772681086365e5c99d36"
+    },
+    {
+      "bytes": 14055,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-SCP-002-A.json",
+      "sha256": "19be4587a6b7dd01d6edf4e4c73857524370a8c0a639b89fb772e906782b3beb"
+    },
+    {
+      "bytes": 14064,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-SCP-002-B.json",
+      "sha256": "a49e6075e41a8874f972b0b3cbb81c3e2356cf6051e5b728d585820eadf703d0"
+    },
+    {
+      "bytes": 11852,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-TYP-001-A.json",
+      "sha256": "b1b229d128f0d08d29a3f679edc37295f4dba7e31dbdb57fe4c7d5f9ca580806"
+    },
+    {
+      "bytes": 11852,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-TYP-001-B.json",
+      "sha256": "34e22960640fe95b104b274072878a333f246e73464a27a3b7557153adcc7230"
+    },
+    {
+      "bytes": 12297,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-TYP-002-A.json",
+      "sha256": "18fdb6abaef7abcf78dd8c60cf4cf36c80164dc55db8891446e237f3567fa437"
+    },
+    {
+      "bytes": 12297,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-TYP-002-B.json",
+      "sha256": "cf34e57898283de44817e5230e9d3387802271eb9c24a8a8f87e1202727c7609"
+    },
+    {
+      "bytes": 14172,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-WAR-001-A.json",
+      "sha256": "4aa94f236a527cf7b602b5969dc6720ba517bd62d08728bd77b81b3749cefaa5"
+    },
+    {
+      "bytes": 14208,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-WAR-001-B.json",
+      "sha256": "550a199f024de6c3d90ff1ff77c98976856af2b2ed5fb2b770438305de422a7f"
+    },
+    {
+      "bytes": 13945,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-WAR-002-A.json",
+      "sha256": "fcef3ec4f08a798cba4b29a91e341dd92c2534ee90e999dee76c60991b0d9320"
+    },
+    {
+      "bytes": 13981,
+      "path": "experiments/semantic_firewall/renderings/dev/SF-DEV-WAR-002-B.json",
+      "sha256": "622c45b9f5434b9bb7048a49081b55930a4d79df8e774ce7e54f8549aff0d600"
+    },
+    {
+      "bytes": 17071,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-001-A.json",
+      "sha256": "7d54d2fd051e9d03a6310917a95ac65b74b86756dd25b595932b908d19bb9a95"
+    },
+    {
+      "bytes": 17053,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-001-B.json",
+      "sha256": "2c564306dcf83eefa910bd8c3779564e5ebd4039e50b4fda3381d6507f246392"
+    },
+    {
+      "bytes": 14813,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-002-A.json",
+      "sha256": "9911e8064e3bc1384757acaa04d518ce0949469ab91f88aab451759efa4721e2"
+    },
+    {
+      "bytes": 14795,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-002-B.json",
+      "sha256": "f78f3a5202647b954c4f8db771893452e2579e30972324e97dd958d9f88b6443"
+    },
+    {
+      "bytes": 14392,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-003-A.json",
+      "sha256": "d427aebdd3cebd1fbf99c5331d911a20fd63a7812671ee154a20e825a0661310"
+    },
+    {
+      "bytes": 14374,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-003-B.json",
+      "sha256": "576de677599c823a85268c95de72f018fbb2fe2392def70dc012e87da78df185"
+    },
+    {
+      "bytes": 16239,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-004-A.json",
+      "sha256": "ab0c11abc8da98ddee70276cbaf5f3ceed3dc339dfb8233e898a72360a85a895"
+    },
+    {
+      "bytes": 16257,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-004-B.json",
+      "sha256": "4672b65421807fc96f53e75082b2ea7fa419f8f6f1edd88c712421b3cce91c8a"
+    },
+    {
+      "bytes": 13517,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-005-A.json",
+      "sha256": "15aca7150cead0081dafeaba036160a59f62a32703fbf20e358b8ab65588ca3c"
+    },
+    {
+      "bytes": 13535,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-005-B.json",
+      "sha256": "1f914d23c94f0c987531e0bbe8191b4fb271f6723197fb14d001493b78084c12"
+    },
+    {
+      "bytes": 14493,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-006-A.json",
+      "sha256": "13a4e16f8354fb16c8bd2827369c1f3f7f3c8d9bcac1d6d5b2e896033274d388"
+    },
+    {
+      "bytes": 14511,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-006-B.json",
+      "sha256": "07b82778b3478769e06d4d03b9ca5ea5eace0983b65e5c550470786c273c156d"
+    },
+    {
+      "bytes": 14200,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-007-A.json",
+      "sha256": "fc357ddd4fe5dfc9e9a2c139a4eba1292070e42b12685193722c8f31e7862a40"
+    },
+    {
+      "bytes": 14182,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-007-B.json",
+      "sha256": "6004e9d515ac2fde48dcb40598c4b86c2c089254d5e255aebd39cb6addc0b463"
+    },
+    {
+      "bytes": 17406,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-008-A.json",
+      "sha256": "fcc0a6bd44d8fc3549ea933d659668860ebb12d81949e87e2ac689cd61c93c7d"
+    },
+    {
+      "bytes": 17388,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-BRN-008-B.json",
+      "sha256": "0b6ac3007d60ad9a8e1a949672fdda0fd9646b99f10ccfbad318a14d930cfc8b"
+    },
+    {
+      "bytes": 14941,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-001-A.json",
+      "sha256": "3af1286f6791aed9bd49a6f7b8a4c3cc7c9a042a9b6753367bb6a150a7b83851"
+    },
+    {
+      "bytes": 14905,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-001-B.json",
+      "sha256": "daf8437b7403aff398e64a31e90ff69ac0e0fd3c395966f3cc12af60681f1a2e"
+    },
+    {
+      "bytes": 14310,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-002-A.json",
+      "sha256": "5dc4863ea0ae953c28ac86bab9c2d0de5ec17744f66962226c16be81e96926b8"
+    },
+    {
+      "bytes": 14274,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-002-B.json",
+      "sha256": "420cb409e37e59b03690cf58306d3ca5884ebd82c498133faf84e6faa188f2c8"
+    },
+    {
+      "bytes": 16671,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-003-A.json",
+      "sha256": "45fcd0d0c3700e7b4d4a30e66f4708f806e1ad71c069efdecfb9302f9f856f4d"
+    },
+    {
+      "bytes": 16707,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-003-B.json",
+      "sha256": "e97dfba33cd7249814ae5bb4f0ca8f0185e00b1c00b5ec0b953033f04520b597"
+    },
+    {
+      "bytes": 16814,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-004-A.json",
+      "sha256": "50e62c11b52be93949087147cb247971eacf3d66f1703369aad3b0fe376e2476"
+    },
+    {
+      "bytes": 16850,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-004-B.json",
+      "sha256": "e3facbccbbfb55b4f0ddb4ae9ff90d0707c15cb1a76fdc260f24b5c84b385171"
+    },
+    {
+      "bytes": 15705,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-005-A.json",
+      "sha256": "be9e5b26d6e0d5395697e6ad0522934d338cb8d3bb30e05d004fa769bc83d515"
+    },
+    {
+      "bytes": 15669,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-005-B.json",
+      "sha256": "3fb75cd634d9c578ce5e48460fa1c7bd2ce0dd73713473c4c4b62083385acc3e"
+    },
+    {
+      "bytes": 14366,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-006-A.json",
+      "sha256": "b775ada56736303c48cbe3147b16baf1ceb013b385fe7a3c8b8d2ac5d6d810a3"
+    },
+    {
+      "bytes": 14402,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-006-B.json",
+      "sha256": "fab523f98ba4b909058864aa713fed86b26e27efe764475e26740708e10c5805"
+    },
+    {
+      "bytes": 15858,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-007-A.json",
+      "sha256": "c41d67ea8f8f37519dacf803336785f30140e8279d8120863cf3af089c6e7d0a"
+    },
+    {
+      "bytes": 15822,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-007-B.json",
+      "sha256": "5809d0c0ac5921ac9f92d997a559b9b57f6d54afee22086ae91375fff7abb971"
+    },
+    {
+      "bytes": 14629,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-008-A.json",
+      "sha256": "fa10c37b4ccf6c74058ff19b2647489378eb8fd97988db1423ee4bdec32db927"
+    },
+    {
+      "bytes": 14593,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-CAN-008-B.json",
+      "sha256": "2a56116b7b68fa2ff9a363a2bcc37093c5b220dc01ec764e3b33a4f29aff2ffb"
+    },
+    {
+      "bytes": 14672,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-001-A.json",
+      "sha256": "faff6b4460bc9f8bcb6fcee98c9014f3874aa9b47e0812a4b55f7f2a2895cf06"
+    },
+    {
+      "bytes": 14236,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-001-B.json",
+      "sha256": "63227c6cfb3ed6276a0f7d6cce3506fc17b77ff234f687da36856367151c4f0b"
+    },
+    {
+      "bytes": 13716,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-002-A.json",
+      "sha256": "12dc20eb87928bd67ccaa844c7235143f9dbe069e31d744258681ed0f72e97ec"
+    },
+    {
+      "bytes": 13280,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-002-B.json",
+      "sha256": "28b4649691753e5fffd7d5b2ac602c38b945c5df3f0ecd8b42717275d70e08ee"
+    },
+    {
+      "bytes": 15204,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-003-A.json",
+      "sha256": "4de1c2f45829d8ab1c308e645a48b1b5db6dbe35ca8f717362c804af2ffa9623"
+    },
+    {
+      "bytes": 14768,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-003-B.json",
+      "sha256": "c85a4d2e34c23969e44c6f9cd2328a088c7999002c19edeff11946b2b7e6e65f"
+    },
+    {
+      "bytes": 15723,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-004-A.json",
+      "sha256": "8909e6f10dc61ab0b4c0705089e9e445b94b2675d3f4463fc9a3a14db1b4d480"
+    },
+    {
+      "bytes": 15287,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-004-B.json",
+      "sha256": "fa9d7f0506f0892048cb4bfd66bc3be4d09c976baf78f1052fb357653bdb826c"
+    },
+    {
+      "bytes": 14520,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-005-A.json",
+      "sha256": "f4a1f2338585312f853de88198e67e86131dca8ba486d777d2b209b537f1a9fe"
+    },
+    {
+      "bytes": 14956,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-005-B.json",
+      "sha256": "f92af89a75254d02a8773eb49d9294c5635cc7a69db72b382b070cec7b6dc472"
+    },
+    {
+      "bytes": 13962,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-006-A.json",
+      "sha256": "3a4960a62dc87daa4b7e9cd6998effdf459cf515326c9837ce152057bd35eea7"
+    },
+    {
+      "bytes": 14398,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-006-B.json",
+      "sha256": "8573d0bfb884e491ecffe779971c7a3de9a32b0134166d30d4cdb7a1c6929cac"
+    },
+    {
+      "bytes": 13666,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-007-A.json",
+      "sha256": "7a8bcc945accf5f80b45b05b967ea90ac25451b86a1fbb6495e9c0d8b538bc4c"
+    },
+    {
+      "bytes": 13230,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-007-B.json",
+      "sha256": "6bf9ce60cd5301874c73cf6d3631f0f2678a5186d68a3f8470b51548f3a43ea1"
+    },
+    {
+      "bytes": 13146,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-008-A.json",
+      "sha256": "c0d8ebd612dea20784ef4319ebe84b1a88c817613ee4eb7fb9b97d7ac8d0dd77"
+    },
+    {
+      "bytes": 13582,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-DEP-008-B.json",
+      "sha256": "0748fe88f964ce2d412c297e58c00e8745cda29db55651f9fd921a23b82483ab"
+    },
+    {
+      "bytes": 11992,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-001-A.json",
+      "sha256": "5aab9276b4810efd31b19c487b127516da775b04aec77f8e2cfafa5664ebd17e"
+    },
+    {
+      "bytes": 11983,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-001-B.json",
+      "sha256": "bffbb9752b83aad15a6de7d4ead8a88c8dc769002545add7c8ce9aedf25ec8c1"
+    },
+    {
+      "bytes": 16006,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-002-A.json",
+      "sha256": "f612f9f5639af02986e2917675b6cee6a8a262be952c7ba41460e6b3e8902b1c"
+    },
+    {
+      "bytes": 15997,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-002-B.json",
+      "sha256": "14dd51397336c6d0475be3cc0f2b4e016cc454841341766364d6044d394636cc"
+    },
+    {
+      "bytes": 14646,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-003-A.json",
+      "sha256": "7fdc758a6b2129715eec07dd56d279e3352f361dc5156b9292c3f90eb78e14f5"
+    },
+    {
+      "bytes": 14637,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-003-B.json",
+      "sha256": "49c97ee5e91693c47152fd5497a09faea2e07243e1f01a6eab6a171f15a5fa53"
+    },
+    {
+      "bytes": 13561,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-004-A.json",
+      "sha256": "b4f9a487ba38009260bfeb6427056ae868b30fa4f4743ff8d96c38ee8a243ca2"
+    },
+    {
+      "bytes": 13570,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-004-B.json",
+      "sha256": "71ab3a5f1777eb8099e43a1ef1e19a90d692d4da6b3b1cbe5a48d862a96b9f6e"
+    },
+    {
+      "bytes": 11514,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-005-A.json",
+      "sha256": "3f99e07a636f578987d88ed8b5577453947d746a98edf949c4e1886d8dcf74f1"
+    },
+    {
+      "bytes": 11505,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-005-B.json",
+      "sha256": "ab88d00868b275f6461504c66fe29cea6b5b7935979030d13c20ca4abd58f8cd"
+    },
+    {
+      "bytes": 12978,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-006-A.json",
+      "sha256": "34633c04f82544d8f9222ac3aa546419c819cafb1b1bb7ee95372e2746358361"
+    },
+    {
+      "bytes": 12969,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-006-B.json",
+      "sha256": "89296f90ba6797be4f322727c68bc1b91c1078262c1ec00506ed41723a55094a"
+    },
+    {
+      "bytes": 14521,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-007-A.json",
+      "sha256": "ccf27041aa68eadb7aaa8cce43832111ebfffc2f997dcc12a856577217ff09d2"
+    },
+    {
+      "bytes": 14512,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-007-B.json",
+      "sha256": "9a7ddec37ae7d222cf431911eb9bda2a56f83044ee651e8372f279b99ee4ee8a"
+    },
+    {
+      "bytes": 14293,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-008-A.json",
+      "sha256": "62aa127cbd6499ae2a65baeadb730932825f5d213165982264943c3660617b4a"
+    },
+    {
+      "bytes": 14302,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-EPI-008-B.json",
+      "sha256": "786c10a5c4cb200dccb4b12e55a04c61731a3d39db75277e196d76942b838519"
+    },
+    {
+      "bytes": 13658,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-001-A.json",
+      "sha256": "a57d76aaa640a30464aa9c5fcbddfeaca1607ac4643cab32644a1ea9fc21601c"
+    },
+    {
+      "bytes": 13615,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-001-B.json",
+      "sha256": "5722b7dd6d697e1cc4f8ebde60ca5d70f5d2bdad08c07afe1e956b6049359782"
+    },
+    {
+      "bytes": 15938,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-002-A.json",
+      "sha256": "a878bde9e363abe6218b9a19519a9a9dbdf8eefafdb39f6528254985500a7b44"
+    },
+    {
+      "bytes": 15251,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-002-B.json",
+      "sha256": "779585e6d73f6a0c2926076d5e68fe93537704b0249d9b7b51c666a5b39c95ff"
+    },
+    {
+      "bytes": 14105,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-003-A.json",
+      "sha256": "8c48912527a01836478d889e7c8abb2fe16e57b166173f33e4ac05940b43eede"
+    },
+    {
+      "bytes": 13946,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-003-B.json",
+      "sha256": "6550f202e35b4a0eb47bf6fc9318c4f43b55fb0f5627ebf5206d9eeeefa75e7d"
+    },
+    {
+      "bytes": 13353,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-004-A.json",
+      "sha256": "1cd69b3030190220e3fe902c4e4365e4f7319c1944ed2b0e34298fc9e681ef18"
+    },
+    {
+      "bytes": 13356,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-004-B.json",
+      "sha256": "7638e3476dd7e69ee5b21170ccd2978b3fd5e349536db068ed61bb852b307be9"
+    },
+    {
+      "bytes": 15203,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-005-A.json",
+      "sha256": "f5f1eef63681dd75adc4964c934871de03c6d794d62907fb418289d666a83e77"
+    },
+    {
+      "bytes": 15898,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-005-B.json",
+      "sha256": "1fb1b66786bef22a84ae65d82c2a1f8fb26e87d1f25b9352516b412030c655a6"
+    },
+    {
+      "bytes": 12328,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-006-A.json",
+      "sha256": "f2b7bf88893c05a67980bdebed9b0879787447f478bbc84268c4c4e521ef7048"
+    },
+    {
+      "bytes": 12347,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-006-B.json",
+      "sha256": "b6a7f5ee04ef3598c64ddbae5ba0037b4e17648d8b5cd587d475caedf3cd61fb"
+    },
+    {
+      "bytes": 13882,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-007-A.json",
+      "sha256": "f6a6eda4dc4463867d0a06ce1372e23c236e82d0a53562e1b56aadeade4f5437"
+    },
+    {
+      "bytes": 14160,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-007-B.json",
+      "sha256": "c5f292685771dadfaf0cd90539bcb22906fb344ecc41feef9e7e4a94e3e69d08"
+    },
+    {
+      "bytes": 13826,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-008-A.json",
+      "sha256": "b068410aa7f2baba10bcc674c757bf486fec4afbf90190dace206bf1fb773713"
+    },
+    {
+      "bytes": 14139,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-GOL-008-B.json",
+      "sha256": "d333460422d32a8e8db476b45329584c764746948b23b573e87dc1a5d3bfbb97"
+    },
+    {
+      "bytes": 16707,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-001-A.json",
+      "sha256": "cba137f364bb35320f06afa9450f775baa20bbe2b3afa971443c2c44f5a5da66"
+    },
+    {
+      "bytes": 15973,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-001-B.json",
+      "sha256": "25e8767978e4e4dd7764eb65a356678cf42c32b6c6b941458f384a31bc51b3f5"
+    },
+    {
+      "bytes": 13738,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-002-A.json",
+      "sha256": "d7fa8627b893b0b244ed789b024c5a05aa0c261e9e2397912abedef86bf15830"
+    },
+    {
+      "bytes": 14472,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-002-B.json",
+      "sha256": "d8fcfb813852583182798ad2efc537ac851e8ecd42ed0bb01ed58f0b0f87f275"
+    },
+    {
+      "bytes": 11851,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-003-A.json",
+      "sha256": "ca03468f178db8aeb76cc46af59b1f637cffb89160d7f5393ae8db6fbd26dba5"
+    },
+    {
+      "bytes": 12585,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-003-B.json",
+      "sha256": "c5f5963e83dac1520908eeddecb4d3d3d9cb3d3144b5401d75d5ade7d3eb2402"
+    },
+    {
+      "bytes": 16357,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-004-A.json",
+      "sha256": "6968876510de795d2d0b799fc01c9d75cea20f6527d53d1c5e35ca67fb8a8ff6"
+    },
+    {
+      "bytes": 15623,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-004-B.json",
+      "sha256": "4a3356e4af4bd27a579ace63ae25e928c77179e1c238df57fc915a0673d3d09f"
+    },
+    {
+      "bytes": 12824,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-005-A.json",
+      "sha256": "0942040e1da78cef6d7b8893559f4a10ad9efbf6acd19a5a2438df91ec501a79"
+    },
+    {
+      "bytes": 13558,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-005-B.json",
+      "sha256": "c1116b4f2ff5b6568542c2d8fe596c026faa4bde42d185f8d3a7bd62c6c681e4"
+    },
+    {
+      "bytes": 15242,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-006-A.json",
+      "sha256": "a69d1edce690ddf07bdd4b8d00ab8dec122199614b59494936e2900cf7b5ba51"
+    },
+    {
+      "bytes": 14508,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-006-B.json",
+      "sha256": "e15c330aa7767a161880ab53ff8b6b611b01ae373cf98bccc8b7c6397cd4ad1a"
+    },
+    {
+      "bytes": 13999,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-007-A.json",
+      "sha256": "1f39fefa1da08efb90e5d33b2e0e5df4a8b7867d478717abd2c91262dfb03908"
+    },
+    {
+      "bytes": 13265,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-007-B.json",
+      "sha256": "bee9490bc6a90da17f65ab2c891c605872fcc1b9aa1166a61d4569624092afd4"
+    },
+    {
+      "bytes": 14254,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-008-A.json",
+      "sha256": "27ff64843df819541c1b26c1f620a887d83c350d2bd2c24a49801e7aa7629374"
+    },
+    {
+      "bytes": 14988,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-OBL-008-B.json",
+      "sha256": "46bc170e7cf896842b7fff91c1b53d8e895f98bfa6ec9231fa0adb696c1e8d10"
+    },
+    {
+      "bytes": 17787,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-001-A.json",
+      "sha256": "b2f6d552988fa0ef11e6f2d6837ecafc983805a43a74d63739715b422f4d676e"
+    },
+    {
+      "bytes": 17796,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-001-B.json",
+      "sha256": "8ace9f349eabf42d8a9ef8b44b809f8f52a8b8a893550a0e3b24341abb797c43"
+    },
+    {
+      "bytes": 17460,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-002-A.json",
+      "sha256": "5bee90fc5389738e09eae2c26ec420e7c57e4adeb3cd057079d0d9c1013dfdfb"
+    },
+    {
+      "bytes": 17451,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-002-B.json",
+      "sha256": "2f8438581efb9e0165e9f5ff4208998158c2cececb85ed8b72d8e12cfa8d7c6f"
+    },
+    {
+      "bytes": 12943,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-003-A.json",
+      "sha256": "e93fcf7bc44922af9538b120c609b46ed6282e38b00ec71ba6d19c02c402b781"
+    },
+    {
+      "bytes": 12952,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-003-B.json",
+      "sha256": "73fd3e277aa4180d4def80249fc214060e93d804b24337929d66c4f70ef0e716"
+    },
+    {
+      "bytes": 23439,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-004-A.json",
+      "sha256": "f34e2cd6f05ac7127f4100fbb95ab34a62e99706da8b42c38752a8029a93d9ed"
+    },
+    {
+      "bytes": 23430,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-004-B.json",
+      "sha256": "51da6397b4f2e774243824ef162489fd42cb737d20369f20998df6fa02ab69ca"
+    },
+    {
+      "bytes": 12736,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-005-A.json",
+      "sha256": "5670b02c9b00d148385552b96aff99b635f6935ee31e3eabfbfcbe5e15e1b9db"
+    },
+    {
+      "bytes": 12727,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-005-B.json",
+      "sha256": "6a9c644d2b3044533c7d93295ba90921006aa778bd4622e32db13b06e2581074"
+    },
+    {
+      "bytes": 12268,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-006-A.json",
+      "sha256": "88ee36d78d5c595be56f9d2261c0364fd8c672c103a84ef6933eb2938ae356aa"
+    },
+    {
+      "bytes": 12277,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-006-B.json",
+      "sha256": "c89a52254f4436916bdf8b774207ba6f5e9f47203456fa9899354ef056ec3ca0"
+    },
+    {
+      "bytes": 16625,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-007-A.json",
+      "sha256": "8ec646fd2a293679f9859ba0f334331ad5b3bef069294aeb70470080d98cb140"
+    },
+    {
+      "bytes": 16616,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-007-B.json",
+      "sha256": "db1016591e85c58cd1f2fcd0559777e757cd9088e4ecae32a112a8f0e21d8909"
+    },
+    {
+      "bytes": 13200,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-008-A.json",
+      "sha256": "beec38afb91a84b0b91defe24e15027e3f7f49364a052947cf9a46f760fb2776"
+    },
+    {
+      "bytes": 13209,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-PRE-008-B.json",
+      "sha256": "4d7fcba32a8c5ba1680de1009e700c88b191f8280a3dee3705b2dddbce9fde4e"
+    },
+    {
+      "bytes": 12237,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-001-A.json",
+      "sha256": "7ee3d2dd7da751daaddd7db13eff8add9b2d2364eefb7ffcd7660054c6d47c4a"
+    },
+    {
+      "bytes": 12228,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-001-B.json",
+      "sha256": "ee9576d4ddf64ab8ad7cdd59f179f81e30e337235e3f62b6a10f0bb132b2b597"
+    },
+    {
+      "bytes": 14235,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-002-A.json",
+      "sha256": "7ea62ce8442bfc9d6496636c345bdf05f687e52a9506c9737d3c1a821ff3750d"
+    },
+    {
+      "bytes": 14226,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-002-B.json",
+      "sha256": "de9d8ba38245b8aca4a7d02d4a38471e9128e006925eb3a414ce7643611d1c10"
+    },
+    {
+      "bytes": 11723,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-003-A.json",
+      "sha256": "57bd166ae9396192041fe66fd6ad0c6a2d000368000a5ef3b593f2a7b059e302"
+    },
+    {
+      "bytes": 11732,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-003-B.json",
+      "sha256": "8a496b8d9cf9fa72f7aea17b17cec433e162c064a04b786102637218ae93a3f4"
+    },
+    {
+      "bytes": 11744,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-004-A.json",
+      "sha256": "faf32ca8b6262302bb81b43c83e942feb7e712bc54b1e2c62ce8fb6ff08680f7"
+    },
+    {
+      "bytes": 11753,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-004-B.json",
+      "sha256": "568fc7685cda5d298ced2f7a89b3d537733993a9ec6de3d4aeaac80ce7dc1b4a"
+    },
+    {
+      "bytes": 16369,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-005-A.json",
+      "sha256": "5d6c02edcc9fae7e31f6f9714f2a9814d88394f07ec8d9bdfe17447b51c7ddbd"
+    },
+    {
+      "bytes": 16378,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-005-B.json",
+      "sha256": "7397bf7b2dd29b117d81cbd95da2a70aaab9966445f6df6c5993270eae75ee47"
+    },
+    {
+      "bytes": 12453,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-006-A.json",
+      "sha256": "54292151c1e7b6d9c2da80ed462ff469b4c54383803282ec856a11fa2bb294b0"
+    },
+    {
+      "bytes": 12444,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-006-B.json",
+      "sha256": "f595cfcefab5e3de1cc91bb0c278aebb718c754a33dbaf4c5edd247efb46c25e"
+    },
+    {
+      "bytes": 11758,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-007-A.json",
+      "sha256": "5966e3666b3ea95c9911d5bda9ca2cc078eb01b75ba675694764ab48308d148a"
+    },
+    {
+      "bytes": 11749,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-007-B.json",
+      "sha256": "dc0df9ce1037aa71e38e9faf6a81d6d3217c3f9dcba8ca52a28568cfd983980a"
+    },
+    {
+      "bytes": 13546,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-008-A.json",
+      "sha256": "c66ba11137ed500bc5f0cc3881e0fe6e79f73c0bde7a93ad538ced0982ced20e"
+    },
+    {
+      "bytes": 13555,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-SCP-008-B.json",
+      "sha256": "7a53e4aae7c3376296ed26414be6f075a874b94a525943b950e3212584032d25"
+    },
+    {
+      "bytes": 11024,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-001-A.json",
+      "sha256": "50afde98281c7112b66cf503603ca35375df8c9c22382b87c34c6fd30dcb4d55"
+    },
+    {
+      "bytes": 11024,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-001-B.json",
+      "sha256": "957195a0ceaa19315f85bed55ceafac489d276f57e28dd8daae3fc126a5eb7bc"
+    },
+    {
+      "bytes": 13684,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-002-A.json",
+      "sha256": "4c1ebf7b9221fddedc3ffe62a1c7036a8a92e1fb0f36c56e0178c44e5a7f6326"
+    },
+    {
+      "bytes": 13684,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-002-B.json",
+      "sha256": "89881c22531963cb07402887a4cfd8579ccfb632730ebb0da0484e5433f2cb02"
+    },
+    {
+      "bytes": 17196,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-003-A.json",
+      "sha256": "b02759a98b52e64b764069cf265de8f53d7bb2a27bedaea235ee3da3fbe27a4f"
+    },
+    {
+      "bytes": 17196,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-003-B.json",
+      "sha256": "597e16e018483df2156843531ed70fa4a5167fa71ed4292b662e2457ea5fb843"
+    },
+    {
+      "bytes": 11421,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-004-A.json",
+      "sha256": "d052d46c0dead918d9b1e17f2602fd33b1deb786bab9db1784d827e170ad10a6"
+    },
+    {
+      "bytes": 11421,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-004-B.json",
+      "sha256": "dd9693b3e8d84f64be7e7e3a1250ca36fd34db1c352af65306bad4605fd89ce7"
+    },
+    {
+      "bytes": 10671,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-005-A.json",
+      "sha256": "b0033863c5bad28a2f262b0a553a7625e0c90e9beb6c22fc8dd2e852ed663492"
+    },
+    {
+      "bytes": 10671,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-005-B.json",
+      "sha256": "add95347c467f8e4427e06b5158936a6347b99b527955973d38408d07722c82d"
+    },
+    {
+      "bytes": 11907,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-006-A.json",
+      "sha256": "14b0dede905f022f8fdc63a0b38d9fb1874cec26403ee53d8d31b689e78f7d04"
+    },
+    {
+      "bytes": 11907,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-006-B.json",
+      "sha256": "e4a95a00a5d6c40b3170efc58e839ca0b56e00ecdc52f28d464199b8c8506900"
+    },
+    {
+      "bytes": 10865,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-007-A.json",
+      "sha256": "85f8f7db4470443ccd63d7e1bf3e8e1e4c97978aece2eeeeb5911983ff7469bf"
+    },
+    {
+      "bytes": 10865,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-007-B.json",
+      "sha256": "799d62a4d8353805ab627e1606d3cf6a6efbe576edecf3bd4b558dc25d7a4d77"
+    },
+    {
+      "bytes": 13771,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-008-A.json",
+      "sha256": "d4c19edf0fda7cd6814faeaf664a70ed315a710f1bf4966d1ef53740ce37fbdd"
+    },
+    {
+      "bytes": 13771,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-TYP-008-B.json",
+      "sha256": "dc63757face1324d7ae3ed810dac24d8d6d5b8070b491cac2a069f0b1cdd64c7"
+    },
+    {
+      "bytes": 12237,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-001-A.json",
+      "sha256": "2cca0cee9b0413a2b3b8ef79fc913b6f4c74915c19437a966ed706c896c59293"
+    },
+    {
+      "bytes": 12201,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-001-B.json",
+      "sha256": "365a009ea11305822e2bb73d6e8eb9b634cd8b201514e59729ee9803b413d2c7"
+    },
+    {
+      "bytes": 11907,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-002-A.json",
+      "sha256": "6d09620cc957304e6deee4c40154c2656f501edefc07fef74d5a49c6594d25b6"
+    },
+    {
+      "bytes": 11943,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-002-B.json",
+      "sha256": "d751852600f660b2951da3bb0f6c20de34c351db901c629ad47072221b630197"
+    },
+    {
+      "bytes": 13041,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-003-A.json",
+      "sha256": "2d35f3024dce974531b1b8e9c4ae7b41fe1176ad50fcc80b4958645b2d4ce934"
+    },
+    {
+      "bytes": 13005,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-003-B.json",
+      "sha256": "ccff481b5777641990a4809c74dedf23b81cfb8a0486d834b2e9e4506e749ca4"
+    },
+    {
+      "bytes": 13066,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-004-A.json",
+      "sha256": "feb81ca0e665c59495423f5b6a486f7b0df0eb1a381ea9d513f022be93ebc111"
+    },
+    {
+      "bytes": 13030,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-004-B.json",
+      "sha256": "36f1503e8a626943de1333c60d74d5cf72d746d6a200920f763c3e3ab54b33a3"
+    },
+    {
+      "bytes": 11439,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-005-A.json",
+      "sha256": "70fbba1364ec259536ef371cc6aaccc775617e18ea497ccdb458f30140f6650d"
+    },
+    {
+      "bytes": 11403,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-005-B.json",
+      "sha256": "13ab84b9a0491f712402afab622e7e6d49e3c298dd98846f02fdec91877da2c8"
+    },
+    {
+      "bytes": 12432,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-006-A.json",
+      "sha256": "e56c199725342c49fc0ea7c11f9d70f0e1cd8ff74f7a39a60e742d94d2b88100"
+    },
+    {
+      "bytes": 12396,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-006-B.json",
+      "sha256": "3257e29d1339d5c8cf5b9f2f3033822b1762a026473f4af2812c413343e9830a"
+    },
+    {
+      "bytes": 12454,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-007-A.json",
+      "sha256": "29e0b67d3c0d24448788b88656a6bc88f3f2cdb61dbdfacc2becc649e87be14c"
+    },
+    {
+      "bytes": 12418,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-007-B.json",
+      "sha256": "310887e713d3062912b97a7e3aa643cc2d982ed967fb53f9165962cf3cf7bf42"
+    },
+    {
+      "bytes": 11212,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-008-A.json",
+      "sha256": "68b8763984afa05353eb1a3c44410595136e62f7626784a7b385638ea599d162"
+    },
+    {
+      "bytes": 11248,
+      "path": "experiments/semantic_firewall/renderings/final/SF-FINAL-WAR-008-B.json",
+      "sha256": "0b8d767f8171e903c03a03f98bcb592b43d1d3f779b24ea76e81526d1d8fa928"
+    },
+    {
+      "bytes": 5689,
+      "path": "experiments/semantic_firewall/results/current_hml_probe.json",
+      "sha256": "a20fbf7af51d310f981058717f84671dba35490027e16b1aeb978fafc45a3d9d"
+    },
+    {
+      "bytes": 2653,
+      "path": "experiments/semantic_firewall/schemas/semantic_case.schema.json",
+      "sha256": "786010438613790d0d4b956092019a36728f824e7f773b5d2a5f60b97ed37405"
+    },
+    {
+      "bytes": 10080,
+      "path": "experiments/semantic_firewall/score_benchmark.py",
+      "sha256": "a4229070477d695186b278f34eae910eaa0f34ec21d06f7a87b56ff17eb7146c"
+    },
+    {
+      "bytes": 10601,
+      "path": "tests/test_semantic_firewall.py",
+      "sha256": "3e174844c56f7611670af59ef95f1da4731ac3ee6189da01deb4870d8fe596e2"
+    }
+  ],
+  "frozen_at_utc": "2026-08-10T09:14:18+00:00",
+  "gold125_manifest_sha256": "bd175cc344635b6be94f5eb50e6026caafe9f283eca776a5ea755770d546f143",
+  "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+  "manifest_version": "semantic-firewall-freeze-0.1.0",
+  "selection_policy": "20 DEV pairs may overlap Gold-125; 80 FINAL pairs are unique MATH Level 4/5 rows excluding every Gold-125 row and hash, with fixed class/category quotas.",
+  "source_file": "data/raw/math/train-00000-of-00001-7320a6f3aba8ebd2.parquet",
+  "source_file_sha256": "2325458edc03d786939ee9e1e5795efb9e2480247b6e1ed2c51f41bea7369c6a"
+}

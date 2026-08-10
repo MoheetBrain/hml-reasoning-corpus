@@ -1,0 +1,127 @@
+{
+  "action": {
+    "branch_effect": {
+      "branch_ids": [],
+      "coverage_evidence_id": null,
+      "kind": "NONE"
+    },
+    "candidate_effect": {
+      "candidate_id": null,
+      "evidence_id": null,
+      "kind": "NONE"
+    },
+    "dependencies": [
+      "p0"
+    ],
+    "epistemic_effect": {
+      "evidence_id": null,
+      "to_status": "DERIVED"
+    },
+    "goal_effect": {
+      "goal_id": null,
+      "kind": "NONE"
+    },
+    "id": "a0",
+    "obligations_created": [],
+    "obligations_discharged": [],
+    "operation": "DERIVE",
+    "output_id": "c1",
+    "preconditions": [],
+    "scope_effect": {
+      "discharge_evidence_id": null,
+      "kind": "NONE"
+    },
+    "summary": "\\]Thus if $x$ is in the domain of $f$, then $x = 1/x$, so $x = \\pm 1$.",
+    "typing": {
+      "input_domains": {
+        "p0": "Proposition"
+      },
+      "output_domain": "Proposition"
+    },
+    "warrant": {
+      "evidence_id": "e_source",
+      "kind": "EVIDENCE_ADAPTER",
+      "rule": "SOURCE_REVIEWED_DERIVATION"
+    }
+  },
+  "case_id": "SF-FINAL-SCP-002-A",
+  "evidence": {
+    "e_source": {
+      "id": "e_source",
+      "kind": "SOURCE_REVIEW",
+      "premise_ids": [
+        "p0"
+      ],
+      "source_span_hash": "607a986e9b02cb792c7dfa317e683f63d1d3f2306120b5b68c7fe208f96ca895",
+      "status": "VALID",
+      "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+      "trusted": true
+    }
+  },
+  "pair_id": "SF-FINAL-SCP-002",
+  "schema_version": "semantic-firewall-case-0.1.0",
+  "semantic_focus": "SCOPE",
+  "source": {
+    "category": "Intermediate Algebra",
+    "dataset": "Hendrycks MATH train parquet",
+    "gold125_overlap": false,
+    "level": "Level 4",
+    "problem": "The function $f$ has the property that for each real number $x$ in its domain, $1/x$ is also in its domain and \\[\nf(x) + f\\left(\\frac{1}{x}\\right) = x.\n\\]What is the largest set of real numbers that can be in the domain of $f$?\n\n(a) ${\\{x\\mid x\\ne0\\}}$\n\n(b) ${\\{x\\mid x<0\\}}$\n\n(c) ${\\{x\\mid x>0\\}}$\n\n(d) ${\\{x\\mid x\\ne-1\\ \\text{and}\\ x\\ne0\\ \\text{and}\\ x\\ne1\\}}$\n\n(e) ${\\{-1,1\\}}$",
+    "solution_span": "\\]Thus if $x$ is in the domain of $f$, then $x = 1/x$, so $x = \\pm 1$.",
+    "solution_span_hash": "607a986e9b02cb792c7dfa317e683f63d1d3f2306120b5b68c7fe208f96ca895",
+    "source_hash": "21234603b7fbf90aeb042ce23735797d0e5b852ce20b1cf72d91152bd3da1990",
+    "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+    "source_row_id": "train-row-03411"
+  },
+  "split": "FINAL",
+  "state_after": {
+    "active_scopes": [
+      "global",
+      "branch:b1"
+    ],
+    "branches": {},
+    "candidates": {},
+    "claims": {
+      "c1": {
+        "dependencies": [
+          "p0"
+        ],
+        "domain": "Proposition",
+        "id": "c1",
+        "proposition": "\\]Thus if $x$ is in the domain of $f$, then $x = 1/x$, so $x = \\pm 1$.",
+        "scope": "branch:b1",
+        "status": "DERIVED"
+      },
+      "p0": {
+        "dependencies": [],
+        "domain": "Proposition",
+        "id": "p0",
+        "proposition": "The function $f$ has the property that for each real number $x$ in its domain, $1/x$ is also in its domain and \\[\nf(x) + f\\left(\\frac{1}{x}\\right) = x.\n\\]What is the largest set of real numbers that can be in the domain of $f$?\n\n(a) ${\\{x\\mid x\\ne0\\}}$\n\n(b) ${\\{x\\mid x<0\\}}$\n\n(c) ${\\{x\\mid x>0\\}}$\n\n(d) ${\\{x\\mid x\\ne-1\\ \\text{and}\\ x\\ne0\\ \\text{and}\\ x\\ne1\\}}$\n\n(e) ${\\{-1,1\\}}$",
+        "scope": "branch:b1",
+        "status": "GIVEN"
+      }
+    },
+    "goals": {},
+    "obligations": {}
+  },
+  "state_before": {
+    "active_scopes": [
+      "global",
+      "branch:b1"
+    ],
+    "branches": {},
+    "candidates": {},
+    "claims": {
+      "p0": {
+        "dependencies": [],
+        "domain": "Proposition",
+        "id": "p0",
+        "proposition": "The function $f$ has the property that for each real number $x$ in its domain, $1/x$ is also in its domain and \\[\nf(x) + f\\left(\\frac{1}{x}\\right) = x.\n\\]What is the largest set of real numbers that can be in the domain of $f$?\n\n(a) ${\\{x\\mid x\\ne0\\}}$\n\n(b) ${\\{x\\mid x<0\\}}$\n\n(c) ${\\{x\\mid x>0\\}}$\n\n(d) ${\\{x\\mid x\\ne-1\\ \\text{and}\\ x\\ne0\\ \\text{and}\\ x\\ne1\\}}$\n\n(e) ${\\{-1,1\\}}$",
+        "scope": "branch:b1",
+        "status": "GIVEN"
+      }
+    },
+    "goals": {},
+    "obligations": {}
+  }
+}

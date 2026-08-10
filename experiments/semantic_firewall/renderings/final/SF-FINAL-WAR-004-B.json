@@ -1,0 +1,272 @@
+{
+  "case_id": "SF-FINAL-WAR-004-B",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Since $105 = 3 \\cdot 5 \\cdot 7$, by the Chinese Remainder Theorem, it suffices to find the remainders when $x$ is divided by $3$, $5$, and $7$.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "UNRELATED_RULE"
+        }
+      },
+      "case_id": "SF-FINAL-WAR-004-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "277d7a3d0d43262352554e25e011aa6c9cb82267f9a4cf8abf63b997ec36a639",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-WAR-004",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "WARRANT",
+      "source": {
+        "category": "Number Theory",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 5",
+        "problem": "Suppose that $x$ is an integer that satisfies the following congruences: \\begin{align*}\n3+x &\\equiv 2^2 \\pmod{3^3} \\\\\n5+x &\\equiv 3^2 \\pmod{5^3} \\\\\n7+x &\\equiv 5^2 \\pmod{7^3}\n\\end{align*}What is the remainder when $x$ is divided by $105$?",
+        "solution_span": "Since $105 = 3 \\cdot 5 \\cdot 7$, by the Chinese Remainder Theorem, it suffices to find the remainders when $x$ is divided by $3$, $5$, and $7$.",
+        "solution_span_hash": "277d7a3d0d43262352554e25e011aa6c9cb82267f9a4cf8abf63b997ec36a639",
+        "source_hash": "ae77356d43685873f06379121b16ee8c8c0fb27d0cd1baa26d018f9d926d14a3",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-04773"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Since $105 = 3 \\cdot 5 \\cdot 7$, by the Chinese Remainder Theorem, it suffices to find the remainders when $x$ is divided by $3$, $5$, and $7$.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Suppose that $x$ is an integer that satisfies the following congruences: \\begin{align*}\n3+x &\\equiv 2^2 \\pmod{3^3} \\\\\n5+x &\\equiv 3^2 \\pmod{5^3} \\\\\n7+x &\\equiv 5^2 \\pmod{7^3}\n\\end{align*}What is the remainder when $x$ is divided by $105$?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Suppose that $x$ is an integer that satisfies the following congruences: \\begin{align*}\n3+x &\\equiv 2^2 \\pmod{3^3} \\\\\n5+x &\\equiv 3^2 \\pmod{5^3} \\\\\n7+x &\\equiv 5^2 \\pmod{7^3}\n\\end{align*}What is the remainder when $x$ is divided by $105$?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Since $105 = 3 \\cdot 5 \\cdot 7$, by the Chinese Remainder Theorem, it suffices to find the remainders when $x$ is divided by $3$, $5$, and $7$.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "UNRELATED_RULE"
+        }
+      },
+      "case_id": "SF-FINAL-WAR-004-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "277d7a3d0d43262352554e25e011aa6c9cb82267f9a4cf8abf63b997ec36a639",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-WAR-004",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "WARRANT",
+      "source": {
+        "category": "Number Theory",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 5",
+        "problem": "Suppose that $x$ is an integer that satisfies the following congruences: \\begin{align*}\n3+x &\\equiv 2^2 \\pmod{3^3} \\\\\n5+x &\\equiv 3^2 \\pmod{5^3} \\\\\n7+x &\\equiv 5^2 \\pmod{7^3}\n\\end{align*}What is the remainder when $x$ is divided by $105$?",
+        "solution_span": "Since $105 = 3 \\cdot 5 \\cdot 7$, by the Chinese Remainder Theorem, it suffices to find the remainders when $x$ is divided by $3$, $5$, and $7$.",
+        "solution_span_hash": "277d7a3d0d43262352554e25e011aa6c9cb82267f9a4cf8abf63b997ec36a639",
+        "source_hash": "ae77356d43685873f06379121b16ee8c8c0fb27d0cd1baa26d018f9d926d14a3",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-04773"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Since $105 = 3 \\cdot 5 \\cdot 7$, by the Chinese Remainder Theorem, it suffices to find the remainders when $x$ is divided by $3$, $5$, and $7$.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Suppose that $x$ is an integer that satisfies the following congruences: \\begin{align*}\n3+x &\\equiv 2^2 \\pmod{3^3} \\\\\n5+x &\\equiv 3^2 \\pmod{5^3} \\\\\n7+x &\\equiv 5^2 \\pmod{7^3}\n\\end{align*}What is the remainder when $x$ is divided by $105$?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Suppose that $x$ is an integer that satisfies the following congruences: \\begin{align*}\n3+x &\\equiv 2^2 \\pmod{3^3} \\\\\n5+x &\\equiv 3^2 \\pmod{5^3} \\\\\n7+x &\\equiv 5^2 \\pmod{7^3}\n\\end{align*}What is the remainder when $x$ is divided by $105$?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_FINAL_WAR_004_B\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "20f2f461c3b96343132e03d217f415a31b850c5dd6da384b5003ffea18569ada",
+  "structured_english": "Case SF-FINAL-WAR-004-B (pair SF-FINAL-WAR-004).\nSource row: train-row-04773 (Number Theory, Level 5).\nSource problem: Suppose that $x$ is an integer that satisfies the following congruences: \\begin{align*}\n3+x &\\equiv 2^2 \\pmod{3^3} \\\\\n5+x &\\equiv 3^2 \\pmod{5^3} \\\\\n7+x &\\equiv 5^2 \\pmod{7^3}\n\\end{align*}What is the remainder when $x$ is divided by $105$?\nProposed action: Since $105 = 3 \\cdot 5 \\cdot 7$, by the Chinese Remainder Theorem, it suffices to find the remainders when $x$ is divided by $3$, $5$, and $7$.\nOperation: DERIVE.\nDependencies: p0.\nWarrant: UNRELATED_RULE using e_source.\nState before: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Suppose that $x$ is an integer that satisfies the following congruences: \\\\begin{align*}\\n3+x &\\\\equiv 2^2 \\\\pmod{3^3} \\\\\\\\\\n5+x &\\\\equiv 3^2 \\\\pmod{5^3} \\\\\\\\\\n7+x &\\\\equiv 5^2 \\\\pmod{7^3}\\n\\\\end{align*}What is the remainder when $x$ is divided by $105$?\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": null, \"to_status\": \"DERIVED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"277d7a3d0d43262352554e25e011aa6c9cb82267f9a4cf8abf63b997ec36a639\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"Since $105 = 3 \\\\cdot 5 \\\\cdot 7$, by the Chinese Remainder Theorem, it suffices to find the remainders when $x$ is divided by $3$, $5$, and $7$.\", \"scope\": \"global\", \"status\": \"DERIVED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Suppose that $x$ is an integer that satisfies the following congruences: \\\\begin{align*}\\n3+x &\\\\equiv 2^2 \\\\pmod{3^3} \\\\\\\\\\n5+x &\\\\equiv 3^2 \\\\pmod{5^3} \\\\\\\\\\n7+x &\\\\equiv 5^2 \\\\pmod{7^3}\\n\\\\end{align*}What is the remainder when $x$ is divided by $105$?\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

@@ -1,0 +1,320 @@
+{
+  "case_id": "SF-FINAL-GOL-003-B",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": "e_verify",
+          "to_status": "VERIFIED"
+        },
+        "goal_effect": {
+          "goal_id": "g1",
+          "kind": "DISCHARGE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Thus $(x - 4)^2 \\ge 1$, and \\[\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\geq \\boxed{34}.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-GOL-003-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "d74423b388fa5cbb603e7f847dc788510f0faea11bda65652e3f449977baaa75",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        },
+        "e_verify": {
+          "id": "e_verify",
+          "kind": "TRANSITION_CHECK",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "VALID",
+          "supports_rule": "VERIFY_TRANSITION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-GOL-003",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "GOAL_DISCHARGE",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "Let $a,b,c,d,e,f,g$ and $h$ be distinct elements in the set \\[\n\\{-7,-5,-3,-2,2,4,6,13\\}.\n\\]What is the minimum possible value of \\[\n(a+b+c+d)^{2} + (e+f+g+h)^{2}?\n\\]",
+        "solution_span": "Thus $(x - 4)^2 \\ge 1$, and \\[\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\geq \\boxed{34}.",
+        "solution_span_hash": "d74423b388fa5cbb603e7f847dc788510f0faea11bda65652e3f449977baaa75",
+        "source_hash": "22fd6e51e5883a4ebd707b8560784c2c51d146c9b6cf6757d958981ddf6e4eff",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03408"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "A different conclusion than the active goal.",
+            "scope": "global",
+            "status": "VERIFIED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Let $a,b,c,d,e,f,g$ and $h$ be distinct elements in the set \\[\n\\{-7,-5,-3,-2,2,4,6,13\\}.\n\\]What is the minimum possible value of \\[\n(a+b+c+d)^{2} + (e+f+g+h)^{2}?\n\\]",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {
+          "g1": {
+            "id": "g1",
+            "proposition": "Thus $(x - 4)^2 \\ge 1$, and \\[\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\geq \\boxed{34}.",
+            "scope": "global",
+            "status": "DISCHARGED"
+          }
+        },
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Let $a,b,c,d,e,f,g$ and $h$ be distinct elements in the set \\[\n\\{-7,-5,-3,-2,2,4,6,13\\}.\n\\]What is the minimum possible value of \\[\n(a+b+c+d)^{2} + (e+f+g+h)^{2}?\n\\]",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {
+          "g1": {
+            "id": "g1",
+            "proposition": "Thus $(x - 4)^2 \\ge 1$, and \\[\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\geq \\boxed{34}.",
+            "scope": "global",
+            "status": "OPEN"
+          }
+        },
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": "e_verify",
+          "to_status": "VERIFIED"
+        },
+        "goal_effect": {
+          "goal_id": "g1",
+          "kind": "DISCHARGE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Thus $(x - 4)^2 \\ge 1$, and \\[\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\geq \\boxed{34}.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-GOL-003-B",
+      "evidence": {
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "d74423b388fa5cbb603e7f847dc788510f0faea11bda65652e3f449977baaa75",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        },
+        "e_verify": {
+          "id": "e_verify",
+          "kind": "TRANSITION_CHECK",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "VALID",
+          "supports_rule": "VERIFY_TRANSITION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-GOL-003",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "GOAL_DISCHARGE",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "Let $a,b,c,d,e,f,g$ and $h$ be distinct elements in the set \\[\n\\{-7,-5,-3,-2,2,4,6,13\\}.\n\\]What is the minimum possible value of \\[\n(a+b+c+d)^{2} + (e+f+g+h)^{2}?\n\\]",
+        "solution_span": "Thus $(x - 4)^2 \\ge 1$, and \\[\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\geq \\boxed{34}.",
+        "solution_span_hash": "d74423b388fa5cbb603e7f847dc788510f0faea11bda65652e3f449977baaa75",
+        "source_hash": "22fd6e51e5883a4ebd707b8560784c2c51d146c9b6cf6757d958981ddf6e4eff",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03408"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "A different conclusion than the active goal.",
+            "scope": "global",
+            "status": "VERIFIED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Let $a,b,c,d,e,f,g$ and $h$ be distinct elements in the set \\[\n\\{-7,-5,-3,-2,2,4,6,13\\}.\n\\]What is the minimum possible value of \\[\n(a+b+c+d)^{2} + (e+f+g+h)^{2}?\n\\]",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {
+          "g1": {
+            "id": "g1",
+            "proposition": "Thus $(x - 4)^2 \\ge 1$, and \\[\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\geq \\boxed{34}.",
+            "scope": "global",
+            "status": "DISCHARGED"
+          }
+        },
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Let $a,b,c,d,e,f,g$ and $h$ be distinct elements in the set \\[\n\\{-7,-5,-3,-2,2,4,6,13\\}.\n\\]What is the minimum possible value of \\[\n(a+b+c+d)^{2} + (e+f+g+h)^{2}?\n\\]",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {
+          "g1": {
+            "id": "g1",
+            "proposition": "Thus $(x - 4)^2 \\ge 1$, and \\[\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\geq \\boxed{34}.",
+            "scope": "global",
+            "status": "OPEN"
+          }
+        },
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_FINAL_GOL_003_B\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "42d704c4cb0c2107b1003c2a596578779d013dd889d05cb5bd8a1f9e99846fac",
+  "structured_english": "Case SF-FINAL-GOL-003-B (pair SF-FINAL-GOL-003).\nSource row: train-row-03408 (Intermediate Algebra, Level 4).\nSource problem: Let $a,b,c,d,e,f,g$ and $h$ be distinct elements in the set \\[\n\\{-7,-5,-3,-2,2,4,6,13\\}.\n\\]What is the minimum possible value of \\[\n(a+b+c+d)^{2} + (e+f+g+h)^{2}?\n\\]\nProposed action: Thus $(x - 4)^2 \\ge 1$, and \\[\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\geq \\boxed{34}.\nOperation: DERIVE.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Let $a,b,c,d,e,f,g$ and $h$ be distinct elements in the set \\\\[\\n\\\\{-7,-5,-3,-2,2,4,6,13\\\\}.\\n\\\\]What is the minimum possible value of \\\\[\\n(a+b+c+d)^{2} + (e+f+g+h)^{2}?\\n\\\\]\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {\"g1\": {\"id\": \"g1\", \"proposition\": \"Thus $(x - 4)^2 \\\\ge 1$, and \\\\[\\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\\\geq \\\\boxed{34}.\", \"scope\": \"global\", \"status\": \"OPEN\"}}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": \"e_verify\", \"to_status\": \"VERIFIED\"}\nGoal effect: {\"goal_id\": \"g1\", \"kind\": \"DISCHARGE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"d74423b388fa5cbb603e7f847dc788510f0faea11bda65652e3f449977baaa75\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}, \"e_verify\": {\"id\": \"e_verify\", \"kind\": \"TRANSITION_CHECK\", \"premise_ids\": [\"p0\"], \"status\": \"VALID\", \"supports_rule\": \"VERIFY_TRANSITION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"A different conclusion than the active goal.\", \"scope\": \"global\", \"status\": \"VERIFIED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Let $a,b,c,d,e,f,g$ and $h$ be distinct elements in the set \\\\[\\n\\\\{-7,-5,-3,-2,2,4,6,13\\\\}.\\n\\\\]What is the minimum possible value of \\\\[\\n(a+b+c+d)^{2} + (e+f+g+h)^{2}?\\n\\\\]\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {\"g1\": {\"id\": \"g1\", \"proposition\": \"Thus $(x - 4)^2 \\\\ge 1$, and \\\\[\\n(a+b+c+d)^2 + (e+f+g+h)^2 = 2(x-4)^2 + 32 \\\\geq \\\\boxed{34}.\", \"scope\": \"global\", \"status\": \"DISCHARGED\"}}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

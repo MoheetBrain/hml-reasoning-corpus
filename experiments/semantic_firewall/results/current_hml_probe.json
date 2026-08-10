@@ -1,0 +1,248 @@
+{
+  "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+  "hml_modified": false,
+  "probe_version": "semantic-firewall-current-hml-0.1.0",
+  "probes": [
+    {
+      "derivation_status": {
+        "d1": "VERIFIED",
+        "d2": "VERIFIED"
+      },
+      "diagnostic_codes": [],
+      "expectation": {
+        "d2": "VERIFIED",
+        "ok": true
+      },
+      "goal_status": {},
+      "ok": true,
+      "open_obligations": [],
+      "probe_id": "DEP-LEGAL"
+    },
+    {
+      "derivation_status": {
+        "d1": "REJECTED"
+      },
+      "diagnostic_codes": [
+        "HML-R703"
+      ],
+      "expectation": {
+        "diagnostic": "HML-R703",
+        "ok": false
+      },
+      "goal_status": {},
+      "ok": false,
+      "open_obligations": [],
+      "probe_id": "DEP-FUTURE-ILLEGAL"
+    },
+    {
+      "derivation_status": {},
+      "diagnostic_codes": [],
+      "expectation": {
+        "ok": true
+      },
+      "goal_status": {},
+      "ok": true,
+      "open_obligations": [],
+      "probe_id": "SCOPE-LEGAL"
+    },
+    {
+      "derivation_status": {},
+      "diagnostic_codes": [
+        "HML-T427",
+        "HML-T427"
+      ],
+      "expectation": {
+        "ok": false
+      },
+      "goal_status": {},
+      "ok": false,
+      "open_obligations": [],
+      "probe_id": "SCOPE-LEAK-ILLEGAL"
+    },
+    {
+      "derivation_status": {
+        "d1": "VERIFIED"
+      },
+      "diagnostic_codes": [],
+      "expectation": {
+        "d1": "VERIFIED",
+        "ok": true
+      },
+      "goal_status": {},
+      "ok": true,
+      "open_obligations": [],
+      "probe_id": "PRECONDITION-DISCHARGED"
+    },
+    {
+      "derivation_status": {
+        "d1": "CHECKED"
+      },
+      "diagnostic_codes": [
+        "HML-R707"
+      ],
+      "expectation": {
+        "d1": "CHECKED",
+        "open_obligations": 1
+      },
+      "goal_status": {},
+      "ok": true,
+      "open_obligations": [
+        {
+          "discharged_by": null,
+          "generated_by": "d1",
+          "id": "o1",
+          "mandatory": true,
+          "proposition": "k != 0",
+          "reason": "divide_domain",
+          "status": "OPEN"
+        }
+      ],
+      "probe_id": "PRECONDITION-OPEN"
+    },
+    {
+      "derivation_status": {
+        "d1": "REJECTED"
+      },
+      "diagnostic_codes": [
+        "HML-R715"
+      ],
+      "expectation": {
+        "d1": "REJECTED",
+        "diagnostic": "HML-R715",
+        "ok": false
+      },
+      "goal_status": {},
+      "ok": false,
+      "open_obligations": [],
+      "probe_id": "PRECONDITION-REFUTED"
+    },
+    {
+      "derivation_status": {
+        "d1": "CHECKED",
+        "d2": "CHECKED"
+      },
+      "diagnostic_codes": [
+        "HML-R707",
+        "HML-R707"
+      ],
+      "expectation": {
+        "d1": "CHECKED",
+        "d2": "CHECKED"
+      },
+      "goal_status": {},
+      "ok": true,
+      "open_obligations": [
+        {
+          "discharged_by": null,
+          "generated_by": "d1",
+          "id": "o1",
+          "mandatory": true,
+          "proposition": "k != 0",
+          "reason": "divide_domain",
+          "status": "OPEN"
+        },
+        {
+          "discharged_by": null,
+          "generated_by": "d2",
+          "id": "o3",
+          "mandatory": true,
+          "proposition": "k != 0",
+          "reason": "divide_domain",
+          "status": "OPEN"
+        }
+      ],
+      "probe_id": "OBLIGATION-PROPAGATES"
+    },
+    {
+      "derivation_status": {
+        "d1": "REJECTED"
+      },
+      "diagnostic_codes": [
+        "HML-R704"
+      ],
+      "expectation": {
+        "diagnostic": "HML-R704",
+        "ok": false
+      },
+      "goal_status": {},
+      "ok": false,
+      "open_obligations": [],
+      "probe_id": "WARRANT-UNKNOWN-ILLEGAL"
+    },
+    {
+      "derivation_status": {
+        "d1": "VERIFIED"
+      },
+      "diagnostic_codes": [],
+      "expectation": {
+        "d1": "VERIFIED",
+        "ok": true,
+        "source_cannot_set_status": true
+      },
+      "goal_status": {},
+      "ok": true,
+      "open_obligations": [],
+      "probe_id": "EPISTEMIC-COMPUTED"
+    },
+    {
+      "derivation_status": {
+        "d1": "VERIFIED"
+      },
+      "diagnostic_codes": [],
+      "expectation": {
+        "d1": "VERIFIED",
+        "g1": "PROVED",
+        "ok": true
+      },
+      "goal_status": {
+        "g1": "PROVED"
+      },
+      "ok": true,
+      "open_obligations": [],
+      "probe_id": "GOAL-LEGAL"
+    },
+    {
+      "derivation_status": {},
+      "diagnostic_codes": [
+        "HML-T427",
+        "HML-T427"
+      ],
+      "expectation": {
+        "ok": false,
+        "type_guard": "PositiveReal"
+      },
+      "goal_status": {},
+      "ok": false,
+      "open_obligations": [],
+      "probe_id": "TYPE-DOMAIN-ILLEGAL"
+    },
+    {
+      "derivation_status": {},
+      "diagnostic_codes": [],
+      "expectation": {
+        "ok": true
+      },
+      "goal_status": {},
+      "ok": true,
+      "open_obligations": [],
+      "probe_id": "TYPE-DOMAIN-LEGAL"
+    }
+  ],
+  "static_findings": [
+    {
+      "evidence": "No first-class candidate node or candidate verification lifecycle exists in ast/nodes.py or reasoning/check.py.",
+      "requirement": "CANDIDATES",
+      "support": "CURRENT_HML_NOT_EXPRESSIBLE"
+    },
+    {
+      "evidence": "ScopeStmt provides lexical frames, but no case partition, exhaustive/disjoint certificate, or safe join rule exists.",
+      "requirement": "BRANCH_JOIN",
+      "support": "CURRENT_HML_NOT_EXPRESSIBLE"
+    },
+    {
+      "evidence": "Trusted kernel rules and a static checked-certificate registry exist; broad theorem/domain evidence adapters do not.",
+      "requirement": "WARRANT",
+      "support": "CURRENT_HML_PARTIAL"
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "case_id": "SF-FINAL-CAN-003-B",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": "cand1",
+          "evidence_id": "missing_candidate_check",
+          "kind": "PROMOTE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "VERIFY_CANDIDATE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-CAN-003-B",
+      "evidence": {
+        "e_candidate": {
+          "candidate_id": "cand1",
+          "checked_constraints": [
+            "p0"
+          ],
+          "id": "e_candidate",
+          "kind": "CANDIDATE_CHECK",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "VALID",
+          "supports_rule": "VERIFY_CANDIDATE",
+          "trusted": true
+        },
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "b73b729016e01afc1699305920bd5f10395642cf7dcc862f16969e790462ba3f",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-CAN-003",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "CANDIDATES",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "There are $24$ different complex numbers $z$ such that $z^{24}=1$. For how many of these is $z^6$ a real number?",
+        "solution_span": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+        "solution_span_hash": "b73b729016e01afc1699305920bd5f10395642cf7dcc862f16969e790462ba3f",
+        "source_hash": "7b5d1ca31afceb2717dfed5e802cfaab528f20218698885db147d01659112731",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03410"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {
+          "cand1": {
+            "constraint_ids": [
+              "p0"
+            ],
+            "id": "cand1",
+            "proposition": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+            "scope": "global",
+            "status": "VERIFIED"
+          }
+        },
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "There are $24$ different complex numbers $z$ such that $z^{24}=1$. For how many of these is $z^6$ a real number?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {
+          "cand1": {
+            "constraint_ids": [
+              "p0"
+            ],
+            "id": "cand1",
+            "proposition": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+            "scope": "global",
+            "status": "PROPOSED"
+          }
+        },
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "There are $24$ different complex numbers $z$ such that $z^{24}=1$. For how many of these is $z^6$ a real number?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": "cand1",
+          "evidence_id": "missing_candidate_check",
+          "kind": "PROMOTE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "VERIFY_CANDIDATE",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-CAN-003-B",
+      "evidence": {
+        "e_candidate": {
+          "candidate_id": "cand1",
+          "checked_constraints": [
+            "p0"
+          ],
+          "id": "e_candidate",
+          "kind": "CANDIDATE_CHECK",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "VALID",
+          "supports_rule": "VERIFY_CANDIDATE",
+          "trusted": true
+        },
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "b73b729016e01afc1699305920bd5f10395642cf7dcc862f16969e790462ba3f",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-CAN-003",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "CANDIDATES",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "There are $24$ different complex numbers $z$ such that $z^{24}=1$. For how many of these is $z^6$ a real number?",
+        "solution_span": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+        "solution_span_hash": "b73b729016e01afc1699305920bd5f10395642cf7dcc862f16969e790462ba3f",
+        "source_hash": "7b5d1ca31afceb2717dfed5e802cfaab528f20218698885db147d01659112731",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03410"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {
+          "cand1": {
+            "constraint_ids": [
+              "p0"
+            ],
+            "id": "cand1",
+            "proposition": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+            "scope": "global",
+            "status": "VERIFIED"
+          }
+        },
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "There are $24$ different complex numbers $z$ such that $z^{24}=1$. For how many of these is $z^6$ a real number?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {
+          "cand1": {
+            "constraint_ids": [
+              "p0"
+            ],
+            "id": "cand1",
+            "proposition": "From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.",
+            "scope": "global",
+            "status": "PROPOSED"
+          }
+        },
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "There are $24$ different complex numbers $z$ such that $z^{24}=1$. For how many of these is $z^6$ a real number?",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_FINAL_CAN_003_B\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "10305a1fb82a73b2ae7dfab688565e7550d186874449650b51940bc397f4a949",
+  "structured_english": "Case SF-FINAL-CAN-003-B (pair SF-FINAL-CAN-003).\nSource row: train-row-03410 (Intermediate Algebra, Level 4).\nSource problem: There are $24$ different complex numbers $z$ such that $z^{24}=1$. For how many of these is $z^6$ a real number?\nProposed action: From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\n\\[(z^{12} + 1)(z^{12} - 1) = 0.\\]Then\n\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.\nOperation: VERIFY_CANDIDATE.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {\"cand1\": {\"constraint_ids\": [\"p0\"], \"id\": \"cand1\", \"proposition\": \"From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\\n\\\\[(z^{12} + 1)(z^{12} - 1) = 0.\\\\]Then\\n\\\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.\", \"scope\": \"global\", \"status\": \"PROPOSED\"}}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"There are $24$ different complex numbers $z$ such that $z^{24}=1$. For how many of these is $z^6$ a real number?\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [], \"discharged\": []}\nCandidate effect: {\"candidate_id\": \"cand1\", \"evidence_id\": \"missing_candidate_check\", \"kind\": \"PROMOTE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": null, \"to_status\": \"DERIVED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_candidate\": {\"candidate_id\": \"cand1\", \"checked_constraints\": [\"p0\"], \"id\": \"e_candidate\", \"kind\": \"CANDIDATE_CHECK\", \"premise_ids\": [\"p0\"], \"status\": \"VALID\", \"supports_rule\": \"VERIFY_CANDIDATE\", \"trusted\": true}, \"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"b73b729016e01afc1699305920bd5f10395642cf7dcc862f16969e790462ba3f\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {\"cand1\": {\"constraint_ids\": [\"p0\"], \"id\": \"cand1\", \"proposition\": \"From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\\n\\\\[(z^{12} + 1)(z^{12} - 1) = 0.\\\\]Then\\n\\\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.\", \"scope\": \"global\", \"status\": \"VERIFIED\"}}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"From $z^{24} = 1,$ $z^{24} - 1 = 0,$ so\\n\\\\[(z^{12} + 1)(z^{12} - 1) = 0.\\\\]Then\\n\\\\[(z^{12} + 1)(z^6 + 1)(z^6 - 1) = 0.\\\\]Thus, for 6 of the roots, $z^6 = -1,$ for another 6 of the roots, $z^6 = 1,$ and for the remaining 12 roots, $(z^6)^2 + 1 = 0,$ so $z^6$ is not real.\", \"scope\": \"global\", \"status\": \"DERIVED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"There are $24$ different complex numbers $z$ such that $z^{24}=1$. For how many of these is $z^6$ a real number?\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

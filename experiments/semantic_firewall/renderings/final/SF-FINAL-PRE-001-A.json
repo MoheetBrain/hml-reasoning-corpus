@@ -1,0 +1,312 @@
+{
+  "case_id": "SF-FINAL-PRE-001-A",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [
+          {
+            "deferable": false,
+            "evidence_id": "e_pre",
+            "id": "pre0",
+            "obligation_id": null,
+            "proposition": "The source operation's denominator/domain/sign condition holds.",
+            "required": true,
+            "status": "FAILED"
+          }
+        ],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "We notice that the numerator and denominator share common factors: $x^2+x^3-2x^4 = x^2(1+x-2x^2)$ and $x+x^2-2x^3=x(1+x-2x^2).$ Hence, whenever $x(1+x-2x^2) \\neq 0,$ we can write \\[\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} = \\frac{x^2(1+x-2x^2)}{x(1+x-2x^2)} = x.\\]It follows that the given inequality is satisfied if and only if $x \\ge -1$ and $x(1+x-2x^2) \\neq 0.$ The roots of $1+x-2x^2$ are $x=1$ and $x=-\\frac12,$ so we cannot have $x=0,$ $x=1,$ or $x=-\\tfrac12.$ Putting all this together, the solution set of the inequality consists of the interval $[-1, \\infty)$ with three \"holes\": \\[x \\in \\boxed{[-1, -\\tfrac12) \\cup (-\\tfrac12, 0) \\cup (0, 1) \\cup (1, \\infty)}.\\]",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-PRE-001-A",
+      "evidence": {
+        "e_pre": {
+          "id": "e_pre",
+          "kind": "PRECONDITION_CHECK",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "VALID",
+          "supports_rule": "DOMAIN_CHECK",
+          "trusted": true
+        },
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "851f41d80d611e6e9ce815e9b57529b31994ae39943eb52302fd71a57a5dc329",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-PRE-001",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "PRECONDITIONS",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "Find all real values of $x$ that satisfy $\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} \\ge -1.$ (Give your answer in interval notation.)",
+        "solution_span": "We notice that the numerator and denominator share common factors: $x^2+x^3-2x^4 = x^2(1+x-2x^2)$ and $x+x^2-2x^3=x(1+x-2x^2).$ Hence, whenever $x(1+x-2x^2) \\neq 0,$ we can write \\[\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} = \\frac{x^2(1+x-2x^2)}{x(1+x-2x^2)} = x.\\]It follows that the given inequality is satisfied if and only if $x \\ge -1$ and $x(1+x-2x^2) \\neq 0.$ The roots of $1+x-2x^2$ are $x=1$ and $x=-\\frac12,$ so we cannot have $x=0,$ $x=1,$ or $x=-\\tfrac12.$ Putting all this together, the solution set of the inequality consists of the interval $[-1, \\infty)$ with three \"holes\": \\[x \\in \\boxed{[-1, -\\tfrac12) \\cup (-\\tfrac12, 0) \\cup (0, 1) \\cup (1, \\infty)}.\\]",
+        "solution_span_hash": "851f41d80d611e6e9ce815e9b57529b31994ae39943eb52302fd71a57a5dc329",
+        "source_hash": "1f83450bbdfe3524019d1f27164b6ab27001a5e4d6d375fa820aa26718fc3c38",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03397"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "We notice that the numerator and denominator share common factors: $x^2+x^3-2x^4 = x^2(1+x-2x^2)$ and $x+x^2-2x^3=x(1+x-2x^2).$ Hence, whenever $x(1+x-2x^2) \\neq 0,$ we can write \\[\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} = \\frac{x^2(1+x-2x^2)}{x(1+x-2x^2)} = x.\\]It follows that the given inequality is satisfied if and only if $x \\ge -1$ and $x(1+x-2x^2) \\neq 0.$ The roots of $1+x-2x^2$ are $x=1$ and $x=-\\frac12,$ so we cannot have $x=0,$ $x=1,$ or $x=-\\tfrac12.$ Putting all this together, the solution set of the inequality consists of the interval $[-1, \\infty)$ with three \"holes\": \\[x \\in \\boxed{[-1, -\\tfrac12) \\cup (-\\tfrac12, 0) \\cup (0, 1) \\cup (1, \\infty)}.\\]",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Find all real values of $x$ that satisfy $\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} \\ge -1.$ (Give your answer in interval notation.)",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Find all real values of $x$ that satisfy $\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} \\ge -1.$ (Give your answer in interval notation.)",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [],
+          "coverage_evidence_id": null,
+          "kind": "NONE"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "DERIVE",
+        "output_id": "c1",
+        "preconditions": [
+          {
+            "deferable": false,
+            "evidence_id": "e_pre",
+            "id": "pre0",
+            "obligation_id": null,
+            "proposition": "The source operation's denominator/domain/sign condition holds.",
+            "required": true,
+            "status": "FAILED"
+          }
+        ],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "We notice that the numerator and denominator share common factors: $x^2+x^3-2x^4 = x^2(1+x-2x^2)$ and $x+x^2-2x^3=x(1+x-2x^2).$ Hence, whenever $x(1+x-2x^2) \\neq 0,$ we can write \\[\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} = \\frac{x^2(1+x-2x^2)}{x(1+x-2x^2)} = x.\\]It follows that the given inequality is satisfied if and only if $x \\ge -1$ and $x(1+x-2x^2) \\neq 0.$ The roots of $1+x-2x^2$ are $x=1$ and $x=-\\frac12,$ so we cannot have $x=0,$ $x=1,$ or $x=-\\tfrac12.$ Putting all this together, the solution set of the inequality consists of the interval $[-1, \\infty)$ with three \"holes\": \\[x \\in \\boxed{[-1, -\\tfrac12) \\cup (-\\tfrac12, 0) \\cup (0, 1) \\cup (1, \\infty)}.\\]",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-PRE-001-A",
+      "evidence": {
+        "e_pre": {
+          "id": "e_pre",
+          "kind": "PRECONDITION_CHECK",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "VALID",
+          "supports_rule": "DOMAIN_CHECK",
+          "trusted": true
+        },
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "851f41d80d611e6e9ce815e9b57529b31994ae39943eb52302fd71a57a5dc329",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-PRE-001",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "PRECONDITIONS",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "Find all real values of $x$ that satisfy $\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} \\ge -1.$ (Give your answer in interval notation.)",
+        "solution_span": "We notice that the numerator and denominator share common factors: $x^2+x^3-2x^4 = x^2(1+x-2x^2)$ and $x+x^2-2x^3=x(1+x-2x^2).$ Hence, whenever $x(1+x-2x^2) \\neq 0,$ we can write \\[\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} = \\frac{x^2(1+x-2x^2)}{x(1+x-2x^2)} = x.\\]It follows that the given inequality is satisfied if and only if $x \\ge -1$ and $x(1+x-2x^2) \\neq 0.$ The roots of $1+x-2x^2$ are $x=1$ and $x=-\\frac12,$ so we cannot have $x=0,$ $x=1,$ or $x=-\\tfrac12.$ Putting all this together, the solution set of the inequality consists of the interval $[-1, \\infty)$ with three \"holes\": \\[x \\in \\boxed{[-1, -\\tfrac12) \\cup (-\\tfrac12, 0) \\cup (0, 1) \\cup (1, \\infty)}.\\]",
+        "solution_span_hash": "851f41d80d611e6e9ce815e9b57529b31994ae39943eb52302fd71a57a5dc329",
+        "source_hash": "1f83450bbdfe3524019d1f27164b6ab27001a5e4d6d375fa820aa26718fc3c38",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03397"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "We notice that the numerator and denominator share common factors: $x^2+x^3-2x^4 = x^2(1+x-2x^2)$ and $x+x^2-2x^3=x(1+x-2x^2).$ Hence, whenever $x(1+x-2x^2) \\neq 0,$ we can write \\[\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} = \\frac{x^2(1+x-2x^2)}{x(1+x-2x^2)} = x.\\]It follows that the given inequality is satisfied if and only if $x \\ge -1$ and $x(1+x-2x^2) \\neq 0.$ The roots of $1+x-2x^2$ are $x=1$ and $x=-\\frac12,$ so we cannot have $x=0,$ $x=1,$ or $x=-\\tfrac12.$ Putting all this together, the solution set of the inequality consists of the interval $[-1, \\infty)$ with three \"holes\": \\[x \\in \\boxed{[-1, -\\tfrac12) \\cup (-\\tfrac12, 0) \\cup (0, 1) \\cup (1, \\infty)}.\\]",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Find all real values of $x$ that satisfy $\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} \\ge -1.$ (Give your answer in interval notation.)",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {},
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Find all real values of $x$ that satisfy $\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} \\ge -1.$ (Give your answer in interval notation.)",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_FINAL_PRE_001_A\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "70c20fd8224ad16ed6b478f453c37e049b5eebaafc9ed9c83705849cea64147d",
+  "structured_english": "Case SF-FINAL-PRE-001-A (pair SF-FINAL-PRE-001).\nSource row: train-row-03397 (Intermediate Algebra, Level 4).\nSource problem: Find all real values of $x$ that satisfy $\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} \\ge -1.$ (Give your answer in interval notation.)\nProposed action: We notice that the numerator and denominator share common factors: $x^2+x^3-2x^4 = x^2(1+x-2x^2)$ and $x+x^2-2x^3=x(1+x-2x^2).$ Hence, whenever $x(1+x-2x^2) \\neq 0,$ we can write \\[\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} = \\frac{x^2(1+x-2x^2)}{x(1+x-2x^2)} = x.\\]It follows that the given inequality is satisfied if and only if $x \\ge -1$ and $x(1+x-2x^2) \\neq 0.$ The roots of $1+x-2x^2$ are $x=1$ and $x=-\\frac12,$ so we cannot have $x=0,$ $x=1,$ or $x=-\\tfrac12.$ Putting all this together, the solution set of the inequality consists of the interval $[-1, \\infty)$ with three \"holes\": \\[x \\in \\boxed{[-1, -\\tfrac12) \\cup (-\\tfrac12, 0) \\cup (0, 1) \\cup (1, \\infty)}.\\]\nOperation: DERIVE.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Find all real values of $x$ that satisfy $\\\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} \\\\ge -1.$ (Give your answer in interval notation.)\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: [{\"deferable\": false, \"evidence_id\": \"e_pre\", \"id\": \"pre0\", \"obligation_id\": null, \"proposition\": \"The source operation's denominator/domain/sign condition holds.\", \"required\": true, \"status\": \"FAILED\"}]\nObligation effects: {\"created\": [], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [], \"coverage_evidence_id\": null, \"kind\": \"NONE\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": null, \"to_status\": \"DERIVED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_pre\": {\"id\": \"e_pre\", \"kind\": \"PRECONDITION_CHECK\", \"premise_ids\": [\"p0\"], \"status\": \"VALID\", \"supports_rule\": \"DOMAIN_CHECK\", \"trusted\": true}, \"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"851f41d80d611e6e9ce815e9b57529b31994ae39943eb52302fd71a57a5dc329\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\"], \"branches\": {}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"We notice that the numerator and denominator share common factors: $x^2+x^3-2x^4 = x^2(1+x-2x^2)$ and $x+x^2-2x^3=x(1+x-2x^2).$ Hence, whenever $x(1+x-2x^2) \\\\neq 0,$ we can write \\\\[\\\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} = \\\\frac{x^2(1+x-2x^2)}{x(1+x-2x^2)} = x.\\\\]It follows that the given inequality is satisfied if and only if $x \\\\ge -1$ and $x(1+x-2x^2) \\\\neq 0.$ The roots of $1+x-2x^2$ are $x=1$ and $x=-\\\\frac12,$ so we cannot have $x=0,$ $x=1,$ or $x=-\\\\tfrac12.$ Putting all this together, the solution set of the inequality consists of the interval $[-1, \\\\infty)$ with three \\\"holes\\\": \\\\[x \\\\in \\\\boxed{[-1, -\\\\tfrac12) \\\\cup (-\\\\tfrac12, 0) \\\\cup (0, 1) \\\\cup (1, \\\\infty)}.\\\\]\", \"scope\": \"global\", \"status\": \"DERIVED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Find all real values of $x$ that satisfy $\\\\frac{x^2+x^3-2x^4}{x+x^2-2x^3} \\\\ge -1.$ (Give your answer in interval notation.)\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}

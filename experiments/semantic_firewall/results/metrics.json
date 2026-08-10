@@ -1,0 +1,474 @@
+{
+  "DEV": {
+    "baseline": {
+      "accuracy": 0.5,
+      "binary_correct": 20,
+      "binary_errors": 20,
+      "cases": 40,
+      "confusion": {
+        "false_accept": 20,
+        "false_reject": 0,
+        "true_invalid": 0,
+        "true_valid": 20
+      },
+      "false_accepts": 20,
+      "invalid_cases": 20,
+      "invalid_false_accept_rate": 1.0,
+      "macro_f1_error_classes": 0.0,
+      "per_error_class": {
+        "CANDIDATE_PROMOTION": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "DEPENDENCY_VIOLATION": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "EPISTEMIC_PROMOTION": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "FALSE_GOAL_DISCHARGE": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "INVALID_BRANCH_JOIN": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "OBLIGATION_DROP": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "PRECONDITION_VIOLATION": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "SCOPE_LEAK": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "TYPE_OR_DOMAIN_MISMATCH": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "WARRANT_MISMATCH": {
+          "f1": 0.0,
+          "fn": 2,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        }
+      },
+      "unresolved": 0,
+      "unresolved_rate": 0.0
+    },
+    "interpretation_boundary": "The source-presence control is deliberately unstructured and the negatives are controlled invariant mutations. This estimates deterministic firewall sensitivity, not open mathematical reasoning accuracy.",
+    "mcnemar": {
+      "baseline_only_correct": 0,
+      "exact_two_sided_p": 1.9073486328125e-06,
+      "reference_only_correct": 20
+    },
+    "paired_bootstrap": {
+      "baseline_accuracy_95ci": [
+        0.35,
+        0.65
+      ],
+      "relative_error_reduction_95ci": [
+        1.0,
+        1.0
+      ],
+      "samples": 10000,
+      "seed": 20260810,
+      "system_accuracy_95ci": [
+        1.0,
+        1.0
+      ]
+    },
+    "reference_checker": {
+      "accuracy": 1.0,
+      "binary_correct": 40,
+      "binary_errors": 0,
+      "cases": 40,
+      "confusion": {
+        "false_accept": 0,
+        "false_reject": 0,
+        "true_invalid": 20,
+        "true_valid": 20
+      },
+      "false_accepts": 0,
+      "invalid_cases": 20,
+      "invalid_false_accept_rate": 0.0,
+      "macro_f1_error_classes": 1.0,
+      "per_error_class": {
+        "CANDIDATE_PROMOTION": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        },
+        "DEPENDENCY_VIOLATION": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        },
+        "EPISTEMIC_PROMOTION": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        },
+        "FALSE_GOAL_DISCHARGE": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        },
+        "INVALID_BRANCH_JOIN": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        },
+        "OBLIGATION_DROP": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        },
+        "PRECONDITION_VIOLATION": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        },
+        "SCOPE_LEAK": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        },
+        "TYPE_OR_DOMAIN_MISMATCH": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        },
+        "WARRANT_MISMATCH": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 2
+        }
+      },
+      "unresolved": 0,
+      "unresolved_rate": 0.0
+    },
+    "relative_error_reduction": 1.0,
+    "target_met": true,
+    "target_relative_error_reduction": 0.7
+  },
+  "FINAL": {
+    "baseline": {
+      "accuracy": 0.5,
+      "binary_correct": 80,
+      "binary_errors": 80,
+      "cases": 160,
+      "confusion": {
+        "false_accept": 80,
+        "false_reject": 0,
+        "true_invalid": 0,
+        "true_valid": 80
+      },
+      "false_accepts": 80,
+      "invalid_cases": 80,
+      "invalid_false_accept_rate": 1.0,
+      "macro_f1_error_classes": 0.0,
+      "per_error_class": {
+        "CANDIDATE_PROMOTION": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "DEPENDENCY_VIOLATION": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "EPISTEMIC_PROMOTION": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "FALSE_GOAL_DISCHARGE": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "INVALID_BRANCH_JOIN": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "OBLIGATION_DROP": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "PRECONDITION_VIOLATION": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "SCOPE_LEAK": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "TYPE_OR_DOMAIN_MISMATCH": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        "WARRANT_MISMATCH": {
+          "f1": 0.0,
+          "fn": 8,
+          "fp": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0
+        }
+      },
+      "unresolved": 0,
+      "unresolved_rate": 0.0
+    },
+    "interpretation_boundary": "The source-presence control is deliberately unstructured and the negatives are controlled invariant mutations. This estimates deterministic firewall sensitivity, not open mathematical reasoning accuracy.",
+    "mcnemar": {
+      "baseline_only_correct": 0,
+      "exact_two_sided_p": 1.6543612251060553e-24,
+      "reference_only_correct": 80
+    },
+    "paired_bootstrap": {
+      "baseline_accuracy_95ci": [
+        0.42500000000000004,
+        0.58125
+      ],
+      "relative_error_reduction_95ci": [
+        1.0,
+        1.0
+      ],
+      "samples": 10000,
+      "seed": 20260810,
+      "system_accuracy_95ci": [
+        1.0,
+        1.0
+      ]
+    },
+    "reference_checker": {
+      "accuracy": 1.0,
+      "binary_correct": 160,
+      "binary_errors": 0,
+      "cases": 160,
+      "confusion": {
+        "false_accept": 0,
+        "false_reject": 0,
+        "true_invalid": 80,
+        "true_valid": 80
+      },
+      "false_accepts": 0,
+      "invalid_cases": 80,
+      "invalid_false_accept_rate": 0.0,
+      "macro_f1_error_classes": 1.0,
+      "per_error_class": {
+        "CANDIDATE_PROMOTION": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        },
+        "DEPENDENCY_VIOLATION": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        },
+        "EPISTEMIC_PROMOTION": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        },
+        "FALSE_GOAL_DISCHARGE": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        },
+        "INVALID_BRANCH_JOIN": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        },
+        "OBLIGATION_DROP": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        },
+        "PRECONDITION_VIOLATION": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        },
+        "SCOPE_LEAK": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        },
+        "TYPE_OR_DOMAIN_MISMATCH": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        },
+        "WARRANT_MISMATCH": {
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 8
+        }
+      },
+      "unresolved": 0,
+      "unresolved_rate": 0.0
+    },
+    "relative_error_reduction": 1.0,
+    "target_met": true,
+    "target_relative_error_reduction": 0.7
+  },
+  "benchmark_counts": {
+    "acceptance_fixtures": 30,
+    "dev_cases": 40,
+    "final_cases": 160,
+    "final_gold125_overlap": 0,
+    "invalid": 100,
+    "pairs": 100,
+    "valid": 100
+  },
+  "freeze_manifest_sha256": "ffe66f969df7c7b4bf1b256744e5e15aa2e79496c9ef1548e3641d1a927a510c",
+  "representation_experiment": {
+    "generic_typed_ast": "PREPARED_UNSCORED",
+    "hml": "PREPARED_AS_HML_PLUS_LOSSLESS_ADAPTER_UNSCORED",
+    "status": "NOT_RUN_NO_CONFIGURED_MODEL_RUNNER",
+    "structured_english": "PREPARED_UNSCORED",
+    "warning": "Pure current-HML parity is blocked by candidate, branch/join, and arbitrary neutral-state fields. No comparative score is invented."
+  },
+  "result_version": "semantic-firewall-results-0.1.0"
+}

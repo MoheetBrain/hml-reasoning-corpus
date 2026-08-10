@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hml.reasoning.local/experiments/semantic_firewall/semantic_case.schema.json",
+  "title": "Representation-neutral semantic-firewall transition case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "pair_id",
+    "split",
+    "semantic_focus",
+    "source",
+    "state_before",
+    "action",
+    "state_after",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {"const": "semantic-firewall-case-0.1.0"},
+    "case_id": {"type": "string", "minLength": 1},
+    "pair_id": {"type": "string", "minLength": 1},
+    "split": {"enum": ["DEV", "FINAL", "ACCEPTANCE"]},
+    "semantic_focus": {
+      "enum": [
+        "DEPENDENCY",
+        "SCOPE",
+        "PRECONDITIONS",
+        "OBLIGATIONS",
+        "CANDIDATES",
+        "BRANCH_JOIN",
+        "WARRANT",
+        "EPISTEMIC_STATUS",
+        "GOAL_DISCHARGE",
+        "TYPE_DOMAIN"
+      ]
+    },
+    "source": {"$ref": "#/$defs/source"},
+    "state_before": {"$ref": "#/$defs/state"},
+    "state_after": {"$ref": "#/$defs/state"},
+    "action": {"$ref": "#/$defs/action"},
+    "evidence": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/evidence"}
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["dataset", "source_row_id", "source_hash", "category", "level", "problem", "solution_span", "solution_span_hash", "gold125_overlap", "source_role"]
+    },
+    "claim": {
+      "type": "object",
+      "required": ["id", "proposition", "status", "scope", "dependencies", "domain"]
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["active_scopes", "claims", "obligations", "candidates", "branches", "goals"],
+      "properties": {
+        "active_scopes": {"type": "array", "items": {"type": "string"}},
+        "claims": {"type": "object", "additionalProperties": {"$ref": "#/$defs/claim"}},
+        "obligations": {"type": "object"},
+        "candidates": {"type": "object"},
+        "branches": {"type": "object"},
+        "goals": {"type": "object"}
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operation", "summary", "dependencies", "output_id", "warrant", "preconditions", "obligations_created", "obligations_discharged", "scope_effect", "candidate_effect", "branch_effect", "epistemic_effect", "goal_effect", "typing"]
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["id", "kind", "status", "trusted", "supports_rule", "premise_ids"]
+    }
+  }
+}
+

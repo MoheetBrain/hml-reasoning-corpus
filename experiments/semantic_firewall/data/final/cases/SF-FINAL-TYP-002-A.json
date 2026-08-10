@@ -1,0 +1,125 @@
+{
+  "action": {
+    "branch_effect": {
+      "branch_ids": [],
+      "coverage_evidence_id": null,
+      "kind": "NONE"
+    },
+    "candidate_effect": {
+      "candidate_id": null,
+      "evidence_id": null,
+      "kind": "NONE"
+    },
+    "dependencies": [
+      "p0"
+    ],
+    "epistemic_effect": {
+      "evidence_id": null,
+      "to_status": "DERIVED"
+    },
+    "goal_effect": {
+      "goal_id": null,
+      "kind": "NONE"
+    },
+    "id": "a0",
+    "obligations_created": [],
+    "obligations_discharged": [],
+    "operation": "DERIVE",
+    "output_id": "c1",
+    "preconditions": [],
+    "scope_effect": {
+      "discharge_evidence_id": null,
+      "kind": "NONE"
+    },
+    "summary": "Let $f(x) = p(x) - 17x.$  Then $f(1) = f(2) = f(3) = 0.$  Also, $f(x)$ is a monic polynomial of degree 4, so\n\\[f(x) = (x - 1)(x - 2)(x - 3)(x - r),\\]for some real number $r.$  Then\n\\[p(x) = f(x) + 17x = (x - 1)(x - 2)(x - 3)(x - r) + 17x.\\]Therefore,\n\\begin{align*}\np(0) + p(4) &= (0 - 1)(0 - 2)(0 - 3)(0 - r) + 17 \\cdot 0 + (4 - 1)(4 - 2)(4 - 3)(4 - r) + 17 \\cdot 4 \\",
+    "typing": {
+      "input_domains": {
+        "p0": "Integer"
+      },
+      "output_domain": "Proposition"
+    },
+    "warrant": {
+      "evidence_id": "e_source",
+      "kind": "EVIDENCE_ADAPTER",
+      "rule": "SOURCE_REVIEWED_DERIVATION"
+    }
+  },
+  "case_id": "SF-FINAL-TYP-002-A",
+  "evidence": {
+    "e_source": {
+      "id": "e_source",
+      "kind": "SOURCE_REVIEW",
+      "premise_ids": [
+        "p0"
+      ],
+      "source_span_hash": "b07f022dad79e6fb1942fb5c34f8192d6bea4e55854b3e76c2c2e0f749bace62",
+      "status": "VALID",
+      "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+      "trusted": true
+    }
+  },
+  "pair_id": "SF-FINAL-TYP-002",
+  "schema_version": "semantic-firewall-case-0.1.0",
+  "semantic_focus": "TYPE_DOMAIN",
+  "source": {
+    "category": "Intermediate Algebra",
+    "dataset": "Hendrycks MATH train parquet",
+    "gold125_overlap": false,
+    "level": "Level 5",
+    "problem": "Let $p(x)$ be a monic polynomial of degree 4, such that $p(1) = 17,$ $p(2) = 34,$ and $p(3) = 51.$  Find $p(0) + p(4).$",
+    "solution_span": "Let $f(x) = p(x) - 17x.$  Then $f(1) = f(2) = f(3) = 0.$  Also, $f(x)$ is a monic polynomial of degree 4, so\n\\[f(x) = (x - 1)(x - 2)(x - 3)(x - r),\\]for some real number $r.$  Then\n\\[p(x) = f(x) + 17x = (x - 1)(x - 2)(x - 3)(x - r) + 17x.\\]Therefore,\n\\begin{align*}\np(0) + p(4) &= (0 - 1)(0 - 2)(0 - 3)(0 - r) + 17 \\cdot 0 + (4 - 1)(4 - 2)(4 - 3)(4 - r) + 17 \\cdot 4 \\",
+    "solution_span_hash": "b07f022dad79e6fb1942fb5c34f8192d6bea4e55854b3e76c2c2e0f749bace62",
+    "source_hash": "26879e15a0e5d6778d4aca023ec40629e4fa12b29bbac0e7c6531f6d282d64e7",
+    "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+    "source_row_id": "train-row-03422"
+  },
+  "split": "FINAL",
+  "state_after": {
+    "active_scopes": [
+      "global"
+    ],
+    "branches": {},
+    "candidates": {},
+    "claims": {
+      "c1": {
+        "dependencies": [
+          "p0"
+        ],
+        "domain": "Proposition",
+        "id": "c1",
+        "proposition": "Let $f(x) = p(x) - 17x.$  Then $f(1) = f(2) = f(3) = 0.$  Also, $f(x)$ is a monic polynomial of degree 4, so\n\\[f(x) = (x - 1)(x - 2)(x - 3)(x - r),\\]for some real number $r.$  Then\n\\[p(x) = f(x) + 17x = (x - 1)(x - 2)(x - 3)(x - r) + 17x.\\]Therefore,\n\\begin{align*}\np(0) + p(4) &= (0 - 1)(0 - 2)(0 - 3)(0 - r) + 17 \\cdot 0 + (4 - 1)(4 - 2)(4 - 3)(4 - r) + 17 \\cdot 4 \\",
+        "scope": "global",
+        "status": "DERIVED"
+      },
+      "p0": {
+        "dependencies": [],
+        "domain": "Boolean",
+        "id": "p0",
+        "proposition": "Let $p(x)$ be a monic polynomial of degree 4, such that $p(1) = 17,$ $p(2) = 34,$ and $p(3) = 51.$  Find $p(0) + p(4).$",
+        "scope": "global",
+        "status": "GIVEN"
+      }
+    },
+    "goals": {},
+    "obligations": {}
+  },
+  "state_before": {
+    "active_scopes": [
+      "global"
+    ],
+    "branches": {},
+    "candidates": {},
+    "claims": {
+      "p0": {
+        "dependencies": [],
+        "domain": "Boolean",
+        "id": "p0",
+        "proposition": "Let $p(x)$ be a monic polynomial of degree 4, such that $p(1) = 17,$ $p(2) = 34,$ and $p(3) = 51.$  Find $p(0) + p(4).$",
+        "scope": "global",
+        "status": "GIVEN"
+      }
+    },
+    "goals": {},
+    "obligations": {}
+  }
+}

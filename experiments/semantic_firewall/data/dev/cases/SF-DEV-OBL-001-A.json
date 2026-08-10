@@ -1,0 +1,134 @@
+{
+  "action": {
+    "branch_effect": {
+      "branch_ids": [],
+      "coverage_evidence_id": null,
+      "kind": "NONE"
+    },
+    "candidate_effect": {
+      "candidate_id": null,
+      "evidence_id": null,
+      "kind": "NONE"
+    },
+    "dependencies": [
+      "p0"
+    ],
+    "epistemic_effect": {
+      "evidence_id": null,
+      "to_status": "DERIVED"
+    },
+    "goal_effect": {
+      "goal_id": null,
+      "kind": "NONE"
+    },
+    "id": "a0",
+    "obligations_created": [
+      {
+        "dependencies": [
+          "c1"
+        ],
+        "id": "o1",
+        "mandatory": true,
+        "proposition": "Check the source operation against its original constraints."
+      }
+    ],
+    "obligations_discharged": [],
+    "operation": "DERIVE",
+    "output_id": "c1",
+    "preconditions": [],
+    "scope_effect": {
+      "discharge_evidence_id": null,
+      "kind": "NONE"
+    },
+    "summary": "We can easily verify that these will yield nondegenerate prisms, so the answer is $\\boxed{40}$.",
+    "typing": {
+      "input_domains": {
+        "p0": "Proposition"
+      },
+      "output_domain": "Proposition"
+    },
+    "warrant": {
+      "evidence_id": "e_source",
+      "kind": "EVIDENCE_ADAPTER",
+      "rule": "SOURCE_REVIEWED_DERIVATION"
+    }
+  },
+  "case_id": "SF-DEV-OBL-001-A",
+  "evidence": {
+    "e_source": {
+      "id": "e_source",
+      "kind": "SOURCE_REVIEW",
+      "premise_ids": [
+        "p0"
+      ],
+      "source_span_hash": "61d49cfc7ebe60dd869b143df764e48bdf68b213d6c08d9ddf655ddaddab5e73",
+      "status": "VALID",
+      "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+      "trusted": true
+    }
+  },
+  "pair_id": "SF-DEV-OBL-001",
+  "schema_version": "semantic-firewall-case-0.1.0",
+  "semantic_focus": "OBLIGATIONS",
+  "source": {
+    "category": "Number Theory",
+    "dataset": "Hendrycks MATH train parquet",
+    "gold125_overlap": true,
+    "level": "Level 5",
+    "problem": "A right rectangular prism $P$ (i.e., a rectangular parallelpiped) has sides of integral length $a, b, c,$ with $a\\le b\\le c.$ A plane parallel to one of the faces of $P$ cuts $P$ into two prisms, one of which is similar to $P,$ and both of which have nonzero volume. Given that $b=1995,$ for how many ordered triples $(a, b, c)$ does such a plane exist?\n",
+    "solution_span": "We can easily verify that these will yield nondegenerate prisms, so the answer is $\\boxed{40}$.",
+    "solution_span_hash": "61d49cfc7ebe60dd869b143df764e48bdf68b213d6c08d9ddf655ddaddab5e73",
+    "source_hash": "42c55f30b32c92206ed62b17e63492ab29aa805bab7ba9d80abff39bd2d50eb2",
+    "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+    "source_row_id": "train-row-05254"
+  },
+  "split": "DEV",
+  "state_after": {
+    "active_scopes": [
+      "global"
+    ],
+    "branches": {},
+    "candidates": {},
+    "claims": {
+      "c1": {
+        "dependencies": [
+          "p0"
+        ],
+        "domain": "Proposition",
+        "id": "c1",
+        "proposition": "We can easily verify that these will yield nondegenerate prisms, so the answer is $\\boxed{40}$.",
+        "scope": "global",
+        "status": "DERIVED"
+      },
+      "p0": {
+        "dependencies": [],
+        "domain": "Proposition",
+        "id": "p0",
+        "proposition": "A right rectangular prism $P$ (i.e., a rectangular parallelpiped) has sides of integral length $a, b, c,$ with $a\\le b\\le c.$ A plane parallel to one of the faces of $P$ cuts $P$ into two prisms, one of which is similar to $P,$ and both of which have nonzero volume. Given that $b=1995,$ for how many ordered triples $(a, b, c)$ does such a plane exist?\n",
+        "scope": "global",
+        "status": "GIVEN"
+      }
+    },
+    "goals": {},
+    "obligations": {}
+  },
+  "state_before": {
+    "active_scopes": [
+      "global"
+    ],
+    "branches": {},
+    "candidates": {},
+    "claims": {
+      "p0": {
+        "dependencies": [],
+        "domain": "Proposition",
+        "id": "p0",
+        "proposition": "A right rectangular prism $P$ (i.e., a rectangular parallelpiped) has sides of integral length $a, b, c,$ with $a\\le b\\le c.$ A plane parallel to one of the faces of $P$ cuts $P$ into two prisms, one of which is similar to $P,$ and both of which have nonzero volume. Given that $b=1995,$ for how many ordered triples $(a, b, c)$ does such a plane exist?\n",
+        "scope": "global",
+        "status": "GIVEN"
+      }
+    },
+    "goals": {},
+    "obligations": {}
+  }
+}

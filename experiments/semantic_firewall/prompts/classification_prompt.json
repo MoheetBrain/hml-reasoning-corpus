@@ -1,0 +1,12 @@
+{
+  "hml_caveat": "Current HML requires a transparent adapter envelope for fields it cannot express; pure-HML comparison is blocked until a production adapter exists.",
+  "matching_rule": "Every representation must be generated from the identical neutral case and expose no label or corruption metadata.",
+  "prompt_version": "semantic-firewall-classification-0.1.0",
+  "representations": [
+    "STRUCTURED_ENGLISH",
+    "GENERIC_TYPED_AST",
+    "HML"
+  ],
+  "system": "Judge only whether the proposed semantic transition preserves the supplied state, evidence, scope, obligations, candidates, branches, epistemic status, goal, and type/domain contracts.",
+  "task": "Return exactly VALID, INVALID, or UNRESOLVED, followed by the violated invariant and supporting fields. Do not infer missing evidence as true."
+}

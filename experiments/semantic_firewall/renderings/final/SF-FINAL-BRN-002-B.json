@@ -1,0 +1,358 @@
+{
+  "case_id": "SF-FINAL-BRN-002-B",
+  "generic_typed_ast": {
+    "fields": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [
+            "b1",
+            "b2"
+          ],
+          "coverage_evidence_id": "e_coverage",
+          "kind": "JOIN"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "JOIN_BRANCHES",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-BRN-002-B",
+      "evidence": {
+        "e_coverage": {
+          "branch_ids": [
+            "b1",
+            "b2"
+          ],
+          "id": "e_coverage",
+          "kind": "EXHAUSTIVE_PARTITION",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "VALID",
+          "supports_rule": "JOIN_BRANCHES",
+          "trusted": true
+        },
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "8d01aa464c1b35962bf62b3e810dd7039ed04067271d71f6c255a4d118311f6e",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-BRN-002",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "BRANCH_JOIN",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "Determine the sum of all real numbers $x$ satisfying\n\\[(x^2-4x+2)^{x^2-5x+2} = 1.\\]",
+        "solution_span": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+        "solution_span_hash": "8d01aa464c1b35962bf62b3e810dd7039ed04067271d71f6c255a4d118311f6e",
+        "source_hash": "a06b3b48cb165dc5f11e13cc571984cba82302f281e3621eb99e2408cb63cb9a",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03710"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {
+          "b1": {
+            "conclusion": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "id": "b1",
+            "predicate": "case one",
+            "status": "CLOSED"
+          },
+          "b2": {
+            "conclusion": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "id": "b2",
+            "predicate": "case two",
+            "status": "CLOSED"
+          }
+        },
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Determine the sum of all real numbers $x$ satisfying\n\\[(x^2-4x+2)^{x^2-5x+2} = 1.\\]",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {
+          "b1": {
+            "conclusion": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "id": "b1",
+            "predicate": "case one",
+            "status": "CLOSED"
+          },
+          "b2": {
+            "conclusion": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "id": "b2",
+            "predicate": "case two",
+            "status": "CLOSED"
+          }
+        },
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Determine the sum of all real numbers $x$ satisfying\n\\[(x^2-4x+2)^{x^2-5x+2} = 1.\\]",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "node_type": "SemanticTransition",
+    "schema_version": "semantic-firewall-case-0.1.0"
+  },
+  "hml": {
+    "adapter_envelope": {
+      "action": {
+        "branch_effect": {
+          "branch_ids": [
+            "b1",
+            "b2"
+          ],
+          "coverage_evidence_id": "e_coverage",
+          "kind": "JOIN"
+        },
+        "candidate_effect": {
+          "candidate_id": null,
+          "evidence_id": null,
+          "kind": "NONE"
+        },
+        "dependencies": [
+          "p0"
+        ],
+        "epistemic_effect": {
+          "evidence_id": null,
+          "to_status": "DERIVED"
+        },
+        "goal_effect": {
+          "goal_id": null,
+          "kind": "NONE"
+        },
+        "id": "a0",
+        "obligations_created": [],
+        "obligations_discharged": [],
+        "operation": "JOIN_BRANCHES",
+        "output_id": "c1",
+        "preconditions": [],
+        "scope_effect": {
+          "discharge_evidence_id": null,
+          "kind": "NONE"
+        },
+        "summary": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+        "typing": {
+          "input_domains": {
+            "p0": "Proposition"
+          },
+          "output_domain": "Proposition"
+        },
+        "warrant": {
+          "evidence_id": "e_source",
+          "kind": "EVIDENCE_ADAPTER",
+          "rule": "SOURCE_REVIEWED_DERIVATION"
+        }
+      },
+      "case_id": "SF-FINAL-BRN-002-B",
+      "evidence": {
+        "e_coverage": {
+          "branch_ids": [
+            "b1",
+            "b2"
+          ],
+          "id": "e_coverage",
+          "kind": "EXHAUSTIVE_PARTITION",
+          "premise_ids": [
+            "p0"
+          ],
+          "status": "VALID",
+          "supports_rule": "JOIN_BRANCHES",
+          "trusted": true
+        },
+        "e_source": {
+          "id": "e_source",
+          "kind": "SOURCE_REVIEW",
+          "premise_ids": [
+            "p0"
+          ],
+          "source_span_hash": "8d01aa464c1b35962bf62b3e810dd7039ed04067271d71f6c255a4d118311f6e",
+          "status": "VALID",
+          "supports_rule": "SOURCE_REVIEWED_DERIVATION",
+          "trusted": true
+        }
+      },
+      "pair_id": "SF-FINAL-BRN-002",
+      "schema_version": "semantic-firewall-case-0.1.0",
+      "semantic_focus": "BRANCH_JOIN",
+      "source": {
+        "category": "Intermediate Algebra",
+        "dataset": "Hendrycks MATH train parquet",
+        "gold125_overlap": false,
+        "level": "Level 4",
+        "problem": "Determine the sum of all real numbers $x$ satisfying\n\\[(x^2-4x+2)^{x^2-5x+2} = 1.\\]",
+        "solution_span": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+        "solution_span_hash": "8d01aa464c1b35962bf62b3e810dd7039ed04067271d71f6c255a4d118311f6e",
+        "source_hash": "a06b3b48cb165dc5f11e13cc571984cba82302f281e3621eb99e2408cb63cb9a",
+        "source_role": "MATH context and exact worked-solution assertion anchoring an invariant-level transition probe",
+        "source_row_id": "train-row-03710"
+      },
+      "split": "FINAL",
+      "state_after": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {
+          "b1": {
+            "conclusion": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "id": "b1",
+            "predicate": "case one",
+            "status": "CLOSED"
+          },
+          "b2": {
+            "conclusion": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "id": "b2",
+            "predicate": "case two",
+            "status": "CLOSED"
+          }
+        },
+        "candidates": {},
+        "claims": {
+          "c1": {
+            "dependencies": [
+              "p0"
+            ],
+            "domain": "Proposition",
+            "id": "c1",
+            "proposition": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "scope": "global",
+            "status": "DERIVED"
+          },
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Determine the sum of all real numbers $x$ satisfying\n\\[(x^2-4x+2)^{x^2-5x+2} = 1.\\]",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      },
+      "state_before": {
+        "active_scopes": [
+          "global"
+        ],
+        "branches": {
+          "b1": {
+            "conclusion": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "id": "b1",
+            "predicate": "case one",
+            "status": "CLOSED"
+          },
+          "b2": {
+            "conclusion": "Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.",
+            "id": "b2",
+            "predicate": "case two",
+            "status": "CLOSED"
+          }
+        },
+        "candidates": {},
+        "claims": {
+          "p0": {
+            "dependencies": [],
+            "domain": "Proposition",
+            "id": "p0",
+            "proposition": "Determine the sum of all real numbers $x$ satisfying\n\\[(x^2-4x+2)^{x^2-5x+2} = 1.\\]",
+            "scope": "global",
+            "status": "GIVEN"
+          }
+        },
+        "goals": {},
+        "obligations": {}
+      }
+    },
+    "executable_projection": "module SemanticFirewall_SF_FINAL_BRN_002_B\n",
+    "format": "CURRENT_HML_PLUS_LOSSLESS_ADAPTER_ENVELOPE_V0",
+    "hml_core_sha": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+    "pure_current_hml_equivalent": false,
+    "unsupported_semantic_fields": [
+      "candidates",
+      "branch_join",
+      "generic_state_delta",
+      "arbitrary_source_proposition"
+    ],
+    "warning": "The envelope preserves matched information but is not new HML syntax and must not be scored as pure-HML support."
+  },
+  "semantic_sha256": "86b650df4876bb426e67a4bbd0c0726a90eee736864c3261eb919e04949b57fa",
+  "structured_english": "Case SF-FINAL-BRN-002-B (pair SF-FINAL-BRN-002).\nSource row: train-row-03710 (Intermediate Algebra, Level 4).\nSource problem: Determine the sum of all real numbers $x$ satisfying\n\\[(x^2-4x+2)^{x^2-5x+2} = 1.\\]\nProposed action: Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.\nOperation: JOIN_BRANCHES.\nDependencies: p0.\nWarrant: SOURCE_REVIEWED_DERIVATION using e_source.\nState before: {\"active_scopes\": [\"global\"], \"branches\": {\"b1\": {\"conclusion\": \"Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.\", \"id\": \"b1\", \"predicate\": \"case one\", \"status\": \"CLOSED\"}, \"b2\": {\"conclusion\": \"Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.\", \"id\": \"b2\", \"predicate\": \"case two\", \"status\": \"CLOSED\"}}, \"candidates\": {}, \"claims\": {\"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Determine the sum of all real numbers $x$ satisfying\\n\\\\[(x^2-4x+2)^{x^2-5x+2} = 1.\\\\]\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nPreconditions: []\nObligation effects: {\"created\": [], \"discharged\": []}\nCandidate effect: {\"candidate_id\": null, \"evidence_id\": null, \"kind\": \"NONE\"}\nBranch effect: {\"branch_ids\": [\"b1\", \"b2\"], \"coverage_evidence_id\": \"e_coverage\", \"kind\": \"JOIN\"}\nScope effect: {\"discharge_evidence_id\": null, \"kind\": \"NONE\"}\nEpistemic effect: {\"evidence_id\": null, \"to_status\": \"DERIVED\"}\nGoal effect: {\"goal_id\": null, \"kind\": \"NONE\"}\nTyping: {\"input_domains\": {\"p0\": \"Proposition\"}, \"output_domain\": \"Proposition\"}\nEvidence: {\"e_coverage\": {\"branch_ids\": [\"b1\", \"b2\"], \"id\": \"e_coverage\", \"kind\": \"EXHAUSTIVE_PARTITION\", \"premise_ids\": [\"p0\"], \"status\": \"VALID\", \"supports_rule\": \"JOIN_BRANCHES\", \"trusted\": true}, \"e_source\": {\"id\": \"e_source\", \"kind\": \"SOURCE_REVIEW\", \"premise_ids\": [\"p0\"], \"source_span_hash\": \"8d01aa464c1b35962bf62b3e810dd7039ed04067271d71f6c255a4d118311f6e\", \"status\": \"VALID\", \"supports_rule\": \"SOURCE_REVIEWED_DERIVATION\", \"trusted\": true}}\nState after: {\"active_scopes\": [\"global\"], \"branches\": {\"b1\": {\"conclusion\": \"Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.\", \"id\": \"b1\", \"predicate\": \"case one\", \"status\": \"CLOSED\"}, \"b2\": {\"conclusion\": \"Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.\", \"id\": \"b2\", \"predicate\": \"case two\", \"status\": \"CLOSED\"}}, \"candidates\": {}, \"claims\": {\"c1\": {\"dependencies\": [\"p0\"], \"domain\": \"Proposition\", \"id\": \"c1\", \"proposition\": \"Note: The first two cases use Vieta's Formula for the sum of the roots of a quadratic.\", \"scope\": \"global\", \"status\": \"DERIVED\"}, \"p0\": {\"dependencies\": [], \"domain\": \"Proposition\", \"id\": \"p0\", \"proposition\": \"Determine the sum of all real numbers $x$ satisfying\\n\\\\[(x^2-4x+2)^{x^2-5x+2} = 1.\\\\]\", \"scope\": \"global\", \"status\": \"GIVEN\"}}, \"goals\": {}, \"obligations\": {}}\nQuestion: Is this semantic transition VALID, INVALID, or UNRESOLVED?\n"
+}
