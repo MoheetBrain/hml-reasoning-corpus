@@ -1,0 +1,79 @@
+{
+  "status": "INDEPENDENT_MANUAL_SPOTCHECK_NOT_A_PREVALENCE_SAMPLE",
+  "selection": "Twelve records selected across first-pass classes to test failure modes of lexical coding.",
+  "records": [
+    {
+      "candidate_id": "phase1-test-000015-s003-c06",
+      "manual_primary_class": "FALSE_GOAL_DISCHARGE",
+      "confidence": "HIGH",
+      "explanation": "The candidate closes the problem with degree 4, but deg((x-1)f)=4 implies deg(f)=3."
+    },
+    {
+      "candidate_id": "phase1-train-000007-s008-c07",
+      "manual_primary_class": "FALSE_GOAL_DISCHARGE",
+      "confidence": "HIGH",
+      "explanation": "The candidate reports total English enrollment 18 instead of English-only enrollment 16 and closes the task."
+    },
+    {
+      "candidate_id": "phase1-test-000007-s020-c01",
+      "manual_primary_class": "INVALID_INFERENCE",
+      "confidence": "MEDIUM",
+      "explanation": "The step rejects 49 without checking the remaining mod-4 and mod-6 constraints, then tries 63 even though divisibility by 3 already rules it out. This is not a division precondition error."
+    },
+    {
+      "candidate_id": "phase1-test-000058-s002-c03",
+      "manual_primary_class": "MISREAD_PROBLEM",
+      "confidence": "HIGH",
+      "explanation": "The intended expression is log base 2 of 64, but the source serialization visually permits the mistaken reading 264; the candidate factors 264. This is interpretation/alignment, not a core arithmetic operation defect."
+    },
+    {
+      "candidate_id": "phase1-test-000006-s002-c05",
+      "manual_primary_class": "ARITHMETIC_ERROR",
+      "confidence": "HIGH",
+      "explanation": "It treats repeating decimals 0.overline(7) and 0.overline(4) as 7/10 and 4/10 rather than 7/9 and 4/9."
+    },
+    {
+      "candidate_id": "phase1-test-000017-s001-c06",
+      "manual_primary_class": "INVALID_TRANSFORMATION",
+      "confidence": "HIGH",
+      "explanation": "The inverse-trigonometric transformation to cot^-1(tan(-y))=-y is not the required branch-aware identity and changes the expression incorrectly."
+    },
+    {
+      "candidate_id": "phase1-test-000003-s002-c06",
+      "manual_primary_class": "OTHER",
+      "confidence": "MEDIUM",
+      "explanation": "Converting both base-9 operands to base 10 is mathematically valid and potentially useful. No mathematical defect is visible; the -1 appears to be annotation-policy disagreement or noise."
+    },
+    {
+      "candidate_id": "phase1-test-000034-s024-c07",
+      "manual_primary_class": "DEPENDENCY_VIOLATION",
+      "confidence": "MEDIUM",
+      "explanation": "The two-answer claim inherits the preceding false assertion 2+1>3 and omits the required triangle inequality 1+x>3. A checker must reject the invalid supporting premise."
+    },
+    {
+      "candidate_id": "phase1-train-000329-s009-c03",
+      "manual_primary_class": "ARITHMETIC_ERROR",
+      "confidence": "HIGH",
+      "explanation": "The discriminant arithmetic is 4^2+128=144, not 136. This is not primarily candidate promotion."
+    },
+    {
+      "candidate_id": "phase1-train-000046-s011-c04",
+      "manual_primary_class": "OTHER",
+      "confidence": "HIGH",
+      "explanation": "The statement sin(45 degrees)=a/c exactly instantiates the preceding definition and is mathematically correct, though redundant. The -1 is inconsistent with the written protocol; 0 is more plausible."
+    },
+    {
+      "candidate_id": "phase1-train-000390-s002-c03",
+      "manual_primary_class": "FALSE_FACT",
+      "confidence": "HIGH",
+      "explanation": "Eleven divisors imply one prime exponent equal to 10, not a sum of exponents equal to 2. This is theorem/domain knowledge, not a type mismatch."
+    },
+    {
+      "candidate_id": "phase1-train-000019-s009-c02",
+      "manual_primary_class": "OTHER",
+      "confidence": "HIGH",
+      "explanation": "The claim that statement B is true follows from the accepted divisibility check. No mathematical error is visible; 0 or +1 is more consistent with the protocol."
+    }
+  ],
+  "conclusion": "The spotcheck falsifies use of the lexical first pass as a prevalence estimator. It supports preserving UNRESOLVED and adding human theorem replay before ontology-frequency claims."
+}

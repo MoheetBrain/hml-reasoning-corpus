@@ -1,0 +1,57 @@
+{
+  "decision_point_feature_means_by_rating": {
+    "-1": {
+      "characters": 76.39540229885057,
+      "has_answer_marker": 0.06666666666666667,
+      "has_math_marker": 0.8942528735632184,
+      "has_plan_marker": 0.20919540229885059,
+      "prefix_max_jaccard": 0.34325357858484884,
+      "problem_jaccard": 0.1289446298820481,
+      "tokens": 14.202298850574712
+    },
+    "0": {
+      "characters": 70.57446808510639,
+      "has_answer_marker": 0.026595744680851064,
+      "has_math_marker": 0.6356382978723404,
+      "has_plan_marker": 0.3484042553191489,
+      "prefix_max_jaccard": 0.23606684745048004,
+      "problem_jaccard": 0.1438109287664895,
+      "tokens": 13.202127659574469
+    },
+    "1": {
+      "characters": 70.30946291560102,
+      "has_answer_marker": 0.11764705882352941,
+      "has_math_marker": 0.8005115089514067,
+      "has_plan_marker": 0.27365728900255754,
+      "prefix_max_jaccard": 0.23367593401953368,
+      "problem_jaccard": 0.1280687909477549,
+      "tokens": 12.59079283887468
+    }
+  },
+  "error_confidence_counts": {
+    "LOW": 438,
+    "MEDIUM": 62
+  },
+  "error_primary_class_counts": {
+    "FALSE_GOAL_DISCHARGE": 32,
+    "OTHER": 27,
+    "PRECONDITION_VIOLATION": 3,
+    "UNRESOLVED": 438
+  },
+  "firewall_ontology_direct_count": 35,
+  "method_warning": "Semantic classes are a deterministic conservative lexical first pass, not human-adjudicated theorem replay. LOW confidence and UNRESOLVED must not be used as ontology-frequency estimates.",
+  "positive_reasoning_mode_proxy_counts": {
+    "EXECUTION": 201,
+    "GOAL_MANAGEMENT": 21,
+    "SEARCH_META": 28
+  },
+  "resolved_error_fraction": 0.124,
+  "zero_reason_counts": {
+    "harmless detour": 14,
+    "insufficient progress": 193,
+    "redundant computation": 18,
+    "restatement": 10,
+    "semantically valid but goal-irrelevant": 6,
+    "vague plan": 9
+  }
+}

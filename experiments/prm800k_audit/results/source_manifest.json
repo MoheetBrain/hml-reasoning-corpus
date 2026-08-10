@@ -1,0 +1,32 @@
+{
+  "immutable_input_policy": "The official checkout and source data are read-only inputs and are never modified.",
+  "math_metadata_problem_count": 12499,
+  "source_commit": "7ecc794703b2877f63226f2477a49b34f9b25163",
+  "source_files": [
+    {
+      "bytes": 7900236,
+      "path": "prm800k/data/phase1_train.jsonl",
+      "rows": 949,
+      "sha256": "e9da6a73f827ffb9a8c0dc644c541d34ed76b3d4d1e4896ff5f7b37ddf5ae34d"
+    },
+    {
+      "bytes": 829105,
+      "path": "prm800k/data/phase1_test.jsonl",
+      "rows": 106,
+      "sha256": "f4b3bc5b095e45c816453dc4d748b755c680d61d55f9895d929a335b487c727d"
+    },
+    {
+      "bytes": 456135365,
+      "path": "prm800k/data/phase2_train.jsonl",
+      "rows": 97782,
+      "sha256": "1110237feeb51d1bc200cb37b8f965cfdc1036eac7d506094049366fe7dc1089"
+    },
+    {
+      "bytes": 12240719,
+      "path": "prm800k/data/phase2_test.jsonl",
+      "rows": 2762,
+      "sha256": "6b172efa884ac8341a946dd82e06947c135b7254109fb3f7aa907c715d98aaad"
+    }
+  ],
+  "source_repository": "https://github.com/openai/prm800k.git"
+}

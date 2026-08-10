@@ -1,0 +1,109 @@
+{
+  "deep_sample": {
+    "-1": {
+      "level": {
+        "1": 56,
+        "2": 94,
+        "3": 91,
+        "4": 117,
+        "5": 133,
+        "UNKNOWN": 9
+      },
+      "phase": {
+        "phase1": 165,
+        "phase2": 335
+      },
+      "position": {
+        "early": 95,
+        "late": 271,
+        "middle": 97,
+        "only": 37
+      },
+      "records": 500,
+      "subject": {
+        "Algebra": 80,
+        "Counting & Probability": 68,
+        "Geometry": 63,
+        "Intermediate Algebra": 78,
+        "Number Theory": 67,
+        "Prealgebra": 65,
+        "Precalculus": 70,
+        "UNKNOWN": 9
+      },
+      "unique_problem_texts": 500
+    },
+    "0": {
+      "level": {
+        "1": 42,
+        "2": 50,
+        "3": 46,
+        "4": 48,
+        "5": 59,
+        "UNKNOWN": 5
+      },
+      "phase": {
+        "phase1": 78,
+        "phase2": 172
+      },
+      "position": {
+        "early": 58,
+        "late": 127,
+        "middle": 54,
+        "only": 11
+      },
+      "records": 250,
+      "subject": {
+        "Algebra": 39,
+        "Counting & Probability": 33,
+        "Geometry": 32,
+        "Intermediate Algebra": 45,
+        "Number Theory": 30,
+        "Prealgebra": 33,
+        "Precalculus": 33,
+        "UNKNOWN": 5
+      },
+      "unique_problem_texts": 250
+    },
+    "1": {
+      "level": {
+        "1": 41,
+        "2": 57,
+        "3": 44,
+        "4": 56,
+        "5": 51,
+        "UNKNOWN": 1
+      },
+      "phase": {
+        "phase1": 113,
+        "phase2": 137
+      },
+      "position": {
+        "early": 53,
+        "late": 123,
+        "middle": 65,
+        "only": 9
+      },
+      "records": 250,
+      "subject": {
+        "Algebra": 43,
+        "Counting & Probability": 38,
+        "Geometry": 35,
+        "Intermediate Algebra": 39,
+        "Number Theory": 26,
+        "Prealgebra": 34,
+        "Precalculus": 34,
+        "UNKNOWN": 1
+      },
+      "unique_problem_texts": 250
+    }
+  },
+  "phase1_decision_points": {
+    "human_completion_present": 57,
+    "records": 200,
+    "split": {
+      "test": 17,
+      "train": 183
+    },
+    "unique_problem_texts": 200
+  }
+}

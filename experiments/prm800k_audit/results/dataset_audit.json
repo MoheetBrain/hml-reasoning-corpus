@@ -1,0 +1,464 @@
+{
+  "audit_order": "Raw dataset audit was computed before semantic classification.",
+  "by_split": {
+    "phase1_test": {
+      "alternative_candidates_beyond_first": 3320,
+      "candidate_completions_per_state": {
+        "count": 1873,
+        "max": 7,
+        "mean": 2.7720234917245063,
+        "median": 1,
+        "min": 0,
+        "p90": 7.0
+      },
+      "finish_reason_counts": {
+        "give_up": 16,
+        "solution": 90
+      },
+      "finish_reason_percent": {
+        "give_up": 15.09433962264151,
+        "solution": 84.90566037735849
+      },
+      "first_any_minus_one_position_1_based": {
+        "count": 86,
+        "max": 19,
+        "mean": 5.546511627906977,
+        "median": 4.5,
+        "min": 1,
+        "p90": 11.5
+      },
+      "first_chosen_minus_one_position_1_based": {
+        "count": 0,
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null,
+        "p90": null
+      },
+      "flag_counts": {
+        "false": 5186,
+        "true": 6
+      },
+      "human_written_completions": 257,
+      "initial_screening_trajectories": 0,
+      "multi_candidate_states": 612,
+      "non_null_rated_candidate_steps": 5082,
+      "quality_control_trajectories": 0,
+      "rating_counts": {
+        "-1": 1970,
+        "0": 867,
+        "1": 2245,
+        "None": 110
+      },
+      "repeated_problem_trajectory_rows": 5,
+      "solution_trajectories": 106,
+      "total_candidate_completions": 5192,
+      "trajectory_step_count": {
+        "count": 106,
+        "max": 53,
+        "mean": 17.669811320754718,
+        "median": 15.5,
+        "min": 1,
+        "p90": 33.5
+      },
+      "unique_problem_texts": 101
+    },
+    "phase1_train": {
+      "alternative_candidates_beyond_first": 34077,
+      "candidate_completions_per_state": {
+        "count": 15441,
+        "max": 7,
+        "mean": 3.2053623469982515,
+        "median": 1,
+        "min": 0,
+        "p90": 7.0
+      },
+      "finish_reason_counts": {
+        "give_up": 141,
+        "solution": 808
+      },
+      "finish_reason_percent": {
+        "give_up": 14.857744994731295,
+        "solution": 85.14225500526871
+      },
+      "first_any_minus_one_position_1_based": {
+        "count": 711,
+        "max": 27,
+        "mean": 4.271448663853727,
+        "median": 3,
+        "min": 1,
+        "p90": 9.0
+      },
+      "first_chosen_minus_one_position_1_based": {
+        "count": 0,
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null,
+        "p90": null
+      },
+      "flag_counts": {
+        "false": 49463,
+        "true": 31
+      },
+      "human_written_completions": 2341,
+      "initial_screening_trajectories": 0,
+      "multi_candidate_states": 5844,
+      "non_null_rated_candidate_steps": 48672,
+      "quality_control_trajectories": 0,
+      "rating_counts": {
+        "-1": 19656,
+        "0": 10234,
+        "1": 18782,
+        "None": 822
+      },
+      "repeated_problem_trajectory_rows": 46,
+      "solution_trajectories": 949,
+      "total_candidate_completions": 49494,
+      "trajectory_step_count": {
+        "count": 949,
+        "max": 107,
+        "mean": 16.27081138040042,
+        "median": 12,
+        "min": 1,
+        "p90": 35.0
+      },
+      "unique_problem_texts": 903
+    },
+    "phase2_test": {
+      "alternative_candidates_beyond_first": 7766,
+      "candidate_completions_per_state": {
+        "count": 19456,
+        "max": 5,
+        "mean": 1.399157072368421,
+        "median": 1.0,
+        "min": 1,
+        "p90": 3.0
+      },
+      "finish_reason_counts": {
+        "found_error": 2077,
+        "give_up": 98,
+        "solution": 587
+      },
+      "finish_reason_percent": {
+        "found_error": 75.19913106444605,
+        "give_up": 3.5481535119478638,
+        "solution": 21.252715423606084
+      },
+      "first_any_minus_one_position_1_based": {
+        "count": 2109,
+        "max": 34,
+        "mean": 5.780938833570413,
+        "median": 5,
+        "min": 1,
+        "p90": 11.0
+      },
+      "first_chosen_minus_one_position_1_based": {
+        "count": 30,
+        "max": 12,
+        "mean": 4.1,
+        "median": 4.0,
+        "min": 1,
+        "p90": 7.0
+      },
+      "flag_counts": {
+        "false": 7745,
+        "null": 19456,
+        "true": 21
+      },
+      "human_written_completions": 0,
+      "initial_screening_trajectories": 0,
+      "multi_candidate_states": 2079,
+      "non_null_rated_candidate_steps": 26256,
+      "quality_control_trajectories": 0,
+      "rating_counts": {
+        "-1": 6080,
+        "0": 2002,
+        "1": 18174,
+        "None": 966
+      },
+      "repeated_problem_trajectory_rows": 2304,
+      "solution_trajectories": 2762,
+      "total_candidate_completions": 27222,
+      "trajectory_step_count": {
+        "count": 2762,
+        "max": 40,
+        "mean": 7.044170890658942,
+        "median": 6.0,
+        "min": 1,
+        "p90": 13.0
+      },
+      "unique_problem_texts": 458
+    },
+    "phase2_train": {
+      "alternative_candidates_beyond_first": 306684,
+      "candidate_completions_per_state": {
+        "count": 696998,
+        "max": 5,
+        "mean": 1.4400070014548105,
+        "median": 1.0,
+        "min": 1,
+        "p90": 4.0
+      },
+      "finish_reason_counts": {
+        "bad_problem": 275,
+        "found_error": 82003,
+        "give_up": 3839,
+        "solution": 11665
+      },
+      "finish_reason_percent": {
+        "bad_problem": 0.28123785563805204,
+        "found_error": 83.86308318504429,
+        "give_up": 3.926080464707206,
+        "solution": 11.92959849461046
+      },
+      "first_any_minus_one_position_1_based": {
+        "count": 83330,
+        "max": 56,
+        "mean": 6.305688227529101,
+        "median": 5.0,
+        "min": 1,
+        "p90": 12.0
+      },
+      "first_chosen_minus_one_position_1_based": {
+        "count": 1206,
+        "max": 32,
+        "mean": 5.672470978441128,
+        "median": 5.0,
+        "min": 1,
+        "p90": 12.0
+      },
+      "flag_counts": {
+        "false": 301297,
+        "null": 701550,
+        "true": 835
+      },
+      "human_written_completions": 0,
+      "initial_screening_trajectories": 12654,
+      "multi_candidate_states": 82391,
+      "non_null_rated_candidate_steps": 966355,
+      "quality_control_trajectories": 8097,
+      "rating_counts": {
+        "-1": 234440,
+        "0": 92921,
+        "1": 638994,
+        "None": 37327
+      },
+      "repeated_problem_trajectory_rows": 86954,
+      "solution_trajectories": 97782,
+      "total_candidate_completions": 1003682,
+      "trajectory_step_count": {
+        "count": 97782,
+        "max": 56,
+        "mean": 7.128080832873126,
+        "median": 6.0,
+        "min": 0,
+        "p90": 14.0
+      },
+      "unique_problem_texts": 10828
+    }
+  },
+  "definitions": {
+    "candidate_step": "One item in label.steps[*].completions; alternatives are counted separately.",
+    "first_any_error": "First state containing any -1 candidate, whether chosen or alternative.",
+    "first_chosen_error": "First state where the completion selected into the reconstructed trajectory is rated -1.",
+    "state_proxy": "Problem plus reconstructed chosen/human textual prefix; not a complete canonical HML state.",
+    "trajectory": "One JSONL row / labelled solution sample, including repeated QC presentations."
+  },
+  "overall": {
+    "alternative_candidates_beyond_first": 351847,
+    "candidate_completions_per_state": {
+      "count": 733768,
+      "max": 7,
+      "mean": 1.4794730759586137,
+      "median": 1.0,
+      "min": 0,
+      "p90": 5.0
+    },
+    "finish_reason_counts": {
+      "bad_problem": 275,
+      "found_error": 84080,
+      "give_up": 4094,
+      "solution": 13150
+    },
+    "finish_reason_percent": {
+      "bad_problem": 0.2706719554326322,
+      "found_error": 82.75672004645716,
+      "give_up": 4.029567220149804,
+      "solution": 12.943040777960412
+    },
+    "first_any_minus_one_position_1_based": {
+      "count": 86236,
+      "max": 56,
+      "mean": 6.275325849993043,
+      "median": 5.0,
+      "min": 1,
+      "p90": 12.0
+    },
+    "first_chosen_minus_one_position_1_based": {
+      "count": 1236,
+      "max": 32,
+      "mean": 5.634304207119741,
+      "median": 5.0,
+      "min": 1,
+      "p90": 11.0
+    },
+    "flag_counts": {
+      "false": 363691,
+      "null": 721006,
+      "true": 893
+    },
+    "human_written_completions": 2598,
+    "initial_screening_trajectories": 12654,
+    "multi_candidate_states": 90926,
+    "non_null_rated_candidate_steps": 1046365,
+    "quality_control_trajectories": 8097,
+    "rating_counts": {
+      "-1": 262146,
+      "0": 106024,
+      "1": 678195,
+      "None": 39225
+    },
+    "repeated_problem_trajectory_rows": 90306,
+    "solution_trajectories": 101599,
+    "total_candidate_completions": 1085590,
+    "trajectory_step_count": {
+      "count": 101599,
+      "max": 107,
+      "mean": 7.222197068868788,
+      "median": 6,
+      "min": 0,
+      "p90": 14.0
+    },
+    "unique_problem_texts": 11293
+  },
+  "phase1": {
+    "alternative_candidates_beyond_first": 37397,
+    "candidate_completions_per_state": {
+      "count": 17314,
+      "max": 7,
+      "mean": 3.158484463439991,
+      "median": 1.0,
+      "min": 0,
+      "p90": 7.0
+    },
+    "finish_reason_counts": {
+      "give_up": 157,
+      "solution": 898
+    },
+    "finish_reason_percent": {
+      "give_up": 14.881516587677726,
+      "solution": 85.11848341232228
+    },
+    "first_any_minus_one_position_1_based": {
+      "count": 797,
+      "max": 27,
+      "mean": 4.409033877038896,
+      "median": 3,
+      "min": 1,
+      "p90": 9.0
+    },
+    "first_chosen_minus_one_position_1_based": {
+      "count": 0,
+      "max": null,
+      "mean": null,
+      "median": null,
+      "min": null,
+      "p90": null
+    },
+    "flag_counts": {
+      "false": 54649,
+      "true": 37
+    },
+    "human_written_completions": 2598,
+    "initial_screening_trajectories": 0,
+    "multi_candidate_states": 6456,
+    "non_null_rated_candidate_steps": 53754,
+    "quality_control_trajectories": 0,
+    "rating_counts": {
+      "-1": 21626,
+      "0": 11101,
+      "1": 21027,
+      "None": 932
+    },
+    "repeated_problem_trajectory_rows": 51,
+    "solution_trajectories": 1055,
+    "total_candidate_completions": 54686,
+    "trajectory_step_count": {
+      "count": 1055,
+      "max": 107,
+      "mean": 16.411374407582937,
+      "median": 12,
+      "min": 1,
+      "p90": 35.0
+    },
+    "unique_problem_texts": 1004
+  },
+  "phase2": {
+    "alternative_candidates_beyond_first": 314450,
+    "candidate_completions_per_state": {
+      "count": 716454,
+      "max": 5,
+      "mean": 1.438897682195926,
+      "median": 1.0,
+      "min": 1,
+      "p90": 4.0
+    },
+    "finish_reason_counts": {
+      "bad_problem": 275,
+      "found_error": 84080,
+      "give_up": 3937,
+      "solution": 12252
+    },
+    "finish_reason_percent": {
+      "bad_problem": 0.2735120942075111,
+      "found_error": 83.62507956715469,
+      "give_up": 3.9156985996180773,
+      "solution": 12.185709739019734
+    },
+    "first_any_minus_one_position_1_based": {
+      "count": 85439,
+      "max": 56,
+      "mean": 6.292735167780521,
+      "median": 5,
+      "min": 1,
+      "p90": 12.0
+    },
+    "first_chosen_minus_one_position_1_based": {
+      "count": 1236,
+      "max": 32,
+      "mean": 5.634304207119741,
+      "median": 5.0,
+      "min": 1,
+      "p90": 11.0
+    },
+    "flag_counts": {
+      "false": 309042,
+      "null": 721006,
+      "true": 856
+    },
+    "human_written_completions": 0,
+    "initial_screening_trajectories": 12654,
+    "multi_candidate_states": 84470,
+    "non_null_rated_candidate_steps": 992611,
+    "quality_control_trajectories": 8097,
+    "rating_counts": {
+      "-1": 240520,
+      "0": 94923,
+      "1": 657168,
+      "None": 38293
+    },
+    "repeated_problem_trajectory_rows": 89258,
+    "solution_trajectories": 100544,
+    "total_candidate_completions": 1030904,
+    "trajectory_step_count": {
+      "count": 100544,
+      "max": 56,
+      "mean": 7.125775779758116,
+      "median": 6.0,
+      "min": 0,
+      "p90": 14.0
+    },
+    "unique_problem_texts": 11286
+  }
+}
