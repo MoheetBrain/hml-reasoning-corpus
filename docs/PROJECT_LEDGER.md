@@ -300,3 +300,56 @@ schema is not the same as being a well-formed transition.**
 
 **Next intended step.** The 22 surviving mutations from the earlier census; then
 P-01/P-02/P-03; then the semantic freeze, release manifest and tag.
+
+---
+
+## 2026-08-11 (second entry) — schema hardened as far as evidence supports; two FX2 truthfulness defects corrected
+
+**Branch:** `codex/minilang-artifact-audit`, on `a2910c4`.
+
+**Objective.** Harden the case schema only where the evidence supports it, and correct two
+places where our own artifacts described reality falsely.
+
+**Schema hardening.** `$defs/claim` **closed** — the one object where four independent
+sources agree exactly on six fields (`required`, the frozen union *and* intersection over 736
+instances, FX2's 76, and `semantic_state.model.Claim`). `source` **left open**, which
+*refutes* the prior recommendation to close it: `SEMANTIC_STATE_CONTRACT.md` §4 names it among
+fields "the corpus may extend at any time", and closing on a complete-looking sample against a
+contract that declares the field extensible is precisely the trap. `evidence` left open —
+four of ten observed keys are genuinely optional, and `EvidenceRecord` models six keys plus an
+explicitly kind-specific `payload`. Value schemas were wired for the previously unvalidated
+regions; `candidates`, `branches`, `obligations` and `goals` were **not** closed, because
+frozen, FX2 and the dataclasses give strictly growing key sets — the corpus is demonstrably
+not a complete sample.
+
+**Why it mattered.** Of 28 schema-legal malformed shapes, **13 crashed the reference checker**
+and **one flipped a verdict**: `evidence.trusted = "false"` as a *string* is truthy, so a
+truthy spelling of falsehood licensed a VERIFIED promotion. Before: 0/28 rejected. After:
+26/28. The two survivors are the documented open objects.
+
+**Two FX2 truthfulness defects, corrected.** The `MAL` fixtures recorded the frozen reference
+checker's behaviour as `REFUSED`; it **crashes**. Each now carries
+`historical_reference_behaviour: CRASH` alongside `hardened_hml_behaviour:
+CONTROLLED_REFUSAL`. A hardened implementation may be safer than its historical oracle; that
+does not license describing the oracle falsely. And `semantic_case_v2.schema.json`'s
+description claimed states, evidence and source were `$ref`'d from the frozen schema — only
+`action` is, and `evidence` is **entirely unvalidated**. Corrected to match executable reality.
+
+**Tests and verification actually executed.** `pytest tests/` **68 passed**; frozen **230/230**
+validate; FX2 **40/40** match their declared `schema_valid`; HML `tests/semantic_state` **405
+passed** against the regenerated suite. Manifest self-check: sidecar matches, **0 mismatches
+across 412 entries**. The schema amendment chain now holds **two** superseded hashes —
+`786010…` (the original unsatisfiable schema) and `2401eb…` (amendment 1) — as a chronological
+list rather than an overwrite.
+
+**Failures and unresolved uncertainty.** `action.obligations_created` could not be constrained:
+`FX2-MAL-UNHASHABLE-REFUSE` carries `[[1], [2]]` and declares `schema_valid: true`, so
+constraining it would flip a frozen artifact's declared flag. Left open and pinned by a test.
+Statuses, `kind`, `supports_rule` and domain names are **not** enumerated anywhere: the
+reference checker treats unrecognised values as fail-closed while `neutral.py::_enum` refuses
+them, so two admissible sources disagree and the schema stays permissive. And
+`build_benchmark.py` would silently erase both amendment records if re-run — pre-existing, not
+newly introduced, and not currently runnable.
+
+**Next intended step.** Final post-integration mutation census, then P-02/P-03 Lean witness
+audits, then the freeze gate.

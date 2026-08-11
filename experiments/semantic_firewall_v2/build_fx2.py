@@ -60,6 +60,8 @@ FIXTURES: list[dict] = []
 def fx(fixture_id, family, boundary, invariant, verdict, error_class, rationale,
        case, *, trust_mode="OFFLINE_REPLAY", reference="AGREES", reference_note="",
        materialise=None, schema_valid=True,
+       historical_reference_behaviour="CONTROLLED_VERDICT",
+       hardened_hml_behaviour="CONTROLLED_VERDICT",
        provenance="integrator-authored, HMLTN Phase I hardening 2026-08-11"):
     """Register one fixture. ``verdict``/``error_class`` are the CONTRACT's answer."""
     FIXTURES.append({
@@ -73,6 +75,11 @@ def fx(fixture_id, family, boundary, invariant, verdict, error_class, rationale,
         "rationale": rationale,
         "frozen_reference_checker": reference,
         "frozen_reference_note": reference_note,
+        # The frozen oracle's ACTUAL behaviour, which for the malformed family is not a
+        # refusal at all. A hardened implementation may be safer than its historical
+        # oracle; that does not license describing the oracle falsely.
+        "historical_reference_behaviour": historical_reference_behaviour,
+        "hardened_hml_behaviour": hardened_hml_behaviour,
         "authored_by": "integrator",
         # Values RFC 8259 cannot express, applied by the runner before verification. Keeps
         # the artifact readable by any conforming JSON parser.
@@ -535,7 +542,8 @@ def _set(path, value):
 fx("FX2-MAL-TYPING-REFUSE", "MAL", "ILLEGAL", "MALFORMED", "REFUSED", None,
    "typing.input_domains as a list raised an uncaught AttributeError inside verify(). A "
    "verifier that may be handed model output must never throw.",
-   _malformed(_set(["action", "typing"], ["p0", "p1"])), schema_valid=False)
+   _malformed(_set(["action", "typing"], ["p0", "p1"])), schema_valid=False,
+   historical_reference_behaviour="CRASH", hardened_hml_behaviour="CONTROLLED_REFUSAL")
 fx("FX2-MAL-NAN-REFUSE", "MAL", "ILLEGAL", "MALFORMED", "REFUSED", None,
    "NaN != NaN, and the frame condition compares records structurally, so a record "
    "byte-identical in both states reported 'changed without a licensed state effect'. It "
@@ -545,7 +553,8 @@ fx("FX2-MAL-NAN-REFUSE", "MAL", "ILLEGAL", "MALFORMED", "REFUSED", None,
    "strict parser -- an independent Ruby parse rejected it, which is why this is an "
    "instruction and not a value.",
    _malformed(_set(["action", "typing"], {"weight": None})),
-   materialise=[{"path": ["action", "typing", "weight"], "set_nonfinite": "nan"}])
+   materialise=[{"path": ["action", "typing", "weight"], "set_nonfinite": "nan"}],
+   historical_reference_behaviour="CRASH", hardened_hml_behaviour="CONTROLLED_REFUSAL")
 fx("FX2-MAL-UNHASHABLE-REFUSE", "MAL", "ILLEGAL", "MALFORMED", "REFUSED", None,
    "An unhashable value in obligations_created reached a dictionary lookup and raised. "
    "This fixture is SCHEMA-VALID and semantically malformed: the schema types "
@@ -553,10 +562,12 @@ fx("FX2-MAL-UNHASHABLE-REFUSE", "MAL", "ILLEGAL", "MALFORMED", "REFUSED", None,
    "validation. It is kept precisely for that contrast -- a case can satisfy the published "
    "schema and still be refused, so schema conformance is not a substitute for the "
    "verifier.",
-   _malformed(_set(["action", "obligations_created"], [[1], [2]])), schema_valid=True)
+   _malformed(_set(["action", "obligations_created"], [[1], [2]])), schema_valid=True,
+   historical_reference_behaviour="CRASH", hardened_hml_behaviour="CONTROLLED_REFUSAL")
 fx("FX2-MAL-SCOPES-REFUSE", "MAL", "ILLEGAL", "MALFORMED", "REFUSED", None,
    "A non-string in active_scopes raised on a string join while rendering a diagnostic.",
-   _malformed(_set(["state_before", "active_scopes"], [{"id": {}}])), schema_valid=False)
+   _malformed(_set(["state_before", "active_scopes"], [{"id": {}}])), schema_valid=False,
+   historical_reference_behaviour="CRASH", hardened_hml_behaviour="CONTROLLED_REFUSAL")
 
 
 # ---------------------------------------------------------------------------

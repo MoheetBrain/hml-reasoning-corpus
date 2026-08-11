@@ -92,6 +92,39 @@ in the HML repository, which reports 30/30 verdict and error class.
   because *nothing validated against it*: the corpus had no dependency manifest and no
   JSON-Schema test anywhere. Both now exist (`requirements.txt`, `tests/test_schemas.py`),
   including a general guard that fails on any recurrence of the unsatisfiable shape.
+* ~~The repaired schema was satisfiable but not discriminating.~~ **HARDENED 2026-08-11
+  (amendment 2).** `$defs/source`, `$defs/claim` and `$defs/evidence` carried `required` and
+  nothing else; `state.obligations`, `candidates`, `branches`, `goals` and all fifteen
+  `action` sub-objects were bare `{"type": "object"}`; array `items` were unconstrained.
+  Measured cost: of the malformed shapes it accepted, **thirteen made
+  `reference_checker.check_case` raise `TypeError`/`AttributeError` instead of returning a
+  verdict**, and `evidence.trusted` spelled as the **string** `"false"` — truthy — turned an
+  INVALID epistemic promotion into VALID on `FX-EPI-LEGAL`. Hardened only where the evidence
+  reached: `$defs/claim` **closed** (its six fields are agreed by `required`, by the union
+  *and* the intersection over all 736 frozen claim instances, by the 76 FX2 claim instances,
+  and by `semantic_state.model.Claim`); value schemas added for the four unvalidated state
+  regions; JSON types pinned wherever a wrong type crashes or misleads the checker.
+  `source`, `evidence`, `obligation`, `candidate`, `branch` and `goal` are **deliberately
+  left open**, each with its reason in the schema's own `description`:
+  `SEMANTIC_STATE_CONTRACT.md` §4 names `source`, `typing`, `warrant`, the `*_effect` maps
+  and the precondition/obligation lists as open dictionaries the corpus may extend at any
+  time; `EvidenceRecord` keeps unmodelled keys in an extensible payload; and the canonical
+  `Candidate` (9 fields), `Branch` (6) and `Obligation` (7) dataclasses declare strictly more
+  fields than the frozen corpus exhibits — FX2 already uses `origin`, `partition_id` and
+  `scope`, which proves the frozen union is **not** a complete sample of legitimate formats.
+  Still **230/230** frozen and **40/40** FX2 as declared. Freeze manifest amended a second
+  time; both superseded hashes preserved.
+* **`action.obligations_created` cannot be typed, and that is a known hole.** The reference
+  checker raises on a non-object item and `neutral.py::_obligation_specs` refuses one, but the
+  frozen fixture `FX2-MAL-UNHASHABLE-REFUSE` carries `obligations_created: [[1], [2]]` and
+  declares `schema_valid: true`. Constraining the array would flip a frozen artifact's
+  declared flag, so it is left open, documented in the schema, and pinned by a test. That
+  fixture is named REFUSE, but the reference checker does not refuse it — it **crashes**.
+* **A typo'd extra key still passes in `source` and in an evidence record.** Not an
+  oversight: both are declared extensible by the canonical contract, and in an evidence
+  record an undeclared key is indistinguishable from a legitimate kind-specific payload key.
+  Recorded rather than closed, and asserted by `tests/test_schemas.py` so that closing one
+  later fails a test instead of silently discarding the reason.
 * **Coverage figures are historical — now labelled as such.** Gold-125 coverage (FULL 11 /
   PARTIAL 455 / REPRESENTABLE_ONLY 303) and every "library-blocked" claim were measured
   against `hml_core` at `5688aba`; `git ls-tree -r 5688aba` contains no `libraries/` path at

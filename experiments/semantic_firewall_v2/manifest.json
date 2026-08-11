@@ -15,16 +15,16 @@
   },
   "files": {
     "fixtures_v2.json": {
-      "sha256": "9c9e74495540308e6014533082bbbf83e3165faaf02b9ca757d3758f88b4d77a",
-      "bytes": 134199
+      "sha256": "8568408ce29fd31cc60251d8a62a2e7d12049d47fdf238ed7227a1d6118b6c09",
+      "bytes": 138787
     },
     "build_fx2.py": {
-      "sha256": "53370d8d2c223e6d6fab4f2e736ee8c25bc8dd770ebb81a1f971af9ed2809a89",
-      "bytes": 34560
+      "sha256": "e973146b420672ff68c638fb3d8d9261400465afd2b02072163748d947096f3e",
+      "bytes": 35400
     },
     "schemas/semantic_case_v2.schema.json": {
-      "sha256": "fb2a292ecf5c6cf9da2507d6416e0106a47c17f3a2de0dcc1f4344c95b40b072",
-      "bytes": 5178
+      "sha256": "bdf4108ca12c3b553608541ee5d1bf96d284b81a4ba38270e6dd3c291eb6c2ee",
+      "bytes": 5507
     }
   },
   "counts": {
@@ -68,5 +68,12 @@
     "The two AMPS-derived fixtures rest on a COMMUNITY MIRROR of AMPS-Khan, traced one hop to HuggingFace XinyaoHu/AMPS_khan and not verified against Hendrycks' official release. The mathematical pattern is independently checkable; the attribution is not.",
     "The frozen semantic_case schema requires `domain` on every claim, so 'this claim carries no domain' is not expressible there. FX2 defines its own claim schema with `domain` optional, because D-048 made that absence semantically meaningful."
   ],
-  "supersedes": []
+  "supersedes": [],
+  "corrections": [
+    {
+      "date": "2026-08-11",
+      "what": "MAL fixtures recorded the frozen reference checker's behaviour as REFUSED. It CRASHES (AttributeError / TypeError). Each now carries historical_reference_behaviour=CRASH and hardened_hml_behaviour=CONTROLLED_REFUSAL. The hardened implementation is safer than its historical oracle; that does not license describing the oracle falsely.",
+      "also": "semantic_case_v2.schema.json's description claimed states, evidence and source were $ref'd from the frozen schema. Only `action` is. `evidence` is entirely unvalidated. Corrected to match executable reality."
+    }
+  ]
 }

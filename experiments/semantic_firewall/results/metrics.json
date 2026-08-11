@@ -462,7 +462,15 @@
     "pairs": 100,
     "valid": 100
   },
-  "freeze_manifest_sha256": "6211aec38fb687ff25aa903269d6ba8ec43e5c9ede7cfddaf66c07fee6f61c76",
+  "freeze_manifest_amendment": [
+    "2026-08-11: semantic_case.schema.json repaired (was unsatisfiable, rejected 0/230 of its own cases). Not on the verdict path; no metric here changed.",
+    "2026-08-11 (amendment 2): semantic_case.schema.json hardened. It was satisfiable but not discriminating -- source/claim/evidence had `required` and nothing else, the four state regions and all fifteen action sub-objects were unvalidated `{\"type\":\"object\"}`, and array items were unconstrained; thirteen schema-legal shapes crashed the reference checker and `trusted: \"false\"` (a truthy string) licensed a VERIFIED promotion. $defs/claim closed; value schemas added for obligations/candidates/branches/goals; JSON types pinned. source, evidence and the three remaining state objects deliberately left open, with the evidence recorded in the schema. Still not on the verdict path: 230/230 frozen cases validate, all 40 FX2 cases match their declared schema_valid flag, and no metric in this file changed."
+  ],
+  "freeze_manifest_sha256": "439186c59276c5d011a8a414fbceddd5884df6c01a43f2e1a8dac87f7118421e",
+  "freeze_manifest_sha256_superseded": [
+    "ffe66f969df7c7b4bf1b256744e5e15aa2e79496c9ef1548e3641d1a927a510c",
+    "6211aec38fb687ff25aa903269d6ba8ec43e5c9ede7cfddaf66c07fee6f61c76"
+  ],
   "representation_experiment": {
     "generic_typed_ast": "PREPARED_UNSCORED",
     "hml": "PREPARED_AS_HML_PLUS_LOSSLESS_ADAPTER_UNSCORED",
@@ -470,7 +478,5 @@
     "structured_english": "PREPARED_UNSCORED",
     "warning": "Pure current-HML parity is blocked by candidate, branch/join, and arbitrary neutral-state fields. No comparative score is invented."
   },
-  "result_version": "semantic-firewall-results-0.1.0",
-  "freeze_manifest_sha256_superseded": "ffe66f969df7c7b4bf1b256744e5e15aa2e79496c9ef1548e3641d1a927a510c",
-  "freeze_manifest_amendment": "2026-08-11: semantic_case.schema.json repaired (was unsatisfiable, rejected 0/230 of its own cases). Not on the verdict path; no metric here changed."
+  "result_version": "semantic-firewall-results-0.1.0"
 }

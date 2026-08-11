@@ -2069,17 +2069,29 @@
       "sha256": "a20fbf7af51d310f981058717f84671dba35490027e16b1aeb978fafc45a3d9d"
     },
     {
-      "bytes": 3317,
+      "amended": [
+        {
+          "changes_no_experimental_result": "reference_checker.py never reads the schema (grep for 'schema' returns 0 matches), so it is not on the verdict path. All 230 cases now validate; no verdict changed.",
+          "date": "2026-08-11",
+          "original_hash_preserved_here": "The superseding hash is recorded rather than the original being overwritten silently, so the freeze record still shows what was frozen and what replaced it.",
+          "reason": "The frozen schema was UNSATISFIABLE: $defs/action declared additionalProperties false with a 15-name required array and no properties block, so every member key was forbidden and it rejected 0/230 of the cases it describes (30 acceptance + 40 DEV + 160 FINAL). Repaired by adding the properties block, which restates `required` verbatim, plus JSON types on which all 230 cases agree.",
+          "superseded_bytes": 2653,
+          "superseded_sha256": "786010438613790d0d4b956092019a36728f824e7f773b5d2a5f60b97ed37405"
+        },
+        {
+          "amendment_number": 2,
+          "changes_no_experimental_result": "reference_checker.py still never reads the schema, so it remains off the verdict path. Re-verified after the change: 230/230 frozen cases validate (30 acceptance + 40 DEV + 160 FINAL), and all 40 FX2 cases behave exactly as their `schema_valid` flag declares. No verdict, label or metric changed.",
+          "date": "2026-08-11",
+          "known_limitation": "action.obligations_created has NO items constraint. The reference checker raises on a non-object item and neutral.py::_obligation_specs refuses one, which would justify constraining it -- but the frozen fixture FX2-MAL-UNHASHABLE-REFUSE carries obligations_created: [[1],[2]] and declares schema_valid: true, so constraining it would flip a frozen artifact's declared flag. Left open, documented in the schema, and pinned by tests/test_schemas.py.",
+          "original_hash_preserved_here": "`amended` was a single object recording amendment 1; it is now a chronological list whose first element is that record verbatim. Both superseded hashes therefore survive: 786010438613790d0d4b956092019a36728f824e7f773b5d2a5f60b97ed37405 (as frozen, unsatisfiable) and 2401eb10d7b737d961ccd5b64708c4f9e6bab6ba46139a387f24e4e6b19ca5f2 (amendment 1).",
+          "reason": "The first amendment made the schema satisfiable; it did not make it discriminating. $defs/source, $defs/claim and $defs/evidence carried `required` and nothing else, so a misspelled key passed silently; state.obligations/candidates/branches/goals and all fifteen action sub-objects were bare {\"type\":\"object\"}; array items were unconstrained. Measured consequence: of the malformed shapes the schema accepted, thirteen made reference_checker.check_case raise TypeError or AttributeError instead of returning a verdict, and evidence.trusted spelled as the STRING \"false\" (truthy) turned an INVALID epistemic promotion into VALID on fixture FX-EPI-LEGAL. Hardened only as far as the evidence supports: $defs/claim was CLOSED (its six fields are agreed by `required`, by the union and intersection over all 736 frozen claim instances, by the 76 FX2 claim instances, and by semantic_state.model.Claim); value schemas were added for the four unvalidated state regions; JSON types were pinned wherever a wrong type crashes or misleads the checker. source, evidence, obligation, candidate, branch and goal were left OPEN on recorded evidence -- SEMANTIC_STATE_CONTRACT.md section 4 names `source`, `typing`, `warrant`, the *_effect maps and the precondition/obligation lists as open dictionaries the corpus may extend at any time, EvidenceRecord keeps unmodelled keys in an extensible payload, and the canonical Candidate/Branch/Obligation dataclasses declare strictly more fields than the frozen corpus exhibits. Each reason is recorded in the schema's own `description`, not only here.",
+          "superseded_bytes": 3317,
+          "superseded_sha256": "2401eb10d7b737d961ccd5b64708c4f9e6bab6ba46139a387f24e4e6b19ca5f2"
+        }
+      ],
+      "bytes": 18942,
       "path": "experiments/semantic_firewall/schemas/semantic_case.schema.json",
-      "sha256": "2401eb10d7b737d961ccd5b64708c4f9e6bab6ba46139a387f24e4e6b19ca5f2",
-      "amended": {
-        "date": "2026-08-11",
-        "superseded_sha256": "786010438613790d0d4b956092019a36728f824e7f773b5d2a5f60b97ed37405",
-        "superseded_bytes": 2653,
-        "reason": "The frozen schema was UNSATISFIABLE: $defs/action declared additionalProperties false with a 15-name required array and no properties block, so every member key was forbidden and it rejected 0/230 of the cases it describes (30 acceptance + 40 DEV + 160 FINAL). Repaired by adding the properties block, which restates `required` verbatim, plus JSON types on which all 230 cases agree.",
-        "changes_no_experimental_result": "reference_checker.py never reads the schema (grep for 'schema' returns 0 matches), so it is not on the verdict path. All 230 cases now validate; no verdict changed.",
-        "original_hash_preserved_here": "The superseding hash is recorded rather than the original being overwritten silently, so the freeze record still shows what was frozen and what replaced it."
-      }
+      "sha256": "09ca22f9a6c32d1589bcc5e5a96e775f4e123c54132323b5a19909946d3c881a"
     },
     {
       "bytes": 10080,

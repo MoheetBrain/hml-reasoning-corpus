@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://hml.reasoning.local/experiments/semantic_firewall/semantic_case.schema.json",
   "title": "Representation-neutral semantic-firewall transition case",
+  "description": "Amended 2026-08-11 (second amendment). The first amendment made the schema satisfiable; this one makes it discriminating. Two rules govern every restriction below. (1) A restriction is added only where it is supported by the reference checker's actual behaviour, by the canonical `semantic_state` model classes and `SEMANTIC_STATE_CONTRACT.md`, or by unanimous agreement across the real instances -- 230 frozen cases (30 acceptance + 40 DEV + 160 FINAL) and the 40 FX2 cases. (2) Where two admissible sources disagree, or where the observed sample is visibly still growing, the schema stays PERMISSIVE and records the reason here rather than encoding a guess. The measured justification for the type constraints: of the malformed shapes the pre-amendment schema accepted, thirteen made `reference_checker.check_case` raise TypeError or AttributeError rather than return a verdict, and one (`evidence.trusted` spelled as the STRING \"false\", which is truthy) silently turned an INVALID epistemic promotion into VALID. The reference checker is not defensive at its boundary -- `neutral.py` was hardened for exactly this at D-053, the checker was not -- so this schema is the only place those inputs can be refused.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -47,11 +48,79 @@
   "$defs": {
     "source": {
       "type": "object",
-      "required": ["dataset", "source_row_id", "source_hash", "category", "level", "problem", "solution_span", "solution_span_hash", "gold125_overlap", "source_role"]
+      "description": "Provenance, never semantics. DELIBERATELY LEFT OPEN. All 230 frozen instances carry exactly these ten keys -- `required` equals both the union and the intersection of observed keys -- so closing it would exclude nothing that has ever been observed. It is not closed anyway, because SEMANTIC_STATE_CONTRACT.md section 4 names `source` explicitly among the free-form fields that 'are open dictionaries the corpus may extend at any time', and `neutral.py` carries it through verbatim as `dict(payload.get('source') or {})`. A schema closed against a canonical contract that declares the field extensible would be wrong in the direction that is hardest to detect. The types below ARE constrained: `test_source_spans_are_content_addressed` calls `.encode()` on `solution_span`, and `test_final_is_held_out_from_gold125` reads `gold125_overlap` for truth -- where the string \"false\" would read as true. Consequence recorded honestly: a typo'd extra key in `source` still passes.",
+      "required": ["dataset", "source_row_id", "source_hash", "category", "level", "problem", "solution_span", "solution_span_hash", "gold125_overlap", "source_role"],
+      "properties": {
+        "dataset": {"type": "string"},
+        "source_row_id": {"type": "string"},
+        "source_hash": {"type": "string"},
+        "category": {"type": "string"},
+        "level": {"type": "string"},
+        "problem": {"type": "string"},
+        "solution_span": {"type": "string"},
+        "solution_span_hash": {"type": "string"},
+        "gold125_overlap": {"type": "boolean"},
+        "source_role": {"type": "string"}
+      }
     },
     "claim": {
       "type": "object",
-      "required": ["id", "proposition", "status", "scope", "dependencies", "domain"]
+      "additionalProperties": false,
+      "description": "CLOSED. The only object in this schema closed by this amendment, because it is the only one where four independent sources agree EXACTLY on the field set: `required` (6) equals the union and the intersection of the keys of all 736 frozen claim instances (6), equals the union over the 76 FX2 claim instances (6), equals the fields of the canonical `semantic_state.model.Claim` dataclass (6). Nothing observed or canonical is excluded, so a typo'd seventh key can be refused with no loss. Statuses, scopes and domains are NOT enumerated: `reference_checker` deliberately treats an unrecognised status as non-established (fail-closed) rather than as a schema error, while `neutral.py::_enum` refuses it outright -- two admissible sources disagreeing, so the schema stays permissive on the vocabulary and strict only on the JSON type. `domain` admits null because the canonical dataclass types it `str | None`; no frozen instance is null, and `required` still forbids omitting the key entirely, which is the limitation `semantic_case_v2.schema.json` records under `claim_v2`.",
+      "required": ["id", "proposition", "status", "scope", "dependencies", "domain"],
+      "properties": {
+        "id": {"type": "string"},
+        "proposition": {"type": "string"},
+        "status": {"type": "string"},
+        "scope": {"type": "string"},
+        "dependencies": {"type": "array", "items": {"type": "string"}},
+        "domain": {"type": ["string", "null"]}
+      }
+    },
+    "obligation": {
+      "type": "object",
+      "description": "OPEN. Proof debt. Only five keys appear across the 13 frozen and 1 FX2 instances, but the canonical `semantic_state.model.Obligation` dataclass declares seven (adding `origin` and `discharge_evidence_id`), so the observed union is a proper subset of the legitimate field set and closing on it would reject a canonical record. The types matter regardless: `_obligations` reads `obligation.get('status')`, so a non-string status silently means 'not OPEN'; `_epistemic` computes `action.output_id in obligation.get('dependencies', [])`, which on a STRING becomes a substring test that reports a dependency the record does not have; and `mandatory` is read for truth, where `0` would silently downgrade mandatory debt to optional.",
+      "properties": {
+        "id": {"type": "string"},
+        "proposition": {"type": "string"},
+        "status": {"type": "string"},
+        "mandatory": {"type": "boolean"},
+        "dependencies": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "description": "OPEN, and this is the object that proves the frozen corpus is not a complete sample of legitimate formats. The 46 frozen instances show five keys; the 12 FX2 instances add `origin`; the canonical `semantic_state.model.Candidate` dataclass declares nine (`origin`, `dependencies`, `evidence_id`, `verification_result`). Three sources, three strictly growing answers -- exactly the situation in which closing on the observed union encodes a guess. `constraint_ids` is typed as an array of strings because `_candidates` evaluates `set(old.get('constraint_ids', []))`: a bare string would be split into characters and compared as a set of characters, which can make a subset test succeed against constraints that were never checked.",
+      "properties": {
+        "id": {"type": "string"},
+        "proposition": {"type": "string"},
+        "status": {"type": "string"},
+        "scope": {"type": "string"},
+        "constraint_ids": {"type": "array", "items": {"type": "string"}},
+        "origin": {"type": ["string", "null"]}
+      }
+    },
+    "branch": {
+      "type": "object",
+      "description": "OPEN, for the same reason as `candidate` and with the same shape of evidence: the 92 frozen instances show four keys, the 52 FX2 instances show six (adding `partition_id` and `scope`, and making `conclusion` optional), and the canonical `semantic_state.model.Branch` dataclass declares those same six. `conclusion` and `partition_id` admit null because the canonical dataclass types them `str | None`. No `required` array is declared: FX2 exhibits branches without a `conclusion`, and an OPEN branch legitimately has not concluded anything yet.",
+      "properties": {
+        "id": {"type": "string"},
+        "predicate": {"type": "string"},
+        "status": {"type": "string"},
+        "conclusion": {"type": ["string", "null"]},
+        "partition_id": {"type": ["string", "null"]},
+        "scope": {"type": "string"}
+      }
+    },
+    "goal": {
+      "type": "object",
+      "description": "OPEN. Here the evidence would permit closing -- the 46 frozen instances and the canonical `semantic_state.model.Goal` dataclass agree on exactly these four fields -- but it is left open deliberately, because FX2 contains no goal instances at all, so there is no second, independently built sample to corroborate the frozen one. Every other state object for which such a sample DOES exist turned out to have a larger legitimate field set than the frozen corpus shows. Closing this one would be betting that the single case where corroboration is missing is also the single case where the frozen corpus happens to be complete.",
+      "properties": {
+        "id": {"type": "string"},
+        "proposition": {"type": "string"},
+        "status": {"type": "string"},
+        "scope": {"type": "string"}
+      }
     },
     "state": {
       "type": "object",
@@ -60,37 +129,117 @@
       "properties": {
         "active_scopes": {"type": "array", "items": {"type": "string"}},
         "claims": {"type": "object", "additionalProperties": {"$ref": "#/$defs/claim"}},
-        "obligations": {"type": "object"},
-        "candidates": {"type": "object"},
-        "branches": {"type": "object"},
-        "goals": {"type": "object"}
+        "obligations": {"type": "object", "additionalProperties": {"$ref": "#/$defs/obligation"}},
+        "candidates": {"type": "object", "additionalProperties": {"$ref": "#/$defs/candidate"}},
+        "branches": {"type": "object", "additionalProperties": {"$ref": "#/$defs/branch"}},
+        "goals": {"type": "object", "additionalProperties": {"$ref": "#/$defs/goal"}}
       }
     },
     "action": {
       "type": "object",
       "additionalProperties": false,
+      "description": "The membership of this object is closed and was already so before this amendment; all 230 frozen and all 38 schema-valid FX2 actions carry exactly these fifteen keys. `semantic_case_v2.schema.json` $refs THIS definition -- it is the only definition FX2 borrows from this file -- so every constraint here is also a constraint on FX2, and each one below was checked against all 268 action instances. The fifteen sub-objects are NOT closed and carry no `required`: SEMANTIC_STATE_CONTRACT.md section 4 names `typing`, `warrant`, 'the six *_effect maps' and 'the precondition/obligation lists' among the open dictionaries the corpus may extend at any time, and FX2 already exercises that -- thirty of its actions carry `branch_effect: {}`, one carries `typing: {\"weight\": null}`. Only the value types are pinned, and only where a wrong type crashes the reference checker or makes it answer confidently and wrongly.",
       "required": ["id", "operation", "summary", "dependencies", "output_id", "warrant", "preconditions", "obligations_created", "obligations_discharged", "scope_effect", "candidate_effect", "branch_effect", "epistemic_effect", "goal_effect", "typing"],
       "properties": {
         "id": {"type": "string"},
         "operation": {"type": "string"},
         "summary": {"type": "string"},
-        "dependencies": {"type": "array"},
-        "output_id": {},
-        "warrant": {"type": "object"},
-        "preconditions": {"type": "array"},
-        "obligations_created": {"type": "array"},
-        "obligations_discharged": {"type": "array"},
-        "scope_effect": {"type": "object"},
-        "candidate_effect": {"type": "object"},
-        "branch_effect": {"type": "object"},
-        "epistemic_effect": {"type": "object"},
-        "goal_effect": {"type": "object"},
-        "typing": {"type": "object"}
+        "dependencies": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Every one of the 297 observed items is a string, `neutral.py::_strs` refuses anything else at the boundary (D-053), and `_dependency` uses each item as a dict key -- an unhashable item raises TypeError instead of returning a verdict."
+        },
+        "output_id": {
+          "type": ["string", "null"],
+          "description": "String in all 230 frozen actions, null in 11 FX2 actions, `str | None` in the canonical `Action` dataclass. Previously unconstrained, so a list here made the checker raise on a dict lookup."
+        },
+        "warrant": {
+          "type": "object",
+          "properties": {
+            "kind": {"type": "string"},
+            "rule": {"type": "string"},
+            "evidence_id": {"type": ["string", "null"]}
+          },
+          "description": "`rule` is NOT enumerated. SEMANTIC_STATE_CONTRACT.md section 3 is explicit that there is deliberately no warrant-rule registry, because `UNRELATED_RULE` must fail by disagreeing with its evidence rather than by being unrecognised; a closed vocabulary here would reject warrants the reference checker accepts. FX2 uses the rule name `R`, which the frozen corpus never shows."
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {"type": "object"},
+          "description": "All 23 observed items are objects, and `_preconditions` calls `.get()` on each -- a string or a list item raises AttributeError. `neutral.py` is laxer here (it passes precondition items through untyped), but no observed instance uses a non-object, so refusing one excludes nothing that exists."
+        },
+        "obligations_created": {
+          "type": "array",
+          "description": "ITEMS DELIBERATELY UNCONSTRAINED, and this is a hole that is documented rather than closed. `_obligations` calls `.get()` on each item, so a non-object raises AttributeError; `neutral.py::_obligation_specs` accepts an object or a bare identifier and refuses anything else. Both would justify `items: {\"type\": [\"object\", \"string\"]}` -- except that the frozen FX2 fixture FX2-MAL-UNHASHABLE-REFUSE carries `obligations_created: [[1], [2]]` and declares `schema_valid: true`. That fixture exists to demonstrate that the schema is not the last line of defence, and constraining this array would flip its declared flag. It is left open so the fixture keeps making its point; the point it makes is that this input crashes the reference checker rather than being refused by it."
+        },
+        "obligations_discharged": {
+          "type": "array",
+          "items": {"type": "object"},
+          "description": "Constrained where its sibling `obligations_created` could not be: the single observed item is an object, no FX2 fixture depends on any other shape here, and `_obligations` builds a dict comprehension over `item.get('id')` which raises on a string."
+        },
+        "scope_effect": {
+          "type": "object",
+          "properties": {
+            "kind": {"type": "string"},
+            "discharge_evidence_id": {"type": ["string", "null"]}
+          }
+        },
+        "candidate_effect": {
+          "type": "object",
+          "properties": {
+            "kind": {"type": "string"},
+            "candidate_id": {"type": ["string", "null"]},
+            "evidence_id": {"type": ["string", "null"]}
+          }
+        },
+        "branch_effect": {
+          "type": "object",
+          "properties": {
+            "kind": {"type": "string"},
+            "branch_ids": {"type": "array", "items": {"type": "string"}},
+            "coverage_evidence_id": {"type": ["string", "null"]}
+          },
+          "description": "`branch_ids` is iterated and each element used as a dict key. A bare string is iterated character by character, which yields a join verdict computed over letters."
+        },
+        "epistemic_effect": {
+          "type": "object",
+          "properties": {
+            "to_status": {"type": "string"},
+            "evidence_id": {"type": ["string", "null"]}
+          }
+        },
+        "goal_effect": {
+          "type": "object",
+          "properties": {
+            "kind": {"type": "string"},
+            "goal_id": {"type": ["string", "null"]}
+          }
+        },
+        "typing": {
+          "type": "object",
+          "properties": {
+            "input_domains": {"type": "object", "additionalProperties": {"type": "string"}},
+            "output_domain": {"type": "string"}
+          },
+          "description": "Open and without `required`: FX2-MAL-NAN-REFUSE carries `typing: {\"weight\": null}` and is declared schema-valid. `input_domains` must be an object because `_type_domain` calls `.items()` on it, and its values must be strings because they are looked up in the domain lattice. Domain NAMES are not enumerated -- SEMANTIC_STATE_CONTRACT.md section 3 (SF-R14) makes the lattice versioned library data precisely so new domains need no schema change."
+        }
       }
     },
     "evidence": {
       "type": "object",
-      "required": ["id", "kind", "status", "trusted", "supports_rule", "premise_ids"]
+      "description": "OPEN, and it could not be closed even if the observed union were trusted. `required` (6) equals the intersection of the keys of all 346 frozen evidence records, but the union is 10: `branch_ids`, `candidate_id`, `checked_constraints` and `source_span_hash` are genuinely optional, appearing in 23, 23, 23 and 230 records respectively. The decisive reason is canonical rather than statistical: `semantic_state.model.EvidenceRecord` models exactly the six required keys and puts everything else in an explicitly kind-specific `payload` -- `neutral.py` keeps every key outside `_EVIDENCE_STRUCTURAL` verbatim so that 'a new evidence kind survives the round trip without this module knowing about it'. Closing this object would contradict that design. `kind`, `status` and `supports_rule` are typed but not enumerated for the same reason the warrant rule is not. `trusted` IS typed boolean, and that is the single highest-value constraint in this amendment: `_epistemic` reads it as `not record.get('trusted')`, so on fixture FX-EPI-LEGAL the value `false` correctly yields INVALID while the string \"false\" yields VALID -- a truthy spelling of falsehood that licensed a VERIFIED promotion. Consequence recorded honestly: a typo'd extra key in an evidence record still passes, and is indistinguishable from a legitimate payload key.",
+      "required": ["id", "kind", "status", "trusted", "supports_rule", "premise_ids"],
+      "properties": {
+        "id": {"type": "string"},
+        "kind": {"type": "string"},
+        "status": {"type": "string"},
+        "trusted": {"type": "boolean"},
+        "supports_rule": {"type": "string"},
+        "premise_ids": {"type": "array", "items": {"type": "string"}},
+        "branch_ids": {"type": "array", "items": {"type": "string"}},
+        "candidate_id": {"type": "string"},
+        "checked_constraints": {"type": "array", "items": {"type": "string"}},
+        "source_span_hash": {"type": "string"}
+      }
     }
   }
 }
