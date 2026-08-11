@@ -2069,9 +2069,17 @@
       "sha256": "a20fbf7af51d310f981058717f84671dba35490027e16b1aeb978fafc45a3d9d"
     },
     {
-      "bytes": 2653,
+      "bytes": 3317,
       "path": "experiments/semantic_firewall/schemas/semantic_case.schema.json",
-      "sha256": "786010438613790d0d4b956092019a36728f824e7f773b5d2a5f60b97ed37405"
+      "sha256": "2401eb10d7b737d961ccd5b64708c4f9e6bab6ba46139a387f24e4e6b19ca5f2",
+      "amended": {
+        "date": "2026-08-11",
+        "superseded_sha256": "786010438613790d0d4b956092019a36728f824e7f773b5d2a5f60b97ed37405",
+        "superseded_bytes": 2653,
+        "reason": "The frozen schema was UNSATISFIABLE: $defs/action declared additionalProperties false with a 15-name required array and no properties block, so every member key was forbidden and it rejected 0/230 of the cases it describes (30 acceptance + 40 DEV + 160 FINAL). Repaired by adding the properties block, which restates `required` verbatim, plus JSON types on which all 230 cases agree.",
+        "changes_no_experimental_result": "reference_checker.py never reads the schema (grep for 'schema' returns 0 matches), so it is not on the verdict path. All 230 cases now validate; no verdict changed.",
+        "original_hash_preserved_here": "The superseding hash is recorded rather than the original being overwritten silently, so the freeze record still shows what was frozen and what replaced it."
+      }
     },
     {
       "bytes": 10080,

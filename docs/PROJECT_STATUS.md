@@ -84,9 +84,14 @@ in the HML repository, which reports 30/30 verdict and error class.
   well-formed records whose delta already matches their action. A production verifier with
   no frame condition passed all thirty while accepting a claim asserting `0 = 1` out of
   nothing. The instrument's blind spot, not only the implementation's.
-* **`schemas/semantic_case.schema.json` rejects its own fixtures.** `$defs/action` declares
-  `"additionalProperties": false` with no `properties` block while `required` lists fifteen
-  properties — an unsatisfiable subschema. 30/30 frozen fixtures fail validation against it.
+* ~~`schemas/semantic_case.schema.json` rejects its own fixtures.~~ **REPAIRED 2026-08-11.**
+  `$defs/action` was unsatisfiable — `additionalProperties: false`, a 15-name `required`, and
+  no `properties` block — and rejected **0/230** of the cases it describes (30 acceptance, 40
+  DEV, 160 FINAL). Repaired by adding the `properties` block, which restates `required`
+  verbatim, plus the JSON types on which all 230 cases agree. Now **230/230**. It survived
+  because *nothing validated against it*: the corpus had no dependency manifest and no
+  JSON-Schema test anywhere. Both now exist (`requirements.txt`, `tests/test_schemas.py`),
+  including a general guard that fails on any recurrence of the unsatisfiable shape.
 * **Coverage figures are historical — now labelled as such.** Gold-125 coverage (FULL 11 /
   PARTIAL 455 / REPRESENTABLE_ONLY 303) and every "library-blocked" claim were measured
   against `hml_core` at `5688aba`; `git ls-tree -r 5688aba` contains no `libraries/` path at

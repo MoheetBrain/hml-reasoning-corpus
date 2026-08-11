@@ -69,7 +69,24 @@
     "action": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "operation", "summary", "dependencies", "output_id", "warrant", "preconditions", "obligations_created", "obligations_discharged", "scope_effect", "candidate_effect", "branch_effect", "epistemic_effect", "goal_effect", "typing"]
+      "required": ["id", "operation", "summary", "dependencies", "output_id", "warrant", "preconditions", "obligations_created", "obligations_discharged", "scope_effect", "candidate_effect", "branch_effect", "epistemic_effect", "goal_effect", "typing"],
+      "properties": {
+        "id": {"type": "string"},
+        "operation": {"type": "string"},
+        "summary": {"type": "string"},
+        "dependencies": {"type": "array"},
+        "output_id": {},
+        "warrant": {"type": "object"},
+        "preconditions": {"type": "array"},
+        "obligations_created": {"type": "array"},
+        "obligations_discharged": {"type": "array"},
+        "scope_effect": {"type": "object"},
+        "candidate_effect": {"type": "object"},
+        "branch_effect": {"type": "object"},
+        "epistemic_effect": {"type": "object"},
+        "goal_effect": {"type": "object"},
+        "typing": {"type": "object"}
+      }
     },
     "evidence": {
       "type": "object",

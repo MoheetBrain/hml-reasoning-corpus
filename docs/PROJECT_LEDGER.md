@@ -168,3 +168,67 @@ coverage table. Recorded, not fixed.
 
 **Next intended step.** Fix the remaining unlabelled coverage table; repair the unsatisfiable
 `semantic_case.schema.json`; adopt the second-generation fixture suite.
+
+---
+
+## 2026-08-11 — the frozen schema was unsatisfiable; repaired, and the freeze record amended rather than rewritten
+
+**Branch:** `codex/minilang-artifact-audit`, on `f7d85bc`.
+
+**Objective.** Repair `schemas/semantic_case.schema.json`, which rejected every case it
+describes, and add the independent validation whose absence let it survive.
+
+**What was wrong.** `$defs/action` declared `"additionalProperties": false` alongside a
+15-name `required` array and **no `properties` block**, so every member key was "additional"
+and forbidden. It passes `check_schema` — it is *valid* JSON Schema and *unsatisfiable*, which
+is why "the schema is valid" was true and useless. Measured: it rejected **0/230** cases (30
+acceptance, 40 DEV, 160 FINAL). A structural walk found `action` is the only subschema in the
+corpus with that shape.
+
+**Why it survived.** Nothing validated against it. `grep -rn 'jsonschema|check_schema|validate\('`
+over `experiments`, `tests`, `scripts`, `src` returned **zero hits**; the schema's only
+appearance in code was being hashed into the freeze manifest. The corpus also had **no
+dependency manifest at all**, so a validator could not have been installed even if one had
+been written.
+
+**The repair, and why not the cheaper one.** Two candidates: drop `additionalProperties`
+(R1), or add the `properties` block (R2). A differential over mutated cases shows R1 **weakens**
+the schema — it accepts an action with an extra key, which the original refused. R2 preserves
+every constraint the author expressed, and the membership half is a verbatim restatement of
+`required`: the 15 names equal both the union *and* the intersection of `action` keys across
+all 230 cases. Types were added only where all 230 agree. `output_id` was deliberately left
+open: the fixtures show it is always the string `"c1"`, but `reference_checker.py:204,488`
+branches on a falsy `output_id` with distinct semantics, so instance evidence and code
+evidence conflict and nothing was invented.
+
+**The freeze-manifest question, adjudicated.** Repairing a hashed artifact broke
+`test_freeze_manifest_hashes_every_protocol_artifact` — exactly one of 412 entries. The
+decisive fact is that **`reference_checker.py` never reads the schema** (zero matches for
+"schema"), so it is not on the verdict path and the repair changes no experimental result.
+Leaving it broken would preserve the hash of a defect; overwriting the hash silently would
+rewrite history. So the manifest was **amended**: the entry now carries the new hash *and* a
+`superseded_sha256` with the reason, and `metrics.json` records the superseded manifest hash
+alongside the new one. The freeze record still shows what was frozen and what replaced it.
+
+**Tests and verification actually executed.** `pytest tests/` in an isolated venv
+(jsonschema 4.26.0): **58 passed, 0 failed** (was 52 passed before the new file; 57 passed /
+1 failed at the moment of repair, that one being the manifest hash). New `tests/test_schemas.py`
+pins: the schema is valid for its *declared* draft (resolved with `default=None` so an
+unrecognised `$schema` fails rather than silently falling back); 30/30 acceptance fixtures
+validate; 200/200 DEV+FINAL cases validate; a **general** guard that fails on any subschema
+declaring `additionalProperties: false` with a `required` name covered by neither
+`properties` nor `patternProperties`; a non-vacuity test proving that guard fires on the
+original defect and on a partial one; and a negative control rejecting an extra key, a
+missing required key, five wrong-typed values and a bad enum.
+
+**Failures and unresolved uncertainty.** Three further weaknesses found and **not** fixed,
+because each changes acceptance behaviour beyond the brief: `$defs/source`, `$defs/claim` and
+`$defs/evidence` have `required` but no `additionalProperties`, so a typo'd key passes
+silently (`source` and `claim` could be closed with no loss; `evidence` could not — four of
+its ten observed keys are genuinely optional). And large regions of every case —
+`state.obligations`, `candidates`, `branches`, `goals`, and all 15 `action` sub-objects — are
+declared `{"type": "object"}` with no value schema, so they pass because nothing is checked,
+not because they were verified.
+
+**Next intended step.** Adopt/freeze the FX2 suite; decide whether to close the three open
+`$defs`.
