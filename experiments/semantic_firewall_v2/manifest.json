@@ -1,0 +1,72 @@
+{
+  "suite": "semantic-firewall-fx2",
+  "suite_version": "semantic-firewall-fx2-1.0.0",
+  "frozen_at_utc": "2026-08-11",
+  "authored_by": "integrator",
+  "status_of_evidence": "SECOND-GENERATION AND WEAKER THAN THE FROZEN THIRTY. Those were authored on the corpus side against a reference checker before the implementation existed. These were authored by the integrator AFTER the defects they cover were known, so they cannot show the implementation was right -- only that a defect found once cannot return unnoticed. Never cite FX2 as external validation.",
+  "extends": {
+    "suite": "experiments/semantic_firewall/acceptance/fixtures.json",
+    "sha256": "618b88beb9b0018903827c8b7d8ba8976c2c04bb87e2759047b7feceabd9b5b9",
+    "relationship": "ADDITIVE. The frozen thirty are not modified, renumbered or restated. FX2 ids are prefixed FX2- so no id can collide."
+  },
+  "git": {
+    "corpus_sha_at_freeze": "0d82ce662f1ffef27ddd4becd27da17711b488a4",
+    "hml_sha_at_validation": "b0335fa96973bb65360e8cee8fb7867b60010613"
+  },
+  "files": {
+    "fixtures_v2.json": {
+      "sha256": "9c9e74495540308e6014533082bbbf83e3165faaf02b9ca757d3758f88b4d77a",
+      "bytes": 134199
+    },
+    "build_fx2.py": {
+      "sha256": "53370d8d2c223e6d6fab4f2e736ee8c25bc8dd770ebb81a1f971af9ed2809a89",
+      "bytes": 34560
+    },
+    "schemas/semantic_case_v2.schema.json": {
+      "sha256": "fb2a292ecf5c6cf9da2507d6416e0106a47c17f3a2de0dcc1f4344c95b40b072",
+      "bytes": 5178
+    }
+  },
+  "counts": {
+    "total": 40,
+    "by_family": {
+      "BRN": 8,
+      "CAN": 2,
+      "DOM": 7,
+      "FRM": 6,
+      "MAL": 4,
+      "SCP": 5,
+      "TRU": 2,
+      "UNK": 2,
+      "WAR": 4
+    },
+    "by_boundary": {
+      "BOUNDARY_UNKNOWN": 4,
+      "ILLEGAL": 27,
+      "LEGAL": 9
+    },
+    "diverges_from_frozen_reference": 13,
+    "schema_valid": 38,
+    "deliberately_schema_invalid": 2
+  },
+  "validation": {
+    "strict_json": "Emitted with allow_nan=False and re-read by an independent parser (Ruby JSON). An earlier build embedded a NaN literal, which RFC 8259 does not permit and which made the whole file unreadable to Ruby; the NaN case is now carried as a `materialise` instruction.",
+    "json_schema": "38/40 validate against schemas/semantic_case_v2.schema.json. Two MAL fixtures are deliberately schema-invalid. A third, FX2-MAL-UNHASHABLE-REFUSE, is SCHEMA-VALID AND SEMANTICALLY MALFORMED -- the schema types obligations_created as `array` with no item constraint -- and is kept for exactly that contrast: passing the published schema is not the same as being a well-formed transition.",
+    "against_production_hml": "40/40 match the hand-written expectations, verified by tests/semantic_state/test_fx2_suite.py in the HML repository.",
+    "mutation_checked": {
+      "frame condition disabled": "5 fixtures fail",
+      "scope containment always true": "3 fail",
+      "warrant envelope unchecked": "3 fail",
+      "unknown sweep unscoped": "1 fail",
+      "import type guards removed": "the runner raises, so the MAL family detects it",
+      "null-conclusion guard removed": "0 fail -- SEMANTICALLY EQUIVALENT for the verdict, because a non-null published proposition makes the mismatch check catch a null conclusion anyway. Classified rather than papered over with a manufactured fixture; the guard exists for its DIAGNOSTIC, which the HML-side unit test pins."
+    }
+  },
+  "known_limitations": [
+    "Authored by the integrator after the defects were known. Cannot demonstrate the implementation was correct; only that a known defect cannot silently return.",
+    "13 of 40 fixtures DIVERGE from the frozen reference checker, each with a recorded reason. Those encode deliberate production strictness (frame condition over candidates/branches/obligations, scope containment, trust modes) and are NOT evidence of agreement with an external oracle.",
+    "The two AMPS-derived fixtures rest on a COMMUNITY MIRROR of AMPS-Khan, traced one hop to HuggingFace XinyaoHu/AMPS_khan and not verified against Hendrycks' official release. The mathematical pattern is independently checkable; the attribution is not.",
+    "The frozen semantic_case schema requires `domain` on every claim, so 'this claim carries no domain' is not expressible there. FX2 defines its own claim schema with `domain` optional, because D-048 made that absence semantically meaningful."
+  ],
+  "supersedes": []
+}

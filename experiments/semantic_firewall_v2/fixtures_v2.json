@@ -1,0 +1,4235 @@
+{
+  "suite_version": "semantic-firewall-fx2-1.0.0",
+  "schema_version": "semantic-firewall-case-0.1.0",
+  "generated_by": "experiments/semantic_firewall_v2/build_fx2.py",
+  "authored_by": "integrator",
+  "supersedes": null,
+  "extends": "experiments/semantic_firewall/acceptance/fixtures.json",
+  "status_of_evidence": "SECOND-GENERATION AND WEAKER THAN THE FROZEN THIRTY. Those were authored on the corpus side against a reference checker before the implementation existed. These were authored by the integrator AFTER the defects they cover were known, so they cannot show the implementation was right -- only that a defect found once cannot return unnoticed. Never cite FX2 as external validation.",
+  "expectations_are_hand_written": "Every expected verdict is stated from the semantic contract, not read off a verifier run. Generating expectations by execution would record what the code does rather than what it should do.",
+  "counts": {
+    "total": 40,
+    "by_family": {
+      "BRN": 8,
+      "CAN": 2,
+      "DOM": 7,
+      "FRM": 6,
+      "MAL": 4,
+      "SCP": 5,
+      "TRU": 2,
+      "UNK": 2,
+      "WAR": 4
+    },
+    "by_boundary": {
+      "BOUNDARY_UNKNOWN": 4,
+      "ILLEGAL": 27,
+      "LEGAL": 9
+    },
+    "diverges_from_frozen_reference": 13,
+    "schema_valid": 38,
+    "deliberately_schema_invalid": 2
+  },
+  "fixtures": [
+    {
+      "fixture_id": "FX2-DOM-SUBTYPE-LEGAL",
+      "family": "DOM",
+      "boundary": "LEGAL",
+      "invariant": "TYPE_DOMAIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "VALID",
+      "expected_error_class": null,
+      "rationale": "A Natural inhabits Integer. Containment, not equality: the pre-repair verifier compared declared domains with != and returned a FALSE INVALID on sound reasoning.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-DOM-SUBTYPE-LEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {
+            "input_domains": {
+              "p0": "Integer"
+            },
+            "output_domain": "Proposition"
+          },
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-DOM-SUBTYPE",
+        "split": "FX2",
+        "semantic_focus": "TYPE_DOMAIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Natural"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Natural"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "A Natural inhabits Integer. Containment, not equality: the pre-repair verifier compared declared domains with != and returned a FALSE INVALID on sound reasoning."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-DOM-MULTIHOP-LEGAL",
+      "family": "DOM",
+      "boundary": "LEGAL",
+      "invariant": "TYPE_DOMAIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "VALID",
+      "expected_error_class": null,
+      "rationale": "Natural -> Integer -> Real -> Number. The walk is transitive, not one step.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-DOM-MULTIHOP-LEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {
+            "input_domains": {
+              "p0": "Number"
+            },
+            "output_domain": "Proposition"
+          },
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-DOM-MULTIHOP",
+        "split": "FX2",
+        "semantic_focus": "TYPE_DOMAIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Natural"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Natural"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Natural -> Integer -> Real -> Number. The walk is transitive, not one step."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-DOM-REVERSE-ILLEGAL",
+      "family": "DOM",
+      "boundary": "ILLEGAL",
+      "invariant": "TYPE_DOMAIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "TYPE_OR_DOMAIN_MISMATCH",
+      "rationale": "Containment runs one way. Not every Integer is a Natural.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-DOM-REVERSE-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {
+            "input_domains": {
+              "p0": "Natural"
+            },
+            "output_domain": "Proposition"
+          },
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-DOM-REVERSE",
+        "split": "FX2",
+        "semantic_focus": "TYPE_DOMAIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Integer"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Integer"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Containment runs one way. Not every Integer is a Natural."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-DOM-UNRELATED-ILLEGAL",
+      "family": "DOM",
+      "boundary": "ILLEGAL",
+      "invariant": "TYPE_DOMAIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "TYPE_OR_DOMAIN_MISMATCH",
+      "rationale": "Boolean and Integer stand in no containment relation, so neither inhabits the other.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-DOM-UNRELATED-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {
+            "input_domains": {
+              "p0": "Integer"
+            },
+            "output_domain": "Proposition"
+          },
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-DOM-UNRELATED",
+        "split": "FX2",
+        "semantic_focus": "TYPE_DOMAIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Boolean"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Boolean"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Boolean and Integer stand in no containment relation, so neither inhabits the other."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-DOM-ZERO-ILLEGAL",
+      "family": "DOM",
+      "boundary": "ILLEGAL",
+      "invariant": "TYPE_DOMAIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "TYPE_OR_DOMAIN_MISMATCH",
+      "rationale": "NonNegativeReal does not inhabit PositiveReal; zero is the counterexample, and it is why these are separate nodes rather than one.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-DOM-ZERO-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {
+            "input_domains": {
+              "p0": "PositiveReal"
+            },
+            "output_domain": "Proposition"
+          },
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-DOM-ZERO",
+        "split": "FX2",
+        "semantic_focus": "TYPE_DOMAIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "NonNegativeReal"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "NonNegativeReal"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "NonNegativeReal does not inhabit PositiveReal; zero is the counterexample, and it is why these are separate nodes rather than one."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-DOM-UNKNOWN",
+      "family": "DOM",
+      "boundary": "BOUNDARY_UNKNOWN",
+      "invariant": "TYPE_DOMAIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "UNRESOLVED",
+      "expected_error_class": null,
+      "rationale": "An UNKNOWN domain is unavailable evidence. SF-R13: return unresolved rather than guess.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-DOM-UNKNOWN",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {
+            "input_domains": {
+              "p0": "Integer"
+            },
+            "output_domain": "Proposition"
+          },
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-DOM",
+        "split": "FX2",
+        "semantic_focus": "TYPE_DOMAIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "UNKNOWN"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "UNKNOWN"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "An UNKNOWN domain is unavailable evidence. SF-R13: return unresolved rather than guess."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-DOM-ABSENT-UNKNOWN",
+      "family": "DOM",
+      "boundary": "BOUNDARY_UNKNOWN",
+      "invariant": "TYPE_DOMAIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "UNRESOLVED",
+      "expected_error_class": null,
+      "rationale": "An ABSENT annotation is also unavailability, not a violation (D-048). Production once returned INVALID here, rejecting a transition for carrying no domain.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "The reference treats None and 'UNKNOWN' alike in _type_domain.",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-DOM-ABSENT-UNKNOWN",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {
+            "input_domains": {
+              "p0": "Integer"
+            },
+            "output_domain": "Proposition"
+          },
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-DOM-ABSENT",
+        "split": "FX2",
+        "semantic_focus": "TYPE_DOMAIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": []
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": []
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "An ABSENT annotation is also unavailability, not a violation (D-048). Production once returned INVALID here, rejecting a transition for carrying no domain."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-WAR-EXACT-LEGAL",
+      "family": "WAR",
+      "boundary": "LEGAL",
+      "invariant": "WARRANT",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "VALID",
+      "expected_error_class": null,
+      "rationale": "The envelope names exactly the declared premises.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-WAR-EXACT-LEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p1",
+            "p2"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {
+            "kind": "EVIDENCE_ADAPTER",
+            "rule": "R",
+            "evidence_id": "e1"
+          },
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-WAR-EXACT",
+        "split": "FX2",
+        "semantic_focus": "WARRANT",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p1": {
+              "id": "p1",
+              "proposition": "prop p1",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "p2": {
+              "id": "p2",
+              "proposition": "prop p2",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p1": {
+              "id": "p1",
+              "proposition": "prop p1",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "p2": {
+              "id": "p2",
+              "proposition": "prop p2",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p1",
+                "p2"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "SOURCE_REVIEW",
+            "status": "VALID",
+            "supports_rule": "R",
+            "trusted": true,
+            "premise_ids": [
+              "p1",
+              "p2"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "The envelope names exactly the declared premises."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-WAR-SUBSET-ILLEGAL",
+      "family": "WAR",
+      "boundary": "ILLEGAL",
+      "invariant": "WARRANT",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "WARRANT_MISMATCH",
+      "rationale": "SF-R09 binds the EXACT premise list. The old subset test failed in the dangerous direction: evidence checked against fewer premises than the action declared was accepted, so a conclusion acquired ancestry its warrant never covered.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-WAR-SUBSET-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p1",
+            "p2"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {
+            "kind": "EVIDENCE_ADAPTER",
+            "rule": "R",
+            "evidence_id": "e1"
+          },
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-WAR-SUBSET",
+        "split": "FX2",
+        "semantic_focus": "WARRANT",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p1": {
+              "id": "p1",
+              "proposition": "prop p1",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "p2": {
+              "id": "p2",
+              "proposition": "prop p2",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p1": {
+              "id": "p1",
+              "proposition": "prop p1",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "p2": {
+              "id": "p2",
+              "proposition": "prop p2",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p1",
+                "p2"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "SOURCE_REVIEW",
+            "status": "VALID",
+            "supports_rule": "R",
+            "trusted": true,
+            "premise_ids": [
+              "p1"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "SF-R09 binds the EXACT premise list. The old subset test failed in the dangerous direction: evidence checked against fewer premises than the action declared was accepted, so a conclusion acquired ancestry its warrant never covered."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-WAR-SUPERSET-ILLEGAL",
+      "family": "WAR",
+      "boundary": "ILLEGAL",
+      "invariant": "WARRANT",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "WARRANT_MISMATCH",
+      "rationale": "Evidence resting on a premise the action never declared is equally a mismatch.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-WAR-SUPERSET-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p1"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {
+            "kind": "EVIDENCE_ADAPTER",
+            "rule": "R",
+            "evidence_id": "e1"
+          },
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-WAR-SUPERSET",
+        "split": "FX2",
+        "semantic_focus": "WARRANT",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p1": {
+              "id": "p1",
+              "proposition": "prop p1",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p1": {
+              "id": "p1",
+              "proposition": "prop p1",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p1"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "SOURCE_REVIEW",
+            "status": "VALID",
+            "supports_rule": "R",
+            "trusted": true,
+            "premise_ids": [
+              "p1",
+              "p2"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Evidence resting on a premise the action never declared is equally a mismatch."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-WAR-ORDER-ILLEGAL",
+      "family": "WAR",
+      "boundary": "ILLEGAL",
+      "invariant": "WARRANT",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "WARRANT_MISMATCH",
+      "rationale": "Order is significant because the frozen reference compares the lists outright. Recorded as a decision: neither implementation contains an independent argument that a premise envelope is a sequence rather than a set, and this fixture freezes the answer.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-WAR-ORDER-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p1",
+            "p2"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {
+            "kind": "EVIDENCE_ADAPTER",
+            "rule": "R",
+            "evidence_id": "e1"
+          },
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-WAR-ORDER",
+        "split": "FX2",
+        "semantic_focus": "WARRANT",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p1": {
+              "id": "p1",
+              "proposition": "prop p1",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "p2": {
+              "id": "p2",
+              "proposition": "prop p2",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p1": {
+              "id": "p1",
+              "proposition": "prop p1",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "p2": {
+              "id": "p2",
+              "proposition": "prop p2",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p1",
+                "p2"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "SOURCE_REVIEW",
+            "status": "VALID",
+            "supports_rule": "R",
+            "trusted": true,
+            "premise_ids": [
+              "p2",
+              "p1"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Order is significant because the frozen reference compares the lists outright. Recorded as a decision: neither implementation contains an independent argument that a premise envelope is a sequence rather than a set, and this fixture freezes the answer."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-FRM-LEGAL",
+      "family": "FRM",
+      "boundary": "LEGAL",
+      "invariant": "FRAME",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "VALID",
+      "expected_error_class": null,
+      "rationale": "The declared output is the one permitted addition; everything else is carried forward.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-FRM-LEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-FRM",
+        "split": "FX2",
+        "semantic_focus": "FRAME",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "p",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "p",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "The declared output is the one permitted addition; everything else is carried forward."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-FRM-CREATE-ILLEGAL",
+      "family": "FRM",
+      "boundary": "ILLEGAL",
+      "invariant": "FRAME",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "DEPENDENCY_VIOLATION",
+      "rationale": "A claim asserting 0 = 1, status VERIFIED, materialising with no evidence, no warrant and no epistemic effect. No forgery is required; the state is simply asserted.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-FRM-CREATE-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-FRM-CREATE",
+        "split": "FX2",
+        "semantic_focus": "FRAME",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "x": {
+              "id": "x",
+              "proposition": "0 = 1",
+              "status": "VERIFIED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "A claim asserting 0 = 1, status VERIFIED, materialising with no evidence, no warrant and no epistemic effect. No forgery is required; the state is simply asserted."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-FRM-MUTATE-ILLEGAL",
+      "family": "FRM",
+      "boundary": "ILLEGAL",
+      "invariant": "FRAME",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "DEPENDENCY_VIOLATION",
+      "rationale": "An existing premise rewritten ASSUMED -> VERIFIED with its proposition changed.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-FRM-MUTATE-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-FRM-MUTATE",
+        "split": "FX2",
+        "semantic_focus": "FRAME",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "n > 0",
+              "status": "ASSUMED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "n < 0",
+              "status": "VERIFIED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "An existing premise rewritten ASSUMED -> VERIFIED with its proposition changed."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-FRM-CANDPROMO-ILLEGAL",
+      "family": "FRM",
+      "boundary": "ILLEGAL",
+      "invariant": "FRAME",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "DEPENDENCY_VIOLATION",
+      "rationale": "A candidate walked PROPOSED -> VERIFIED with candidate_effect kind NONE and zero constraints checked. The promotion protocol is keyed on the declaration, so declining to declare it skipped the entire rule including the constraint-subset check.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The frozen reference's _exact_state_change frames claims only, so it accepts this. Production extends the frame to candidates, branches and obligations (D-049); the divergence is deliberate and recorded.",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-FRM-CANDPROMO-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-FRM-CANDPROMO",
+        "split": "FX2",
+        "semantic_focus": "FRAME",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k": {
+              "id": "k",
+              "proposition": "x = 2",
+              "status": "PROPOSED",
+              "scope": "global",
+              "constraint_ids": [
+                "c1",
+                "c2"
+              ]
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k": {
+              "id": "k",
+              "proposition": "x = 2",
+              "status": "VERIFIED",
+              "scope": "global",
+              "constraint_ids": [
+                "c1",
+                "c2"
+              ]
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "A candidate walked PROPOSED -> VERIFIED with candidate_effect kind NONE and zero constraints checked. The promotion protocol is keyed on the declaration, so declining to declare it skipped the entire rule including the constraint-subset check."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-FRM-REOPEN-ILLEGAL",
+      "family": "FRM",
+      "boundary": "ILLEGAL",
+      "invariant": "FRAME",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "DEPENDENCY_VIOLATION",
+      "rationale": "REJECTED is documented as terminal. Reopening it would let a refuted object be retried until some evidence happened to accept it.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The frozen reference's _exact_state_change frames claims only, so it accepts this. Production extends the frame to candidates, branches and obligations (D-049); the divergence is deliberate and recorded.",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-FRM-REOPEN-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-FRM-REOPEN",
+        "split": "FX2",
+        "semantic_focus": "FRAME",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k": {
+              "id": "k",
+              "proposition": "x = 2",
+              "status": "REJECTED",
+              "scope": "global",
+              "constraint_ids": [
+                "c1"
+              ]
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k": {
+              "id": "k",
+              "proposition": "x = 2",
+              "status": "VERIFIED",
+              "scope": "global",
+              "constraint_ids": [
+                "c1"
+              ]
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "REJECTED is documented as terminal. Reopening it would let a refuted object be retried until some evidence happened to accept it."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-FRM-OBLDEL-ILLEGAL",
+      "family": "FRM",
+      "boundary": "ILLEGAL",
+      "invariant": "FRAME",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "DEPENDENCY_VIOLATION",
+      "rationale": "A mandatory OPEN obligation deleted outright. Proof debt does not lapse by being dropped from the resulting state.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The frozen reference's _exact_state_change frames claims only, so it accepts this. Production extends the frame to candidates, branches and obligations (D-049); the divergence is deliberate and recorded.",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-FRM-OBLDEL-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-FRM-OBLDEL",
+        "split": "FX2",
+        "semantic_focus": "FRAME",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {
+            "o": {
+              "id": "o",
+              "proposition": "d != 0",
+              "status": "OPEN",
+              "mandatory": true,
+              "dependencies": []
+            }
+          },
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "A mandatory OPEN obligation deleted outright. Proof debt does not lapse by being dropped from the resulting state."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-SCP-SIBLING-AB-ILLEGAL",
+      "family": "SCP",
+      "boundary": "ILLEGAL",
+      "invariant": "SCOPE",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "SCOPE_LEAK",
+      "rationale": "branch:a and branch:b are both children of global. Neither contains the other, so a conclusion may not cross between them. Before D-053 this direction was VALID and only the mirror was refused, decided by list position alone.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The frozen reference derives scope depth from active_scopes position and has no containment tree, so it cannot distinguish these. The divergence is the point of the fixture (D-053).",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-SCP-SIBLING-AB-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-SCP-SIBLING-AB",
+        "split": "FX2",
+        "semantic_focus": "SCOPE",
+        "state_before": {
+          "active_scopes": [
+            "global",
+            "branch:a",
+            "branch:b"
+          ],
+          "branches": {
+            "a": {
+              "id": "a",
+              "predicate": "case",
+              "status": "OPEN"
+            },
+            "b": {
+              "id": "b",
+              "predicate": "case",
+              "status": "OPEN"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:a",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global",
+            "branch:a",
+            "branch:b"
+          ],
+          "branches": {
+            "a": {
+              "id": "a",
+              "predicate": "case",
+              "status": "OPEN"
+            },
+            "b": {
+              "id": "b",
+              "predicate": "case",
+              "status": "OPEN"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:a",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "branch:b",
+              "dependencies": [
+                "p"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "branch:a and branch:b are both children of global. Neither contains the other, so a conclusion may not cross between them. Before D-053 this direction was VALID and only the mirror was refused, decided by list position alone."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-SCP-SIBLING-BA-ILLEGAL",
+      "family": "SCP",
+      "boundary": "ILLEGAL",
+      "invariant": "SCOPE",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "SCOPE_LEAK",
+      "rationale": "The mirror of the above. These two fixtures exist as a PAIR: their verdicts must be identical, and a suite containing only one of them would not detect the asymmetry.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The frozen reference derives scope depth from active_scopes position and has no containment tree, so it cannot distinguish these. The divergence is the point of the fixture (D-053).",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-SCP-SIBLING-BA-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-SCP-SIBLING-BA",
+        "split": "FX2",
+        "semantic_focus": "SCOPE",
+        "state_before": {
+          "active_scopes": [
+            "global",
+            "branch:a",
+            "branch:b"
+          ],
+          "branches": {
+            "a": {
+              "id": "a",
+              "predicate": "case",
+              "status": "OPEN"
+            },
+            "b": {
+              "id": "b",
+              "predicate": "case",
+              "status": "OPEN"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:b",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global",
+            "branch:a",
+            "branch:b"
+          ],
+          "branches": {
+            "a": {
+              "id": "a",
+              "predicate": "case",
+              "status": "OPEN"
+            },
+            "b": {
+              "id": "b",
+              "predicate": "case",
+              "status": "OPEN"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:b",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "branch:a",
+              "dependencies": [
+                "p"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "The mirror of the above. These two fixtures exist as a PAIR: their verdicts must be identical, and a suite containing only one of them would not detect the asymmetry."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-SCP-NARROWING-LEGAL",
+      "family": "SCP",
+      "boundary": "LEGAL",
+      "invariant": "SCOPE",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "VALID",
+      "expected_error_class": null,
+      "rationale": "branch:b sits inside branch:a, so a premise in a may conclude into b. Containment must still WORK, not merely refuse everything.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The frozen reference derives scope depth from active_scopes position and has no containment tree, so it cannot distinguish these. The divergence is the point of the fixture (D-053).",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-SCP-NARROWING-LEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-SCP-NARROWING",
+        "split": "FX2",
+        "semantic_focus": "SCOPE",
+        "state_before": {
+          "active_scopes": [
+            "global",
+            "branch:a",
+            "branch:b"
+          ],
+          "branches": {
+            "a": {
+              "id": "a",
+              "predicate": "case",
+              "status": "OPEN"
+            },
+            "b": {
+              "id": "b",
+              "predicate": "case",
+              "status": "OPEN",
+              "scope": "branch:a"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:a",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global",
+            "branch:a",
+            "branch:b"
+          ],
+          "branches": {
+            "a": {
+              "id": "a",
+              "predicate": "case",
+              "status": "OPEN"
+            },
+            "b": {
+              "id": "b",
+              "predicate": "case",
+              "status": "OPEN",
+              "scope": "branch:a"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:a",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "branch:b",
+              "dependencies": [
+                "p"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "branch:b sits inside branch:a, so a premise in a may conclude into b. Containment must still WORK, not merely refuse everything."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-SCP-WIDENING-ILLEGAL",
+      "family": "SCP",
+      "boundary": "ILLEGAL",
+      "invariant": "SCOPE",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "SCOPE_LEAK",
+      "rationale": "The reverse of the above, on the same tree: a fact local to the inner frame does not become true in the outer one by being restated there.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The frozen reference derives scope depth from active_scopes position and has no containment tree, so it cannot distinguish these. The divergence is the point of the fixture (D-053).",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-SCP-WIDENING-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-SCP-WIDENING",
+        "split": "FX2",
+        "semantic_focus": "SCOPE",
+        "state_before": {
+          "active_scopes": [
+            "global",
+            "branch:a",
+            "branch:b"
+          ],
+          "branches": {
+            "a": {
+              "id": "a",
+              "predicate": "case",
+              "status": "OPEN"
+            },
+            "b": {
+              "id": "b",
+              "predicate": "case",
+              "status": "OPEN",
+              "scope": "branch:a"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:b",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global",
+            "branch:a",
+            "branch:b"
+          ],
+          "branches": {
+            "a": {
+              "id": "a",
+              "predicate": "case",
+              "status": "OPEN"
+            },
+            "b": {
+              "id": "b",
+              "predicate": "case",
+              "status": "OPEN",
+              "scope": "branch:a"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:b",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "branch:a",
+              "dependencies": [
+                "p"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "The reverse of the above, on the same tree: a fact local to the inner frame does not become true in the outer one by being restated there."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-SCP-DUPLICATE-ILLEGAL",
+      "family": "SCP",
+      "boundary": "ILLEGAL",
+      "invariant": "SCOPE",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "SCOPE_LEAK",
+      "rationale": "The duplicate-frame attack: active_scopes.index returns the FIRST occurrence, so prepending a copy of an inner frame made it look outermost and let any premise escape to global. One extra list element defeated the invariant, with no forged evidence.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The frozen reference derives scope depth from active_scopes position and has no containment tree, so it cannot distinguish these. The divergence is the point of the fixture (D-053).",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-SCP-DUPLICATE-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-SCP-DUPLICATE",
+        "split": "FX2",
+        "semantic_focus": "SCOPE",
+        "state_before": {
+          "active_scopes": [
+            "branch:x",
+            "global",
+            "branch:x"
+          ],
+          "branches": {
+            "x": {
+              "id": "x",
+              "predicate": "case",
+              "status": "OPEN"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:x",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "branch:x",
+            "global",
+            "branch:x"
+          ],
+          "branches": {
+            "x": {
+              "id": "x",
+              "predicate": "case",
+              "status": "OPEN"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p": {
+              "id": "p",
+              "proposition": "q",
+              "status": "ASSUMED",
+              "scope": "branch:x",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "The duplicate-frame attack: active_scopes.index returns the FIRST occurrence, so prepending a copy of an inner frame made it look outermost and let any premise escape to global. One extra list element defeated the invariant, with no forged evidence."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-BRN-LEGAL",
+      "family": "BRN",
+      "boundary": "LEGAL",
+      "invariant": "BRANCH_JOIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "VALID",
+      "expected_error_class": null,
+      "rationale": "Every branch CLOSED, every conclusion equal to the published claim, coverage certified.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-BRN-LEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "JOIN_BRANCHES",
+          "summary": "n is even or n is odd",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {
+            "kind": "JOIN",
+            "branch_ids": [
+              "b1",
+              "b2"
+            ],
+            "coverage_evidence_id": "e1"
+          },
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-BRN",
+        "split": "FX2",
+        "semantic_focus": "BRANCH_JOIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "c1": {
+              "id": "c1",
+              "proposition": "n is even or n is odd",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "EXHAUSTIVE_PARTITION",
+            "status": "VALID",
+            "supports_rule": "JOIN_BRANCHES",
+            "trusted": true,
+            "premise_ids": [],
+            "branch_ids": [
+              "b1",
+              "b2"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Every branch CLOSED, every conclusion equal to the published claim, coverage certified."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-BRN-NULLCONC-ILLEGAL",
+      "family": "BRN",
+      "boundary": "ILLEGAL",
+      "invariant": "BRANCH_JOIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "INVALID_BRANCH_JOIN",
+      "rationale": "Coverage without conclusions is not a proof. Before D-053 three null branches could publish '0 = 1' as VALID, because the conclusion check was skipped whenever the conclusion was null. Note the asymmetry that made it indefensible: '' and 'UNKNOWN' were both refused while null was accepted.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The reference applies the same skip-when-null reading.",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-BRN-NULLCONC-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "JOIN_BRANCHES",
+          "summary": "0 = 1",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {
+            "kind": "JOIN",
+            "branch_ids": [
+              "b1",
+              "b2",
+              "b3"
+            ],
+            "coverage_evidence_id": "e1"
+          },
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-BRN-NULLCONC",
+        "split": "FX2",
+        "semantic_focus": "BRANCH_JOIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1"
+            },
+            "b3": {
+              "id": "b3",
+              "predicate": "case b3",
+              "status": "CLOSED",
+              "partition_id": "p1"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1"
+            },
+            "b3": {
+              "id": "b3",
+              "predicate": "case b3",
+              "status": "CLOSED",
+              "partition_id": "p1"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "c1": {
+              "id": "c1",
+              "proposition": "0 = 1",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "EXHAUSTIVE_PARTITION",
+            "status": "VALID",
+            "supports_rule": "JOIN_BRANCHES",
+            "trusted": true,
+            "premise_ids": [],
+            "branch_ids": [
+              "b1",
+              "b2",
+              "b3"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Coverage without conclusions is not a proof. Before D-053 three null branches could publish '0 = 1' as VALID, because the conclusion check was skipped whenever the conclusion was null. Note the asymmetry that made it indefensible: '' and 'UNKNOWN' were both refused while null was accepted."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-BRN-PARTIAL-NULL-ILLEGAL",
+      "family": "BRN",
+      "boundary": "ILLEGAL",
+      "invariant": "BRANCH_JOIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "INVALID_BRANCH_JOIN",
+      "rationale": "One unconcluded branch is enough: the join would rest on a case that established nothing.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "Same skip-when-null reading.",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-BRN-PARTIAL-NULL-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "JOIN_BRANCHES",
+          "summary": "n is even or n is odd",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {
+            "kind": "JOIN",
+            "branch_ids": [
+              "b1",
+              "b2"
+            ],
+            "coverage_evidence_id": "e1"
+          },
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-BRN-PARTIAL-NULL",
+        "split": "FX2",
+        "semantic_focus": "BRANCH_JOIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "c1": {
+              "id": "c1",
+              "proposition": "n is even or n is odd",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "EXHAUSTIVE_PARTITION",
+            "status": "VALID",
+            "supports_rule": "JOIN_BRANCHES",
+            "trusted": true,
+            "premise_ids": [],
+            "branch_ids": [
+              "b1",
+              "b2"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "One unconcluded branch is enough: the join would rest on a case that established nothing."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-BRN-MISMATCH-ILLEGAL",
+      "family": "BRN",
+      "boundary": "ILLEGAL",
+      "invariant": "BRANCH_JOIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "INVALID_BRANCH_JOIN",
+      "rationale": "A join publishes what every branch established, not a new proposition.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-BRN-MISMATCH-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "JOIN_BRANCHES",
+          "summary": "n is even or n is odd",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {
+            "kind": "JOIN",
+            "branch_ids": [
+              "b1",
+              "b2"
+            ],
+            "coverage_evidence_id": "e1"
+          },
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-BRN-MISMATCH",
+        "split": "FX2",
+        "semantic_focus": "BRANCH_JOIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is prime"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is prime"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "c1": {
+              "id": "c1",
+              "proposition": "n is even or n is odd",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "EXHAUSTIVE_PARTITION",
+            "status": "VALID",
+            "supports_rule": "JOIN_BRANCHES",
+            "trusted": true,
+            "premise_ids": [],
+            "branch_ids": [
+              "b1",
+              "b2"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "A join publishes what every branch established, not a new proposition."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-BRN-OPEN-ILLEGAL",
+      "family": "BRN",
+      "boundary": "ILLEGAL",
+      "invariant": "BRANCH_JOIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "INVALID_BRANCH_JOIN",
+      "rationale": "An OPEN branch has not concluded, whatever its recorded conclusion says.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-BRN-OPEN-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "JOIN_BRANCHES",
+          "summary": "n is even or n is odd",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {
+            "kind": "JOIN",
+            "branch_ids": [
+              "b1",
+              "b2"
+            ],
+            "coverage_evidence_id": "e1"
+          },
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-BRN-OPEN",
+        "split": "FX2",
+        "semantic_focus": "BRANCH_JOIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "OPEN",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "OPEN",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "c1": {
+              "id": "c1",
+              "proposition": "n is even or n is odd",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "EXHAUSTIVE_PARTITION",
+            "status": "VALID",
+            "supports_rule": "JOIN_BRANCHES",
+            "trusted": true,
+            "premise_ids": [],
+            "branch_ids": [
+              "b1",
+              "b2"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "An OPEN branch has not concluded, whatever its recorded conclusion says."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-BRN-NOCOVER-ILLEGAL",
+      "family": "BRN",
+      "boundary": "ILLEGAL",
+      "invariant": "BRANCH_JOIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "INVALID_BRANCH_JOIN",
+      "rationale": "The partition certificate omits a branch. Branches that agree are not evidence that they exhaust the cases.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-BRN-NOCOVER-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "JOIN_BRANCHES",
+          "summary": "n is even or n is odd",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {
+            "kind": "JOIN",
+            "branch_ids": [
+              "b1",
+              "b2"
+            ],
+            "coverage_evidence_id": "e1"
+          },
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-BRN-NOCOVER",
+        "split": "FX2",
+        "semantic_focus": "BRANCH_JOIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "c1": {
+              "id": "c1",
+              "proposition": "n is even or n is odd",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "EXHAUSTIVE_PARTITION",
+            "status": "VALID",
+            "supports_rule": "JOIN_BRANCHES",
+            "trusted": true,
+            "premise_ids": [],
+            "branch_ids": [
+              "b1"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "The partition certificate omits a branch. Branches that agree are not evidence that they exhaust the cases."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-BRN-OVERLAP-LEGAL",
+      "family": "BRN",
+      "boundary": "LEGAL",
+      "invariant": "BRANCH_JOIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "VALID",
+      "expected_error_class": null,
+      "rationale": "Coverage is required; DISJOINTNESS DELIBERATELY IS NOT. Disjunction elimination is sound for overlapping cases, so a checker demanding disjointness would reject valid reasoning. Frozen here because a later reader is likely to think the missing check is an oversight and add it.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-BRN-OVERLAP-LEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "JOIN_BRANCHES",
+          "summary": "n is even or n is odd",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {
+            "kind": "JOIN",
+            "branch_ids": [
+              "b1",
+              "b2"
+            ],
+            "coverage_evidence_id": "e1"
+          },
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-BRN-OVERLAP",
+        "split": "FX2",
+        "semantic_focus": "BRANCH_JOIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "c1": {
+              "id": "c1",
+              "proposition": "n is even or n is odd",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "EXHAUSTIVE_PARTITION",
+            "status": "VALID",
+            "supports_rule": "JOIN_BRANCHES",
+            "trusted": true,
+            "premise_ids": [],
+            "branch_ids": [
+              "b1",
+              "b2"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Coverage is required; DISJOINTNESS DELIBERATELY IS NOT. Disjunction elimination is sound for overlapping cases, so a checker demanding disjointness would reject valid reasoning. Frozen here because a later reader is likely to think the missing check is an oversight and add it."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-BRN-UNKNOWNCONC-UNKNOWN",
+      "family": "BRN",
+      "boundary": "BOUNDARY_UNKNOWN",
+      "invariant": "BRANCH_JOIN",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "UNRESOLVED",
+      "expected_error_class": null,
+      "rationale": "An UNKNOWN conclusion is unavailable evidence, not a disagreement. It was previously reported as a detected violation, contradicting the three-valued discipline used everywhere else in the verifier.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The reference reports this as a mismatch.",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-BRN-UNKNOWNCONC-UNKNOWN",
+        "action": {
+          "id": "a0",
+          "operation": "JOIN_BRANCHES",
+          "summary": "n is even or n is odd",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {
+            "kind": "JOIN",
+            "branch_ids": [
+              "b1",
+              "b2"
+            ],
+            "coverage_evidence_id": "e1"
+          },
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-BRN-UNKNOWNCONC",
+        "split": "FX2",
+        "semantic_focus": "BRANCH_JOIN",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "UNKNOWN"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {
+            "b1": {
+              "id": "b1",
+              "predicate": "case b1",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "n is even or n is odd"
+            },
+            "b2": {
+              "id": "b2",
+              "predicate": "case b2",
+              "status": "CLOSED",
+              "partition_id": "p1",
+              "conclusion": "UNKNOWN"
+            }
+          },
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "c1": {
+              "id": "c1",
+              "proposition": "n is even or n is odd",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {
+          "e1": {
+            "id": "e1",
+            "kind": "EXHAUSTIVE_PARTITION",
+            "status": "VALID",
+            "supports_rule": "JOIN_BRANCHES",
+            "trusted": true,
+            "premise_ids": [],
+            "branch_ids": [
+              "b1",
+              "b2"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "An UNKNOWN conclusion is unavailable evidence, not a disagreement. It was previously reported as a detected violation, contradicting the three-valued discipline used everywhere else in the verifier."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-UNK-MASK-ILLEGAL",
+      "family": "UNK",
+      "boundary": "ILLEGAL",
+      "invariant": "DEPENDENCY",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "DEPENDENCY_VIOLATION",
+      "rationale": "The produced claim records an ancestor the action never declared -- an independent violation -- while an UNRELATED claim carries status UNKNOWN. Before D-049 the unknown sweep was unscoped, so appending three lines of JSON turned 10/10 ILLEGAL fixtures into UNRESOLVED. UNRESOLVED counts as neither accepted nor detected, so that was a complete detection bypass available to anyone who could append a record nothing cites.",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The reference records unknowns per-check rather than sweeping the state, so it is not susceptible; it reports INVALID for its own reasons.",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-UNK-MASK-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-UNK-MASK",
+        "split": "FX2",
+        "semantic_focus": "DEPENDENCY",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "p",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "junk_zzz": {
+              "id": "junk_zzz",
+              "proposition": "entirely unrelated",
+              "status": "UNKNOWN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "p",
+              "status": "GIVEN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "junk_zzz": {
+              "id": "junk_zzz",
+              "proposition": "entirely unrelated",
+              "status": "UNKNOWN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0",
+                "p9"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "The produced claim records an ancestor the action never declared -- an independent violation -- while an UNRELATED claim carries status UNKNOWN. Before D-049 the unknown sweep was unscoped, so appending three lines of JSON turned 10/10 ILLEGAL fixtures into UNRESOLVED. UNRESOLVED counts as neither accepted nor detected, so that was a complete detection bypass available to anyone who could append a"
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-UNK-RELEVANT-UNKNOWN",
+      "family": "UNK",
+      "boundary": "BOUNDARY_UNKNOWN",
+      "invariant": "DEPENDENCY",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "UNRESOLVED",
+      "expected_error_class": null,
+      "rationale": "Scoping the sweep must not switch the rule off: an unknown on a record the action actually cites still suspends the verdict.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-UNK-RELEVANT-UNKNOWN",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "q",
+          "dependencies": [
+            "p0"
+          ],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": "c1"
+        },
+        "pair_id": "FX2-UNK-RELEVANT",
+        "split": "FX2",
+        "semantic_focus": "DEPENDENCY",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "UNKNOWN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {
+            "p0": {
+              "id": "p0",
+              "proposition": "n > 0",
+              "status": "UNKNOWN",
+              "scope": "global",
+              "dependencies": [],
+              "domain": "Proposition"
+            },
+            "c1": {
+              "id": "c1",
+              "proposition": "q",
+              "status": "DERIVED",
+              "scope": "global",
+              "dependencies": [
+                "p0"
+              ],
+              "domain": "Proposition"
+            }
+          }
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Scoping the sweep must not switch the rule off: an unknown on a record the action actually cites still suspends the verdict."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-TRU-SELFVALID-REPLAY-LEGAL",
+      "family": "TRU",
+      "boundary": "LEGAL",
+      "invariant": "TRUST",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "VALID",
+      "expected_error_class": null,
+      "rationale": "Replaying a frozen corpus, a recorded status is observed reference data produced by an external process. This fixture DOCUMENTS the replay mode rather than endorsing it, and exists so that the runtime fixture below is a contrast rather than an assertion.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-TRU-SELFVALID-REPLAY-LEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "VERIFY_CANDIDATE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {
+            "kind": "PROMOTE",
+            "candidate_id": "k1",
+            "evidence_id": "e_self"
+          },
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-TRU-SELFVALID-REPLAY",
+        "split": "FX2",
+        "semantic_focus": "TRUST",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k1": {
+              "id": "k1",
+              "proposition": "x = 2",
+              "status": "PROPOSED",
+              "scope": "global",
+              "constraint_ids": [
+                "c1"
+              ]
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k1": {
+              "id": "k1",
+              "proposition": "x = 2",
+              "status": "VERIFIED",
+              "scope": "global",
+              "constraint_ids": [
+                "c1"
+              ]
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {
+          "e_self": {
+            "id": "e_self",
+            "kind": "CANDIDATE_CHECK",
+            "status": "VALID",
+            "supports_rule": "VERIFY_CANDIDATE",
+            "trusted": true,
+            "premise_ids": [],
+            "checked_constraints": [
+              "c1"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "Replaying a frozen corpus, a recorded status is observed reference data produced by an external process. This fixture DOCUMENTS the replay mode rather than endorsing it, and exists so that the runtime fixture below is a contrast rather than an assertion."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-TRU-SELFVALID-RUNTIME-ILLEGAL",
+      "family": "TRU",
+      "boundary": "ILLEGAL",
+      "invariant": "TRUST",
+      "trust_mode": "RUNTIME",
+      "expected_result": "INVALID",
+      "expected_error_class": "CANDIDATE_PROMOTION",
+      "rationale": "The same bytes, authored by a model. status VALID and trusted true are both fields the producer sets, so they buy NOTHING: acceptance requires an attestation carrying a CheckedEvidence that only reasoning.certificates.check can mint (D-050/D-052).",
+      "frozen_reference_checker": "DIVERGES",
+      "frozen_reference_note": "The frozen reference has no trust mode; it reads status as authority unconditionally, which is the design this fixture guards against.",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-TRU-SELFVALID-RUNTIME-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "VERIFY_CANDIDATE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {
+            "kind": "PROMOTE",
+            "candidate_id": "k1",
+            "evidence_id": "e_self"
+          },
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-TRU-SELFVALID-RUNTIME",
+        "split": "FX2",
+        "semantic_focus": "TRUST",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k1": {
+              "id": "k1",
+              "proposition": "x = 2",
+              "status": "PROPOSED",
+              "scope": "global",
+              "constraint_ids": [
+                "c1"
+              ]
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k1": {
+              "id": "k1",
+              "proposition": "x = 2",
+              "status": "VERIFIED",
+              "scope": "global",
+              "constraint_ids": [
+                "c1"
+              ]
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {
+          "e_self": {
+            "id": "e_self",
+            "kind": "CANDIDATE_CHECK",
+            "status": "VALID",
+            "supports_rule": "VERIFY_CANDIDATE",
+            "trusted": true,
+            "premise_ids": [],
+            "checked_constraints": [
+              "c1"
+            ]
+          }
+        },
+        "source": {
+          "origin": "synthetic",
+          "rationale": "The same bytes, authored by a model. status VALID and trusted true are both fields the producer sets, so they buy NOTHING: acceptance requires an attestation carrying a CheckedEvidence that only reasoning.certificates.check can mint (D-050/D-052)."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-CAN-EXTRANEOUS-REJECTED-LEGAL",
+      "family": "CAN",
+      "boundary": "LEGAL",
+      "invariant": "CANDIDATES",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "VALID",
+      "expected_error_class": null,
+      "rationale": "A candidate root that fails substitution into the ORIGINAL equation is REJECTED. This is the first externally grounded exercise of the REJECTED lifecycle state: the contract records that no frozen fixture reaches UNVERIFIED or REJECTED, so SF-R06 has never been demonstrated.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "Derived from AMPS-Khan row 22728, topic 'find-the-area-between-two-curves', in which a radical equation is squared and the resulting candidate roots are checked against the original equation, rejecting the extraneous one. Source: /Users/moheet/Desktop/0000.parquet, sha256 b48c40afd262a8ac587504bc3008a2b0d688c0144b5d9fddd083f0b576a5df41. PROVENANCE CAVEAT: that file is a COMMUNITY MIRROR (HuggingFace XinyaoHu/AMPS_khan), traced one hop and NOT verified against Hendrycks' official release. The mathematical pattern is real and independently checkable; the corpus attribution is not fully verified. 248 rows contain this pattern but only 11 distinct solution skeletons.",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-CAN-EXTRANEOUS-REJECTED-LEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "VERIFY_CANDIDATE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {
+            "kind": "PROMOTE",
+            "candidate_id": "k_root",
+            "evidence_id": "e_check"
+          },
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-CAN-EXTRANEOUS-REJECTED",
+        "split": "FX2",
+        "semantic_focus": "CANDIDATES",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k_root": {
+              "id": "k_root",
+              "proposition": "x = 18",
+              "status": "PROPOSED",
+              "scope": "global",
+              "constraint_ids": [
+                "c_radical",
+                "c_domain"
+              ],
+              "origin": "squaring a radical equation"
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k_root": {
+              "id": "k_root",
+              "proposition": "x = 18",
+              "status": "REJECTED",
+              "scope": "global",
+              "constraint_ids": [
+                "c_radical",
+                "c_domain"
+              ],
+              "origin": "squaring a radical equation"
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {
+          "e_check": {
+            "id": "e_check",
+            "kind": "CANDIDATE_CHECK",
+            "status": "VALID",
+            "supports_rule": "VERIFY_CANDIDATE",
+            "trusted": true,
+            "premise_ids": [],
+            "checked_constraints": [
+              "c_radical",
+              "c_domain"
+            ],
+            "candidate_id": "k_root"
+          }
+        },
+        "source": {
+          "origin": "amps_khan",
+          "rationale": "A candidate root that fails substitution into the ORIGINAL equation is REJECTED. This is the first externally grounded exercise of the REJECTED lifecycle state: the contract records that no frozen fixture reaches UNVERIFIED or REJECTED, so SF-R06 has never been demonstrated.",
+          "external_row_id": "0000.parquet:22728",
+          "external_file_sha256": "b48c40afd262a8ac587504bc3008a2b0d688c0144b5d9fddd083f0b576a5df41",
+          "provenance_caveat": "COMMUNITY MIRROR, traced one hop to HuggingFace XinyaoHu/AMPS_khan and NOT verified against Hendrycks' official release. The mathematical pattern is independently checkable; the corpus attribution is not."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-CAN-SUBSET-ILLEGAL",
+      "family": "CAN",
+      "boundary": "ILLEGAL",
+      "invariant": "CANDIDATES",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "INVALID",
+      "expected_error_class": "CANDIDATE_PROMOTION",
+      "rationale": "Promotion checked the squared equation but not the original domain constraint -- which is exactly how an extraneous root gets promoted. Verifying a subset establishes a different claim than the one being made.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "Derived from AMPS-Khan row 22728, topic 'find-the-area-between-two-curves', in which a radical equation is squared and the resulting candidate roots are checked against the original equation, rejecting the extraneous one. Source: /Users/moheet/Desktop/0000.parquet, sha256 b48c40afd262a8ac587504bc3008a2b0d688c0144b5d9fddd083f0b576a5df41. PROVENANCE CAVEAT: that file is a COMMUNITY MIRROR (HuggingFace XinyaoHu/AMPS_khan), traced one hop and NOT verified against Hendrycks' official release. The mathematical pattern is real and independently checkable; the corpus attribution is not fully verified. 248 rows contain this pattern but only 11 distinct solution skeletons.",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-CAN-SUBSET-ILLEGAL",
+        "action": {
+          "id": "a0",
+          "operation": "VERIFY_CANDIDATE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {
+            "kind": "PROMOTE",
+            "candidate_id": "k_root",
+            "evidence_id": "e_check"
+          },
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-CAN-SUBSET",
+        "split": "FX2",
+        "semantic_focus": "CANDIDATES",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k_root": {
+              "id": "k_root",
+              "proposition": "x = 18",
+              "status": "PROPOSED",
+              "scope": "global",
+              "constraint_ids": [
+                "c_radical",
+                "c_domain"
+              ],
+              "origin": "squaring a radical equation"
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {
+            "k_root": {
+              "id": "k_root",
+              "proposition": "x = 18",
+              "status": "VERIFIED",
+              "scope": "global",
+              "constraint_ids": [
+                "c_radical",
+                "c_domain"
+              ],
+              "origin": "squaring a radical equation"
+            }
+          },
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {
+          "e_check": {
+            "id": "e_check",
+            "kind": "CANDIDATE_CHECK",
+            "status": "VALID",
+            "supports_rule": "VERIFY_CANDIDATE",
+            "trusted": true,
+            "premise_ids": [],
+            "checked_constraints": [
+              "c_radical"
+            ],
+            "candidate_id": "k_root"
+          }
+        },
+        "source": {
+          "origin": "amps_khan",
+          "rationale": "Promotion checked the squared equation but not the original domain constraint -- which is exactly how an extraneous root gets promoted. Verifying a subset establishes a different claim than the one being made.",
+          "external_row_id": "0000.parquet:22728",
+          "external_file_sha256": "b48c40afd262a8ac587504bc3008a2b0d688c0144b5d9fddd083f0b576a5df41",
+          "provenance_caveat": "COMMUNITY MIRROR, traced one hop to HuggingFace XinyaoHu/AMPS_khan and NOT verified against Hendrycks' official release. The mathematical pattern is independently checkable; the corpus attribution is not."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-MAL-TYPING-REFUSE",
+      "family": "MAL",
+      "boundary": "ILLEGAL",
+      "invariant": "MALFORMED",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "REFUSED",
+      "expected_error_class": null,
+      "rationale": "typing.input_domains as a list raised an uncaught AttributeError inside verify(). A verifier that may be handed model output must never throw.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": false,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-MAL-TYPING-REFUSE",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": [
+            "p0",
+            "p1"
+          ],
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-MAL-TYPING",
+        "split": "FX2",
+        "semantic_focus": "MALFORMED",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "typing.input_domains as a list raised an uncaught AttributeError inside verify(). A verifier that may be handed model output must never throw."
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-MAL-NAN-REFUSE",
+      "family": "MAL",
+      "boundary": "ILLEGAL",
+      "invariant": "MALFORMED",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "REFUSED",
+      "expected_error_class": null,
+      "rationale": "NaN != NaN, and the frame condition compares records structurally, so a record byte-identical in both states reported 'changed without a licensed state effect'. It failed safe, but it was a false INVALID on any float-bearing payload. NOTE: the artifact carries this as a `materialise` instruction rather than a literal, because RFC 8259 has no NaN and embedding one makes the whole file unreadable to a strict parser -- an independent Ruby parse rejected it, which is why this is an instruction and not a value.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [
+        {
+          "path": [
+            "action",
+            "typing",
+            "weight"
+          ],
+          "set_nonfinite": "nan"
+        }
+      ],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-MAL-NAN-REFUSE",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {
+            "weight": null
+          },
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-MAL-NAN",
+        "split": "FX2",
+        "semantic_focus": "MALFORMED",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "NaN != NaN, and the frame condition compares records structurally, so a record byte-identical in both states reported 'changed without a licensed state effect'. It failed safe, but it was a false INVALID on any float-bearing payload. NOTE: the artifact carries this as a `materialise` instruction rather than a literal, because RFC 8259 has no NaN and embedding one makes the whole file unreadable to"
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-MAL-UNHASHABLE-REFUSE",
+      "family": "MAL",
+      "boundary": "ILLEGAL",
+      "invariant": "MALFORMED",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "REFUSED",
+      "expected_error_class": null,
+      "rationale": "An unhashable value in obligations_created reached a dictionary lookup and raised. This fixture is SCHEMA-VALID and semantically malformed: the schema types obligations_created as `array` with no item constraint, so a list-of-lists passes validation. It is kept precisely for that contrast -- a case can satisfy the published schema and still be refused, so schema conformance is not a substitute for the verifier.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": true,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-MAL-UNHASHABLE-REFUSE",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [
+            [
+              1
+            ],
+            [
+              2
+            ]
+          ],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-MAL-UNHASHABLE",
+        "split": "FX2",
+        "semantic_focus": "MALFORMED",
+        "state_before": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "An unhashable value in obligations_created reached a dictionary lookup and raised. This fixture is SCHEMA-VALID and semantically malformed: the schema types obligations_created as `array` with no item constraint, so a list-of-lists passes validation. It is kept precisely for that contrast -- a case can satisfy the published schema and still be refused, so schema conformance is not a substitute for"
+        }
+      }
+    },
+    {
+      "fixture_id": "FX2-MAL-SCOPES-REFUSE",
+      "family": "MAL",
+      "boundary": "ILLEGAL",
+      "invariant": "MALFORMED",
+      "trust_mode": "OFFLINE_REPLAY",
+      "expected_result": "REFUSED",
+      "expected_error_class": null,
+      "rationale": "A non-string in active_scopes raised on a string join while rendering a diagnostic.",
+      "frozen_reference_checker": "AGREES",
+      "frozen_reference_note": "",
+      "authored_by": "integrator",
+      "materialise": [],
+      "schema_valid": false,
+      "provenance": "integrator-authored, HMLTN Phase I hardening 2026-08-11",
+      "case": {
+        "schema_version": "semantic-firewall-case-0.1.0",
+        "case_id": "FX2-MAL-SCOPES-REFUSE",
+        "action": {
+          "id": "a0",
+          "operation": "DERIVE",
+          "summary": "",
+          "dependencies": [],
+          "preconditions": [],
+          "obligations_created": [],
+          "obligations_discharged": [],
+          "typing": {},
+          "warrant": {},
+          "goal_effect": {},
+          "scope_effect": {},
+          "branch_effect": {},
+          "candidate_effect": {},
+          "epistemic_effect": {},
+          "output_id": null
+        },
+        "pair_id": "FX2-MAL-SCOPES",
+        "split": "FX2",
+        "semantic_focus": "MALFORMED",
+        "state_before": {
+          "active_scopes": [
+            {
+              "id": {}
+            }
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "state_after": {
+          "active_scopes": [
+            "global"
+          ],
+          "branches": {},
+          "candidates": {},
+          "goals": {},
+          "obligations": {},
+          "claims": {}
+        },
+        "evidence": {},
+        "source": {
+          "origin": "synthetic",
+          "rationale": "A non-string in active_scopes raised on a string join while rendering a diagnostic."
+        }
+      }
+    }
+  ]
+}

@@ -14,6 +14,7 @@ independent of the code that produced the artifacts.
 """
 
 import copy
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -242,3 +243,92 @@ def test_malformed_actions_are_rejected():
     outside_action = copy.deepcopy(good)
     outside_action["semantic_focus"] = "NOT_A_DECLARED_FOCUS"
     assert not validator.is_valid(outside_action)
+
+
+# ---------------------------------------------------------------------------
+# FX2 — the second-generation suite
+# ---------------------------------------------------------------------------
+
+FX2_DIR = ROOT / "experiments" / "semantic_firewall_v2"
+
+
+def _fx2_validator():
+    """A validator for the v2 schema, with the frozen base registered so $refs resolve."""
+    from jsonschema import Draft202012Validator
+    from referencing import Registry, Resource
+
+    base = json.loads(
+        (ROOT / "experiments/semantic_firewall/schemas/semantic_case.schema.json").read_text()
+    )
+    v2 = json.loads((FX2_DIR / "schemas/semantic_case_v2.schema.json").read_text())
+    Draft202012Validator.check_schema(v2)
+    registry = Registry().with_resource(base["$id"], Resource.from_contents(base))
+    return Draft202012Validator(v2, registry=registry), v2
+
+
+def test_the_fx2_artifact_is_strict_rfc8259_json():
+    """No NaN, no Infinity. An earlier build embedded a NaN literal and an independent
+    parser rejected the entire file — the artifact must be readable by any conforming
+    implementation, not only by the one that wrote it."""
+    text = (FX2_DIR / "fixtures_v2.json").read_text()
+
+    def refuse(literal):
+        raise AssertionError(f"non-standard JSON literal in the artifact: {literal}")
+
+    json.loads(text, parse_constant=refuse)
+
+
+def test_every_fx2_case_validates_except_the_deliberately_malformed_ones():
+    validator, _ = _fx2_validator()
+    suite = json.loads((FX2_DIR / "fixtures_v2.json").read_text())
+    for fixture in suite["fixtures"]:
+        errors = sorted(validator.iter_errors(fixture["case"]), key=lambda e: list(e.path))
+        if fixture["schema_valid"]:
+            assert not errors, (
+                f"{fixture['fixture_id']}: {errors[0].validator} at "
+                f"{list(errors[0].absolute_path)}: {errors[0].message}"
+            )
+        else:
+            assert errors, (
+                f"{fixture['fixture_id']} is declared schema-invalid but validates; a MAL "
+                f"fixture that passes a schema of well-formed cases is not testing anything"
+            )
+
+
+def test_the_fx2_schema_rejects_what_it_should():
+    """Negative controls, so the FX2 validation cannot pass vacuously."""
+    validator, _ = _fx2_validator()
+    suite = json.loads((FX2_DIR / "fixtures_v2.json").read_text())
+    control = next(f["case"] for f in suite["fixtures"] if f["schema_valid"])
+    assert not list(validator.iter_errors(control)), "the control must validate first"
+
+    for name, mutate in (
+        ("extra action key", lambda c: c["action"].update(nonsense="x")),
+        ("split claims to be ACCEPTANCE", lambda c: c.update(split="ACCEPTANCE")),
+        ("unknown semantic_focus", lambda c: c.update(semantic_focus="NONSENSE")),
+        ("fabricated MATH provenance", lambda c: c["source"].update(dataset="MATH")),
+        ("id outside the FX2 namespace", lambda c: c.update(case_id="FX-DEP-LEGAL")),
+    ):
+        case = copy.deepcopy(control)
+        mutate(case)
+        assert list(validator.iter_errors(case)), f"{name} should have been rejected"
+
+
+def test_the_fx2_manifest_hashes_match_the_files_it_names():
+    manifest = json.loads((FX2_DIR / "manifest.json").read_text())
+    for name, record in manifest["files"].items():
+        path = FX2_DIR / name
+        assert path.exists(), path
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == record["sha256"], name
+        assert path.stat().st_size == record["bytes"], name
+
+
+def test_fx2_does_not_touch_the_frozen_thirty():
+    """The additive guarantee, checked rather than promised."""
+    manifest = json.loads((FX2_DIR / "manifest.json").read_text())
+    frozen = ROOT / "experiments/semantic_firewall/acceptance/fixtures.json"
+    assert hashlib.sha256(frozen.read_bytes()).hexdigest() == manifest["extends"]["sha256"]
+    original = {f["fixture_id"] for f in json.loads(frozen.read_text())["fixtures"]}
+    fx2 = {f["fixture_id"] for f in json.loads((FX2_DIR / "fixtures_v2.json").read_text())["fixtures"]}
+    assert not (original & fx2), "an FX2 id collides with a frozen fixture id"
+    assert len(original) == 30

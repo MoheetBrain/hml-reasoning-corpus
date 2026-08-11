@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hmltn.local/schemas/semantic_case_v2.schema.json",
+  "title": "Semantic Firewall FX2 case",
+  "description": "A second-generation acceptance case. Structurally IDENTICAL to the frozen semantic_case schema -- action, states, evidence and source are $ref'd from it so there is exactly one definition of what a transition case is. Only the record-level vocabulary is extended: `split` gains FX2, and `semantic_focus` gains the three invariant families the original suite has no name for (FRAME, TRUST, MALFORMED), because those are behaviours the frozen thirty do not test. Extending the frozen schema itself was rejected: it is a hashed artifact describing a frozen experiment, and widening its vocabulary would misrepresent what that experiment covered.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "pair_id",
+    "split",
+    "semantic_focus",
+    "source",
+    "state_before",
+    "action",
+    "state_after",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "semantic-firewall-case-0.1.0"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^FX2-"
+    },
+    "pair_id": {
+      "type": "string",
+      "pattern": "^FX2-"
+    },
+    "split": {
+      "const": "FX2"
+    },
+    "semantic_focus": {
+      "enum": [
+        "DEPENDENCY",
+        "SCOPE",
+        "PRECONDITIONS",
+        "OBLIGATIONS",
+        "CANDIDATES",
+        "BRANCH_JOIN",
+        "WARRANT",
+        "EPISTEMIC_STATUS",
+        "GOAL_DISCHARGE",
+        "TYPE_DOMAIN",
+        "FRAME",
+        "TRUST",
+        "MALFORMED"
+      ]
+    },
+    "source": {
+      "$ref": "#/$defs/source_v2"
+    },
+    "state_before": {
+      "$ref": "#/$defs/state_v2"
+    },
+    "state_after": {
+      "$ref": "#/$defs/state_v2"
+    },
+    "action": {
+      "$ref": "https://hml.reasoning.local/experiments/semantic_firewall/semantic_case.schema.json#/$defs/action"
+    },
+    "evidence": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "source_v2": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "FX2 provenance. Deliberately NOT the frozen suite's source block, which requires a MATH dataset row, a source hash and a gold125_overlap flag. FX2 cases are constructed to exercise an invariant, not drawn from a dataset row, and inventing those fields would be fabricating provenance. Cases derived from an external corpus declare it here instead, with the caveat attached.",
+      "required": [
+        "origin",
+        "rationale"
+      ],
+      "properties": {
+        "origin": {
+          "enum": [
+            "synthetic",
+            "amps_khan"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_row_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "external_file_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provenance_caveat": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "claim_v2": {
+      "type": "object",
+      "required": [
+        "id",
+        "proposition",
+        "status",
+        "scope",
+        "dependencies"
+      ],
+      "description": "As the frozen claim, except `domain` is OPTIONAL. The frozen schema lists `domain` in `required`, which makes 'this claim carries no domain' unrepresentable -- and that state is semantically meaningful: D-048 established that an ABSENT domain is unavailable evidence (UNRESOLVED), distinct from a WRONG one (INVALID). A schema that cannot express the absence cannot describe a case testing it. Recorded as a limitation of the frozen schema rather than repaired there, because that schema describes a frozen experiment which never exercised the distinction.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "proposition": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "dependencies": {
+          "type": "array"
+        },
+        "domain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "state_v2": {
+      "type": "object",
+      "required": [
+        "active_scopes",
+        "claims",
+        "candidates",
+        "branches",
+        "goals",
+        "obligations"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "active_scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claims": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/claim_v2"
+          }
+        },
+        "candidates": {
+          "type": "object"
+        },
+        "branches": {
+          "type": "object"
+        },
+        "goals": {
+          "type": "object"
+        },
+        "obligations": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

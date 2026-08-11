@@ -116,6 +116,18 @@ The trust boundary (HML `DECISIONS.md` D-050): evidence status is read from the 
 record, so a producer that authors a transition authors its verdict. Blocks any use where
 transitions are model-authored.
 
+## Fixture Suites
+
+| suite | version | count | status | evidence class |
+|---|---|---|---|---|
+| `experiments/semantic_firewall/acceptance/fixtures.json` | `semantic-firewall-acceptance-0.1.0` | 30 | **frozen, untouched** | **external** — authored corpus-side against a reference checker before the implementation existed |
+| `experiments/semantic_firewall_v2/fixtures_v2.json` | `semantic-firewall-fx2-1.0.0` | 40 | frozen 2026-08-11 | **integrator-authored, weaker** — cannot show the implementation was right, only that a known defect cannot silently return |
+
+FX2 is additive: `FX2-` ids cannot collide, and a test asserts the frozen thirty are
+byte-unchanged. **13 of 40 deliberately diverge from the frozen reference checker**, each
+with a recorded reason — production is stricter on the frame condition, scope containment
+and trust modes, and an undeclared divergence would look like agreement.
+
 ## Exact Next Actions
 
 1. ~~Correct the four unscoped absence-of-evidence statements.~~ **Done 2026-08-10.**

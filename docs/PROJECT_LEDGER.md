@@ -232,3 +232,71 @@ not because they were verified.
 
 **Next intended step.** Adopt/freeze the FX2 suite; decide whether to close the three open
 `$defs`.
+
+---
+
+## 2026-08-11 (second entry) — FX2: the second-generation acceptance suite
+
+**Branch:** `codex/minilang-artifact-audit`, on `0d82ce6`.
+
+**Objective.** Freeze an additive suite covering the behaviours the frozen thirty cannot
+reach, without touching them.
+
+**What was completed.** 40 fixtures across 9 families — domain subtyping, warrant envelope,
+frame condition, scope containment, branch/join, unknown masking, trust modes, candidate
+rejection, malformed input — plus a schema that `$ref`s the frozen one's structural `$defs`,
+a manifest with hashes, a README, and validation on both sides.
+
+**Decisions and why.**
+
+*Expectations are hand-written.* Every expected verdict is stated in `build_fx2.py` from the
+semantic contract before any verifier runs. Generating them by execution would record what
+the code does rather than what it should do. Production then measured **40/40** against them.
+
+*FX2 gets its own schema rather than widening the frozen one.* The frozen schema is a hashed
+artifact describing a frozen experiment; extending its `semantic_focus` enum to cover FRAME,
+TRUST and MALFORMED would misrepresent what that experiment tested. The v2 schema `$ref`s
+the base's `$defs` so there remains exactly one definition of a case.
+
+*FX2 declares its own `source`.* The frozen source block requires a MATH dataset row, a
+source hash and a `gold125_overlap` flag. FX2 cases are constructed to exercise an invariant,
+not drawn from a dataset row, and filling those fields would be **fabricating provenance**.
+
+*`domain` is optional on a v2 claim.* The frozen schema requires it, making "this claim
+carries no domain" inexpressible — yet D-048 established that absence is semantically
+meaningful (`UNRESOLVED`) and distinct from a wrong domain (`INVALID`). A schema that cannot
+express the absence cannot describe a case testing it.
+
+**Tests and verification actually executed.**
+
+| check | result |
+|---|---|
+| FX2 vs production HML (hand-written expectations) | **40/40** |
+| FX2 vs the v2 schema | **38/40**; two MAL fixtures deliberately schema-invalid |
+| strict RFC 8259 parse, Python + **independent Ruby parser** | both OK |
+| frozen thirty byte-unchanged | asserted by test |
+| id collision with the frozen thirty | none |
+| corpus `pytest tests/` | **63 passed** |
+| HML `pytest tests/semantic_state` | **379 passed** |
+
+**Failures and unresolved uncertainty.**
+
+*An earlier build was not valid JSON.* It embedded a `NaN` literal, which RFC 8259 does not
+permit; an **independent Ruby parse rejected the entire file**. Caught before commit, by the
+independent-validator rule. `NaN` is now carried as a `materialise` instruction and the
+generator emits with `allow_nan=False`, so writing a non-standard literal is an error at
+build time rather than a file nobody else can read.
+
+*One mutation survives FX2, and is classified rather than papered over.* Removing the
+null-branch-conclusion guard fails **0** fixtures, because a non-null published proposition
+makes the mismatch check catch a null conclusion anyway — the guard is verdict-equivalent
+and exists for its diagnostic, which the HML-side unit test pins. Writing a fixture to
+manufacture a kill would have raised a score and taught nothing.
+
+*One fixture is schema-valid and semantically malformed.* `FX2-MAL-UNHASHABLE-REFUSE` passes
+the schema because `obligations_created` is typed `array` with no item constraint, and is
+still refused by the verifier. It is kept for exactly that contrast: **passing the published
+schema is not the same as being a well-formed transition.**
+
+**Next intended step.** The 22 surviving mutations from the earlier census; then
+P-01/P-02/P-03; then the semantic freeze, release manifest and tag.
