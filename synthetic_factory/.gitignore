@@ -3,4 +3,5 @@ __pycache__/
 scratch/
 data/stage1000/
 data/stage10000/
+data/lean_attestation/stage1000/
 *.tmp

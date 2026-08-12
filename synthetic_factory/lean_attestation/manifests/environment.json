@@ -1,0 +1,75 @@
+{
+  "corpus_authority_sha": "9d67e54450b9db897ee2ed20ec2e4cbbc16a3780",
+  "hml_authority": {
+    "modified": false,
+    "sha": "84bf9897689b0ed78a2caaefc1db850d49b81260",
+    "tag": "hml-semantic-pre-gemma-v1"
+  },
+  "identity": {
+    "attestation_code_sha": "f1e69af7639f7fecf98b903c4c85122adcadaf6331a531d575c8ac2dd9b30acd",
+    "lean_build_commit": "3b58e0649156",
+    "lean_version": "v4.10.0-rc1",
+    "lean_version_output": "Lean (version 4.10.0-rc1, x86_64-unknown-linux-gnu, commit 3b58e0649156, Release)",
+    "leandojo_repo_url": "https://github.com/lean-dojo/LeanDojo.git",
+    "leandojo_sha": "abcfb72143ff3829e622418557e14c8b41b69a61",
+    "leandojo_version": "2.0.0",
+    "mathlib_repo_url": "https://github.com/leanprover-community/mathlib4",
+    "mathlib_sha": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+    "mathlib_tree": "c68d32a8ed995c685355c36564286acdacfc060d",
+    "platform_machine": "x86_64",
+    "python_version": "3.11.9",
+    "remote_trace_url": "https://dl.fbaipublicfiles.com/lean-dojo/leanprover-community-mathlib4-29dcec074de168ac2bf835a77ef68bbe069194c5.tar.gz",
+    "source_archive": {
+      "bytes": 68141936,
+      "doi": "10.5281/zenodo.12740403",
+      "md5": "25e1ee60cd8925b9d2e8673ddcc34b4c",
+      "name": "leandojo_benchmark_4.tar.gz",
+      "sha256": "19b9a31968229d5bae4b959be9351d92740643d16a58c7f58f6d82795b8a98a4"
+    },
+    "source_artifact_records": 241265,
+    "source_artifact_sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
+    "split_manifest_sha256": "e015b4311e76985644555e69ba83229b88d532de5268abe4375a2adc00f1fbb3",
+    "theorem_split_sha256": "2fddc0685f07ff85afb82da9fc40c7683fa0920ad8888937da9fb174f6a76637",
+    "trace_instrumentation_files": {
+      "Lean4Repl.lean": {
+        "bytes": 11219,
+        "path": "/tmp/lean_dojo_cache/leanprover-community-mathlib4-29dcec074de168ac2bf835a77ef68bbe069194c5/mathlib4/Lean4Repl.lean",
+        "sha256": "d7c2a3da8629127d39b037925072d1f2c91eeeb0e000fc1ee09c0504b70f13d0"
+      },
+      "lake-manifest.json": {
+        "bytes": 2090,
+        "path": "/tmp/lean_dojo_cache/leanprover-community-mathlib4-29dcec074de168ac2bf835a77ef68bbe069194c5/mathlib4/lake-manifest.json",
+        "sha256": "b283d36205658ac130fcc9a5de33a134a79e23a5bb568f734c288d010d8bb5de"
+      },
+      "lean-toolchain": {
+        "bytes": 29,
+        "path": "/tmp/lean_dojo_cache/leanprover-community-mathlib4-29dcec074de168ac2bf835a77ef68bbe069194c5/mathlib4/lean-toolchain",
+        "sha256": "423ae714bbbb56154fe3934bc715dee2bd624ac1337c47b7cd4719fc155086c8"
+      }
+    }
+  },
+  "runtime_environment_digest": "86f30b7ee37a1a9b08c4099b6d7fbca8ef824388a74df9e4a92fa1a49e3618fc",
+  "source_checks": {
+    "canonical": {
+      "bytes": 755808347,
+      "path": "/home/moheet/HMLTN_CODEX_SYNTH/source_artifacts/lean_domino_v2/lean_canonical_records.jsonl",
+      "sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869"
+    },
+    "source_archive": {
+      "bytes": 68141936,
+      "path": "/home/moheet/HMLTN_CODEX_SYNTH/lean_runtime/leandojo_benchmark_4.tar.gz",
+      "sha256": "19b9a31968229d5bae4b959be9351d92740643d16a58c7f58f6d82795b8a98a4"
+    },
+    "split_manifest": {
+      "bytes": 244,
+      "path": "/home/moheet/HMLTN_CODEX_SYNTH/source_artifacts/lean_domino_v2/split_manifest.json",
+      "sha256": "e015b4311e76985644555e69ba83229b88d532de5268abe4375a2adc00f1fbb3"
+    },
+    "theorem_split": {
+      "bytes": 2723935,
+      "path": "/home/moheet/HMLTN_CODEX_SYNTH/source_artifacts/lean_domino_v2/theorem_split.json",
+      "sha256": "2fddc0685f07ff85afb82da9fc40c7683fa0920ad8888937da9fb174f6a76637"
+    }
+  },
+  "status": "ENVIRONMENT_VERIFIED"
+}

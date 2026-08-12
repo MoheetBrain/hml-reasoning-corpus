@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hmltn.local/schemas/lean-attestation-certificate-1.0.0.json",
+  "title": "Representation-neutral Lean runtime attestation certificate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "certificate_id",
+    "source_record_id",
+    "source_record_sha256",
+    "source_theorem_id",
+    "source_file",
+    "source_split",
+    "source_official_split",
+    "transition_index",
+    "environment",
+    "recorded",
+    "runtime",
+    "replay_status",
+    "before_match",
+    "after_match",
+    "backend_result",
+    "runtime_io",
+    "runtime_environment_digest",
+    "certificate_created_at",
+    "attestation_code_sha",
+    "content_sha256_excluding_created_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "lean-attestation-certificate-1.0.0"},
+    "certificate_id": {"type": "string", "pattern": "^LEAN-ATT-[0-9a-f]{24}$"},
+    "source_record_id": {"type": "string", "minLength": 1},
+    "source_record_sha256": {"$ref": "#/$defs/sha256"},
+    "source_theorem_id": {"type": "string", "minLength": 1},
+    "source_file": {"type": "string", "minLength": 1},
+    "source_split": {"enum": ["TRAIN", "DEV", "FINAL"]},
+    "source_official_split": {"enum": ["train", "val", "test"]},
+    "transition_index": {"type": "integer", "minimum": 0},
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lean_version",
+        "lean_build_commit",
+        "mathlib_sha",
+        "leandojo_version",
+        "leandojo_sha",
+        "source_artifact_sha256",
+        "source_archive_sha256"
+      ],
+      "properties": {
+        "lean_version": {"const": "v4.10.0-rc1"},
+        "lean_build_commit": {"const": "3b58e0649156"},
+        "mathlib_sha": {"const": "29dcec074de168ac2bf835a77ef68bbe069194c5"},
+        "leandojo_version": {"const": "2.0.0"},
+        "leandojo_sha": {"const": "abcfb72143ff3829e622418557e14c8b41b69a61"},
+        "source_artifact_sha256": {"$ref": "#/$defs/sha256"},
+        "source_archive_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "recorded": {"$ref": "#/$defs/transition"},
+    "runtime": {"$ref": "#/$defs/runtimeTransition"},
+    "replay_status": {
+      "enum": [
+        "TRACE_ONLY",
+        "REPLAY_PASS",
+        "REPLAY_STATE_MISMATCH",
+        "REPLAY_TACTIC_FAIL",
+        "ENVIRONMENT_UNAVAILABLE",
+        "UNSUPPORTED"
+      ]
+    },
+    "before_match": {"$ref": "#/$defs/match"},
+    "after_match": {"$ref": "#/$defs/matchOrNull"},
+    "backend_result": {"type": "object"},
+    "runtime_io": {
+      "type": "object",
+      "required": ["stdout_sha256", "stderr_sha256", "protocol_result_sha256"],
+      "properties": {
+        "stdout_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "stderr_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "protocol_result_sha256": {"$ref": "#/$defs/sha256"},
+        "note": {"type": "string"}
+      }
+    },
+    "runtime_environment_digest": {"$ref": "#/$defs/sha256"},
+    "certificate_created_at": {"type": "string", "format": "date-time"},
+    "attestation_code_sha": {"$ref": "#/$defs/sha256"},
+    "content_sha256_excluding_created_at": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "match": {
+      "enum": [
+        "EXACT_TEXT_MATCH",
+        "NORMALIZED_STATE_MATCH",
+        "SEMANTICALLY_EQUIVALENT_IF_PROVABLE",
+        "MISMATCH"
+      ]
+    },
+    "matchOrNull": {
+      "anyOf": [{"$ref": "#/$defs/match"}, {"type": "null"}]
+    },
+    "transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_before_raw_sha256",
+        "state_before_normalized_sha256",
+        "action",
+        "action_sha256",
+        "state_after_raw_sha256",
+        "state_after_normalized_sha256"
+      ],
+      "properties": {
+        "state_before_raw_sha256": {"$ref": "#/$defs/sha256"},
+        "state_before_normalized_sha256": {"$ref": "#/$defs/sha256"},
+        "action": {"type": "string"},
+        "action_sha256": {"$ref": "#/$defs/sha256"},
+        "state_after_raw_sha256": {"$ref": "#/$defs/sha256"},
+        "state_after_normalized_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "runtimeTransition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_before_raw_sha256",
+        "state_before_normalized_sha256",
+        "action",
+        "action_sha256",
+        "state_after_raw_sha256",
+        "state_after_normalized_sha256"
+      ],
+      "properties": {
+        "state_before_raw_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "state_before_normalized_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "action": {"type": "string"},
+        "action_sha256": {"$ref": "#/$defs/sha256"},
+        "state_after_raw_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "state_after_normalized_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]}
+      }
+    }
+  }
+}

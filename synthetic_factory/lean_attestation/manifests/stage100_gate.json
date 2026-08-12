@@ -1,0 +1,22 @@
+{
+  "correct_before_state_rate": 0.32,
+  "deterministic_excluding_timestamps": true,
+  "failure_causes": {
+    "exact_state_reconstruction_mismatch": 11,
+    "nested_trace_without_exact_executable_path": 56,
+    "prefix_tactic_failure": 1
+  },
+  "passed": false,
+  "reproducible_runtime_execution_rate": 0.44,
+  "resulting_state_match_rate_among_executed": 1.0,
+  "run1_content_sha256": "6f75541537776305d390fcea2d7bce55366fef6090fb8f1867a982d30f6ce306",
+  "run2_content_sha256": "6f75541537776305d390fcea2d7bce55366fef6090fb8f1867a982d30f6ce306",
+  "stage": 100,
+  "stage1k_blocked": true,
+  "status_counts": {
+    "REPLAY_PASS": 32,
+    "REPLAY_STATE_MISMATCH": 11,
+    "REPLAY_TACTIC_FAIL": 1,
+    "UNSUPPORTED": 56
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "canonical_source_sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
+  "depth_bin_counts": {
+    "0": 24,
+    "1-2": 24,
+    "3-7": 26,
+    "8+": 26
+  },
+  "effect_counts": {
+    "CLOSE": 14,
+    "ELIMINATE": 12,
+    "INTRODUCE": 12,
+    "INTRODUCE_AND_TRANSFORM": 12,
+    "NO_VISIBLE_CHANGE": 12,
+    "REWRITE_CONTEXT": 12,
+    "REWRITE_CONTEXT_AND_TARGET": 12,
+    "TRANSFORM_TARGET": 14
+  },
+  "file_families": 30,
+  "hypothesis_count_bin_counts": {
+    "0-8": 24,
+    "14-19": 24,
+    "20+": 26,
+    "9-13": 26
+  },
+  "population_scanned": 241265,
+  "seed": 20260812,
+  "selected": 100,
+  "selection_sha256": "4e341eaf42cd4b5fdfda2772c1d0b14a63bb5aaed3f477c96160bea792d46521",
+  "split_counts": {
+    "DEV": 10,
+    "FINAL": 10,
+    "TRAIN": 80
+  },
+  "split_overlap": 0,
+  "state_length_bin_counts": {
+    "L": 24,
+    "M": 26,
+    "S": 23,
+    "XL": 27
+  },
+  "theorem_split_sha256": "2fddc0685f07ff85afb82da9fc40c7683fa0920ad8888937da9fb174f6a76637",
+  "unique_files": 100,
+  "unique_theorems": 100
+}

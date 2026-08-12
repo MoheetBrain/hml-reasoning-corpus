@@ -1,0 +1,120 @@
+{
+  "cache_state": "warm exact LeanDojo traced-repository cache",
+  "certificate_set_content_sha256": "1b5758f03b44de3d3276a4d34b603c04619b9f0358fbdcc107365b48b4e4e0cc",
+  "deterministic_across_worker_counts": true,
+  "results": [
+    {
+      "all_replay_pass": true,
+      "attestation_process_tree_peak_rss_bytes": 3897962496,
+      "certificate_set_content_sha256": "1b5758f03b44de3d3276a4d34b603c04619b9f0358fbdcc107365b48b4e4e0cc",
+      "correct_before_state_rate": 1.0,
+      "elapsed_seconds": 26.534423332000188,
+      "host_cpu_percent_mean": 8.398828125,
+      "host_cpu_percent_peak": 10.5,
+      "records": 16,
+      "records_per_second": 0.6029903043230714,
+      "reproducible_runtime_execution_rate": 1.0,
+      "resulting_state_match_rate_among_executed": 1.0,
+      "status_counts": {
+        "REPLAY_PASS": 16
+      },
+      "workers": 2
+    },
+    {
+      "all_replay_pass": true,
+      "attestation_process_tree_peak_rss_bytes": 7292465152,
+      "certificate_set_content_sha256": "1b5758f03b44de3d3276a4d34b603c04619b9f0358fbdcc107365b48b4e4e0cc",
+      "correct_before_state_rate": 1.0,
+      "elapsed_seconds": 13.87008599300043,
+      "host_cpu_percent_mean": 16.30827067669174,
+      "host_cpu_percent_peak": 18.4,
+      "records": 16,
+      "records_per_second": 1.1535617016415354,
+      "reproducible_runtime_execution_rate": 1.0,
+      "resulting_state_match_rate_among_executed": 1.0,
+      "status_counts": {
+        "REPLAY_PASS": 16
+      },
+      "workers": 4
+    },
+    {
+      "all_replay_pass": true,
+      "attestation_process_tree_peak_rss_bytes": 13155708928,
+      "certificate_set_content_sha256": "1b5758f03b44de3d3276a4d34b603c04619b9f0358fbdcc107365b48b4e4e0cc",
+      "correct_before_state_rate": 1.0,
+      "elapsed_seconds": 10.587629577999905,
+      "host_cpu_percent_mean": 22.127722772277252,
+      "host_cpu_percent_peak": 36.1,
+      "records": 16,
+      "records_per_second": 1.5111975614680069,
+      "reproducible_runtime_execution_rate": 1.0,
+      "resulting_state_match_rate_among_executed": 1.0,
+      "status_counts": {
+        "REPLAY_PASS": 16
+      },
+      "workers": 8
+    },
+    {
+      "all_replay_pass": true,
+      "attestation_process_tree_peak_rss_bytes": 19422703616,
+      "certificate_set_content_sha256": "1b5758f03b44de3d3276a4d34b603c04619b9f0358fbdcc107365b48b4e4e0cc",
+      "correct_before_state_rate": 1.0,
+      "elapsed_seconds": 9.259212801999638,
+      "host_cpu_percent_mean": 26.516091954022993,
+      "host_cpu_percent_peak": 52.4,
+      "records": 16,
+      "records_per_second": 1.7280086700831208,
+      "reproducible_runtime_execution_rate": 1.0,
+      "resulting_state_match_rate_among_executed": 1.0,
+      "status_counts": {
+        "REPLAY_PASS": 16
+      },
+      "workers": 12
+    },
+    {
+      "all_replay_pass": true,
+      "attestation_process_tree_peak_rss_bytes": 20306530304,
+      "certificate_set_content_sha256": "1b5758f03b44de3d3276a4d34b603c04619b9f0358fbdcc107365b48b4e4e0cc",
+      "correct_before_state_rate": 1.0,
+      "elapsed_seconds": 9.585429554000257,
+      "host_cpu_percent_mean": 28.052222222222245,
+      "host_cpu_percent_peak": 67.8,
+      "records": 16,
+      "records_per_second": 1.669200103121385,
+      "reproducible_runtime_execution_rate": 1.0,
+      "resulting_state_match_rate_among_executed": 1.0,
+      "status_counts": {
+        "REPLAY_PASS": 16
+      },
+      "workers": 16
+    },
+    {
+      "all_replay_pass": true,
+      "attestation_process_tree_peak_rss_bytes": 2487517184,
+      "certificate_set_content_sha256": "1b5758f03b44de3d3276a4d34b603c04619b9f0358fbdcc107365b48b4e4e0cc",
+      "correct_before_state_rate": 1.0,
+      "elapsed_seconds": 50.888043767000454,
+      "host_cpu_percent_mean": 4.370396270396283,
+      "host_cpu_percent_peak": 11.3,
+      "records": 16,
+      "records_per_second": 0.3144157019133751,
+      "reproducible_runtime_execution_rate": 1.0,
+      "resulting_state_match_rate_among_executed": 1.0,
+      "status_counts": {
+        "REPLAY_PASS": 16
+      },
+      "workers": 1
+    }
+  ],
+  "sample_definition": "highest-difficulty Stage100 records that passed fresh replay",
+  "sample_records": 16,
+  "startup_included_in_each_record": true,
+  "worker_counts": [
+    2,
+    4,
+    8,
+    12,
+    16,
+    1
+  ]
+}

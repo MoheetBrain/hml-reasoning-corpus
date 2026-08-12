@@ -1,0 +1,22 @@
+{
+  "attestation_process_tree_peak_rss_bytes": 20673327104,
+  "certificate_set_content_sha256": "6f75541537776305d390fcea2d7bce55366fef6090fb8f1867a982d30f6ce306",
+  "correct_before_state_rate": 0.32,
+  "created_at_excluded_from_content_hash": true,
+  "elapsed_seconds": 27.02208640900062,
+  "host_cpu_percent_mean": 23.365116279069692,
+  "host_cpu_percent_peak": 52.3,
+  "output_sha256": "4036c4f7fc863f61ee72d4bed5de12e68882567cc9dc4509da217edb94ddeda1",
+  "records": 100,
+  "records_per_second": 3.7006764942729076,
+  "reproducible_runtime_execution_rate": 0.44,
+  "resulting_state_match_rate_among_executed": 1.0,
+  "selection_sha256": "4e341eaf42cd4b5fdfda2772c1d0b14a63bb5aaed3f477c96160bea792d46521",
+  "status_counts": {
+    "REPLAY_PASS": 32,
+    "REPLAY_STATE_MISMATCH": 11,
+    "REPLAY_TACTIC_FAIL": 1,
+    "UNSUPPORTED": 56
+  },
+  "workers": 12
+}
