@@ -1,0 +1,90 @@
+{
+  "artifact_sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
+  "effect_class_counts": {
+    "CLOSE": 107006,
+    "ELIMINATE": 1415,
+    "INTRODUCE": 27304,
+    "INTRODUCE_AND_TRANSFORM": 24248,
+    "NO_VISIBLE_CHANGE": 2263,
+    "REWRITE_CONTEXT": 13479,
+    "REWRITE_CONTEXT_AND_TARGET": 6881,
+    "TRANSFORM_TARGET": 58669
+  },
+  "eligible": {
+    "ACTION_APPLICABILITY": 241265,
+    "EVIDENCE_SUFFICIENCY": 0,
+    "TRANSITION_CONFORMANCE": 241265
+  },
+  "field_provenance": {
+    "candidate_action": "DIRECT_SOURCE",
+    "dependencies": "NOT_RECOVERABLE",
+    "evidence": "NOT_RECOVERABLE",
+    "formal_backend_trace": "FORMAL_BACKEND",
+    "obligations": "NOT_RECOVERABLE",
+    "preconditions": "NOT_RECOVERABLE",
+    "scope": "NOT_RECOVERABLE",
+    "state_after": "DIRECT_SOURCE",
+    "state_before": "DIRECT_SOURCE",
+    "typed_action_arguments": "NOT_RECOVERABLE"
+  },
+  "field_recoverable_counts": {
+    "candidate_action": 241265,
+    "dependencies": 0,
+    "evidence": 0,
+    "formal_backend_trace": 241265,
+    "obligations": 0,
+    "preconditions": 0,
+    "scope": 0,
+    "state_after": 241265,
+    "state_before": 241265,
+    "typed_action_arguments": 0
+  },
+  "gold_prohibited_provenance": {
+    "HEURISTIC_GUESS": 0,
+    "LLM_GUESS": 0
+  },
+  "not_recoverable_reasons": {
+    "ACTION_APPLICABILITY": {},
+    "EVIDENCE_SUFFICIENCY": {
+      "NO_EVIDENCE_OR_CERTIFICATE_ENVELOPE": 241265
+    },
+    "TRANSITION_CONFORMANCE": {}
+  },
+  "performance": {
+    "peak_memory_strategy": "streaming_one_record",
+    "records_per_second": 63773.51641941327,
+    "wall_seconds": 3.7831534710003325,
+    "workers": 1
+  },
+  "qualification_semantics": {
+    "ACTION_APPLICABILITY": "positive observed Lean tactic only; does not provide counterfactual negatives or an HML SemanticState",
+    "EVIDENCE_SUFFICIENCY": "requires an explicit evidence/certificate learner input, absent here",
+    "TRANSITION_CONFORMANCE": "Lean-native before/tactic/after trace only; not HML transition conformance"
+  },
+  "records_scanned": 241265,
+  "split_manifest": {
+    "example_counts": {
+      "dev": 24067,
+      "final": 24316,
+      "train": 192882
+    },
+    "overlap": [],
+    "seed": 20260811,
+    "split_before_expansion": true,
+    "theorem_counts": {
+      "dev": 6154,
+      "final": 6155,
+      "train": 49233
+    },
+    "unit": "theorem_id"
+  },
+  "split_policy": "project theorem-level split, seed 20260811; raw LeanDojo train/val/test retained as source metadata only",
+  "split_record_counts": {
+    "DEV": 24067,
+    "FINAL": 24316,
+    "TRAIN": 192882
+  },
+  "theorem_split_overlap_count": 0,
+  "theorem_split_overlap_examples": {},
+  "theorems": 61542
+}

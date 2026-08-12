@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HMLTN synthetic factory V2 record",
+  "type": "object",
+  "required": ["schema_version", "protocol", "factory", "partition", "record_id", "prediction_contract", "learner_input_hash", "label", "source_split", "source_provenance"],
+  "properties": {
+    "schema_version": {"const": "synthetic-factory-v2-record-1.0.0"},
+    "protocol": {"const": "synthetic-factory-v2"},
+    "factory": {"enum": ["A", "B"]},
+    "prediction_contract": {"enum": ["ACTION_APPLICABILITY", "TRANSITION_CONFORMANCE", "EVIDENCE_SUFFICIENCY"]},
+    "learner_input_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_split": {"enum": ["TRAIN", "DEV", "FINAL", "CHALLENGE", "FX2", "UNKNOWN"]}
+  }
+}

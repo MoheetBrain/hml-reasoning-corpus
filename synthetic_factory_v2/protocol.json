@@ -1,0 +1,19 @@
+{
+  "protocol": "synthetic-factory-v2",
+  "hml_sha": "84bf9897689b0ed78a2caaefc1db850d49b81260",
+  "corpus_sha": "9d67e54450b9db897ee2ed20ec2e4cbbc16a3780",
+  "v1_commit": "820544372f092392321f5b93e4a14f244fd24272",
+  "prediction_contracts": [
+    "ACTION_APPLICABILITY",
+    "TRANSITION_CONFORMANCE",
+    "EVIDENCE_SUFFICIENCY"
+  ],
+  "factory_a_partitions": ["A1_REGRESSION_PROBES", "A2_LEARNING_CONFORMANCE"],
+  "factory_b_gold_class": "CAUSAL_HARD",
+  "factory_b_distribution": "CHALLENGE_BALANCED",
+  "unknown_policy": "PRESERVE_UNRESOLVED",
+  "stage100_target": 100,
+  "stage1000_enabled": false,
+  "alpha_renaming_enabled": false,
+  "default_workers": 8
+}
