@@ -1,0 +1,72 @@
+{
+  "authority": {
+    "corpus_sha": "9d67e54450b9db897ee2ed20ec2e4cbbc16a3780",
+    "hml_sha": "84bf9897689b0ed78a2caaefc1db850d49b81260"
+  },
+  "benchmark": "stage100_frozen_verifier_process_scaling",
+  "deterministic_across_worker_counts": true,
+  "runs": [
+    {
+      "aggregate_cpu_utilization_percent": 353.85487099995925,
+      "allocated_cpu_utilization_percent": 88.46371774998981,
+      "deterministic_result_sha256": "52d7ab578250ab58c083733ab3ce4b0cc9235c98e88f176dc7dc65c4ee686d56",
+      "failures": 0,
+      "peak_child_rss_kib": 37060,
+      "scratch_isolated": true,
+      "scratch_removed": true,
+      "tasks": 1000,
+      "tasks_per_second": 7488.468974652761,
+      "transition_verifications": 2000,
+      "verifications_per_second": 14976.937949305522,
+      "wall_seconds": 0.1335386450000442,
+      "workers": 4
+    },
+    {
+      "aggregate_cpu_utilization_percent": 711.8854067005028,
+      "allocated_cpu_utilization_percent": 88.98567583756285,
+      "deterministic_result_sha256": "52d7ab578250ab58c083733ab3ce4b0cc9235c98e88f176dc7dc65c4ee686d56",
+      "failures": 0,
+      "peak_child_rss_kib": 37060,
+      "scratch_isolated": true,
+      "scratch_removed": true,
+      "tasks": 1000,
+      "tasks_per_second": 9519.309882025835,
+      "transition_verifications": 2000,
+      "verifications_per_second": 19038.61976405167,
+      "wall_seconds": 0.10504963199991835,
+      "workers": 8
+    },
+    {
+      "aggregate_cpu_utilization_percent": 1405.0519468862196,
+      "allocated_cpu_utilization_percent": 87.81574668038873,
+      "deterministic_result_sha256": "52d7ab578250ab58c083733ab3ce4b0cc9235c98e88f176dc7dc65c4ee686d56",
+      "failures": 0,
+      "peak_child_rss_kib": 37060,
+      "scratch_isolated": true,
+      "scratch_removed": true,
+      "tasks": 1000,
+      "tasks_per_second": 8580.553745173813,
+      "transition_verifications": 2000,
+      "verifications_per_second": 17161.107490347626,
+      "wall_seconds": 0.11654259500005537,
+      "workers": 16
+    },
+    {
+      "aggregate_cpu_utilization_percent": 1597.5613268876318,
+      "allocated_cpu_utilization_percent": 79.8780663443816,
+      "deterministic_result_sha256": "52d7ab578250ab58c083733ab3ce4b0cc9235c98e88f176dc7dc65c4ee686d56",
+      "failures": 0,
+      "peak_child_rss_kib": 37060,
+      "scratch_isolated": true,
+      "scratch_removed": true,
+      "tasks": 1000,
+      "tasks_per_second": 7233.739887360083,
+      "transition_verifications": 2000,
+      "verifications_per_second": 14467.479774720166,
+      "wall_seconds": 0.13824107799996455,
+      "workers": 20
+    }
+  ],
+  "selected_workers": 8,
+  "selection_rule": "fastest zero-failure run, only if all result hashes agree"
+}

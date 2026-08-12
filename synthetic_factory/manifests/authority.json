@@ -1,0 +1,37 @@
+{
+  "corpus": {
+    "absolute_path": "/home/moheet/HMLTN_CODEX_SYNTH/hml-reasoning-corpus",
+    "authority_sha": "9d67e54450b9db897ee2ed20ec2e4cbbc16a3780",
+    "current_branch": "codex/counterfactual-synth-v1",
+    "remote_url": "https://github.com/MoheetBrain/hml-reasoning-corpus.git",
+    "semantic_firewall_tree": "82261ee51a3844e72b980f569fe2ee664efa3025",
+    "source_fixtures_unchanged_from_authority": true
+  },
+  "hml": {
+    "absolute_path": "/home/moheet/HMLTN_CODEX_SYNTH/hml_frozen_readonly",
+    "commit_date": "2026-08-11T12:02:30+01:00",
+    "remote_url": "https://github.com/MoheetBrain/hamiltonian-lang.git",
+    "sha": "84bf9897689b0ed78a2caaefc1db850d49b81260",
+    "tag": "hml-semantic-pre-gemma-v1",
+    "tree_hash": "a81c8f414f0159a7a55dec5ddddbc5a955185d9d",
+    "working_tree_clean": true,
+    "writable_file_count": 0
+  },
+  "isolation": {
+    "claude_fable_files_changed": 0,
+    "frozen_hml_files_changed": 0,
+    "historical_codex_files_changed": 0
+  },
+  "lean_canonical": {
+    "absolute_path": "/home/moheet/HMLTN_CODEX_SYNTH/source_artifacts/lean_domino_v2/lean_canonical_records.jsonl",
+    "bytes": 755808347,
+    "excluded_goal_creation": 18315,
+    "original_transitions": 259580,
+    "reconciles_exactly": true,
+    "records": 241265,
+    "represented_theorems": 61542,
+    "sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
+    "source_experiment_git_sha": "81feb32c7e6fbf0b486116a78ea46e6e4ce7713e"
+  },
+  "status": "AUTHORITY_VERIFIED"
+}

@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+scratch/
+data/stage1000/
+data/stage10000/
+*.tmp

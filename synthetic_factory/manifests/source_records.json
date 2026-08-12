@@ -1,0 +1,42 @@
+{
+  "authority": {
+    "absolute_path": "/home/moheet/HMLTN_CODEX_SYNTH/hml-reasoning-corpus",
+    "authority_sha": "9d67e54450b9db897ee2ed20ec2e4cbbc16a3780",
+    "current_branch": "codex/counterfactual-synth-v1",
+    "remote_url": "https://github.com/MoheetBrain/hml-reasoning-corpus.git",
+    "semantic_firewall_tree": "82261ee51a3844e72b980f569fe2ee664efa3025",
+    "source_fixtures_unchanged_from_authority": true
+  },
+  "certified_valid_sources_selected": 100,
+  "files_scanned": 200,
+  "lean_scale_source": {
+    "absolute_path": "/home/moheet/HMLTN_CODEX_SYNTH/source_artifacts/lean_domino_v2/lean_canonical_records.jsonl",
+    "bytes": 755808347,
+    "excluded_goal_creation": 18315,
+    "original_transitions": 259580,
+    "reconciles_exactly": true,
+    "records": 241265,
+    "represented_theorems": 61542,
+    "sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
+    "source_experiment_git_sha": "81feb32c7e6fbf0b486116a78ea46e6e4ce7713e"
+  },
+  "lean_scale_status": "PINNED_NOT_YET_A_VERIFIER_TRANSITION_SOURCE",
+  "selected_family_distribution": {
+    "BRANCH_JOIN": 10,
+    "CANDIDATES": 10,
+    "DEPENDENCY": 10,
+    "EPISTEMIC_STATUS": 10,
+    "GOAL_DISCHARGE": 10,
+    "OBLIGATIONS": 10,
+    "PRECONDITIONS": 10,
+    "SCOPE": 10,
+    "TYPE_DOMAIN": 10,
+    "WARRANT": 10
+  },
+  "selection_rule": "No label file is consulted. Import every current DEV/FINAL case through frozen HML and retain only records whose current replay verdict is VALID.",
+  "source": "current corpus Semantic Firewall DEV and FINAL cases",
+  "source_verdict_distribution": {
+    "INVALID": 100,
+    "VALID": 100
+  }
+}

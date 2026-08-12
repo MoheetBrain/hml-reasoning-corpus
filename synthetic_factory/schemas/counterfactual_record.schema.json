@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hmltn.dev/schemas/counterfactual-record-1.0.0.json",
+  "title": "Verifier-certified counterfactual transition pair",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocol",
+    "pair_id",
+    "source_record_id",
+    "source_transition_id",
+    "original_state",
+    "mutated_state",
+    "original_candidate_action",
+    "mutated_candidate_action",
+    "mutation_family",
+    "exact_changed_field",
+    "change_count",
+    "original_verifier_result",
+    "mutated_verifier_result",
+    "failure_code_if_invalid",
+    "preconditions",
+    "obligations",
+    "dependencies",
+    "scope",
+    "hml_sha",
+    "corpus_sha",
+    "generator_sha",
+    "verifier_version",
+    "verifier_trust_mode",
+    "source_provenance",
+    "minimality",
+    "causality",
+    "source_transition",
+    "counterfactual_transition"
+  ],
+  "properties": {
+    "schema_version": {"const": "counterfactual-record-1.0.0"},
+    "protocol": {"const": "counterfactual-transition-v1"},
+    "pair_id": {"type": "string", "minLength": 1},
+    "source_record_id": {"type": "string", "minLength": 1},
+    "source_theorem_id": {"type": ["string", "number", "null"]},
+    "source_transition_id": {"type": "string", "minLength": 1},
+    "original_state": {"type": "object"},
+    "mutated_state": {"type": "object"},
+    "original_candidate_action": {"type": "object"},
+    "mutated_candidate_action": {"type": "object"},
+    "mutation_family": {
+      "enum": ["DEPENDENCY", "SCOPE", "PRECONDITIONS", "OBLIGATIONS", "CANDIDATES", "BRANCH_JOIN", "WARRANT", "EPISTEMIC_STATUS", "GOAL_DISCHARGE", "TYPE_DOMAIN"]
+    },
+    "exact_changed_field": {"type": "string", "pattern": "^\\$\\."},
+    "change_count": {"const": 1},
+    "original_verifier_result": {
+      "type": "object",
+      "required": ["verdict"],
+      "properties": {"verdict": {"const": "VALID"}}
+    },
+    "mutated_verifier_result": {
+      "type": "object",
+      "required": ["verdict", "error_class"],
+      "properties": {"verdict": {"const": "INVALID"}}
+    },
+    "runtime_diagnostic": {"type": "object"},
+    "original_state_after": {"type": "object"},
+    "mutated_state_after_if_valid": {"type": "null"},
+    "proposed_mutated_state_after": {"type": "object"},
+    "failure_code_if_invalid": {"type": "string", "minLength": 1},
+    "preconditions": {"type": "array"},
+    "obligations": {"type": "object"},
+    "dependencies": {"type": "array"},
+    "scope": {"type": "object"},
+    "hml_sha": {"const": "84bf9897689b0ed78a2caaefc1db850d49b81260"},
+    "corpus_sha": {"const": "9d67e54450b9db897ee2ed20ec2e4cbbc16a3780"},
+    "generator_sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "verifier_version": {"const": "hml-semantic-pre-gemma-v1"},
+    "verifier_trust_mode": {"const": "OFFLINE_REPLAY"},
+    "source_provenance": {"type": "object"},
+    "minimality": {
+      "type": "object",
+      "required": ["number_of_changed_semantic_fields", "number_of_changed_ast_nodes"],
+      "properties": {
+        "number_of_changed_semantic_fields": {"const": 1},
+        "number_of_changed_ast_nodes": {"const": 1}
+      }
+    },
+    "causality": {
+      "type": "object",
+      "required": ["classification", "parser_or_serialization_artifact"],
+      "properties": {
+        "classification": {"enum": ["SEMANTIC_HARD_PAIR", "STRUCTURAL_PAIR", "AMBIGUOUS"]},
+        "parser_or_serialization_artifact": {"const": false}
+      }
+    },
+    "source_transition": {"type": "object"},
+    "counterfactual_transition": {"type": "object"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,43 @@
+protocol: counterfactual-transition-v1
+status: stage100_only
+frozen_date: 2026-08-12
+authority:
+  hml_tag: hml-semantic-pre-gemma-v1
+  hml_sha: 84bf9897689b0ed78a2caaefc1db850d49b81260
+  corpus_sha: 9d67e54450b9db897ee2ed20ec2e4cbbc16a3780
+  lean_canonical_sha256: 8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869
+  lean_records: 241265
+  hml_checkout_must_be_clean: true
+  hml_checkout_must_have_zero_writable_files: true
+source:
+  stage100: current_corpus_semantic_firewall_dev_and_final_valid_records
+  future_scale: lean_domino_v2_canonical_records
+  warning: lean records are pinned but are not yet verifier-transition payloads
+labels:
+  authority: frozen_hml_transition_verifier
+  primary_mode: OFFLINE_REPLAY
+  rationale: retained evidence is frozen source evidence; generated positives are forbidden
+  preserve_unresolved: true
+minimal_pair:
+  max_changed_semantic_fields: 1
+  require_successful_import: true
+  require_original_verdict: VALID
+  require_counterfactual_verdict: INVALID
+  reject_parser_garbage: true
+  stage100_diagnostic_classes: [SEMANTIC_HARD_PAIR, STRUCTURAL_PAIR, AMBIGUOUS]
+  production_retain_only: SEMANTIC_HARD_PAIR
+stages:
+  stage100:
+    target_pairs: 100
+    audit_every_pair: true
+    hardest_manual_review: 20
+  stage1000:
+    enabled: false
+  stage10000:
+    enabled: false
+performance:
+  tasks: 1000
+  workers: [4, 8, 16, 20]
+  process_isolation: true
+  worker_scratch: scratch/<run_uuid>/worker_<n>/
+seed: 20260812

@@ -1,0 +1,54 @@
+{
+  "alpha_renaming_secondary_dataset": "NOT_STARTED_STAGE100_HARDNESS_GATE_FAILED",
+  "dataset": "counterfactual_v1_stage100",
+  "decision_reason": "Stage 100 passes, but the 241,265-record Lean scale source is not itself a SemanticState Transition payload and lacks verifier-relevant dependencies, evidence, preconditions, obligations and scope. Do not scale by duplicating the 100 Semantic Firewall sources.",
+  "generator_source_sha256": "4b0fa1332c39bd6220ce6720ad3cfe5dc891ae20a0befcf4e194eb2e58ab088d",
+  "quality_decision": "FIX_GENERATOR_FIRST",
+  "records": 100,
+  "sha256": "75519e5f45d76ed2db81c657c4467739f98d69ef9d29ffdcfa3958ff4f435e3f",
+  "status": "DIAGNOSTIC_STAGE100_HARDNESS_GATE_FAILED",
+  "summary": {
+    "accepted_pairs": 100,
+    "ambiguous_pairs": 20,
+    "attempted_mutations": 100,
+    "changed_semantic_fields_distribution": {
+      "1": 100
+    },
+    "duplicate_payload_count": 0,
+    "duplicate_rate": 0.0,
+    "failure_code_distribution": {
+      "CANDIDATE_PROMOTION": 10,
+      "DEPENDENCY_VIOLATION": 10,
+      "EPISTEMIC_PROMOTION": 10,
+      "FALSE_GOAL_DISCHARGE": 10,
+      "INVALID_BRANCH_JOIN": 10,
+      "OBLIGATION_DROP": 10,
+      "PRECONDITION_VIOLATION": 10,
+      "SCOPE_LEAK": 10,
+      "TYPE_OR_DOMAIN_MISMATCH": 10,
+      "WARRANT_MISMATCH": 10
+    },
+    "hml_sha_mismatches": 0,
+    "invalid_counterfactuals": 100,
+    "mutation_family_distribution": {
+      "BRANCH_JOIN": 10,
+      "CANDIDATES": 10,
+      "DEPENDENCY": 10,
+      "EPISTEMIC_STATUS": 10,
+      "GOAL_DISCHARGE": 10,
+      "OBLIGATIONS": 10,
+      "PRECONDITIONS": 10,
+      "SCOPE": 10,
+      "TYPE_DOMAIN": 10,
+      "WARRANT": 10
+    },
+    "provenance_complete": 100,
+    "semantic_hard_pairs": 20,
+    "source_record_diversity": 100,
+    "source_theorem_diversity": 100,
+    "structural_pairs": 60,
+    "trivial_parser_pairs": 0,
+    "unknown_or_unsupported": 0,
+    "valid_alternatives": 0
+  }
+}
