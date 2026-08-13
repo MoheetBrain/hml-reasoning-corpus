@@ -18,6 +18,26 @@ deterministic rendering only where the frozen release can preserve the same dist
 | Transitions carrying a genuine/current semantic-gap refusal | 891 |
 | Direct semantic-gap transitions | 433 |
 | Downstream transitions withheld after a gap | 458 |
+| Source-rederived branch partitions | 31 |
+| Explicit sibling branch records | 68 |
+| Branch openings with explicit pre-split parents | 63 |
+| Source-explicit prose-only branches preserved | 5 |
+| Linear-predecessor branch edges explicitly rejected | 39 |
+
+### Neutral branch ancestry repair
+
+Branch/case ancestry is governed by schema `synthetic-math-branch-ancestry-0.1.0`. Every sibling branch
+records the same non-empty `pre_split_premise_ids`, a scoped branch assumption, its source
+basis, and (where the display segmenter recovered one) its opening transition. The old
+"previous transition is the parent" fallback is explicitly recorded and rejected whenever
+it differs. Nested branches additionally retain `parent_branch_id`. Source-explicit branches
+with no display-math transition remain prose-only records instead of disappearing.
+The schema-validated machine handoff is `data/synthetic_math_branch_ancestry_v1.json`.
+
+This is a corpus/schema correction only. No frozen-HML rendering was emitted for a branch
+gap and no HML semantics were changed. The two required states omitted by the old display
+segmenter (`GEN-056`'s substitution and `GEN-100`'s absolute-value equation) are copied
+from exact source math blocks rather than inferred.
 
 ### Source corpus reconciliation
 
@@ -56806,6 +56826,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"ALG-097-P001-B001-ASSUMPTION","proposition":"u=1","status":"ASSUMED"},"branch_id":"ALG-097-P001-B001","label":"Case 1","linear_predecessor_id":"c007","opening_dependency_ids":["c002","c005"],"opening_transition_id":"ALG-097-T008","parent_branch_id":null,"partition_id":"ALG-097-P001","pre_split_premise_ids":["c002","c005"],"rejected_linear_dependency_ids":["c007"],"source_basis":"Case 1 | Substitute $u=2^x$. Case 1","source_problem_sha256":"247ead68d5ca8f70ce165f6241a1ade6b3dd57ba1234820c82ea1e4776eb3b3d","transition_ids":["ALG-097-T008","ALG-097-T009","ALG-097-T010"]},{"assumption":{"id":"ALG-097-P001-B002-ASSUMPTION","proposition":"u=4","status":"ASSUMED"},"branch_id":"ALG-097-P001-B002","label":"Case 2","linear_predecessor_id":"c010","opening_dependency_ids":["c002","c005"],"opening_transition_id":"ALG-097-T011","parent_branch_id":null,"partition_id":"ALG-097-P001","pre_split_premise_ids":["c002","c005"],"rejected_linear_dependency_ids":["c010"],"source_basis":"Case 2 | Case 2","source_problem_sha256":"247ead68d5ca8f70ce165f6241a1ade6b3dd57ba1234820c82ea1e4776eb3b3d","transition_ids":["ALG-097-T011","ALG-097-T012","ALG-097-T013"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":"ALG-097-T014","parent_branch_id":null,"partition_id":"ALG-097-P001","pre_split_premise_ids":["c002","c005"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c002","proposition":"u=2^x","source_sha256":"8a882be9a246899e929a70ac60c77ef7ce8516159c3edcb947489fe720af59f2"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c005","proposition":"(u-1)(u-4)=0","source_sha256":"ac452e187efad86045f7383e5fb89c038a51cb601c084f70052e46984cfda6ea"}]}]`
+
 #### ALG-097-T001
 
 - **STATE_BEFORE:** `2^{2x}-5(2^x)+4=0`
@@ -57370,13 +57392,14 @@ $$
 - **STATE_BEFORE:** `u=4`
 - **ACTION:** `CASE_SPLIT` — Substitute $u=2^x$. Case 1
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c007"]`; source span SHA-256 `80f11e8c4390183becee6908f3798c646a95212e6c11e85f1a67fa30c84546a9`
+- **DEPENDENCIES:** `["c002","c005"]`; source span SHA-256 `80f11e8c4390183becee6908f3798c646a95212e6c11e85f1a67fa30c84546a9`
 - **STATE_AFTER:** `2^x=1`
 - **Mechanisms:** substitution, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-097-P001-B001-ASSUMPTION","branch_id":"ALG-097-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"ALG-097-P001","pre_split_premise_ids":["c002","c005"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -57408,6 +57431,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-097-P001-B001-ASSUMPTION","branch_id":"ALG-097-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-097-P001","pre_split_premise_ids":["c002","c005"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -57430,13 +57454,14 @@ $$
 - **STATE_BEFORE:** `1=2^0`
 - **ACTION:** `CASE_SPLIT` — So
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c009"]`; source span SHA-256 `d48de4a31cfaf600b0c67964b8dc71ad8767fe374c05f5626508ea4f302c9f89`
+- **DEPENDENCIES:** `["c009"]`; source span SHA-256 `d48de4a31cfaf600b0c67964b8dc71ad8767fe374c05f5626508ea4f302c9f89`
 - **STATE_AFTER:** `x=0`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-097-P001-B001-ASSUMPTION","branch_id":"ALG-097-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-097-P001","pre_split_premise_ids":["c002","c005"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -57459,13 +57484,14 @@ $$
 - **STATE_BEFORE:** `x=0`
 - **ACTION:** `CASE_SPLIT` — Case 2
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c010"]`; source span SHA-256 `ecb2ce498a1320ca6eeda5dd44b665d43e6410bd2b32bf982b0a92a47a9a2de4`
+- **DEPENDENCIES:** `["c002","c005"]`; source span SHA-256 `ecb2ce498a1320ca6eeda5dd44b665d43e6410bd2b32bf982b0a92a47a9a2de4`
 - **STATE_AFTER:** `2^x=4`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-097-P001-B002-ASSUMPTION","branch_id":"ALG-097-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"ALG-097-P001","pre_split_premise_ids":["c002","c005"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -57495,6 +57521,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-097-P001-B002-ASSUMPTION","branch_id":"ALG-097-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-097-P001","pre_split_premise_ids":["c002","c005"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -57517,13 +57544,14 @@ $$
 - **STATE_BEFORE:** `4=2^2`
 - **ACTION:** `CASE_SPLIT` — Therefore
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c012"]`; source span SHA-256 `fe600818fc744334ac39c4b0a06e22a025ef1baee991a5630bdee63f22c4ebfa`
+- **DEPENDENCIES:** `["c012"]`; source span SHA-256 `fe600818fc744334ac39c4b0a06e22a025ef1baee991a5630bdee63f22c4ebfa`
 - **STATE_AFTER:** `x=2`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-097-P001-B002-ASSUMPTION","branch_id":"ALG-097-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-097-P001","pre_split_premise_ids":["c002","c005"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -57546,13 +57574,14 @@ $$
 - **STATE_BEFORE:** `x=2`
 - **ACTION:** `CASE_SPLIT` — Final
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c013"]`; source span SHA-256 `fdfe6ea3efcaf80033ba0fb4f5ed674ecf1282219f5ca2cf430812fc23663d55`
+- **DEPENDENCIES:** `["c010","c013"]`; source span SHA-256 `fdfe6ea3efcaf80033ba0fb4f5ed674ecf1282219f5ca2cf430812fc23663d55`
 - **STATE_AFTER:** `x=0,2`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={2}; after={0}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch join:** partitions `["ALG-097-P001"]`; covered branch conclusions `["c010","c013"]`
 
 <details><summary>Exact source span</summary>
 
@@ -58630,6 +58659,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"ALG-099-P001-B001-ASSUMPTION","proposition":"2x-5\\ge0","status":"ASSUMED"},"branch_id":"ALG-099-P001-B001","label":"Case 1","linear_predecessor_id":null,"opening_dependency_ids":["p0"],"opening_transition_id":"ALG-099-T001","parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":[],"source_basis":"Case 1: $2x-5\\ge0$ | Absolute value means the expression inside can reach the target from either the **positive direction** or **negative direction**. So there are two cases. Case 1: $2x-5\\ge0$ Then","source_problem_sha256":"c3f28bf79d86e5e505f41116fd8a91087a2f4cf461d43d0ca5026c0825d4397c","transition_ids":["ALG-099-T001","ALG-099-T002","ALG-099-T003","ALG-099-T004","ALG-099-T005"]},{"assumption":{"id":"ALG-099-P001-B002-ASSUMPTION","proposition":"2x-5<0","status":"ASSUMED"},"branch_id":"ALG-099-P001-B002","label":"Case 2","linear_predecessor_id":"c005","opening_dependency_ids":["p0"],"opening_transition_id":"ALG-099-T006","parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":["c005"],"source_basis":"Case 2: $2x-5<0$ | Valid. ✅ --- Case 2: $2x-5<0$ Then","source_problem_sha256":"c3f28bf79d86e5e505f41116fd8a91087a2f4cf461d43d0ca5026c0825d4397c","transition_ids":["ALG-099-T006","ALG-099-T007","ALG-099-T008","ALG-099-T009","ALG-099-T010","ALG-099-T011","ALG-099-T012","ALG-099-T013","ALG-099-T014"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":"ALG-099-T015","parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"|2x-5|=x+4","source_sha256":"c3f28bf79d86e5e505f41116fd8a91087a2f4cf461d43d0ca5026c0825d4397c"}]}]`
+
 #### ALG-099-T001
 
 - **STATE_BEFORE:** `|2x-5|=x+4`
@@ -58642,6 +58673,7 @@ $$
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B001-ASSUMPTION","branch_id":"ALG-099-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58677,6 +58709,7 @@ $$
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before=Interval(5/2, oo); after={9}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B001-ASSUMPTION","branch_id":"ALG-099-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58706,6 +58739,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {9}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B001-ASSUMPTION","branch_id":"ALG-099-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58735,6 +58769,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {9}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B001-ASSUMPTION","branch_id":"ALG-099-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58757,13 +58792,14 @@ $$
 - **STATE_BEFORE:** `x=9`
 - **ACTION:** `VERIFY` — Check case condition
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c004"]`; source span SHA-256 `fdeaf3478fc74bd0e001f3fcaadcd768fcd8aa458c8050712fa1e2f3f1cbf852`
+- **DEPENDENCIES:** `["c004"]`; source span SHA-256 `fdeaf3478fc74bd0e001f3fcaadcd768fcd8aa458c8050712fa1e2f3f1cbf852`
 - **STATE_AFTER:** `2(9)-5=13\ge0`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B001-ASSUMPTION","branch_id":"ALG-099-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58786,13 +58822,14 @@ $$
 - **STATE_BEFORE:** `2(9)-5=13\ge0`
 - **ACTION:** `CASE_SPLIT` — Valid. ✅ --- Case 2: $2x-5<0$ Then
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c005"]`; source span SHA-256 `5e798bd1f1d20e8c7685a66200557066ab5093c62c05c6f934d2ad9016e9b745`
+- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `5e798bd1f1d20e8c7685a66200557066ab5093c62c05c6f934d2ad9016e9b745`
 - **STATE_AFTER:** `|2x-5|=-(2x-5)`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B002-ASSUMPTION","branch_id":"ALG-099-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58821,13 +58858,14 @@ $$
 - **STATE_BEFORE:** `|2x-5|=-(2x-5)`
 - **ACTION:** `CASE_SPLIT` — So
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c006"]`; source span SHA-256 `1be4ce8a72303b98b60762535680956cddbe08846e0e7c5a0d716e94ed7c665e`
+- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `1be4ce8a72303b98b60762535680956cddbe08846e0e7c5a0d716e94ed7c665e`
 - **STATE_AFTER:** `-(2x-5)=x+4`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before=Interval(-oo, 5/2); after={1/3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B002-ASSUMPTION","branch_id":"ALG-099-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58857,6 +58895,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {1/3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B002-ASSUMPTION","branch_id":"ALG-099-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58886,6 +58925,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {1/3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B002-ASSUMPTION","branch_id":"ALG-099-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58915,6 +58955,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {1/3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B002-ASSUMPTION","branch_id":"ALG-099-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58944,6 +58985,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {1/3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B002-ASSUMPTION","branch_id":"ALG-099-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -58966,13 +59008,14 @@ $$
 - **STATE_BEFORE:** `x=\frac13`
 - **ACTION:** `VERIFY` — Check case condition
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c011"]`; source span SHA-256 `0d2e2e1bc71ff0aa6634c697af69df3e65cebc4df85fde919ba125eb34f98dc9`
+- **DEPENDENCIES:** `["c011"]`; source span SHA-256 `0d2e2e1bc71ff0aa6634c697af69df3e65cebc4df85fde919ba125eb34f98dc9`
 - **STATE_AFTER:** `2\left(\frac13\right)-5 = \frac23-5`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B002-ASSUMPTION","branch_id":"ALG-099-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -59002,6 +59045,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B002-ASSUMPTION","branch_id":"ALG-099-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -59031,6 +59075,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"ALG-099-P001-B002-ASSUMPTION","branch_id":"ALG-099-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"ALG-099-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -59053,13 +59098,14 @@ $$
 - **STATE_BEFORE:** `=-\frac{13}{3}<0`
 - **ACTION:** `CASE_SPLIT` — Valid. ✅ Therefore
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c014"]`; source span SHA-256 `7d47b732a1313fd6b4821f5e7c7dceb1c7e280531bffb8e1a0e96cd1553b1761`
+- **DEPENDENCIES:** `["c005","c014"]`; source span SHA-256 `7d47b732a1313fd6b4821f5e7c7dceb1c7e280531bffb8e1a0e96cd1553b1761`
 - **STATE_AFTER:** `x=\frac13,\;9`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch join:** partitions `["ALG-099-P001"]`; covered branch conclusions `["c005","c014"]`
 
 <details><summary>Exact source span</summary>
 
@@ -70466,6 +70512,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-008-P001-B001-ASSUMPTION","proposition":"x+2=0","status":"ASSUMED"},"branch_id":"GEN-008-P001-B001","label":"First branch","linear_predecessor_id":"c008","opening_dependency_ids":["c006"],"opening_transition_id":"GEN-008-T009","parent_branch_id":null,"partition_id":"GEN-008-P001","pre_split_premise_ids":["c006"],"rejected_linear_dependency_ids":["c008"],"source_basis":"Granular solution | First branch","source_problem_sha256":"cee0d7fe9290d939b9d6697862ee31ea79b7f2d9b09e9364893093bcc1dbdc38","transition_ids":["GEN-008-T009"]},{"assumption":{"id":"GEN-008-P001-B002-ASSUMPTION","proposition":"x+3=0","status":"ASSUMED"},"branch_id":"GEN-008-P001-B002","label":"Second branch","linear_predecessor_id":"c009","opening_dependency_ids":["c006"],"opening_transition_id":"GEN-008-T010","parent_branch_id":null,"partition_id":"GEN-008-P001","pre_split_premise_ids":["c006"],"rejected_linear_dependency_ids":["c009"],"source_basis":"Granular solution | Second branch","source_problem_sha256":"cee0d7fe9290d939b9d6697862ee31ea79b7f2d9b09e9364893093bcc1dbdc38","transition_ids":["GEN-008-T010"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-008-P001","pre_split_premise_ids":["c006"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c006","proposition":"(x+2)(x+3)=0.","source_sha256":"f42f6468be32e97de938a1c09da4db2d44eb3c49b8e75cbd34565a82bec3df82"}]}]`
+
 #### GEN-008-T001
 
 - **STATE_BEFORE:** `ab=6`
@@ -71391,13 +71439,14 @@ state after
 - **STATE_BEFORE:** `x+3=0.`
 - **ACTION:** `TRANSFORM` — First branch
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c008"]`; source span SHA-256 `6ed26f223c4b7b318906354b44a61e275d483f920d37ad7fa895fdbafa1f682c`
+- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `6ed26f223c4b7b318906354b44a61e275d483f920d37ad7fa895fdbafa1f682c`
 - **STATE_AFTER:** `x+2=0 \rightarrow x=-2.`
 - **Mechanisms:** algebraic_or_logical_transformation
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={-3}; after={-2}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-008-P001-B001-ASSUMPTION","branch_id":"GEN-008-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-008-P001","pre_split_premise_ids":["c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -71420,13 +71469,14 @@ $$
 - **STATE_BEFORE:** `x+2=0 \rightarrow x=-2.`
 - **ACTION:** `TRANSFORM` — Second branch
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c009"]`; source span SHA-256 `10a81317a4ecbc6df74ccd00e95fb03628a7dbeeb6c41b8fc7dfa1a3c748572f`
+- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `10a81317a4ecbc6df74ccd00e95fb03628a7dbeeb6c41b8fc7dfa1a3c748572f`
 - **STATE_AFTER:** `x+3=0 \rightarrow x=-3.`
 - **Mechanisms:** algebraic_or_logical_transformation
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={-2}; after={-3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-008-P001-B002-ASSUMPTION","branch_id":"GEN-008-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-008-P001","pre_split_premise_ids":["c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -73003,6 +73053,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-011-P001-B001-ASSUMPTION","proposition":"x-4=3","status":"ASSUMED"},"branch_id":"GEN-011-P001-B001","label":"CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["p0"],"opening_transition_id":"GEN-011-T001","parent_branch_id":null,"partition_id":"GEN-011-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1 | Then","source_problem_sha256":"3df1e093cc65c4fd7d7581cf3af5f61a9a85a2e5a56a3156601f1a217b04910a","transition_ids":["GEN-011-T001","GEN-011-T002"]},{"assumption":{"id":"GEN-011-P001-B002-ASSUMPTION","proposition":"x-4=-3","status":"ASSUMED"},"branch_id":"GEN-011-P001-B002","label":"CASE 2","linear_predecessor_id":"c002","opening_dependency_ids":["p0"],"opening_transition_id":"GEN-011-T003","parent_branch_id":null,"partition_id":"GEN-011-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":["c002"],"source_basis":"CASE 2 | Then","source_problem_sha256":"3df1e093cc65c4fd7d7581cf3af5f61a9a85a2e5a56a3156601f1a217b04910a","transition_ids":["GEN-011-T003","GEN-011-T004"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-011-P001","pre_split_premise_ids":["p0"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Solve: $$ |x-4|=3 $$","source_sha256":"3df1e093cc65c4fd7d7581cf3af5f61a9a85a2e5a56a3156601f1a217b04910a"}]}]`
+
 #### GEN-011-T001
 
 - **STATE_BEFORE:** `x-4=3.`
@@ -73015,6 +73067,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {7}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-011-P001-B001-ASSUMPTION","branch_id":"GEN-011-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-011-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -73044,6 +73097,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {7}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-011-P001-B001-ASSUMPTION","branch_id":"GEN-011-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-011-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -73066,13 +73120,14 @@ $$
 - **STATE_BEFORE:** `x-4=-3.`
 - **ACTION:** `CASE_SPLIT` — Then
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c002"]`; source span SHA-256 `13139a0d3e7f5c00b4b07365406a256ebfa686de2ebcd519f169206780d4271a`
+- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `13139a0d3e7f5c00b4b07365406a256ebfa686de2ebcd519f169206780d4271a`
 - **STATE_AFTER:** `x-4+4=-3+4`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-011-P001-B002-ASSUMPTION","branch_id":"GEN-011-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-011-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -73102,6 +73157,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-011-P001-B002-ASSUMPTION","branch_id":"GEN-011-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-011-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -80223,6 +80279,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-025-P001-B001-ASSUMPTION","proposition":"2x+1=7","status":"ASSUMED"},"branch_id":"GEN-025-P001-B001","label":"CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["p0"],"opening_transition_id":"GEN-025-T001","parent_branch_id":null,"partition_id":"GEN-025-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1 | Subtract $1$","source_problem_sha256":"5acd6b6d2063f9acc9b30bb3901a5bfe1e266b743321adabaa83b065ab6bbcae","transition_ids":["GEN-025-T001","GEN-025-T002"]},{"assumption":{"id":"GEN-025-P001-B002-ASSUMPTION","proposition":"2x+1=-7","status":"ASSUMED"},"branch_id":"GEN-025-P001-B002","label":"CASE 2","linear_predecessor_id":"c002","opening_dependency_ids":["p0"],"opening_transition_id":"GEN-025-T003","parent_branch_id":null,"partition_id":"GEN-025-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":["c002"],"source_basis":"CASE 2 | Subtract $1$","source_problem_sha256":"5acd6b6d2063f9acc9b30bb3901a5bfe1e266b743321adabaa83b065ab6bbcae","transition_ids":["GEN-025-T003","GEN-025-T004"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-025-P001","pre_split_premise_ids":["p0"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Solve: $$ |2x+1|=7. $$","source_sha256":"5acd6b6d2063f9acc9b30bb3901a5bfe1e266b743321adabaa83b065ab6bbcae"}]}]`
+
 #### GEN-025-T001
 
 - **STATE_BEFORE:** `2x+1=7.`
@@ -80235,6 +80293,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-025-P001-B001-ASSUMPTION","branch_id":"GEN-025-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-025-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -80264,6 +80323,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-025-P001-B001-ASSUMPTION","branch_id":"GEN-025-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-025-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -80286,13 +80346,14 @@ $$
 - **STATE_BEFORE:** `2x+1=-7.`
 - **ACTION:** `CASE_SPLIT` — Subtract $1$
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c002"]`; source span SHA-256 `5e73bdf3811a79c248237a22a4019d9ef62e3e29cf13690caf6705d1dd163340`
+- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `5e73bdf3811a79c248237a22a4019d9ef62e3e29cf13690caf6705d1dd163340`
 - **STATE_AFTER:** `2x=-8.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-4}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-025-P001-B002-ASSUMPTION","branch_id":"GEN-025-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-025-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -80322,6 +80383,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-4}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-025-P001-B002-ASSUMPTION","branch_id":"GEN-025-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-025-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -95090,18 +95152,21 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-042-P001-B001-ASSUMPTION","proposition":"both numerator and denominator positive","status":"ASSUMED"},"branch_id":"GEN-042-P001-B001","label":"CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["p0","i001","i002"],"opening_transition_id":"GEN-042-T001","parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: both positive | and","source_problem_sha256":"50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f","transition_ids":["GEN-042-T001","GEN-042-T002","GEN-042-T003","GEN-042-T004"]},{"assumption":{"id":"GEN-042-P001-B002-ASSUMPTION","proposition":"both numerator and denominator negative","status":"ASSUMED"},"branch_id":"GEN-042-P001-B002","label":"CASE 2","linear_predecessor_id":"c004","opening_dependency_ids":["p0","i001","i002"],"opening_transition_id":"GEN-042-T005","parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"],"rejected_linear_dependency_ids":["c004"],"source_basis":"CASE 2: both negative | and","source_problem_sha256":"50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f","transition_ids":["GEN-042-T005","GEN-042-T006","GEN-042-T007"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Solve: $$ \\frac{x-1}{x+2}>0. $$","source_sha256":"50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f"},{"origin":"SOURCE_INITIAL_STATE","premise_id":"i001","proposition":"x\\neq-2.","source_sha256":"50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f"},{"origin":"SOURCE_INITIAL_STATE","premise_id":"i002","proposition":"-2, 1.","source_sha256":"50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f"}]}]`
+
 #### GEN-042-T001
 
 - **STATE_BEFORE:** `x-1>0`
 - **ACTION:** `CASE_SPLIT` — and
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `a539603dd04606c13b8ad059dd8b7d9e52bdd55159d75c41de3d2a6532709823`
+- **DEPENDENCIES:** `["p0","i001","i002"]`; source span SHA-256 `a539603dd04606c13b8ad059dd8b7d9e52bdd55159d75c41de3d2a6532709823`
 - **STATE_AFTER:** `x+2>0.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-042-P001-B001-ASSUMPTION","branch_id":"GEN-042-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -95131,6 +95196,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-042-P001-B001-ASSUMPTION","branch_id":"GEN-042-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -95160,6 +95226,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-042-P001-B001-ASSUMPTION","branch_id":"GEN-042-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -95189,6 +95256,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-042-P001-B001-ASSUMPTION","branch_id":"GEN-042-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -95211,13 +95279,14 @@ $$
 - **STATE_BEFORE:** `x-1<0`
 - **ACTION:** `CASE_SPLIT` — and
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c004"]`; source span SHA-256 `bdbbcad4095649a4a9bc590d3832f8999c92943a9537254152ead103e9c4c292`
+- **DEPENDENCIES:** `["p0","i001","i002"]`; source span SHA-256 `bdbbcad4095649a4a9bc590d3832f8999c92943a9537254152ead103e9c4c292`
 - **STATE_AFTER:** `x+2<0.`
 - **Mechanisms:** inequality_sign, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-042-P001-B002-ASSUMPTION","branch_id":"GEN-042-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -95247,6 +95316,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-042-P001-B002-ASSUMPTION","branch_id":"GEN-042-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -95276,6 +95346,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-042-P001-B002-ASSUMPTION","branch_id":"GEN-042-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-042-P001","pre_split_premise_ids":["p0","i001","i002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97153,6 +97224,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-046-P001-B001-ASSUMPTION","proposition":"-2<0","status":"ASSUMED"},"branch_id":"GEN-046-P001-B001","label":"first piecewise branch","linear_predecessor_id":null,"opening_dependency_ids":["p0"],"opening_transition_id":"GEN-046-T001","parent_branch_id":null,"partition_id":"GEN-046-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":[],"source_basis":"Granular solution | Therefore use the first branch","source_problem_sha256":"821e62fa32cf03a6ddbe22bdbd53ba2faff1d8d34fee46787c2c88544d175dac","transition_ids":["GEN-046-T001","GEN-046-T002"]},{"assumption":{"id":"GEN-046-P001-B002-ASSUMPTION","proposition":"3\\ge0","status":"ASSUMED"},"branch_id":"GEN-046-P001-B002","label":"second piecewise branch","linear_predecessor_id":"c003","opening_dependency_ids":["p0"],"opening_transition_id":"GEN-046-T004","parent_branch_id":null,"partition_id":"GEN-046-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":["c003"],"source_basis":"Granular solution | Therefore use the second branch","source_problem_sha256":"821e62fa32cf03a6ddbe22bdbd53ba2faff1d8d34fee46787c2c88544d175dac","transition_ids":["GEN-046-T004","GEN-046-T005","GEN-046-T006"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-046-P001","pre_split_premise_ids":["p0"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Let $$ f(x)= \\begin{cases} x^2,&x<0,\\\\ 2x+1,&x\\ge0. \\end{cases} $$ Find $f(-2)$ and $f(3)$.","source_sha256":"821e62fa32cf03a6ddbe22bdbd53ba2faff1d8d34fee46787c2c88544d175dac"}]}]`
+
 #### GEN-046-T001
 
 - **STATE_BEFORE:** `-2<0.`
@@ -97165,6 +97238,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-046-P001-B001-ASSUMPTION","branch_id":"GEN-046-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-046-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97195,6 +97269,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-046-T001`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-046-P001-B001-ASSUMPTION","branch_id":"GEN-046-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-046-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97247,13 +97322,14 @@ $$
 - **STATE_BEFORE:** `3\ge0.`
 - **ACTION:** `TRANSFORM` — Therefore use the second branch
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c003"]`; source span SHA-256 `e03ec1eaed8cf7daeb0bf7e4987b3a6b9f34e60e6183173cabc6244ebc2c83ed`
+- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `e03ec1eaed8cf7daeb0bf7e4987b3a6b9f34e60e6183173cabc6244ebc2c83ed`
 - **STATE_AFTER:** `f(3)=2(3)+1.`
 - **Mechanisms:** algebraic_or_logical_transformation
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-046-P001-B002-ASSUMPTION","branch_id":"GEN-046-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-046-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97284,6 +97360,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-046-T001`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-046-P001-B002-ASSUMPTION","branch_id":"GEN-046-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-046-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97314,6 +97391,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-046-T001`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-046-P001-B002-ASSUMPTION","branch_id":"GEN-046-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-046-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97500,6 +97578,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-047-P001-B001-ASSUMPTION","proposition":"x<2","status":"ASSUMED"},"branch_id":"GEN-047-P001-B001","label":"CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["p0"],"opening_transition_id":"GEN-047-T001","parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: $x<2$ | Equation","source_problem_sha256":"4cf7a2155f3888d5400d613b671e3b0890a4193596d3a195c2d9ee629c982121","transition_ids":["GEN-047-T001","GEN-047-T002","GEN-047-T003"]},{"assumption":{"id":"GEN-047-P001-B002-ASSUMPTION","proposition":"x\\ge2","status":"ASSUMED"},"branch_id":"GEN-047-P001-B002","label":"CASE 2","linear_predecessor_id":"c003","opening_dependency_ids":["p0"],"opening_transition_id":"GEN-047-T004","parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":["c003"],"source_basis":"CASE 2: $x\\ge2$ | Equation","source_problem_sha256":"4cf7a2155f3888d5400d613b671e3b0890a4193596d3a195c2d9ee629c982121","transition_ids":["GEN-047-T004","GEN-047-T005","GEN-047-T006","GEN-047-T007"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Let $$ f(x)= \\begin{cases} x+1,&x<2,\\\\ 2x-3,&x\\ge2. \\end{cases} $$ Solve $f(x)=3$.","source_sha256":"4cf7a2155f3888d5400d613b671e3b0890a4193596d3a195c2d9ee629c982121"}]}]`
+
 #### GEN-047-T001
 
 - **STATE_BEFORE:** `f(x)=x+1.`
@@ -97512,6 +97592,7 @@ $$
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before=ConditionSet(x, Eq(-x + f(x) - 1, 0), Reals); after={2}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-047-P001-B001-ASSUMPTION","branch_id":"GEN-047-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97541,6 +97622,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {2}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-047-P001-B001-ASSUMPTION","branch_id":"GEN-047-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97570,6 +97652,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-047-P001-B001-ASSUMPTION","branch_id":"GEN-047-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97592,13 +97675,14 @@ $$
 - **STATE_BEFORE:** `f(x)=2x-3.`
 - **ACTION:** `CASE_SPLIT` — Equation
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c003"]`; source span SHA-256 `75ed78b30803f23b8dc685c8ceb293f63f56dd188b8820b81c288bc0d5a78c8d`
+- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `75ed78b30803f23b8dc685c8ceb293f63f56dd188b8820b81c288bc0d5a78c8d`
 - **STATE_AFTER:** `2x-3=3.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before=ConditionSet(x, Eq(-2*x + f(x) + 3, 0), Reals); after={3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-047-P001-B002-ASSUMPTION","branch_id":"GEN-047-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97628,6 +97712,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-047-P001-B002-ASSUMPTION","branch_id":"GEN-047-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97657,6 +97742,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-047-P001-B002-ASSUMPTION","branch_id":"GEN-047-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -97686,6 +97772,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-047-P001-B002-ASSUMPTION","branch_id":"GEN-047-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-047-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -99844,6 +99931,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-050-P001-B001-ASSUMPTION","proposition":"a\\neq0","status":"ASSUMED"},"branch_id":"GEN-050-P001-B001","label":"CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["p0"],"opening_transition_id":"GEN-050-T001","parent_branch_id":null,"partition_id":"GEN-050-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: $a\\neq0$ | Divide by established-nonzero $a$","source_problem_sha256":"f14168a1a1f5d916af2c167e843927b734f09dd2f7429d4a7d3cc2001e7e1577","transition_ids":["GEN-050-T001","GEN-050-T002"]},{"assumption":{"id":"GEN-050-P001-B002-ASSUMPTION","proposition":"a=0","status":"ASSUMED"},"branch_id":"GEN-050-P001-B002","label":"CASE 2","linear_predecessor_id":"c002","opening_dependency_ids":["p0"],"opening_transition_id":"GEN-050-T003","parent_branch_id":null,"partition_id":"GEN-050-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":["c002"],"source_basis":"CASE 2: $a=0$ | No explicit warrant text occurs between the two source states.","source_problem_sha256":"f14168a1a1f5d916af2c167e843927b734f09dd2f7429d4a7d3cc2001e7e1577","transition_ids":["GEN-050-T003"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-050-P001","pre_split_premise_ids":["p0"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Solve, depending on the real parameter $a$: $$ a(x-2)=3. $$","source_sha256":"f14168a1a1f5d916af2c167e843927b734f09dd2f7429d4a7d3cc2001e7e1577"}]}]`
+
 #### GEN-050-T001
 
 - **STATE_BEFORE:** `a(x-2)=3.`
@@ -99856,6 +99945,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-050-P001-B001-ASSUMPTION","branch_id":"GEN-050-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-050-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -99885,6 +99975,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-050-P001-B001-ASSUMPTION","branch_id":"GEN-050-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-050-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -99907,13 +99998,14 @@ $$
 - **STATE_BEFORE:** `0(x-2)=3.`
 - **ACTION:** `CASE_SPLIT` — No explicit warrant text occurs between the two source states.
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c002"]`; source span SHA-256 `5046384dcdb71be996ec02db5a26361e2b259df637f2c6f75f5182efe6be34cb`
+- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `5046384dcdb71be996ec02db5a26361e2b259df637f2c6f75f5182efe6be34cb`
 - **STATE_AFTER:** `0=3.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-050-P001-B002-ASSUMPTION","branch_id":"GEN-050-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-050-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -102911,6 +103003,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-054-P001-B001-ASSUMPTION","proposition":"x-1<0","status":"ASSUMED"},"branch_id":"GEN-054-P001-B001","label":"CASE 1","linear_predecessor_id":"c002","opening_dependency_ids":["p0","c002"],"opening_transition_id":"GEN-054-T003","parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: $x-1<0$ | Squaring an inequality is safe only when both sides are known nonnegative. Therefore split according to the sign of $x-1$. CASE 1: $x-1<0$ Assumption","source_problem_sha256":"04cf6be977a6c9ce0632f40a8bd10c66c55a5ccfff5b2969fab96c329f51d4a1","transition_ids":["GEN-054-T003","GEN-054-T004","GEN-054-T005","GEN-054-T006","GEN-054-T007","GEN-054-T008"]},{"assumption":{"id":"GEN-054-P001-B002-ASSUMPTION","proposition":"x-1\\ge0","status":"ASSUMED"},"branch_id":"GEN-054-P001-B002","label":"CASE 2","linear_predecessor_id":"c008","opening_dependency_ids":["p0","c002"],"opening_transition_id":"GEN-054-T009","parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"],"rejected_linear_dependency_ids":["c008"],"source_basis":"CASE 2: $x-1\\ge0$ | CASE 2: $x-1\\ge0$ Assumption","source_problem_sha256":"04cf6be977a6c9ce0632f40a8bd10c66c55a5ccfff5b2969fab96c329f51d4a1","transition_ids":["GEN-054-T009","GEN-054-T010","GEN-054-T011","GEN-054-T012","GEN-054-T013","GEN-054-T014","GEN-054-T015","GEN-054-T016","GEN-054-T017"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":"GEN-054-T018","parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Solve: $$ \\sqrt{x+1}>x-1. $$","source_sha256":"04cf6be977a6c9ce0632f40a8bd10c66c55a5ccfff5b2969fab96c329f51d4a1"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c002","proposition":"x\\ge-1.","source_sha256":"65c2cd68e855c3a95e5455671ca907a95c44c577de53f2ee06d235944153a681"}]}]`
+
 #### GEN-054-T001
 
 - **STATE_BEFORE:** `\sqrt{x+1}>x-1.`
@@ -103120,13 +103214,14 @@ state after
 - **STATE_BEFORE:** `x\ge-1.`
 - **ACTION:** `CASE_SPLIT` — Squaring an inequality is safe only when both sides are known nonnegative. Therefore split according to the sign of $x-1$. CASE 1: $x-1<0$ Assumption
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c002"]`; source span SHA-256 `3e2bb6f12a88b19e19fb0f56f98a34139f6ad322fde64d68eaf70386ccc2fdc3`
+- **DEPENDENCIES:** `["p0","c002"]`; source span SHA-256 `3e2bb6f12a88b19e19fb0f56f98a34139f6ad322fde64d68eaf70386ccc2fdc3`
 - **STATE_AFTER:** `x<1.`
 - **Mechanisms:** inequality_sign, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B001-ASSUMPTION","branch_id":"GEN-054-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103160,6 +103255,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B001-ASSUMPTION","branch_id":"GEN-054-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103189,6 +103285,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B001-ASSUMPTION","branch_id":"GEN-054-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103218,6 +103315,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B001-ASSUMPTION","branch_id":"GEN-054-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103240,13 +103338,14 @@ $$
 - **STATE_BEFORE:** `x-1<0.`
 - **ACTION:** `CASE_SPLIT` — Therefore
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c006"]`; source span SHA-256 `e2d5500e43db513464963f075dfe2d08f6fa0851f97f34e08d482185b123c2de`
+- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `e2d5500e43db513464963f075dfe2d08f6fa0851f97f34e08d482185b123c2de`
 - **STATE_AFTER:** `\sqrt{x+1}>x-1`
 - **Mechanisms:** squaring_or_roots, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B001-ASSUMPTION","branch_id":"GEN-054-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103276,6 +103375,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B001-ASSUMPTION","branch_id":"GEN-054-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103300,13 +103400,14 @@ $$
 - **STATE_BEFORE:** `[-1,1).`
 - **ACTION:** `CASE_SPLIT` — CASE 2: $x-1\ge0$ Assumption
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c008"]`; source span SHA-256 `aa33cf0726862e447286d0064f357502f202e89d7b145354fc203e70e5ddbf0f`
+- **DEPENDENCIES:** `["p0","c002"]`; source span SHA-256 `aa33cf0726862e447286d0064f357502f202e89d7b145354fc203e70e5ddbf0f`
 - **STATE_AFTER:** `x\ge1.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B002-ASSUMPTION","branch_id":"GEN-054-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103338,6 +103439,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B002-ASSUMPTION","branch_id":"GEN-054-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103367,6 +103469,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B002-ASSUMPTION","branch_id":"GEN-054-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103396,6 +103499,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B002-ASSUMPTION","branch_id":"GEN-054-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103425,6 +103529,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B002-ASSUMPTION","branch_id":"GEN-054-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103454,6 +103559,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B002-ASSUMPTION","branch_id":"GEN-054-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103483,6 +103589,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B002-ASSUMPTION","branch_id":"GEN-054-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103512,6 +103619,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B002-ASSUMPTION","branch_id":"GEN-054-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103541,6 +103649,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-054-P001-B002-ASSUMPTION","branch_id":"GEN-054-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-054-P001","pre_split_premise_ids":["p0","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -103563,7 +103672,7 @@ $$
 - **STATE_BEFORE:** `1\le x<3.`
 - **ACTION:** `CASE_SPLIT` — Branch rejoin
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c017"]`; source span SHA-256 `83ab05868b43d803a1d3834ba09ca00e541aaa583db0f34f38d87087dc8e5977`
+- **DEPENDENCIES:** `["c008","c017"]`; source span SHA-256 `83ab05868b43d803a1d3834ba09ca00e541aaa583db0f34f38d87087dc8e5977`
 - **STATE_AFTER:** `[-1,1)\cup[1,3)`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-054-T003; rendering it independently would lose provenance
@@ -103571,6 +103680,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-054-T003`
+- **Neutral branch join:** partitions `["GEN-054-P001"]`; covered branch conclusions `["c008","c017"]`
 
 <details><summary>Exact source span</summary>
 
@@ -105353,6 +105463,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-056-P001-B001-ASSUMPTION","proposition":"u=1","status":"ASSUMED"},"branch_id":"GEN-056-P001-B001","label":"Branch 1","linear_predecessor_id":"c006","opening_dependency_ids":["sp001","c004"],"opening_transition_id":"GEN-056-T007","parent_branch_id":null,"partition_id":"GEN-056-P001","pre_split_premise_ids":["sp001","c004"],"rejected_linear_dependency_ids":["c006"],"source_basis":"Granular solution | Return to $u=2^x$. Branch 1","source_problem_sha256":"82ad31d26a27db0359a13401866aa93e5a141657623e01611e20bbcf04d8214d","transition_ids":["GEN-056-T007","GEN-056-T008"]},{"assumption":{"id":"GEN-056-P001-B002-ASSUMPTION","proposition":"u=4","status":"ASSUMED"},"branch_id":"GEN-056-P001-B002","label":"Branch 2","linear_predecessor_id":"c008","opening_dependency_ids":["sp001","c004"],"opening_transition_id":"GEN-056-T009","parent_branch_id":null,"partition_id":"GEN-056-P001","pre_split_premise_ids":["sp001","c004"],"rejected_linear_dependency_ids":["c008"],"source_basis":"Granular solution | Branch 2","source_problem_sha256":"82ad31d26a27db0359a13401866aa93e5a141657623e01611e20bbcf04d8214d","transition_ids":["GEN-056-T009","GEN-056-T010"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-056-P001","pre_split_premise_ids":["sp001","c004"],"pre_split_premises":[{"origin":"EXPLICIT_SOURCE_STATE_OMITTED_BY_OLD_SEGMENTER","premise_id":"sp001","proposition":"u=2^x.","source_sha256":"310036110467ba9cad49ae67629c4eb94eef22bfd102dbdf6409e449ae24a59c"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c004","proposition":"(u-1)(u-4)=0.","source_sha256":"d382c10a6841a63ffc9fc9032b2850123393c863a7f080a4cd8d9639e13ee880"}]}]`
+
 #### GEN-056-T001
 
 - **STATE_BEFORE:** `u=2^x.`
@@ -105861,13 +105973,14 @@ $$
 - **STATE_BEFORE:** `u=4.`
 - **ACTION:** `CASE_SPLIT` — Return to $u=2^x$. Branch 1
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `2af1cc809e9509a7d0bea648069dcb5f975f2f7e5913acd6a4fc8888c5178483`
+- **DEPENDENCIES:** `["sp001","c004"]`; source span SHA-256 `2af1cc809e9509a7d0bea648069dcb5f975f2f7e5913acd6a4fc8888c5178483`
 - **STATE_AFTER:** `2^x=1=2^0`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-056-P001-B001-ASSUMPTION","branch_id":"GEN-056-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-056-P001","pre_split_premise_ids":["sp001","c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -105900,6 +106013,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-056-T005`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-056-P001-B001-ASSUMPTION","branch_id":"GEN-056-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-056-P001","pre_split_premise_ids":["sp001","c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -105922,13 +106036,14 @@ $$
 - **STATE_BEFORE:** `x=0.`
 - **ACTION:** `CASE_SPLIT` — Branch 2
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c008"]`; source span SHA-256 `22384eba28b405abefd18a30223957e61d853a84c6238fcae30a5d7e02eba82c`
+- **DEPENDENCIES:** `["sp001","c004"]`; source span SHA-256 `22384eba28b405abefd18a30223957e61d853a84c6238fcae30a5d7e02eba82c`
 - **STATE_AFTER:** `2^x=4=2^2`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-056-P001-B002-ASSUMPTION","branch_id":"GEN-056-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-056-P001","pre_split_premise_ids":["sp001","c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -105959,6 +106074,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-056-T005`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-056-P001-B002-ASSUMPTION","branch_id":"GEN-056-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-056-P001","pre_split_premise_ids":["sp001","c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -106130,6 +106246,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-057-P001-B001-ASSUMPTION","proposition":"u=1","status":"ASSUMED"},"branch_id":"GEN-057-P001-B001","label":"Case 1","linear_predecessor_id":"c003","opening_dependency_ids":["i001","i002","c001"],"opening_transition_id":"GEN-057-T004","parent_branch_id":null,"partition_id":"GEN-057-P001","pre_split_premise_ids":["i001","i002","c001"],"rejected_linear_dependency_ids":["c003"],"source_basis":"Granular solution | Undo substitution. Case 1","source_problem_sha256":"e4c4fe3954f7a29d9977260372bb94795d6dcc265d56ea12c155401d9842468c","transition_ids":["GEN-057-T004","GEN-057-T005"]},{"assumption":{"id":"GEN-057-P001-B002-ASSUMPTION","proposition":"u=2","status":"ASSUMED"},"branch_id":"GEN-057-P001-B002","label":"Case 2","linear_predecessor_id":"c005","opening_dependency_ids":["i001","i002","c001"],"opening_transition_id":"GEN-057-T006","parent_branch_id":null,"partition_id":"GEN-057-P001","pre_split_premise_ids":["i001","i002","c001"],"rejected_linear_dependency_ids":["c005"],"source_basis":"Granular solution | Case 2","source_problem_sha256":"e4c4fe3954f7a29d9977260372bb94795d6dcc265d56ea12c155401d9842468c","transition_ids":["GEN-057-T006","GEN-057-T007"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-057-P001","pre_split_premise_ids":["i001","i002","c001"],"pre_split_premises":[{"origin":"SOURCE_INITIAL_STATE","premise_id":"i001","proposition":"x>0.","source_sha256":"e4c4fe3954f7a29d9977260372bb94795d6dcc265d56ea12c155401d9842468c"},{"origin":"SOURCE_INITIAL_STATE","premise_id":"i002","proposition":"u=\\ln x.","source_sha256":"e4c4fe3954f7a29d9977260372bb94795d6dcc265d56ea12c155401d9842468c"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c001","proposition":"(u-1)(u-2)=0.","source_sha256":"0c790b3fdbacb744644d69a9eb5cbce09d587d4252722f8f13202540f8367e36"}]}]`
+
 #### GEN-057-T001
 
 - **STATE_BEFORE:** `u^2-3u+2=0.`
@@ -106290,13 +106408,14 @@ $$
 - **STATE_BEFORE:** `u=2.`
 - **ACTION:** `CASE_SPLIT` — Undo substitution. Case 1
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c003"]`; source span SHA-256 `033a2ae5587f54ae0351718b58e6b082ab2b5e11dbf89c9bc04fc1933c51657c`
+- **DEPENDENCIES:** `["i001","i002","c001"]`; source span SHA-256 `033a2ae5587f54ae0351718b58e6b082ab2b5e11dbf89c9bc04fc1933c51657c`
 - **STATE_AFTER:** `\ln x=1.`
 - **Mechanisms:** substitution, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-057-P001-B001-ASSUMPTION","branch_id":"GEN-057-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-057-P001","pre_split_premise_ids":["i001","i002","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -106329,6 +106448,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-057-T002`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-057-P001-B001-ASSUMPTION","branch_id":"GEN-057-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-057-P001","pre_split_premise_ids":["i001","i002","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -106351,13 +106471,14 @@ $$
 - **STATE_BEFORE:** `x=e.`
 - **ACTION:** `CASE_SPLIT` — Case 2
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c005"]`; source span SHA-256 `889f75b7d7da7fb505d04820e13f17f0af752bbc7d35d441654ed96208df5b48`
+- **DEPENDENCIES:** `["i001","i002","c001"]`; source span SHA-256 `889f75b7d7da7fb505d04820e13f17f0af752bbc7d35d441654ed96208df5b48`
 - **STATE_AFTER:** `\ln x=2.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-057-P001-B002-ASSUMPTION","branch_id":"GEN-057-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-057-P001","pre_split_premise_ids":["i001","i002","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -106388,6 +106509,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-057-T002`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-057-P001-B002-ASSUMPTION","branch_id":"GEN-057-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-057-P001","pre_split_premise_ids":["i001","i002","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -107854,18 +107976,21 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-060-P001-B001-ASSUMPTION","proposition":"x<-1","status":"ASSUMED"},"branch_id":"GEN-060-P001-B001","label":"CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["p0","i001"],"opening_transition_id":"GEN-060-T001","parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: $x<-1$ | First product","source_problem_sha256":"04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602","transition_ids":["GEN-060-T001","GEN-060-T002"]},{"assumption":{"id":"GEN-060-P001-B002-ASSUMPTION","proposition":"-1<x<2","status":"ASSUMED"},"branch_id":"GEN-060-P001-B002","label":"CASE 2","linear_predecessor_id":"c002","opening_dependency_ids":["p0","i001"],"opening_transition_id":"GEN-060-T003","parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"],"rejected_linear_dependency_ids":["c002"],"source_basis":"CASE 2: $-1<x<2$ | No explicit warrant text occurs between the two source states.","source_problem_sha256":"04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602","transition_ids":["GEN-060-T003","GEN-060-T004"]},{"assumption":{"id":"GEN-060-P001-B003-ASSUMPTION","proposition":"2<x<4","status":"ASSUMED"},"branch_id":"GEN-060-P001-B003","label":"CASE 3","linear_predecessor_id":"c004","opening_dependency_ids":["p0","i001"],"opening_transition_id":"GEN-060-T005","parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"],"rejected_linear_dependency_ids":["c004"],"source_basis":"CASE 3: $2<x<4$ | Choose $x=3$","source_problem_sha256":"04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602","transition_ids":["GEN-060-T005"]},{"assumption":{"id":"GEN-060-P001-B004-ASSUMPTION","proposition":"x>4","status":"ASSUMED"},"branch_id":"GEN-060-P001-B004","label":"CASE 4","linear_predecessor_id":"c005","opening_dependency_ids":["p0","i001"],"opening_transition_id":"GEN-060-T006","parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"],"rejected_linear_dependency_ids":["c005"],"source_basis":"CASE 4: $x>4$ | Choose $x=5$","source_problem_sha256":"04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602","transition_ids":["GEN-060-T006"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Solve: $$ (x-2)(x+1)(x-4)\\le0. $$","source_sha256":"04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602"},{"origin":"SOURCE_INITIAL_STATE","premise_id":"i001","proposition":"x=-1, 2, 4.","source_sha256":"04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602"}]}]`
+
 #### GEN-060-T001
 
 - **STATE_BEFORE:** `(-4)(-1)(-6).`
 - **ACTION:** `CASE_SPLIT` — First product
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `c26888be9a958638cb574fd4f647dad8b4bb48f8c80b87ea7041ab91ea21499b`
+- **DEPENDENCIES:** `["p0","i001"]`; source span SHA-256 `c26888be9a958638cb574fd4f647dad8b4bb48f8c80b87ea7041ab91ea21499b`
 - **STATE_AFTER:** `(-4)(-1)=4.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-060-P001-B001-ASSUMPTION","branch_id":"GEN-060-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -107895,6 +108020,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-060-P001-B001-ASSUMPTION","branch_id":"GEN-060-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -107917,13 +108043,14 @@ $$
 - **STATE_BEFORE:** `(-2)(1)(-4).`
 - **ACTION:** `CASE_SPLIT` — No explicit warrant text occurs between the two source states.
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c002"]`; source span SHA-256 `3cbe739596ec57459dc6385bbb23548b8e6920123588204154c596113c28a77e`
+- **DEPENDENCIES:** `["p0","i001"]`; source span SHA-256 `3cbe739596ec57459dc6385bbb23548b8e6920123588204154c596113c28a77e`
 - **STATE_AFTER:** `(-2)(1)=-2.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-060-P001-B002-ASSUMPTION","branch_id":"GEN-060-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -107953,6 +108080,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-060-P001-B002-ASSUMPTION","branch_id":"GEN-060-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -107975,13 +108103,14 @@ $$
 - **STATE_BEFORE:** `(-2)(-4)=8>0.`
 - **ACTION:** `CASE_SPLIT` — Choose $x=3$
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c004"]`; source span SHA-256 `320279b3b2307a87aebec87988760e151e255a4134225280208a962fc1f08e6e`
+- **DEPENDENCIES:** `["p0","i001"]`; source span SHA-256 `320279b3b2307a87aebec87988760e151e255a4134225280208a962fc1f08e6e`
 - **STATE_AFTER:** `(1)(4)(-1)=-4<0.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-060-P001-B003-ASSUMPTION","branch_id":"GEN-060-P001-B003","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -108004,13 +108133,14 @@ $$
 - **STATE_BEFORE:** `(1)(4)(-1)=-4<0.`
 - **ACTION:** `CASE_SPLIT` — Choose $x=5$
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c005"]`; source span SHA-256 `83c50ff63ae4f18851e9cb91772e52bab25c4bea5dabdf95e844888517af712d`
+- **DEPENDENCIES:** `["p0","i001"]`; source span SHA-256 `83c50ff63ae4f18851e9cb91772e52bab25c4bea5dabdf95e844888517af712d`
 - **STATE_AFTER:** `(3)(6)(1)=18>0.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-060-P001-B004-ASSUMPTION","branch_id":"GEN-060-P001-B004","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-060-P001","pre_split_premise_ids":["p0","i001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109072,6 +109202,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-062-P001-B001-ASSUMPTION","proposition":"\\frac{x-1}{x+2}=2","status":"ASSUMED"},"branch_id":"GEN-062-P001-B001","label":"CASE 1","linear_predecessor_id":"c001","opening_dependency_ids":["p0","c001"],"opening_transition_id":"GEN-062-T002","parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1 | Absolute-value equality produces two branches. CASE 1","source_problem_sha256":"2888bbc9933d63410c8389aee2c1c81b8739e22fc32642adc393ea4510cdc6e7","transition_ids":["GEN-062-T002","GEN-062-T003","GEN-062-T004","GEN-062-T005","GEN-062-T006"]},{"assumption":{"id":"GEN-062-P001-B002-ASSUMPTION","proposition":"\\frac{x-1}{x+2}=-2","status":"ASSUMED"},"branch_id":"GEN-062-P001-B002","label":"CASE 2","linear_predecessor_id":"c006","opening_dependency_ids":["p0","c001"],"opening_transition_id":"GEN-062-T007","parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"],"rejected_linear_dependency_ids":["c006"],"source_basis":"CASE 2 | CASE 2","source_problem_sha256":"2888bbc9933d63410c8389aee2c1c81b8739e22fc32642adc393ea4510cdc6e7","transition_ids":["GEN-062-T007","GEN-062-T008","GEN-062-T009","GEN-062-T010","GEN-062-T011","GEN-062-T012"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":"GEN-062-T013","parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Solve: $$ \\left|\\frac{x-1}{x+2}\\right|=2. $$","source_sha256":"2888bbc9933d63410c8389aee2c1c81b8739e22fc32642adc393ea4510cdc6e7"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c001","proposition":"x\\neq-2.","source_sha256":"0086162239469fb552864bddbebb198055055b2bc67ec8ec0a0b8915695ec7ca"}]}]`
+
 #### GEN-062-T001
 
 - **STATE_BEFORE:** `\left|\frac{x-1}{x+2}\right|=2.`
@@ -109167,13 +109299,14 @@ state after
 - **STATE_BEFORE:** `x\neq-2.`
 - **ACTION:** `CASE_SPLIT` — Absolute-value equality produces two branches. CASE 1
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c001"]`; source span SHA-256 `334360a7857e45cd3277603405cb3e9877bce808d3ea34c4f805b3fc4953f3f2`
+- **DEPENDENCIES:** `["p0","c001"]`; source span SHA-256 `334360a7857e45cd3277603405cb3e9877bce808d3ea34c4f805b3fc4953f3f2`
 - **STATE_AFTER:** `\frac{x-1}{x+2}=2.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B001-ASSUMPTION","branch_id":"GEN-062-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109205,6 +109338,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-5}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B001-ASSUMPTION","branch_id":"GEN-062-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109234,6 +109368,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-5}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B001-ASSUMPTION","branch_id":"GEN-062-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109263,6 +109398,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-5}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B001-ASSUMPTION","branch_id":"GEN-062-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109292,6 +109428,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-5}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B001-ASSUMPTION","branch_id":"GEN-062-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109314,13 +109451,14 @@ $$
 - **STATE_BEFORE:** `x=-5.`
 - **ACTION:** `CASE_SPLIT` — CASE 2
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `6ac26641b4ef4d876381f3cde1c94ccaab6773be6916a44ca30d2fd46e9ae8c0`
+- **DEPENDENCIES:** `["p0","c001"]`; source span SHA-256 `6ac26641b4ef4d876381f3cde1c94ccaab6773be6916a44ca30d2fd46e9ae8c0`
 - **STATE_AFTER:** `\frac{x-1}{x+2}=-2.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B002-ASSUMPTION","branch_id":"GEN-062-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109350,6 +109488,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B002-ASSUMPTION","branch_id":"GEN-062-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109379,6 +109518,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B002-ASSUMPTION","branch_id":"GEN-062-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109408,6 +109548,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B002-ASSUMPTION","branch_id":"GEN-062-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109437,6 +109578,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B002-ASSUMPTION","branch_id":"GEN-062-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109466,6 +109608,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-062-P001-B002-ASSUMPTION","branch_id":"GEN-062-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-062-P001","pre_split_premise_ids":["p0","c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -109488,13 +109631,14 @@ $$
 - **STATE_BEFORE:** `x=-1.`
 - **ACTION:** `SELECT` — Candidate verification Neither $-5$ nor $-1$ equals $-2$. Final answer
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c012"]`; source span SHA-256 `76b8a48996739fde1d759c5f95e659eee10082af84073b309adfc74db8830de3`
+- **DEPENDENCIES:** `["c006","c012"]`; source span SHA-256 `76b8a48996739fde1d759c5f95e659eee10082af84073b309adfc74db8830de3`
 - **STATE_AFTER:** `x=-5,-1`
 - **Mechanisms:** candidate_reasoning
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source creates or changes a candidate during forward reasoning, but current HML cannot add candidate records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch join:** partitions `["GEN-062-P001"]`; covered branch conclusions `["c006","c012"]`
 
 <details><summary>Exact source span</summary>
 
@@ -117596,18 +117740,21 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-068-P001-B001-ASSUMPTION","proposition":"x<-2","status":"ASSUMED"},"branch_id":"GEN-068-P001-B001","label":"CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["i002","i003"],"opening_transition_id":"GEN-068-T001","parent_branch_id":null,"partition_id":"GEN-068-P001","pre_split_premise_ids":["i002","i003"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: $x<-2$ | Denominator","source_problem_sha256":"ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38","transition_ids":["GEN-068-T001","GEN-068-T002"]},{"assumption":{"id":"GEN-068-P001-B002-ASSUMPTION","proposition":"-2<x<1","status":"ASSUMED"},"branch_id":"GEN-068-P001-B002","label":"CASE 2","linear_predecessor_id":null,"opening_dependency_ids":["i002","i003"],"opening_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-068-P001","pre_split_premise_ids":["i002","i003"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 2 | source-explicit prose-only branch","source_problem_sha256":"ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38","transition_ids":[]},{"assumption":{"id":"GEN-068-P001-B003-ASSUMPTION","proposition":"x=1","status":"ASSUMED"},"branch_id":"GEN-068-P001-B003","label":"CASE 3","linear_predecessor_id":"c002","opening_dependency_ids":["i002","i003"],"opening_transition_id":"GEN-068-T003","parent_branch_id":null,"partition_id":"GEN-068-P001","pre_split_premise_ids":["i002","i003"],"rejected_linear_dependency_ids":["c002"],"source_basis":"CASE 3: $x=1$ | Quotient","source_problem_sha256":"ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38","transition_ids":["GEN-068-T003"]},{"assumption":{"id":"GEN-068-P001-B004-ASSUMPTION","proposition":"x>1","status":"ASSUMED"},"branch_id":"GEN-068-P001-B004","label":"CASE 4","linear_predecessor_id":null,"opening_dependency_ids":["i002","i003"],"opening_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-068-P001","pre_split_premise_ids":["i002","i003"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 4 | source-explicit prose-only branch","source_problem_sha256":"ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38","transition_ids":[]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-068-P001","pre_split_premise_ids":["i002","i003"],"pre_split_premises":[{"origin":"SOURCE_INITIAL_STATE","premise_id":"i002","proposition":"\\frac{x-1}{x+2}\\ge0.","source_sha256":"ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38"},{"origin":"SOURCE_INITIAL_STATE","premise_id":"i003","proposition":"-2, 1.","source_sha256":"ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38"}]}]`
+
 #### GEN-068-T001
 
 - **STATE_BEFORE:** `x-1<0.`
 - **ACTION:** `CASE_SPLIT` — Denominator
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `1c6a07173e641858b5b4ccfa5cd6984f4e8f9ff26da3f52712185a272e9c12ff`
+- **DEPENDENCIES:** `["i002","i003"]`; source span SHA-256 `1c6a07173e641858b5b4ccfa5cd6984f4e8f9ff26da3f52712185a272e9c12ff`
 - **STATE_AFTER:** `x+2<0.`
 - **Mechanisms:** domain_restriction, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-068-P001-B001-ASSUMPTION","branch_id":"GEN-068-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-068-P001","pre_split_premise_ids":["i002","i003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -117630,13 +117777,14 @@ $$
 - **STATE_BEFORE:** `x+2<0.`
 - **ACTION:** `CASE_SPLIT` — Thus
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c001"]`; source span SHA-256 `4aff062301410426e0482889aa87591c4d667259d26f7bbf876b7aad6edb1732`
+- **DEPENDENCIES:** `["c001"]`; source span SHA-256 `4aff062301410426e0482889aa87591c4d667259d26f7bbf876b7aad6edb1732`
 - **STATE_AFTER:** `\frac{x-1}{x+2}>0.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-068-P001-B001-ASSUMPTION","branch_id":"GEN-068-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-068-P001","pre_split_premise_ids":["i002","i003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -117659,13 +117807,14 @@ $$
 - **STATE_BEFORE:** `\frac{x-1}{x+2}>0.`
 - **ACTION:** `CASE_SPLIT` — Quotient
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c002"]`; source span SHA-256 `f5be5dfb42f724d9db9acd8b6627a59526bd1f178a6507318fb76c42c3c556ef`
+- **DEPENDENCIES:** `["i002","i003"]`; source span SHA-256 `f5be5dfb42f724d9db9acd8b6627a59526bd1f178a6507318fb76c42c3c556ef`
 - **STATE_AFTER:** `\frac0{3}=0.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-068-P001-B003-ASSUMPTION","branch_id":"GEN-068-P001-B003","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-068-P001","pre_split_premise_ids":["i002","i003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -120852,6 +121001,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-072-P001-B001-ASSUMPTION","proposition":"|x-2|-3=1","status":"ASSUMED"},"branch_id":"GEN-072-P001-B001","label":"outer CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["p0"],"opening_transition_id":"GEN-072-T001","parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1 | Initial state Outer absolute value requires two branches. CASE 1","source_problem_sha256":"80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb","transition_ids":["GEN-072-T001","GEN-072-T002","GEN-072-T003","GEN-072-T004"]},{"assumption":{"id":"GEN-072-P001-B002-ASSUMPTION","proposition":"|x-2|-3=-1","status":"ASSUMED"},"branch_id":"GEN-072-P001-B002","label":"outer CASE 2","linear_predecessor_id":"c004","opening_dependency_ids":["p0"],"opening_transition_id":"GEN-072-T005","parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":["c004"],"source_basis":"CASE 2 | CASE 2","source_problem_sha256":"80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb","transition_ids":["GEN-072-T005","GEN-072-T006","GEN-072-T007","GEN-072-T008"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":"GEN-072-T009","parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Solve: $$ \\bigl||x-2|-3\\bigr|=1. $$","source_sha256":"80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb"}]},{"branches":[{"assumption":{"id":"GEN-072-P002-B001-ASSUMPTION","proposition":"x-2=4","status":"ASSUMED"},"branch_id":"GEN-072-P002-B001","label":"inner positive branch","linear_predecessor_id":"c002","opening_dependency_ids":["c002"],"opening_transition_id":"GEN-072-T003","parent_branch_id":"GEN-072-P001-B001","partition_id":"GEN-072-P002","pre_split_premise_ids":["c002"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1 | Inner absolute value branches","source_problem_sha256":"80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb","transition_ids":["GEN-072-T003"]},{"assumption":{"id":"GEN-072-P002-B002-ASSUMPTION","proposition":"x-2=-4","status":"ASSUMED"},"branch_id":"GEN-072-P002-B002","label":"inner negative branch","linear_predecessor_id":"c003","opening_dependency_ids":["c002"],"opening_transition_id":"GEN-072-T004","parent_branch_id":"GEN-072-P001-B001","partition_id":"GEN-072-P002","pre_split_premise_ids":["c002"],"rejected_linear_dependency_ids":["c003"],"source_basis":"CASE 1 | or","source_problem_sha256":"80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb","transition_ids":["GEN-072-T004"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":"GEN-072-P001-B001","partition_id":"GEN-072-P002","pre_split_premise_ids":["c002"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c002","proposition":"|x-2|=4.","source_sha256":"f09e63a1c9208233b61e4e9fd25b012cbbde358c7ca108bea0fa7bd54b9f8089"}]},{"branches":[{"assumption":{"id":"GEN-072-P003-B001-ASSUMPTION","proposition":"x-2=2","status":"ASSUMED"},"branch_id":"GEN-072-P003-B001","label":"inner positive branch","linear_predecessor_id":"c006","opening_dependency_ids":["c006"],"opening_transition_id":"GEN-072-T007","parent_branch_id":"GEN-072-P001-B002","partition_id":"GEN-072-P003","pre_split_premise_ids":["c006"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 2 | Inner branches","source_problem_sha256":"80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb","transition_ids":["GEN-072-T007"]},{"assumption":{"id":"GEN-072-P003-B002-ASSUMPTION","proposition":"x-2=-2","status":"ASSUMED"},"branch_id":"GEN-072-P003-B002","label":"inner negative branch","linear_predecessor_id":"c007","opening_dependency_ids":["c006"],"opening_transition_id":"GEN-072-T008","parent_branch_id":"GEN-072-P001-B002","partition_id":"GEN-072-P003","pre_split_premise_ids":["c006"],"rejected_linear_dependency_ids":["c007"],"source_basis":"CASE 2 | or","source_problem_sha256":"80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb","transition_ids":["GEN-072-T008"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":"GEN-072-P001-B002","partition_id":"GEN-072-P003","pre_split_premise_ids":["c006"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c006","proposition":"|x-2|=2.","source_sha256":"2792bca5b09888e2841704fd2af43a763b42718cc7d2899b90d294f1805c160b"}]}]`
+
 #### GEN-072-T001
 
 - **STATE_BEFORE:** `\bigl||x-2|-3\bigr|=1.`
@@ -120864,6 +121015,7 @@ $$
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-072-P001-B001-ASSUMPTION","branch_id":"GEN-072-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -120897,6 +121049,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-2, 6}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-072-P001-B001-ASSUMPTION","branch_id":"GEN-072-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -120926,6 +121079,7 @@ $$
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={-2, 6}; after={6}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-072-P001-B001-ASSUMPTION","branch_id":"GEN-072-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"]},{"branch_assumption_id":"GEN-072-P002-B001-ASSUMPTION","branch_id":"GEN-072-P002-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":"GEN-072-P001-B001","partition_id":"GEN-072-P002","pre_split_premise_ids":["c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -120948,13 +121102,14 @@ $$
 - **STATE_BEFORE:** `x-2=4 \rightarrow x=6,`
 - **ACTION:** `CASE_SPLIT` — or
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c003"]`; source span SHA-256 `fe59671e9f20c99e02792b94263146cfc031a420ce8c1d12ce1babd7485ef8f8`
+- **DEPENDENCIES:** `["c002"]`; source span SHA-256 `fe59671e9f20c99e02792b94263146cfc031a420ce8c1d12ce1babd7485ef8f8`
 - **STATE_AFTER:** `x-2=-4 \rightarrow x=-2.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={6}; after={-2}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-072-P001-B001-ASSUMPTION","branch_id":"GEN-072-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"]},{"branch_assumption_id":"GEN-072-P002-B002-ASSUMPTION","branch_id":"GEN-072-P002-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":"GEN-072-P001-B001","partition_id":"GEN-072-P002","pre_split_premise_ids":["c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -120977,13 +121132,14 @@ $$
 - **STATE_BEFORE:** `x-2=-4 \rightarrow x=-2.`
 - **ACTION:** `CASE_SPLIT` — CASE 2
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c004"]`; source span SHA-256 `e66a85de08264fae18b0e80209672389d3b1cb163f4df72a4959de414112cc79`
+- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `e66a85de08264fae18b0e80209672389d3b1cb163f4df72a4959de414112cc79`
 - **STATE_AFTER:** `|x-2|-3=-1.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-072-P001-B002-ASSUMPTION","branch_id":"GEN-072-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -121013,6 +121169,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {0, 4}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-072-P001-B002-ASSUMPTION","branch_id":"GEN-072-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -121042,6 +121199,7 @@ $$
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={0, 4}; after={4}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-072-P001-B002-ASSUMPTION","branch_id":"GEN-072-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"]},{"branch_assumption_id":"GEN-072-P003-B001-ASSUMPTION","branch_id":"GEN-072-P003-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":"GEN-072-P001-B002","partition_id":"GEN-072-P003","pre_split_premise_ids":["c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -121064,13 +121222,14 @@ $$
 - **STATE_BEFORE:** `x-2=2 \rightarrow x=4,`
 - **ACTION:** `CASE_SPLIT` — or
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c007"]`; source span SHA-256 `0be486990a181827e053200549c6016e5422d3fedf17db707c69c706b3d2a1db`
+- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `0be486990a181827e053200549c6016e5422d3fedf17db707c69c706b3d2a1db`
 - **STATE_AFTER:** `x-2=-2 \rightarrow x=0.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={4}; after={0}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-072-P001-B002-ASSUMPTION","branch_id":"GEN-072-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-072-P001","pre_split_premise_ids":["p0"]},{"branch_assumption_id":"GEN-072-P003-B002-ASSUMPTION","branch_id":"GEN-072-P003-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":"GEN-072-P001-B002","partition_id":"GEN-072-P003","pre_split_premise_ids":["c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -121093,13 +121252,14 @@ $$
 - **STATE_BEFORE:** `x-2=-2 \rightarrow x=0.`
 - **ACTION:** `SELECT` — Candidate ledger Generated
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c008"]`; source span SHA-256 `6ef93488421f4d1a5c976a4df703ac471130541866a7cbb537f8050a48e82d1e`
+- **DEPENDENCIES:** `["c004","c008"]`; source span SHA-256 `6ef93488421f4d1a5c976a4df703ac471130541866a7cbb537f8050a48e82d1e`
 - **STATE_AFTER:** `-2,0,4,6.`
 - **Mechanisms:** candidate_reasoning
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source creates or changes a candidate during forward reasoning, but current HML cannot add candidate records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch join:** partitions `["GEN-072-P001"]`; covered branch conclusions `["c004","c008"]`
 
 <details><summary>Exact source span</summary>
 
@@ -128489,6 +128649,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-080-P001-B001-ASSUMPTION","proposition":"2x-3=3","status":"ASSUMED"},"branch_id":"GEN-080-P001-B001","label":"Branch 1","linear_predecessor_id":"c005","opening_dependency_ids":["c003"],"opening_transition_id":"GEN-080-T006","parent_branch_id":null,"partition_id":"GEN-080-P001","pre_split_premise_ids":["c003"],"rejected_linear_dependency_ids":["c005"],"source_basis":"Granular solution | Branch 1","source_problem_sha256":"f00e0b357d517ed82594828e10a0d98d9bb5113daf855cd3636d19e8ded145a9","transition_ids":["GEN-080-T006"]},{"assumption":{"id":"GEN-080-P001-B002-ASSUMPTION","proposition":"2x-3=-3","status":"ASSUMED"},"branch_id":"GEN-080-P001-B002","label":"Branch 2","linear_predecessor_id":"c006","opening_dependency_ids":["c003"],"opening_transition_id":"GEN-080-T007","parent_branch_id":null,"partition_id":"GEN-080-P001","pre_split_premise_ids":["c003"],"rejected_linear_dependency_ids":["c006"],"source_basis":"Granular solution | Branch 2","source_problem_sha256":"f00e0b357d517ed82594828e10a0d98d9bb5113daf855cd3636d19e8ded145a9","transition_ids":["GEN-080-T007"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-080-P001","pre_split_premise_ids":["c003"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c003","proposition":"(2x-3)^2=9.","source_sha256":"a33f50405e8c715b9b55b9a40349bda29e7640b6bedc4aeb39460a02fdc35fb6"}]}]`
+
 #### GEN-080-T001
 
 - **STATE_BEFORE:** `(f\circ g)(x) = f(2x-3).`
@@ -128994,13 +129156,14 @@ state after
 - **STATE_BEFORE:** `2x-3=-3.`
 - **ACTION:** `CASE_SPLIT` — Branch 1
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c005"]`; source span SHA-256 `854de66ca5da7976c3b2233ea19a7bad8495bffcdf77d91060c8e6d37b25e62a`
+- **DEPENDENCIES:** `["c003"]`; source span SHA-256 `854de66ca5da7976c3b2233ea19a7bad8495bffcdf77d91060c8e6d37b25e62a`
 - **STATE_AFTER:** `2x=6 \rightarrow x=3.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={0}; after={3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-080-P001-B001-ASSUMPTION","branch_id":"GEN-080-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-080-P001","pre_split_premise_ids":["c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -129023,13 +129186,14 @@ $$
 - **STATE_BEFORE:** `2x=6 \rightarrow x=3.`
 - **ACTION:** `CASE_SPLIT` — Branch 2
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `09d6fa3d16d6260135888d644d133480d830ea9d3ddcbd7ccf57c7f62c5b55bb`
+- **DEPENDENCIES:** `["c003"]`; source span SHA-256 `09d6fa3d16d6260135888d644d133480d830ea9d3ddcbd7ccf57c7f62c5b55bb`
 - **STATE_AFTER:** `2x=0 \rightarrow x=0.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={3}; after={0}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-080-P001-B002-ASSUMPTION","branch_id":"GEN-080-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-080-P001","pre_split_premise_ids":["c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -132879,6 +133043,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-083-P001-B001-ASSUMPTION","proposition":"x<-2","status":"ASSUMED"},"branch_id":"GEN-083-P001-B001","label":"CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["c002","c003","c004"],"opening_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-083-P001","pre_split_premise_ids":["c002","c003","c004"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1 | source-explicit prose-only branch","source_problem_sha256":"52bbf8e5b1c8260e8b2e24af22de503c464231597274252893077f209560a1cd","transition_ids":[]},{"assumption":{"id":"GEN-083-P001-B002-ASSUMPTION","proposition":"x=-2","status":"ASSUMED"},"branch_id":"GEN-083-P001-B002","label":"CASE 2","linear_predecessor_id":"c004","opening_dependency_ids":["c002","c003","c004"],"opening_transition_id":"GEN-083-T005","parent_branch_id":null,"partition_id":"GEN-083-P001","pre_split_premise_ids":["c002","c003","c004"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 2: $x=-2$ | Numerator zero; denominator nonzero. Quotient","source_problem_sha256":"52bbf8e5b1c8260e8b2e24af22de503c464231597274252893077f209560a1cd","transition_ids":["GEN-083-T005"]},{"assumption":{"id":"GEN-083-P001-B003-ASSUMPTION","proposition":"-2<x<3","status":"ASSUMED"},"branch_id":"GEN-083-P001-B003","label":"CASE 3","linear_predecessor_id":"c005","opening_dependency_ids":["c002","c003","c004"],"opening_transition_id":"GEN-083-T006","parent_branch_id":null,"partition_id":"GEN-083-P001","pre_split_premise_ids":["c002","c003","c004"],"rejected_linear_dependency_ids":["c005"],"source_basis":"CASE 3: $-2<x<3$ | Numerator positive; denominator negative. Quotient negative. Retain, except the inherited hole","source_problem_sha256":"52bbf8e5b1c8260e8b2e24af22de503c464231597274252893077f209560a1cd","transition_ids":["GEN-083-T006"]},{"assumption":{"id":"GEN-083-P001-B004-ASSUMPTION","proposition":"x>3","status":"ASSUMED"},"branch_id":"GEN-083-P001-B004","label":"CASE 4","linear_predecessor_id":null,"opening_dependency_ids":["c002","c003","c004"],"opening_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-083-P001","pre_split_premise_ids":["c002","c003","c004"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 4 | source-explicit prose-only branch","source_problem_sha256":"52bbf8e5b1c8260e8b2e24af22de503c464231597274252893077f209560a1cd","transition_ids":[]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-083-P001","pre_split_premise_ids":["c002","c003","c004"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c002","proposition":"\\frac{x+2}{x-3}\\le0,","source_sha256":"e388de26f57ad172cf7bbce990383f27e1bd0b2716c917b07b36013bf2d12fc9"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c003","proposition":"x\\neq2,\\qquad x\\neq3.","source_sha256":"d22d0b9b2630e5da6757b1f72bd7f05309613400d07ac28308c301cee28a008c"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c004","proposition":"x=-2, 3.","source_sha256":"b85f53b366bcf197a7be741610799bb463a8e55f4cc30629041291139329647e"}]}]`
+
 #### GEN-083-T001
 
 - **STATE_BEFORE:** `\frac{(x-2)(x+2)} {(x-2)(x-3)} \le0.`
@@ -133360,13 +133526,14 @@ state after
 - **STATE_BEFORE:** `x=-2, 3.`
 - **ACTION:** `CASE_SPLIT` — Numerator zero; denominator nonzero. Quotient
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c004"]`; source span SHA-256 `f22b8b265b62e4307dd5a7ee827e540ceee7747604dd1c926df9b3bfc6d7130c`
+- **DEPENDENCIES:** `["c002","c003","c004"]`; source span SHA-256 `f22b8b265b62e4307dd5a7ee827e540ceee7747604dd1c926df9b3bfc6d7130c`
 - **STATE_AFTER:** `0.`
 - **Mechanisms:** domain_restriction, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-083-P001-B002-ASSUMPTION","branch_id":"GEN-083-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-083-P001","pre_split_premise_ids":["c002","c003","c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -133391,13 +133558,14 @@ $$
 - **STATE_BEFORE:** `0.`
 - **ACTION:** `CASE_SPLIT` — Numerator positive; denominator negative. Quotient negative. Retain, except the inherited hole
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c005"]`; source span SHA-256 `5562c674aa52bbe35fe2f269ee31820d564678fc142cedebd83f545d83cbd1f0`
+- **DEPENDENCIES:** `["c002","c003","c004"]`; source span SHA-256 `5562c674aa52bbe35fe2f269ee31820d564678fc142cedebd83f545d83cbd1f0`
 - **STATE_AFTER:** `x=2.`
 - **Mechanisms:** domain_restriction, inequality_sign, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-083-P001-B003-ASSUMPTION","branch_id":"GEN-083-P001-B003","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-083-P001","pre_split_premise_ids":["c002","c003","c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -134410,6 +134578,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-085-P001-B001-ASSUMPTION","proposition":"u=8","status":"ASSUMED"},"branch_id":"GEN-085-P001-B001","label":"Case 1","linear_predecessor_id":"c004","opening_dependency_ids":["i003","c002"],"opening_transition_id":"GEN-085-T005","parent_branch_id":null,"partition_id":"GEN-085-P001","pre_split_premise_ids":["i003","c002"],"rejected_linear_dependency_ids":["c004"],"source_basis":"Granular solution | Undo substitution. Case 1","source_problem_sha256":"90374ae3bd78d85f989cf5360320068c8aec95f69b076c392d69e7020e31c663","transition_ids":["GEN-085-T005","GEN-085-T006"]},{"assumption":{"id":"GEN-085-P001-B002-ASSUMPTION","proposition":"u=-1","status":"ASSUMED"},"branch_id":"GEN-085-P001-B002","label":"Case 2","linear_predecessor_id":"c006","opening_dependency_ids":["i003","c002"],"opening_transition_id":"GEN-085-T007","parent_branch_id":null,"partition_id":"GEN-085-P001","pre_split_premise_ids":["i003","c002"],"rejected_linear_dependency_ids":["c006"],"source_basis":"Granular solution | Case 2","source_problem_sha256":"90374ae3bd78d85f989cf5360320068c8aec95f69b076c392d69e7020e31c663","transition_ids":["GEN-085-T007","GEN-085-T008"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-085-P001","pre_split_premise_ids":["i003","c002"],"pre_split_premises":[{"origin":"SOURCE_INITIAL_STATE","premise_id":"i003","proposition":"u=x^3.","source_sha256":"90374ae3bd78d85f989cf5360320068c8aec95f69b076c392d69e7020e31c663"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c002","proposition":"(u-8)(u+1)=0.","source_sha256":"389e129a01368f489927eb3b284bb2be8328f9898142aa1fbae4dc7395194534"}]}]`
+
 #### GEN-085-T001
 
 - **STATE_BEFORE:** `x^6=(x^3)^2=u^2.`
@@ -134692,13 +134862,14 @@ $$
 - **STATE_BEFORE:** `u=-1.`
 - **ACTION:** `CASE_SPLIT` — Undo substitution. Case 1
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c004"]`; source span SHA-256 `e10dd9082969fa1877b6bea151f1036e581b3c8a328acbda3659b631b754ca15`
+- **DEPENDENCIES:** `["i003","c002"]`; source span SHA-256 `e10dd9082969fa1877b6bea151f1036e581b3c8a328acbda3659b631b754ca15`
 - **STATE_AFTER:** `x^3=8.`
 - **Mechanisms:** substitution, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-085-P001-B001-ASSUMPTION","branch_id":"GEN-085-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-085-P001","pre_split_premise_ids":["i003","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -134731,6 +134902,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-085-T003`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-085-P001-B001-ASSUMPTION","branch_id":"GEN-085-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-085-P001","pre_split_premise_ids":["i003","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -134753,13 +134925,14 @@ $$
 - **STATE_BEFORE:** `x=2.`
 - **ACTION:** `CASE_SPLIT` — Case 2
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `a17c092b70ae24b2da699239c2f8e5fe27cd0751f7eeb35cf5b8b4ead593552d`
+- **DEPENDENCIES:** `["i003","c002"]`; source span SHA-256 `a17c092b70ae24b2da699239c2f8e5fe27cd0751f7eeb35cf5b8b4ead593552d`
 - **STATE_AFTER:** `x^3=-1.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-085-P001-B002-ASSUMPTION","branch_id":"GEN-085-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-085-P001","pre_split_premise_ids":["i003","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -134790,6 +134963,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `GEN-085-T003`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-085-P001-B002-ASSUMPTION","branch_id":"GEN-085-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-085-P001","pre_split_premise_ids":["i003","c002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -135976,6 +136150,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-087-P001-B001-ASSUMPTION","proposition":"x=\\frac{3-\\sqrt{33}}2","status":"ASSUMED"},"branch_id":"GEN-087-P001-B001","label":"Negative branch","linear_predecessor_id":"c012","opening_dependency_ids":["c006","c012"],"opening_transition_id":"GEN-087-T013","parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"],"rejected_linear_dependency_ids":[],"source_basis":"CANDIDATE VERIFICATION | CANDIDATE VERIFICATION Negative branch","source_problem_sha256":"744810cede3759329cc1b5bf26dc6354e4e4435cc2cd8138649ea176554cfa7c","transition_ids":["GEN-087-T013","GEN-087-T014","GEN-087-T015"]},{"assumption":{"id":"GEN-087-P001-B002-ASSUMPTION","proposition":"x=\\frac{3+\\sqrt{33}}2","status":"ASSUMED"},"branch_id":"GEN-087-P001-B002","label":"Positive branch","linear_predecessor_id":"c015","opening_dependency_ids":["c006","c012"],"opening_transition_id":"GEN-087-T016","parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"],"rejected_linear_dependency_ids":["c015"],"source_basis":"CANDIDATE VERIFICATION | Reject. Positive branch","source_problem_sha256":"744810cede3759329cc1b5bf26dc6354e4e4435cc2cd8138649ea176554cfa7c","transition_ids":["GEN-087-T016"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c006","proposition":"x>1,\\qquad x\\neq2.","source_sha256":"70f431c8ce2b6613555fd0baf2224a012759c83d84cd7eeaed865d264137d506"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c012","proposition":"x= \\frac{3\\pm\\sqrt{33}}2.","source_sha256":"6f6f409ef826a85584f601a218266dfe5d2227b98235d9de3dc0853457bc2f73"}]}]`
+
 #### GEN-087-T001
 
 - **STATE_BEFORE:** `\log_{x-1}(x+7)=2.`
@@ -137079,13 +137255,14 @@ $$
 - **STATE_BEFORE:** `x= \frac{3\pm\sqrt{33}}2.`
 - **ACTION:** `SELECT` — CANDIDATE VERIFICATION Negative branch
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c012"]`; source span SHA-256 `a80b90bb8e2c78803fcfcaefc2e725e799213236875e00d1381962919920c6dd`
+- **DEPENDENCIES:** `["c006","c012"]`; source span SHA-256 `a80b90bb8e2c78803fcfcaefc2e725e799213236875e00d1381962919920c6dd`
 - **STATE_AFTER:** `\frac{3-\sqrt{33}}2.`
 - **Mechanisms:** squaring_or_roots, inequality_sign, candidate_reasoning
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-087-P001-B001-ASSUMPTION","branch_id":"GEN-087-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -137117,6 +137294,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-087-P001-B001-ASSUMPTION","branch_id":"GEN-087-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -137146,6 +137324,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-087-P001-B001-ASSUMPTION","branch_id":"GEN-087-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -137170,13 +137349,14 @@ $$
 - **STATE_BEFORE:** `x>1.`
 - **ACTION:** `SELECT` — Reject. Positive branch
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c015"]`; source span SHA-256 `5a6a8aa6a5d84424663a60be75b68432725e5357296c7bc1906772774b3d0e05`
+- **DEPENDENCIES:** `["c006","c012"]`; source span SHA-256 `5a6a8aa6a5d84424663a60be75b68432725e5357296c7bc1906772774b3d0e05`
 - **STATE_AFTER:** `\frac{3+\sqrt{33}}2>1.`
 - **Mechanisms:** squaring_or_roots, candidate_reasoning
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-087-P001-B002-ASSUMPTION","branch_id":"GEN-087-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -139587,6 +139767,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-090-P001-B001-ASSUMPTION","proposition":"x<0","status":"ASSUMED"},"branch_id":"GEN-090-P001-B001","label":"INVERSE BRANCH 1","linear_predecessor_id":null,"opening_dependency_ids":["p0"],"opening_transition_id":"GEN-090-T001","parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":[],"source_basis":"INVERSE BRANCH 1 | Subtract $2$","source_problem_sha256":"5e8c5d25c7ffd05246cec821f28fdcdbb0f45c8ca94f1e965816daaa58d829b5","transition_ids":["GEN-090-T001","GEN-090-T002","GEN-090-T003"]},{"assumption":{"id":"GEN-090-P001-B002-ASSUMPTION","proposition":"x\\ge0","status":"ASSUMED"},"branch_id":"GEN-090-P001-B002","label":"INVERSE BRANCH 2","linear_predecessor_id":"c003","opening_dependency_ids":["p0"],"opening_transition_id":"GEN-090-T004","parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"],"rejected_linear_dependency_ids":["c003"],"source_basis":"INVERSE BRANCH 2 | Subtract $2$","source_problem_sha256":"5e8c5d25c7ffd05246cec821f28fdcdbb0f45c8ca94f1e965816daaa58d829b5","transition_ids":["GEN-090-T004","GEN-090-T005","GEN-090-T006","GEN-090-T007","GEN-090-T008"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Find the inverse of $$ f(x)= \\begin{cases} x+2,&x<0,\\\\ x^2+2,&x\\ge0. \\end{cases} $$","source_sha256":"5e8c5d25c7ffd05246cec821f28fdcdbb0f45c8ca94f1e965816daaa58d829b5"}]}]`
+
 #### GEN-090-T001
 
 - **STATE_BEFORE:** `y=x+2.`
@@ -139599,6 +139781,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equation residuals differ by nonzero scalar -1
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-090-P001-B001-ASSUMPTION","branch_id":"GEN-090-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -139628,6 +139811,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-090-P001-B001-ASSUMPTION","branch_id":"GEN-090-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -139657,6 +139841,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-090-P001-B001-ASSUMPTION","branch_id":"GEN-090-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -139679,13 +139864,14 @@ $$
 - **STATE_BEFORE:** `y=x^2+2.`
 - **ACTION:** `CASE_SPLIT` — Subtract $2$
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c003"]`; source span SHA-256 `0f5ef7de3fa061138f9e5f77719449768f618d6eeb9492aa3ef4b9c30da660b6`
+- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `0f5ef7de3fa061138f9e5f77719449768f618d6eeb9492aa3ef4b9c30da660b6`
 - **STATE_AFTER:** `y-2=x^2.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_VERIFIED` — equation residuals differ by nonzero scalar 1
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-090-P001-B002-ASSUMPTION","branch_id":"GEN-090-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -139715,6 +139901,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-090-P001-B002-ASSUMPTION","branch_id":"GEN-090-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -139737,13 +139924,14 @@ $$
 - **STATE_BEFORE:** `x\ge0.`
 - **ACTION:** `CASE_SPLIT` — Therefore select nonnegative root
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c005"]`; source span SHA-256 `4f609ed006150673619a07b9e8e9f8dd8a71fa28dff235cc7a0abdeed0fde4df`
+- **DEPENDENCIES:** `["c005"]`; source span SHA-256 `4f609ed006150673619a07b9e8e9f8dd8a71fa28dff235cc7a0abdeed0fde4df`
 - **STATE_AFTER:** `x=\sqrt{y-2}.`
 - **Mechanisms:** squaring_or_roots, inequality_sign, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-090-P001-B002-ASSUMPTION","branch_id":"GEN-090-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -139773,6 +139961,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-090-P001-B002-ASSUMPTION","branch_id":"GEN-090-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -139802,6 +139991,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-090-P001-B002-ASSUMPTION","branch_id":"GEN-090-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-090-P001","pre_split_premise_ids":["p0"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143155,6 +143345,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-094-P001-B001-ASSUMPTION","proposition":"x\\ge1","status":"ASSUMED"},"branch_id":"GEN-094-P001-B001","label":"CASE 1","linear_predecessor_id":"c003","opening_dependency_ids":["c001","c003"],"opening_transition_id":"GEN-094-T004","parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: $x\\ge1$ | Now split according to the sign of $x-1$. CASE 1: $x\\ge1$ Then","source_problem_sha256":"55165c34fff653f59bc693e3cca57fba47ac3086d4afba9b614519514cb53d1e","transition_ids":["GEN-094-T004","GEN-094-T005","GEN-094-T006","GEN-094-T007","GEN-094-T008"]},{"assumption":{"id":"GEN-094-P001-B002-ASSUMPTION","proposition":"x<1","status":"ASSUMED"},"branch_id":"GEN-094-P001-B002","label":"CASE 2","linear_predecessor_id":"c008","opening_dependency_ids":["c001","c003"],"opening_transition_id":"GEN-094-T009","parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"],"rejected_linear_dependency_ids":["c008"],"source_basis":"CASE 2: $x<1$ | there are no real candidates in this branch. CASE 2: $x<1$ Combined with $x\\ge0$","source_problem_sha256":"55165c34fff653f59bc693e3cca57fba47ac3086d4afba9b614519514cb53d1e","transition_ids":["GEN-094-T009","GEN-094-T010","GEN-094-T011","GEN-094-T012","GEN-094-T013","GEN-094-T014","GEN-094-T015","GEN-094-T016","GEN-094-T017"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c001","proposition":"x\\ge0.","source_sha256":"d744e5fa69f92bb4ac041850b81d10f685bf2e442cb92d49ba89b14302b88d8a"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c003","proposition":"|x-1|=x^2.","source_sha256":"0c3ca6636411437b86989b67002d29711f02c091a22d3f880185b41b8afd39bb"}]}]`
+
 #### GEN-094-T001
 
 - **STATE_BEFORE:** `\sqrt{|x-1|}=x.`
@@ -143312,13 +143504,14 @@ $$
 - **STATE_BEFORE:** `|x-1|=x^2.`
 - **ACTION:** `CASE_SPLIT` — Now split according to the sign of $x-1$. CASE 1: $x\ge1$ Then
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c003"]`; source span SHA-256 `80f989c5b108be7157f405c50c78093901fc2bf9595be8b3a299a5da0a16b534`
+- **DEPENDENCIES:** `["c001","c003"]`; source span SHA-256 `80f989c5b108be7157f405c50c78093901fc2bf9595be8b3a299a5da0a16b534`
 - **STATE_AFTER:** `|x-1|=x-1.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B001-ASSUMPTION","branch_id":"GEN-094-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143352,6 +143545,7 @@ $$
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before=Interval(1, oo); after=EmptySet
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B001-ASSUMPTION","branch_id":"GEN-094-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143381,6 +143575,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: EmptySet
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B001-ASSUMPTION","branch_id":"GEN-094-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143410,6 +143605,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B001-ASSUMPTION","branch_id":"GEN-094-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143439,6 +143635,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B001-ASSUMPTION","branch_id":"GEN-094-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143461,13 +143658,14 @@ $$
 - **STATE_BEFORE:** `-3<0,`
 - **ACTION:** `CASE_SPLIT` — there are no real candidates in this branch. CASE 2: $x<1$ Combined with $x\ge0$
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c008"]`; source span SHA-256 `10d183e50f4a09d23adb378b746dff28891e5b7ff6bffc0cf88d2662800d5403`
+- **DEPENDENCIES:** `["c001","c003"]`; source span SHA-256 `10d183e50f4a09d23adb378b746dff28891e5b7ff6bffc0cf88d2662800d5403`
 - **STATE_AFTER:** `0\le x<1.`
 - **Mechanisms:** candidate_reasoning, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B002-ASSUMPTION","branch_id":"GEN-094-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143501,6 +143699,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B002-ASSUMPTION","branch_id":"GEN-094-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143530,6 +143729,7 @@ $$
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before=Interval(-oo, 1); after={-1/2 + sqrt(5)/2, -sqrt(5)/2 - 1/2}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B002-ASSUMPTION","branch_id":"GEN-094-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143559,6 +143759,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1/2 + sqrt(5)/2, -sqrt(5)/2 - 1/2}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B002-ASSUMPTION","branch_id":"GEN-094-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143588,6 +143789,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B002-ASSUMPTION","branch_id":"GEN-094-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143617,6 +143819,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B002-ASSUMPTION","branch_id":"GEN-094-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143646,6 +143849,7 @@ $$
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B002-ASSUMPTION","branch_id":"GEN-094-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143676,6 +143880,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Obligations created:** `[{"id":"GEN-094-T016-OB-1","statement":"every even-root radicand is nonnegative"}]`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B002-ASSUMPTION","branch_id":"GEN-094-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -143705,6 +143910,7 @@ $$
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-094-P001-B002-ASSUMPTION","branch_id":"GEN-094-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-094-P001","pre_split_premise_ids":["c001","c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -144144,6 +144350,8 @@ $$
 </details>
 
 ### Atomic semantic trajectory
+
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-095-P001-B001-ASSUMPTION","proposition":"s=5","status":"ASSUMED"},"branch_id":"GEN-095-P001-B001","label":"BRANCH 1","linear_predecessor_id":"c008","opening_dependency_ids":["i001","i002","i003","c001","c006"],"opening_transition_id":"GEN-095-T009","parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"],"rejected_linear_dependency_ids":["c008"],"source_basis":"BRANCH 1: $s=5$ | Numbers $x,y$ are roots of","source_problem_sha256":"5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416","transition_ids":["GEN-095-T009","GEN-095-T010","GEN-095-T011","GEN-095-T012","GEN-095-T013"]},{"assumption":{"id":"GEN-095-P001-B002-ASSUMPTION","proposition":"s=-7","status":"ASSUMED"},"branch_id":"GEN-095-P001-B002","label":"BRANCH 2","linear_predecessor_id":"c013","opening_dependency_ids":["i001","i002","i003","c001","c006"],"opening_transition_id":"GEN-095-T014","parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"],"rejected_linear_dependency_ids":["c013"],"source_basis":"BRANCH 2: $s=-7$ | Required roots satisfy","source_problem_sha256":"5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416","transition_ids":["GEN-095-T014","GEN-095-T015"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"],"pre_split_premises":[{"origin":"SOURCE_INITIAL_STATE","premise_id":"i001","proposition":"s=x+y,","source_sha256":"5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416"},{"origin":"SOURCE_INITIAL_STATE","premise_id":"i002","proposition":"p=xy.","source_sha256":"5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416"},{"origin":"SOURCE_INITIAL_STATE","premise_id":"i003","proposition":"x^2+y^2=(x+y)^2-2xy=s^2-2p.","source_sha256":"5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c001","proposition":"p=11-s.","source_sha256":"c263d9650825cbf4920d8ab10175a7cfada4c3f306d698d37f2edda152bf2a3a"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c006","proposition":"(s+7)(s-5)=0.","source_sha256":"0f166c14754ba449a7398c737a17be6c750bc29ebc7cbb1baf90f654f2a14d10"}]}]`
 
 #### GEN-095-T001
 
@@ -145262,13 +145470,14 @@ state after
 - **STATE_BEFORE:** `p=11-5=6.`
 - **ACTION:** `CASE_SPLIT` — Numbers $x,y$ are roots of
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c008"]`; source span SHA-256 `91b0f239d33de4de222a8b4c8be6c7a25fbb48e4c6c5d3f55d0d5ea4feeec085`
+- **DEPENDENCIES:** `["i001","i002","i003","c001","c006"]`; source span SHA-256 `91b0f239d33de4de222a8b4c8be6c7a25fbb48e4c6c5d3f55d0d5ea4feeec085`
 - **STATE_AFTER:** `t^2-st+p=0.`
 - **Mechanisms:** squaring_or_roots, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-095-P001-B001-ASSUMPTION","branch_id":"GEN-095-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -145291,13 +145500,14 @@ $$
 - **STATE_BEFORE:** `t^2-st+p=0.`
 - **ACTION:** `CASE_SPLIT` — Therefore
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c009"]`; source span SHA-256 `525bafc1caea6aba565638b76176dc3a60c9aae7bd7781516010b7c2350b32a4`
+- **DEPENDENCIES:** `["c009"]`; source span SHA-256 `525bafc1caea6aba565638b76176dc3a60c9aae7bd7781516010b7c2350b32a4`
 - **STATE_AFTER:** `t^2-5t+6=0.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-095-P001-B001-ASSUMPTION","branch_id":"GEN-095-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -145327,6 +145537,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {2, 3}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-095-P001-B001-ASSUMPTION","branch_id":"GEN-095-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -145349,13 +145560,14 @@ $$
 - **STATE_BEFORE:** `(t-2)(t-3)=0.`
 - **ACTION:** `CASE_SPLIT` — Thus
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c011"]`; source span SHA-256 `f4e30a2c3a7e6d198e8bae8fb1c2fef8f2cd51b0fa137bff51c5500159fc18fc`
+- **DEPENDENCIES:** `["c011"]`; source span SHA-256 `f4e30a2c3a7e6d198e8bae8fb1c2fef8f2cd51b0fa137bff51c5500159fc18fc`
 - **STATE_AFTER:** `t=2,3.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={2, 3}; after={2}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-095-P001-B001-ASSUMPTION","branch_id":"GEN-095-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -145385,6 +145597,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-095-P001-B001-ASSUMPTION","branch_id":"GEN-095-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -145407,13 +145620,14 @@ $$
 - **STATE_BEFORE:** `p=11-(-7)=18.`
 - **ACTION:** `CASE_SPLIT` — Required roots satisfy
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c013"]`; source span SHA-256 `318881de2f4a71e8465db9cab1194cdfefa685f91b782d6509a8db3a3ea8976b`
+- **DEPENDENCIES:** `["i001","i002","i003","c001","c006"]`; source span SHA-256 `318881de2f4a71e8465db9cab1194cdfefa685f91b782d6509a8db3a3ea8976b`
 - **STATE_AFTER:** `t^2+7t+18=0.`
 - **Mechanisms:** squaring_or_roots, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-095-P001-B002-ASSUMPTION","branch_id":"GEN-095-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -145443,6 +145657,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-095-P001-B002-ASSUMPTION","branch_id":"GEN-095-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-095-P001","pre_split_premise_ids":["i001","i002","i003","c001","c006"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -155972,6 +156187,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-100-P001-B001-ASSUMPTION","proposition":"\\frac{x-1}{x+2}=2","status":"ASSUMED"},"branch_id":"GEN-100-P001-B001","label":"CASE 1","linear_predecessor_id":"c019","opening_dependency_ids":["c019","sp001"],"opening_transition_id":"GEN-100-T020","parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1 | The original domain establishes","source_problem_sha256":"afb3ff6658740a5059f7b8dd2bb08d60f6b4baabcd85e3fe00b77275bbbd4aa8","transition_ids":["GEN-100-T020","GEN-100-T021","GEN-100-T022","GEN-100-T023","GEN-100-T024"]},{"assumption":{"id":"GEN-100-P001-B002-ASSUMPTION","proposition":"\\frac{x-1}{x+2}=-2","status":"ASSUMED"},"branch_id":"GEN-100-P001-B002","label":"CASE 2","linear_predecessor_id":"c024","opening_dependency_ids":["c019","sp001"],"opening_transition_id":"GEN-100-T025","parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"],"rejected_linear_dependency_ids":["c024"],"source_basis":"CASE 2 | Again $x+2\\neq0$, so multiplication is justified","source_problem_sha256":"afb3ff6658740a5059f7b8dd2bb08d60f6b4baabcd85e3fe00b77275bbbd4aa8","transition_ids":["GEN-100-T025","GEN-100-T026","GEN-100-T027","GEN-100-T028","GEN-100-T029"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c019","proposition":"\\boxed{ (-\\infty,-2)\\cup \\left(-2,-\\frac12\\right] }.","source_sha256":"4b0ee382784574a273433acbb0ae3e549c8892a1fe3f837ce861332fa71d4226"},{"origin":"EXPLICIT_SOURCE_STATE_OMITTED_BY_OLD_SEGMENTER","premise_id":"sp001","proposition":"\\left| \\frac{x-1}{x+2} \\right| =2.","source_sha256":"b961f4e67cb43fe6c62a4bdcee5fc12f5c82a1430e2e6d2e0830d30927603828"}]}]`
+
 #### GEN-100-T001
 
 - **STATE_BEFORE:** `\left| \frac{x-1}{x+2} \right|\ge1`
@@ -160821,13 +161038,14 @@ state after
 - **STATE_BEFORE:** `\frac{x-1}{x+2}=2.`
 - **ACTION:** `CASE_SPLIT` — The original domain establishes
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c019"]`; source span SHA-256 `918b9360cc3c3e9da6b5df61e1d313fed271e9e2b4bfc26a2c968a6ac160a848`
+- **DEPENDENCIES:** `["c019","sp001"]`; source span SHA-256 `918b9360cc3c3e9da6b5df61e1d313fed271e9e2b4bfc26a2c968a6ac160a848`
 - **STATE_AFTER:** `x+2\neq0.`
 - **Mechanisms:** domain_restriction, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B001-ASSUMPTION","branch_id":"GEN-100-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -160850,13 +161068,14 @@ $$
 - **STATE_BEFORE:** `x+2\neq0.`
 - **ACTION:** `CASE_SPLIT` — Therefore multiply by $x+2$
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c020"]`; source span SHA-256 `b1b30beaacf5a5e059efddee10029d1ca48036d83640ebc4352d91e3731cf76c`
+- **DEPENDENCIES:** `["c020"]`; source span SHA-256 `b1b30beaacf5a5e059efddee10029d1ca48036d83640ebc4352d91e3731cf76c`
 - **STATE_AFTER:** `x-1=2(x+2).`
 - **Mechanisms:** domain_restriction, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B001-ASSUMPTION","branch_id":"GEN-100-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -160886,6 +161105,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-5}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B001-ASSUMPTION","branch_id":"GEN-100-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -160915,6 +161135,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-5}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B001-ASSUMPTION","branch_id":"GEN-100-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -160944,6 +161165,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-5}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B001-ASSUMPTION","branch_id":"GEN-100-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -160966,13 +161188,14 @@ $$
 - **STATE_BEFORE:** `\frac{x-1}{x+2}=-2.`
 - **ACTION:** `CASE_SPLIT` — Again $x+2\neq0$, so multiplication is justified
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c024"]`; source span SHA-256 `a8276cb24aaf344a956ce4e4ba7468e1b22b08d89c8e3b26b5bdeae7d58508cd`
+- **DEPENDENCIES:** `["c019","sp001"]`; source span SHA-256 `a8276cb24aaf344a956ce4e4ba7468e1b22b08d89c8e3b26b5bdeae7d58508cd`
 - **STATE_AFTER:** `x-1=-2(x+2).`
 - **Mechanisms:** domain_restriction, case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B002-ASSUMPTION","branch_id":"GEN-100-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -161002,6 +161225,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B002-ASSUMPTION","branch_id":"GEN-100-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -161031,6 +161255,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B002-ASSUMPTION","branch_id":"GEN-100-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -161060,6 +161285,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equal real solution sets: {-1}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B002-ASSUMPTION","branch_id":"GEN-100-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -161090,6 +161316,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Obligations created:** `[{"id":"GEN-100-T029-OB-1","statement":"the divisor or cancelled factor is nonzero"}]`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-100-P001-B002-ASSUMPTION","branch_id":"GEN-100-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-100-P001","pre_split_premise_ids":["c019","sp001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -365387,6 +365614,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"LINALG-051-P001-B001-ASSUMPTION","proposition":"a\\neq2","status":"ASSUMED"},"branch_id":"LINALG-051-P001-B001","label":"CASE 1","linear_predecessor_id":"c001","opening_dependency_ids":["c001"],"opening_transition_id":"LINALG-051-T002","parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: $a\\neq2$ | → OPERATION: divide by $a-2$. → PRECONDITION","source_problem_sha256":"f882f689e00566a8e4a6a91f40e12a56362eb177c8d733cd0c1310825cd29787","transition_ids":["LINALG-051-T002","LINALG-051-T003","LINALG-051-T004","LINALG-051-T005","LINALG-051-T006"]},{"assumption":{"id":"LINALG-051-P001-B002-ASSUMPTION","proposition":"a=2","status":"ASSUMED"},"branch_id":"LINALG-051-P001-B002","label":"CASE 2","linear_predecessor_id":"c006","opening_dependency_ids":["c001"],"opening_transition_id":"LINALG-051-T007","parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"],"rejected_linear_dependency_ids":["c006"],"source_basis":"CASE 2: $a=2$ | Only constraint","source_problem_sha256":"f882f689e00566a8e4a6a91f40e12a56362eb177c8d733cd0c1310825cd29787","transition_ids":["LINALG-051-T007","LINALG-051-T008","LINALG-051-T009"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c001","proposition":"\\left[ \\begin{array}{ccc|c} 1&1&1&1\\\\ 0&a-2&0&0 \\end{array} \\right].","source_sha256":"228af79295bfc6d81d9ce1d2d093688f32cfafe4499b79ba9f6100d865a22477"}]}]`
+
 #### LINALG-051-T001
 
 - **STATE_BEFORE:** `R_2\leftarrow R_2-2R_1.`
@@ -365489,6 +365718,7 @@ state after
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-051-P001-B001-ASSUMPTION","branch_id":"LINALG-051-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -365520,6 +365750,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-051-P001-B001-ASSUMPTION","branch_id":"LINALG-051-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -365549,6 +365780,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-051-P001-B001-ASSUMPTION","branch_id":"LINALG-051-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -365578,6 +365810,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-051-P001-B001-ASSUMPTION","branch_id":"LINALG-051-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -365607,6 +365840,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-051-P001-B001-ASSUMPTION","branch_id":"LINALG-051-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -365629,13 +365863,14 @@ $$
 - **STATE_BEFORE:** `0=0.`
 - **ACTION:** `CASE_SPLIT` — Only constraint
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c006"]`; source span SHA-256 `c1d800d4abf609556210a29622ed615198c75b40f58c709517dfc794d58d1977`
+- **DEPENDENCIES:** `["c001"]`; source span SHA-256 `c1d800d4abf609556210a29622ed615198c75b40f58c709517dfc794d58d1977`
 - **STATE_AFTER:** `x+y+z=1.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-051-P001-B002-ASSUMPTION","branch_id":"LINALG-051-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -365665,6 +365900,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-051-P001-B002-ASSUMPTION","branch_id":"LINALG-051-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -365696,6 +365932,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-051-P001-B002-ASSUMPTION","branch_id":"LINALG-051-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-051-P001","pre_split_premise_ids":["c001"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -394480,6 +394717,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"LINALG-081-P001-B001-ASSUMPTION","proposition":"a\\neq1","status":"ASSUMED"},"branch_id":"LINALG-081-P001-B001","label":"CASE 1","linear_predecessor_id":"c004","opening_dependency_ids":["c004"],"opening_transition_id":"LINALG-081-T005","parent_branch_id":null,"partition_id":"LINALG-081-P001","pre_split_premise_ids":["c004"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: $a\\neq1$ | Therefore","source_problem_sha256":"ac2d3617ea4c37c1eaf67cef7c6213bfba195eaf3cc38f20a84b41637cf35f73","transition_ids":["LINALG-081-T005"]},{"assumption":{"id":"LINALG-081-P001-B002-ASSUMPTION","proposition":"a=1","status":"ASSUMED"},"branch_id":"LINALG-081-P001-B002","label":"CASE 2","linear_predecessor_id":"c005","opening_dependency_ids":["c004"],"opening_transition_id":"LINALG-081-T006","parent_branch_id":null,"partition_id":"LINALG-081-P001","pre_split_premise_ids":["c004"],"rejected_linear_dependency_ids":["c005"],"source_basis":"CASE 2: $a=1$ | Row reduce","source_problem_sha256":"ac2d3617ea4c37c1eaf67cef7c6213bfba195eaf3cc38f20a84b41637cf35f73","transition_ids":["LINALG-081-T006","LINALG-081-T007","LINALG-081-T008","LINALG-081-T009"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"LINALG-081-P001","pre_split_premise_ids":["c004"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c004","proposition":"\\det A = 1(a-1)(a-1) = (a-1)^2.","source_sha256":"0eae48cdfaf95a4af0ddcfd3059538656cc8ad9ed9ab9827683645ebeda2c296"}]}]`
+
 #### LINALG-081-T001
 
 - **STATE_BEFORE:** `A= \begin{pmatrix} 1&1&1\\ 1&a&1\\ 1&1&a \end{pmatrix}.`
@@ -394897,13 +395136,14 @@ state after
 - **STATE_BEFORE:** `(a-1)^2\neq0.`
 - **ACTION:** `CASE_SPLIT` — Therefore
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c004"]`; source span SHA-256 `10e3bf17efcfd7a5a8f2ec2ad02a6fbc0da901f6fe36dd05bcbd888ff4c01ae5`
+- **DEPENDENCIES:** `["c004"]`; source span SHA-256 `10e3bf17efcfd7a5a8f2ec2ad02a6fbc0da901f6fe36dd05bcbd888ff4c01ae5`
 - **STATE_AFTER:** `\operatorname{rank}A=3.`
 - **Mechanisms:** domain_restriction, case_split, matrix_or_vector
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-081-P001-B001-ASSUMPTION","branch_id":"LINALG-081-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"LINALG-081-P001","pre_split_premise_ids":["c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -394926,13 +395166,14 @@ $$
 - **STATE_BEFORE:** `\begin{pmatrix} 1&1&1\\ 1&1&1\\ 1&1&1 \end{pmatrix}.`
 - **ACTION:** `CASE_SPLIT` — Row reduce
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c005"]`; source span SHA-256 `07c0076b78289d8be17b5a3fbf34d7372f51dc43d8e4d6c412719793fb7f0636`
+- **DEPENDENCIES:** `["c004"]`; source span SHA-256 `07c0076b78289d8be17b5a3fbf34d7372f51dc43d8e4d6c412719793fb7f0636`
 - **STATE_AFTER:** `R_2\leftarrow R_2-R_1,`
 - **Mechanisms:** case_split, matrix_or_vector
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-081-P001-B002-ASSUMPTION","branch_id":"LINALG-081-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"LINALG-081-P001","pre_split_premise_ids":["c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -394962,6 +395203,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-081-P001-B002-ASSUMPTION","branch_id":"LINALG-081-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-081-P001","pre_split_premise_ids":["c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -394991,6 +395233,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-081-P001-B002-ASSUMPTION","branch_id":"LINALG-081-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-081-P001","pre_split_premise_ids":["c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -395020,6 +395263,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-081-P001-B002-ASSUMPTION","branch_id":"LINALG-081-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-081-P001","pre_split_premise_ids":["c004"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -395276,6 +395520,8 @@ $$
 </details>
 
 ### Atomic semantic trajectory
+
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"LINALG-082-P001-B001-ASSUMPTION","proposition":"a\\neq1","status":"ASSUMED"},"branch_id":"LINALG-082-P001-B001","label":"CASE 1","linear_predecessor_id":"c003","opening_dependency_ids":["c003"],"opening_transition_id":"LINALG-082-T004","parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1: $a\\neq1$ | Divide","source_problem_sha256":"1099c2ad74ed491db2875d3c501cc9a8ad3d323a2f087c514c44214e78bbf43e","transition_ids":["LINALG-082-T004","LINALG-082-T005","LINALG-082-T006","LINALG-082-T007","LINALG-082-T008","LINALG-082-T009"]},{"assumption":{"id":"LINALG-082-P001-B002-ASSUMPTION","proposition":"a=1","status":"ASSUMED"},"branch_id":"LINALG-082-P001-B002","label":"CASE 2","linear_predecessor_id":"c009","opening_dependency_ids":["c003"],"opening_transition_id":"LINALG-082-T010","parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"],"rejected_linear_dependency_ids":["c009"],"source_basis":"CASE 2: $a=1$ | Second row becomes","source_problem_sha256":"1099c2ad74ed491db2875d3c501cc9a8ad3d323a2f087c514c44214e78bbf43e","transition_ids":["LINALG-082-T010"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c003","proposition":"\\left[ \\begin{array}{ccc|c} 1&1&1&1\\\\ 0&a-1&0&1\\\\ 0&0&a-1&2 \\end{array} \\right].","source_sha256":"2fe7c4085563e8f9bf8f1c5ae0b21a7561be9f7f5f7f9674c97f7d0e941072ea"}]}]`
 
 #### LINALG-082-T001
 
@@ -395583,6 +395829,7 @@ state after
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-082-P001-B001-ASSUMPTION","branch_id":"LINALG-082-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -395612,6 +395859,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-082-P001-B001-ASSUMPTION","branch_id":"LINALG-082-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -395634,13 +395882,14 @@ $$
 - **STATE_BEFORE:** `(a-1)z=2.`
 - **ACTION:** `CASE_SPLIT` — Thus
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0","c005"]`; source span SHA-256 `92cfc0e419bbe6de19de1461e769c71ee48b503494b590de075501af12179357`
+- **DEPENDENCIES:** `["c005"]`; source span SHA-256 `92cfc0e419bbe6de19de1461e769c71ee48b503494b590de075501af12179357`
 - **STATE_AFTER:** `z=\frac2{a-1}.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-082-P001-B001-ASSUMPTION","branch_id":"LINALG-082-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -395670,6 +395919,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-082-P001-B001-ASSUMPTION","branch_id":"LINALG-082-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -395699,6 +395949,7 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — multivariate relation equivalence was not decided
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-082-P001-B001-ASSUMPTION","branch_id":"LINALG-082-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -395728,6 +395979,7 @@ $$
 - **Backend:** `SYMPY_VERIFIED` — equation residuals differ by nonzero scalar 1
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-082-P001-B001-ASSUMPTION","branch_id":"LINALG-082-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -395750,13 +396002,14 @@ $$
 - **STATE_BEFORE:** `x = 1-\frac3{a-1}.`
 - **ACTION:** `CASE_SPLIT` — Second row becomes
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c009"]`; source span SHA-256 `5596882bd7584e3c699413a3008bd37927536d41052fbc9ab6b7cdb2f82aa8f7`
+- **DEPENDENCIES:** `["c003"]`; source span SHA-256 `5596882bd7584e3c699413a3008bd37927536d41052fbc9ab6b7cdb2f82aa8f7`
 - **STATE_AFTER:** `0=1.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"LINALG-082-P001-B002-ASSUMPTION","branch_id":"LINALG-082-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"LINALG-082-P001","pre_split_premise_ids":["c003"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -438412,18 +438665,21 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"MIXED-018-P001-B001-ASSUMPTION","proposition":"x=\\frac{\\pi}{6}","status":"ASSUMED"},"branch_id":"MIXED-018-P001-B001","label":"CASE 1","linear_predecessor_id":null,"opening_dependency_ids":["p0","i001","i002"],"opening_transition_id":null,"parent_branch_id":null,"partition_id":"MIXED-018-P001","pre_split_premise_ids":["p0","i001","i002"],"rejected_linear_dependency_ids":[],"source_basis":"CASE 1 | source-explicit prose-only branch","source_problem_sha256":"1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7","transition_ids":[]},{"assumption":{"id":"MIXED-018-P001-B002-ASSUMPTION","proposition":"x=\\pi-\\frac{\\pi}{6}=\\frac{5\\pi}{6}","status":"ASSUMED"},"branch_id":"MIXED-018-P001-B002","label":"CASE 2","linear_predecessor_id":null,"opening_dependency_ids":["p0","i001","i002"],"opening_transition_id":"MIXED-018-T001","parent_branch_id":null,"partition_id":"MIXED-018-P001","pre_split_premise_ids":["p0","i001","i002"],"rejected_linear_dependency_ids":[],"source_basis":"Granular reasoning trace | CASE 2","source_problem_sha256":"1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7","transition_ids":["MIXED-018-T001"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"MIXED-018-P001","pre_split_premise_ids":["p0","i001","i002"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Solve $$ \\sin x=\\frac12 $$ for $0\\le x<2\\pi$.","source_sha256":"1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7"},{"origin":"SOURCE_INITIAL_STATE","premise_id":"i001","proposition":"\\frac{\\pi}{6}","source_sha256":"1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7"},{"origin":"SOURCE_INITIAL_STATE","premise_id":"i002","proposition":"\\sin\\frac{\\pi}{6}=\\frac12.","source_sha256":"1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7"}]}]`
+
 #### MIXED-018-T001
 
 - **STATE_BEFORE:** `x=\frac{\pi}{6}.`
 - **ACTION:** `CASE_SPLIT` — CASE 2
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["p0"]`; source span SHA-256 `7531f4ee809119699812bbeee5937d4945d533a746260c319e2fec17f0e5413f`
+- **DEPENDENCIES:** `["p0","i001","i002"]`; source span SHA-256 `7531f4ee809119699812bbeee5937d4945d533a746260c319e2fec17f0e5413f`
 - **STATE_AFTER:** `x=\pi-\frac{\pi}{6} = \frac{5\pi}{6}.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"MIXED-018-P001-B002-ASSUMPTION","branch_id":"MIXED-018-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"MIXED-018-P001","pre_split_premise_ids":["p0","i001","i002"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -452723,6 +452979,8 @@ $$
 
 ### Atomic semantic trajectory
 
+**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"MIXED-039-P001-B001-ASSUMPTION","proposition":"y=x","status":"ASSUMED"},"branch_id":"MIXED-039-P001-B001","label":"CASE 1","linear_predecessor_id":"c008","opening_dependency_ids":["p0","c008"],"opening_transition_id":"MIXED-039-T009","parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"],"rejected_linear_dependency_ids":[],"source_basis":"Granular reasoning trace | CASE 1","source_problem_sha256":"40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5","transition_ids":["MIXED-039-T009","MIXED-039-T010","MIXED-039-T011"]},{"assumption":{"id":"MIXED-039-P001-B002-ASSUMPTION","proposition":"y=-x","status":"ASSUMED"},"branch_id":"MIXED-039-P001-B002","label":"CASE 2","linear_predecessor_id":"c011","opening_dependency_ids":["p0","c008"],"opening_transition_id":"MIXED-039-T012","parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"],"rejected_linear_dependency_ids":["c011"],"source_basis":"Granular reasoning trace | CASE 2","source_problem_sha256":"40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5","transition_ids":["MIXED-039-T012","MIXED-039-T013"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":"MIXED-039-T014","parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"],"pre_split_premises":[{"origin":"SOURCE_PROBLEM","premise_id":"p0","proposition":"Find the maximum of $$ f(x,y)=xy $$ subject to $$ x^2+y^2=1. $$","source_sha256":"40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c008","proposition":"y=\\pm x.","source_sha256":"1553ea2a149722ff0f7a92b6924ed4fc0816abb0591b71d27199392aaf7e09d9"}]}]`
+
 #### MIXED-039-T001
 
 - **STATE_BEFORE:** `\nabla f=(y,x),`
@@ -453583,13 +453841,14 @@ $$
 - **STATE_BEFORE:** `y=\pm x.`
 - **ACTION:** `CASE_SPLIT` — CASE 1
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c008"]`; source span SHA-256 `f0f2c573960aa5753ad3a6627b4666a5a4e105395e31ae7ee2a92d85ac139e81`
+- **DEPENDENCIES:** `["p0","c008"]`; source span SHA-256 `f0f2c573960aa5753ad3a6627b4666a5a4e105395e31ae7ee2a92d85ac139e81`
 - **STATE_AFTER:** `y=x.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"MIXED-039-P001-B001-ASSUMPTION","branch_id":"MIXED-039-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -453620,6 +453879,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `MIXED-039-T008`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"MIXED-039-P001-B001-ASSUMPTION","branch_id":"MIXED-039-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -453650,6 +453910,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `MIXED-039-T008`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"MIXED-039-P001-B001-ASSUMPTION","branch_id":"MIXED-039-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -453672,13 +453933,14 @@ $$
 - **STATE_BEFORE:** `xy=x^2=\frac12.`
 - **ACTION:** `CASE_SPLIT` — CASE 2
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c011"]`; source span SHA-256 `2caea13bd084fdb501dd6e74fdd8969dea1fd74bb167be1212dc24a3f8337a68`
+- **DEPENDENCIES:** `["p0","c008"]`; source span SHA-256 `2caea13bd084fdb501dd6e74fdd8969dea1fd74bb167be1212dc24a3f8337a68`
 - **STATE_AFTER:** `y=-x.`
 - **Mechanisms:** case_split
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"MIXED-039-P001-B002-ASSUMPTION","branch_id":"MIXED-039-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -453709,6 +453971,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `MIXED-039-T008`
+- **Neutral branch ancestry:** `[{"branch_assumption_id":"MIXED-039-P001-B002-ASSUMPTION","branch_id":"MIXED-039-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -453731,7 +453994,7 @@ $$
 - **STATE_BEFORE:** `xy=-x^2=-\frac12.`
 - **ACTION:** `TRANSFORM` — Maximum
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c013"]`; source span SHA-256 `abb0a4f3aee5aa5daaa7e3072f4f77df653119ffbc3a36fddedb02799d602515`
+- **DEPENDENCIES:** `["c011","c013"]`; source span SHA-256 `abb0a4f3aee5aa5daaa7e3072f4f77df653119ffbc3a36fddedb02799d602515`
 - **STATE_AFTER:** `\frac12.`
 - **Mechanisms:** algebraic_or_logical_transformation
 - **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition MIXED-039-T008; rendering it independently would lose provenance
@@ -453739,6 +454002,7 @@ $$
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
 - **Depends on unsupported step:** `MIXED-039-T008`
+- **Neutral branch join:** partitions `["MIXED-039-P001"]`; covered branch conclusions `["c011","c013"]`
 
 <details><summary>Exact source span</summary>
 

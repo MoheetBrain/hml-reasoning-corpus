@@ -1,0 +1,2929 @@
+{
+  "based_on_corpus_commit": "c5a69299d8c68e37595d3a45b563ec780ea79516",
+  "derivation_policy": "Curated from the exact worked source. Sibling branch parents are explicit; linear adjacency is never branch-parent evidence.",
+  "problems": [
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "ALG-097-P001-B001-ASSUMPTION",
+                "proposition": "u=1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "ALG-097-P001-B001",
+              "label": "Case 1",
+              "linear_predecessor_id": "c007",
+              "opening_dependency_ids": [
+                "c002",
+                "c005"
+              ],
+              "opening_transition_id": "ALG-097-T008",
+              "parent_branch_id": null,
+              "partition_id": "ALG-097-P001",
+              "pre_split_premise_ids": [
+                "c002",
+                "c005"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c007"
+              ],
+              "source_basis": "Case 1 | Substitute $u=2^x$. Case 1",
+              "source_problem_sha256": "247ead68d5ca8f70ce165f6241a1ade6b3dd57ba1234820c82ea1e4776eb3b3d",
+              "transition_ids": [
+                "ALG-097-T008",
+                "ALG-097-T009",
+                "ALG-097-T010"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "ALG-097-P001-B002-ASSUMPTION",
+                "proposition": "u=4",
+                "status": "ASSUMED"
+              },
+              "branch_id": "ALG-097-P001-B002",
+              "label": "Case 2",
+              "linear_predecessor_id": "c010",
+              "opening_dependency_ids": [
+                "c002",
+                "c005"
+              ],
+              "opening_transition_id": "ALG-097-T011",
+              "parent_branch_id": null,
+              "partition_id": "ALG-097-P001",
+              "pre_split_premise_ids": [
+                "c002",
+                "c005"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c010"
+              ],
+              "source_basis": "Case 2 | Case 2",
+              "source_problem_sha256": "247ead68d5ca8f70ce165f6241a1ade6b3dd57ba1234820c82ea1e4776eb3b3d",
+              "transition_ids": [
+                "ALG-097-T011",
+                "ALG-097-T012",
+                "ALG-097-T013"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": "ALG-097-T014",
+          "parent_branch_id": null,
+          "partition_id": "ALG-097-P001",
+          "pre_split_premise_ids": [
+            "c002",
+            "c005"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c002",
+              "proposition": "u=2^x",
+              "source_sha256": "8a882be9a246899e929a70ac60c77ef7ce8516159c3edcb947489fe720af59f2"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c005",
+              "proposition": "(u-1)(u-4)=0",
+              "source_sha256": "ac452e187efad86045f7383e5fb89c038a51cb601c084f70052e46984cfda6ea"
+            }
+          ]
+        }
+      ],
+      "problem_id": "ALG-097",
+      "source_problem_sha256": "247ead68d5ca8f70ce165f6241a1ade6b3dd57ba1234820c82ea1e4776eb3b3d"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "ALG-099-P001-B001-ASSUMPTION",
+                "proposition": "2x-5\\ge0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "ALG-099-P001-B001",
+              "label": "Case 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "ALG-099-T001",
+              "parent_branch_id": null,
+              "partition_id": "ALG-099-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "Case 1: $2x-5\\ge0$ | Absolute value means the expression inside can reach the target from either the **positive direction** or **negative direction**. So there are two cases. Case 1: $2x-5\\ge0$ Then",
+              "source_problem_sha256": "c3f28bf79d86e5e505f41116fd8a91087a2f4cf461d43d0ca5026c0825d4397c",
+              "transition_ids": [
+                "ALG-099-T001",
+                "ALG-099-T002",
+                "ALG-099-T003",
+                "ALG-099-T004",
+                "ALG-099-T005"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "ALG-099-P001-B002-ASSUMPTION",
+                "proposition": "2x-5<0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "ALG-099-P001-B002",
+              "label": "Case 2",
+              "linear_predecessor_id": "c005",
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "ALG-099-T006",
+              "parent_branch_id": null,
+              "partition_id": "ALG-099-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c005"
+              ],
+              "source_basis": "Case 2: $2x-5<0$ | Valid. ✅ --- Case 2: $2x-5<0$ Then",
+              "source_problem_sha256": "c3f28bf79d86e5e505f41116fd8a91087a2f4cf461d43d0ca5026c0825d4397c",
+              "transition_ids": [
+                "ALG-099-T006",
+                "ALG-099-T007",
+                "ALG-099-T008",
+                "ALG-099-T009",
+                "ALG-099-T010",
+                "ALG-099-T011",
+                "ALG-099-T012",
+                "ALG-099-T013",
+                "ALG-099-T014"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": "ALG-099-T015",
+          "parent_branch_id": null,
+          "partition_id": "ALG-099-P001",
+          "pre_split_premise_ids": [
+            "p0"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "|2x-5|=x+4",
+              "source_sha256": "c3f28bf79d86e5e505f41116fd8a91087a2f4cf461d43d0ca5026c0825d4397c"
+            }
+          ]
+        }
+      ],
+      "problem_id": "ALG-099",
+      "source_problem_sha256": "c3f28bf79d86e5e505f41116fd8a91087a2f4cf461d43d0ca5026c0825d4397c"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-008-P001-B001-ASSUMPTION",
+                "proposition": "x+2=0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-008-P001-B001",
+              "label": "First branch",
+              "linear_predecessor_id": "c008",
+              "opening_dependency_ids": [
+                "c006"
+              ],
+              "opening_transition_id": "GEN-008-T009",
+              "parent_branch_id": null,
+              "partition_id": "GEN-008-P001",
+              "pre_split_premise_ids": [
+                "c006"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c008"
+              ],
+              "source_basis": "Granular solution | First branch",
+              "source_problem_sha256": "cee0d7fe9290d939b9d6697862ee31ea79b7f2d9b09e9364893093bcc1dbdc38",
+              "transition_ids": [
+                "GEN-008-T009"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-008-P001-B002-ASSUMPTION",
+                "proposition": "x+3=0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-008-P001-B002",
+              "label": "Second branch",
+              "linear_predecessor_id": "c009",
+              "opening_dependency_ids": [
+                "c006"
+              ],
+              "opening_transition_id": "GEN-008-T010",
+              "parent_branch_id": null,
+              "partition_id": "GEN-008-P001",
+              "pre_split_premise_ids": [
+                "c006"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c009"
+              ],
+              "source_basis": "Granular solution | Second branch",
+              "source_problem_sha256": "cee0d7fe9290d939b9d6697862ee31ea79b7f2d9b09e9364893093bcc1dbdc38",
+              "transition_ids": [
+                "GEN-008-T010"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-008-P001",
+          "pre_split_premise_ids": [
+            "c006"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c006",
+              "proposition": "(x+2)(x+3)=0.",
+              "source_sha256": "f42f6468be32e97de938a1c09da4db2d44eb3c49b8e75cbd34565a82bec3df82"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-008",
+      "source_problem_sha256": "cee0d7fe9290d939b9d6697862ee31ea79b7f2d9b09e9364893093bcc1dbdc38"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-011-P001-B001-ASSUMPTION",
+                "proposition": "x-4=3",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-011-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-011-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-011-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1 | Then",
+              "source_problem_sha256": "3df1e093cc65c4fd7d7581cf3af5f61a9a85a2e5a56a3156601f1a217b04910a",
+              "transition_ids": [
+                "GEN-011-T001",
+                "GEN-011-T002"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-011-P001-B002-ASSUMPTION",
+                "proposition": "x-4=-3",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-011-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c002",
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-011-T003",
+              "parent_branch_id": null,
+              "partition_id": "GEN-011-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c002"
+              ],
+              "source_basis": "CASE 2 | Then",
+              "source_problem_sha256": "3df1e093cc65c4fd7d7581cf3af5f61a9a85a2e5a56a3156601f1a217b04910a",
+              "transition_ids": [
+                "GEN-011-T003",
+                "GEN-011-T004"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-011-P001",
+          "pre_split_premise_ids": [
+            "p0"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Solve: $$ |x-4|=3 $$",
+              "source_sha256": "3df1e093cc65c4fd7d7581cf3af5f61a9a85a2e5a56a3156601f1a217b04910a"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-011",
+      "source_problem_sha256": "3df1e093cc65c4fd7d7581cf3af5f61a9a85a2e5a56a3156601f1a217b04910a"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-025-P001-B001-ASSUMPTION",
+                "proposition": "2x+1=7",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-025-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-025-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-025-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1 | Subtract $1$",
+              "source_problem_sha256": "5acd6b6d2063f9acc9b30bb3901a5bfe1e266b743321adabaa83b065ab6bbcae",
+              "transition_ids": [
+                "GEN-025-T001",
+                "GEN-025-T002"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-025-P001-B002-ASSUMPTION",
+                "proposition": "2x+1=-7",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-025-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c002",
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-025-T003",
+              "parent_branch_id": null,
+              "partition_id": "GEN-025-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c002"
+              ],
+              "source_basis": "CASE 2 | Subtract $1$",
+              "source_problem_sha256": "5acd6b6d2063f9acc9b30bb3901a5bfe1e266b743321adabaa83b065ab6bbcae",
+              "transition_ids": [
+                "GEN-025-T003",
+                "GEN-025-T004"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-025-P001",
+          "pre_split_premise_ids": [
+            "p0"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Solve: $$ |2x+1|=7. $$",
+              "source_sha256": "5acd6b6d2063f9acc9b30bb3901a5bfe1e266b743321adabaa83b065ab6bbcae"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-025",
+      "source_problem_sha256": "5acd6b6d2063f9acc9b30bb3901a5bfe1e266b743321adabaa83b065ab6bbcae"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-042-P001-B001-ASSUMPTION",
+                "proposition": "both numerator and denominator positive",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-042-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0",
+                "i001",
+                "i002"
+              ],
+              "opening_transition_id": "GEN-042-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-042-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "i001",
+                "i002"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: both positive | and",
+              "source_problem_sha256": "50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f",
+              "transition_ids": [
+                "GEN-042-T001",
+                "GEN-042-T002",
+                "GEN-042-T003",
+                "GEN-042-T004"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-042-P001-B002-ASSUMPTION",
+                "proposition": "both numerator and denominator negative",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-042-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c004",
+              "opening_dependency_ids": [
+                "p0",
+                "i001",
+                "i002"
+              ],
+              "opening_transition_id": "GEN-042-T005",
+              "parent_branch_id": null,
+              "partition_id": "GEN-042-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "i001",
+                "i002"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c004"
+              ],
+              "source_basis": "CASE 2: both negative | and",
+              "source_problem_sha256": "50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f",
+              "transition_ids": [
+                "GEN-042-T005",
+                "GEN-042-T006",
+                "GEN-042-T007"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-042-P001",
+          "pre_split_premise_ids": [
+            "p0",
+            "i001",
+            "i002"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Solve: $$ \\frac{x-1}{x+2}>0. $$",
+              "source_sha256": "50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f"
+            },
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i001",
+              "proposition": "x\\neq-2.",
+              "source_sha256": "50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f"
+            },
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i002",
+              "proposition": "-2, 1.",
+              "source_sha256": "50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-042",
+      "source_problem_sha256": "50e90aafc16638e7ff278a59fbe6b1628dddc05681684fae051832d00170ca4f"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-046-P001-B001-ASSUMPTION",
+                "proposition": "-2<0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-046-P001-B001",
+              "label": "first piecewise branch",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-046-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-046-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "Granular solution | Therefore use the first branch",
+              "source_problem_sha256": "821e62fa32cf03a6ddbe22bdbd53ba2faff1d8d34fee46787c2c88544d175dac",
+              "transition_ids": [
+                "GEN-046-T001",
+                "GEN-046-T002"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-046-P001-B002-ASSUMPTION",
+                "proposition": "3\\ge0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-046-P001-B002",
+              "label": "second piecewise branch",
+              "linear_predecessor_id": "c003",
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-046-T004",
+              "parent_branch_id": null,
+              "partition_id": "GEN-046-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c003"
+              ],
+              "source_basis": "Granular solution | Therefore use the second branch",
+              "source_problem_sha256": "821e62fa32cf03a6ddbe22bdbd53ba2faff1d8d34fee46787c2c88544d175dac",
+              "transition_ids": [
+                "GEN-046-T004",
+                "GEN-046-T005",
+                "GEN-046-T006"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-046-P001",
+          "pre_split_premise_ids": [
+            "p0"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Let $$ f(x)= \\begin{cases} x^2,&x<0,\\\\ 2x+1,&x\\ge0. \\end{cases} $$ Find $f(-2)$ and $f(3)$.",
+              "source_sha256": "821e62fa32cf03a6ddbe22bdbd53ba2faff1d8d34fee46787c2c88544d175dac"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-046",
+      "source_problem_sha256": "821e62fa32cf03a6ddbe22bdbd53ba2faff1d8d34fee46787c2c88544d175dac"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-047-P001-B001-ASSUMPTION",
+                "proposition": "x<2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-047-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-047-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-047-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: $x<2$ | Equation",
+              "source_problem_sha256": "4cf7a2155f3888d5400d613b671e3b0890a4193596d3a195c2d9ee629c982121",
+              "transition_ids": [
+                "GEN-047-T001",
+                "GEN-047-T002",
+                "GEN-047-T003"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-047-P001-B002-ASSUMPTION",
+                "proposition": "x\\ge2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-047-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c003",
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-047-T004",
+              "parent_branch_id": null,
+              "partition_id": "GEN-047-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c003"
+              ],
+              "source_basis": "CASE 2: $x\\ge2$ | Equation",
+              "source_problem_sha256": "4cf7a2155f3888d5400d613b671e3b0890a4193596d3a195c2d9ee629c982121",
+              "transition_ids": [
+                "GEN-047-T004",
+                "GEN-047-T005",
+                "GEN-047-T006",
+                "GEN-047-T007"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-047-P001",
+          "pre_split_premise_ids": [
+            "p0"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Let $$ f(x)= \\begin{cases} x+1,&x<2,\\\\ 2x-3,&x\\ge2. \\end{cases} $$ Solve $f(x)=3$.",
+              "source_sha256": "4cf7a2155f3888d5400d613b671e3b0890a4193596d3a195c2d9ee629c982121"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-047",
+      "source_problem_sha256": "4cf7a2155f3888d5400d613b671e3b0890a4193596d3a195c2d9ee629c982121"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-050-P001-B001-ASSUMPTION",
+                "proposition": "a\\neq0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-050-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-050-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-050-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: $a\\neq0$ | Divide by established-nonzero $a$",
+              "source_problem_sha256": "f14168a1a1f5d916af2c167e843927b734f09dd2f7429d4a7d3cc2001e7e1577",
+              "transition_ids": [
+                "GEN-050-T001",
+                "GEN-050-T002"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-050-P001-B002-ASSUMPTION",
+                "proposition": "a=0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-050-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c002",
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-050-T003",
+              "parent_branch_id": null,
+              "partition_id": "GEN-050-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c002"
+              ],
+              "source_basis": "CASE 2: $a=0$ | No explicit warrant text occurs between the two source states.",
+              "source_problem_sha256": "f14168a1a1f5d916af2c167e843927b734f09dd2f7429d4a7d3cc2001e7e1577",
+              "transition_ids": [
+                "GEN-050-T003"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-050-P001",
+          "pre_split_premise_ids": [
+            "p0"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Solve, depending on the real parameter $a$: $$ a(x-2)=3. $$",
+              "source_sha256": "f14168a1a1f5d916af2c167e843927b734f09dd2f7429d4a7d3cc2001e7e1577"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-050",
+      "source_problem_sha256": "f14168a1a1f5d916af2c167e843927b734f09dd2f7429d4a7d3cc2001e7e1577"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-054-P001-B001-ASSUMPTION",
+                "proposition": "x-1<0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-054-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": "c002",
+              "opening_dependency_ids": [
+                "p0",
+                "c002"
+              ],
+              "opening_transition_id": "GEN-054-T003",
+              "parent_branch_id": null,
+              "partition_id": "GEN-054-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "c002"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: $x-1<0$ | Squaring an inequality is safe only when both sides are known nonnegative. Therefore split according to the sign of $x-1$. CASE 1: $x-1<0$ Assumption",
+              "source_problem_sha256": "04cf6be977a6c9ce0632f40a8bd10c66c55a5ccfff5b2969fab96c329f51d4a1",
+              "transition_ids": [
+                "GEN-054-T003",
+                "GEN-054-T004",
+                "GEN-054-T005",
+                "GEN-054-T006",
+                "GEN-054-T007",
+                "GEN-054-T008"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-054-P001-B002-ASSUMPTION",
+                "proposition": "x-1\\ge0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-054-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c008",
+              "opening_dependency_ids": [
+                "p0",
+                "c002"
+              ],
+              "opening_transition_id": "GEN-054-T009",
+              "parent_branch_id": null,
+              "partition_id": "GEN-054-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "c002"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c008"
+              ],
+              "source_basis": "CASE 2: $x-1\\ge0$ | CASE 2: $x-1\\ge0$ Assumption",
+              "source_problem_sha256": "04cf6be977a6c9ce0632f40a8bd10c66c55a5ccfff5b2969fab96c329f51d4a1",
+              "transition_ids": [
+                "GEN-054-T009",
+                "GEN-054-T010",
+                "GEN-054-T011",
+                "GEN-054-T012",
+                "GEN-054-T013",
+                "GEN-054-T014",
+                "GEN-054-T015",
+                "GEN-054-T016",
+                "GEN-054-T017"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": "GEN-054-T018",
+          "parent_branch_id": null,
+          "partition_id": "GEN-054-P001",
+          "pre_split_premise_ids": [
+            "p0",
+            "c002"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Solve: $$ \\sqrt{x+1}>x-1. $$",
+              "source_sha256": "04cf6be977a6c9ce0632f40a8bd10c66c55a5ccfff5b2969fab96c329f51d4a1"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c002",
+              "proposition": "x\\ge-1.",
+              "source_sha256": "65c2cd68e855c3a95e5455671ca907a95c44c577de53f2ee06d235944153a681"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-054",
+      "source_problem_sha256": "04cf6be977a6c9ce0632f40a8bd10c66c55a5ccfff5b2969fab96c329f51d4a1"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-056-P001-B001-ASSUMPTION",
+                "proposition": "u=1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-056-P001-B001",
+              "label": "Branch 1",
+              "linear_predecessor_id": "c006",
+              "opening_dependency_ids": [
+                "sp001",
+                "c004"
+              ],
+              "opening_transition_id": "GEN-056-T007",
+              "parent_branch_id": null,
+              "partition_id": "GEN-056-P001",
+              "pre_split_premise_ids": [
+                "sp001",
+                "c004"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c006"
+              ],
+              "source_basis": "Granular solution | Return to $u=2^x$. Branch 1",
+              "source_problem_sha256": "82ad31d26a27db0359a13401866aa93e5a141657623e01611e20bbcf04d8214d",
+              "transition_ids": [
+                "GEN-056-T007",
+                "GEN-056-T008"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-056-P001-B002-ASSUMPTION",
+                "proposition": "u=4",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-056-P001-B002",
+              "label": "Branch 2",
+              "linear_predecessor_id": "c008",
+              "opening_dependency_ids": [
+                "sp001",
+                "c004"
+              ],
+              "opening_transition_id": "GEN-056-T009",
+              "parent_branch_id": null,
+              "partition_id": "GEN-056-P001",
+              "pre_split_premise_ids": [
+                "sp001",
+                "c004"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c008"
+              ],
+              "source_basis": "Granular solution | Branch 2",
+              "source_problem_sha256": "82ad31d26a27db0359a13401866aa93e5a141657623e01611e20bbcf04d8214d",
+              "transition_ids": [
+                "GEN-056-T009",
+                "GEN-056-T010"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-056-P001",
+          "pre_split_premise_ids": [
+            "sp001",
+            "c004"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EXPLICIT_SOURCE_STATE_OMITTED_BY_OLD_SEGMENTER",
+              "premise_id": "sp001",
+              "proposition": "u=2^x.",
+              "source_sha256": "310036110467ba9cad49ae67629c4eb94eef22bfd102dbdf6409e449ae24a59c"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c004",
+              "proposition": "(u-1)(u-4)=0.",
+              "source_sha256": "d382c10a6841a63ffc9fc9032b2850123393c863a7f080a4cd8d9639e13ee880"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-056",
+      "source_problem_sha256": "82ad31d26a27db0359a13401866aa93e5a141657623e01611e20bbcf04d8214d"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-057-P001-B001-ASSUMPTION",
+                "proposition": "u=1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-057-P001-B001",
+              "label": "Case 1",
+              "linear_predecessor_id": "c003",
+              "opening_dependency_ids": [
+                "i001",
+                "i002",
+                "c001"
+              ],
+              "opening_transition_id": "GEN-057-T004",
+              "parent_branch_id": null,
+              "partition_id": "GEN-057-P001",
+              "pre_split_premise_ids": [
+                "i001",
+                "i002",
+                "c001"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c003"
+              ],
+              "source_basis": "Granular solution | Undo substitution. Case 1",
+              "source_problem_sha256": "e4c4fe3954f7a29d9977260372bb94795d6dcc265d56ea12c155401d9842468c",
+              "transition_ids": [
+                "GEN-057-T004",
+                "GEN-057-T005"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-057-P001-B002-ASSUMPTION",
+                "proposition": "u=2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-057-P001-B002",
+              "label": "Case 2",
+              "linear_predecessor_id": "c005",
+              "opening_dependency_ids": [
+                "i001",
+                "i002",
+                "c001"
+              ],
+              "opening_transition_id": "GEN-057-T006",
+              "parent_branch_id": null,
+              "partition_id": "GEN-057-P001",
+              "pre_split_premise_ids": [
+                "i001",
+                "i002",
+                "c001"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c005"
+              ],
+              "source_basis": "Granular solution | Case 2",
+              "source_problem_sha256": "e4c4fe3954f7a29d9977260372bb94795d6dcc265d56ea12c155401d9842468c",
+              "transition_ids": [
+                "GEN-057-T006",
+                "GEN-057-T007"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-057-P001",
+          "pre_split_premise_ids": [
+            "i001",
+            "i002",
+            "c001"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i001",
+              "proposition": "x>0.",
+              "source_sha256": "e4c4fe3954f7a29d9977260372bb94795d6dcc265d56ea12c155401d9842468c"
+            },
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i002",
+              "proposition": "u=\\ln x.",
+              "source_sha256": "e4c4fe3954f7a29d9977260372bb94795d6dcc265d56ea12c155401d9842468c"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c001",
+              "proposition": "(u-1)(u-2)=0.",
+              "source_sha256": "0c790b3fdbacb744644d69a9eb5cbce09d587d4252722f8f13202540f8367e36"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-057",
+      "source_problem_sha256": "e4c4fe3954f7a29d9977260372bb94795d6dcc265d56ea12c155401d9842468c"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-060-P001-B001-ASSUMPTION",
+                "proposition": "x<-1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-060-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0",
+                "i001"
+              ],
+              "opening_transition_id": "GEN-060-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-060-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "i001"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: $x<-1$ | First product",
+              "source_problem_sha256": "04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602",
+              "transition_ids": [
+                "GEN-060-T001",
+                "GEN-060-T002"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-060-P001-B002-ASSUMPTION",
+                "proposition": "-1<x<2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-060-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c002",
+              "opening_dependency_ids": [
+                "p0",
+                "i001"
+              ],
+              "opening_transition_id": "GEN-060-T003",
+              "parent_branch_id": null,
+              "partition_id": "GEN-060-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "i001"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c002"
+              ],
+              "source_basis": "CASE 2: $-1<x<2$ | No explicit warrant text occurs between the two source states.",
+              "source_problem_sha256": "04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602",
+              "transition_ids": [
+                "GEN-060-T003",
+                "GEN-060-T004"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-060-P001-B003-ASSUMPTION",
+                "proposition": "2<x<4",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-060-P001-B003",
+              "label": "CASE 3",
+              "linear_predecessor_id": "c004",
+              "opening_dependency_ids": [
+                "p0",
+                "i001"
+              ],
+              "opening_transition_id": "GEN-060-T005",
+              "parent_branch_id": null,
+              "partition_id": "GEN-060-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "i001"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c004"
+              ],
+              "source_basis": "CASE 3: $2<x<4$ | Choose $x=3$",
+              "source_problem_sha256": "04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602",
+              "transition_ids": [
+                "GEN-060-T005"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-060-P001-B004-ASSUMPTION",
+                "proposition": "x>4",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-060-P001-B004",
+              "label": "CASE 4",
+              "linear_predecessor_id": "c005",
+              "opening_dependency_ids": [
+                "p0",
+                "i001"
+              ],
+              "opening_transition_id": "GEN-060-T006",
+              "parent_branch_id": null,
+              "partition_id": "GEN-060-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "i001"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c005"
+              ],
+              "source_basis": "CASE 4: $x>4$ | Choose $x=5$",
+              "source_problem_sha256": "04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602",
+              "transition_ids": [
+                "GEN-060-T006"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-060-P001",
+          "pre_split_premise_ids": [
+            "p0",
+            "i001"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Solve: $$ (x-2)(x+1)(x-4)\\le0. $$",
+              "source_sha256": "04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602"
+            },
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i001",
+              "proposition": "x=-1, 2, 4.",
+              "source_sha256": "04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-060",
+      "source_problem_sha256": "04fa3202ea02db39fa423c896ab78a04fc6ef044e09a209222be507a3e93c602"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-062-P001-B001-ASSUMPTION",
+                "proposition": "\\frac{x-1}{x+2}=2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-062-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": "c001",
+              "opening_dependency_ids": [
+                "p0",
+                "c001"
+              ],
+              "opening_transition_id": "GEN-062-T002",
+              "parent_branch_id": null,
+              "partition_id": "GEN-062-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "c001"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1 | Absolute-value equality produces two branches. CASE 1",
+              "source_problem_sha256": "2888bbc9933d63410c8389aee2c1c81b8739e22fc32642adc393ea4510cdc6e7",
+              "transition_ids": [
+                "GEN-062-T002",
+                "GEN-062-T003",
+                "GEN-062-T004",
+                "GEN-062-T005",
+                "GEN-062-T006"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-062-P001-B002-ASSUMPTION",
+                "proposition": "\\frac{x-1}{x+2}=-2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-062-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c006",
+              "opening_dependency_ids": [
+                "p0",
+                "c001"
+              ],
+              "opening_transition_id": "GEN-062-T007",
+              "parent_branch_id": null,
+              "partition_id": "GEN-062-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "c001"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c006"
+              ],
+              "source_basis": "CASE 2 | CASE 2",
+              "source_problem_sha256": "2888bbc9933d63410c8389aee2c1c81b8739e22fc32642adc393ea4510cdc6e7",
+              "transition_ids": [
+                "GEN-062-T007",
+                "GEN-062-T008",
+                "GEN-062-T009",
+                "GEN-062-T010",
+                "GEN-062-T011",
+                "GEN-062-T012"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": "GEN-062-T013",
+          "parent_branch_id": null,
+          "partition_id": "GEN-062-P001",
+          "pre_split_premise_ids": [
+            "p0",
+            "c001"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Solve: $$ \\left|\\frac{x-1}{x+2}\\right|=2. $$",
+              "source_sha256": "2888bbc9933d63410c8389aee2c1c81b8739e22fc32642adc393ea4510cdc6e7"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c001",
+              "proposition": "x\\neq-2.",
+              "source_sha256": "0086162239469fb552864bddbebb198055055b2bc67ec8ec0a0b8915695ec7ca"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-062",
+      "source_problem_sha256": "2888bbc9933d63410c8389aee2c1c81b8739e22fc32642adc393ea4510cdc6e7"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-068-P001-B001-ASSUMPTION",
+                "proposition": "x<-2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-068-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "i002",
+                "i003"
+              ],
+              "opening_transition_id": "GEN-068-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-068-P001",
+              "pre_split_premise_ids": [
+                "i002",
+                "i003"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: $x<-2$ | Denominator",
+              "source_problem_sha256": "ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38",
+              "transition_ids": [
+                "GEN-068-T001",
+                "GEN-068-T002"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-068-P001-B002-ASSUMPTION",
+                "proposition": "-2<x<1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-068-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "i002",
+                "i003"
+              ],
+              "opening_transition_id": null,
+              "parent_branch_id": null,
+              "partition_id": "GEN-068-P001",
+              "pre_split_premise_ids": [
+                "i002",
+                "i003"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 2 | source-explicit prose-only branch",
+              "source_problem_sha256": "ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38",
+              "transition_ids": []
+            },
+            {
+              "assumption": {
+                "id": "GEN-068-P001-B003-ASSUMPTION",
+                "proposition": "x=1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-068-P001-B003",
+              "label": "CASE 3",
+              "linear_predecessor_id": "c002",
+              "opening_dependency_ids": [
+                "i002",
+                "i003"
+              ],
+              "opening_transition_id": "GEN-068-T003",
+              "parent_branch_id": null,
+              "partition_id": "GEN-068-P001",
+              "pre_split_premise_ids": [
+                "i002",
+                "i003"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c002"
+              ],
+              "source_basis": "CASE 3: $x=1$ | Quotient",
+              "source_problem_sha256": "ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38",
+              "transition_ids": [
+                "GEN-068-T003"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-068-P001-B004-ASSUMPTION",
+                "proposition": "x>1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-068-P001-B004",
+              "label": "CASE 4",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "i002",
+                "i003"
+              ],
+              "opening_transition_id": null,
+              "parent_branch_id": null,
+              "partition_id": "GEN-068-P001",
+              "pre_split_premise_ids": [
+                "i002",
+                "i003"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 4 | source-explicit prose-only branch",
+              "source_problem_sha256": "ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38",
+              "transition_ids": []
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-068-P001",
+          "pre_split_premise_ids": [
+            "i002",
+            "i003"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i002",
+              "proposition": "\\frac{x-1}{x+2}\\ge0.",
+              "source_sha256": "ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38"
+            },
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i003",
+              "proposition": "-2, 1.",
+              "source_sha256": "ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-068",
+      "source_problem_sha256": "ebd182349bcba3d1f4752a9df7fdcc7f5f032f55fda39a5e07968a3346883e38"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-072-P001-B001-ASSUMPTION",
+                "proposition": "|x-2|-3=1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-072-P001-B001",
+              "label": "outer CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-072-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-072-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1 | Initial state Outer absolute value requires two branches. CASE 1",
+              "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb",
+              "transition_ids": [
+                "GEN-072-T001",
+                "GEN-072-T002",
+                "GEN-072-T003",
+                "GEN-072-T004"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-072-P001-B002-ASSUMPTION",
+                "proposition": "|x-2|-3=-1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-072-P001-B002",
+              "label": "outer CASE 2",
+              "linear_predecessor_id": "c004",
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-072-T005",
+              "parent_branch_id": null,
+              "partition_id": "GEN-072-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c004"
+              ],
+              "source_basis": "CASE 2 | CASE 2",
+              "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb",
+              "transition_ids": [
+                "GEN-072-T005",
+                "GEN-072-T006",
+                "GEN-072-T007",
+                "GEN-072-T008"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": "GEN-072-T009",
+          "parent_branch_id": null,
+          "partition_id": "GEN-072-P001",
+          "pre_split_premise_ids": [
+            "p0"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Solve: $$ \\bigl||x-2|-3\\bigr|=1. $$",
+              "source_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb"
+            }
+          ]
+        },
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-072-P002-B001-ASSUMPTION",
+                "proposition": "x-2=4",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-072-P002-B001",
+              "label": "inner positive branch",
+              "linear_predecessor_id": "c002",
+              "opening_dependency_ids": [
+                "c002"
+              ],
+              "opening_transition_id": "GEN-072-T003",
+              "parent_branch_id": "GEN-072-P001-B001",
+              "partition_id": "GEN-072-P002",
+              "pre_split_premise_ids": [
+                "c002"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1 | Inner absolute value branches",
+              "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb",
+              "transition_ids": [
+                "GEN-072-T003"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-072-P002-B002-ASSUMPTION",
+                "proposition": "x-2=-4",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-072-P002-B002",
+              "label": "inner negative branch",
+              "linear_predecessor_id": "c003",
+              "opening_dependency_ids": [
+                "c002"
+              ],
+              "opening_transition_id": "GEN-072-T004",
+              "parent_branch_id": "GEN-072-P001-B001",
+              "partition_id": "GEN-072-P002",
+              "pre_split_premise_ids": [
+                "c002"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c003"
+              ],
+              "source_basis": "CASE 1 | or",
+              "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb",
+              "transition_ids": [
+                "GEN-072-T004"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": "GEN-072-P001-B001",
+          "partition_id": "GEN-072-P002",
+          "pre_split_premise_ids": [
+            "c002"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c002",
+              "proposition": "|x-2|=4.",
+              "source_sha256": "f09e63a1c9208233b61e4e9fd25b012cbbde358c7ca108bea0fa7bd54b9f8089"
+            }
+          ]
+        },
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-072-P003-B001-ASSUMPTION",
+                "proposition": "x-2=2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-072-P003-B001",
+              "label": "inner positive branch",
+              "linear_predecessor_id": "c006",
+              "opening_dependency_ids": [
+                "c006"
+              ],
+              "opening_transition_id": "GEN-072-T007",
+              "parent_branch_id": "GEN-072-P001-B002",
+              "partition_id": "GEN-072-P003",
+              "pre_split_premise_ids": [
+                "c006"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 2 | Inner branches",
+              "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb",
+              "transition_ids": [
+                "GEN-072-T007"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-072-P003-B002-ASSUMPTION",
+                "proposition": "x-2=-2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-072-P003-B002",
+              "label": "inner negative branch",
+              "linear_predecessor_id": "c007",
+              "opening_dependency_ids": [
+                "c006"
+              ],
+              "opening_transition_id": "GEN-072-T008",
+              "parent_branch_id": "GEN-072-P001-B002",
+              "partition_id": "GEN-072-P003",
+              "pre_split_premise_ids": [
+                "c006"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c007"
+              ],
+              "source_basis": "CASE 2 | or",
+              "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb",
+              "transition_ids": [
+                "GEN-072-T008"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": "GEN-072-P001-B002",
+          "partition_id": "GEN-072-P003",
+          "pre_split_premise_ids": [
+            "c006"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c006",
+              "proposition": "|x-2|=2.",
+              "source_sha256": "2792bca5b09888e2841704fd2af43a763b42718cc7d2899b90d294f1805c160b"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-072",
+      "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-080-P001-B001-ASSUMPTION",
+                "proposition": "2x-3=3",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-080-P001-B001",
+              "label": "Branch 1",
+              "linear_predecessor_id": "c005",
+              "opening_dependency_ids": [
+                "c003"
+              ],
+              "opening_transition_id": "GEN-080-T006",
+              "parent_branch_id": null,
+              "partition_id": "GEN-080-P001",
+              "pre_split_premise_ids": [
+                "c003"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c005"
+              ],
+              "source_basis": "Granular solution | Branch 1",
+              "source_problem_sha256": "f00e0b357d517ed82594828e10a0d98d9bb5113daf855cd3636d19e8ded145a9",
+              "transition_ids": [
+                "GEN-080-T006"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-080-P001-B002-ASSUMPTION",
+                "proposition": "2x-3=-3",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-080-P001-B002",
+              "label": "Branch 2",
+              "linear_predecessor_id": "c006",
+              "opening_dependency_ids": [
+                "c003"
+              ],
+              "opening_transition_id": "GEN-080-T007",
+              "parent_branch_id": null,
+              "partition_id": "GEN-080-P001",
+              "pre_split_premise_ids": [
+                "c003"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c006"
+              ],
+              "source_basis": "Granular solution | Branch 2",
+              "source_problem_sha256": "f00e0b357d517ed82594828e10a0d98d9bb5113daf855cd3636d19e8ded145a9",
+              "transition_ids": [
+                "GEN-080-T007"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-080-P001",
+          "pre_split_premise_ids": [
+            "c003"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c003",
+              "proposition": "(2x-3)^2=9.",
+              "source_sha256": "a33f50405e8c715b9b55b9a40349bda29e7640b6bedc4aeb39460a02fdc35fb6"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-080",
+      "source_problem_sha256": "f00e0b357d517ed82594828e10a0d98d9bb5113daf855cd3636d19e8ded145a9"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-083-P001-B001-ASSUMPTION",
+                "proposition": "x<-2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-083-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "c002",
+                "c003",
+                "c004"
+              ],
+              "opening_transition_id": null,
+              "parent_branch_id": null,
+              "partition_id": "GEN-083-P001",
+              "pre_split_premise_ids": [
+                "c002",
+                "c003",
+                "c004"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1 | source-explicit prose-only branch",
+              "source_problem_sha256": "52bbf8e5b1c8260e8b2e24af22de503c464231597274252893077f209560a1cd",
+              "transition_ids": []
+            },
+            {
+              "assumption": {
+                "id": "GEN-083-P001-B002-ASSUMPTION",
+                "proposition": "x=-2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-083-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c004",
+              "opening_dependency_ids": [
+                "c002",
+                "c003",
+                "c004"
+              ],
+              "opening_transition_id": "GEN-083-T005",
+              "parent_branch_id": null,
+              "partition_id": "GEN-083-P001",
+              "pre_split_premise_ids": [
+                "c002",
+                "c003",
+                "c004"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 2: $x=-2$ | Numerator zero; denominator nonzero. Quotient",
+              "source_problem_sha256": "52bbf8e5b1c8260e8b2e24af22de503c464231597274252893077f209560a1cd",
+              "transition_ids": [
+                "GEN-083-T005"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-083-P001-B003-ASSUMPTION",
+                "proposition": "-2<x<3",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-083-P001-B003",
+              "label": "CASE 3",
+              "linear_predecessor_id": "c005",
+              "opening_dependency_ids": [
+                "c002",
+                "c003",
+                "c004"
+              ],
+              "opening_transition_id": "GEN-083-T006",
+              "parent_branch_id": null,
+              "partition_id": "GEN-083-P001",
+              "pre_split_premise_ids": [
+                "c002",
+                "c003",
+                "c004"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c005"
+              ],
+              "source_basis": "CASE 3: $-2<x<3$ | Numerator positive; denominator negative. Quotient negative. Retain, except the inherited hole",
+              "source_problem_sha256": "52bbf8e5b1c8260e8b2e24af22de503c464231597274252893077f209560a1cd",
+              "transition_ids": [
+                "GEN-083-T006"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-083-P001-B004-ASSUMPTION",
+                "proposition": "x>3",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-083-P001-B004",
+              "label": "CASE 4",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "c002",
+                "c003",
+                "c004"
+              ],
+              "opening_transition_id": null,
+              "parent_branch_id": null,
+              "partition_id": "GEN-083-P001",
+              "pre_split_premise_ids": [
+                "c002",
+                "c003",
+                "c004"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 4 | source-explicit prose-only branch",
+              "source_problem_sha256": "52bbf8e5b1c8260e8b2e24af22de503c464231597274252893077f209560a1cd",
+              "transition_ids": []
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-083-P001",
+          "pre_split_premise_ids": [
+            "c002",
+            "c003",
+            "c004"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c002",
+              "proposition": "\\frac{x+2}{x-3}\\le0,",
+              "source_sha256": "e388de26f57ad172cf7bbce990383f27e1bd0b2716c917b07b36013bf2d12fc9"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c003",
+              "proposition": "x\\neq2,\\qquad x\\neq3.",
+              "source_sha256": "d22d0b9b2630e5da6757b1f72bd7f05309613400d07ac28308c301cee28a008c"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c004",
+              "proposition": "x=-2, 3.",
+              "source_sha256": "b85f53b366bcf197a7be741610799bb463a8e55f4cc30629041291139329647e"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-083",
+      "source_problem_sha256": "52bbf8e5b1c8260e8b2e24af22de503c464231597274252893077f209560a1cd"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-085-P001-B001-ASSUMPTION",
+                "proposition": "u=8",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-085-P001-B001",
+              "label": "Case 1",
+              "linear_predecessor_id": "c004",
+              "opening_dependency_ids": [
+                "i003",
+                "c002"
+              ],
+              "opening_transition_id": "GEN-085-T005",
+              "parent_branch_id": null,
+              "partition_id": "GEN-085-P001",
+              "pre_split_premise_ids": [
+                "i003",
+                "c002"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c004"
+              ],
+              "source_basis": "Granular solution | Undo substitution. Case 1",
+              "source_problem_sha256": "90374ae3bd78d85f989cf5360320068c8aec95f69b076c392d69e7020e31c663",
+              "transition_ids": [
+                "GEN-085-T005",
+                "GEN-085-T006"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-085-P001-B002-ASSUMPTION",
+                "proposition": "u=-1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-085-P001-B002",
+              "label": "Case 2",
+              "linear_predecessor_id": "c006",
+              "opening_dependency_ids": [
+                "i003",
+                "c002"
+              ],
+              "opening_transition_id": "GEN-085-T007",
+              "parent_branch_id": null,
+              "partition_id": "GEN-085-P001",
+              "pre_split_premise_ids": [
+                "i003",
+                "c002"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c006"
+              ],
+              "source_basis": "Granular solution | Case 2",
+              "source_problem_sha256": "90374ae3bd78d85f989cf5360320068c8aec95f69b076c392d69e7020e31c663",
+              "transition_ids": [
+                "GEN-085-T007",
+                "GEN-085-T008"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-085-P001",
+          "pre_split_premise_ids": [
+            "i003",
+            "c002"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i003",
+              "proposition": "u=x^3.",
+              "source_sha256": "90374ae3bd78d85f989cf5360320068c8aec95f69b076c392d69e7020e31c663"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c002",
+              "proposition": "(u-8)(u+1)=0.",
+              "source_sha256": "389e129a01368f489927eb3b284bb2be8328f9898142aa1fbae4dc7395194534"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-085",
+      "source_problem_sha256": "90374ae3bd78d85f989cf5360320068c8aec95f69b076c392d69e7020e31c663"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-087-P001-B001-ASSUMPTION",
+                "proposition": "x=\\frac{3-\\sqrt{33}}2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-087-P001-B001",
+              "label": "Negative branch",
+              "linear_predecessor_id": "c012",
+              "opening_dependency_ids": [
+                "c006",
+                "c012"
+              ],
+              "opening_transition_id": "GEN-087-T013",
+              "parent_branch_id": null,
+              "partition_id": "GEN-087-P001",
+              "pre_split_premise_ids": [
+                "c006",
+                "c012"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CANDIDATE VERIFICATION | CANDIDATE VERIFICATION Negative branch",
+              "source_problem_sha256": "744810cede3759329cc1b5bf26dc6354e4e4435cc2cd8138649ea176554cfa7c",
+              "transition_ids": [
+                "GEN-087-T013",
+                "GEN-087-T014",
+                "GEN-087-T015"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-087-P001-B002-ASSUMPTION",
+                "proposition": "x=\\frac{3+\\sqrt{33}}2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-087-P001-B002",
+              "label": "Positive branch",
+              "linear_predecessor_id": "c015",
+              "opening_dependency_ids": [
+                "c006",
+                "c012"
+              ],
+              "opening_transition_id": "GEN-087-T016",
+              "parent_branch_id": null,
+              "partition_id": "GEN-087-P001",
+              "pre_split_premise_ids": [
+                "c006",
+                "c012"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c015"
+              ],
+              "source_basis": "CANDIDATE VERIFICATION | Reject. Positive branch",
+              "source_problem_sha256": "744810cede3759329cc1b5bf26dc6354e4e4435cc2cd8138649ea176554cfa7c",
+              "transition_ids": [
+                "GEN-087-T016"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-087-P001",
+          "pre_split_premise_ids": [
+            "c006",
+            "c012"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c006",
+              "proposition": "x>1,\\qquad x\\neq2.",
+              "source_sha256": "70f431c8ce2b6613555fd0baf2224a012759c83d84cd7eeaed865d264137d506"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c012",
+              "proposition": "x= \\frac{3\\pm\\sqrt{33}}2.",
+              "source_sha256": "6f6f409ef826a85584f601a218266dfe5d2227b98235d9de3dc0853457bc2f73"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-087",
+      "source_problem_sha256": "744810cede3759329cc1b5bf26dc6354e4e4435cc2cd8138649ea176554cfa7c"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-090-P001-B001-ASSUMPTION",
+                "proposition": "x<0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-090-P001-B001",
+              "label": "INVERSE BRANCH 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-090-T001",
+              "parent_branch_id": null,
+              "partition_id": "GEN-090-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "INVERSE BRANCH 1 | Subtract $2$",
+              "source_problem_sha256": "5e8c5d25c7ffd05246cec821f28fdcdbb0f45c8ca94f1e965816daaa58d829b5",
+              "transition_ids": [
+                "GEN-090-T001",
+                "GEN-090-T002",
+                "GEN-090-T003"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-090-P001-B002-ASSUMPTION",
+                "proposition": "x\\ge0",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-090-P001-B002",
+              "label": "INVERSE BRANCH 2",
+              "linear_predecessor_id": "c003",
+              "opening_dependency_ids": [
+                "p0"
+              ],
+              "opening_transition_id": "GEN-090-T004",
+              "parent_branch_id": null,
+              "partition_id": "GEN-090-P001",
+              "pre_split_premise_ids": [
+                "p0"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c003"
+              ],
+              "source_basis": "INVERSE BRANCH 2 | Subtract $2$",
+              "source_problem_sha256": "5e8c5d25c7ffd05246cec821f28fdcdbb0f45c8ca94f1e965816daaa58d829b5",
+              "transition_ids": [
+                "GEN-090-T004",
+                "GEN-090-T005",
+                "GEN-090-T006",
+                "GEN-090-T007",
+                "GEN-090-T008"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-090-P001",
+          "pre_split_premise_ids": [
+            "p0"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Find the inverse of $$ f(x)= \\begin{cases} x+2,&x<0,\\\\ x^2+2,&x\\ge0. \\end{cases} $$",
+              "source_sha256": "5e8c5d25c7ffd05246cec821f28fdcdbb0f45c8ca94f1e965816daaa58d829b5"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-090",
+      "source_problem_sha256": "5e8c5d25c7ffd05246cec821f28fdcdbb0f45c8ca94f1e965816daaa58d829b5"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-094-P001-B001-ASSUMPTION",
+                "proposition": "x\\ge1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-094-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": "c003",
+              "opening_dependency_ids": [
+                "c001",
+                "c003"
+              ],
+              "opening_transition_id": "GEN-094-T004",
+              "parent_branch_id": null,
+              "partition_id": "GEN-094-P001",
+              "pre_split_premise_ids": [
+                "c001",
+                "c003"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: $x\\ge1$ | Now split according to the sign of $x-1$. CASE 1: $x\\ge1$ Then",
+              "source_problem_sha256": "55165c34fff653f59bc693e3cca57fba47ac3086d4afba9b614519514cb53d1e",
+              "transition_ids": [
+                "GEN-094-T004",
+                "GEN-094-T005",
+                "GEN-094-T006",
+                "GEN-094-T007",
+                "GEN-094-T008"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-094-P001-B002-ASSUMPTION",
+                "proposition": "x<1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-094-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c008",
+              "opening_dependency_ids": [
+                "c001",
+                "c003"
+              ],
+              "opening_transition_id": "GEN-094-T009",
+              "parent_branch_id": null,
+              "partition_id": "GEN-094-P001",
+              "pre_split_premise_ids": [
+                "c001",
+                "c003"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c008"
+              ],
+              "source_basis": "CASE 2: $x<1$ | there are no real candidates in this branch. CASE 2: $x<1$ Combined with $x\\ge0$",
+              "source_problem_sha256": "55165c34fff653f59bc693e3cca57fba47ac3086d4afba9b614519514cb53d1e",
+              "transition_ids": [
+                "GEN-094-T009",
+                "GEN-094-T010",
+                "GEN-094-T011",
+                "GEN-094-T012",
+                "GEN-094-T013",
+                "GEN-094-T014",
+                "GEN-094-T015",
+                "GEN-094-T016",
+                "GEN-094-T017"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-094-P001",
+          "pre_split_premise_ids": [
+            "c001",
+            "c003"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c001",
+              "proposition": "x\\ge0.",
+              "source_sha256": "d744e5fa69f92bb4ac041850b81d10f685bf2e442cb92d49ba89b14302b88d8a"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c003",
+              "proposition": "|x-1|=x^2.",
+              "source_sha256": "0c3ca6636411437b86989b67002d29711f02c091a22d3f880185b41b8afd39bb"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-094",
+      "source_problem_sha256": "55165c34fff653f59bc693e3cca57fba47ac3086d4afba9b614519514cb53d1e"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-095-P001-B001-ASSUMPTION",
+                "proposition": "s=5",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-095-P001-B001",
+              "label": "BRANCH 1",
+              "linear_predecessor_id": "c008",
+              "opening_dependency_ids": [
+                "i001",
+                "i002",
+                "i003",
+                "c001",
+                "c006"
+              ],
+              "opening_transition_id": "GEN-095-T009",
+              "parent_branch_id": null,
+              "partition_id": "GEN-095-P001",
+              "pre_split_premise_ids": [
+                "i001",
+                "i002",
+                "i003",
+                "c001",
+                "c006"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c008"
+              ],
+              "source_basis": "BRANCH 1: $s=5$ | Numbers $x,y$ are roots of",
+              "source_problem_sha256": "5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416",
+              "transition_ids": [
+                "GEN-095-T009",
+                "GEN-095-T010",
+                "GEN-095-T011",
+                "GEN-095-T012",
+                "GEN-095-T013"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-095-P001-B002-ASSUMPTION",
+                "proposition": "s=-7",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-095-P001-B002",
+              "label": "BRANCH 2",
+              "linear_predecessor_id": "c013",
+              "opening_dependency_ids": [
+                "i001",
+                "i002",
+                "i003",
+                "c001",
+                "c006"
+              ],
+              "opening_transition_id": "GEN-095-T014",
+              "parent_branch_id": null,
+              "partition_id": "GEN-095-P001",
+              "pre_split_premise_ids": [
+                "i001",
+                "i002",
+                "i003",
+                "c001",
+                "c006"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c013"
+              ],
+              "source_basis": "BRANCH 2: $s=-7$ | Required roots satisfy",
+              "source_problem_sha256": "5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416",
+              "transition_ids": [
+                "GEN-095-T014",
+                "GEN-095-T015"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-095-P001",
+          "pre_split_premise_ids": [
+            "i001",
+            "i002",
+            "i003",
+            "c001",
+            "c006"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i001",
+              "proposition": "s=x+y,",
+              "source_sha256": "5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416"
+            },
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i002",
+              "proposition": "p=xy.",
+              "source_sha256": "5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416"
+            },
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i003",
+              "proposition": "x^2+y^2=(x+y)^2-2xy=s^2-2p.",
+              "source_sha256": "5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c001",
+              "proposition": "p=11-s.",
+              "source_sha256": "c263d9650825cbf4920d8ab10175a7cfada4c3f306d698d37f2edda152bf2a3a"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c006",
+              "proposition": "(s+7)(s-5)=0.",
+              "source_sha256": "0f166c14754ba449a7398c737a17be6c750bc29ebc7cbb1baf90f654f2a14d10"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-095",
+      "source_problem_sha256": "5ae5313741d84d49ec0790629dc39b144c637bb738a5ecb2a4e0a9e40d4f0416"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "GEN-100-P001-B001-ASSUMPTION",
+                "proposition": "\\frac{x-1}{x+2}=2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-100-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": "c019",
+              "opening_dependency_ids": [
+                "c019",
+                "sp001"
+              ],
+              "opening_transition_id": "GEN-100-T020",
+              "parent_branch_id": null,
+              "partition_id": "GEN-100-P001",
+              "pre_split_premise_ids": [
+                "c019",
+                "sp001"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1 | The original domain establishes",
+              "source_problem_sha256": "afb3ff6658740a5059f7b8dd2bb08d60f6b4baabcd85e3fe00b77275bbbd4aa8",
+              "transition_ids": [
+                "GEN-100-T020",
+                "GEN-100-T021",
+                "GEN-100-T022",
+                "GEN-100-T023",
+                "GEN-100-T024"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "GEN-100-P001-B002-ASSUMPTION",
+                "proposition": "\\frac{x-1}{x+2}=-2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "GEN-100-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c024",
+              "opening_dependency_ids": [
+                "c019",
+                "sp001"
+              ],
+              "opening_transition_id": "GEN-100-T025",
+              "parent_branch_id": null,
+              "partition_id": "GEN-100-P001",
+              "pre_split_premise_ids": [
+                "c019",
+                "sp001"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c024"
+              ],
+              "source_basis": "CASE 2 | Again $x+2\\neq0$, so multiplication is justified",
+              "source_problem_sha256": "afb3ff6658740a5059f7b8dd2bb08d60f6b4baabcd85e3fe00b77275bbbd4aa8",
+              "transition_ids": [
+                "GEN-100-T025",
+                "GEN-100-T026",
+                "GEN-100-T027",
+                "GEN-100-T028",
+                "GEN-100-T029"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "GEN-100-P001",
+          "pre_split_premise_ids": [
+            "c019",
+            "sp001"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c019",
+              "proposition": "\\boxed{ (-\\infty,-2)\\cup \\left(-2,-\\frac12\\right] }.",
+              "source_sha256": "4b0ee382784574a273433acbb0ae3e549c8892a1fe3f837ce861332fa71d4226"
+            },
+            {
+              "origin": "EXPLICIT_SOURCE_STATE_OMITTED_BY_OLD_SEGMENTER",
+              "premise_id": "sp001",
+              "proposition": "\\left| \\frac{x-1}{x+2} \\right| =2.",
+              "source_sha256": "b961f4e67cb43fe6c62a4bdcee5fc12f5c82a1430e2e6d2e0830d30927603828"
+            }
+          ]
+        }
+      ],
+      "problem_id": "GEN-100",
+      "source_problem_sha256": "afb3ff6658740a5059f7b8dd2bb08d60f6b4baabcd85e3fe00b77275bbbd4aa8"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "LINALG-051-P001-B001-ASSUMPTION",
+                "proposition": "a\\neq2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "LINALG-051-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": "c001",
+              "opening_dependency_ids": [
+                "c001"
+              ],
+              "opening_transition_id": "LINALG-051-T002",
+              "parent_branch_id": null,
+              "partition_id": "LINALG-051-P001",
+              "pre_split_premise_ids": [
+                "c001"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: $a\\neq2$ | → OPERATION: divide by $a-2$. → PRECONDITION",
+              "source_problem_sha256": "f882f689e00566a8e4a6a91f40e12a56362eb177c8d733cd0c1310825cd29787",
+              "transition_ids": [
+                "LINALG-051-T002",
+                "LINALG-051-T003",
+                "LINALG-051-T004",
+                "LINALG-051-T005",
+                "LINALG-051-T006"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "LINALG-051-P001-B002-ASSUMPTION",
+                "proposition": "a=2",
+                "status": "ASSUMED"
+              },
+              "branch_id": "LINALG-051-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c006",
+              "opening_dependency_ids": [
+                "c001"
+              ],
+              "opening_transition_id": "LINALG-051-T007",
+              "parent_branch_id": null,
+              "partition_id": "LINALG-051-P001",
+              "pre_split_premise_ids": [
+                "c001"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c006"
+              ],
+              "source_basis": "CASE 2: $a=2$ | Only constraint",
+              "source_problem_sha256": "f882f689e00566a8e4a6a91f40e12a56362eb177c8d733cd0c1310825cd29787",
+              "transition_ids": [
+                "LINALG-051-T007",
+                "LINALG-051-T008",
+                "LINALG-051-T009"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "LINALG-051-P001",
+          "pre_split_premise_ids": [
+            "c001"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c001",
+              "proposition": "\\left[ \\begin{array}{ccc|c} 1&1&1&1\\\\ 0&a-2&0&0 \\end{array} \\right].",
+              "source_sha256": "228af79295bfc6d81d9ce1d2d093688f32cfafe4499b79ba9f6100d865a22477"
+            }
+          ]
+        }
+      ],
+      "problem_id": "LINALG-051",
+      "source_problem_sha256": "f882f689e00566a8e4a6a91f40e12a56362eb177c8d733cd0c1310825cd29787"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "LINALG-081-P001-B001-ASSUMPTION",
+                "proposition": "a\\neq1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "LINALG-081-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": "c004",
+              "opening_dependency_ids": [
+                "c004"
+              ],
+              "opening_transition_id": "LINALG-081-T005",
+              "parent_branch_id": null,
+              "partition_id": "LINALG-081-P001",
+              "pre_split_premise_ids": [
+                "c004"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: $a\\neq1$ | Therefore",
+              "source_problem_sha256": "ac2d3617ea4c37c1eaf67cef7c6213bfba195eaf3cc38f20a84b41637cf35f73",
+              "transition_ids": [
+                "LINALG-081-T005"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "LINALG-081-P001-B002-ASSUMPTION",
+                "proposition": "a=1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "LINALG-081-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c005",
+              "opening_dependency_ids": [
+                "c004"
+              ],
+              "opening_transition_id": "LINALG-081-T006",
+              "parent_branch_id": null,
+              "partition_id": "LINALG-081-P001",
+              "pre_split_premise_ids": [
+                "c004"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c005"
+              ],
+              "source_basis": "CASE 2: $a=1$ | Row reduce",
+              "source_problem_sha256": "ac2d3617ea4c37c1eaf67cef7c6213bfba195eaf3cc38f20a84b41637cf35f73",
+              "transition_ids": [
+                "LINALG-081-T006",
+                "LINALG-081-T007",
+                "LINALG-081-T008",
+                "LINALG-081-T009"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "LINALG-081-P001",
+          "pre_split_premise_ids": [
+            "c004"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c004",
+              "proposition": "\\det A = 1(a-1)(a-1) = (a-1)^2.",
+              "source_sha256": "0eae48cdfaf95a4af0ddcfd3059538656cc8ad9ed9ab9827683645ebeda2c296"
+            }
+          ]
+        }
+      ],
+      "problem_id": "LINALG-081",
+      "source_problem_sha256": "ac2d3617ea4c37c1eaf67cef7c6213bfba195eaf3cc38f20a84b41637cf35f73"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "LINALG-082-P001-B001-ASSUMPTION",
+                "proposition": "a\\neq1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "LINALG-082-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": "c003",
+              "opening_dependency_ids": [
+                "c003"
+              ],
+              "opening_transition_id": "LINALG-082-T004",
+              "parent_branch_id": null,
+              "partition_id": "LINALG-082-P001",
+              "pre_split_premise_ids": [
+                "c003"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1: $a\\neq1$ | Divide",
+              "source_problem_sha256": "1099c2ad74ed491db2875d3c501cc9a8ad3d323a2f087c514c44214e78bbf43e",
+              "transition_ids": [
+                "LINALG-082-T004",
+                "LINALG-082-T005",
+                "LINALG-082-T006",
+                "LINALG-082-T007",
+                "LINALG-082-T008",
+                "LINALG-082-T009"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "LINALG-082-P001-B002-ASSUMPTION",
+                "proposition": "a=1",
+                "status": "ASSUMED"
+              },
+              "branch_id": "LINALG-082-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c009",
+              "opening_dependency_ids": [
+                "c003"
+              ],
+              "opening_transition_id": "LINALG-082-T010",
+              "parent_branch_id": null,
+              "partition_id": "LINALG-082-P001",
+              "pre_split_premise_ids": [
+                "c003"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c009"
+              ],
+              "source_basis": "CASE 2: $a=1$ | Second row becomes",
+              "source_problem_sha256": "1099c2ad74ed491db2875d3c501cc9a8ad3d323a2f087c514c44214e78bbf43e",
+              "transition_ids": [
+                "LINALG-082-T010"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "LINALG-082-P001",
+          "pre_split_premise_ids": [
+            "c003"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c003",
+              "proposition": "\\left[ \\begin{array}{ccc|c} 1&1&1&1\\\\ 0&a-1&0&1\\\\ 0&0&a-1&2 \\end{array} \\right].",
+              "source_sha256": "2fe7c4085563e8f9bf8f1c5ae0b21a7561be9f7f5f7f9674c97f7d0e941072ea"
+            }
+          ]
+        }
+      ],
+      "problem_id": "LINALG-082",
+      "source_problem_sha256": "1099c2ad74ed491db2875d3c501cc9a8ad3d323a2f087c514c44214e78bbf43e"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "MIXED-018-P001-B001-ASSUMPTION",
+                "proposition": "x=\\frac{\\pi}{6}",
+                "status": "ASSUMED"
+              },
+              "branch_id": "MIXED-018-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0",
+                "i001",
+                "i002"
+              ],
+              "opening_transition_id": null,
+              "parent_branch_id": null,
+              "partition_id": "MIXED-018-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "i001",
+                "i002"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "CASE 1 | source-explicit prose-only branch",
+              "source_problem_sha256": "1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7",
+              "transition_ids": []
+            },
+            {
+              "assumption": {
+                "id": "MIXED-018-P001-B002-ASSUMPTION",
+                "proposition": "x=\\pi-\\frac{\\pi}{6}=\\frac{5\\pi}{6}",
+                "status": "ASSUMED"
+              },
+              "branch_id": "MIXED-018-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": null,
+              "opening_dependency_ids": [
+                "p0",
+                "i001",
+                "i002"
+              ],
+              "opening_transition_id": "MIXED-018-T001",
+              "parent_branch_id": null,
+              "partition_id": "MIXED-018-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "i001",
+                "i002"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "Granular reasoning trace | CASE 2",
+              "source_problem_sha256": "1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7",
+              "transition_ids": [
+                "MIXED-018-T001"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": null,
+          "parent_branch_id": null,
+          "partition_id": "MIXED-018-P001",
+          "pre_split_premise_ids": [
+            "p0",
+            "i001",
+            "i002"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Solve $$ \\sin x=\\frac12 $$ for $0\\le x<2\\pi$.",
+              "source_sha256": "1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7"
+            },
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i001",
+              "proposition": "\\frac{\\pi}{6}",
+              "source_sha256": "1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7"
+            },
+            {
+              "origin": "SOURCE_INITIAL_STATE",
+              "premise_id": "i002",
+              "proposition": "\\sin\\frac{\\pi}{6}=\\frac12.",
+              "source_sha256": "1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7"
+            }
+          ]
+        }
+      ],
+      "problem_id": "MIXED-018",
+      "source_problem_sha256": "1ed32903b979a9b4c4784ea8a7040fe512daf45c5e9f4e74dd3d174073b1f1b7"
+    },
+    {
+      "partitions": [
+        {
+          "branches": [
+            {
+              "assumption": {
+                "id": "MIXED-039-P001-B001-ASSUMPTION",
+                "proposition": "y=x",
+                "status": "ASSUMED"
+              },
+              "branch_id": "MIXED-039-P001-B001",
+              "label": "CASE 1",
+              "linear_predecessor_id": "c008",
+              "opening_dependency_ids": [
+                "p0",
+                "c008"
+              ],
+              "opening_transition_id": "MIXED-039-T009",
+              "parent_branch_id": null,
+              "partition_id": "MIXED-039-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "c008"
+              ],
+              "rejected_linear_dependency_ids": [],
+              "source_basis": "Granular reasoning trace | CASE 1",
+              "source_problem_sha256": "40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5",
+              "transition_ids": [
+                "MIXED-039-T009",
+                "MIXED-039-T010",
+                "MIXED-039-T011"
+              ]
+            },
+            {
+              "assumption": {
+                "id": "MIXED-039-P001-B002-ASSUMPTION",
+                "proposition": "y=-x",
+                "status": "ASSUMED"
+              },
+              "branch_id": "MIXED-039-P001-B002",
+              "label": "CASE 2",
+              "linear_predecessor_id": "c011",
+              "opening_dependency_ids": [
+                "p0",
+                "c008"
+              ],
+              "opening_transition_id": "MIXED-039-T012",
+              "parent_branch_id": null,
+              "partition_id": "MIXED-039-P001",
+              "pre_split_premise_ids": [
+                "p0",
+                "c008"
+              ],
+              "rejected_linear_dependency_ids": [
+                "c011"
+              ],
+              "source_basis": "Granular reasoning trace | CASE 2",
+              "source_problem_sha256": "40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5",
+              "transition_ids": [
+                "MIXED-039-T012",
+                "MIXED-039-T013"
+              ]
+            }
+          ],
+          "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+          "join_transition_id": "MIXED-039-T014",
+          "parent_branch_id": null,
+          "partition_id": "MIXED-039-P001",
+          "pre_split_premise_ids": [
+            "p0",
+            "c008"
+          ],
+          "pre_split_premises": [
+            {
+              "origin": "SOURCE_PROBLEM",
+              "premise_id": "p0",
+              "proposition": "Find the maximum of $$ f(x,y)=xy $$ subject to $$ x^2+y^2=1. $$",
+              "source_sha256": "40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5"
+            },
+            {
+              "origin": "EARLIER_SOURCE_TRANSITION",
+              "premise_id": "c008",
+              "proposition": "y=\\pm x.",
+              "source_sha256": "1553ea2a149722ff0f7a92b6924ed4fc0816abb0591b71d27199392aaf7e09d9"
+            }
+          ]
+        }
+      ],
+      "problem_id": "MIXED-039",
+      "source_problem_sha256": "40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5"
+    }
+  ],
+  "schema_version": "synthetic-math-branch-ancestry-0.1.0",
+  "source_corpus_sha256": "7f0165e8f88c1a64c8b3d36e3a72e7a3ce042ebd72e7a92d7890ca104a110381"
+}

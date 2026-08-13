@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hml.reasoning.local/schemas/synthetic-math-branch-ancestry.schema.json",
+  "title": "Synthetic-math neutral branch ancestry",
+  "description": "Corpus-side, representation-neutral branch graph. Every sibling branch explicitly identifies the common pre-split premises from which it opens. Linear adjacency is not branch ancestry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "based_on_corpus_commit",
+    "source_corpus_sha256",
+    "derivation_policy",
+    "problems"
+  ],
+  "properties": {
+    "schema_version": {"const": "synthetic-math-branch-ancestry-0.1.0"},
+    "based_on_corpus_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "source_corpus_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "derivation_policy": {"type": "string", "minLength": 1},
+    "problems": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/problem"}
+    }
+  },
+  "$defs": {
+    "premise": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["premise_id", "proposition", "origin", "source_sha256"],
+      "properties": {
+        "premise_id": {"type": "string", "minLength": 1},
+        "proposition": {"type": "string", "minLength": 1},
+        "origin": {
+          "enum": [
+            "SOURCE_PROBLEM",
+            "SOURCE_INITIAL_STATE",
+            "EARLIER_SOURCE_TRANSITION",
+            "EXPLICIT_SOURCE_STATE_OMITTED_BY_OLD_SEGMENTER"
+          ]
+        },
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "assumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "proposition", "status"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "proposition": {"type": "string", "minLength": 1},
+        "status": {"const": "ASSUMED"}
+      }
+    },
+    "branch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "branch_id",
+        "partition_id",
+        "parent_branch_id",
+        "label",
+        "assumption",
+        "opening_transition_id",
+        "transition_ids",
+        "pre_split_premise_ids",
+        "opening_dependency_ids",
+        "linear_predecessor_id",
+        "rejected_linear_dependency_ids",
+        "source_basis",
+        "source_problem_sha256"
+      ],
+      "properties": {
+        "branch_id": {"type": "string", "minLength": 1},
+        "partition_id": {"type": "string", "minLength": 1},
+        "parent_branch_id": {"type": ["string", "null"]},
+        "label": {"type": "string", "minLength": 1},
+        "assumption": {"$ref": "#/$defs/assumption"},
+        "opening_transition_id": {"type": ["string", "null"]},
+        "transition_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "pre_split_premise_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "opening_dependency_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "linear_predecessor_id": {"type": ["string", "null"]},
+        "rejected_linear_dependency_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "source_basis": {"type": "string", "minLength": 1},
+        "source_problem_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "partition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "partition_id",
+        "parent_branch_id",
+        "pre_split_premises",
+        "pre_split_premise_ids",
+        "branches",
+        "join_transition_id",
+        "derivation_method"
+      ],
+      "properties": {
+        "partition_id": {"type": "string", "minLength": 1},
+        "parent_branch_id": {"type": ["string", "null"]},
+        "pre_split_premises": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/premise"}
+        },
+        "pre_split_premise_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "branches": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/branch"}
+        },
+        "join_transition_id": {"type": ["string", "null"]},
+        "derivation_method": {"const": "CURATED_FROM_EXACT_WORKED_SOURCE"}
+      }
+    },
+    "problem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problem_id", "source_problem_sha256", "partitions"],
+      "properties": {
+        "problem_id": {"type": "string", "minLength": 1},
+        "source_problem_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "partitions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/partition"}
+        }
+      }
+    }
+  }
+}

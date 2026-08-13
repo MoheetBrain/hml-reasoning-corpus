@@ -1,9 +1,14 @@
+import json
 import re
 from pathlib import Path
+
+import jsonschema
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "MASTER_SYNTHETIC_MATH_HML.md"
+BRANCH_ARTIFACT = ROOT / "data/synthetic_math_branch_ancestry_v1.json"
+BRANCH_SCHEMA = ROOT / "schemas/synthetic-math-branch-ancestry.schema.json"
 
 
 def _text() -> str:
@@ -51,3 +56,46 @@ def test_frozen_authority_is_explicit():
     assert "hml-semantic-pre-gemma-v1" in text
     assert "84bf9897689b0ed78a2caaefc1db850d49b81260" in text
     assert "semantic-firewall-case-0.1.0" in text
+
+
+def test_branch_ancestry_artifact_is_schema_valid_and_complete():
+    artifact = json.loads(BRANCH_ARTIFACT.read_text(encoding="utf-8"))
+    schema = json.loads(BRANCH_SCHEMA.read_text(encoding="utf-8"))
+    jsonschema.Draft202012Validator(schema).validate(artifact)
+    partitions = [partition for problem in artifact["problems"] for partition in problem["partitions"]]
+    branches = [branch for partition in partitions for branch in partition["branches"]]
+    assert len(artifact["problems"]) == 29
+    assert len(partitions) == 31
+    assert len(branches) == 68
+    assert sum(branch["opening_transition_id"] is not None for branch in branches) == 63
+    assert sum(branch["opening_transition_id"] is None for branch in branches) == 5
+
+
+def test_sibling_branches_share_explicit_parent_and_reject_linear_leakage():
+    artifact = json.loads(BRANCH_ARTIFACT.read_text(encoding="utf-8"))
+    for problem in artifact["problems"]:
+        for partition in problem["partitions"]:
+            parent_ids = partition["pre_split_premise_ids"]
+            assert parent_ids
+            assert {premise["premise_id"] for premise in partition["pre_split_premises"]} == set(parent_ids)
+            for branch in partition["branches"]:
+                assert branch["pre_split_premise_ids"] == parent_ids
+                assert branch["opening_dependency_ids"] == parent_ids
+            for previous, sibling in zip(partition["branches"], partition["branches"][1:]):
+                if previous["transition_ids"] and sibling["opening_transition_id"]:
+                    previous_terminal = "c" + previous["transition_ids"][-1].rsplit("T", 1)[1]
+                    assert previous_terminal not in sibling["opening_dependency_ids"]
+
+
+def test_segmenter_omitted_parent_premises_are_exact_source_backed_states():
+    artifact = json.loads(BRANCH_ARTIFACT.read_text(encoding="utf-8"))
+    omitted = []
+    for problem in artifact["problems"]:
+        for partition in problem["partitions"]:
+            for premise in partition["pre_split_premises"]:
+                if premise["origin"] == "EXPLICIT_SOURCE_STATE_OMITTED_BY_OLD_SEGMENTER":
+                    omitted.append((problem["problem_id"], premise["premise_id"], premise["proposition"]))
+    assert omitted == [
+        ("GEN-056", "sp001", "u=2^x."),
+        ("GEN-100", "sp001", r"\left| \frac{x-1}{x+2} \right| =2."),
+    ]

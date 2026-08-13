@@ -28,6 +28,8 @@ FROZEN_HML_SHA = "84bf9897689b0ed78a2caaefc1db850d49b81260"
 FROZEN_HML_TAG = "hml-semantic-pre-gemma-v1"
 CORPUS_BASE_SHA = "9d67e54450b9db897ee2ed20ec2e4cbbc16a3780"
 SCHEMA_VERSION = "semantic-firewall-case-0.1.0"
+BRANCH_SCHEMA_VERSION = "synthetic-math-branch-ancestry-0.1.0"
+BRANCH_REDERIVATION_BASE_SHA = "c5a69299d8c68e37595d3a45b563ec780ea79516"
 
 STATUS_BACKEND = "FULLY_REPRESENTABLE_AND_BACKEND_VERIFIED"
 STATUS_UNVERIFIED = "REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE"
@@ -109,6 +111,8 @@ class Transition:
     hml_unknowns: list[str] = field(default_factory=list)
     gap_code: str | None = None
     depends_on_gap: str | None = None
+    branch_contexts: list[dict[str, Any]] = field(default_factory=list)
+    joins_partition_ids: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -117,6 +121,54 @@ class ProblemRecord:
     transitions: list[Transition]
     diagnostics: list[str]
     goal_text: str
+    branch_partitions: list[dict[str, Any]] = field(default_factory=list)
+
+
+# This is a deliberately curated, source-audited map for the 29 affected problems.  It is
+# not an automatic branch extractor.  Ranges name transitions reconstructed from the
+# immutable worked source; a null range records a source-explicit prose-only branch that
+# the display-math segmenter did not turn into a transition.  Parent ids name claims in
+# the neutral trajectory (p0, iNNN, cNNN), except for an explicitly source-derived `spNNN`
+# premise when the old linear trajectory omitted the pre-split state entirely.
+BRANCH_REDERIVATION_PLAN: dict[str, list[dict[str, Any]]] = {
+    "ALG-097": [{"parents": ["c002", "c005"], "branches": [("Case 1", "u=1", 8, 10), ("Case 2", "u=4", 11, 13)], "join": 14}],
+    "ALG-099": [{"parents": ["p0"], "branches": [(r"Case 1", r"2x-5\ge0", 1, 5), (r"Case 2", r"2x-5<0", 6, 14)], "join": 15}],
+    "GEN-008": [{"parents": ["c006"], "branches": [("First branch", "x+2=0", 9, 9), ("Second branch", "x+3=0", 10, 10)]}],
+    "GEN-011": [{"parents": ["p0"], "branches": [("CASE 1", "x-4=3", 1, 2), ("CASE 2", "x-4=-3", 3, 4)]}],
+    "GEN-025": [{"parents": ["p0"], "branches": [("CASE 1", "2x+1=7", 1, 2), ("CASE 2", "2x+1=-7", 3, 4)]}],
+    "GEN-042": [{"parents": ["p0", "i001", "i002"], "branches": [("CASE 1", "both numerator and denominator positive", 1, 4), ("CASE 2", "both numerator and denominator negative", 5, 7)]}],
+    "GEN-046": [{"parents": ["p0"], "branches": [("first piecewise branch", "-2<0", 1, 2), ("second piecewise branch", r"3\ge0", 4, 6)]}],
+    "GEN-047": [{"parents": ["p0"], "branches": [("CASE 1", "x<2", 1, 3), ("CASE 2", r"x\ge2", 4, 7)]}],
+    "GEN-050": [{"parents": ["p0"], "branches": [("CASE 1", r"a\neq0", 1, 2), ("CASE 2", "a=0", 3, 3)]}],
+    "GEN-054": [{"parents": ["p0", "c002"], "branches": [("CASE 1", "x-1<0", 3, 8), ("CASE 2", r"x-1\ge0", 9, 17)], "join": 18}],
+    "GEN-056": [{"parents": ["sp001", "c004"], "source_premises": {"sp001": "u=2^x."}, "branches": [("Branch 1", "u=1", 7, 8), ("Branch 2", "u=4", 9, 10)]}],
+    "GEN-057": [{"parents": ["i001", "i002", "c001"], "branches": [("Case 1", "u=1", 4, 5), ("Case 2", "u=2", 6, 7)]}],
+    "GEN-060": [{"parents": ["p0", "i001"], "branches": [("CASE 1", "x<-1", 1, 2), ("CASE 2", "-1<x<2", 3, 4), ("CASE 3", "2<x<4", 5, 5), ("CASE 4", "x>4", 6, 6)]}],
+    "GEN-062": [{"parents": ["p0", "c001"], "branches": [("CASE 1", r"\frac{x-1}{x+2}=2", 2, 6), ("CASE 2", r"\frac{x-1}{x+2}=-2", 7, 12)], "join": 13}],
+    "GEN-068": [{"parents": ["i002", "i003"], "branches": [("CASE 1", "x<-2", 1, 2), ("CASE 2", "-2<x<1", None, None), ("CASE 3", "x=1", 3, 3), ("CASE 4", "x>1", None, None)]}],
+    "GEN-072": [
+        {"parents": ["p0"], "branches": [("outer CASE 1", r"|x-2|-3=1", 1, 4), ("outer CASE 2", r"|x-2|-3=-1", 5, 8)], "join": 9},
+        {"parents": ["c002"], "parent_branch": 1, "branches": [("inner positive branch", "x-2=4", 3, 3), ("inner negative branch", "x-2=-4", 4, 4)]},
+        {"parents": ["c006"], "parent_branch": 2, "branches": [("inner positive branch", "x-2=2", 7, 7), ("inner negative branch", "x-2=-2", 8, 8)]},
+    ],
+    "GEN-080": [{"parents": ["c003"], "branches": [("Branch 1", "2x-3=3", 6, 6), ("Branch 2", "2x-3=-3", 7, 7)]}],
+    "GEN-083": [{"parents": ["c002", "c003", "c004"], "branches": [("CASE 1", "x<-2", None, None), ("CASE 2", "x=-2", 5, 5), ("CASE 3", "-2<x<3", 6, 6), ("CASE 4", "x>3", None, None)]}],
+    "GEN-085": [{"parents": ["i003", "c002"], "branches": [("Case 1", "u=8", 5, 6), ("Case 2", "u=-1", 7, 8)]}],
+    "GEN-087": [{"parents": ["c006", "c012"], "branches": [("Negative branch", r"x=\frac{3-\sqrt{33}}2", 13, 15), ("Positive branch", r"x=\frac{3+\sqrt{33}}2", 16, 16)]}],
+    "GEN-090": [{"parents": ["p0"], "branches": [("INVERSE BRANCH 1", "x<0", 1, 3), ("INVERSE BRANCH 2", r"x\ge0", 4, 8)]}],
+    "GEN-094": [{"parents": ["c001", "c003"], "branches": [("CASE 1", r"x\ge1", 4, 8), ("CASE 2", "x<1", 9, 17)]}],
+    "GEN-095": [{"parents": ["i001", "i002", "i003", "c001", "c006"], "branches": [("BRANCH 1", "s=5", 9, 13), ("BRANCH 2", "s=-7", 14, 15)]}],
+    "GEN-100": [{
+        "parents": ["c019", "sp001"],
+        "source_premises": {"sp001": r"\left| \frac{x-1}{x+2} \right| =2."},
+        "branches": [("CASE 1", r"\frac{x-1}{x+2}=2", 20, 24), ("CASE 2", r"\frac{x-1}{x+2}=-2", 25, 29)],
+    }],
+    "LINALG-051": [{"parents": ["c001"], "branches": [("CASE 1", r"a\neq2", 2, 6), ("CASE 2", "a=2", 7, 9)]}],
+    "LINALG-081": [{"parents": ["c004"], "branches": [("CASE 1", r"a\neq1", 5, 5), ("CASE 2", "a=1", 6, 9)]}],
+    "LINALG-082": [{"parents": ["c003"], "branches": [("CASE 1", r"a\neq1", 4, 9), ("CASE 2", "a=1", 10, 10)]}],
+    "MIXED-018": [{"parents": ["p0", "i001", "i002"], "branches": [("CASE 1", r"x=\frac{\pi}{6}", None, None), ("CASE 2", r"x=\pi-\frac{\pi}{6}=\frac{5\pi}{6}", 1, 1)]}],
+    "MIXED-039": [{"parents": ["p0", "c008"], "branches": [("CASE 1", "y=x", 9, 11), ("CASE 2", "y=-x", 12, 13)], "join": 14}],
+}
 
 
 def sha256(text: str) -> str:
@@ -868,6 +920,189 @@ def empty_state(problem: SourceProblem, goal_text: str) -> dict[str, Any]:
     }
 
 
+def _transition_ids(problem_id: str, start: int | None, end: int | None) -> list[str]:
+    if start is None or end is None:
+        if start is not None or end is not None:
+            raise AssertionError(f"{problem_id}: incomplete prose-only branch range")
+        return []
+    return [f"{problem_id}-T{index:03d}" for index in range(start, end + 1)]
+
+
+def rederive_branch_partitions(
+    problem: SourceProblem,
+    transitions: list[Transition],
+) -> list[dict[str, Any]]:
+    """Apply the curated source graph for branch-affected synthetic problems.
+
+    The old builder assigned every transition its immediately preceding claim.  That is
+    invalid at a sibling branch boundary.  This routine starts from source-audited
+    partitions, gives every sibling the same explicit pre-split premise ids, and rewrites
+    only branch-opening and join dependencies.  It never discovers a parent from linear
+    adjacency.
+    """
+    plans = BRANCH_REDERIVATION_PLAN.get(problem.problem_id, [])
+    if not plans:
+        if any(t.gap_code == "BRANCH_CREATION_NOT_REPRESENTABLE" for t in transitions):
+            raise AssertionError(f"{problem.problem_id}: branch-labelled source has no curated rederivation")
+        return []
+
+    by_id = {transition.transition_id: transition for transition in transitions}
+    state = empty_state(problem, clean_prose(problem.statement, 1200))
+    premise_registry = {
+        claim_id: {
+            "premise_id": claim_id,
+            "proposition": claim["proposition"],
+            "origin": "SOURCE_INITIAL_STATE" if claim_id.startswith("i") else "SOURCE_PROBLEM",
+            "source_sha256": sha256(problem.raw),
+        }
+        for claim_id, claim in state["claims"].items()
+    }
+    for transition in transitions:
+        premise_registry[f"c{transition.index:03d}"] = {
+            "premise_id": f"c{transition.index:03d}",
+            "proposition": transition.after,
+            "origin": "EARLIER_SOURCE_TRANSITION",
+            "source_sha256": sha256(transition.source_span),
+        }
+
+    partitions: list[dict[str, Any]] = []
+    first_partition_branch_ids: list[str] = []
+    covered_branch_gap_ids: set[str] = set()
+    join_ids: set[str] = set()
+    for partition_index, plan in enumerate(plans, 1):
+        partition_id = f"{problem.problem_id}-P{partition_index:03d}"
+        source_premises = plan.get("source_premises", {})
+        for premise_id, proposition in source_premises.items():
+            normalized = normalize_math(proposition)
+            source_math = {normalize_math(block.raw) for block in math_blocks_with_headings(problem.raw)}
+            if normalized not in source_math:
+                raise AssertionError(
+                    f"{partition_id}: source-derived premise {premise_id} is not an exact source math block"
+                )
+            premise_registry[premise_id] = {
+                "premise_id": premise_id,
+                "proposition": normalized,
+                "origin": "EXPLICIT_SOURCE_STATE_OMITTED_BY_OLD_SEGMENTER",
+                "source_sha256": sha256(proposition),
+            }
+
+        parent_ids = list(plan["parents"])
+        missing = [premise_id for premise_id in parent_ids if premise_id not in premise_registry]
+        if missing:
+            raise AssertionError(f"{partition_id}: unknown pre-split premise ids {missing}")
+        premises = [copy.deepcopy(premise_registry[premise_id]) for premise_id in parent_ids]
+
+        parent_branch_id = None
+        if plan.get("parent_branch") is not None:
+            parent_number = int(plan["parent_branch"])
+            if not first_partition_branch_ids or not 1 <= parent_number <= len(first_partition_branch_ids):
+                raise AssertionError(f"{partition_id}: invalid parent branch index {parent_number}")
+            parent_branch_id = first_partition_branch_ids[parent_number - 1]
+
+        branches: list[dict[str, Any]] = []
+        for branch_index, (label, assumption, start, end) in enumerate(plan["branches"], 1):
+            branch_id = f"{partition_id}-B{branch_index:03d}"
+            assumption_id = f"{branch_id}-ASSUMPTION"
+            transition_ids = _transition_ids(problem.problem_id, start, end)
+            opening_id = transition_ids[0] if transition_ids else None
+            for transition_id in transition_ids:
+                if transition_id not in by_id:
+                    raise AssertionError(f"{branch_id}: missing transition {transition_id}")
+            linear_predecessor = None
+            rejected_linear_dependencies: list[str] = []
+            if opening_id:
+                opening = by_id[opening_id]
+                if opening.index > 1:
+                    linear_predecessor = f"c{opening.index - 1:03d}"
+                    if linear_predecessor not in parent_ids:
+                        rejected_linear_dependencies = [linear_predecessor]
+                opening.dependency_ids = list(parent_ids)
+                for offset, transition_id in enumerate(transition_ids):
+                    transition = by_id[transition_id]
+                    if offset:
+                        previous = by_id[transition_ids[offset - 1]]
+                        transition.dependency_ids = [f"c{previous.index:03d}"]
+                    context = {
+                        "partition_id": partition_id,
+                        "branch_id": branch_id,
+                        "parent_branch_id": parent_branch_id,
+                        "branch_assumption_id": assumption_id,
+                        "opens_branch": offset == 0,
+                        "pre_split_premise_ids": list(parent_ids),
+                        "dependency_derivation": "SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY",
+                    }
+                    transition.branch_contexts.append(context)
+                    if transition.gap_code == "BRANCH_CREATION_NOT_REPRESENTABLE":
+                        covered_branch_gap_ids.add(transition_id)
+
+            source_basis = " | ".join(
+                item
+                for item in (
+                    by_id[opening_id].source_heading if opening_id else label,
+                    by_id[opening_id].warrant if opening_id else "source-explicit prose-only branch",
+                )
+                if item
+            )
+            branches.append(
+                {
+                    "branch_id": branch_id,
+                    "partition_id": partition_id,
+                    "parent_branch_id": parent_branch_id,
+                    "label": label,
+                    "assumption": {"id": assumption_id, "proposition": assumption, "status": "ASSUMED"},
+                    "opening_transition_id": opening_id,
+                    "transition_ids": transition_ids,
+                    "pre_split_premise_ids": list(parent_ids),
+                    "opening_dependency_ids": list(parent_ids),
+                    "linear_predecessor_id": linear_predecessor,
+                    "rejected_linear_dependency_ids": rejected_linear_dependencies,
+                    "source_basis": source_basis,
+                    "source_problem_sha256": sha256(problem.raw),
+                }
+            )
+        if partition_index == 1:
+            first_partition_branch_ids = [branch["branch_id"] for branch in branches]
+
+        join_id = None
+        if plan.get("join") is not None:
+            join_id = f"{problem.problem_id}-T{int(plan['join']):03d}"
+            if join_id not in by_id:
+                raise AssertionError(f"{partition_id}: missing join transition {join_id}")
+            terminal_ids = [
+                f"c{by_id[branch['transition_ids'][-1]].index:03d}"
+                for branch in branches
+                if branch["transition_ids"]
+            ]
+            if len(terminal_ids) != len(branches):
+                raise AssertionError(f"{partition_id}: join cannot cover a prose-only branch")
+            join = by_id[join_id]
+            join.dependency_ids = terminal_ids
+            join.joins_partition_ids.append(partition_id)
+            join_ids.add(join_id)
+
+        partitions.append(
+            {
+                "partition_id": partition_id,
+                "parent_branch_id": parent_branch_id,
+                "pre_split_premises": premises,
+                "pre_split_premise_ids": parent_ids,
+                "branches": branches,
+                "join_transition_id": join_id,
+                "derivation_method": "CURATED_FROM_EXACT_WORKED_SOURCE",
+            }
+        )
+
+    expected_branch_gaps = {
+        transition.transition_id
+        for transition in transitions
+        if transition.gap_code == "BRANCH_CREATION_NOT_REPRESENTABLE"
+    }
+    unaccounted = expected_branch_gaps - covered_branch_gap_ids - join_ids
+    if unaccounted:
+        raise AssertionError(f"{problem.problem_id}: branch-gap transitions not rederived: {sorted(unaccounted)}")
+    return partitions
+
+
 def build_payload(problem: SourceProblem, transition: Transition, before_state: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     after_state = copy.deepcopy(before_state)
     output_id = f"c{transition.index:03d}"
@@ -1029,8 +1264,9 @@ def validate_and_render(
     blocking_gap: str | None = None
     for transition in transitions:
         prior_claim = "p0" if transition.index == 1 else f"c{transition.index - 1:03d}"
-        transition.dependency_ids = [prior_claim]
-        if transition.index > 1 and (
+        if not transition.dependency_ids:
+            transition.dependency_ids = [prior_claim]
+        if not transition.branch_contexts and not transition.joins_partition_ids and transition.index > 1 and (
             transition.operation in {"VERIFY", "APPLY_THEOREM"}
             or transition.warrant.lower().startswith(("therefore", "thus", "hence", "so"))
         ):
@@ -1214,6 +1450,13 @@ def render_transition_md(transition: Transition) -> str:
         lines.append(f"- **Gap/refusal code:** `{transition.gap_code}`")
     if transition.depends_on_gap:
         lines.append(f"- **Depends on unsupported step:** `{transition.depends_on_gap}`")
+    if transition.branch_contexts:
+        lines.append(f"- **Neutral branch ancestry:** `{canonical_json(transition.branch_contexts)}`")
+    if transition.joins_partition_ids:
+        lines.append(
+            f"- **Neutral branch join:** partitions `{canonical_json(transition.joins_partition_ids)}`; "
+            f"covered branch conclusions `{canonical_json(transition.dependency_ids)}`"
+        )
     lines.extend(["", "<details><summary>Exact source span</summary>", "", markdown_fence(transition.source_span, "markdown"), "", "</details>"])
     if transition.hml_text:
         lines.extend(["", "<details><summary>Deterministically rendered frozen HML</summary>", "", markdown_fence(transition.hml_text, "hml"), "", "</details>"])
@@ -1259,6 +1502,14 @@ def render_problem_md(record: ProblemRecord) -> str:
         "### Atomic semantic trajectory",
         "",
     ]
+    if record.branch_partitions:
+        lines.extend(
+            [
+                "**Source-rederived branch graph:** "
+                f"`{canonical_json(record.branch_partitions)}`",
+                "",
+            ]
+        )
     for transition in record.transitions:
         lines.extend([render_transition_md(transition), ""])
     ledger_parts: list[tuple[str, str]] = []
@@ -1284,6 +1535,30 @@ def render_problem_md(record: ProblemRecord) -> str:
     else:
         lines.append("- No source-format diagnostic was raised.")
     return "\n".join(lines)
+
+
+def build_branch_ancestry_artifact(
+    source_text: str,
+    records: list[ProblemRecord],
+) -> dict[str, Any]:
+    affected = [record for record in records if record.branch_partitions]
+    return {
+        "schema_version": BRANCH_SCHEMA_VERSION,
+        "based_on_corpus_commit": BRANCH_REDERIVATION_BASE_SHA,
+        "source_corpus_sha256": sha256(source_text),
+        "derivation_policy": (
+            "Curated from the exact worked source. Sibling branch parents are explicit; "
+            "linear adjacency is never branch-parent evidence."
+        ),
+        "problems": [
+            {
+                "problem_id": record.source.problem_id,
+                "source_problem_sha256": sha256(record.source.raw),
+                "partitions": record.branch_partitions,
+            }
+            for record in affected
+        ],
+    }
 
 
 def render_master(
@@ -1346,6 +1621,13 @@ def render_master(
     )
     baseline_a_withheld_downstream = sum(
         t.baseline_pool == "A" and t.classification == STATUS_GAP for t in transitions
+    )
+    branch_partitions = [partition for record in records for partition in record.branch_partitions]
+    branch_records = [branch for partition in branch_partitions for branch in partition["branches"]]
+    branch_openings = sum(branch["opening_transition_id"] is not None for branch in branch_records)
+    prose_only_branches = len(branch_records) - branch_openings
+    rejected_linear_edges = sum(
+        len(branch["rejected_linear_dependency_ids"]) for branch in branch_records
     )
     if (baseline_a, baseline_b) != (453, 2640):
         raise AssertionError(f"Pool audit baseline drifted: A={baseline_a}, B={baseline_b}")
@@ -1447,6 +1729,26 @@ deterministic rendering only where the frozen release can preserve the same dist
 | Transitions carrying a genuine/current semantic-gap refusal | {status.get(STATUS_GAP, 0)} |
 | Direct semantic-gap transitions | {direct_gaps} |
 | Downstream transitions withheld after a gap | {downstream_gaps} |
+| Source-rederived branch partitions | {len(branch_partitions)} |
+| Explicit sibling branch records | {len(branch_records)} |
+| Branch openings with explicit pre-split parents | {branch_openings} |
+| Source-explicit prose-only branches preserved | {prose_only_branches} |
+| Linear-predecessor branch edges explicitly rejected | {rejected_linear_edges} |
+
+### Neutral branch ancestry repair
+
+Branch/case ancestry is governed by schema `{BRANCH_SCHEMA_VERSION}`. Every sibling branch
+records the same non-empty `pre_split_premise_ids`, a scoped branch assumption, its source
+basis, and (where the display segmenter recovered one) its opening transition. The old
+"previous transition is the parent" fallback is explicitly recorded and rejected whenever
+it differs. Nested branches additionally retain `parent_branch_id`. Source-explicit branches
+with no display-math transition remain prose-only records instead of disappearing.
+The schema-validated machine handoff is `data/synthetic_math_branch_ancestry_v1.json`.
+
+This is a corpus/schema correction only. No frozen-HML rendering was emitted for a branch
+gap and no HML semantics were changed. The two required states omitted by the old display
+segmenter (`GEN-056`'s substitution and `GEN-100`'s absolute-value equation) are copied
+from exact source math blocks rather than inferred.
 
 ### Source corpus reconciliation
 
@@ -1652,6 +1954,16 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--hml-root", type=Path, required=True, help="isolated checkout at the frozen HML SHA")
     parser.add_argument("--schema", type=Path, required=True)
+    parser.add_argument(
+        "--branch-schema",
+        type=Path,
+        default=Path(__file__).resolve().parents[1] / "schemas/synthetic-math-branch-ancestry.schema.json",
+    )
+    parser.add_argument(
+        "--branch-output",
+        type=Path,
+        default=Path(__file__).resolve().parents[1] / "data/synthetic_math_branch_ancestry_v1.json",
+    )
     parser.add_argument("--prm-pilot-summary", type=Path)
     args = parser.parse_args()
 
@@ -1664,9 +1976,13 @@ def main() -> None:
     except ImportError as exc:
         raise RuntimeError("jsonschema is required for corpus validation") from exc
     schema_validator = jsonschema.Draft202012Validator(json.loads(args.schema.read_text(encoding="utf-8")))
+    branch_schema_validator = jsonschema.Draft202012Validator(
+        json.loads(args.branch_schema.read_text(encoding="utf-8"))
+    )
     records: list[ProblemRecord] = []
     for number, problem in enumerate(problems, 1):
         transitions, diagnostics = extract_transitions(problem)
+        branch_partitions = rederive_branch_partitions(problem, transitions)
         validate_and_render(problem, transitions, hml, sympy, schema_validator)
         records.append(
             ProblemRecord(
@@ -1674,6 +1990,7 @@ def main() -> None:
                 transitions=transitions,
                 diagnostics=diagnostics,
                 goal_text=clean_prose(problem.statement, 1200),
+                branch_partitions=branch_partitions,
             )
         )
         if number % 25 == 0:
@@ -1685,8 +2002,15 @@ def main() -> None:
         else None
     )
     output = render_master(source_text, records, pilot_summary)
+    branch_artifact = build_branch_ancestry_artifact(source_text, records)
+    branch_schema_validator.validate(branch_artifact)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(output, encoding="utf-8")
+    args.branch_output.parent.mkdir(parents=True, exist_ok=True)
+    branch_output_text = json.dumps(
+        branch_artifact, ensure_ascii=False, sort_keys=True, indent=2
+    ) + "\n"
+    args.branch_output.write_text(branch_output_text, encoding="utf-8")
     print(
         canonical_json(
             {
@@ -1694,6 +2018,8 @@ def main() -> None:
                 "transitions": sum(len(record.transitions) for record in records),
                 "output": str(args.output),
                 "output_sha256": sha256(output),
+                "branch_output": str(args.branch_output),
+                "branch_output_sha256": sha256(branch_output_text),
                 "status_counts": dict(sorted(Counter(t.classification for r in records for t in r.transitions).items())),
             }
         )
