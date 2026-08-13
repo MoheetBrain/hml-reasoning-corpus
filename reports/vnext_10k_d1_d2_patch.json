@@ -1,0 +1,157 @@
+{
+  "authority": {
+    "canonical_data_commit": "09521ae992af5ca583a346da66c93d986e709386",
+    "contract_version": "vnext-translation-contract-1.0.0",
+    "fable_attestation_commit": "435571e",
+    "hml_semantic_commit": "68178f07784d2a17a9aed9c4dedbea9c740c97a0",
+    "starting_report_commit": "1c08914d656717695bff2b8b845d72ad6c26bbe7"
+  },
+  "canonical_regression": {
+    "canonical_file_hashes_before_and_after": {
+      "dev.jsonl.gz": "02487fe0247398e8ff46bb3a26480f9c6280dbe129a3ad7486377fb88b4f22dd",
+      "full_audit_records.jsonl.gz": "d67f71a58335a0150be17c95a281f1a0f9f45275ad7660b802202c92691eadda",
+      "snapshots.json": "700106a1728526231e4a5074690d444f27ae2b071b73f95768fe390232eb6fcc",
+      "test.jsonl.gz": "54c3613d0a71b17a8f70aade72162231fc3db9af5c965c5810d4c73ccfbd118b",
+      "train.jsonl.gz": "1e80f0abe3537c1dad7d1009ad761a516bfc2ba26e50fc95fae3ac817a22c025"
+    },
+    "record_count": 10000,
+    "record_id_signature": "6df8f82d8034d0f4aae1d1b1ccfaba76251730288b62158b39d84123863d967d",
+    "snapshot_sha256": "700106a1728526231e4a5074690d444f27ae2b071b73f95768fe390232eb6fcc",
+    "source_assignment_signature": "6b371f7f1ca05820dd1dd3d2377b324ae9b62a9bb2fa32cec17eaeabc1bd3607",
+    "source_authorities_validated": {
+      "AMPS": "b48c40afd262a8ac587504bc3008a2b0d688c0144b5d9fddd083f0b576a5df41",
+      "LEAN_DOJO": "fb4e65d76e02aa976ba4332d9554413856161b46b18fa6ea59bfe783ae1a789c",
+      "MATH": "2325458edc03d786939ee9e1e5795efb9e2480247b6e1ed2c51f41bea7369c6a",
+      "PRM800K": "7ecc794703b2877f63226f2477a49b34f9b25163",
+      "SYNTHETIC_HARD_TAIL": "c27155cb0be75a254352dae6e36862115e94ca4c3bc0964395613f7d8fda2de5"
+    },
+    "split_assignment_signature": "8a7c258f32609f9b559fc27708ebb61976553b16c2e92a70ea3bb8f4e1a25bdc",
+    "task_eligibility_signature": "9d8d0f0042a09f60daa6037db4075074104da182ad30ba9b82a358ca00e40d4f",
+    "unchanged": true
+  },
+  "d1": {
+    "excluded_record_ids": [],
+    "execute_action_text_after": 4024,
+    "execute_action_text_before": 0,
+    "execute_missing_required_action_after": 0,
+    "field_counts": {
+      "LEAN_DOJO:tactic_text": 4000,
+      "SYNTHETIC_HARD_TAIL:action_text": 24
+    },
+    "leakage_classification": {
+      "A_LEGITIMATE_ACTION_SEMANTICS": 4024
+    }
+  },
+  "d2": {
+    "pre_patch_string_counts": {
+      "AST": 0,
+      "HML_LINEAR": 10000,
+      "HML_TREE": 10000,
+      "STRUCTURED_NEUTRAL": 0
+    },
+    "renderer_versions": {
+      "AST": "hmltn-canonical-json-ast@1.0.0",
+      "HML_LINEAR": "hml-linear-state@68178f0+canonical-action-envelope@1.0.0",
+      "HML_TREE": "hml-tree-state@68178f0+canonical-action-envelope@1.0.0",
+      "STRUCTURED_NEUTRAL": "hmltn-canonical-json-neutral@1.0.0"
+    },
+    "semantic_parity": "10000/10000 PASS",
+    "string_counts": {
+      "AST": 10000,
+      "HML_LINEAR": 10000,
+      "HML_TREE": 10000,
+      "STRUCTURED_NEUTRAL": 10000
+    }
+  },
+  "deterministic_rebuild": {
+    "byte_identical_regenerated_files": 13,
+    "files_checked": 13,
+    "result": "PASS"
+  },
+  "execute": {
+    "after": 4024,
+    "before": 4024,
+    "by_split": {
+      "dev": 392,
+      "test": 378,
+      "train": 3254
+    },
+    "train_snapshot_counts": {
+      "100": 29,
+      "1000": 326,
+      "10000": 3254,
+      "250": 81,
+      "5000": 1630
+    }
+  },
+  "full_leakage_audit": {
+    "ambiguous_rows": 0,
+    "clean_rows": 10000,
+    "direct_target_revealing_actions": 0,
+    "excluded_rows": 0,
+    "flagged_rows": 0,
+    "safe_projection_rows_checked": 10000
+  },
+  "pre_patch_manifest_file_hashes": {
+    "dev.jsonl.gz": "02487fe0247398e8ff46bb3a26480f9c6280dbe129a3ad7486377fb88b4f22dd",
+    "full_audit_records.jsonl.gz": "d67f71a58335a0150be17c95a281f1a0f9f45275ad7660b802202c92691eadda",
+    "snapshots.json": "700106a1728526231e4a5074690d444f27ae2b071b73f95768fe390232eb6fcc",
+    "test.jsonl.gz": "54c3613d0a71b17a8f70aade72162231fc3db9af5c965c5810d4c73ccfbd118b",
+    "train.jsonl.gz": "1e80f0abe3537c1dad7d1009ad761a516bfc2ba26e50fc95fae3ac817a22c025",
+    "views/AST/dev.jsonl.gz": "b6d5156050985d7eee4d9ab46b4134eaca04b2b6de68e5cfa9be30824120260e",
+    "views/AST/test.jsonl.gz": "a9bd4efb03b8b0051a0d31f63f89cfe54a77d500df85300074409e2fe40909b5",
+    "views/AST/train.jsonl.gz": "c89cb2479eae2d7762f0177cdd9d759e94c01832b16ecc3fef7d54d9c02b7dc8",
+    "views/HML_LINEAR/dev.jsonl.gz": "968389e8b8bde44d372979a2188ab078dc5f38bfed0498a28cd9e1822c37708f",
+    "views/HML_LINEAR/test.jsonl.gz": "4db64f53aa204e347146874a1002bb2505b3ca81d2b82fbdd0bc9eaabf06cd80",
+    "views/HML_LINEAR/train.jsonl.gz": "abbd756191b558a9a6bcd9458280019292175dfb9792512d5529edf0e384a132",
+    "views/HML_TREE/dev.jsonl.gz": "644c1161ff1f9b6a940f7e550e619b96236ad3d6b62e02676d937dfccbea3e4b",
+    "views/HML_TREE/test.jsonl.gz": "b3fc4afceea50f12fe2e41c8f99dae8e9a7b98e709d7eb660f065a90e634f65c",
+    "views/HML_TREE/train.jsonl.gz": "4962c18265648a4e603f73c8ecb541d02c8d3c96ad7949e7b2ca834e66027a36",
+    "views/STRUCTURED_NEUTRAL/dev.jsonl.gz": "52f0cca488aae3fb3db871d7c7bab24b016fa2b4ff17074535efe68dd12ad49b",
+    "views/STRUCTURED_NEUTRAL/test.jsonl.gz": "4cfd87821b11d2c12a909bc048a9bed2a79f48722cb38017cbca909791cd8404",
+    "views/STRUCTURED_NEUTRAL/train.jsonl.gz": "5e477fd3e215667df5c230f0c2b3dfc00696468a2ca957e79bdcba52d3fecb79"
+  },
+  "result": "FABLE_GATE_REPAIRED",
+  "token_audit": {
+    "statistics": {
+      "AST": {
+        "max": 20523,
+        "mean": 1319.21,
+        "median": 786.0,
+        "p90": 2624,
+        "p95": 3941,
+        "records": 10000
+      },
+      "HML_LINEAR": {
+        "max": 4027,
+        "mean": 239.982,
+        "median": 169.0,
+        "p90": 498,
+        "p95": 674,
+        "records": 10000
+      },
+      "HML_TREE": {
+        "max": 4715,
+        "mean": 287.629,
+        "median": 194.0,
+        "p90": 593,
+        "p95": 841,
+        "records": 10000
+      },
+      "STRUCTURED_NEUTRAL": {
+        "max": 6621,
+        "mean": 413.956,
+        "median": 261.0,
+        "p90": 842,
+        "p95": 1222,
+        "records": 10000
+      }
+    },
+    "tokenizer": {
+      "name": "HMLTN_UNICODE_LEXICAL",
+      "note": "FABLE model tokenizer was not present locally; this frozen lexical audit is reproducible and is not claimed to be model-token equivalent.",
+      "pattern": "\\w+|[^\\w\\s]",
+      "version": "1.0.0"
+    }
+  }
+}

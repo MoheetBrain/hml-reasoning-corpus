@@ -1,6 +1,6 @@
 {
-  "contract_version": "vnext-translation-contract-1.0.0",
   "codex_corpus_commit": "09521ae992af5ca583a346da66c93d986e709386",
+  "contract_version": "vnext-translation-contract-1.0.0",
   "corpus_build_base_commit": "3bbb4256fe424e126ad1058c7bb8223c58b3afeb",
   "deduplication": {
     "exact_transition_signatures": "deduplicated",
@@ -363,7 +363,92 @@
     "HUMAN_PROCESS_LABEL": 2000,
     "REPRESENTABLE_UNVERIFIED": 3976
   },
+  "execute_action_presence": {
+    "after_explicit_action_text": 4024,
+    "before_explicit_action_text": 0,
+    "by_source_and_field": {
+      "LEAN_DOJO:tactic_text": 4000,
+      "SYNTHETIC_HARD_TAIL:action_text": 24
+    },
+    "missing_required_after": 0
+  },
+  "execute_split_counts": {
+    "dev": 392,
+    "test": 378,
+    "train": 3254
+  },
+  "export_patch": {
+    "action_leakage_audit": {
+      "ambiguous": 0,
+      "clean": 4024,
+      "direct_target_revealing": 0,
+      "excluded": 0
+    },
+    "canonical_data_authority": "09521ae992af5ca583a346da66c93d986e709386",
+    "deterministic_rebuild": "PASS",
+    "fable_attestation_commit": "435571e",
+    "patch": "VNEXT_D1_D2_MODEL_EXPORTS",
+    "renderers": {
+      "AST": "hmltn-canonical-json-ast@1.0.0",
+      "HML_LINEAR": "hml-linear-state@68178f0+canonical-action-envelope@1.0.0",
+      "HML_TREE": "hml-tree-state@68178f0+canonical-action-envelope@1.0.0",
+      "STRUCTURED_NEUTRAL": "hmltn-canonical-json-neutral@1.0.0"
+    },
+    "report_base_commit": "1c08914d656717695bff2b8b845d72ad6c26bbe7",
+    "string_counts": {
+      "AST": 10000,
+      "HML_LINEAR": 10000,
+      "HML_TREE": 10000,
+      "STRUCTURED_NEUTRAL": 10000
+    },
+    "token_audit": {
+      "statistics": {
+        "AST": {
+          "max": 20523,
+          "mean": 1319.21,
+          "median": 786.0,
+          "p90": 2624,
+          "p95": 3941,
+          "records": 10000
+        },
+        "HML_LINEAR": {
+          "max": 4027,
+          "mean": 239.982,
+          "median": 169.0,
+          "p90": 498,
+          "p95": 674,
+          "records": 10000
+        },
+        "HML_TREE": {
+          "max": 4715,
+          "mean": 287.629,
+          "median": 194.0,
+          "p90": 593,
+          "p95": 841,
+          "records": 10000
+        },
+        "STRUCTURED_NEUTRAL": {
+          "max": 6621,
+          "mean": 413.956,
+          "median": 261.0,
+          "p90": 842,
+          "p95": 1222,
+          "records": 10000
+        }
+      },
+      "tokenizer": {
+        "name": "HMLTN_UNICODE_LEXICAL",
+        "note": "FABLE model tokenizer was not present locally; this frozen lexical audit is reproducible and is not claimed to be model-token equivalent.",
+        "pattern": "\\w+|[^\\w\\s]",
+        "version": "1.0.0"
+      }
+    }
+  },
   "files": {
+    "action_leakage_audit.jsonl.gz": {
+      "bytes": 298934,
+      "sha256": "dd9446751e1e6547738de93805246ac1e3f08658caccd0a085f9af26dff2520b"
+    },
     "dev.jsonl.gz": {
       "bytes": 428245,
       "sha256": "02487fe0247398e8ff46bb3a26480f9c6280dbe129a3ad7486377fb88b4f22dd"
@@ -385,52 +470,52 @@
       "sha256": "1e80f0abe3537c1dad7d1009ad761a516bfc2ba26e50fc95fae3ac817a22c025"
     },
     "views/AST/dev.jsonl.gz": {
-      "bytes": 245902,
-      "sha256": "b6d5156050985d7eee4d9ab46b4134eaca04b2b6de68e5cfa9be30824120260e"
+      "bytes": 460886,
+      "sha256": "4403feb230269d3f95cb83d12abefd4c9373c961d2117b5c201955194abd8d9b"
     },
     "views/AST/test.jsonl.gz": {
-      "bytes": 241450,
-      "sha256": "a9bd4efb03b8b0051a0d31f63f89cfe54a77d500df85300074409e2fe40909b5"
+      "bytes": 447689,
+      "sha256": "2e18804a3785f756ffc6fd0bf21d3494a915c60a3ac55f399a2b3c7a892e581f"
     },
     "views/AST/train.jsonl.gz": {
-      "bytes": 2325239,
-      "sha256": "c89cb2479eae2d7762f0177cdd9d759e94c01832b16ecc3fef7d54d9c02b7dc8"
+      "bytes": 4248381,
+      "sha256": "fc9b1dab24dc23c2df8fca5931df0284ee140073b949cbe8732616ee93563571"
     },
     "views/HML_LINEAR/dev.jsonl.gz": {
-      "bytes": 191098,
-      "sha256": "968389e8b8bde44d372979a2188ab078dc5f38bfed0498a28cd9e1822c37708f"
+      "bytes": 385072,
+      "sha256": "b1996172d27a6c97b0d3120633105f90bc76ae5184741a4bd66d8b45a58926c3"
     },
     "views/HML_LINEAR/test.jsonl.gz": {
-      "bytes": 193447,
-      "sha256": "4db64f53aa204e347146874a1002bb2505b3ca81d2b82fbdd0bc9eaabf06cd80"
+      "bytes": 381685,
+      "sha256": "4bd9292f6f3b5cb3207a4ed14dcbbec46def87f0f6c7e6e5120b3d33ea09641c"
     },
     "views/HML_LINEAR/train.jsonl.gz": {
-      "bytes": 1753448,
-      "sha256": "abbd756191b558a9a6bcd9458280019292175dfb9792512d5529edf0e384a132"
+      "bytes": 3399351,
+      "sha256": "e2215950a672bbeba40db6fc881429217e3d305671ab1d17034a6460375e0a70"
     },
     "views/HML_TREE/dev.jsonl.gz": {
-      "bytes": 206792,
-      "sha256": "644c1161ff1f9b6a940f7e550e619b96236ad3d6b62e02676d937dfccbea3e4b"
+      "bytes": 400792,
+      "sha256": "fb5fa943a7711938d9b0386891758a9284023b14fab3f24bbbdd14a73d2e1285"
     },
     "views/HML_TREE/test.jsonl.gz": {
-      "bytes": 208485,
-      "sha256": "b3fc4afceea50f12fe2e41c8f99dae8e9a7b98e709d7eb660f065a90e634f65c"
+      "bytes": 396976,
+      "sha256": "659c8ed98908f1cdfb7eddc98cd76968a44b676b2eea765acc483d0a32bd5793"
     },
     "views/HML_TREE/train.jsonl.gz": {
-      "bytes": 1916402,
-      "sha256": "4962c18265648a4e603f73c8ecb541d02c8d3c96ad7949e7b2ca834e66027a36"
+      "bytes": 3572310,
+      "sha256": "1d019f2d95da68a41cf414b8c95e61b24ec125fe917d6e7e3a10b3bfd2af9950"
     },
     "views/STRUCTURED_NEUTRAL/dev.jsonl.gz": {
-      "bytes": 197137,
-      "sha256": "52f0cca488aae3fb3db871d7c7bab24b016fa2b4ff17074535efe68dd12ad49b"
+      "bytes": 396285,
+      "sha256": "fb570be14d832e07fdb302e0a34d967139c869abe3e0dc2cc94e51466e75eb17"
     },
     "views/STRUCTURED_NEUTRAL/test.jsonl.gz": {
-      "bytes": 198262,
-      "sha256": "4cfd87821b11d2c12a909bc048a9bed2a79f48722cb38017cbca909791cd8404"
+      "bytes": 391326,
+      "sha256": "9c5debc5c3d352e6a4445c5e5a48c2ada8963b625c0b2ff49487ee99851f021d"
     },
     "views/STRUCTURED_NEUTRAL/train.jsonl.gz": {
-      "bytes": 1815326,
-      "sha256": "5e477fd3e215667df5c230f0c2b3dfc00696468a2ca957e79bdcba52d3fecb79"
+      "bytes": 3519370,
+      "sha256": "e456ea9cb7d1d7366e357820ad72d41f057d135b050d8d39b1a62f8addbab029"
     }
   },
   "hml_semantic_commit": "68178f07784d2a17a9aed9c4dedbea9c740c97a0",
@@ -601,5 +686,12 @@
     "EXECUTE": 4024,
     "JUDGE": 6000,
     "REPAIR": 0
+  },
+  "train_execute_snapshot_counts": {
+    "100": 29,
+    "1000": 326,
+    "10000": 3254,
+    "250": 81,
+    "5000": 1630
   }
 }
