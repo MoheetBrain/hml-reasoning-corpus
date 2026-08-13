@@ -387,6 +387,7 @@
     "canonical_data_authority": "09521ae992af5ca583a346da66c93d986e709386",
     "deterministic_rebuild": "PASS",
     "fable_attestation_commit": "435571e",
+    "data_implementation_commit": "a2f992a6d474638814a1f1f7809f4015db3894c5",
     "patch": "VNEXT_D1_D2_MODEL_EXPORTS",
     "renderers": {
       "AST": "hmltn-canonical-json-ast@1.0.0",

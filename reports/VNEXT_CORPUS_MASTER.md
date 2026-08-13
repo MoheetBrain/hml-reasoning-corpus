@@ -179,3 +179,25 @@ ratios 40/20/20/10/10 percent at every rung.
 Validation result: 90 corpus tests passed; contract fixtures 20/20 passed;
 10k deterministic rebuild was byte-identical; HML checkout and submodule were
 clean and unmodified.
+
+## D1/D2 model-export patch
+
+FABLE attestation `435571e` correctly blocked training because EXECUTE views
+omitted the exact Lean tactic and AST/STRUCTURED_NEUTRAL were raw objects. Export
+implementation commit `a2f992a6d474638814a1f1f7809f4015db3894c5`
+repairs only those projections.
+
+Explicit EXECUTE action content is now present on 4,024/4,024 rows: 4,000 exact
+pinned Lean tactics and 24 canonical deterministic protocol operations. The
+action audit found 4,024 legitimate actions and zero direct target reveals,
+ambiguities, exclusions, or missing actions. EXECUTE remains 4,024 with split
+counts 3,254/392/378.
+
+All four arms now expose deterministic string `input_text` and `target_text`
+fields on 10,000/10,000 rows. Semantic parity passes 10,000/10,000 and a second
+build reproduced all 13 generated files byte-for-byte. Canonical transitions,
+ids, sources, splits, eligibility, snapshots, and HML authority are unchanged.
+The post-patch test result is 92 passed plus 20/20 contract fixtures.
+
+See `FABLE_VNEXT_D1_D2_PATCH.md`, `FABLE_VNEXT_10K_HANDOFF.md`, and
+`reports/vnext_10k_d1_d2_patch.json` for the release contract and exact audits.

@@ -1,82 +1,115 @@
-# FABLE VNext 10k Handoff
+# FABLE VNext 10k Handoff — D1/D2 Patched
 
-Use this corpus only when all authorities match:
+FABLE must re-attest this release before training:
 
-- Corpus data commit: `09521ae992af5ca583a346da66c93d986e709386`
-- HML semantic commit: `68178f07784d2a17a9aed9c4dedbea9c740c97a0`
+- Export data/implementation commit: `a2f992a6d474638814a1f1f7809f4015db3894c5`
+- Canonical 10k semantic-data authority: `09521ae992af5ca583a346da66c93d986e709386`
+- HML semantic authority: `68178f07784d2a17a9aed9c4dedbea9c740c97a0`
 - Translation contract: `vnext-translation-contract-1.0.0`
-- Contract lock: `contracts/hml_vnext/VNEXT_TRANSLATION_LOCK.json`
+- FABLE finding/attestation: `435571e`
+- Manifest SHA-256: `77dfee09aaad6616f79057383be6e9c699b95db5e12ddec19dcfb0f9791a9af1`
+
+The canonical 10,000 transitions, record ids, source assignments, splits, task
+eligibility, and snapshot membership are unchanged. This release changes only
+the model-facing projection contract and its audits.
 
 ## Authoritative files
 
 - Manifest: `data/vnext_10k/manifest.json`
 - Full audit records: `data/vnext_10k/full_audit_records.jsonl.gz`
-- Canonical split projections: `data/vnext_10k/train.jsonl.gz`,
-  `data/vnext_10k/dev.jsonl.gz`, `data/vnext_10k/test.jsonl.gz`
-- Nested record ordering: `data/vnext_10k/snapshots.json`
-- Matched model views:
+- Canonical split projections: `data/vnext_10k/{train,dev,test}.jsonl.gz`
+- Nested ordering: `data/vnext_10k/snapshots.json`
+- Action-leakage audit: `data/vnext_10k/action_leakage_audit.jsonl.gz`
+- Patch report: `reports/vnext_10k_d1_d2_patch.json`
+- Matched views:
   `data/vnext_10k/views/{HML_LINEAR,HML_TREE,AST,STRUCTURED_NEUTRAL}/{train,dev,test}.jsonl.gz`
 
-The split recorded on each row is authoritative. Never resplit atomic rows.
-All transitions sharing a parent theorem/problem/trajectory remain grouped.
-The 100, 250, 1,000, 5,000, and 10,000 snapshots are prefixes of the single
-deterministic ordering in `snapshots.json`; each smaller rung is an exact subset
-of every larger rung.
+## Execute action
 
-## Eligibility
+Every EXECUTE input now contains the action that caused the transition.
 
-- EXECUTE: use only rows where `task_eligibility.EXECUTE == true` (4,024).
-  These are 4,000 formally replay-verified Lean transitions and 24
-  deterministic backend-verified transitions.
-- JUDGE: use only rows where `task_eligibility.JUDGE == true` (6,000). The
-  objective mixes formal proof-step success with PRM human process supervision;
-  keep `source_process_label`, `mathematical_verification_status`, and
-  `epistemic_status` distinct.
-- REPAIR: no rows are eligible (0). Do not manufacture repair pairs from PRM
-  negative labels.
-- APPLICABILITY: no rows are eligible (0).
-- COMPREHENSION: all 10,000 rows are eligible when next-step mathematical truth
-  is not being treated as certified.
+- All 4,000 Lean rows carry `tactic_text`, copied exactly from the pinned
+  LeanDojo trace. It agrees with the canonical transition source and formal
+  evidence and carries theorem, trace, transition, revision, and action hashes
+  in `audit_metadata.action_provenance`.
+- The 24 deterministic synthetic protocol rows carry `action_text` equal to
+  their canonical operation and expose their nonempty typed semantic effects.
 
-PRM `{-1,0,+1}` labels are human process labels, not proof certificates. MATH,
-AMPS, and unverified hard-tail rows must not be used for truth-sensitive EXECUTE
-training.
+The exact tactic is legitimate `a_t`. FABLE must not strip it. No action was
+generated, paraphrased, inferred from a target, or recovered from later text.
+The D1 audit found 4,024 legitimate actions, zero direct target-revealing
+actions, zero ambiguous actions, and zero exclusions.
 
-## Representation experiment
+## Model-facing fields
 
-HML_LINEAR, HML_TREE, AST, and STRUCTURED_NEUTRAL are matched deterministic
-views of the same canonical transition. Each arm has 10,000 rows and identical
-record ids/splits. Do not enrich one arm or independently reconstruct a view
-from prose. Run the same model protocol and snapshot membership across all four
-arms.
+For every arm, FABLE must use only:
 
-## Safe inputs and forbidden fields
+- `input_text`: canonical model input string;
+- `target_text`: canonical model target string.
 
-For `(state_before, action) -> state_after`, use the `input` member of a
-representation-specific view and its corresponding `target`. Do not expose full
-audit transitions as model input.
+Both are strings on all 10,000 rows in every arm. Historical `input` and
+`target` object fields are no longer emitted, so there is one authority.
 
-Forbidden model inputs include:
+FABLE must not call `json.dumps`, pretty-print or serialize AST/neutral, rebuild
+HML, select key order, or otherwise transform representation syntax upstream of
+tokenization. `audit_metadata` and task metadata are control-plane fields, not
+model inputs.
 
-- `state_after` or any future claim;
-- target delta or final answer;
-- later source-solution text;
-- action summaries or metadata containing the target expression;
-- any renamed or deterministically encoded answer-bearing field.
+## Renderer versions
 
-The supplied views passed per-example leakage checks 10,000/10,000. Treat that
-projection as part of the data contract.
+- HML_LINEAR: `hml-linear-state@68178f0+canonical-action-envelope@1.0.0`
+- HML_TREE: `hml-tree-state@68178f0+canonical-action-envelope@1.0.0`
+- AST: `hmltn-canonical-json-ast@1.0.0`
+- STRUCTURED_NEUTRAL: `hmltn-canonical-json-neutral@1.0.0`
 
-## Validation before use
+AST is canonical compact JSON over the frozen typed AST, with stable keys,
+nodes, lists, quoting, escaping, and whitespace. STRUCTURED_NEUTRAL is canonical
+compact JSON over the safe neutral input schema. HML_TREE remains a view and has
+no facts unavailable to the other arms. Semantic parity is 10,000/10,000.
 
-Verify manifest hashes, corpus/HML/contract pins, representation counts, and
-record-id parity. Expected splits are train 8,132, dev 952, and test 916.
-Expected arm count is 10,000 each. The complete scientific interpretation,
-coverage deficits, and historical/VNext distinction are in
-`reports/VNEXT_CORPUS_MASTER.md`.
+## Eligibility and membership
+
+- EXECUTE: 4,024 total; train 3,254, dev 392, test 378.
+- JUDGE: 6,000.
+- REPAIR: 0.
+- APPLICABILITY: 0.
+- COMPREHENSION: 10,000.
+
+Nested TRAIN∩EXECUTE membership is unchanged: 100→29, 250→81, 1k→326,
+5k→1,630, full→3,254. The authoritative overall splits remain train 8,132,
+dev 952, test 916. Never resplit atomic rows or resample snapshot rungs.
+
+## Safe-input policy
+
+For `(state_before, action) -> state_after`, use the supplied `input_text` and
+`target_text`. Forbidden input remains: `state_after`, target delta, future
+claims, final answers, later source-solution text, answer-bearing summaries or
+metadata, and renamed direct copies of the target. Actual source action identity
+is allowed and required.
+
+The regenerated release passed 10,000/10,000 safe-projection checks and
+4,024/4,024 action checks. It found no flagged, ambiguous, or excluded rows.
+
+## Exact regenerated view hashes
+
+| View | Split | SHA-256 |
+|---|---:|---|
+| HML_LINEAR | train | `e2215950a672bbeba40db6fc881429217e3d305671ab1d17034a6460375e0a70` |
+| HML_LINEAR | dev | `b1996172d27a6c97b0d3120633105f90bc76ae5184741a4bd66d8b45a58926c3` |
+| HML_LINEAR | test | `4bd9292f6f3b5cb3207a4ed14dcbbec46def87f0f6c7e6e5120b3d33ea09641c` |
+| HML_TREE | train | `1d019f2d95da68a41cf414b8c95e61b24ec125fe917d6e7e3a10b3bfd2af9950` |
+| HML_TREE | dev | `fb5fa943a7711938d9b0386891758a9284023b14fab3f24bbbdd14a73d2e1285` |
+| HML_TREE | test | `659c8ed98908f1cdfb7eddc98cd76968a44b676b2eea765acc483d0a32bd5793` |
+| AST | train | `fc9b1dab24dc23c2df8fca5931df0284ee140073b949cbe8732616ee93563571` |
+| AST | dev | `4403feb230269d3f95cb83d12abefd4c9373c961d2117b5c201955194abd8d9b` |
+| AST | test | `2e18804a3785f756ffc6fd0bf21d3494a915c60a3ac55f399a2b3c7a892e581f` |
+| STRUCTURED_NEUTRAL | train | `e456ea9cb7d1d7366e357820ad72d41f057d135b050d8d39b1a62f8addbab029` |
+| STRUCTURED_NEUTRAL | dev | `fb570be14d832e07fdb302e0a34d967139c869abe3e0dc2cc94e51466e75eb17` |
+| STRUCTURED_NEUTRAL | test | `9c5debc5c3d352e6a4445c5e5a48c2ada8963b625c0b2ff49487ee99851f021d` |
 
 ## Next atomic task
 
-Run the matched VNext representation/execution learning experiment over
-HML_LINEAR vs HML_TREE vs AST vs STRUCTURED_NEUTRAL using the nested
-100 -> 250 -> 1k -> 5k -> full snapshots, before proceeding to REPAIR.
+FABLE resumes the already-built VNext 10k representation × execution
+experiment on the new corpus pin, reruns Phase 0 attestation, and then executes
+the unchanged HML_LINEAR vs HML_TREE vs AST vs STRUCTURED_NEUTRAL learning
+protocol.
