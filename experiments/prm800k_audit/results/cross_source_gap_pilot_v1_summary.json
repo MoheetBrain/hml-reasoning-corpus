@@ -1,0 +1,62 @@
+{
+  "frozen_hml_commit": "84bf9897689b0ed78a2caaefc1db850d49b81260",
+  "judgment_counts": {
+    "BACKEND/VERIFIER_GAP": 166,
+    "CURRENT_KNOWN_CORE_GAP": 693,
+    "EXISTING_SEMANTICS": 112,
+    "LIBRARY_GAP": 27,
+    "SOURCE_AMBIGUITY": 2
+  },
+  "known_gap_recurrence": {
+    "branch_create": 25,
+    "branch_join": 20,
+    "candidate_lifecycle_action_creation": 654,
+    "candidate_lifecycle_mathematical_object": 0,
+    "exact_approximate_status": 30
+  },
+  "level_counts": {
+    "1": 127,
+    "2": 193,
+    "3": 180,
+    "4": 213,
+    "5": 272,
+    "UNKNOWN": 15
+  },
+  "marginal_new_semantic_rate": 0.0,
+  "mechanism_counts": {
+    "branch_create": 25,
+    "branch_join": 20,
+    "candidate_lifecycle_action_creation": 654,
+    "domain_or_sign_precondition": 40,
+    "exact_approximate_status": 30,
+    "planner_or_search_heuristic": 93,
+    "source_process_error_label": 500,
+    "source_process_neutral_label": 250,
+    "source_process_progress_label": 250,
+    "theorem_or_domain_library": 80
+  },
+  "method_warning": "The pilot is a conservative representability audit. PRM ratings remain source-process labels, lexical routing is not mathematical proof, and no local expression check is promoted to full transition validity.",
+  "new_core_semantic_candidates": 0,
+  "output_sha256": "ef4c2911e1811bec701aabb0d1df800aefe6fdccfa584770b5fa12ac50a221fe",
+  "pilot_schema": "prm800k-cross-source-gap-pilot-0.1.0",
+  "rating_counts": {
+    "-1": 500,
+    "0": 250,
+    "1": 250
+  },
+  "records": 1000,
+  "source_commit": "7ecc794703b2877f63226f2477a49b34f9b25163",
+  "source_validation": "1000/1000 exact",
+  "subject_counts": {
+    "Algebra": 155,
+    "Counting & Probability": 136,
+    "Geometry": 129,
+    "Intermediate Algebra": 172,
+    "Number Theory": 127,
+    "Prealgebra": 126,
+    "Precalculus": 140,
+    "UNKNOWN": 15
+  },
+  "unique_source_problems": 858,
+  "unique_source_trajectories": 907
+}

@@ -15,6 +15,7 @@ import copy
 import hashlib
 import html
 import json
+import platform
 import re
 import sys
 from collections import Counter, defaultdict
@@ -94,6 +95,12 @@ class Transition:
     classification_reason: str
     backend_status: str = "NOT_APPLICABLE"
     backend_detail: str = ""
+    baseline_backend_status: str = "NOT_RUN"
+    baseline_pool: str | None = None
+    baseline_pool_b_reason: str | None = None
+    promoted_from_pool_b: bool = False
+    verification_certificate: dict[str, Any] | None = None
+    remaining_verification_reason: str | None = None
     dependency_ids: list[str] = field(default_factory=list)
     hml_text: str | None = None
     schema_validation: str = "NOT_RUN"
@@ -529,6 +536,10 @@ class SympyVerifier:
         else:
             self.sympy = sympy
             self.parse_latex = parse_latex
+            from sympy.core.relational import Equality, Relational
+
+            self.Equality = Equality
+            self.Relational = Relational
         self.cache: dict[str, Any] = {}
 
     @staticmethod
@@ -559,7 +570,20 @@ class SympyVerifier:
                 self.cache[cleaned] = None
         return self.cache[cleaned]
 
-    def verify(self, before: str, after: str, context: str) -> tuple[str, str]:
+    def parse_strict(self, value: str) -> Any:
+        """Parse only fragments the LaTeX frontend consumed as one complete relation."""
+        cleaned = self._clean(value)
+        if cleaned is None or "," in cleaned or cleaned.startswith("="):
+            return None
+        return self.parse(cleaned)
+
+    @staticmethod
+    def _has_symbolic_latex_denominator(value: str) -> bool:
+        denominators = re.findall(r"\\frac\s*\{[^{}]*\}\s*\{([^{}]*)\}", value)
+        return any(re.search(r"[A-Za-z]", denominator) for denominator in denominators)
+
+    def verify_baseline(self, before: str, after: str, context: str) -> tuple[str, str]:
+        """Reproduce the pre-audit checker exactly, including its conservative failures."""
         if self.sympy is None:
             return "BACKEND_UNAVAILABLE", "SymPy/LaTeX parser is unavailable"
         lower = context.lower()
@@ -597,6 +621,213 @@ class SympyVerifier:
             return "UNSUPPORTED_FRAGMENT", "relation type is outside the conservative equivalence checker"
         except Exception as exc:
             return "UNSUPPORTED_FRAGMENT", f"SymPy declined the comparison: {type(exc).__name__}: {exc}"
+
+    def _certificate(
+        self,
+        method: str,
+        before: str,
+        after: str,
+        detail: str,
+        premise_id: str | None = None,
+        premise_text: str | None = None,
+    ) -> dict[str, Any]:
+        assert self.sympy is not None
+        payload = {
+            "schema": "external-math-check-certificate-0.1.0",
+            "backend": "SymPy",
+            "backend_version": self.sympy.__version__,
+            "python_version": platform.python_version(),
+            "method": method,
+            "before_sha256": sha256(before),
+            "after_sha256": sha256(after),
+            "detail": detail,
+        }
+        if premise_id:
+            payload["premise_id"] = premise_id
+        if premise_text is not None:
+            payload["premise_sha256"] = sha256(premise_text)
+        payload["certificate_sha256"] = sha256(canonical_json(payload))
+        return payload
+
+    def _exact(self, expression: Any) -> Any:
+        return self.sympy.nsimplify(expression, rational=True)
+
+    def _variable_free_denominator(self, expression: Any) -> bool:
+        try:
+            return not self.sympy.denom(self.sympy.together(expression)).free_symbols
+        except Exception:
+            return False
+
+    def _compare(self, left: Any, right: Any) -> tuple[str, str] | None:
+        """Return a conservative proof method/detail, never a plausibility judgment."""
+        sympy = self.sympy
+        try:
+            if isinstance(left, self.Equality) and isinstance(right, self.Equality):
+                symbols = sorted(left.free_symbols | right.free_symbols, key=str)
+                if not symbols:
+                    if bool(left) and bool(right):
+                        return "CLOSED_TRUE_EQUALITIES", "both exact closed equalities evaluate to true"
+                    return None
+                if len(symbols) == 1:
+                    symbol = symbols[0]
+                    left_set = sympy.solveset(left, symbol, domain=sympy.S.Reals)
+                    right_set = sympy.solveset(right, symbol, domain=sympy.S.Reals)
+                    if left_set == right_set:
+                        return "EQUAL_REAL_SOLUTION_SETS", f"equal real solution sets for {symbol}: {left_set}"
+                    return None
+                left_residual = sympy.expand(left.lhs - left.rhs)
+                right_residual = sympy.expand(right.lhs - right.rhs)
+                if right_residual != 0:
+                    ratio = sympy.simplify(left_residual / right_residual)
+                    if ratio != 0 and not ratio.free_symbols:
+                        return "NONZERO_SCALAR_RESIDUAL", f"equation residuals differ by nonzero scalar {ratio}"
+                return None
+            if isinstance(left, self.Relational) and isinstance(right, self.Relational):
+                symbols = sorted(left.free_symbols | right.free_symbols, key=str)
+                if not symbols:
+                    if bool(left) and bool(right):
+                        return "CLOSED_TRUE_RELATIONS", "both exact closed relations evaluate to true"
+                    return None
+                if len(symbols) == 1:
+                    left_set = left.as_set()
+                    right_set = right.as_set()
+                    if left_set == right_set:
+                        return "EQUAL_REAL_RELATION_SETS", f"equal real truth sets for {symbols[0]}: {left_set}"
+                return None
+            if not isinstance(left, self.Relational) and not isinstance(right, self.Relational):
+                difference = sympy.simplify(self._exact(left) - self._exact(right))
+                if difference == 0:
+                    return "EXACT_SYMBOLIC_DIFFERENCE", "exact rationalized symbolic difference simplifies to zero"
+        except Exception:
+            return None
+        return None
+
+    def _prove_after_true(self, right: Any) -> tuple[str, str] | None:
+        sympy = self.sympy
+        try:
+            if isinstance(right, self.Equality):
+                residual = sympy.simplify(self._exact(right.lhs) - self._exact(right.rhs))
+                if residual == 0 and self._variable_free_denominator(right.lhs - right.rhs):
+                    qualifier = "closed" if not right.free_symbols else "universal denominator-safe"
+                    return "EXACT_TRUE_IDENTITY", f"{qualifier} equality has exact zero residual"
+            elif isinstance(right, self.Relational) and not right.free_symbols and bool(right):
+                return "EXACT_TRUE_CLOSED_RELATION", "exact closed relation evaluates to true"
+        except Exception:
+            return None
+        return None
+
+    def verify(
+        self,
+        before: str,
+        after: str,
+        context: str,
+        known_claims: list[tuple[str, str]],
+    ) -> tuple[str, str, dict[str, Any] | None, str | None]:
+        """Proof-producing checker used after the Pool-B audit.
+
+        The checker proves direct equivalence, an independently true exact claim, or
+        reiteration/equivalence to one explicitly accumulated claim. It does not infer
+        theorem applications, branches, approximations, or heuristic plans.
+        """
+        if self.sympy is None:
+            return "BACKEND_UNAVAILABLE", "SymPy/LaTeX parser is unavailable", None, None
+        lower = context.lower()
+        if any(token in lower for token in ("square both", "take square", "candidate", "case ", "approx")):
+            detail = "the source operation is intentionally non-equivalent or branch/epistemic-sensitive"
+            return "NOT_APPLICABLE", detail, None, None
+        left = self.parse_strict(before)
+        right = self.parse_strict(after)
+        if left is None or right is None:
+            detail = "one or both states are outside the conservative SymPy/LaTeX fragment"
+            return "UNSUPPORTED_FRAGMENT", detail, None, None
+
+        symbolic_denominator = self._has_symbolic_latex_denominator(before) or self._has_symbolic_latex_denominator(after)
+        proof = None if symbolic_denominator and not isinstance(left, self.Relational) else self._compare(left, right)
+        if proof:
+            method, detail = proof
+            return "SYMPY_VERIFIED", detail, self._certificate(method, before, after, detail), None
+
+        proof = None if symbolic_denominator and right.free_symbols else self._prove_after_true(right)
+        if proof:
+            method, detail = proof
+            return "SYMPY_VERIFIED", detail, self._certificate(method, before, after, detail), None
+
+        normalized_after = normalize_math(after).strip(" .,;:")
+        for premise_id, premise_text in reversed(known_claims):
+            normalized_premise = normalize_math(premise_text).strip(" .,;:")
+            if normalized_premise == normalized_after:
+                detail = f"exact reiteration of accumulated claim {premise_id}"
+                cert = self._certificate(
+                    "ACCUMULATED_CLAIM_REITERATION",
+                    before,
+                    after,
+                    detail,
+                    premise_id,
+                    premise_text,
+                )
+                return "SYMPY_VERIFIED", detail, cert, premise_id
+            premise = self.parse_strict(premise_text)
+            if premise is None:
+                continue
+            premise_has_symbolic_denominator = self._has_symbolic_latex_denominator(premise_text)
+            proof = (
+                None
+                if (symbolic_denominator or premise_has_symbolic_denominator)
+                and not isinstance(premise, self.Relational)
+                else self._compare(premise, right)
+            )
+            if proof:
+                method, proof_detail = proof
+                detail = f"accumulated claim {premise_id}: {proof_detail}"
+                cert = self._certificate(
+                    f"ACCUMULATED_{method}",
+                    before,
+                    after,
+                    detail,
+                    premise_id,
+                    premise_text,
+                )
+                return "SYMPY_VERIFIED", detail, cert, premise_id
+
+        return "UNSUPPORTED_FRAGMENT", "no conservative proof was found for the transition", None, None
+
+
+def pool_b_reason(
+    problem: SourceProblem,
+    transition: Transition,
+    verifier: SympyVerifier,
+    baseline_status: str,
+) -> str:
+    """Assign one mutually exclusive, actionable reason to a baseline Pool-B row."""
+    mechanisms = set(transition.mechanisms)
+    if "approximation" in mechanisms or r"\approx" in transition.after:
+        return "NUMERICAL_APPROXIMATION"
+    if baseline_status == "NOT_APPLICABLE" and (
+        "candidate" in transition.warrant.lower()
+        or (transition.operation == "SELECT" and "square" not in transition.warrant.lower())
+    ):
+        return "MISCLASSIFIED_CURRENT_KNOWN_CORE_GAP"
+    if problem.corpus.key == "CALC" and mechanisms & {
+        "differentiation", "integration", "limit_or_convergence", "theorem_application"
+    }:
+        return "CALCULUS_RULE_OR_LIBRARY"
+    if problem.corpus.key == "PROB" and "probability_model" in mechanisms:
+        return "PROBABILITY_OR_STATISTICS_RULE"
+    if transition.operation == "APPLY_THEOREM" or mechanisms & {"theorem_application", "matrix_or_vector", "induction"}:
+        return "THEOREM_OR_DOMAIN_LIBRARY_REQUIREMENT"
+    if baseline_status == "NOT_APPLICABLE":
+        return "GENUINELY_NON_EQUIVALENCE_SENSITIVE"
+    left = verifier.parse(transition.before)
+    right = verifier.parse(transition.after)
+    if left is None or right is None:
+        return "SYMPY_LATEX_PARSER_LIMITATION"
+    if isinstance(left, verifier.Relational) or isinstance(right, verifier.Relational):
+        if not (left.free_symbols | right.free_symbols):
+            return "UNSUPPORTED_ELEMENTARY_EXACT_ARITHMETIC"
+        return "RELATIONAL_EXPRESSION_HANDLING"
+    if baseline_status in {"UNSUPPORTED_FRAGMENT", "SYMPY_MISMATCH"}:
+        return "UNSUPPORTED_SYMBOLIC_EQUIVALENCE_FRAGMENT"
+    return "OTHER_UNRESOLVED_CHECKER_LIMITATION"
 
 
 def empty_state(problem: SourceProblem, goal_text: str) -> dict[str, Any]:
@@ -692,7 +923,10 @@ def build_payload(problem: SourceProblem, transition: Transition, before_state: 
             "preconditions": transition.preconditions,
             "obligations_created": created_specs,
             "obligations_discharged": [],
-            "typing": {"input_domains": {prior_claim: "Proposition"}, "output_domain": "Proposition"},
+            "typing": {
+                "input_domains": {dependency: "Proposition" for dependency in dependencies},
+                "output_domain": "Proposition",
+            },
             "warrant": {"evidence_id": evidence_id, "rule": rule, "premise_ids": dependencies},
             "goal_effect": {},
             "scope_effect": {},
@@ -751,8 +985,47 @@ def validate_and_render(
     sympy: SympyVerifier,
     schema_validator: Any,
 ) -> None:
+    # Freeze the exact pre-audit Pool-A/Pool-B assignment before applying any repaired
+    # checker or revised corpus-side diagnosis. This makes all 2,640 baseline B records
+    # auditable even when one is later recognized as a core-gap transition whose
+    # descendants must be withheld.
+    initial_classes = {transition.transition_id: transition.classification for transition in transitions}
+    baseline_blocking_gap: str | None = None
+    for transition in transitions:
+        initial_classification = initial_classes[transition.transition_id]
+        baseline_status, baseline_detail = sympy.verify_baseline(
+            transition.before, transition.after, transition.warrant
+        )
+        transition.baseline_backend_status = baseline_status
+        transition.backend_status = baseline_status
+        transition.backend_detail = baseline_detail
+        baseline_classification = initial_classification
+        if baseline_status == "SYMPY_VERIFIED" and baseline_classification == STATUS_UNVERIFIED:
+            baseline_classification = STATUS_BACKEND
+        elif baseline_status == "SYMPY_MISMATCH" and baseline_classification not in (STATUS_GAP, STATUS_LIBRARY):
+            baseline_classification = STATUS_UNVERIFIED
+        if initial_classification == STATUS_GAP:
+            baseline_blocking_gap = baseline_blocking_gap or transition.transition_id
+            continue
+        if baseline_blocking_gap:
+            continue
+        if baseline_classification == STATUS_UNVERIFIED:
+            transition.baseline_pool = "B"
+            transition.baseline_pool_b_reason = pool_b_reason(problem, transition, sympy, baseline_status)
+        elif baseline_classification == STATUS_BACKEND:
+            transition.baseline_pool = "A"
+
     goal_text = clean_prose(problem.statement, 1200)
     state = empty_state(problem, goal_text)
+    known_claims: list[tuple[str, str]] = [("p0", clean_prose(problem.statement, 1500))]
+    statement_math = first_math(problem.statement)
+    if statement_math:
+        known_claims.append(("p0", statement_math))
+    known_claims.extend(
+        (claim_id, claim["proposition"])
+        for claim_id, claim in state["claims"].items()
+        if claim_id != "p0"
+    )
     blocking_gap: str | None = None
     for transition in transitions:
         prior_claim = "p0" if transition.index == 1 else f"c{transition.index - 1:03d}"
@@ -762,19 +1035,9 @@ def validate_and_render(
             or transition.warrant.lower().startswith(("therefore", "thus", "hence", "so"))
         ):
             transition.dependency_ids = ["p0", prior_claim]
-        backend_status, backend_detail = sympy.verify(transition.before, transition.after, transition.warrant)
-        transition.backend_status = backend_status
-        transition.backend_detail = backend_detail
-        if backend_status == "SYMPY_VERIFIED" and transition.classification == STATUS_UNVERIFIED:
-            transition.classification = STATUS_BACKEND
-            transition.classification_reason = "the neutral/HML shape is supported and a conservative SymPy comparison independently verified this step"
-        elif backend_status == "SYMPY_MISMATCH" and transition.classification not in (STATUS_GAP, STATUS_LIBRARY):
-            # Adjacent displays sometimes move from a whole state to a component
-            # calculation. Non-equivalence is therefore a diagnostic, not proof that the
-            # source mathematics is corrupt.
-            transition.classification = STATUS_UNVERIFIED
-            transition.classification_reason = "the step is representable, but the conservative equivalence check did not establish it; inspect the source warrant/component context"
-        if transition.classification == STATUS_GAP:
+        initial_classification = initial_classes[transition.transition_id]
+
+        if initial_classification == STATUS_GAP:
             blocking_gap = blocking_gap or transition.transition_id
             continue
         if blocking_gap:
@@ -783,6 +1046,104 @@ def validate_and_render(
             transition.classification_reason = f"the state depends on unsupported transition {blocking_gap}; rendering it independently would lose provenance"
             transition.gap_code = "DOWNSTREAM_OF_SEMANTIC_GAP"
             continue
+        if transition.baseline_pool == "A":
+            # Preserve every pre-audit proof. The repaired checker is intentionally stricter
+            # about partial parses; that is not evidence that a previously recorded proof
+            # vanished, and Task A permits no demotions.
+            baseline_status, baseline_detail = sympy.verify_baseline(
+                transition.before, transition.after, transition.warrant
+            )
+            transition.backend_status = baseline_status
+            transition.backend_detail = baseline_detail
+            transition.verification_certificate = sympy._certificate(
+                "BASELINE_CONSERVATIVE_CHECK",
+                transition.before,
+                transition.after,
+                baseline_detail,
+            )
+            transition.classification = STATUS_BACKEND
+            transition.classification_reason = (
+                "retained from the exact pre-audit Pool A with its original conservative "
+                "SymPy proof result"
+            )
+            payload, next_state = build_payload(problem, transition, state)
+            try:
+                schema_validator.validate(payload)
+                transition.schema_validation = "PASS"
+                model = hml["import"](payload)
+                expected = semantic_payload(payload)
+                if hml["export"](model) != expected:
+                    raise AssertionError("neutral import/export changed the canonical payload")
+                rendered = hml["render"](model)
+                reparsed = hml["parse"](rendered)
+                if hml["export"](reparsed) != expected:
+                    raise AssertionError("HML render/parse changed the canonical payload")
+                result = hml["verify"](model)
+            except Exception as exc:
+                raise AssertionError(f"{transition.transition_id}: baseline Pool-A serialization failed: {exc}") from exc
+            transition.hml_text = rendered
+            transition.hml_roundtrip = "PASS"
+            transition.hml_runtime_verdict = str(getattr(result.verdict, "value", result.verdict))
+            transition.hml_unknowns = list(result.unknowns)
+            if transition.hml_runtime_verdict == "INVALID":
+                raise AssertionError(f"{transition.transition_id}: generated HML is INVALID")
+            state = next_state
+            known_claims.append((f"c{transition.index:03d}", transition.after))
+            continue
+        if transition.baseline_pool_b_reason == "MISCLASSIFIED_CURRENT_KNOWN_CORE_GAP":
+            transition.classification = STATUS_GAP
+            transition.classification_reason = (
+                "Pool-B audit found an action-level candidate creation that the original "
+                "corpus classifier missed; frozen HML cannot create the candidate record"
+            )
+            transition.gap_code = "CANDIDATE_CREATION_NOT_REPRESENTABLE"
+            transition.remaining_verification_reason = transition.baseline_pool_b_reason
+            blocking_gap = transition.transition_id
+            continue
+
+        backend_status, backend_detail, certificate, premise_id = sympy.verify(
+            transition.before,
+            transition.after,
+            transition.warrant,
+            known_claims,
+        )
+        transition.backend_status = backend_status
+        transition.backend_detail = backend_detail
+        transition.verification_certificate = certificate
+        if premise_id:
+            transition.dependency_ids = [premise_id]
+
+        if backend_status == "SYMPY_VERIFIED" and initial_classification == STATUS_UNVERIFIED:
+            transition.classification = STATUS_BACKEND
+            transition.promoted_from_pool_b = transition.baseline_pool == "B"
+            transition.classification_reason = (
+                "the neutral/HML shape is supported and a conservative proof-producing "
+                "SymPy check independently certified this state change"
+            )
+        elif transition.baseline_pool == "B" and transition.baseline_pool_b_reason in {
+            "CALCULUS_RULE_OR_LIBRARY",
+            "PROBABILITY_OR_STATISTICS_RULE",
+            "THEOREM_OR_DOMAIN_LIBRARY_REQUIREMENT",
+        }:
+            transition.classification = STATUS_LIBRARY
+            transition.classification_reason = (
+                "Pool-B audit reclassified this as a theorem/domain-library obligation; "
+                "structural representation is available but the required authority is not"
+            )
+            transition.remaining_verification_reason = transition.baseline_pool_b_reason
+        elif initial_classification == STATUS_UNVERIFIED:
+            transition.classification = STATUS_UNVERIFIED
+            transition.classification_reason = (
+                "the step is representable, but the proof-producing checker did not establish it"
+            )
+            transition.remaining_verification_reason = transition.baseline_pool_b_reason or pool_b_reason(
+                problem, transition, sympy, backend_status
+            )
+        elif initial_classification == STATUS_LIBRARY:
+            transition.classification = STATUS_LIBRARY
+        else:
+            transition.classification = initial_classification
+
         payload, next_state = build_payload(problem, transition, state)
         try:
             schema_validator.validate(payload)
@@ -810,6 +1171,7 @@ def validate_and_render(
         if transition.hml_runtime_verdict == "INVALID":
             raise AssertionError(f"{transition.transition_id}: generated HML is INVALID")
         state = next_state
+        known_claims.append((f"c{transition.index:03d}", transition.after))
 
 
 def markdown_fence(value: str, language: str = "text") -> str:
@@ -817,6 +1179,9 @@ def markdown_fence(value: str, language: str = "text") -> str:
 
 
 def render_transition_md(transition: Transition) -> str:
+    backend_summary = f"`{transition.backend_status}`"
+    if transition.backend_detail:
+        backend_summary += f" — {transition.backend_detail}"
     lines = [
         f"#### {transition.transition_id}",
         "",
@@ -827,9 +1192,20 @@ def render_transition_md(transition: Transition) -> str:
         f"- **STATE_AFTER:** `{transition.after}`",
         f"- **Mechanisms:** {', '.join(transition.mechanisms)}",
         f"- **Classification:** `{transition.classification}` — {transition.classification_reason}",
-        f"- **Backend:** `{transition.backend_status}` — {transition.backend_detail}",
+        f"- **Backend:** {backend_summary}",
         f"- **Validation:** schema `{transition.schema_validation}`; HML round trip `{transition.hml_roundtrip}`; runtime verdict `{transition.hml_runtime_verdict}`",
     ]
+    if transition.baseline_pool:
+        audit_detail = f"baseline Pool `{transition.baseline_pool}`; baseline backend `{transition.baseline_backend_status}`"
+        if transition.baseline_pool_b_reason:
+            audit_detail += f"; reason `{transition.baseline_pool_b_reason}`"
+        if transition.promoted_from_pool_b:
+            audit_detail += "; promoted `B→A`"
+        lines.append(f"- **Pool-B audit:** {audit_detail}")
+    if transition.remaining_verification_reason:
+        lines.append(f"- **Remaining verification blocker:** `{transition.remaining_verification_reason}`")
+    if transition.verification_certificate:
+        lines.append(f"- **External check certificate:** `{canonical_json(transition.verification_certificate)}`")
     if transition.obligations:
         lines.append(f"- **Obligations created:** `{canonical_json(transition.obligations)}`")
     if transition.hml_unknowns:
@@ -910,7 +1286,11 @@ def render_problem_md(record: ProblemRecord) -> str:
     return "\n".join(lines)
 
 
-def render_master(source_text: str, records: list[ProblemRecord]) -> str:
+def render_master(
+    source_text: str,
+    records: list[ProblemRecord],
+    prm_pilot_summary: dict[str, Any] | None = None,
+) -> str:
     transitions = [transition for record in records for transition in record.transitions]
     status = Counter(t.classification for t in transitions)
     mechanisms = Counter(m for t in transitions for m in t.mechanisms)
@@ -933,6 +1313,42 @@ def render_master(source_text: str, records: list[ProblemRecord]) -> str:
     hml_invalid = sum(t.hml_runtime_verdict == "INVALID" for t in transitions)
     source_problem_counts = Counter(record.source.corpus.key for record in records)
     source_block_chars = sum(len(record.source.raw) for record in records)
+    baseline_a = sum(t.baseline_pool == "A" for t in transitions)
+    baseline_b = sum(t.baseline_pool == "B" for t in transitions)
+    promotions = sum(t.promoted_from_pool_b for t in transitions)
+    baseline_b_reasons = Counter(t.baseline_pool_b_reason for t in transitions if t.baseline_pool == "B")
+    remaining_b_reasons = Counter(
+        t.remaining_verification_reason
+        for t in transitions
+        if t.baseline_pool == "B" and t.classification == STATUS_UNVERIFIED
+    )
+    reclassified_library = Counter(
+        t.remaining_verification_reason
+        for t in transitions
+        if t.baseline_pool == "B" and t.classification == STATUS_LIBRARY
+    )
+    promotion_methods = Counter(
+        t.verification_certificate["method"]
+        for t in transitions
+        if t.promoted_from_pool_b and t.verification_certificate
+    )
+    baseline_b_core_reclassified = sum(
+        t.baseline_pool == "B" and t.classification == STATUS_GAP for t in transitions
+    )
+    baseline_b_new_direct_gaps = sum(
+        t.baseline_pool == "B"
+        and t.gap_code == "CANDIDATE_CREATION_NOT_REPRESENTABLE"
+        and t.baseline_pool_b_reason == "MISCLASSIFIED_CURRENT_KNOWN_CORE_GAP"
+        for t in transitions
+    )
+    baseline_b_new_downstream = sum(
+        t.baseline_pool == "B" and t.gap_code == "DOWNSTREAM_OF_SEMANTIC_GAP" for t in transitions
+    )
+    baseline_a_withheld_downstream = sum(
+        t.baseline_pool == "A" and t.classification == STATUS_GAP for t in transitions
+    )
+    if (baseline_a, baseline_b) != (453, 2640):
+        raise AssertionError(f"Pool audit baseline drifted: A={baseline_a}, B={baseline_b}")
 
     summary_rows = "\n".join(f"| `{key}` | {value} |" for key, value in sorted(status.items()))
     corpus_rows = "\n".join(f"| `{key}` | {value} |" for key, value in sorted(source_problem_counts.items()))
@@ -940,6 +1356,76 @@ def render_master(source_text: str, records: list[ProblemRecord]) -> str:
     operation_rows = "\n".join(f"| `{key}` | {value} |" for key, value in operations.most_common())
     backend_rows = "\n".join(f"| `{key}` | {value} |" for key, value in sorted(backend.items()))
     gap_rows = "\n".join(f"| `{key}` | {value} |" for key, value in sorted(gaps.items())) or "| none | 0 |"
+    baseline_reason_rows = "\n".join(
+        f"| `{key}` | {value} |" for key, value in baseline_b_reasons.most_common()
+    )
+    remaining_reason_rows = "\n".join(
+        f"| `{key}` | {value} |" for key, value in remaining_b_reasons.most_common()
+    )
+    reclassified_library_rows = "\n".join(
+        f"| `{key}` | {value} |" for key, value in reclassified_library.most_common()
+    )
+    promotion_method_rows = "\n".join(
+        f"| `{key}` | {value} |" for key, value in promotion_methods.most_common()
+    )
+
+    pilot_section = ""
+    if prm_pilot_summary:
+        pilot_judgments = "\n".join(
+            f"| `{key}` | {value} |"
+            for key, value in sorted(prm_pilot_summary["judgment_counts"].items())
+        )
+        recurrence = prm_pilot_summary["known_gap_recurrence"]
+        pilot_section = f"""
+
+### Task B — independent PRM800K semantic-gap pilot
+
+The pilot contains exactly **{prm_pilot_summary['records']:,} candidate reasoning records**
+from {prm_pilot_summary['unique_source_problems']:,} distinct MATH problems and
+{prm_pilot_summary['unique_source_trajectories']:,} PRM trajectories. Every candidate,
+rating, chosen flag, problem, and reconstructed prefix was checked against the immutable
+official PRM800K source at commit `{prm_pilot_summary['source_commit']}`; result:
+`{prm_pilot_summary['source_validation']}`. The 500/250/250 `-1`/`0`/`+1` labels remain
+source-process metadata and are never treated as mathematical certificates.
+
+The deterministic sample retains the original rating/subject/level/position strata and
+adds same-rating replacements to guarantee case, approximation, domain, and theorem
+coverage. It is a semantic-discovery sample, not a prevalence estimator.
+
+| HML judgment | Records |
+|---|---:|
+{pilot_judgments}
+
+Known direct mechanisms recur independently (counts overlap):
+
+| Known mechanism | Records |
+|---|---:|
+| Unchosen action-level candidate creation | {recurrence['candidate_lifecycle_action_creation']} |
+| Explicit mathematical candidate object creation | {recurrence['candidate_lifecycle_mathematical_object']} |
+| Branch/case creation or scoped WLOG assumption | {recurrence['branch_create']} |
+| Cross-case join/discharge | {recurrence['branch_join']} |
+| Exact-to-approximate epistemic/numeric status | {recurrence['exact_approximate_status']} |
+
+`CURRENT_KNOWN_CORE_GAP` is the exclusive primary judgment for
+{prm_pilot_summary['judgment_counts'].get('CURRENT_KNOWN_CORE_GAP', 0)} records; overlapping
+mechanism counts explain why the table above must not be summed. No recurring distinction
+survived as `NEW_CORE_SEMANTIC_CANDIDATE`: **0/{prm_pilot_summary['records']} =
+{prm_pilot_summary['marginal_new_semantic_rate']:.2%} marginal semantic discovery**.
+
+The apparent alternatives were not new core semantics: planner phrases such as “try” or
+“notice” remain source metadata/no-op strategy; PRM error/neutral/progress labels remain
+process supervision; domain/sign restrictions map to preconditions and obligations; named
+mathematics maps to warrants/libraries; and unavailable truth replay maps to the backend.
+This is evidence of semantic saturation for this deliberately gap-rich pilot, not proof
+that no future source can expose another distinction.
+
+**Recommendation:** fix VNext before scaling another corpus. The independent source
+reproduces all three known mechanisms while adding zero recurring core candidates. Do not
+process more PRM800K until the same 1,000 records can be rerun against VNext.
+
+**Exactly one next atomic task:** implement and verifier-test action-level candidate
+creation in the HML VNext core track, then stop; do not expand this corpus in that task.
+"""
 
     header = f"""# Master Synthetic Mathematics → Neutral Trajectories → HML
 
@@ -1005,6 +1491,68 @@ identity against commit `{FROZEN_HML_SHA}`. Runtime verification was used, never
 An untrusted source warrant is represented by `UNKNOWN` evidence, so `UNRESOLVED` is the
 honest verdict. No `INVALID` transition is retained. SymPy is used only on a conservative
 algebraic fragment; parser refusal is `UNSUPPORTED_FRAGMENT`, not evidence against a step.
+
+### Task A — Pool-B verification-promotion audit
+
+The pre-audit pools are reproduced exactly: Pool A `{baseline_a}` and Pool B `{baseline_b}`.
+After fixing and extending only the corpus-side checker:
+
+**`{baseline_a} verified before → {status.get(STATUS_BACKEND, 0)} verified after`**
+
+- Safe Pool-B promotions: **{promotions}**.
+- Baseline Pool-B rows reclassified as theorem/domain library obligations: **{sum(reclassified_library.values())}**.
+- Baseline Pool-B rows reclassified as current-known core-gap/direct-downstream affected: **{baseline_b_core_reclassified}**.
+- Baseline Pool-B rows still unverified: **{sum(remaining_b_reasons.values())}**.
+- Previously verified Pool-A rows now withheld only because an upstream missed gap was corrected: **{baseline_a_withheld_downstream}**.
+- HML semantics changed: **0**.
+
+The 79 newly gap-affected Pool-B rows comprise **{baseline_b_new_direct_gaps}** missed direct
+candidate-creation transitions and **{baseline_b_new_downstream}** descendants whose
+provenance would otherwise cross one of those gaps. This is a corpus-classifier correction,
+not a newly discovered HML semantic mechanism.
+
+The concrete pipeline defect was use of the removed `sympy.Relational` top-level API under
+SymPy 1.14. Its caught `AttributeError` silently collapsed expression checks into
+`UNSUPPORTED_FRAGMENT`. The repaired checker imports the stable relational class and adds
+only proof-producing methods: equal real solution/truth sets, nonzero-scalar polynomial
+residuals, exact rationalized symbolic differences, denominator-safe exact identities,
+and explicit reiteration/equivalence to one accumulated claim. It does not certify
+squaring, candidate/branch effects, approximation, or theorem rules by pattern matching.
+
+#### Exact baseline Pool-B reason census
+
+| Verification-unavailable reason | Baseline records |
+|---|---:|
+{baseline_reason_rows}
+
+#### Promotion certificate methods
+
+| SymPy certificate method | B→A promotions |
+|---|---:|
+{promotion_method_rows}
+
+Every promotion carries backend name/version, Python version, method, premise when used,
+input hashes, check detail, and a canonical certificate hash on its transition below.
+These are external mathematical checks, not forged HML attestations; source evidence stays
+`UNKNOWN`, so the frozen HML runtime remains honestly `UNRESOLVED`.
+
+#### Remaining Pool-B blocker histogram
+
+| Remaining reason | Records |
+|---|---:|
+{remaining_reason_rows}
+
+The following baseline Pool-B rows were not checker failures at all and moved to the
+existing trusted-library/backend pool:
+
+| Library authority required | Records |
+|---|---:|
+{reclassified_library_rows}
+
+The audit is conservative: parser support is not semantic proof, a locally true formula is
+not automatically a valid contextual transition, and backend mismatch is not called source
+corruption. The full 2,640-row baseline reason is recorded transition-by-transition below.
+{pilot_section}
 
 ### Known translation boundary
 
@@ -1104,6 +1652,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--hml-root", type=Path, required=True, help="isolated checkout at the frozen HML SHA")
     parser.add_argument("--schema", type=Path, required=True)
+    parser.add_argument("--prm-pilot-summary", type=Path)
     args = parser.parse_args()
 
     source_text = args.source.read_text(encoding="utf-8")
@@ -1130,7 +1679,12 @@ def main() -> None:
         if number % 25 == 0:
             print(f"processed {number}/600 problems", file=sys.stderr)
 
-    output = render_master(source_text, records)
+    pilot_summary = (
+        json.loads(args.prm_pilot_summary.read_text(encoding="utf-8"))
+        if args.prm_pilot_summary
+        else None
+    )
+    output = render_master(source_text, records, pilot_summary)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(output, encoding="utf-8")
     print(
