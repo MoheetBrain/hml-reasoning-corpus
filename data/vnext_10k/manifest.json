@@ -1,5 +1,6 @@
 {
   "contract_version": "vnext-translation-contract-1.0.0",
+  "codex_corpus_commit": "09521ae992af5ca583a346da66c93d986e709386",
   "corpus_build_base_commit": "3bbb4256fe424e126ad1058c7bb8223c58b3afeb",
   "deduplication": {
     "exact_transition_signatures": "deduplicated",
