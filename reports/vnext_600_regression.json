@@ -1,0 +1,93 @@
+{
+  "authority": {
+    "hml_semantic_commit": "68178f07784d2a17a9aed9c4dedbea9c740c97a0",
+    "contract_version": "vnext-translation-contract-1.0.0"
+  },
+  "source": {
+    "path": "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/MASTER_SYNTHETIC_MATH_HML.md",
+    "problems": 600,
+    "transitions": 3978
+  },
+  "trajectories_rederived": 600,
+  "integrity": {
+    "source_span_sha256_verified": 3978,
+    "transitions": 3978
+  },
+  "outcomes": {
+    "FAITHFUL": 3978,
+    "PROTOCOL_STEP_FAITHFUL": 149
+  },
+  "source_transition_outcomes": {
+    "FAITHFUL": 3978
+  },
+  "source_verifier_verdicts": {
+    "UNRESOLVED": 3973,
+    "VALID": 5
+  },
+  "vnext_600_metrics": {
+    "faithful_neutral_transitions": 3978,
+    "backend_verified_transitions": 867,
+    "formally_verified_transitions": 0,
+    "source_warrant_unresolved_transitions": 3973,
+    "deterministic_replay_valid_source_joins": 5,
+    "historical_math_authority_classes_after_corpus_repair": {
+      "FULLY_REPRESENTABLE_AND_BACKEND_VERIFIED": 767,
+      "GENUINE_HML_SEMANTIC_GAP": 888,
+      "REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE": 1896,
+      "REQUIRES_EXISTING_TRUSTED_BACKEND_OR_LIBRARY": 427
+    },
+    "semantic_refusals": 0,
+    "corpus_information_refusals": 0,
+    "source_ambiguities": 0,
+    "parser_failures": 0,
+    "verifier_failures": 0,
+    "round_trip_failures": 0
+  },
+  "accepted_semantic_records_including_protocol": 4127,
+  "verifier_verdicts_including_protocol": {
+    "UNRESOLVED": 3973,
+    "VALID": 154
+  },
+  "direct_gaps": {
+    "CANDIDATE_CREATION_NOT_REPRESENTABLE": {
+      "FAITHFUL": 201
+    },
+    "APPROXIMATION_STATUS_NOT_REPRESENTABLE": {
+      "FAITHFUL": 63
+    },
+    "BRANCH_CREATION_NOT_REPRESENTABLE": {
+      "FAITHFUL": 166
+    }
+  },
+  "downstream": {
+    "FAITHFUL": 458
+  },
+  "synthetic_protocol_steps": 149,
+  "root_refusals": [],
+  "ancestry": {
+    "problems_with_ancestry": 28,
+    "partitions_declared": 30,
+    "initial_premises_materialised": 648
+  },
+  "implicit_logical_steps": {
+    "declared": 16,
+    "inserted": 16,
+    "missing": [],
+    "rule": "DISJUNCTION_INTRODUCTION"
+  },
+  "representations": {
+    "counts": {
+      "HML_LINEAR": 4127,
+      "HML_TREE": 4127,
+      "AST": 4127,
+      "STRUCTURED_NEUTRAL": 4127,
+      "MODEL_SAFE": 4127
+    },
+    "sha256": {
+      "full_audit_records.jsonl.gz": "c27155cb0be75a254352dae6e36862115e94ca4c3bc0964395613f7d8fda2de5",
+      "model_safe_records.jsonl.gz": "b75bfd935a0f10e60094958070042718849f44cb50c2a2085ccd8f3f7a4b258d"
+    },
+    "leakage_audit": "PASS"
+  },
+  "failures": []
+}

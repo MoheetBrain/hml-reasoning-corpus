@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hmltn.local/schemas/synthetic-math-canonicalization-corrections.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "policy", "corrections"],
+  "properties": {
+    "schema_version": {"const": "synthetic-math-canonicalization-corrections-0.1.0"},
+    "policy": {"type": "string", "minLength": 1},
+    "corrections": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["transition_id", "source_span_sha256", "source_evidence", "old_role", "corrected_role", "reason", "affected_downstream_ids"],
+        "properties": {
+          "transition_id": {"enum": ["MIXED-039-T008", "GEN-087-T013", "GEN-087-T016", "GEN-094-T002", "GEN-094-T003"]},
+          "source_span_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "source_evidence": {"type": "string", "minLength": 1},
+          "old_role": {"type": "object"},
+          "corrected_role": {"type": "object"},
+          "reason": {"type": "string", "minLength": 1},
+          "affected_downstream_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

@@ -29,6 +29,9 @@ FROZEN_HML_TAG = "hml-semantic-pre-gemma-v1"
 CORPUS_BASE_SHA = "9d67e54450b9db897ee2ed20ec2e4cbbc16a3780"
 SCHEMA_VERSION = "semantic-firewall-case-0.1.0"
 BRANCH_SCHEMA_VERSION = "synthetic-math-branch-ancestry-0.1.0"
+INITIAL_PREMISE_SCHEMA_VERSION = "synthetic-math-initial-premises-0.1.0"
+IMPLICIT_STEP_SCHEMA_VERSION = "synthetic-math-implicit-logical-steps-0.1.0"
+CANONICALIZATION_SCHEMA_VERSION = "synthetic-math-canonicalization-corrections-0.1.0"
 BRANCH_REDERIVATION_BASE_SHA = "c5a69299d8c68e37595d3a45b563ec780ea79516"
 
 STATUS_BACKEND = "FULLY_REPRESENTABLE_AND_BACKEND_VERIFIED"
@@ -122,6 +125,7 @@ class ProblemRecord:
     diagnostics: list[str]
     goal_text: str
     branch_partitions: list[dict[str, Any]] = field(default_factory=list)
+    canonicalization_corrections: list[dict[str, Any]] = field(default_factory=list)
 
 
 # This is a deliberately curated, source-audited map for the 29 affected problems.  It is
@@ -154,7 +158,6 @@ BRANCH_REDERIVATION_PLAN: dict[str, list[dict[str, Any]]] = {
     "GEN-080": [{"parents": ["c003"], "branches": [("Branch 1", "2x-3=3", 6, 6), ("Branch 2", "2x-3=-3", 7, 7)]}],
     "GEN-083": [{"parents": ["c002", "c003", "c004"], "branches": [("CASE 1", "x<-2", None, None), ("CASE 2", "x=-2", 5, 5), ("CASE 3", "-2<x<3", 6, 6), ("CASE 4", "x>3", None, None)]}],
     "GEN-085": [{"parents": ["i003", "c002"], "branches": [("Case 1", "u=8", 5, 6), ("Case 2", "u=-1", 7, 8)]}],
-    "GEN-087": [{"parents": ["c006", "c012"], "branches": [("Negative branch", r"x=\frac{3-\sqrt{33}}2", 13, 15), ("Positive branch", r"x=\frac{3+\sqrt{33}}2", 16, 16)]}],
     "GEN-090": [{"parents": ["p0"], "branches": [("INVERSE BRANCH 1", "x<0", 1, 3), ("INVERSE BRANCH 2", r"x\ge0", 4, 8)]}],
     "GEN-094": [{"parents": ["c001", "c003"], "branches": [("CASE 1", r"x\ge1", 4, 8), ("CASE 2", "x<1", 9, 17)]}],
     "GEN-095": [{"parents": ["i001", "i002", "i003", "c001", "c006"], "branches": [("BRANCH 1", "s=5", 9, 13), ("BRANCH 2", "s=-7", 14, 15)]}],
@@ -168,6 +171,103 @@ BRANCH_REDERIVATION_PLAN: dict[str, list[dict[str, Any]]] = {
     "LINALG-082": [{"parents": ["c003"], "branches": [("CASE 1", r"a\neq1", 4, 9), ("CASE 2", "a=1", 10, 10)]}],
     "MIXED-018": [{"parents": ["p0", "i001", "i002"], "branches": [("CASE 1", r"x=\frac{\pi}{6}", None, None), ("CASE 2", r"x=\pi-\frac{\pi}{6}=\frac{5\pi}{6}", 1, 1)]}],
     "MIXED-039": [{"parents": ["p0", "c008"], "branches": [("CASE 1", "y=x", 9, 11), ("CASE 2", "y=-x", 12, 13)], "join": 14}],
+}
+
+
+# Source-audited corrections to the old heuristic classifier.  These are deliberately
+# keyed by stable transition id and exact source-span hash: a correction cannot silently
+# migrate to a different source step after regeneration.
+CANONICAL_ROLE_CORRECTIONS: dict[str, dict[str, Any]] = {
+    "MIXED-039-T008": {
+        "source_span_sha256": "1553ea2a149722ff0f7a92b6924ed4fc0816abb0591b71d27199392aaf7e09d9",
+        "old_classification": STATUS_GAP,
+        "old_gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "corrected_classification": STATUS_UNVERIFIED,
+        "corrected_gap_code": None,
+        "corrected_operation": "TRANSFORM",
+        "semantic_object": "DERIVED_DISJUNCTIVE_CLAIM",
+        "reason": (
+            "The exact source derives the disjunctive proposition y=\\pm x from x^2=y^2. "
+            "It does not create, select, verify, or mutate a candidate object. The resulting "
+            "claim c008 is the common pre-split premise for the two subsequent cases."
+        ),
+        "affected_downstream_ids": [
+            "MIXED-039-T009",
+            "MIXED-039-T010",
+            "MIXED-039-T011",
+            "MIXED-039-T012",
+            "MIXED-039-T013",
+            "MIXED-039-T014",
+        ],
+    },
+    "GEN-087-T013": {
+        "source_span_sha256": "a80b90bb8e2c78803fcfcaefc2e725e799213236875e00d1381962919920c6dd",
+        "old_classification": STATUS_GAP,
+        "old_gap_code": "BRANCH_CREATION_NOT_REPRESENTABLE",
+        "corrected_classification": STATUS_GAP,
+        "corrected_gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "corrected_operation": "SELECT",
+        "semantic_object": "CANDIDATE_SELECTION",
+        "reason": (
+            "The source heading is CANDIDATE VERIFICATION: 'Negative branch' selects one "
+            "root candidate for a domain check. It does not open a proof/case scope."
+        ),
+        "affected_downstream_ids": [f"GEN-087-T{index:03d}" for index in range(14, 18)],
+    },
+    "GEN-087-T016": {
+        "source_span_sha256": "5a6a8aa6a5d84424663a60be75b68432725e5357296c7bc1906772774b3d0e05",
+        "old_classification": STATUS_GAP,
+        "old_gap_code": "BRANCH_CREATION_NOT_REPRESENTABLE",
+        "corrected_classification": STATUS_GAP,
+        "corrected_gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "corrected_operation": "SELECT",
+        "corrected_dependency_ids": ["c012"],
+        "semantic_object": "CANDIDATE_SELECTION",
+        "reason": (
+            "After rejecting the negative root, 'Positive branch' returns to the source "
+            "candidate set c012 and selects its positive candidate. This is candidate "
+            "lifecycle, not a sibling proof scope and not a dependency on the rejected root."
+        ),
+        "affected_downstream_ids": ["GEN-087-T017"],
+    },
+    "GEN-094-T002": {
+        "source_span_sha256": "24756de06db44578d009445c5bacecacdaa4d1d1f1a554218a7b16242dba5717",
+        "old_classification": STATUS_GAP,
+        "old_gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "corrected_classification": STATUS_UNVERIFIED,
+        "corrected_gap_code": None,
+        "corrected_operation": "TRANSFORM",
+        "reason": (
+            "This source block merely restates the original equation after establishing "
+            "x>=0 so that squaring is reversible. No candidate object exists yet."
+        ),
+        "affected_downstream_ids": [f"GEN-094-T{index:03d}" for index in range(3, 24)],
+    },
+    "GEN-094-T003": {
+        "source_span_sha256": "0c3ca6636411437b86989b67002d29711f02c091a22d3f880185b41b8afd39bb",
+        "old_classification": STATUS_GAP,
+        "old_gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "corrected_classification": STATUS_UNVERIFIED,
+        "corrected_gap_code": None,
+        "corrected_operation": "TRANSFORM",
+        "reason": (
+            "The source squares sqrt(|x-1|)=x to derive |x-1|=x^2 before a case split. "
+            "That is an algebraic claim transformation with a nonnegativity obligation, "
+            "not candidate lifecycle state; c003 is the common pre-split claim."
+        ),
+        "affected_downstream_ids": [f"GEN-094-T{index:03d}" for index in range(4, 24)],
+    },
+}
+
+# The only source joins for which D-063 permits deterministic insertion of ordinary
+# disjunction introduction. No other interpolation family is enabled by this builder.
+IMPLICIT_WEAKENING_JOINS = {
+    "ALG-097-T014",
+    "ALG-099-T015",
+    "GEN-062-T013",
+    "GEN-072-T009",
+    "GEN-054-T018",
+    "MIXED-039-T014",
 }
 
 
@@ -575,6 +675,58 @@ def extract_transitions(problem: SourceProblem) -> tuple[list[Transition], list[
         if "\\\\" in transition.before or "\\\\" in transition.after:
             diagnostics.append(f"{transition.transition_id}: COMPOUND_DISPLAY_STATE_PRESERVED")
     return transitions, sorted(set(diagnostics))
+
+
+def apply_canonical_role_corrections(transitions: list[Transition]) -> list[dict[str, Any]]:
+    """Apply narrow source-backed corrections and return their immutable audit ledger."""
+    ledger: list[dict[str, Any]] = []
+    for transition in transitions:
+        correction = CANONICAL_ROLE_CORRECTIONS.get(transition.transition_id)
+        if correction is None:
+            continue
+        actual_hash = sha256(transition.source_span)
+        if actual_hash != correction["source_span_sha256"]:
+            raise AssertionError(
+                f"{transition.transition_id}: correction source hash drifted: {actual_hash}"
+            )
+        if (
+            transition.classification != correction["old_classification"]
+            or transition.gap_code != correction["old_gap_code"]
+        ):
+            raise AssertionError(
+                f"{transition.transition_id}: expected old role "
+                f"{correction['old_classification']}/{correction['old_gap_code']}, got "
+                f"{transition.classification}/{transition.gap_code}"
+            )
+        old = {
+            "classification": transition.classification,
+            "gap_code": transition.gap_code,
+            "operation": transition.operation,
+        }
+        transition.classification = correction["corrected_classification"]
+        transition.gap_code = correction["corrected_gap_code"]
+        transition.operation = correction["corrected_operation"]
+        if correction.get("corrected_dependency_ids") is not None:
+            transition.dependency_ids = list(correction["corrected_dependency_ids"])
+        transition.classification_reason = correction["reason"]
+        ledger.append(
+            {
+                "transition_id": transition.transition_id,
+                "source_span_sha256": actual_hash,
+                "source_evidence": transition.source_span,
+                "old_role": old,
+                "corrected_role": {
+                    "classification": transition.classification,
+                    "gap_code": transition.gap_code,
+                    "operation": transition.operation,
+                    "semantic_object": correction.get("semantic_object", "DERIVED_CLAIM"),
+                    "dependency_ids": list(transition.dependency_ids),
+                },
+                "reason": correction["reason"],
+                "affected_downstream_ids": list(correction["affected_downstream_ids"]),
+            }
+        )
+    return ledger
 
 
 class SympyVerifier:
@@ -1228,18 +1380,24 @@ def validate_and_render(
     baseline_blocking_gap: str | None = None
     for transition in transitions:
         initial_classification = initial_classes[transition.transition_id]
+        historical_correction = CANONICAL_ROLE_CORRECTIONS.get(transition.transition_id)
+        historical_classification = (
+            historical_correction["old_classification"]
+            if historical_correction is not None
+            else initial_classification
+        )
         baseline_status, baseline_detail = sympy.verify_baseline(
             transition.before, transition.after, transition.warrant
         )
         transition.baseline_backend_status = baseline_status
         transition.backend_status = baseline_status
         transition.backend_detail = baseline_detail
-        baseline_classification = initial_classification
+        baseline_classification = historical_classification
         if baseline_status == "SYMPY_VERIFIED" and baseline_classification == STATUS_UNVERIFIED:
             baseline_classification = STATUS_BACKEND
         elif baseline_status == "SYMPY_MISMATCH" and baseline_classification not in (STATUS_GAP, STATUS_LIBRARY):
             baseline_classification = STATUS_UNVERIFIED
-        if initial_classification == STATUS_GAP:
+        if historical_classification == STATUS_GAP:
             baseline_blocking_gap = baseline_blocking_gap or transition.transition_id
             continue
         if baseline_blocking_gap:
@@ -1558,6 +1716,200 @@ def build_branch_ancestry_artifact(
             }
             for record in affected
         ],
+    }
+
+
+def initial_premises_for_problem(problem: SourceProblem) -> list[dict[str, Any]]:
+    """Recover every stable GIVEN id from source regions that precede reasoning."""
+    premises = [
+        {
+            "premise_id": "p0",
+            "proposition": clean_prose(problem.statement, 1500),
+            "source_origin": "SOURCE_PROBLEM",
+            "scope": "global",
+            "status": "GIVEN",
+            "dependencies": [],
+            "dependency_status": "SOURCE_GIVEN_NO_DEPENDENCIES",
+            "source_span": problem.statement,
+            "source_span_sha256": sha256(problem.statement),
+            "source_problem_sha256": sha256(problem.raw),
+        }
+    ]
+    seen = {premises[0]["proposition"]}
+    for block in math_blocks_with_headings(problem.initial_state):
+        proposition = normalize_math(block.raw)
+        if not proposition or proposition in seen:
+            continue
+        premise_id = f"i{len(premises):03d}"
+        premises.append(
+            {
+                "premise_id": premise_id,
+                "proposition": proposition,
+                "source_origin": "SOURCE_INITIAL_STATE",
+                "scope": "global",
+                "status": "GIVEN",
+                "dependencies": [],
+                "dependency_status": "SOURCE_GIVEN_NO_DEPENDENCIES",
+                "source_span": block.raw,
+                "source_span_sha256": sha256(block.raw),
+                "source_problem_sha256": sha256(problem.raw),
+            }
+        )
+        seen.add(proposition)
+    expected = empty_state(problem, clean_prose(problem.statement, 1200))["claims"]
+    if {
+        item["premise_id"]: item["proposition"] for item in premises
+    } != {
+        claim_id: claim["proposition"] for claim_id, claim in expected.items()
+    }:
+        raise AssertionError(f"{problem.problem_id}: initial-premise ids drifted from neutral state")
+    return premises
+
+
+def build_initial_premise_artifact(
+    source_text: str,
+    records: list[ProblemRecord],
+) -> dict[str, Any]:
+    return {
+        "schema_version": INITIAL_PREMISE_SCHEMA_VERSION,
+        "source_corpus_sha256": sha256(source_text),
+        "derivation_policy": (
+            "All SOURCE_PROBLEM and SOURCE_INITIAL_STATE premises are recovered from "
+            "source regions preceding the worked trajectory. Linear adjacency is never "
+            "used to create a semantic dependency."
+        ),
+        "problems": [
+            {
+                "problem_id": record.source.problem_id,
+                "source_problem_sha256": sha256(record.source.raw),
+                "premises": initial_premises_for_problem(record.source),
+            }
+            for record in records
+        ],
+    }
+
+
+def build_canonicalization_artifact(records: list[ProblemRecord]) -> dict[str, Any]:
+    corrections = [
+        correction
+        for record in records
+        for correction in record.canonicalization_corrections
+    ]
+    if {item["transition_id"] for item in corrections} != set(CANONICAL_ROLE_CORRECTIONS):
+        raise AssertionError("canonicalization correction ledger is incomplete")
+    return {
+        "schema_version": CANONICALIZATION_SCHEMA_VERSION,
+        "policy": "One source transition has one canonical neutral semantic role.",
+        "corrections": corrections,
+    }
+
+
+def build_implicit_logical_step_artifact(records: list[ProblemRecord]) -> dict[str, Any]:
+    """Insert only D-063's closed OR-introduction family, once per covered branch."""
+    entries: list[dict[str, Any]] = []
+    observed_join_ids: set[str] = set()
+    for record in records:
+        if not record.branch_partitions:
+            continue
+        by_id = {transition.transition_id: transition for transition in record.transitions}
+        top_join_ids = {
+            partition["join_transition_id"]
+            for partition in record.branch_partitions
+            if partition["join_transition_id"] in IMPLICIT_WEAKENING_JOINS
+        }
+        if not top_join_ids:
+            continue
+        source_join_id = next(iter(top_join_ids))
+        source_union = by_id[source_join_id].after
+        observed_join_ids.add(source_join_id)
+        for partition in record.branch_partitions:
+            # Flat cases contribute their one partition. GEN-072 contributes both inner
+            # partitions and the outer partition because the source union is nested 2x2.
+            if record.source.problem_id != "GEN-072" and partition["join_transition_id"] != source_join_id:
+                continue
+            branch_conclusions: list[tuple[dict[str, Any], str, str]] = []
+            for branch in partition["branches"]:
+                if record.source.problem_id == "GEN-072" and partition["partition_id"] == "GEN-072-P001":
+                    inner = next(
+                        child
+                        for child in record.branch_partitions
+                        if child["parent_branch_id"] == branch["branch_id"]
+                    )
+                    inner_terminals = [
+                        by_id[child["transition_ids"][-1]].after for child in inner["branches"]
+                    ]
+                    branch_conclusions.append(
+                        (
+                            branch,
+                            f"{inner['partition_id']}-JOIN-CLAIM",
+                            " \\vee ".join(inner_terminals),
+                        )
+                    )
+                else:
+                    terminal_transition_id = branch["transition_ids"][-1]
+                    terminal = by_id[terminal_transition_id]
+                    branch_conclusions.append((branch, f"c{terminal.index:03d}", terminal.after))
+            if record.source.problem_id == "MIXED-039":
+                result = " \\vee ".join(item[2] for item in branch_conclusions)
+                result_origin = "DETERMINISTIC_BRANCH_OUTCOME_DISJUNCTION"
+                expression_status = "WEAKENING_AND_UNION_ELIDED_BEFORE_SOURCE_SELECTION"
+            elif partition["partition_id"] == "GEN-072-P001" or record.source.problem_id != "GEN-072":
+                result = source_union
+                result_origin = "EXACT_SOURCE_JOIN_PROPOSITION"
+                expression_status = "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT"
+            else:
+                result = " \\vee ".join(item[2] for item in branch_conclusions)
+                result_origin = "DETERMINISTIC_INNER_CASE_DISJUNCTION"
+                expression_status = "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT"
+            disjuncts = [item[2] for item in branch_conclusions]
+            for disjunct_index, (branch, premise_id, premise) in enumerate(branch_conclusions):
+                entries.append(
+                    {
+                        "step_id": f"{partition['partition_id']}-{branch['branch_id'].rsplit('-', 1)[-1]}-IMPLICIT-OR-INTRO",
+                        "record_kind": "IMPLICIT_LOGICAL_STEP",
+                        "problem_id": record.source.problem_id,
+                        "partition_id": partition["partition_id"],
+                        "branch_id": branch["branch_id"],
+                        "source_join_transition_id": source_join_id,
+                        "triggering_branch_ids": [item[0]["branch_id"] for item in branch_conclusions],
+                        "premise_ids": [premise_id],
+                        "premise_proposition": premise,
+                        "resulting_proposition": result,
+                        "resulting_proposition_origin": result_origin,
+                        "warrant_rule": "DISJUNCTION_INTRODUCTION",
+                        "insertion_reason": (
+                            "The source enumerates exhaustive branch conclusions and elides "
+                            "the per-branch weakening required by the existing "
+                            "common-conclusion join."
+                        ),
+                        "source_expression_status": expression_status,
+                        "deterministic_derivation_proof": {
+                            "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+                            "rule": "OR_INTRO",
+                            "disjunct_index": disjunct_index,
+                            "disjuncts": disjuncts,
+                            "premise_equals_selected_disjunct": premise == disjuncts[disjunct_index],
+                        },
+                        "provenance": {
+                            "source_problem_sha256": sha256(record.source.raw),
+                            "source_join_span_sha256": sha256(by_id[source_join_id].source_span),
+                            "source_join_transition_id": source_join_id,
+                        },
+                    }
+                )
+    if observed_join_ids != IMPLICIT_WEAKENING_JOINS:
+        raise AssertionError(
+            f"implicit weakening join coverage drifted: {sorted(observed_join_ids)}"
+        )
+    return {
+        "schema_version": IMPLICIT_STEP_SCHEMA_VERSION,
+        "decision": "D-063",
+        "allowed_family": "DISJUNCTION_INTRODUCTION",
+        "policy": (
+            "Closed deterministic insertion only: one ordinary OR-introduction step per "
+            "branch immediately before an existing common-conclusion join."
+        ),
+        "steps": entries,
     }
 
 
@@ -1964,6 +2316,36 @@ def main() -> None:
         type=Path,
         default=Path(__file__).resolve().parents[1] / "data/synthetic_math_branch_ancestry_v1.json",
     )
+    parser.add_argument(
+        "--initial-premise-schema",
+        type=Path,
+        default=Path(__file__).resolve().parents[1] / "schemas/synthetic-math-initial-premises.schema.json",
+    )
+    parser.add_argument(
+        "--initial-premise-output",
+        type=Path,
+        default=Path(__file__).resolve().parents[1] / "data/synthetic_math_initial_premises_v1.json",
+    )
+    parser.add_argument(
+        "--implicit-step-schema",
+        type=Path,
+        default=Path(__file__).resolve().parents[1] / "schemas/synthetic-math-implicit-logical-steps.schema.json",
+    )
+    parser.add_argument(
+        "--implicit-step-output",
+        type=Path,
+        default=Path(__file__).resolve().parents[1] / "data/synthetic_math_implicit_logical_steps_v1.json",
+    )
+    parser.add_argument(
+        "--canonicalization-schema",
+        type=Path,
+        default=Path(__file__).resolve().parents[1] / "schemas/synthetic-math-canonicalization-corrections.schema.json",
+    )
+    parser.add_argument(
+        "--canonicalization-output",
+        type=Path,
+        default=Path(__file__).resolve().parents[1] / "data/synthetic_math_canonicalization_corrections_v1.json",
+    )
     parser.add_argument("--prm-pilot-summary", type=Path)
     args = parser.parse_args()
 
@@ -1979,9 +2361,19 @@ def main() -> None:
     branch_schema_validator = jsonschema.Draft202012Validator(
         json.loads(args.branch_schema.read_text(encoding="utf-8"))
     )
+    initial_premise_validator = jsonschema.Draft202012Validator(
+        json.loads(args.initial_premise_schema.read_text(encoding="utf-8"))
+    )
+    implicit_step_validator = jsonschema.Draft202012Validator(
+        json.loads(args.implicit_step_schema.read_text(encoding="utf-8"))
+    )
+    canonicalization_validator = jsonschema.Draft202012Validator(
+        json.loads(args.canonicalization_schema.read_text(encoding="utf-8"))
+    )
     records: list[ProblemRecord] = []
     for number, problem in enumerate(problems, 1):
         transitions, diagnostics = extract_transitions(problem)
+        canonicalization_corrections = apply_canonical_role_corrections(transitions)
         branch_partitions = rederive_branch_partitions(problem, transitions)
         validate_and_render(problem, transitions, hml, sympy, schema_validator)
         records.append(
@@ -1991,6 +2383,7 @@ def main() -> None:
                 diagnostics=diagnostics,
                 goal_text=clean_prose(problem.statement, 1200),
                 branch_partitions=branch_partitions,
+                canonicalization_corrections=canonicalization_corrections,
             )
         )
         if number % 25 == 0:
@@ -2003,7 +2396,13 @@ def main() -> None:
     )
     output = render_master(source_text, records, pilot_summary)
     branch_artifact = build_branch_ancestry_artifact(source_text, records)
+    initial_premise_artifact = build_initial_premise_artifact(source_text, records)
+    implicit_step_artifact = build_implicit_logical_step_artifact(records)
+    canonicalization_artifact = build_canonicalization_artifact(records)
     branch_schema_validator.validate(branch_artifact)
+    initial_premise_validator.validate(initial_premise_artifact)
+    implicit_step_validator.validate(implicit_step_artifact)
+    canonicalization_validator.validate(canonicalization_artifact)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(output, encoding="utf-8")
     args.branch_output.parent.mkdir(parents=True, exist_ok=True)
@@ -2011,6 +2410,17 @@ def main() -> None:
         branch_artifact, ensure_ascii=False, sort_keys=True, indent=2
     ) + "\n"
     args.branch_output.write_text(branch_output_text, encoding="utf-8")
+    artifacts = (
+        (args.initial_premise_output, initial_premise_artifact),
+        (args.implicit_step_output, implicit_step_artifact),
+        (args.canonicalization_output, canonicalization_artifact),
+    )
+    artifact_hashes: dict[str, str] = {}
+    for path, artifact in artifacts:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        artifact_text = json.dumps(artifact, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
+        path.write_text(artifact_text, encoding="utf-8")
+        artifact_hashes[str(path)] = sha256(artifact_text)
     print(
         canonical_json(
             {
@@ -2020,6 +2430,7 @@ def main() -> None:
                 "output_sha256": sha256(output),
                 "branch_output": str(args.branch_output),
                 "branch_output_sha256": sha256(branch_output_text),
+                "additional_artifact_sha256": artifact_hashes,
                 "status_counts": dict(sorted(Counter(t.classification for r in records for t in r.transitions).items())),
             }
         )

@@ -1,0 +1,20 @@
+{
+  "schema_version": "corpus-expectation-correction-0.1.0",
+  "decision": "D-062",
+  "fixture_id": "FX-OBL-UNKNOWN",
+  "historical_fixture_file": "experiments/semantic_firewall/acceptance/fixtures.json",
+  "historical_fixture_file_sha256": "618b88beb9b0018903827c8b7d8ba8976c2c04bb87e2759047b7feceabd9b5b9",
+  "historical_fixture_canonical_sha256": "65914564657c0de2dd3c70d3d0471dd378e309e678ee388f03d66d7adc8ac698",
+  "historical_expectation": {
+    "verdict": "UNRESOLVED",
+    "error_class": null
+  },
+  "vnext_expectation": {
+    "verdict": "INVALID",
+    "error_class": "OBLIGATION_DROP",
+    "structural_cause": "obligations.o_prev was removed from state_after rather than retained and discharged"
+  },
+  "rationale": "UNKNOWN evidence can leave warrant authority unresolved, but cannot suppress structural frame checks. Deleting mandatory proof debt is never a licensed discharge.",
+  "historical_fixture_mutated": false,
+  "hml_structural_checks_weakened": false
+}

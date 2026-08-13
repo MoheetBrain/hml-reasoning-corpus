@@ -1,0 +1,160 @@
+{
+  "corrections": [
+    {
+      "affected_downstream_ids": [
+        "GEN-087-T014",
+        "GEN-087-T015",
+        "GEN-087-T016",
+        "GEN-087-T017"
+      ],
+      "corrected_role": {
+        "classification": "GENUINE_HML_SEMANTIC_GAP",
+        "dependency_ids": [],
+        "gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "operation": "SELECT",
+        "semantic_object": "CANDIDATE_SELECTION"
+      },
+      "old_role": {
+        "classification": "GENUINE_HML_SEMANTIC_GAP",
+        "gap_code": "BRANCH_CREATION_NOT_REPRESENTABLE",
+        "operation": "SELECT"
+      },
+      "reason": "The source heading is CANDIDATE VERIFICATION: 'Negative branch' selects one root candidate for a domain check. It does not open a proof/case scope.",
+      "source_evidence": "$$\nx= \\frac{3\\pm\\sqrt{33}}2.\n$$\n### CANDIDATE VERIFICATION\n\nNegative branch:\n$$\n\\frac{3-\\sqrt{33}}2.\n$$",
+      "source_span_sha256": "a80b90bb8e2c78803fcfcaefc2e725e799213236875e00d1381962919920c6dd",
+      "transition_id": "GEN-087-T013"
+    },
+    {
+      "affected_downstream_ids": [
+        "GEN-087-T017"
+      ],
+      "corrected_role": {
+        "classification": "GENUINE_HML_SEMANTIC_GAP",
+        "dependency_ids": [
+          "c012"
+        ],
+        "gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "operation": "SELECT",
+        "semantic_object": "CANDIDATE_SELECTION"
+      },
+      "old_role": {
+        "classification": "GENUINE_HML_SEMANTIC_GAP",
+        "gap_code": "BRANCH_CREATION_NOT_REPRESENTABLE",
+        "operation": "SELECT"
+      },
+      "reason": "After rejecting the negative root, 'Positive branch' returns to the source candidate set c012 and selects its positive candidate. This is candidate lifecycle, not a sibling proof scope and not a dependency on the rejected root.",
+      "source_evidence": "$$\nx>1.\n$$\nReject.\n\nPositive branch:\n$$\n\\frac{3+\\sqrt{33}}2>1.\n$$",
+      "source_span_sha256": "5a6a8aa6a5d84424663a60be75b68432725e5357296c7bc1906772774b3d0e05",
+      "transition_id": "GEN-087-T016"
+    },
+    {
+      "affected_downstream_ids": [
+        "GEN-094-T003",
+        "GEN-094-T004",
+        "GEN-094-T005",
+        "GEN-094-T006",
+        "GEN-094-T007",
+        "GEN-094-T008",
+        "GEN-094-T009",
+        "GEN-094-T010",
+        "GEN-094-T011",
+        "GEN-094-T012",
+        "GEN-094-T013",
+        "GEN-094-T014",
+        "GEN-094-T015",
+        "GEN-094-T016",
+        "GEN-094-T017",
+        "GEN-094-T018",
+        "GEN-094-T019",
+        "GEN-094-T020",
+        "GEN-094-T021",
+        "GEN-094-T022",
+        "GEN-094-T023"
+      ],
+      "corrected_role": {
+        "classification": "REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE",
+        "dependency_ids": [],
+        "gap_code": null,
+        "operation": "TRANSFORM",
+        "semantic_object": "DERIVED_CLAIM"
+      },
+      "old_role": {
+        "classification": "GENUINE_HML_SEMANTIC_GAP",
+        "gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "operation": "SELECT"
+      },
+      "reason": "This source block merely restates the original equation after establishing x>=0 so that squaring is reversible. No candidate object exists yet.",
+      "source_evidence": "$$\nx\\ge0.\n$$\nSquaring is then reversible because both sides are nonnegative.\n\n### CANDIDATE GENERATION\n$$\n\\sqrt{|x-1|}=x.\n$$",
+      "source_span_sha256": "24756de06db44578d009445c5bacecacdaa4d1d1f1a554218a7b16242dba5717",
+      "transition_id": "GEN-094-T002"
+    },
+    {
+      "affected_downstream_ids": [
+        "GEN-094-T004",
+        "GEN-094-T005",
+        "GEN-094-T006",
+        "GEN-094-T007",
+        "GEN-094-T008",
+        "GEN-094-T009",
+        "GEN-094-T010",
+        "GEN-094-T011",
+        "GEN-094-T012",
+        "GEN-094-T013",
+        "GEN-094-T014",
+        "GEN-094-T015",
+        "GEN-094-T016",
+        "GEN-094-T017",
+        "GEN-094-T018",
+        "GEN-094-T019",
+        "GEN-094-T020",
+        "GEN-094-T021",
+        "GEN-094-T022",
+        "GEN-094-T023"
+      ],
+      "corrected_role": {
+        "classification": "REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE",
+        "dependency_ids": [],
+        "gap_code": null,
+        "operation": "TRANSFORM",
+        "semantic_object": "DERIVED_CLAIM"
+      },
+      "old_role": {
+        "classification": "GENUINE_HML_SEMANTIC_GAP",
+        "gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "operation": "SELECT"
+      },
+      "reason": "The source squares sqrt(|x-1|)=x to derive |x-1|=x^2 before a case split. That is an algebraic claim transformation with a nonnegativity obligation, not candidate lifecycle state; c003 is the common pre-split claim.",
+      "source_evidence": "$$\n\\sqrt{|x-1|}=x.\n$$\nSquare:\n$$\n|x-1|=x^2.\n$$",
+      "source_span_sha256": "0c3ca6636411437b86989b67002d29711f02c091a22d3f880185b41b8afd39bb",
+      "transition_id": "GEN-094-T003"
+    },
+    {
+      "affected_downstream_ids": [
+        "MIXED-039-T009",
+        "MIXED-039-T010",
+        "MIXED-039-T011",
+        "MIXED-039-T012",
+        "MIXED-039-T013",
+        "MIXED-039-T014"
+      ],
+      "corrected_role": {
+        "classification": "REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE",
+        "dependency_ids": [],
+        "gap_code": null,
+        "operation": "TRANSFORM",
+        "semantic_object": "DERIVED_DISJUNCTIVE_CLAIM"
+      },
+      "old_role": {
+        "classification": "GENUINE_HML_SEMANTIC_GAP",
+        "gap_code": "CANDIDATE_CREATION_NOT_REPRESENTABLE",
+        "operation": "TRANSFORM"
+      },
+      "reason": "The exact source derives the disjunctive proposition y=\\pm x from x^2=y^2. It does not create, select, verify, or mutate a candidate object. The resulting claim c008 is the common pre-split premise for the two subsequent cases.",
+      "source_evidence": "$$\nx^2=y^2.\n$$\nTherefore:\n$$\ny=\\pm x.\n$$",
+      "source_span_sha256": "1553ea2a149722ff0f7a92b6924ed4fc0816abb0591b71d27199392aaf7e09d9",
+      "transition_id": "MIXED-039-T008"
+    }
+  ],
+  "policy": "One source transition has one canonical neutral semantic role.",
+  "schema_version": "synthetic-math-canonicalization-corrections-0.1.0"
+}

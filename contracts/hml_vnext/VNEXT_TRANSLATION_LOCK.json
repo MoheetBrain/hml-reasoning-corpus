@@ -1,0 +1,46 @@
+{
+  "lock_version": "hml-vnext-translation-lock-1.0.0",
+  "created_at_utc": "2026-08-13T13:48:14Z",
+  "codex_corpus_base_commit": "3bbb4256fe424e126ad1058c7bb8223c58b3afeb",
+  "translator_version": "hml-vnext-corpus-translator-1.0.0",
+  "contract_version": "vnext-translation-contract-1.0.0",
+  "hml_semantic_commit": "68178f07784d2a17a9aed9c4dedbea9c740c97a0",
+  "hml_semantic_commit_short": "68178f0",
+  "hml_integration_report_commit": "73184c5ec0959b18ee1e69e2535c95de98f67125",
+  "hml_integration_report_commit_short": "73184c5",
+  "hml_src_tree": "8bdad9aa20230e03217eea64cd50151057102b4c",
+  "hml_src_byte_identical_through_integration_commit": true,
+  "freeze_decision": "VNEXT_SEMANTICS_FROZEN_FOR_DATA_SCALE",
+  "contract_directory": "contracts/hml_vnext/vnext-translation-contract-1.0.0",
+  "files": {
+    "handoff": {
+      "path": "contracts/hml_vnext/vnext-translation-contract-1.0.0/CODEX_TRANSLATION_HANDOFF.md",
+      "sha256": "e5b718325187a553b52f4251fe2df12f3d0cf343fbacab56785f34fcdef8c937"
+    },
+    "json_contract": {
+      "path": "contracts/hml_vnext/vnext-translation-contract-1.0.0/CODEX_TRANSLATION_CONTRACT.json",
+      "sha256": "ae4847d36e7c7b73a5172c75cc62f3980fd07a420b21923b340e001278147fd0"
+    },
+    "golden_fixtures": {
+      "path": "contracts/hml_vnext/vnext-translation-contract-1.0.0/TRANSLATION_GOLDEN_FIXTURES.jsonl",
+      "sha256": "410aa477311b25a7f2da99f0ea523e25b848f588c967bb264315034adae0d545"
+    }
+  },
+  "runtime": {
+    "python": "3.14.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "hamiltonian_lang": "0.1.0",
+    "jsonschema": "4.26.0",
+    "sympy": "1.14.0",
+    "pytest": "9.1.1"
+  },
+  "attestation": {
+    "fixtures_total": 20,
+    "fixtures_conforming": 20,
+    "neutral_roundtrips": "19/19",
+    "hml_linear_roundtrips": "19/19",
+    "hml_tree_roundtrips": "19/19",
+    "translator_refusals": "1/1",
+    "result": "PASS"
+  }
+}

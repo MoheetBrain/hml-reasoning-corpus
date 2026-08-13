@@ -1,0 +1,60 @@
+{
+  "backend_gaps": 166,
+  "contract_version": "vnext-translation-contract-1.0.0",
+  "corpus_information_refusals": 23,
+  "historical_frozen_hml_judgments": {
+    "BACKEND/VERIFIER_GAP": 166,
+    "CURRENT_KNOWN_CORE_GAP": 693,
+    "EXISTING_SEMANTICS": 112,
+    "LIBRARY_GAP": 27,
+    "SOURCE_AMBIGUITY": 2
+  },
+  "hml_semantic_commit": "68178f07784d2a17a9aed9c4dedbea9c740c97a0",
+  "known_mechanism_outcomes": {
+    "branch_create": {
+      "REFUSED_CORPUS_INFORMATION": 18,
+      "REPRESENTED": 7
+    },
+    "branch_join": {
+      "REFUSED_CORPUS_INFORMATION": 5,
+      "REPRESENTED": 15
+    },
+    "candidate_lifecycle_action_creation": {
+      "REFUSED_CORPUS_INFORMATION": 1,
+      "REPRESENTED": 653
+    },
+    "exact_approximate_status": {
+      "REPRESENTED": 30
+    }
+  },
+  "library_gaps": 27,
+  "marginal_new_core_semantic_rate": 0.0,
+  "new_recurring_core_semantic_candidates": 0,
+  "output_sha256": "02425e73f75bb9c186832fd4d8023ea6ecb15b960d8de69a4c9e09f2882bf541",
+  "previously_core_corpus_information_refusals": 23,
+  "previously_core_now_represented": 670,
+  "previously_current_known_core_gap": 693,
+  "process_label_policy": "PRM {-1,0,+1} is human process supervision, never mathematical evidence.",
+  "records": 1000,
+  "refused_total": 25,
+  "remaining_approximation_related_core_gap_rows": 0,
+  "remaining_branch_related_rows": 23,
+  "remaining_candidate_related_core_gap_rows": 0,
+  "represented_total": 975,
+  "schema_version": "prm800k-vnext-regression-1.0.0",
+  "source_ambiguities": 2,
+  "source_commit": "7ecc794703b2877f63226f2477a49b34f9b25163",
+  "source_validation": "1000/1000 exact",
+  "unique_source_problems": 858,
+  "unique_source_trajectories": 907,
+  "verifier_verdicts": {
+    "UNRESOLVED": 975
+  },
+  "vnext_judgments": {
+    "BACKEND/VERIFIER_GAP": 166,
+    "CORPUS_INFORMATION_REFUSAL": 23,
+    "EXISTING_SEMANTICS_VNEXT": 782,
+    "LIBRARY_GAP": 27,
+    "SOURCE_AMBIGUITY": 2
+  }
+}

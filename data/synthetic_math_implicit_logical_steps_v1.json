@@ -1,0 +1,584 @@
+{
+  "allowed_family": "DISJUNCTION_INTRODUCTION",
+  "decision": "D-063",
+  "policy": "Closed deterministic insertion only: one ordinary OR-introduction step per branch immediately before an existing common-conclusion join.",
+  "schema_version": "synthetic-math-implicit-logical-steps-0.1.0",
+  "steps": [
+    {
+      "branch_id": "ALG-097-P001-B001",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 0,
+        "disjuncts": [
+          "x=0",
+          "x=2"
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "ALG-097-P001",
+      "premise_ids": [
+        "c010"
+      ],
+      "premise_proposition": "x=0",
+      "problem_id": "ALG-097",
+      "provenance": {
+        "source_join_span_sha256": "fdfe6ea3efcaf80033ba0fb4f5ed674ecf1282219f5ca2cf430812fc23663d55",
+        "source_join_transition_id": "ALG-097-T014",
+        "source_problem_sha256": "247ead68d5ca8f70ce165f6241a1ade6b3dd57ba1234820c82ea1e4776eb3b3d"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x=0,2",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "ALG-097-T014",
+      "step_id": "ALG-097-P001-B001-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "ALG-097-P001-B001",
+        "ALG-097-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "ALG-097-P001-B002",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 1,
+        "disjuncts": [
+          "x=0",
+          "x=2"
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "ALG-097-P001",
+      "premise_ids": [
+        "c013"
+      ],
+      "premise_proposition": "x=2",
+      "problem_id": "ALG-097",
+      "provenance": {
+        "source_join_span_sha256": "fdfe6ea3efcaf80033ba0fb4f5ed674ecf1282219f5ca2cf430812fc23663d55",
+        "source_join_transition_id": "ALG-097-T014",
+        "source_problem_sha256": "247ead68d5ca8f70ce165f6241a1ade6b3dd57ba1234820c82ea1e4776eb3b3d"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x=0,2",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "ALG-097-T014",
+      "step_id": "ALG-097-P001-B002-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "ALG-097-P001-B001",
+        "ALG-097-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "ALG-099-P001-B001",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 0,
+        "disjuncts": [
+          "2(9)-5=13\\ge0",
+          "=-\\frac{13}{3}<0"
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "ALG-099-P001",
+      "premise_ids": [
+        "c005"
+      ],
+      "premise_proposition": "2(9)-5=13\\ge0",
+      "problem_id": "ALG-099",
+      "provenance": {
+        "source_join_span_sha256": "7d47b732a1313fd6b4821f5e7c7dceb1c7e280531bffb8e1a0e96cd1553b1761",
+        "source_join_transition_id": "ALG-099-T015",
+        "source_problem_sha256": "c3f28bf79d86e5e505f41116fd8a91087a2f4cf461d43d0ca5026c0825d4397c"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x=\\frac13,\\;9",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "ALG-099-T015",
+      "step_id": "ALG-099-P001-B001-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "ALG-099-P001-B001",
+        "ALG-099-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "ALG-099-P001-B002",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 1,
+        "disjuncts": [
+          "2(9)-5=13\\ge0",
+          "=-\\frac{13}{3}<0"
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "ALG-099-P001",
+      "premise_ids": [
+        "c014"
+      ],
+      "premise_proposition": "=-\\frac{13}{3}<0",
+      "problem_id": "ALG-099",
+      "provenance": {
+        "source_join_span_sha256": "7d47b732a1313fd6b4821f5e7c7dceb1c7e280531bffb8e1a0e96cd1553b1761",
+        "source_join_transition_id": "ALG-099-T015",
+        "source_problem_sha256": "c3f28bf79d86e5e505f41116fd8a91087a2f4cf461d43d0ca5026c0825d4397c"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x=\\frac13,\\;9",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "ALG-099-T015",
+      "step_id": "ALG-099-P001-B002-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "ALG-099-P001-B001",
+        "ALG-099-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-054-P001-B001",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 0,
+        "disjuncts": [
+          "[-1,1).",
+          "1\\le x<3."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-054-P001",
+      "premise_ids": [
+        "c008"
+      ],
+      "premise_proposition": "[-1,1).",
+      "problem_id": "GEN-054",
+      "provenance": {
+        "source_join_span_sha256": "83ab05868b43d803a1d3834ba09ca00e541aaa583db0f34f38d87087dc8e5977",
+        "source_join_transition_id": "GEN-054-T018",
+        "source_problem_sha256": "04cf6be977a6c9ce0632f40a8bd10c66c55a5ccfff5b2969fab96c329f51d4a1"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "[-1,1)\\cup[1,3)",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-054-T018",
+      "step_id": "GEN-054-P001-B001-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-054-P001-B001",
+        "GEN-054-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-054-P001-B002",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 1,
+        "disjuncts": [
+          "[-1,1).",
+          "1\\le x<3."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-054-P001",
+      "premise_ids": [
+        "c017"
+      ],
+      "premise_proposition": "1\\le x<3.",
+      "problem_id": "GEN-054",
+      "provenance": {
+        "source_join_span_sha256": "83ab05868b43d803a1d3834ba09ca00e541aaa583db0f34f38d87087dc8e5977",
+        "source_join_transition_id": "GEN-054-T018",
+        "source_problem_sha256": "04cf6be977a6c9ce0632f40a8bd10c66c55a5ccfff5b2969fab96c329f51d4a1"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "[-1,1)\\cup[1,3)",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-054-T018",
+      "step_id": "GEN-054-P001-B002-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-054-P001-B001",
+        "GEN-054-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-062-P001-B001",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 0,
+        "disjuncts": [
+          "x=-5.",
+          "x=-1."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-062-P001",
+      "premise_ids": [
+        "c006"
+      ],
+      "premise_proposition": "x=-5.",
+      "problem_id": "GEN-062",
+      "provenance": {
+        "source_join_span_sha256": "76b8a48996739fde1d759c5f95e659eee10082af84073b309adfc74db8830de3",
+        "source_join_transition_id": "GEN-062-T013",
+        "source_problem_sha256": "2888bbc9933d63410c8389aee2c1c81b8739e22fc32642adc393ea4510cdc6e7"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x=-5,-1",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-062-T013",
+      "step_id": "GEN-062-P001-B001-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-062-P001-B001",
+        "GEN-062-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-062-P001-B002",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 1,
+        "disjuncts": [
+          "x=-5.",
+          "x=-1."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-062-P001",
+      "premise_ids": [
+        "c012"
+      ],
+      "premise_proposition": "x=-1.",
+      "problem_id": "GEN-062",
+      "provenance": {
+        "source_join_span_sha256": "76b8a48996739fde1d759c5f95e659eee10082af84073b309adfc74db8830de3",
+        "source_join_transition_id": "GEN-062-T013",
+        "source_problem_sha256": "2888bbc9933d63410c8389aee2c1c81b8739e22fc32642adc393ea4510cdc6e7"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x=-5,-1",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-062-T013",
+      "step_id": "GEN-062-P001-B002-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-062-P001-B001",
+        "GEN-062-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-072-P001-B001",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 0,
+        "disjuncts": [
+          "x-2=4 \\rightarrow x=6, \\vee x-2=-4 \\rightarrow x=-2.",
+          "x-2=2 \\rightarrow x=4, \\vee x-2=-2 \\rightarrow x=0."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-072-P001",
+      "premise_ids": [
+        "GEN-072-P002-JOIN-CLAIM"
+      ],
+      "premise_proposition": "x-2=4 \\rightarrow x=6, \\vee x-2=-4 \\rightarrow x=-2.",
+      "problem_id": "GEN-072",
+      "provenance": {
+        "source_join_span_sha256": "6ef93488421f4d1a5c976a4df703ac471130541866a7cbb537f8050a48e82d1e",
+        "source_join_transition_id": "GEN-072-T009",
+        "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "-2,0,4,6.",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-072-T009",
+      "step_id": "GEN-072-P001-B001-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-072-P001-B001",
+        "GEN-072-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-072-P001-B002",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 1,
+        "disjuncts": [
+          "x-2=4 \\rightarrow x=6, \\vee x-2=-4 \\rightarrow x=-2.",
+          "x-2=2 \\rightarrow x=4, \\vee x-2=-2 \\rightarrow x=0."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-072-P001",
+      "premise_ids": [
+        "GEN-072-P003-JOIN-CLAIM"
+      ],
+      "premise_proposition": "x-2=2 \\rightarrow x=4, \\vee x-2=-2 \\rightarrow x=0.",
+      "problem_id": "GEN-072",
+      "provenance": {
+        "source_join_span_sha256": "6ef93488421f4d1a5c976a4df703ac471130541866a7cbb537f8050a48e82d1e",
+        "source_join_transition_id": "GEN-072-T009",
+        "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "-2,0,4,6.",
+      "resulting_proposition_origin": "EXACT_SOURCE_JOIN_PROPOSITION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-072-T009",
+      "step_id": "GEN-072-P001-B002-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-072-P001-B001",
+        "GEN-072-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-072-P002-B001",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 0,
+        "disjuncts": [
+          "x-2=4 \\rightarrow x=6,",
+          "x-2=-4 \\rightarrow x=-2."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-072-P002",
+      "premise_ids": [
+        "c003"
+      ],
+      "premise_proposition": "x-2=4 \\rightarrow x=6,",
+      "problem_id": "GEN-072",
+      "provenance": {
+        "source_join_span_sha256": "6ef93488421f4d1a5c976a4df703ac471130541866a7cbb537f8050a48e82d1e",
+        "source_join_transition_id": "GEN-072-T009",
+        "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x-2=4 \\rightarrow x=6, \\vee x-2=-4 \\rightarrow x=-2.",
+      "resulting_proposition_origin": "DETERMINISTIC_INNER_CASE_DISJUNCTION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-072-T009",
+      "step_id": "GEN-072-P002-B001-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-072-P002-B001",
+        "GEN-072-P002-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-072-P002-B002",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 1,
+        "disjuncts": [
+          "x-2=4 \\rightarrow x=6,",
+          "x-2=-4 \\rightarrow x=-2."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-072-P002",
+      "premise_ids": [
+        "c004"
+      ],
+      "premise_proposition": "x-2=-4 \\rightarrow x=-2.",
+      "problem_id": "GEN-072",
+      "provenance": {
+        "source_join_span_sha256": "6ef93488421f4d1a5c976a4df703ac471130541866a7cbb537f8050a48e82d1e",
+        "source_join_transition_id": "GEN-072-T009",
+        "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x-2=4 \\rightarrow x=6, \\vee x-2=-4 \\rightarrow x=-2.",
+      "resulting_proposition_origin": "DETERMINISTIC_INNER_CASE_DISJUNCTION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-072-T009",
+      "step_id": "GEN-072-P002-B002-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-072-P002-B001",
+        "GEN-072-P002-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-072-P003-B001",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 0,
+        "disjuncts": [
+          "x-2=2 \\rightarrow x=4,",
+          "x-2=-2 \\rightarrow x=0."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-072-P003",
+      "premise_ids": [
+        "c007"
+      ],
+      "premise_proposition": "x-2=2 \\rightarrow x=4,",
+      "problem_id": "GEN-072",
+      "provenance": {
+        "source_join_span_sha256": "6ef93488421f4d1a5c976a4df703ac471130541866a7cbb537f8050a48e82d1e",
+        "source_join_transition_id": "GEN-072-T009",
+        "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x-2=2 \\rightarrow x=4, \\vee x-2=-2 \\rightarrow x=0.",
+      "resulting_proposition_origin": "DETERMINISTIC_INNER_CASE_DISJUNCTION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-072-T009",
+      "step_id": "GEN-072-P003-B001-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-072-P003-B001",
+        "GEN-072-P003-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "GEN-072-P003-B002",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 1,
+        "disjuncts": [
+          "x-2=2 \\rightarrow x=4,",
+          "x-2=-2 \\rightarrow x=0."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "GEN-072-P003",
+      "premise_ids": [
+        "c008"
+      ],
+      "premise_proposition": "x-2=-2 \\rightarrow x=0.",
+      "problem_id": "GEN-072",
+      "provenance": {
+        "source_join_span_sha256": "6ef93488421f4d1a5c976a4df703ac471130541866a7cbb537f8050a48e82d1e",
+        "source_join_transition_id": "GEN-072-T009",
+        "source_problem_sha256": "80d50dcf4d4837a2b28ed3e70a37cf493b65996813515d6b95f6b145fe225ecb"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "x-2=2 \\rightarrow x=4, \\vee x-2=-2 \\rightarrow x=0.",
+      "resulting_proposition_origin": "DETERMINISTIC_INNER_CASE_DISJUNCTION",
+      "source_expression_status": "WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT",
+      "source_join_transition_id": "GEN-072-T009",
+      "step_id": "GEN-072-P003-B002-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "GEN-072-P003-B001",
+        "GEN-072-P003-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "MIXED-039-P001-B001",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 0,
+        "disjuncts": [
+          "xy=x^2=\\frac12.",
+          "xy=-x^2=-\\frac12."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "MIXED-039-P001",
+      "premise_ids": [
+        "c011"
+      ],
+      "premise_proposition": "xy=x^2=\\frac12.",
+      "problem_id": "MIXED-039",
+      "provenance": {
+        "source_join_span_sha256": "abb0a4f3aee5aa5daaa7e3072f4f77df653119ffbc3a36fddedb02799d602515",
+        "source_join_transition_id": "MIXED-039-T014",
+        "source_problem_sha256": "40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "xy=x^2=\\frac12. \\vee xy=-x^2=-\\frac12.",
+      "resulting_proposition_origin": "DETERMINISTIC_BRANCH_OUTCOME_DISJUNCTION",
+      "source_expression_status": "WEAKENING_AND_UNION_ELIDED_BEFORE_SOURCE_SELECTION",
+      "source_join_transition_id": "MIXED-039-T014",
+      "step_id": "MIXED-039-P001-B001-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "MIXED-039-P001-B001",
+        "MIXED-039-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    },
+    {
+      "branch_id": "MIXED-039-P001-B002",
+      "deterministic_derivation_proof": {
+        "disjunct_index": 1,
+        "disjuncts": [
+          "xy=x^2=\\frac12.",
+          "xy=-x^2=-\\frac12."
+        ],
+        "premise_equals_selected_disjunct": true,
+        "proof_system": "PROPOSITIONAL_NATURAL_DEDUCTION",
+        "rule": "OR_INTRO"
+      },
+      "insertion_reason": "The source enumerates exhaustive branch conclusions and elides the per-branch weakening required by the existing common-conclusion join.",
+      "partition_id": "MIXED-039-P001",
+      "premise_ids": [
+        "c013"
+      ],
+      "premise_proposition": "xy=-x^2=-\\frac12.",
+      "problem_id": "MIXED-039",
+      "provenance": {
+        "source_join_span_sha256": "abb0a4f3aee5aa5daaa7e3072f4f77df653119ffbc3a36fddedb02799d602515",
+        "source_join_transition_id": "MIXED-039-T014",
+        "source_problem_sha256": "40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5"
+      },
+      "record_kind": "IMPLICIT_LOGICAL_STEP",
+      "resulting_proposition": "xy=x^2=\\frac12. \\vee xy=-x^2=-\\frac12.",
+      "resulting_proposition_origin": "DETERMINISTIC_BRANCH_OUTCOME_DISJUNCTION",
+      "source_expression_status": "WEAKENING_AND_UNION_ELIDED_BEFORE_SOURCE_SELECTION",
+      "source_join_transition_id": "MIXED-039-T014",
+      "step_id": "MIXED-039-P001-B002-IMPLICIT-OR-INTRO",
+      "triggering_branch_ids": [
+        "MIXED-039-P001-B001",
+        "MIXED-039-P001-B002"
+      ],
+      "warrant_rule": "DISJUNCTION_INTRODUCTION"
+    }
+  ]
+}

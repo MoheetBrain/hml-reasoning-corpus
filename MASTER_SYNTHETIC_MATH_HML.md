@@ -10,19 +10,19 @@ deterministic rendering only where the frozen release can preserve the same dist
 |---|---:|
 | Source problems | 600 |
 | Atomic reasoning transitions | 3978 |
-| Frozen-HML renderings emitted | 3087 |
-| Neutral-schema validations passed | 3087 |
-| Frozen-HML exact round trips | 3087 |
+| Frozen-HML renderings emitted | 3090 |
+| Neutral-schema validations passed | 3090 |
+| Frozen-HML exact round trips | 3090 |
 | Frozen-HML `INVALID` verdicts accepted | 0 |
 | Source ambiguities/corruptions | 0 |
-| Transitions carrying a genuine/current semantic-gap refusal | 891 |
-| Direct semantic-gap transitions | 433 |
+| Transitions carrying a genuine/current semantic-gap refusal | 888 |
+| Direct semantic-gap transitions | 430 |
 | Downstream transitions withheld after a gap | 458 |
-| Source-rederived branch partitions | 31 |
-| Explicit sibling branch records | 68 |
-| Branch openings with explicit pre-split parents | 63 |
+| Source-rederived branch partitions | 30 |
+| Explicit sibling branch records | 66 |
+| Branch openings with explicit pre-split parents | 61 |
 | Source-explicit prose-only branches preserved | 5 |
-| Linear-predecessor branch edges explicitly rejected | 39 |
+| Linear-predecessor branch edges explicitly rejected | 38 |
 
 ### Neutral branch ancestry repair
 
@@ -68,8 +68,8 @@ provenance for the same ALG-001…ALG-100 problems, not as a seventh duplicate c
 | Status | Transitions |
 |---|---:|
 | `FULLY_REPRESENTABLE_AND_BACKEND_VERIFIED` | 767 |
-| `GENUINE_HML_SEMANTIC_GAP` | 891 |
-| `REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE` | 1893 |
+| `GENUINE_HML_SEMANTIC_GAP` | 888 |
+| `REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE` | 1896 |
 | `REQUIRES_EXISTING_TRUSTED_BACKEND_OR_LIBRARY` | 427 |
 
 `FULLY_REPRESENTABLE_AND_BACKEND_VERIFIED` means the neutral/HML representation round-trips
@@ -136150,8 +136150,6 @@ $$
 
 ### Atomic semantic trajectory
 
-**Source-rederived branch graph:** `[{"branches":[{"assumption":{"id":"GEN-087-P001-B001-ASSUMPTION","proposition":"x=\\frac{3-\\sqrt{33}}2","status":"ASSUMED"},"branch_id":"GEN-087-P001-B001","label":"Negative branch","linear_predecessor_id":"c012","opening_dependency_ids":["c006","c012"],"opening_transition_id":"GEN-087-T013","parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"],"rejected_linear_dependency_ids":[],"source_basis":"CANDIDATE VERIFICATION | CANDIDATE VERIFICATION Negative branch","source_problem_sha256":"744810cede3759329cc1b5bf26dc6354e4e4435cc2cd8138649ea176554cfa7c","transition_ids":["GEN-087-T013","GEN-087-T014","GEN-087-T015"]},{"assumption":{"id":"GEN-087-P001-B002-ASSUMPTION","proposition":"x=\\frac{3+\\sqrt{33}}2","status":"ASSUMED"},"branch_id":"GEN-087-P001-B002","label":"Positive branch","linear_predecessor_id":"c015","opening_dependency_ids":["c006","c012"],"opening_transition_id":"GEN-087-T016","parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"],"rejected_linear_dependency_ids":["c015"],"source_basis":"CANDIDATE VERIFICATION | Reject. Positive branch","source_problem_sha256":"744810cede3759329cc1b5bf26dc6354e4e4435cc2cd8138649ea176554cfa7c","transition_ids":["GEN-087-T016"]}],"derivation_method":"CURATED_FROM_EXACT_WORKED_SOURCE","join_transition_id":null,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"],"pre_split_premises":[{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c006","proposition":"x>1,\\qquad x\\neq2.","source_sha256":"70f431c8ce2b6613555fd0baf2224a012759c83d84cd7eeaed865d264137d506"},{"origin":"EARLIER_SOURCE_TRANSITION","premise_id":"c012","proposition":"x= \\frac{3\\pm\\sqrt{33}}2.","source_sha256":"6f6f409ef826a85584f601a218266dfe5d2227b98235d9de3dc0853457bc2f73"}]}]`
-
 #### GEN-087-T001
 
 - **STATE_BEFORE:** `\log_{x-1}(x+7)=2.`
@@ -137255,14 +137253,13 @@ $$
 - **STATE_BEFORE:** `x= \frac{3\pm\sqrt{33}}2.`
 - **ACTION:** `SELECT` — CANDIDATE VERIFICATION Negative branch
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c006","c012"]`; source span SHA-256 `a80b90bb8e2c78803fcfcaefc2e725e799213236875e00d1381962919920c6dd`
+- **DEPENDENCIES:** `["c012"]`; source span SHA-256 `a80b90bb8e2c78803fcfcaefc2e725e799213236875e00d1381962919920c6dd`
 - **STATE_AFTER:** `\frac{3-\sqrt{33}}2.`
 - **Mechanisms:** squaring_or_roots, inequality_sign, candidate_reasoning
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — The source heading is CANDIDATE VERIFICATION: 'Negative branch' selects one root candidate for a domain check. It does not open a proof/case scope.
 - **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
-- **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
-- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-087-P001-B001-ASSUMPTION","branch_id":"GEN-087-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"]}]`
+- **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
 
 <details><summary>Exact source span</summary>
 
@@ -137294,7 +137291,6 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
-- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-087-P001-B001-ASSUMPTION","branch_id":"GEN-087-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -137324,7 +137320,6 @@ $$
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
-- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-087-P001-B001-ASSUMPTION","branch_id":"GEN-087-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"]}]`
 
 <details><summary>Exact source span</summary>
 
@@ -137349,14 +137344,13 @@ $$
 - **STATE_BEFORE:** `x>1.`
 - **ACTION:** `SELECT` — Reject. Positive branch
 - **WARRANT/PRECONDITIONS:** `[]`
-- **DEPENDENCIES:** `["c006","c012"]`; source span SHA-256 `5a6a8aa6a5d84424663a60be75b68432725e5357296c7bc1906772774b3d0e05`
+- **DEPENDENCIES:** `["c012"]`; source span SHA-256 `5a6a8aa6a5d84424663a60be75b68432725e5357296c7bc1906772774b3d0e05`
 - **STATE_AFTER:** `\frac{3+\sqrt{33}}2>1.`
 - **Mechanisms:** squaring_or_roots, candidate_reasoning
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source opens or reasons inside a dynamically created branch, but current HML cannot add branch records
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — After rejecting the negative root, 'Positive branch' returns to the source candidate set c012 and selects its positive candidate. This is candidate lifecycle, not a sibling proof scope and not a dependency on the rejected root.
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
-- **Gap/refusal code:** `BRANCH_CREATION_NOT_REPRESENTABLE`
-- **Neutral branch ancestry:** `[{"branch_assumption_id":"GEN-087-P001-B002-ASSUMPTION","branch_id":"GEN-087-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":true,"parent_branch_id":null,"partition_id":"GEN-087-P001","pre_split_premise_ids":["c006","c012"]}]`
+- **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
 
 <details><summary>Exact source span</summary>
 
@@ -143124,7 +143118,7 @@ $$
 - **Source lines:** 13627–13806
 - **Source block SHA-256:** `55165c34fff653f59bc693e3cca57fba47ac3086d4afba9b614519514cb53d1e`
 - **Atomic transitions:** 23
-- **Status counts:** `{"FULLY_REPRESENTABLE_AND_BACKEND_VERIFIED":1,"GENUINE_HML_SEMANTIC_GAP":22}`
+- **Status counts:** `{"FULLY_REPRESENTABLE_AND_BACKEND_VERIFIED":1,"GENUINE_HML_SEMANTIC_GAP":20,"REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE":2}`
 
 ### Original problem
 
@@ -143442,15 +143436,16 @@ state after
 #### GEN-094-T002
 
 - **STATE_BEFORE:** `x\ge0.`
-- **ACTION:** `SELECT` — Squaring is then reversible because both sides are nonnegative. CANDIDATE GENERATION
+- **ACTION:** `TRANSFORM` — Squaring is then reversible because both sides are nonnegative. CANDIDATE GENERATION
 - **WARRANT/PRECONDITIONS:** `[]`
 - **DEPENDENCIES:** `["c001"]`; source span SHA-256 `24756de06db44578d009445c5bacecacdaa4d1d1f1a554218a7b16242dba5717`
 - **STATE_AFTER:** `\sqrt{|x-1|}=x.`
 - **Mechanisms:** squaring_or_roots, inequality_sign, candidate_reasoning
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source creates or changes a candidate during forward reasoning, but current HML cannot add candidate records
-- **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch-sensitive
-- **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
-- **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
+- **Classification:** `REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE` — the step is representable, but the proof-producing checker did not establish it
+- **Backend:** `NOT_APPLICABLE` — the source operation is intentionally non-equivalent or branch/epistemic-sensitive
+- **Validation:** schema `PASS`; HML round trip `PASS`; runtime verdict `UNRESOLVED`
+- **Remaining verification blocker:** `MISCLASSIFIED_CURRENT_KNOWN_CORE_GAP`
+- **Runtime unknowns:** `["evidence.e002.status is UNKNOWN"]`
 
 <details><summary>Exact source span</summary>
 
@@ -143468,20 +143463,88 @@ $$
 
 </details>
 
-**HML rendering withheld:** emitting HML here would erase or falsify the unsupported distinction.
+<details><summary>Deterministically rendered frozen HML</summary>
+
+~~~~hml
+transition GEN-094-T002
+  schema "semantic-firewall-case-0.1.0"
+  source {"category": "algebra_and_functions", "dataset": "Write-Algebra-Problems.md", "gold125_overlap": false, "level": "very_hard_or_multistage", "problem": "Solve:\n\n$$\n\\sqrt{|x-1|}=x.\n$$", "solution_span": "$$\nx\\ge0.\n$$\nSquaring is then reversible because both sides are nonnegative.\n\n### CANDIDATE GENERATION\n$$\n\\sqrt{|x-1|}=x.\n$$", "solution_span_hash": "24756de06db44578d009445c5bacecacdaa4d1d1f1a554218a7b16242dba5717", "source_hash": "55165c34fff653f59bc693e3cca57fba47ac3086d4afba9b614519514cb53d1e", "source_role": "untrusted granular worked-mathematics source", "source_row_id": "GEN-094"}
+
+state before
+  scopes global
+  claim p0
+    proposition "Solve: $$ \\sqrt{|x-1|}=x. $$"
+    status GIVEN
+    domain "Proposition"
+  claim i001
+    proposition "x\\ge0."
+    status GIVEN
+    domain "Proposition"
+  claim c001
+    proposition "x\\ge0."
+    status DERIVED
+    domain "Proposition"
+    depends i001
+  goal g0
+    proposition "Solve: $$ \\sqrt{|x-1|}=x. $$"
+    status OPEN
+
+action a002
+  operation "TRANSFORM"
+  summary "\\sqrt{|x-1|}=x."
+  output c002
+  depends c001
+  typing {"input_domains": {"c001": "Proposition"}, "output_domain": "Proposition"}
+  warrant {"evidence_id": "e002", "premise_ids": ["c001"], "rule": "TRANSFORM"}
+
+evidence e002
+  kind "SOURCE_DERIVATION"
+  status "UNKNOWN"
+  trusted false
+  supports "TRANSFORM"
+  premises c001
+  payload {"payload": {"source_span_sha256": "24756de06db44578d009445c5bacecacdaa4d1d1f1a554218a7b16242dba5717"}}
+
+state after
+  scopes global
+  claim p0
+    proposition "Solve: $$ \\sqrt{|x-1|}=x. $$"
+    status GIVEN
+    domain "Proposition"
+  claim i001
+    proposition "x\\ge0."
+    status GIVEN
+    domain "Proposition"
+  claim c001
+    proposition "x\\ge0."
+    status DERIVED
+    domain "Proposition"
+    depends i001
+  claim c002
+    proposition "\\sqrt{|x-1|}=x."
+    status DERIVED
+    domain "Proposition"
+    depends c001
+  goal g0
+    proposition "Solve: $$ \\sqrt{|x-1|}=x. $$"
+    status OPEN
+~~~~
+
+</details>
 
 #### GEN-094-T003
 
 - **STATE_BEFORE:** `\sqrt{|x-1|}=x.`
-- **ACTION:** `SELECT` — Square
+- **ACTION:** `TRANSFORM` — Square
 - **WARRANT/PRECONDITIONS:** `[]`
 - **DEPENDENCIES:** `["c002"]`; source span SHA-256 `0c3ca6636411437b86989b67002d29711f02c091a22d3f880185b41b8afd39bb`
 - **STATE_AFTER:** `|x-1|=x^2.`
 - **Mechanisms:** squaring_or_roots, candidate_reasoning
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source creates or changes a candidate during forward reasoning, but current HML cannot add candidate records
-- **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before={-1/2 + sqrt(5)/2}; after={-1/2 + sqrt(5)/2, -sqrt(5)/2 - 1/2}
-- **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
-- **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
+- **Classification:** `REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE` — the step is representable, but the proof-producing checker did not establish it
+- **Backend:** `UNSUPPORTED_FRAGMENT` — no conservative proof was found for the transition
+- **Validation:** schema `PASS`; HML round trip `PASS`; runtime verdict `UNRESOLVED`
+- **Remaining verification blocker:** `RELATIONAL_EXPRESSION_HANDLING`
+- **Runtime unknowns:** `["evidence.e003.status is UNKNOWN"]`
 
 <details><summary>Exact source span</summary>
 
@@ -143497,7 +143560,84 @@ $$
 
 </details>
 
-**HML rendering withheld:** emitting HML here would erase or falsify the unsupported distinction.
+<details><summary>Deterministically rendered frozen HML</summary>
+
+~~~~hml
+transition GEN-094-T003
+  schema "semantic-firewall-case-0.1.0"
+  source {"category": "algebra_and_functions", "dataset": "Write-Algebra-Problems.md", "gold125_overlap": false, "level": "very_hard_or_multistage", "problem": "Solve:\n\n$$\n\\sqrt{|x-1|}=x.\n$$", "solution_span": "$$\n\\sqrt{|x-1|}=x.\n$$\nSquare:\n$$\n|x-1|=x^2.\n$$", "solution_span_hash": "0c3ca6636411437b86989b67002d29711f02c091a22d3f880185b41b8afd39bb", "source_hash": "55165c34fff653f59bc693e3cca57fba47ac3086d4afba9b614519514cb53d1e", "source_role": "untrusted granular worked-mathematics source", "source_row_id": "GEN-094"}
+
+state before
+  scopes global
+  claim p0
+    proposition "Solve: $$ \\sqrt{|x-1|}=x. $$"
+    status GIVEN
+    domain "Proposition"
+  claim i001
+    proposition "x\\ge0."
+    status GIVEN
+    domain "Proposition"
+  claim c001
+    proposition "x\\ge0."
+    status DERIVED
+    domain "Proposition"
+    depends i001
+  claim c002
+    proposition "\\sqrt{|x-1|}=x."
+    status DERIVED
+    domain "Proposition"
+    depends c001
+  goal g0
+    proposition "Solve: $$ \\sqrt{|x-1|}=x. $$"
+    status OPEN
+
+action a003
+  operation "TRANSFORM"
+  summary "|x-1|=x^2."
+  output c003
+  depends c002
+  typing {"input_domains": {"c002": "Proposition"}, "output_domain": "Proposition"}
+  warrant {"evidence_id": "e003", "premise_ids": ["c002"], "rule": "TRANSFORM"}
+
+evidence e003
+  kind "SOURCE_DERIVATION"
+  status "UNKNOWN"
+  trusted false
+  supports "TRANSFORM"
+  premises c002
+  payload {"payload": {"source_span_sha256": "0c3ca6636411437b86989b67002d29711f02c091a22d3f880185b41b8afd39bb"}}
+
+state after
+  scopes global
+  claim p0
+    proposition "Solve: $$ \\sqrt{|x-1|}=x. $$"
+    status GIVEN
+    domain "Proposition"
+  claim i001
+    proposition "x\\ge0."
+    status GIVEN
+    domain "Proposition"
+  claim c001
+    proposition "x\\ge0."
+    status DERIVED
+    domain "Proposition"
+    depends i001
+  claim c002
+    proposition "\\sqrt{|x-1|}=x."
+    status DERIVED
+    domain "Proposition"
+    depends c001
+  claim c003
+    proposition "|x-1|=x^2."
+    status DERIVED
+    domain "Proposition"
+    depends c002
+  goal g0
+    proposition "Solve: $$ \\sqrt{|x-1|}=x. $$"
+    status OPEN
+~~~~
+
+</details>
 
 #### GEN-094-T004
 
@@ -143938,11 +144078,11 @@ $$
 - **DEPENDENCIES:** `["c017"]`; source span SHA-256 `18b8b433ed9986a1b2f3f1b52d491870fe6047c2b3f9602a385787500b5d9005`
 - **STATE_AFTER:** `x=\frac{\sqrt5-1}{2}.`
 - **Mechanisms:** squaring_or_roots, substitution
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T002; rendering it independently would lose provenance
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T004; rendering it independently would lose provenance
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
-- **Depends on unsupported step:** `GEN-094-T002`
+- **Depends on unsupported step:** `GEN-094-T004`
 
 <details><summary>Exact source span</summary>
 
@@ -143972,11 +144112,11 @@ $$
 - **DEPENDENCIES:** `["c018"]`; source span SHA-256 `64f974e9c7b7384eea01ae02e33855cc97dd92b1cf0bf6639c096cf9f8b9f296`
 - **STATE_AFTER:** `|x-1|=1-x.`
 - **Mechanisms:** squaring_or_roots
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T002; rendering it independently would lose provenance
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T004; rendering it independently would lose provenance
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
-- **Depends on unsupported step:** `GEN-094-T002`
+- **Depends on unsupported step:** `GEN-094-T004`
 
 <details><summary>Exact source span</summary>
 
@@ -144002,11 +144142,11 @@ $$
 - **DEPENDENCIES:** `["c019"]`; source span SHA-256 `af09c2ac882e9bd0f5f2f1522d9ae3ae19e5302269494d3cd6401ede12635f09`
 - **STATE_AFTER:** `x^2+x-1=0`
 - **Mechanisms:** algebraic_or_logical_transformation
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T002; rendering it independently would lose provenance
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T004; rendering it independently would lose provenance
 - **Backend:** `SYMPY_MISMATCH` — real solution sets differ: before=Interval(-oo, 1); after={-1/2 + sqrt(5)/2, -sqrt(5)/2 - 1/2}
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
-- **Depends on unsupported step:** `GEN-094-T002`
+- **Depends on unsupported step:** `GEN-094-T004`
 
 <details><summary>Exact source span</summary>
 
@@ -144032,11 +144172,11 @@ $$
 - **DEPENDENCIES:** `["c020"]`; source span SHA-256 `09c81da1be11b3a9b47398515c09939a25c5a35372a5446c73481fe9226f02fb`
 - **STATE_AFTER:** `x^2=1-x=|x-1|.`
 - **Mechanisms:** algebraic_or_logical_transformation
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T002; rendering it independently would lose provenance
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T004; rendering it independently would lose provenance
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
-- **Depends on unsupported step:** `GEN-094-T002`
+- **Depends on unsupported step:** `GEN-094-T004`
 
 <details><summary>Exact source span</summary>
 
@@ -144062,11 +144202,11 @@ $$
 - **DEPENDENCIES:** `["c021"]`; source span SHA-256 `61ab8aae6f725b594161ff6e8a7578da8520b3d927d08e6267073b3bd59f0e65`
 - **STATE_AFTER:** `\sqrt{|x-1|} = \sqrt{x^2} = x.`
 - **Mechanisms:** squaring_or_roots
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T002; rendering it independently would lose provenance
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition GEN-094-T004; rendering it independently would lose provenance
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
-- **Depends on unsupported step:** `GEN-094-T002`
+- **Depends on unsupported step:** `GEN-094-T004`
 
 <details><summary>Exact source span</summary>
 
@@ -452794,7 +452934,7 @@ $$
 - **Source lines:** 46102–46235
 - **Source block SHA-256:** `40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5`
 - **Atomic transitions:** 14
-- **Status counts:** `{"GENUINE_HML_SEMANTIC_GAP":7,"REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE":7}`
+- **Status counts:** `{"GENUINE_HML_SEMANTIC_GAP":6,"REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE":8}`
 
 ### Original problem
 
@@ -453815,10 +453955,11 @@ state after
 - **DEPENDENCIES:** `["p0","c007"]`; source span SHA-256 `1553ea2a149722ff0f7a92b6924ed4fc0816abb0591b71d27199392aaf7e09d9`
 - **STATE_AFTER:** `y=\pm x.`
 - **Mechanisms:** algebraic_or_logical_transformation
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the source creates or changes a candidate during forward reasoning, but current HML cannot add candidate records
+- **Classification:** `REPRESENTABLE_BUT_CURRENTLY_UNVERIFIABLE` — the step is representable, but the proof-producing checker did not establish it
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
-- **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
-- **Gap/refusal code:** `CANDIDATE_CREATION_NOT_REPRESENTABLE`
+- **Validation:** schema `PASS`; HML round trip `PASS`; runtime verdict `UNRESOLVED`
+- **Remaining verification blocker:** `SYMPY_LATEX_PARSER_LIMITATION`
+- **Runtime unknowns:** `["evidence.e008.status is UNKNOWN"]`
 
 <details><summary>Exact source span</summary>
 
@@ -453834,7 +453975,134 @@ $$
 
 </details>
 
-**HML rendering withheld:** emitting HML here would erase or falsify the unsupported distinction.
+<details><summary>Deterministically rendered frozen HML</summary>
+
+~~~~hml
+transition MIXED-039-T008
+  schema "semantic-firewall-case-0.1.0"
+  source {"category": "Constrained optimization", "dataset": "Write-Algebra-Problems.md", "gold125_overlap": false, "level": "intermediate", "problem": "Find the maximum of\n\n$$\nf(x,y)=xy\n$$\n\nsubject to\n\n$$\nx^2+y^2=1.\n$$", "solution_span": "$$\nx^2=y^2.\n$$\nTherefore:\n$$\ny=\\pm x.\n$$", "solution_span_hash": "1553ea2a149722ff0f7a92b6924ed4fc0816abb0591b71d27199392aaf7e09d9", "source_hash": "40bfbe5cae69fea98549633d961dd80ecad7cf014354dc56640a374fa0b5f0e5", "source_role": "untrusted granular worked-mathematics source", "source_row_id": "MIXED-039"}
+
+state before
+  scopes global
+  claim p0
+    proposition "Find the maximum of $$ f(x,y)=xy $$ subject to $$ x^2+y^2=1. $$"
+    status GIVEN
+    domain "Proposition"
+  claim i001
+    proposition "g=x^2+y^2-1=0."
+    status GIVEN
+    domain "Proposition"
+  claim c001
+    proposition "\\nabla g=(2x,2y)."
+    status DERIVED
+    domain "Proposition"
+    depends p0
+  claim c002
+    proposition "(y,x)=\\lambda(2x,2y)."
+    status DERIVED
+    domain "Proposition"
+    depends c001
+  claim c003
+    proposition "y=2\\lambda x,"
+    status DERIVED
+    domain "Proposition"
+    depends c002
+  claim c004
+    proposition "x=2\\lambda y."
+    status DERIVED
+    domain "Proposition"
+    depends c003
+  claim c005
+    proposition "y^2=2\\lambda xy,"
+    status DERIVED
+    domain "Proposition"
+    depends c004
+  claim c006
+    proposition "x^2=2\\lambda xy."
+    status DERIVED
+    domain "Proposition"
+    depends c005
+  claim c007
+    proposition "x^2=y^2."
+    status DERIVED
+    domain "Proposition"
+    depends p0, c006
+  goal g0
+    proposition "Find the maximum of $$ f(x,y)=xy $$ subject to $$ x^2+y^2=1. $$"
+    status OPEN
+
+action a008
+  operation "TRANSFORM"
+  summary "y=\\pm x."
+  output c008
+  depends p0, c007
+  typing {"input_domains": {"c007": "Proposition", "p0": "Proposition"}, "output_domain": "Proposition"}
+  warrant {"evidence_id": "e008", "premise_ids": ["p0", "c007"], "rule": "TRANSFORM"}
+
+evidence e008
+  kind "SOURCE_DERIVATION"
+  status "UNKNOWN"
+  trusted false
+  supports "TRANSFORM"
+  premises p0, c007
+  payload {"payload": {"source_span_sha256": "1553ea2a149722ff0f7a92b6924ed4fc0816abb0591b71d27199392aaf7e09d9"}}
+
+state after
+  scopes global
+  claim p0
+    proposition "Find the maximum of $$ f(x,y)=xy $$ subject to $$ x^2+y^2=1. $$"
+    status GIVEN
+    domain "Proposition"
+  claim i001
+    proposition "g=x^2+y^2-1=0."
+    status GIVEN
+    domain "Proposition"
+  claim c001
+    proposition "\\nabla g=(2x,2y)."
+    status DERIVED
+    domain "Proposition"
+    depends p0
+  claim c002
+    proposition "(y,x)=\\lambda(2x,2y)."
+    status DERIVED
+    domain "Proposition"
+    depends c001
+  claim c003
+    proposition "y=2\\lambda x,"
+    status DERIVED
+    domain "Proposition"
+    depends c002
+  claim c004
+    proposition "x=2\\lambda y."
+    status DERIVED
+    domain "Proposition"
+    depends c003
+  claim c005
+    proposition "y^2=2\\lambda xy,"
+    status DERIVED
+    domain "Proposition"
+    depends c004
+  claim c006
+    proposition "x^2=2\\lambda xy."
+    status DERIVED
+    domain "Proposition"
+    depends c005
+  claim c007
+    proposition "x^2=y^2."
+    status DERIVED
+    domain "Proposition"
+    depends p0, c006
+  claim c008
+    proposition "y=\\pm x."
+    status DERIVED
+    domain "Proposition"
+    depends p0, c007
+  goal g0
+    proposition "Find the maximum of $$ f(x,y)=xy $$ subject to $$ x^2+y^2=1. $$"
+    status OPEN
+~~~~
+
+</details>
 
 #### MIXED-039-T009
 
@@ -453874,11 +454142,11 @@ $$
 - **DEPENDENCIES:** `["c009"]`; source span SHA-256 `c4de3a707d47453a385b0875b6e38d0a877e74b507e77c08a24d4e9fdd76ec68`
 - **STATE_AFTER:** `2x^2=1 \Rightarrow x=\pm\frac1{\sqrt2}.`
 - **Mechanisms:** squaring_or_roots
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition MIXED-039-T008; rendering it independently would lose provenance
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition MIXED-039-T009; rendering it independently would lose provenance
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
-- **Depends on unsupported step:** `MIXED-039-T008`
+- **Depends on unsupported step:** `MIXED-039-T009`
 - **Neutral branch ancestry:** `[{"branch_assumption_id":"MIXED-039-P001-B001-ASSUMPTION","branch_id":"MIXED-039-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"]}]`
 
 <details><summary>Exact source span</summary>
@@ -453905,11 +454173,11 @@ $$
 - **DEPENDENCIES:** `["c010"]`; source span SHA-256 `80447eccbe01f44f7d56ad1fe835a77c38f922c37fab85fc0a99d1a99199ceab`
 - **STATE_AFTER:** `xy=x^2=\frac12.`
 - **Mechanisms:** squaring_or_roots
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition MIXED-039-T008; rendering it independently would lose provenance
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition MIXED-039-T009; rendering it independently would lose provenance
 - **Backend:** `UNSUPPORTED_FRAGMENT` — one or both states are outside the conservative SymPy/LaTeX fragment
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
-- **Depends on unsupported step:** `MIXED-039-T008`
+- **Depends on unsupported step:** `MIXED-039-T009`
 - **Neutral branch ancestry:** `[{"branch_assumption_id":"MIXED-039-P001-B001-ASSUMPTION","branch_id":"MIXED-039-P001-B001","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"]}]`
 
 <details><summary>Exact source span</summary>
@@ -453966,11 +454234,11 @@ $$
 - **DEPENDENCIES:** `["c012"]`; source span SHA-256 `2bea61fcff50f91ef2e60c38dba676976a584e28b4269924df4bd35d29ca0822`
 - **STATE_AFTER:** `xy=-x^2=-\frac12.`
 - **Mechanisms:** algebraic_or_logical_transformation
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition MIXED-039-T008; rendering it independently would lose provenance
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition MIXED-039-T009; rendering it independently would lose provenance
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
-- **Depends on unsupported step:** `MIXED-039-T008`
+- **Depends on unsupported step:** `MIXED-039-T009`
 - **Neutral branch ancestry:** `[{"branch_assumption_id":"MIXED-039-P001-B002-ASSUMPTION","branch_id":"MIXED-039-P001-B002","dependency_derivation":"SOURCE_REDERIVED_NOT_LINEAR_ADJACENCY","opens_branch":false,"parent_branch_id":null,"partition_id":"MIXED-039-P001","pre_split_premise_ids":["p0","c008"]}]`
 
 <details><summary>Exact source span</summary>
@@ -453997,11 +454265,11 @@ $$
 - **DEPENDENCIES:** `["c011","c013"]`; source span SHA-256 `abb0a4f3aee5aa5daaa7e3072f4f77df653119ffbc3a36fddedb02799d602515`
 - **STATE_AFTER:** `\frac12.`
 - **Mechanisms:** algebraic_or_logical_transformation
-- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition MIXED-039-T008; rendering it independently would lose provenance
+- **Classification:** `GENUINE_HML_SEMANTIC_GAP` — the state depends on unsupported transition MIXED-039-T009; rendering it independently would lose provenance
 - **Backend:** `UNSUPPORTED_FRAGMENT` — SymPy declined the comparison: AttributeError: module 'sympy' has no attribute 'Relational'
 - **Validation:** schema `NOT_RUN`; HML round trip `NOT_RUN`; runtime verdict `NOT_RENDERED`
 - **Gap/refusal code:** `DOWNSTREAM_OF_SEMANTIC_GAP`
-- **Depends on unsupported step:** `MIXED-039-T008`
+- **Depends on unsupported step:** `MIXED-039-T009`
 - **Neutral branch join:** partitions `["MIXED-039-P001"]`; covered branch conclusions `["c011","c013"]`
 
 <details><summary>Exact source span</summary>
@@ -497279,8 +497547,8 @@ Powered by [AI Exporter](https://saveai.net)
 
 | Operation | Transitions |
 |---|---:|
-| `TRANSFORM` | 3074 |
-| `SELECT` | 196 |
+| `TRANSFORM` | 3076 |
+| `SELECT` | 194 |
 | `CASE_SPLIT` | 169 |
 | `APPLY_THEOREM` | 140 |
 | `SUBSTITUTE` | 137 |
@@ -497300,17 +497568,17 @@ Powered by [AI Exporter](https://saveai.net)
 | Outcome | Transitions |
 |---|---:|
 | `NOT_APPLICABLE` | 102 |
-| `SYMPY_MISMATCH` | 88 |
+| `SYMPY_MISMATCH` | 87 |
 | `SYMPY_VERIFIED` | 867 |
-| `UNSUPPORTED_FRAGMENT` | 2921 |
+| `UNSUPPORTED_FRAGMENT` | 2922 |
 
 ## Semantic-gap and refusal census
 
 | Gap/refusal code | Transitions |
 |---|---:|
 | `APPROXIMATION_STATUS_NOT_REPRESENTABLE` | 63 |
-| `BRANCH_CREATION_NOT_REPRESENTABLE` | 168 |
-| `CANDIDATE_CREATION_NOT_REPRESENTABLE` | 202 |
+| `BRANCH_CREATION_NOT_REPRESENTABLE` | 166 |
+| `CANDIDATE_CREATION_NOT_REPRESENTABLE` | 201 |
 | `DOWNSTREAM_OF_SEMANTIC_GAP` | 458 |
 
 ## Layer diagnosis

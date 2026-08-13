@@ -17,22 +17,25 @@ def test_pool_b_baseline_promotion_and_remaining_histogram_reconcile():
     assert text.count("baseline Pool `A`") == 453
     assert text.count("baseline Pool `B`") == 2640
     assert text.count("promoted `B→A`") == 315
-    assert text.count("**Remaining verification blocker:**") == 2256
+    # Five source-role corrections remove two false candidate roots while preserving the
+    # historical 453/2640 Pool-A/B baseline. Three corrected claim rows now remain honest
+    # checker limitations rather than being hidden behind a semantic-gap short circuit.
+    assert text.count("**Remaining verification blocker:**") == 2259
     remaining_pool_b = re.findall(
         r"\*\*Remaining verification blocker:\*\* `([^`]+)`",
         text,
     )
     counts = Counter(remaining_pool_b)
-    # Three library classes account for 353 rows, and 10 directly reached missed candidate gaps
-    # carry their explicit diagnosis; the rest are the 1,893 rows still in Pool B.
-    assert sum(counts.values()) == 2256
+    # Three library classes account for 353 rows, and 11 directly reached candidate-role
+    # diagnoses carry their explicit label; the remaining 1,895 are checker-limited rows.
+    assert sum(counts.values()) == 2259
     assert sum(counts[name] for name in (
         "THEOREM_OR_DOMAIN_LIBRARY_REQUIREMENT",
         "CALCULUS_RULE_OR_LIBRARY",
         "PROBABILITY_OR_STATISTICS_RULE",
     )) == 353
-    assert counts["MISCLASSIFIED_CURRENT_KNOWN_CORE_GAP"] == 10
-    assert sum(counts.values()) - 353 - 10 == 1893
+    assert counts["MISCLASSIFIED_CURRENT_KNOWN_CORE_GAP"] == 11
+    assert sum(counts.values()) - 353 - 11 == 1895
 
 
 def test_every_verified_transition_has_a_hash_bound_external_certificate():

@@ -1,0 +1,178 @@
+{
+  "contract_version": "vnext-translation-contract-1.0.0",
+  "hml_semantic_commit": "68178f0",
+  "hml_semantic_commit_note": "src/ is byte-identical from this commit through every later experiment/report commit on hml/vnext-semantic-coverage; pin the full hash at consumption time and stop on mismatch",
+  "frozen_historical_authority": "84bf9897689b0ed78a2caaefc1db850d49b81260",
+  "human_readable_companion": "docs/hml_vnext/CODEX_TRANSLATION_HANDOFF.md",
+  "regression_oracle": "docs/hml_vnext/TRANSLATION_GOLDEN_FIXTURES.jsonl",
+  "decision_records": ["D-061", "D-062", "D-063"],
+
+  "neutral_schema_requirements": {
+    "schema_version": "semantic-firewall-case-0.1.0",
+    "source_record": "immutable; problem block and per-step spans each carry SHA-256; a span whose recomputed hash disagrees with the published hash is refused before use",
+    "initial_state_premises": "every source premise cited by any later transition receives a stable neutral id, proposition, origin (SOURCE_PROBLEM | SOURCE_INITIAL_STATE | EARLIER_SOURCE_TRANSITION | EXPLICIT_SOURCE_STATE_OMITTED_BY_OLD_SEGMENTER) and provenance hash, corpus-wide, never only for partition-bearing problems",
+    "branch_ancestry": {
+      "artifact": "synthetic-math-branch-ancestry-0.1.0 shape, retained permanently",
+      "per_partition": ["partition_id", "parent_branch_id", "pre_split_premises", "pre_split_premise_ids", "branches", "join_transition_id", "derivation_method"],
+      "per_branch": ["branch_id", "partition_id", "parent_branch_id", "label", "assumption", "opening_transition_id", "transition_ids", "pre_split_premise_ids", "opening_dependency_ids", "linear_predecessor_id", "rejected_linear_dependency_ids", "source_basis", "source_problem_sha256"],
+      "rule": "linear predecessor is never semantic dependency; rejected linear edges are recorded and never reused as ancestry"
+    },
+    "implicit_logical_steps": {
+      "when": "exhaustive branches establish unequal conclusions and the source publishes their union",
+      "insert": "one weakening transition per branch, then close each branch on the common union, then the existing join",
+      "origin_marker": "IMPLICIT_LOGICAL_STEP",
+      "rule_whitelist": ["DISJUNCTION_INTRODUCTION"],
+      "determinism": "premise = the branch's own established conclusion; conclusion = the source's union proposition, or for inner levels the deterministic disjunction of sibling conclusions in declared branch order; no arithmetic, no creativity, no reading ahead beyond the union step the source contains",
+      "whitelist_extension": "only by amending this contract, never by translator judgment",
+      "authority": "D-063: DISJUNCTIVE_JOIN_CORE_EXTENSION = REJECTED"
+    }
+  },
+
+  "state_object_types": {
+    "Claim": {
+      "fields": ["id", "proposition", "status", "scope", "domain", "dependencies", "exactness", "approximation"],
+      "status_enum": ["GIVEN", "ASSUMED", "DERIVED", "VERIFIED", "REFUTED", "UNRESOLVED", "UNKNOWN"],
+      "notes": "exactness/approximation optional; absent means unannotated and is byte-stable for legacy records"
+    },
+    "Candidate": {
+      "fields": ["id", "proposition", "status", "scope", "constraint_ids", "origin", "dependencies", "evidence_id", "verification_result"],
+      "status_enum": ["PROPOSED", "UNVERIFIED", "VERIFIED", "REJECTED", "UNKNOWN"],
+      "notes": "evidence_id and verification_result are verifier-owned; a producer never writes them"
+    },
+    "Branch": {
+      "fields": ["id", "predicate", "status", "scope", "conclusion", "partition_id", "coverage_obligation_id"],
+      "status_enum": ["OPEN", "CLOSED", "JOINED", "ABANDONED", "UNKNOWN"],
+      "notes": "scope is the PARENT frame; the branch's own frame is branch:{key}; partition_id is a descriptive grouping label; coverage_obligation_id is the declared coverage debt"
+    },
+    "Goal": {
+      "fields": ["id", "proposition", "status", "scope"],
+      "status_enum": ["OPEN", "DISCHARGED", "UNKNOWN"]
+    },
+    "Obligation": {
+      "fields": ["id", "proposition", "status", "mandatory", "origin", "dependencies", "discharge_evidence_id"],
+      "status_enum": ["OPEN", "DISCHARGED", "FAILED", "UNKNOWN"]
+    },
+    "EvidenceRecord": {
+      "fields": ["id", "kind", "status", "trusted", "supports_rule", "premise_ids", "payload"],
+      "notes": "trusted is provenance, never permission; status is external ground truth only under offline replay; at runtime acceptance requires attestation"
+    },
+    "Action": {
+      "fields": ["id", "operation", "summary", "claimed_conclusion", "output_id", "dependencies", "preconditions", "obligations_created", "obligations_discharged", "typing", "warrant", "goal_effect", "scope_effect", "branch_effect", "candidate_effect", "epistemic_effect", "exactness_effect"],
+      "notes": "operation and summary are labels; typed effects are the semantics; summary is presentation-only and read by nothing in the verifier"
+    }
+  },
+
+  "allowed_state_effects": {
+    "candidate_effect.kind": ["NONE", "PROMOTE", "CREATE", "UPDATE", "SUBMIT", "REJECT"],
+    "branch_effect.kind": ["NONE", "JOIN", "DECLARE_PARTITION", "OPEN", "CLOSE", "ABANDON"],
+    "exactness_effect.kind": ["NONE", "ANNOTATE", "APPROXIMATE", "EXACT_FROM_APPROXIMATE"],
+    "scope_effect.kind": ["NONE", "DISCHARGE"],
+    "goal_effect.kind": ["NONE", "DISCHARGE"],
+    "unrecognised_kinds": "fail closed with the family's error class"
+  },
+
+  "candidate_lifecycle": {
+    "states": ["PROPOSED", "UNVERIFIED", "VERIFIED", "REJECTED"],
+    "transitions": {"PROPOSED": ["UNVERIFIED", "VERIFIED", "REJECTED"], "UNVERIFIED": ["VERIFIED", "REJECTED"], "VERIFIED": [], "REJECTED": []},
+    "creation": "born PROPOSED only, with >=1 existing constraint, non-empty origin, active scope, dependencies subset of the action's",
+    "derivation": "a step continuing an existing candidate creates a NEW candidate with a fresh id, inheriting the original constraints; candidate history is never mutated destructively",
+    "update": "constraints and dependencies may only grow; settled candidates are immutable",
+    "rejection": "requires accepted evidence naming refuted constraints the candidate actually carried; rejected candidates remain in the state",
+    "promotion": "verifier-owned; checks EVERY original constraint; may publish only the proposition it verified; a translator never promotes"
+  },
+
+  "branch_protocol": {
+    "shape": "declare partition (an ordinary Obligation) -> open sibling branches from the declared common pre-split state -> branch-local assumption ASSUMED in the fresh frame -> reason inside the frame -> close each branch on a proposition its frame established -> join under the common-conclusion rule, discharging every named coverage debt in the same transition",
+    "coverage": "unconditional: a branch that names a coverage_obligation_id owes it; the obligation must exist, be OPEN, and be discharged by the join; one case analysis carries one debt",
+    "no_disjointness_requirement": "coverage is the obligation; overlap is not",
+    "unequal_conclusions": "resolved compositionally via implicit_logical_steps; no disjunctive-join primitive exists (D-063)",
+    "nesting": "supported; a nested branch's parent frame must be open; inner joins publish into the parent branch's frame",
+    "leakage": "branch-local facts never cite into or publish outside frames that do not contain them; escapes require a declared, evidenced scope discharge"
+  },
+
+  "exactness_protocol": {
+    "axis": "independent of ClaimStatus; None = unannotated, UNKNOWN = annotated-undeterminable",
+    "immutability": "exactness and the approximation record are immutable once annotated; APPROXIMATE->EXACT and EXACT->APPROXIMATE in place are both forbidden",
+    "approximation_record": ["source_claim_id", "method", "error_bound", "tolerance", "provenance"],
+    "sourced": "source_claim_id must be a declared dependency and the source claim must survive byte-identical",
+    "unsourced": "legal (measured constants, side calculations) but must carry method or provenance; never invent an error bound the source does not state",
+    "laundering": "an EXACT conclusion from APPROXIMATE premises requires the declared EXACT_FROM_APPROXIMATE effect with a non-empty justification"
+  },
+
+  "goal_protocol": {
+    "supported": "discharge only: goal_effect {kind: DISCHARGE, goal_id}; the goal must exist, end DISCHARGED, and the discharging claim must state the goal's proposition",
+    "creation": "not licensed at 68178f0; a goal appearing in state_after is refused by the frame; goal/subgoal lifecycle is specified (VNEXT_GOAL_SPEC.md) and deliberately unimplemented",
+    "claimed_conclusion": "when present must equal the produced claim's proposition exactly; summary never participates"
+  },
+
+  "obligation_protocol": {
+    "creation": "declared via obligations_created; licensed by the frame for exactly the declared ids",
+    "discharge": "declared via obligations_discharged as {id, evidence_id}; must materialise as DISCHARGED; cited evidence is checked through the acceptance seam",
+    "deletion": "never licensed; a mandatory obligation removed from state_after is a structural violation regardless of evidence status (D-062)"
+  },
+
+  "scope_protocol": {
+    "containment": "a conclusion may never be wider than the narrowest premise it rests on; global is the root; branch frames derive ancestry from Branch.scope",
+    "active_scopes": "under the frame condition: opening/retiring a frame is licensed only by the branch protocol's OPEN/CLOSE; undeclared mutation is INVALID",
+    "escape": "leaving a frame requires scope_effect DISCHARGE with accepted evidence"
+  },
+
+  "dependency_rules": {
+    "claims_only": "action.dependencies cite claims present in state_before; candidates are never dependencies — candidate lineage is carried in candidate records, not dependency edges",
+    "produced_claim": "the produced claim's dependencies equal the action's declared dependencies",
+    "warrant_envelope": "warrant evidence premise_ids equal the action's dependency list exactly, order included",
+    "sibling_cases": "opening dependencies come from the declared pre-split state; the linear predecessor is rejected, never reused"
+  },
+
+  "provenance_rules": {
+    "spans": "every transition carries its source span hash; recompute before use; mismatch is refusal",
+    "ids": "the source's fresh transition/output ids are preserved; synthetic protocol steps (declare/open/close inserted by translation) are suffix-marked and never reuse source ids",
+    "implicit_steps": "origin IMPLICIT_LOGICAL_STEP plus the span hash of the source step that necessitated them",
+    "approximation": "the approximation record is the provenance and is immutable",
+    "summary": "may carry source prose for humans; carries no authority and is excluded from training views"
+  },
+
+  "evidence_rules": {
+    "modes": {"OFFLINE_REPLAY": "recorded status is external ground truth from a frozen adjudicated corpus", "RUNTIME": "recorded status is ignored; acceptance requires attestation minted by the checking machinery"},
+    "acceptance": "record exists, supports the rule applied, binds the exact premise envelope, status/attestation valid; trusted flag is never authority",
+    "source_warrant": "an untrusted worked-solution step is UNKNOWN evidence; expect UNRESOLVED, never fabricate VALID"
+  },
+
+  "unknown_rules": {
+    "field_unknown": "a status/domain/conclusion the invariants would have to read: transition is UNRESOLVED, checks short-circuit",
+    "evidence_unknown": "suppresses only warrant-class findings; structural violations (forged status, unlicensed frame change, deletion, leak) are reported regardless",
+    "scope": "only unknowns on records the action cites count; unrelated unknowns never disable the verifier"
+  },
+
+  "refusal_codes": {
+    "MISSING_SOURCE_PREMISE": "a cited premise has no declared neutral id; never reconstruct from linear adjacency",
+    "AMBIGUOUS_BRANCH_PARENT": "the pre-split state or parent frame of a case is not declared",
+    "MISSING_BRANCH_COVERAGE": "a case analysis has no declared coverage obligation",
+    "UNSUPPORTED_CANDIDATE_TRANSITION": "a candidate move outside the lifecycle table (including any translator-side promotion)",
+    "UNREPRESENTABLE_APPROXIMATION": "an approximation whose method/error/provenance the source does not state",
+    "SOURCE_ROLE_CONTRADICTION": "one source object carries contradictory classifications (e.g. premise vs candidate); resolve in the corpus, not in HML",
+    "BACKEND_REQUIRED": "the step's warrant needs a computational backend; render with UNKNOWN evidence or refuse the verification claim, never fabricate",
+    "LIBRARY_REQUIRED": "the step's warrant needs a theorem/domain library entry that does not exist",
+    "SOURCE_AMBIGUITY": "the source under-determines the state change; refusal, never a guess"
+  },
+
+  "representation_views": {
+    "canonical": "the typed semantic state; every view is a deterministic rendering of it",
+    "views": ["HML_LINEAR", "HML_TREE", "AST", "STRUCTURED_NEUTRAL"],
+    "losslessness": "parse(render(S)) == S for every supported state, per view; HML_TREE is a view only, never canonical, and carries no superiority claim",
+    "divergence": "a distinction visible in only one view is a rendering bug"
+  },
+
+  "training_safe_field_policy": {
+    "principle": "training views are renderer-level projections of the audit record; never semantic authority",
+    "input_projection": "(S_before, action) emitted from an explicit field allowlist",
+    "never_in_input": ["state_after", "future claims/candidates/branch conclusions/goal statuses", "action.summary when answer-bearing (summaries are dropped or neutralised)", "claimed_conclusion when it states the step's output", "target delta", "final answer", "later source-solution text including via provenance payloads", "derived fields trivially revealing the target"],
+    "assertions": "automated per-example leakage checks in dataset CI: no token of the held-out target in the input projection; no post-action id cited",
+    "audit": "the full semantic record is preserved separately and linked by id"
+  },
+
+  "non_rules": {
+    "corpus_counts": "no corpus count (600, 3978, 433, ...) is a semantic rule; gates are defined over mechanisms and verdicts, not row totals",
+    "no_procedure_keywords": "no TRIG/CALCULUS/DIFFERENTIATE/etc core operations exist or are planned; mathematical procedure lives in warrants, libraries and backends"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hmltn.local/schemas/synthetic-math-implicit-logical-steps.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "decision", "allowed_family", "policy", "steps"],
+  "properties": {
+    "schema_version": {"const": "synthetic-math-implicit-logical-steps-0.1.0"},
+    "decision": {"const": "D-063"},
+    "allowed_family": {"const": "DISJUNCTION_INTRODUCTION"},
+    "policy": {"type": "string", "minLength": 1},
+    "steps": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "step_id", "record_kind", "problem_id", "partition_id", "branch_id",
+          "source_join_transition_id", "triggering_branch_ids", "premise_ids",
+          "premise_proposition", "resulting_proposition", "resulting_proposition_origin",
+          "warrant_rule", "insertion_reason", "source_expression_status",
+          "deterministic_derivation_proof", "provenance"
+        ],
+        "properties": {
+          "step_id": {"type": "string", "minLength": 1},
+          "record_kind": {"const": "IMPLICIT_LOGICAL_STEP"},
+          "problem_id": {"type": "string"},
+          "partition_id": {"type": "string"},
+          "branch_id": {"type": "string"},
+          "source_join_transition_id": {"type": "string"},
+          "triggering_branch_ids": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+          "premise_ids": {"type": "array", "minItems": 1, "maxItems": 1, "items": {"type": "string"}},
+          "premise_proposition": {"type": "string", "minLength": 1},
+          "resulting_proposition": {"type": "string", "minLength": 1},
+          "resulting_proposition_origin": {"enum": ["EXACT_SOURCE_JOIN_PROPOSITION", "DETERMINISTIC_INNER_CASE_DISJUNCTION", "DETERMINISTIC_BRANCH_OUTCOME_DISJUNCTION"]},
+          "warrant_rule": {"const": "DISJUNCTION_INTRODUCTION"},
+          "insertion_reason": {"type": "string", "minLength": 1},
+          "source_expression_status": {"enum": ["WEAKENING_ELIDED_SOURCE_UNION_EXPLICIT", "WEAKENING_AND_UNION_ELIDED_BEFORE_SOURCE_SELECTION"]},
+          "deterministic_derivation_proof": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["proof_system", "rule", "disjunct_index", "disjuncts", "premise_equals_selected_disjunct"],
+            "properties": {
+              "proof_system": {"const": "PROPOSITIONAL_NATURAL_DEDUCTION"},
+              "rule": {"const": "OR_INTRO"},
+              "disjunct_index": {"type": "integer", "minimum": 0},
+              "disjuncts": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+              "premise_equals_selected_disjunct": {"const": true}
+            }
+          },
+          "provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source_problem_sha256", "source_join_span_sha256", "source_join_transition_id"],
+            "properties": {
+              "source_problem_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "source_join_span_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "source_join_transition_id": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}
