@@ -6,6 +6,9 @@
 # frozen artifact. A validator nobody can install is a validator nobody runs.
 jsonschema>=4.26
 pytest>=8
+sympy==1.14.0
+# SymPy's LaTeX parser requires the 4.11 runtime API.
+antlr4-python3-runtime>=4.11,<4.12
 # PyYAML is deliberately NOT listed: the cognition ledger is validated against an
 # independent parser (Ruby's Psych) precisely so that the tool which writes it is not the
 # tool that blesses it.
