@@ -396,14 +396,15 @@ def measure_arm(tokenizer, rows_by_split: dict[str, list[dict]]) -> tuple[dict, 
 
 
 def original_grid_fit(tokenizer, data_root: Path, execute_ids: dict[str, list[str]]) -> set[str]:
-    fit = set().union(*execute_ids.values())
+    execute_universe = set().union(*execute_ids.values())
+    fit = set(execute_universe)
     for arm in ORIGINAL_GRID_ARMS:
         arm_by_id = {}
         for split in SPLITS:
             for row in read_gzip(data_root / "views" / arm / f"{split}.jsonl.gz"):
-                if row["record_id"] in fit:
+                if row["record_id"] in execute_universe:
                     arm_by_id[row["record_id"]] = row
-        if set(arm_by_id) != set().union(*execute_ids.values()):
+        if set(arm_by_id) != execute_universe:
             raise AssertionError(f"original-grid EXECUTE parity failed: {arm}")
         ordered_ids = sorted(arm_by_id)
         input_lengths = token_lengths(
