@@ -15,10 +15,8 @@ import hashlib
 import io
 import json
 import math
-import re
 import statistics
 import subprocess
-import unicodedata
 from pathlib import Path
 
 from hamiltonian_lang.semantic_state import (
@@ -29,6 +27,7 @@ from hamiltonian_lang.semantic_state import (
 )
 from hamiltonian_lang.semantic_state.tree_view import parse_tree_state, render_tree_state
 
+from scripts.vnext.action_leakage_policy import TOKEN_PATTERN, TOKEN_RE, action_leakage
 from scripts.vnext.corpus_rederive import _decode_json_ast, _json_ast
 
 
@@ -50,10 +49,9 @@ RENDERERS = {
 TOKENIZER = {
     "name": "HMLTN_UNICODE_LEXICAL",
     "version": "1.0.0",
-    "pattern": r"\w+|[^\w\s]",
+    "pattern": TOKEN_PATTERN,
     "note": "FABLE model tokenizer was not present locally; this frozen lexical audit is reproducible and is not claimed to be model-token equivalent.",
 }
-TOKEN_RE = re.compile(TOKENIZER["pattern"], re.UNICODE)
 FORBIDDEN_ACTION_FIELDS = {"summary", "output_id", "source", "state_after", "target_delta"}
 EFFECT_FIELDS = (
     "branch_effect",
@@ -95,15 +93,6 @@ def deterministic_gzip(path: Path, rows) -> None:
             with io.TextIOWrapper(compressed, encoding="utf-8") as text:
                 for row in rows:
                     text.write(canonical(row) + "\n")
-
-
-def normalized(value: str) -> str:
-    value = unicodedata.normalize("NFKC", value).lower()
-    return re.sub(r"[^\w]+", "", value)
-
-
-def comparison_tokens(value: str) -> set[str]:
-    return set(TOKEN_RE.findall(unicodedata.normalize("NFKC", value).lower()))
 
 
 def percentile(values: list[int], fraction: float) -> int:
@@ -198,62 +187,6 @@ def safe_action(row: dict, lean_index: dict[tuple[str, int], dict]) -> tuple[dic
     if FORBIDDEN_ACTION_FIELDS & set(projected):
         raise AssertionError(f"forbidden safe-action field: {row['record_id']}")
     return projected, provenance
-
-
-def delta_texts(neutral: dict) -> list[str]:
-    before, after = neutral["state_before"], neutral["state_after"]
-    values = []
-    for collection in ("claims", "candidates", "goals", "obligations", "branches"):
-        old = before.get(collection, {})
-        for key, value in after.get(collection, {}).items():
-            if key in old or not isinstance(value, dict):
-                continue
-            for field in ("proposition", "statement", "description", "target"):
-                if isinstance(value.get(field), str):
-                    values.append(value[field])
-    return values
-
-
-def action_leakage(row: dict, projected_action: dict) -> dict:
-    action_text = projected_action.get("tactic_text") or projected_action.get("action_text") or ""
-    action_norm = normalized(action_text)
-    action_tokens = comparison_tokens(action_text)
-    diagnostics = []
-    direct = False
-    ambiguous = False
-    for target_delta in delta_texts(row["neutral"]):
-        delta_norm = normalized(target_delta)
-        delta_tokens = comparison_tokens(target_delta)
-        union = action_tokens | delta_tokens
-        overlap = len(action_tokens & delta_tokens) / len(union) if union else 0.0
-        exact = bool(delta_norm) and action_norm == delta_norm
-        delta_in_action = bool(delta_norm) and len(delta_norm) >= 8 and delta_norm in action_norm
-        action_in_delta = bool(action_norm) and len(action_norm) >= 8 and action_norm in delta_norm
-        if exact or delta_in_action:
-            direct = True
-        elif action_in_delta or (len(delta_tokens) >= 5 and overlap >= 0.80):
-            ambiguous = True
-        diagnostics.append({
-            "action_equals_delta_normalized": exact,
-            "action_normalized_substring_of_delta": action_in_delta,
-            "delta_normalized_substring_of_action": delta_in_action,
-            "delta_sha256": digest_text(target_delta),
-            "token_jaccard": round(overlap, 6),
-        })
-    classification = "B_DIRECT_TARGET_REVEALING_ACTION" if direct else (
-        "C_AMBIGUOUS" if ambiguous else "A_LEGITIMATE_ACTION_SEMANTICS"
-    )
-    return {
-        "record_id": row["record_id"],
-        "source_family": row["source_family"],
-        "split": row["split"],
-        "classification": classification,
-        "action_field": "tactic_text" if "tactic_text" in projected_action else "action_text",
-        "action_sha256": digest_text(action_text),
-        "action_character_count": len(action_text),
-        "diagnostics": diagnostics,
-        "excluded_from_execute": classification == "B_DIRECT_TARGET_REVEALING_ACTION",
-    }
 
 
 def render_views(row: dict, projected_action: dict, provenance: dict | None) -> dict[str, dict]:
