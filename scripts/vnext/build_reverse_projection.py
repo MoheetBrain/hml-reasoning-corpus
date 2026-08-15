@@ -540,12 +540,23 @@ def build(data_root: Path, output_root: Path, tokenizer_path: Path) -> list[str]
         raw_ids = set(audit["execute_ids"][split])
         selected = sorted(raw_ids & comparison_fit)
         comparison_ids[split] = selected
+        joined_excluded = raw_ids - joined_fit
+        ast_excluded = raw_ids - ast_fit
         by_split_fit[split] = {
-            "ast_control_excluded_ids": sorted(raw_ids - ast_fit),
+            "ast_control_exclusions": [
+                {"record_id": record_id, **ast_lengths[record_id]}
+                for record_id in sorted(ast_excluded)
+            ],
             "ast_control_fit": len(raw_ids & ast_fit),
             "comparison_fit": len(selected),
             "completed_four_arm_control_fit": len(raw_ids & completed_control_fit),
-            "hml_in_json_out_excluded_ids": sorted(raw_ids - joined_fit),
+            "excluded_by_ast_control_only": sorted(ast_excluded - joined_excluded),
+            "excluded_by_both_pair_arms": sorted(joined_excluded & ast_excluded),
+            "excluded_by_hml_in_json_out_only": sorted(joined_excluded - ast_excluded),
+            "hml_in_json_out_exclusions": [
+                {"record_id": record_id, **joined_lengths[record_id]}
+                for record_id in sorted(joined_excluded)
+            ],
             "hml_in_json_out_fit": len(raw_ids & joined_fit),
             "pair_fit": len(raw_ids & pair_fit),
             "raw": len(raw_ids),
@@ -561,8 +572,14 @@ def build(data_root: Path, output_root: Path, tokenizer_path: Path) -> list[str]
             "prompt_sha256": digest_text(PROMPT),
         },
         "equivalence_checks": {
+            "completed_four_arm_control_fit_is_subset_of_hml_in_json_out_fit": (
+                completed_control_fit <= joined_fit
+            ),
             "pair_fit_equals_completed_four_arm_control_fit": pair_fit == completed_control_fit,
             "pair_fit_equals_reusable_comparison_fit": pair_fit == comparison_fit,
+            "reusable_comparison_fit_equals_completed_four_arm_control_fit": (
+                comparison_fit == completed_control_fit
+            ),
         },
         "schema_version": "hmltn-reverse-projection-fit-1.0.0",
         "view_family": VIEW_FAMILY,
