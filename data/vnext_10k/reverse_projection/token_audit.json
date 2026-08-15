@@ -1,0 +1,323 @@
+{
+  "arms": {
+    "AST_JSON_IN_JSON_OUT_CONTROL": {
+      "all": {
+        "fit": 4007,
+        "input": {
+          "max": 5688,
+          "mean": 595.611,
+          "median": 535.0,
+          "p90": 777,
+          "p99": 1359,
+          "records": 4024
+        },
+        "raw": 4024,
+        "target": {
+          "max": 7911,
+          "mean": 671.881,
+          "median": 560.0,
+          "p90": 1027,
+          "p99": 2130,
+          "records": 4024
+        },
+        "total": {
+          "max": 12166,
+          "mean": 1267.493,
+          "median": 1104.0,
+          "p90": 1796,
+          "p99": 3420,
+          "records": 4024
+        },
+        "total_with_generation_reserve": {
+          "max": 12182,
+          "mean": 1283.493,
+          "median": 1120.0,
+          "p90": 1812,
+          "p99": 3436,
+          "records": 4024
+        }
+      },
+      "dev": {
+        "fit": 391,
+        "input": {
+          "max": 3925,
+          "mean": 578.579,
+          "median": 527.0,
+          "p90": 748,
+          "p99": 1418,
+          "records": 392
+        },
+        "raw": 392,
+        "target": {
+          "max": 3943,
+          "mean": 646.125,
+          "median": 548.0,
+          "p90": 982,
+          "p99": 2348,
+          "records": 392
+        },
+        "total": {
+          "max": 7868,
+          "mean": 1224.704,
+          "median": 1081.5,
+          "p90": 1698,
+          "p99": 3749,
+          "records": 392
+        },
+        "total_with_generation_reserve": {
+          "max": 7884,
+          "mean": 1240.704,
+          "median": 1097.5,
+          "p90": 1714,
+          "p99": 3765,
+          "records": 392
+        }
+      },
+      "test": {
+        "fit": 377,
+        "input": {
+          "max": 3160,
+          "mean": 599.728,
+          "median": 542.0,
+          "p90": 795,
+          "p99": 1209,
+          "records": 378
+        },
+        "raw": 378,
+        "target": {
+          "max": 3173,
+          "mean": 682.897,
+          "median": 582.0,
+          "p90": 1109,
+          "p99": 2168,
+          "records": 378
+        },
+        "total": {
+          "max": 6333,
+          "mean": 1282.624,
+          "median": 1133.0,
+          "p90": 1902,
+          "p99": 3345,
+          "records": 378
+        },
+        "total_with_generation_reserve": {
+          "max": 6349,
+          "mean": 1298.624,
+          "median": 1149.0,
+          "p90": 1918,
+          "p99": 3361,
+          "records": 378
+        }
+      },
+      "train": {
+        "fit": 3239,
+        "input": {
+          "max": 5688,
+          "mean": 597.185,
+          "median": 535.5,
+          "p90": 777,
+          "p99": 1359,
+          "records": 3254
+        },
+        "raw": 3254,
+        "target": {
+          "max": 7911,
+          "mean": 673.705,
+          "median": 560.0,
+          "p90": 1024,
+          "p99": 2130,
+          "records": 3254
+        },
+        "total": {
+          "max": 12166,
+          "mean": 1270.889,
+          "median": 1104.5,
+          "p90": 1794,
+          "p99": 3495,
+          "records": 3254
+        },
+        "total_with_generation_reserve": {
+          "max": 12182,
+          "mean": 1286.889,
+          "median": 1120.5,
+          "p90": 1810,
+          "p99": 3511,
+          "records": 3254
+        }
+      }
+    },
+    "HML_IN_JSON_OUT": {
+      "all": {
+        "fit": 4017,
+        "input": {
+          "max": 4985,
+          "mean": 446.476,
+          "median": 363.0,
+          "p90": 794,
+          "p99": 1579,
+          "records": 4024
+        },
+        "raw": 4024,
+        "target": {
+          "max": 7911,
+          "mean": 671.881,
+          "median": 560.0,
+          "p90": 1027,
+          "p99": 2130,
+          "records": 4024
+        },
+        "total": {
+          "max": 12874,
+          "mean": 1118.357,
+          "median": 937.0,
+          "p90": 1797,
+          "p99": 3610,
+          "records": 4024
+        },
+        "total_with_generation_reserve": {
+          "max": 12890,
+          "mean": 1134.357,
+          "median": 953.0,
+          "p90": 1813,
+          "p99": 3626,
+          "records": 4024
+        }
+      },
+      "dev": {
+        "fit": 392,
+        "input": {
+          "max": 1841,
+          "mean": 417.691,
+          "median": 336.0,
+          "p90": 713,
+          "p99": 1556,
+          "records": 392
+        },
+        "raw": 392,
+        "target": {
+          "max": 3943,
+          "mean": 646.125,
+          "median": 548.0,
+          "p90": 982,
+          "p99": 2348,
+          "records": 392
+        },
+        "total": {
+          "max": 5239,
+          "mean": 1063.816,
+          "median": 906.5,
+          "p90": 1681,
+          "p99": 3904,
+          "records": 392
+        },
+        "total_with_generation_reserve": {
+          "max": 5255,
+          "mean": 1079.816,
+          "median": 922.5,
+          "p90": 1697,
+          "p99": 3920,
+          "records": 392
+        }
+      },
+      "test": {
+        "fit": 378,
+        "input": {
+          "max": 1937,
+          "mean": 460.934,
+          "median": 383.0,
+          "p90": 811,
+          "p99": 1401,
+          "records": 378
+        },
+        "raw": 378,
+        "target": {
+          "max": 3173,
+          "mean": 682.897,
+          "median": 582.0,
+          "p90": 1109,
+          "p99": 2168,
+          "records": 378
+        },
+        "total": {
+          "max": 4194,
+          "mean": 1143.831,
+          "median": 970.5,
+          "p90": 1919,
+          "p99": 3183,
+          "records": 378
+        },
+        "total_with_generation_reserve": {
+          "max": 4210,
+          "mean": 1159.831,
+          "median": 986.5,
+          "p90": 1935,
+          "p99": 3199,
+          "records": 378
+        }
+      },
+      "train": {
+        "fit": 3247,
+        "input": {
+          "max": 4985,
+          "mean": 448.264,
+          "median": 364.0,
+          "p90": 799,
+          "p99": 1625,
+          "records": 3254
+        },
+        "raw": 3254,
+        "target": {
+          "max": 7911,
+          "mean": 673.705,
+          "median": 560.0,
+          "p90": 1024,
+          "p99": 2130,
+          "records": 3254
+        },
+        "total": {
+          "max": 12874,
+          "mean": 1121.968,
+          "median": 936.0,
+          "p90": 1807,
+          "p99": 3721,
+          "records": 3254
+        },
+        "total_with_generation_reserve": {
+          "max": 12890,
+          "mean": 1137.968,
+          "median": 952.0,
+          "p90": 1823,
+          "p99": 3737,
+          "records": 3254
+        }
+      }
+    }
+  },
+  "counting_contract": {
+    "generation_reserve": 16,
+    "input_definition": "tokenizer(PROMPT.format(inp=input_text))",
+    "maxseq": 6144,
+    "prompt": "Below is a mathematical proof state and the action applied to it.\n\n{inp}\n\nProduce the exact resulting state in the same format. Output the resulting state only.",
+    "target_definition": "tokenizer(target_text)"
+  },
+  "schema_version": "hmltn-reverse-projection-token-audit-1.0.0",
+  "tokenizer": {
+    "files": {
+      "chat_template.jinja": {
+        "bytes": 16804,
+        "sha256": "33204f1acb5bd0002713e16a593847f24ceeafe711ed88bda2a352dc996a3373"
+      },
+      "tokenizer.json": {
+        "bytes": 32169626,
+        "sha256": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f"
+      },
+      "tokenizer_config.json": {
+        "bytes": 2740,
+        "sha256": "080d9e1aff284e2f6043889cd05367966f7c7b80e025fbc0b06745e218158656"
+      }
+    },
+    "model_id": "mlx-community/gemma-4-E4B-it-qat-4bit",
+    "model_revision": "0f35c6f6d386f7f74e628bd7c6526ce531212300",
+    "transformers_version": "5.15.0"
+  }
+}

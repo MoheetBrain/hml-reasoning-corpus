@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "category": "ordinary_derivation",
+      "input_identity": true,
+      "input_sha256": "fa3b2e41fe7d5c2464ac3ff6b6ee47fa6b13b54440d3409e71228b740a066bfd",
+      "mechanisms": [
+        "ordinary_claim_derivation"
+      ],
+      "record_id": "VN10K-LEAN-0003",
+      "split": "train",
+      "target_identity": true,
+      "target_sha256": "b181d78c1ca70b1649069c541b42567b37ed10542955ce8df1e48c37b662b4d9"
+    },
+    {
+      "category": "goal_close",
+      "input_identity": true,
+      "input_sha256": "304ab38a7734790c9c1eb9baa7566ef873aac4a0367fdbcf12c5610bbd228b97",
+      "mechanisms": [
+        "ordinary_claim_derivation",
+        "goal_close"
+      ],
+      "record_id": "VN10K-LEAN-0001",
+      "split": "test",
+      "target_identity": true,
+      "target_sha256": "5568f1ccf4697b69afed2975087ffdbdc1f117d3b56805e4404ff6cb1981f492"
+    },
+    {
+      "category": "goal_create",
+      "input_identity": true,
+      "input_sha256": "a1538900a21f766cffab8ce2708c2274a369d6f6527b143a7083b49f008df615",
+      "mechanisms": [
+        "ordinary_claim_derivation",
+        "goal_create"
+      ],
+      "record_id": "VN10K-LEAN-0011",
+      "split": "train",
+      "target_identity": true,
+      "target_sha256": "9fdbef4fac35a24cfe39f311846672170fe5e02270a0962ffcb70861450a3258"
+    },
+    {
+      "category": "assumption_nested_branch",
+      "input_identity": true,
+      "input_sha256": "6fd862ca7b2073ae9099d023da9e8f094962325562a70c035b542f61b10c6975",
+      "mechanisms": [
+        "assumption",
+        "branch_join",
+        "nested_branch",
+        "obligations"
+      ],
+      "record_id": "VN10K-HARD-0066",
+      "split": "train",
+      "target_identity": true,
+      "target_sha256": "5264e71e91f43f6bd216f4ea442228df1b540055e7b09e2ae6fb00677bc99f60"
+    }
+  ],
+  "schema_version": "hmltn-reverse-projection-goldens-1.0.0",
+  "view_family": "HML_IN_JSON_OUT"
+}

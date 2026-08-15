@@ -1,0 +1,171 @@
+{
+  "authority": {
+    "canonical_data_commit": "09521ae992af5ca583a346da66c93d986e709386",
+    "contract_version": "vnext-translation-contract-1.0.0",
+    "exporter_commit": "160c2308672a3030b0c0787f5b607f3bbeff35e2",
+    "exporter_path": "scripts/vnext/build_reverse_projection.py",
+    "exporter_sha256": "7ce924684f78f23a15f7890e753d41cc98126464425a25edd2d1f76a9e5946f5",
+    "fable_result_commit": "ccf2a43",
+    "hml_semantic_commit": "68178f07784d2a17a9aed9c4dedbea9c740c97a0",
+    "source_export_commit": "a2f992a6d474638814a1f1f7809f4015db3894c5",
+    "source_manifest_sha256": "77dfee09aaad6616f79057383be6e9c699b95db5e12ddec19dcfb0f9791a9af1"
+  },
+  "derivation": {
+    "input": "byte-identical HML_LINEAR.input_text joined by record_id",
+    "kind": "DETERMINISTIC_RECORD_ID_JOIN",
+    "semantic_translation": false,
+    "target": "byte-identical AST.target_text joined by record_id"
+  },
+  "files": {
+    "reverse_projection/golden_checks.json": {
+      "bytes": 1903,
+      "sha256": "adbfb3f93fcda7ca51dbe517af05074b69722c259abb191092c49af805d14416"
+    },
+    "reverse_projection/leakage_audit.jsonl.gz": {
+      "bytes": 630847,
+      "sha256": "2a7dde99cc2f721048ded51d800254f9adbbb4748a25993013df45fcbfc4eb62"
+    },
+    "reverse_projection/matched_fit_ids_maxseq6144.json": {
+      "bytes": 107292,
+      "sha256": "c5fbc3791f6a63f04dc00b5fd058900cda2b028efa0d910dd427da1f4694a87a"
+    },
+    "reverse_projection/raw_execute_membership.json": {
+      "bytes": 101028,
+      "sha256": "fafe3c7366d3c2999bb53a31ac20284511e00be8eebe3abab6ba2ee065de7903"
+    },
+    "reverse_projection/token_audit.json": {
+      "bytes": 7641,
+      "sha256": "3d1cf87955b68731676b3b3c0599d810e8fc900427d56b0d416866a2493d5bf3"
+    },
+    "views/HML_IN_JSON_OUT/dev.jsonl.gz": {
+      "bytes": 223339,
+      "sha256": "e79315b58a23c8191fbc67c974af78a5d3f6660938ea80c87adbeb454648556f"
+    },
+    "views/HML_IN_JSON_OUT/test.jsonl.gz": {
+      "bytes": 227459,
+      "sha256": "8133e7f216fdb11b2d58370444799b816a9709f425de0468c4c984dec215c35e"
+    },
+    "views/HML_IN_JSON_OUT/train.jsonl.gz": {
+      "bytes": 1899474,
+      "sha256": "a42734aae591433b7da203d8353c065c7c660b66f084e7080af416336d7c6c59"
+    }
+  },
+  "fit": {
+    "comparison_counts": {
+      "dev": 391,
+      "test": 377,
+      "train": 3233
+    },
+    "manifest": "reverse_projection/matched_fit_ids_maxseq6144.json",
+    "maxseq": 6144
+  },
+  "goldens": {
+    "checks": 4,
+    "path": "reverse_projection/golden_checks.json"
+  },
+  "leakage": {
+    "ambiguous": 0,
+    "checked": 4024,
+    "direct_target_revealing": 0,
+    "path": "reverse_projection/leakage_audit.jsonl.gz",
+    "result": "PASS"
+  },
+  "mechanism_counts": {
+    "assumption": 24,
+    "branch_join": 8,
+    "goal_close": 1659,
+    "goal_create": 292,
+    "implicit_logical_weakening": 16,
+    "nested_branch": 24,
+    "obligations": 8,
+    "ordinary_claim_derivation": 4000
+  },
+  "parity": {
+    "action_field_counts": {
+      "action_text": 24,
+      "tactic_text": 4000
+    },
+    "checks": {
+      "action": 4024,
+      "input": 4024,
+      "provenance": 4024,
+      "record": 4024,
+      "split": 4024,
+      "target": 4024
+    },
+    "result": "PASS"
+  },
+  "raw_execute_counts": {
+    "dev": 392,
+    "test": 378,
+    "train": 3254
+  },
+  "schema_version": "hmltn-reverse-projection-manifest-1.0.0",
+  "source_files": {
+    "dev.jsonl.gz": {
+      "bytes": 428245,
+      "sha256": "02487fe0247398e8ff46bb3a26480f9c6280dbe129a3ad7486377fb88b4f22dd"
+    },
+    "snapshots.json": {
+      "bytes": 485622,
+      "sha256": "700106a1728526231e4a5074690d444f27ae2b071b73f95768fe390232eb6fcc"
+    },
+    "test.jsonl.gz": {
+      "bytes": 420439,
+      "sha256": "54c3613d0a71b17a8f70aade72162231fc3db9af5c965c5810d4c73ccfbd118b"
+    },
+    "train.jsonl.gz": {
+      "bytes": 3907915,
+      "sha256": "1e80f0abe3537c1dad7d1009ad761a516bfc2ba26e50fc95fae3ac817a22c025"
+    },
+    "views/AST/dev.jsonl.gz": {
+      "bytes": 460886,
+      "sha256": "4403feb230269d3f95cb83d12abefd4c9373c961d2117b5c201955194abd8d9b"
+    },
+    "views/AST/test.jsonl.gz": {
+      "bytes": 447689,
+      "sha256": "2e18804a3785f756ffc6fd0bf21d3494a915c60a3ac55f399a2b3c7a892e581f"
+    },
+    "views/AST/train.jsonl.gz": {
+      "bytes": 4248381,
+      "sha256": "fc9b1dab24dc23c2df8fca5931df0284ee140073b949cbe8732616ee93563571"
+    },
+    "views/HML_LINEAR/dev.jsonl.gz": {
+      "bytes": 385072,
+      "sha256": "b1996172d27a6c97b0d3120633105f90bc76ae5184741a4bd66d8b45a58926c3"
+    },
+    "views/HML_LINEAR/test.jsonl.gz": {
+      "bytes": 381685,
+      "sha256": "4bd9292f6f3b5cb3207a4ed14dcbbec46def87f0f6c7e6e5120b3d33ea09641c"
+    },
+    "views/HML_LINEAR/train.jsonl.gz": {
+      "bytes": 3399351,
+      "sha256": "e2215950a672bbeba40db6fc881429217e3d305671ab1d17034a6460375e0a70"
+    }
+  },
+  "source_root_manifest_schema": "hmltn-vnext-curriculum-1.0.0",
+  "token_audit": {
+    "path": "reverse_projection/token_audit.json",
+    "tokenizer": {
+      "files": {
+        "chat_template.jinja": {
+          "bytes": 16804,
+          "sha256": "33204f1acb5bd0002713e16a593847f24ceeafe711ed88bda2a352dc996a3373"
+        },
+        "tokenizer.json": {
+          "bytes": 32169626,
+          "sha256": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f"
+        },
+        "tokenizer_config.json": {
+          "bytes": 2740,
+          "sha256": "080d9e1aff284e2f6043889cd05367966f7c7b80e025fbc0b06745e218158656"
+        }
+      },
+      "model_id": "mlx-community/gemma-4-E4B-it-qat-4bit",
+      "model_revision": "0f35c6f6d386f7f74e628bd7c6526ce531212300",
+      "transformers_version": "5.15.0"
+    }
+  },
+  "view_family": "HML_IN_JSON_OUT",
+  "view_version": "hml-linear-input+canonical-ast-json-output-record-join@1.0.0"
+}
