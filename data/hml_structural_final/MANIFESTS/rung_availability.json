@@ -1,0 +1,16 @@
+{
+  "artifact": "hml_structural_final_rung_availability_v1",
+  "verdict": "INSUFFICIENT_STRUCTURAL_DATA",
+  "admitted_records": 0,
+  "selection_seed": 20260817,
+  "rungs": {
+    "STRUCT_2K": "UNAVAILABLE",
+    "STRUCT_5K": "UNAVAILABLE",
+    "STRUCT_10K": "UNAVAILABLE",
+    "STRUCT_30K": "UNAVAILABLE",
+    "STRUCT_50K": "UNAVAILABLE"
+  },
+  "full_rung": null,
+  "reason": "Fresh formal source does not jointly populate dependencies, obligations distinct from goals, candidate lifecycle/status, and general branch predicate plus coverage."
+}
+

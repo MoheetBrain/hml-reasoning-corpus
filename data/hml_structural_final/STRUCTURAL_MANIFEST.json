@@ -1,0 +1,123 @@
+{
+  "artifact": "hml_structural_final_refusal_package_v1",
+  "verdict": "INSUFFICIENT_STRUCTURAL_DATA",
+  "created_utc_date": "2026-08-17",
+  "corpus_base_commit": "91fdda35851caa0445c1becdb1d7a756d5bcee3d",
+  "semantic_authority": "68178f07784d2a17a9aed9c4dedbea9c740c97a0",
+  "semantic_consolidation_checkout": "73184c5",
+  "frozen_hml_submodule_untouched": "5688aba18632b65a8709aa1d85577d31a67dba6a",
+  "source": {
+    "name": "LeanDojo Benchmark 4 random split",
+    "mathlib_commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+    "archive_sha256_reported_truncated": "19b9a319...a98a4",
+    "archive_sha256_note": "The upstream local manifest records only this truncated value; no full digest is asserted here.",
+    "canonical_rows": 241265,
+    "canonical_sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
+    "raw_transitions_scanned": 259580,
+    "fresh_exact_transitions": 216623,
+    "old_history_transitions_excluded": 42957
+  },
+  "selection": {
+    "seed": 20260817,
+    "admitted_records": 0,
+    "model_facing_views_emitted": 0,
+    "reason": "Frozen population readiness gate failed before selection."
+  },
+  "files": [
+    {
+      "path": "data/hml_structural_final/FABLE_STRUCTURAL_5K_HANDOFF.md",
+      "bytes": 1814,
+      "sha256": "d8c244dda67720da72846a8a9de987ddec2fe63bafe44fabf26d579b659f8358"
+    },
+    {
+      "path": "data/hml_structural_final/MANIFESTS/rejection_report.json",
+      "bytes": 690,
+      "sha256": "3a366514ff0372b42da6f642940593a341061140e05119e90e5494894f541c4d"
+    },
+    {
+      "path": "data/hml_structural_final/MANIFESTS/rung_availability.json",
+      "bytes": 544,
+      "sha256": "339032141df8ec041f1073b5fe64ca216fb4af81192f085a83927efcc0069dd2"
+    },
+    {
+      "path": "data/hml_structural_final/SOURCE_AUDIT/lean_raw_structural_census.json",
+      "bytes": 10839,
+      "sha256": "5380f8f0e86f83638efb3c72635d665bd05006813df669c15147c334070e1709"
+    },
+    {
+      "path": "data/hml_structural_final/SOURCE_AUDIT/lean_structural_census.json",
+      "bytes": 21499,
+      "sha256": "8cad9727a1deba8f971e5d6cc9682b3166508a9a7435c86a09fdd16b116e9a1c"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_ADMISSION_SPEC.md",
+      "bytes": 3344,
+      "sha256": "aaf9f87ae6fd499179c4baaf1e709e8e0e771694034f4c691ab37fd358983e2b"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_COMPLEXITY_SPEC.md",
+      "bytes": 1582,
+      "sha256": "102721efd7cfe88ce9249f8bdb67feaae05cc2e0754757dfe2fc53acc85bbfbf"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_DATA_AUDIT.md",
+      "bytes": 2000,
+      "sha256": "98df9ddcc268db32871f8c2988dff69a9b5fc206ed7bb9f43e8db5b1b3cfe535"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_LEAKAGE_AUDIT.md",
+      "bytes": 1215,
+      "sha256": "383ffdf4ef5ad5d00a666d9b71c33ed2c6aa8d9723be4d249222b98bd1cceff7"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_PARITY_AUDIT.md",
+      "bytes": 849,
+      "sha256": "cc0a6d86b1ea6c1157a75eff0118af7b19785a8fb1742ab09050126e4d62d907"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_RELATION_COVERAGE.md",
+      "bytes": 2477,
+      "sha256": "492b17f82548f3d66894bc5a5bb0e978c39b6cc32dda4544ca411af86ba78c2b"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_SOURCE_AUDIT.md",
+      "bytes": 4434,
+      "sha256": "946bf19d9445dcd04ff2e76062644caf176349a8ae179ab20dc488f9a3d59216"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_TOKEN_AUDIT.md",
+      "bytes": 445,
+      "sha256": "b12969327539a32d41759a7ff0b047b05f8087d09114a2cbdd9bdec9c852d543"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_TRAJECTORY_AUDIT.md",
+      "bytes": 1600,
+      "sha256": "de4bd4fc547b179c0647fc28c67e7fccbc88e0555035390c3a564b55a155390d"
+    },
+    {
+      "path": "data/hml_structural_final/STRUCTURAL_UNICODE_AUDIT.md",
+      "bytes": 635,
+      "sha256": "3514b2ffaca300d265eac5c94543654d81211deeb7b982d7d272802e322c271b"
+    },
+    {
+      "path": "scripts/structural_final/build_manifest.py",
+      "bytes": 4210,
+      "sha256": "4ce9b861a17cff2d7112c5728c1184e811e41ff17225a076df44f6edf4253631"
+    },
+    {
+      "path": "scripts/structural_final/scan_lean_raw.py",
+      "bytes": 8613,
+      "sha256": "63e1441242d81be66a5372baa46406c45e76827f502356e28426d86fe3404b4a"
+    },
+    {
+      "path": "scripts/structural_final/scan_lean_structure.py",
+      "bytes": 11165,
+      "sha256": "0b60f8c93c446b8b8a7910d816cb21efdb6972fea23798880e5d21c7dd203595"
+    },
+    {
+      "path": "tests/test_structural_final.py",
+      "bytes": 2657,
+      "sha256": "d08c72aeb2fdf64a58a40c8bef5bf88a41872486fdfcc8ed8c833bc5a0983ec6"
+    }
+  ]
+}

@@ -13,15 +13,18 @@ the evidence for that question honestly. Representability is not reasoning super
 
 ## Current Stage
 
-Corpus-side reconciliation. Codex, who owns this repository, is unavailable; corpus and
-research-integration responsibilities are temporarily held by the integrator.
+Final structural-representation data gate. The 2026-08-17 source census returned
+`INSUFFICIENT_STRUCTURAL_DATA`: fresh formal sources populate goals, scopes, multi-goal
+transitions and long trajectories, but not the dependency, distinct-obligation,
+candidate-lifecycle, and covered-branch state required by the frozen final hypothesis.
 
 ## Current Branch
 
-`codex/minilang-artifact-audit` at `fc9b2a3`, matching `origin`. Submodule `hml_core` pinned
-at `5688aba` — **stale**: the production HML repository has since shipped the algebra,
-probability and calculus libraries at `2af4998` and four further commits, most recently
-`a21fdb7`.
+`codex/structural-final`, begun from corpus commit
+`91fdda35851caa0445c1becdb1d7a756d5bcee3d`. Submodule `hml_core` remains pinned and
+untouched at `5688aba18632b65a8709aa1d85577d31a67dba6a`. The separately inspected VNext
+semantic authority is `68178f07784d2a17a9aed9c4dedbea9c740c97a0` (`src/` byte-identical
+in consolidation checkout `73184c5`).
 
 ## Current System Architecture
 
@@ -60,6 +63,17 @@ Recorded in the canonical five and in the cognition ledger. Production-side desi
 live in the HML repository's `DECISIONS.md`.
 
 ## Verification and Test Results
+
+**2026-08-17, final structural-source census.** On the 24-vCPU `moheetc4` data VM,
+259,580 LeanDojo transitions were scanned; 42,957 from old VNext/Qwen development
+parents were excluded, leaving 216,623 fresh exact before/action/after transitions in
+57,874 complete non-empty trajectories. The source has 1,224 fresh multi-goal before
+states, 92,471 scoped before states and 2,242 conservative complementary case-pair
+after states, but zero source-supported claim dependency graphs, obligations distinct
+from goals, candidate lifecycle states, epistemic transitions, or general branch
+objects with predicate and coverage. The frozen population gate failed before
+selection; zero headline records and no model views were emitted. Full machine census,
+specifications, refusal audits, and manifests are in `data/hml_structural_final/`.
 
 **2026-08-10, cognition ledger, THIRD independent audit.** The file committed at `8d1d95f`
 **did not parse** under a real YAML parser: X134 and X135 were indented two spaces deeper
@@ -145,6 +159,12 @@ against it describes a core that no longer exists.
 
 ## Current Blockers
 
+The final HML structural hypothesis cannot be tested fairly with currently available
+fresh sources. A suitable source must explicitly expose claim dependencies,
+obligations distinct from goals, branch predicate/membership/coverage, and candidate
+lifecycle/status while retaining replayable before/action/after state. Existing rich
+VNext records are synthetic development history and cannot be used as FINAL.
+
 The trust boundary (HML `DECISIONS.md` D-050): evidence status is read from the imported
 record, so a producer that authors a transition authors its verdict. Blocks any use where
 transitions are model-authored.
@@ -163,10 +183,7 @@ and trust modes, and an undeclared divergence would look like agreement.
 
 ## Exact Next Actions
 
-1. ~~Correct the four unscoped absence-of-evidence statements.~~ **Done 2026-08-10.**
-2. ~~Label Gold-125 coverage historical.~~ **Done 2026-08-10, five places.**
-3. Decide whether to adopt the proposed `FX2-*` probe suite (domain subtyping, warrant
-   premise envelope, output domain) as a separately versioned expansion. The frozen 30 are
-   immutable.
-4. Record the e-graph gate as a broken historical reference.
-5. Repin `hml_core` and rerun the 30 fixtures.
+1. Acquire one fresh replayable formal-state source (or instrument an existing prover
+   API) that explicitly emits the four missing structural families, then rerun the
+   frozen `STRUCTURAL_ADMISSION_SPEC.md`. Do not train Qwen or change HML until that
+   gate passes.

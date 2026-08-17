@@ -353,3 +353,55 @@ newly introduced, and not currently runnable.
 
 **Next intended step.** Final post-integration mutation census, then P-02/P-03 Lean witness
 audits, then the freeze gate.
+
+---
+
+## 2026-08-17 — final structural-source falsification audit; data gate refused
+
+**Branch:** `codex/structural-final`, begun at `91fdda3`. **Data verdict:**
+`INSUFFICIENT_STRUCTURAL_DATA`.
+
+**Objective.** Build up to 50,000 fresh, information-matched HML/neutral action-selection
+records for the final conjunctive representation hypothesis, or refuse the build if the
+required structural state did not exist. No model training and no semantic-authority edit
+were authorized.
+
+**What was inspected.** The raw LeanDojo Benchmark 4 source at Mathlib
+`29dcec074de168ac2bf835a77ef68bbe069194c5`, its 241,265-row canonical export (SHA-256
+`8ac0ce…869`), the prior VNext 10K and excluded parent history, acquisition audits for five
+additional Lean/proof-text sources, and the PRM800K process corpus. The current VNext
+authority `68178f0` was inspected from consolidation checkout `73184c5`, whose `src/` is
+byte-identical. `hml_core` remained untouched.
+
+**Census.** A 24-worker mmap scan of the canonical export completed at about 39k rows/s.
+The complete raw source contains 259,580 transitions; excluding 42,957 old-history rows
+leaves 216,623 fresh exact before/action/after transitions in 57,874 non-empty trajectories
+(median length 2, maximum 127 fresh). Fresh source structure includes 1,224 multi-goal
+before states, 14,736 goal-creating transitions, 92,471 `case`-scoped before states, 42,409
+nested scopes and 2,242 conservative complementary case pairs after a transition.
+
+**Why the build was refused.** The same source contains no claim dependency graph, no HML
+obligation distinct from a Lean goal, no candidate lifecycle/status state, no epistemic
+transition, and no general branch representation with predicate, membership and coverage.
+Lean `case` labels are scopes, goals are not obligations, and the global declarations in
+`annotated_tactic[1]` are selected by the gold action and would leak if promoted to state
+dependencies. The prior VNext rich fields are concentrated in its 1,000-row synthetic hard
+tail and are development history. Filling the gap would require invention or synthetic
+replacement, both forbidden.
+
+**Artifacts and verification.** Frozen admission and complexity specifications, two machine
+censuses, relation/trajectory/data audits, explicit not-applicable parity/leakage/Unicode/
+token audits, rejection/rung manifests, and an executable STOP handoff live under
+`data/hml_structural_final/`. The package has a deterministic per-file SHA-256 manifest and
+tests for census conservation, absence of fake rungs, manifest integrity, and literal UTF-8.
+No model-facing rows, empty “passing” views, or synthetic stress records were emitted.
+
+**Effect on the project.** This result neither supports nor falsifies HML: it falsifies the
+assumption that the currently acquired natural/formal corpora can instantiate the final
+test. The representation kill rule remains untriggered because no fair matched experiment
+exists.
+
+**Next intended step.** One data-acquisition experiment only: obtain or instrument a fresh
+replayable prover-state source that explicitly emits claim dependencies, obligations
+distinct from goals, branch predicate/membership/coverage, and candidate lifecycle/status;
+then rerun the frozen gate before any Qwen training.

@@ -1,0 +1,635 @@
+{
+  "artifact": "lean_structural_source_census_v1",
+  "source_path": "/home/moheet/HMLTN_CODEX_SYNTH/source_artifacts/lean_domino_v2/lean_canonical_records.jsonl",
+  "source_sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
+  "workers": 24,
+  "elapsed_seconds": 6.152,
+  "throughput_records_per_second": 39214.5,
+  "old_vnext_parent_groups_excluded": 3670,
+  "counts": {
+    "candidate_gate_3_dimensions": 166138,
+    "case_scope_labels": 86918,
+    "complementary_case_pair_source_derivable": 142,
+    "exact_before_action_after": 201887,
+    "fresh_records": 201887,
+    "has_2plus_hypotheses": 198852,
+    "has_goal": 201887,
+    "has_hypotheses": 200941,
+    "multiple_goals": 1185,
+    "nested_case_scope_labels": 40037,
+    "old_history_excluded": 39378,
+    "premises_used_nonempty": 0,
+    "records": 241265
+  },
+  "distinct_parent_theorems": 61544,
+  "trajectory_length": {
+    "count": 61544,
+    "median": 2.0,
+    "max": 128,
+    "complete_in_raw_source": true,
+    "complete_in_canonical_subset": false
+  },
+  "proof_depth_distribution_fresh": {
+    "1": 52531,
+    "2-3": 56341,
+    "4-5": 28933,
+    "6-10": 34600,
+    "11-20": 20597,
+    "21+": 8885
+  },
+  "structural_dimensions_fresh": {
+    "explicit_case_scope_label": 86918,
+    "explicit_goal": 201887,
+    "long_trajectory_context": 76692,
+    "multi_field_state_delta": 123806,
+    "multiple_goals": 1185,
+    "nested_scope_label": 40037,
+    "separated_hypothesis_context": 198852
+  },
+  "source_explicit_but_not_state_dependencies": {
+    "premises_used": "global declarations used by the gold tactic; withheld from model state because they are action-derived and can leak the answer"
+  },
+  "not_source_supported": {
+    "claim_dependency_edges": 0,
+    "hml_obligations_distinct_from_lean_goals": 0,
+    "candidate_lifecycle_states": 0,
+    "epistemic_status_transitions": 0,
+    "general_branch_objects_with_predicate_and_coverage": 0
+  },
+  "examples": {
+    "multi_goal": [
+      {
+        "example_id": ".lake/packages/batteries/Batteries/Data/Nat/Lemmas.lean::Nat.recDiagAux_zero_right::1",
+        "parent_id": ".lake/packages/batteries/Batteries/Data/Nat/Lemmas.lean::Nat.recDiagAux_zero_right",
+        "goals": 2,
+        "hypotheses_focused": 5,
+        "case_labels": [
+          "zero",
+          "succ"
+        ],
+        "proof_depth": 1,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/BigOperators/Finprod.lean::finprod_eq_prod_plift_of_mulSupport_toFinset_subset::1",
+        "parent_id": "Mathlib/Algebra/BigOperators/Finprod.lean::finprod_eq_prod_plift_of_mulSupport_toFinset_subset",
+        "goals": 2,
+        "hypotheses_focused": 12,
+        "case_labels": [
+          "hc"
+        ],
+        "proof_depth": 1,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Homology/HomotopyCategory/HomComplex.lean::CochainComplex.HomComplex.δ_shape::3",
+        "parent_id": "Mathlib/Algebra/Homology/HomotopyCategory/HomComplex.lean::CochainComplex.HomComplex.δ_shape",
+        "goals": 2,
+        "hypotheses_focused": 17,
+        "case_labels": [
+          "h.a",
+          "h.a"
+        ],
+        "proof_depth": 3,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Homology/ShortComplex/Exact.lean::CategoryTheory.ShortComplex.quasiIso_iff_of_zeros'::2",
+        "parent_id": "Mathlib/Algebra/Homology/ShortComplex/Exact.lean::CategoryTheory.ShortComplex.quasiIso_iff_of_zeros'",
+        "goals": 4,
+        "hypotheses_focused": 11,
+        "case_labels": [
+          "hf₁",
+          "hg₁",
+          "hf₂"
+        ],
+        "proof_depth": 2,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Lie/Basic.lean::LieEquiv.coe_linearEquiv_injective::4",
+        "parent_id": "Mathlib/Algebra/Lie/Basic.lean::LieEquiv.coe_linearEquiv_injective",
+        "goals": 2,
+        "hypotheses_focused": 68,
+        "case_labels": [
+          "mk.mk.mk.mk.mk.mk.mk.mk.e_toLieHom.e_toLinearMap.e_toAddHom.e_toFun",
+          "mk.mk.mk.mk.mk.mk.mk.mk.e_invFun"
+        ],
+        "proof_depth": 4,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/MvPolynomial/Degrees.lean::MvPolynomial.le_degrees_add::14",
+        "parent_id": "Mathlib/Algebra/MvPolynomial/Degrees.lean::MvPolynomial.le_degrees_add",
+        "goals": 2,
+        "hypotheses_focused": 19,
+        "case_labels": [
+          "a.inr.intro.refine_1",
+          "a.inr.intro.refine_2"
+        ],
+        "proof_depth": 14,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Polynomial/EraseLead.lean::Polynomial.natDegree_eraseLead::3",
+        "parent_id": "Mathlib/Algebra/Polynomial/EraseLead.lean::Polynomial.natDegree_eraseLead",
+        "goals": 3,
+        "hypotheses_focused": 5,
+        "case_labels": [],
+        "proof_depth": 3,
+        "dimensions": [
+          "explicit_goal",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Polynomial/Monic.lean::Polynomial.Monic.nextCoeff_multiset_prod::6",
+        "parent_id": "Mathlib/Algebra/Polynomial/Monic.lean::Polynomial.Monic.nextCoeff_multiset_prod",
+        "goals": 3,
+        "hypotheses_focused": 15,
+        "case_labels": [
+          "refine_2",
+          "refine_2.hp",
+          "refine_2.hq"
+        ],
+        "proof_depth": 6,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      }
+    ],
+    "case_scope": [
+      {
+        "example_id": "Mathlib/Algebra/ContinuedFractions/Computation/TerminatesIffRat.lean::GeneralizedContinuedFraction.IntFractPair.coe_stream'_rat_eq::1",
+        "parent_id": "Mathlib/Algebra/ContinuedFractions/Computation/TerminatesIffRat.lean::GeneralizedContinuedFraction.IntFractPair.coe_stream'_rat_eq",
+        "goals": 1,
+        "hypotheses_focused": 8,
+        "case_labels": [
+          "h"
+        ],
+        "proof_depth": 1,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Homology/TotalComplexShift.lean::HomologicalComplex₂.D₂_totalShift₁XIso_hom::17",
+        "parent_id": "Mathlib/Algebra/Homology/TotalComplexShift.lean::HomologicalComplex₂.D₂_totalShift₁XIso_hom",
+        "goals": 1,
+        "hypotheses_focused": 17,
+        "case_labels": [
+          "neg.h₁₂"
+        ],
+        "proof_depth": 17,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Module/LocalizedModule.lean::LocalizedModule.mul_smul_aux::1",
+        "parent_id": "Mathlib/Algebra/Module/LocalizedModule.lean::LocalizedModule.mul_smul_aux",
+        "goals": 1,
+        "hypotheses_focused": 14,
+        "case_labels": [
+          "h"
+        ],
+        "proof_depth": 1,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Module/LocalizedModule.lean::LocalizedModule.mul_smul_aux::2",
+        "parent_id": "Mathlib/Algebra/Module/LocalizedModule.lean::LocalizedModule.mul_smul_aux",
+        "goals": 1,
+        "hypotheses_focused": 14,
+        "case_labels": [
+          "h"
+        ],
+        "proof_depth": 2,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Regular/Basic.lean::isRegular_mul_and_mul_iff::1",
+        "parent_id": "Mathlib/Algebra/Regular/Basic.lean::isRegular_mul_and_mul_iff",
+        "goals": 1,
+        "hypotheses_focused": 4,
+        "case_labels": [
+          "refine_1"
+        ],
+        "proof_depth": 1,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Regular/Basic.lean::isRegular_mul_and_mul_iff::2",
+        "parent_id": "Mathlib/Algebra/Regular/Basic.lean::isRegular_mul_and_mul_iff",
+        "goals": 1,
+        "hypotheses_focused": 6,
+        "case_labels": [
+          "refine_1.intro"
+        ],
+        "proof_depth": 2,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Analysis/Analytic/Basic.lean::FormalMultilinearSeries.continuousOn::1",
+        "parent_id": "Mathlib/Analysis/Analytic/Basic.lean::FormalMultilinearSeries.continuousOn",
+        "goals": 1,
+        "hypotheses_focused": 21,
+        "case_labels": [
+          "inl"
+        ],
+        "proof_depth": 1,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Analysis/Analytic/Basic.lean::FormalMultilinearSeries.continuousOn::2",
+        "parent_id": "Mathlib/Analysis/Analytic/Basic.lean::FormalMultilinearSeries.continuousOn",
+        "goals": 1,
+        "hypotheses_focused": 21,
+        "case_labels": [
+          "inr"
+        ],
+        "proof_depth": 2,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "separated_hypothesis_context"
+        ]
+      }
+    ],
+    "complementary_case": [
+      {
+        "example_id": ".lake/packages/batteries/Batteries/Data/Array/Monadic.lean::Array.SatisfiesM_mapM::9",
+        "parent_id": ".lake/packages/batteries/Batteries/Data/Array/Monadic.lean::Array.SatisfiesM_mapM",
+        "goals": 2,
+        "hypotheses_focused": 24,
+        "case_labels": [
+          "isTrue",
+          "isFalse"
+        ],
+        "proof_depth": 9,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": ".lake/packages/batteries/Batteries/Data/ByteArray.lean::ByteArray.ofFn_eq_ofFnAux::5",
+        "parent_id": ".lake/packages/batteries/Batteries/Data/ByteArray.lean::ByteArray.ofFn_eq_ofFnAux",
+        "goals": 2,
+        "hypotheses_focused": 5,
+        "case_labels": [
+          "isTrue",
+          "isFalse"
+        ],
+        "proof_depth": 5,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/DirectSum/Internal.lean::DirectSum.coe_of_mul_apply::1",
+        "parent_id": "Mathlib/Algebra/DirectSum/Internal.lean::DirectSum.coe_of_mul_apply",
+        "goals": 2,
+        "hypotheses_focused": 20,
+        "case_labels": [
+          "pos",
+          "neg"
+        ],
+        "proof_depth": 1,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/MvPolynomial/Degrees.lean::MvPolynomial.degrees_monomial::3",
+        "parent_id": "Mathlib/Algebra/MvPolynomial/Degrees.lean::MvPolynomial.degrees_monomial",
+        "goals": 2,
+        "hypotheses_focused": 15,
+        "case_labels": [
+          "pos",
+          "neg"
+        ],
+        "proof_depth": 3,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/MvPolynomial/Variables.lean::MvPolynomial.eval₂Hom_eq_constantCoeff_of_vars::3",
+        "parent_id": "Mathlib/Algebra/MvPolynomial/Variables.lean::MvPolynomial.eval₂Hom_eq_constantCoeff_of_vars",
+        "goals": 2,
+        "hypotheses_focused": 18,
+        "case_labels": [
+          "pos",
+          "neg"
+        ],
+        "proof_depth": 3,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/MvPolynomial/Variables.lean::MvPolynomial.eval₂Hom_eq_constantCoeff_of_vars::5",
+        "parent_id": "Mathlib/Algebra/MvPolynomial/Variables.lean::MvPolynomial.eval₂Hom_eq_constantCoeff_of_vars",
+        "goals": 2,
+        "hypotheses_focused": 20,
+        "case_labels": [
+          "pos",
+          "neg.h₀"
+        ],
+        "proof_depth": 5,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Polynomial/Degree/Definitions.lean::Polynomial.natDegree_monomial_le::3",
+        "parent_id": "Mathlib/Algebra/Polynomial/Degree/Definitions.lean::Polynomial.natDegree_monomial_le",
+        "goals": 2,
+        "hypotheses_focused": 15,
+        "case_labels": [
+          "pos",
+          "neg"
+        ],
+        "proof_depth": 3,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Polynomial/Module/Basic.lean::PolynomialModule.smul_apply::11",
+        "parent_id": "Mathlib/Algebra/Polynomial/Module/Basic.lean::PolynomialModule.smul_apply",
+        "goals": 2,
+        "hypotheses_focused": 17,
+        "case_labels": [
+          "pos",
+          "neg"
+        ],
+        "proof_depth": 11,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "multiple_goals",
+          "separated_hypothesis_context"
+        ]
+      }
+    ],
+    "high_dimension": [
+      {
+        "example_id": ".lake/packages/batteries/Batteries/Data/Range/Lemmas.lean::Std.Range.forIn'_eq_forIn_range'::8",
+        "parent_id": ".lake/packages/batteries/Batteries/Data/Range/Lemmas.lean::Std.Range.forIn'_eq_forIn_range'",
+        "goals": 1,
+        "hypotheses_focused": 16,
+        "case_labels": [
+          "isTrue"
+        ],
+        "proof_depth": 8,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/ContinuedFractions/Computation/Translations.lean::GeneralizedContinuedFraction.convergents'_succ::2",
+        "parent_id": "Mathlib/Algebra/ContinuedFractions/Computation/Translations.lean::GeneralizedContinuedFraction.convergents'_succ",
+        "goals": 1,
+        "hypotheses_focused": 6,
+        "case_labels": [
+          "inl.intro"
+        ],
+        "proof_depth": 2,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Homology/TotalComplexShift.lean::HomologicalComplex₂.D₂_totalShift₁XIso_hom::17",
+        "parent_id": "Mathlib/Algebra/Homology/TotalComplexShift.lean::HomologicalComplex₂.D₂_totalShift₁XIso_hom",
+        "goals": 1,
+        "hypotheses_focused": 17,
+        "case_labels": [
+          "neg.h₁₂"
+        ],
+        "proof_depth": 17,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Module/DedekindDomain.lean::Submodule.isInternal_prime_power_torsion_of_is_torsion_by_ideal::5",
+        "parent_id": "Mathlib/Algebra/Module/DedekindDomain.lean::Submodule.isInternal_prime_power_torsion_of_is_torsion_by_ideal",
+        "goals": 1,
+        "hypotheses_focused": 12,
+        "case_labels": [
+          "h.e'_6.h.e'_4"
+        ],
+        "proof_depth": 5,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Module/DedekindDomain.lean::Submodule.isInternal_prime_power_torsion_of_is_torsion_by_ideal::6",
+        "parent_id": "Mathlib/Algebra/Module/DedekindDomain.lean::Submodule.isInternal_prime_power_torsion_of_is_torsion_by_ideal",
+        "goals": 1,
+        "hypotheses_focused": 12,
+        "case_labels": [
+          "h.e'_6.h.e'_4.prime"
+        ],
+        "proof_depth": 6,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Module/DedekindDomain.lean::Submodule.isInternal_prime_power_torsion_of_is_torsion_by_ideal::7",
+        "parent_id": "Mathlib/Algebra/Module/DedekindDomain.lean::Submodule.isInternal_prime_power_torsion_of_is_torsion_by_ideal",
+        "goals": 1,
+        "hypotheses_focused": 12,
+        "case_labels": [
+          "h.e'_6.h.e'_4.coprime"
+        ],
+        "proof_depth": 7,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/MvPolynomial/Basic.lean::MvPolynomial.support_symmDiff_support_subset_support_add::4",
+        "parent_id": "Mathlib/Algebra/MvPolynomial/Basic.lean::MvPolynomial.support_symmDiff_support_subset_support_add",
+        "goals": 1,
+        "hypotheses_focused": 20,
+        "case_labels": [
+          "a"
+        ],
+        "proof_depth": 4,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "long_trajectory_context",
+          "multi_field_state_delta",
+          "separated_hypothesis_context"
+        ]
+      },
+      {
+        "example_id": "Mathlib/Algebra/Regular/Basic.lean::isRegular_mul_and_mul_iff::2",
+        "parent_id": "Mathlib/Algebra/Regular/Basic.lean::isRegular_mul_and_mul_iff",
+        "goals": 1,
+        "hypotheses_focused": 6,
+        "case_labels": [
+          "refine_1.intro"
+        ],
+        "proof_depth": 2,
+        "dimensions": [
+          "explicit_case_scope_label",
+          "explicit_goal",
+          "multi_field_state_delta",
+          "nested_scope_label",
+          "separated_hypothesis_context"
+        ]
+      }
+    ]
+  }
+}

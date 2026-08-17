@@ -1,0 +1,25 @@
+{
+  "artifact": "hml_structural_final_rejection_report_v1",
+  "unit": "raw LeanDojo transitions",
+  "total": 259580,
+  "mutually_exclusive": {
+    "old_autopsy_holdout": 42957,
+    "structural_population_insufficient": 216623
+  },
+  "zero_count_reasons": {
+    "duplicate": 0,
+    "missing_goal": 0,
+    "missing_action": 0,
+    "source_ambiguity": 0,
+    "candidate_construction_failure": 0,
+    "leakage_after_admission": 0,
+    "other": 0
+  },
+  "overlapping_fresh_flags": {
+    "claim_dependency_graph_absent": 216623,
+    "obligation_distinct_from_goal_absent": 216623,
+    "candidate_lifecycle_absent": 216623,
+    "general_branch_predicate_membership_coverage_absent": 216623
+  }
+}
+
