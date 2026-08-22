@@ -405,3 +405,61 @@ exists.
 replayable prover-state source that explicitly emits claim dependencies, obligations
 distinct from goals, branch predicate/membership/coverage, and candidate lifecycle/status;
 then rerun the frozen gate before any Qwen training.
+
+---
+
+## 2026-08-22 — final 50K paired teaching corpus built; model evaluation handed to FABLE
+
+**Branch:** `codex/hml-50k-final`, begun at
+`3337217eb2cc9460b91ead15e4a67a420ecdcd8a`. **Data verdict:** `HML50K_READY`.
+
+**Objective.** Give the final HML representation-scaling test adequate clean teaching
+exposure: at least 50,000 worked TRAIN examples in literal-UTF-8 HML and an equally strong
+structured-neutral control, with separate parent-disjoint holdouts. No model training,
+cloud compute, HML semantic change, or modification of earlier experiment results.
+
+**Source decision.** Ten local source families totaling 4.31M non-deduplicated records were
+inventoried. The core uses only exact LeanDojo `(state, tactic, state-after)` traces because
+they already exceed the count gate and have the strongest task-native semantics. PRM800K,
+MATH, AMPS and proof-text corpora were not mixed in merely to match preferred proportions.
+Every core row is labelled `FORMAL_TRACE`, never upgraded to freshly replayed
+`FORMAL_VERIFIED`. Premise annotations were recovered exactly from the pinned raw export for
+all 56,000 rows and retained only as action-derived audit metadata.
+
+**Build.** Exactly 50,000 TRAIN, 3,000 DEV, and 3,000 FINAL canonical records were emitted
+under `data/hml_50k_final/`, with paired `HML_WORKED_UTF8` and
+`STRUCTURED_NEUTRAL_WORKED` views for action selection, state-delta prediction, validity
+judging, and worked continuation. Six-candidate hard-negative sets are deterministic and
+identical across views; alternatives are `PLAUSIBLE_UNEXECUTED`, not invented invalids.
+TRAIN rungs are nested 10K ⊂ 30K ⊂ 50K. HML_TREE and crossed targets are absent. A 5,000-row
+structural-stress subset preserves the strongest source-supported examples without adding
+branch, obligation, or candidate-lifecycle semantics the source does not contain.
+
+**Failed gates that changed the build.** The first candidate audit appeared to show an 80%
+shortest-action shortcut; decomposition showed that was mostly equal-length ties, while the
+real unique-shortest rate was 1.47% and deterministic shortest-first accuracy 15.79% versus
+16.67% chance. Seventy-four rows where the gold tactic naturally occurred verbatim in the
+state were nevertheless excluded. The first Qwen tokenizer pass rejected 32 over-length
+records; replacements introduced two continuation-only overages. All 34 are now pinned in a
+preflight exclusion file and removed intact—none was truncated. The accepted maximum raw
+input+target length is 6,134 tokens.
+
+**Independent verification.** HML authority `68178f0` passed 20/20 golden fixtures.
+Independent post-build checks passed 56,000 candidate-order comparisons, 112,000 semantic
+state comparisons, 224,000 action-envelope comparisons, all requested field mutations,
+and five manual FINAL inspections. There are zero duplicate IDs, cross-split parent or
+near-signature overlaps, old-parent FINAL contaminations, exact delta-target leaks, gold
+actions outside candidate blocks, JSON Unicode escapes, or raw rows over 6,144 tokens.
+Fourteen million literal non-ASCII codepoints were observed. The primary HML input is 10.2%
+more expensive than Neutral; this is recorded, not normalized away.
+
+**Limits.** This is a Lean-only teaching corpus, not evidence that HML works. The source
+still lacks the rich structural families required by the earlier conjunctive structural
+hypothesis, so the 2026-08-17 `INSUFFICIENT_STRUCTURAL_DATA` verdict stands. Lexical overlap
+alone scores 51.8% on action selection; FABLE must report that baseline. Candidate
+alternatives are unexecuted, so the judge task is FORMAL_TRACE versus UNRESOLVED rather than
+valid versus invalid.
+
+**Next intended step.** Claude/FABLE runs one-seed Qwen3-8B BF16 HML10K vs Neutral10K using
+the unchanged FINAL set and stops if HML is flat/worse. Proceed to 30K and 50K only if the
+learning-curve separation continues. This repository does not train the model.

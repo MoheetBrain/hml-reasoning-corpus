@@ -1,0 +1,102 @@
+{
+  "ensure_ascii_required": false,
+  "files": {
+    "tasks/NEXT_ACTION_SELECT/HML_WORKED_UTF8/dev.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 15515
+    },
+    "tasks/NEXT_ACTION_SELECT/HML_WORKED_UTF8/final.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 19003
+    },
+    "tasks/NEXT_ACTION_SELECT/HML_WORKED_UTF8/train.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 314685
+    },
+    "tasks/NEXT_ACTION_SELECT/STRUCTURED_NEUTRAL_WORKED/dev.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 101639
+    },
+    "tasks/NEXT_ACTION_SELECT/STRUCTURED_NEUTRAL_WORKED/final.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 104545
+    },
+    "tasks/NEXT_ACTION_SELECT/STRUCTURED_NEUTRAL_WORKED/train.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 1681547
+    },
+    "tasks/STATE_DELTA_PREDICT/HML_WORKED_UTF8/dev.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 2672
+    },
+    "tasks/STATE_DELTA_PREDICT/HML_WORKED_UTF8/final.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 3311
+    },
+    "tasks/STATE_DELTA_PREDICT/HML_WORKED_UTF8/train.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 51649
+    },
+    "tasks/STATE_DELTA_PREDICT/STRUCTURED_NEUTRAL_WORKED/dev.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 227576
+    },
+    "tasks/STATE_DELTA_PREDICT/STRUCTURED_NEUTRAL_WORKED/final.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 228712
+    },
+    "tasks/STATE_DELTA_PREDICT/STRUCTURED_NEUTRAL_WORKED/train.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 3605444
+    },
+    "tasks/VALIDITY_JUDGE/HML_WORKED_UTF8/dev.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 5274
+    },
+    "tasks/VALIDITY_JUDGE/HML_WORKED_UTF8/final.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 6429
+    },
+    "tasks/VALIDITY_JUDGE/HML_WORKED_UTF8/train.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 104477
+    },
+    "tasks/VALIDITY_JUDGE/STRUCTURED_NEUTRAL_WORKED/dev.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 177522
+    },
+    "tasks/VALIDITY_JUDGE/STRUCTURED_NEUTRAL_WORKED/final.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 177513
+    },
+    "tasks/VALIDITY_JUDGE/STRUCTURED_NEUTRAL_WORKED/train.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 2838201
+    },
+    "tasks/WORKED_CONTINUATION/HML_WORKED_UTF8/dev.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 8483
+    },
+    "tasks/WORKED_CONTINUATION/HML_WORKED_UTF8/final.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 10498
+    },
+    "tasks/WORKED_CONTINUATION/HML_WORKED_UTF8/train.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 165706
+    },
+    "tasks/WORKED_CONTINUATION/STRUCTURED_NEUTRAL_WORKED/dev.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 233387
+    },
+    "tasks/WORKED_CONTINUATION/STRUCTURED_NEUTRAL_WORKED/final.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 235899
+    },
+    "tasks/WORKED_CONTINUATION/STRUCTURED_NEUTRAL_WORKED/train.jsonl.gz": {
+      "json_unicode_escape_sequences": 0,
+      "literal_non_ascii_codepoints": 3719501
+    }
+  },
+  "result": "PASS"
+}

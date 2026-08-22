@@ -1,0 +1,18 @@
+{
+  "actual_corpus_mutations_detected": {
+    "corpus_action": true,
+    "corpus_claim": true,
+    "corpus_dependency": true
+  },
+  "comparison": "canonical semantic-object equality/hash; any changed field rejects parity",
+  "result": "PASS",
+  "synthetic_cross_boundary_mutations_detected": {
+    "action": true,
+    "branch": true,
+    "dependency": true,
+    "goal": true,
+    "hypothesis": true,
+    "obligation": true,
+    "scope": true
+  }
+}

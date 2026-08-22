@@ -1,0 +1,35 @@
+{
+  "result": "PASS",
+  "method": "Human-readable inspection of canonical source state, gold tactic, state-after, candidate status/order, and both rendered task families; selected from FINAL across five depth strata.",
+  "records": [
+    {
+      "record_id": "H50K-LEAN-fe1e3015b79e7401",
+      "depth_bin": "1",
+      "observation": "DenseRange/surjectivity goal; source rw tactic closes the goal; six rw-family candidates; no target or correctness marker outside the candidate block."
+    },
+    {
+      "record_id": "H50K-LEAN-21c7b76d7ad06354",
+      "depth_bin": "4-5",
+      "observation": "Scoped case state; source refine tactic creates the recorded residual goal; all distractors are distinct refine actions and remain labelled PLAUSIBLE_UNEXECUTED."
+    },
+    {
+      "record_id": "H50K-LEAN-22b49ffb3c63d5e3",
+      "depth_bin": "6-10",
+      "observation": "Arithmetic proof state; omega closes the goal; alternative short tactic families are plausible but not asserted invalid."
+    },
+    {
+      "record_id": "H50K-LEAN-128d6963aaf6b77c",
+      "depth_bin": "11-20",
+      "observation": "Long hypothesis context; exact I closes a goal identical to hypothesis I; candidates are length-matched exact-family alternatives."
+    },
+    {
+      "record_id": "H50K-LEAN-27ab5d85a01101b3",
+      "depth_bin": "21+",
+      "observation": "Deep Tietze-extension trajectory; source exact term closes the state; five same-head exact distractors are distinct and length-matched."
+    }
+  ],
+  "failures_found": 0,
+  "semantic_weakening_found": 0,
+  "status_overclaim_found": 0,
+  "unicode_escape_found": 0
+}

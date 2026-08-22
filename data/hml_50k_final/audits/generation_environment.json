@@ -1,0 +1,11 @@
+{
+  "cloud_access": false,
+  "hostname": "Moheets-MacBook-Pro-2.local",
+  "logical_workers_available": "18",
+  "model_loaded": false,
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "python": "3.14.7",
+  "reason": "streaming is I/O-bound and deterministic renderer state is lightweight; no cloud or model process used",
+  "wall_seconds": 87.678,
+  "workers_used": 1
+}

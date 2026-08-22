@@ -1,0 +1,207 @@
+{
+  "batch_size_assumption": 2,
+  "budgets": {
+    "10k/HML_WORKED_UTF8": {
+      "epochs": {
+        "0.5": {
+          "estimated_wall_minutes_per_seed": [
+            30.4,
+            52.5
+          ],
+          "iterations_batch2": 2500,
+          "tokens": 2282219
+        },
+        "1.0": {
+          "estimated_wall_minutes_per_seed": [
+            60.8,
+            105.1
+          ],
+          "iterations_batch2": 5000,
+          "tokens": 4564438
+        },
+        "2.0": {
+          "estimated_wall_minutes_per_seed": [
+            121.6,
+            210.1
+          ],
+          "iterations_batch2": 10000,
+          "tokens": 9128876
+        }
+      },
+      "examples": 10000,
+      "mean_input_plus_target_tokens": 456.444,
+      "one_epoch_input_plus_target_tokens": 4564438,
+      "prompt_length_scale_vs_prior_calibration": 2.178
+    },
+    "10k/STRUCTURED_NEUTRAL_WORKED": {
+      "epochs": {
+        "0.5": {
+          "estimated_wall_minutes_per_seed": [
+            23.6,
+            40.9
+          ],
+          "iterations_batch2": 2500,
+          "tokens": 2072955
+        },
+        "1.0": {
+          "estimated_wall_minutes_per_seed": [
+            47.3,
+            81.7
+          ],
+          "iterations_batch2": 5000,
+          "tokens": 4145911
+        },
+        "2.0": {
+          "estimated_wall_minutes_per_seed": [
+            94.6,
+            163.5
+          ],
+          "iterations_batch2": 10000,
+          "tokens": 8291822
+        }
+      },
+      "examples": 10000,
+      "mean_input_plus_target_tokens": 414.591,
+      "one_epoch_input_plus_target_tokens": 4145911,
+      "prompt_length_scale_vs_prior_calibration": 1.694
+    },
+    "30k/HML_WORKED_UTF8": {
+      "epochs": {
+        "0.5": {
+          "estimated_wall_minutes_per_seed": [
+            91.1,
+            157.5
+          ],
+          "iterations_batch2": 7500,
+          "tokens": 6841903
+        },
+        "1.0": {
+          "estimated_wall_minutes_per_seed": [
+            182.3,
+            315.0
+          ],
+          "iterations_batch2": 15000,
+          "tokens": 13683806
+        },
+        "2.0": {
+          "estimated_wall_minutes_per_seed": [
+            364.5,
+            630.0
+          ],
+          "iterations_batch2": 30000,
+          "tokens": 27367612
+        }
+      },
+      "examples": 30000,
+      "mean_input_plus_target_tokens": 456.127,
+      "one_epoch_input_plus_target_tokens": 13683806,
+      "prompt_length_scale_vs_prior_calibration": 2.176
+    },
+    "30k/STRUCTURED_NEUTRAL_WORKED": {
+      "epochs": {
+        "0.5": {
+          "estimated_wall_minutes_per_seed": [
+            70.8,
+            122.4
+          ],
+          "iterations_batch2": 7500,
+          "tokens": 6209540
+        },
+        "1.0": {
+          "estimated_wall_minutes_per_seed": [
+            141.7,
+            244.9
+          ],
+          "iterations_batch2": 15000,
+          "tokens": 12419080
+        },
+        "2.0": {
+          "estimated_wall_minutes_per_seed": [
+            283.4,
+            489.8
+          ],
+          "iterations_batch2": 30000,
+          "tokens": 24838160
+        }
+      },
+      "examples": 30000,
+      "mean_input_plus_target_tokens": 413.969,
+      "one_epoch_input_plus_target_tokens": 12419080,
+      "prompt_length_scale_vs_prior_calibration": 1.692
+    },
+    "50k/HML_WORKED_UTF8": {
+      "epochs": {
+        "0.5": {
+          "estimated_wall_minutes_per_seed": [
+            151.6,
+            262.1
+          ],
+          "iterations_batch2": 12500,
+          "tokens": 11384603
+        },
+        "1.0": {
+          "estimated_wall_minutes_per_seed": [
+            303.3,
+            524.1
+          ],
+          "iterations_batch2": 25000,
+          "tokens": 22769206
+        },
+        "2.0": {
+          "estimated_wall_minutes_per_seed": [
+            606.5,
+            1048.3
+          ],
+          "iterations_batch2": 50000,
+          "tokens": 45538412
+        }
+      },
+      "examples": 50000,
+      "mean_input_plus_target_tokens": 455.384,
+      "one_epoch_input_plus_target_tokens": 22769206,
+      "prompt_length_scale_vs_prior_calibration": 2.173
+    },
+    "50k/STRUCTURED_NEUTRAL_WORKED": {
+      "epochs": {
+        "0.5": {
+          "estimated_wall_minutes_per_seed": [
+            117.9,
+            203.8
+          ],
+          "iterations_batch2": 12500,
+          "tokens": 10335307
+        },
+        "1.0": {
+          "estimated_wall_minutes_per_seed": [
+            235.8,
+            407.6
+          ],
+          "iterations_batch2": 25000,
+          "tokens": 20670614
+        },
+        "2.0": {
+          "estimated_wall_minutes_per_seed": [
+            471.6,
+            815.2
+          ],
+          "iterations_batch2": 50000,
+          "tokens": 41341228
+        }
+      },
+      "examples": 50000,
+      "mean_input_plus_target_tokens": 413.412,
+      "one_epoch_input_plus_target_tokens": 20670614,
+      "prompt_length_scale_vs_prior_calibration": 1.689
+    }
+  },
+  "runtime_calibration": {
+    "observed_prior_training_range_seconds_per_1000_iterations": [
+      335,
+      579
+    ],
+    "prior_model": "Qwen/Qwen3-8B BF16 on the same Mac",
+    "scaling": "prior seconds/1k iterations multiplied by new mean-token/prior-mean-token ratio (209.6 HML, 244.7 neutral)",
+    "warning": "planning range only; prompt-length scaling is heuristic and this mission ran no model training"
+  },
+  "task": "NEXT_ACTION_SELECT"
+}

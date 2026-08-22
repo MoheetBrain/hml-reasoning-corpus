@@ -1,0 +1,17 @@
+{
+  "near_duplicate_signature_duplicates_seen_during_stream": 0,
+  "near_duplicate_signature_overlap": {
+    "dev_final": 0,
+    "train_dev": 0,
+    "train_final": 0
+  },
+  "parent_overlap": {
+    "dev_final": 0,
+    "train_dev": 0,
+    "train_final": 0
+  },
+  "record_id_duplicates": 0,
+  "records": 56000,
+  "result": "PASS",
+  "signature": "sha256(whitespace-collapsed state_before + tactic + state_after)"
+}

@@ -1,0 +1,55 @@
+{
+  "canonical": {
+    "dev": 3000,
+    "final": 3000,
+    "train": 50000
+  },
+  "complexity": {
+    "EASY": 14384,
+    "HARD": 13951,
+    "LONG_OR_STRUCTURALLY_DENSE": 13136,
+    "MEDIUM": 14529
+  },
+  "depth": {
+    "1": 15532,
+    "11-20": 6295,
+    "2-3": 13731,
+    "21+": 2907,
+    "4-5": 8045,
+    "6-10": 9490
+  },
+  "epistemic_status": {
+    "FORMAL_TRACE": 56000
+  },
+  "premise_count": {
+    "multiple": 21269,
+    "one": 16103,
+    "zero": 18628
+  },
+  "probability_statistics_related": 6639,
+  "source_family": {
+    "LEAN_DOJO_FORMAL_TRACE": 56000
+  },
+  "task_rows_per_view": {
+    "NEXT_ACTION_SELECT": {
+      "dev": 3000,
+      "final": 3000,
+      "train": 50000
+    },
+    "STATE_DELTA_PREDICT": {
+      "dev": 3000,
+      "final": 3000,
+      "train": 50000
+    },
+    "VALIDITY_JUDGE": {
+      "dev": 6000,
+      "final": 6000,
+      "train": 100000
+    },
+    "WORKED_CONTINUATION": {
+      "dev": 3000,
+      "final": 3000,
+      "train": 50000
+    }
+  }
+}

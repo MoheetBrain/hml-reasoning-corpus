@@ -13,22 +13,25 @@ the evidence for that question honestly. Representability is not reasoning super
 
 ## Current Stage
 
-Final structural-representation data gate. The 2026-08-17 source census returned
-`INSUFFICIENT_STRUCTURAL_DATA`: fresh formal sources populate goals, scopes, multi-goal
-transitions and long trajectories, but not the dependency, distinct-obligation,
-candidate-lifecycle, and covered-branch state required by the frozen final hypothesis.
+Final large-scale representation-teaching data is ready for external Qwen evaluation.
+`HML50K_TEACHING` contains 50,000 TRAIN plus separate 3,000 DEV and 3,000 FINAL exact
+Lean formal-trace transitions in matched literal-UTF-8 HML and structured-neutral views.
+No model training was run here. The earlier 2026-08-17 structural-source verdict remains
+`INSUFFICIENT_STRUCTURAL_DATA`; this corpus does not rewrite or claim to satisfy that
+different conjunctive structural hypothesis.
 
 ## Current Branch
 
-`codex/structural-final`, begun from corpus commit
-`91fdda35851caa0445c1becdb1d7a756d5bcee3d`. Submodule `hml_core` remains pinned and
+`codex/hml-50k-final`, begun from corpus commit
+`3337217eb2cc9460b91ead15e4a67a420ecdcd8a`. Submodule `hml_core` remains pinned and
 untouched at `5688aba18632b65a8709aa1d85577d31a67dba6a`. The separately inspected VNext
 semantic authority is `68178f07784d2a17a9aed9c4dedbea9c740c97a0` (`src/` byte-identical
 in consolidation checkout `73184c5`).
 
 ## Current System Architecture
 
-Five canonical context documents (`docs/00`–`docs/04`), a frozen Semantic Firewall
+Five canonical context documents (`docs/00`–`docs/04`), the paired HML50K teaching corpus,
+a frozen Semantic Firewall
 experiment (`experiments/semantic_firewall/`) whose reference checker and 30 acceptance
 fixtures are the external acceptance criteria for the production implementation, a PRM800K
 natural-error audit, a MiniLang artifact audit, and a project cognition ledger
@@ -38,7 +41,8 @@ audited).
 ## Capabilities Implemented
 
 The frozen reference checker; the 30-fixture acceptance suite; the FINAL 80/80 benchmark;
-the neutral transition schema; the cognition ledger.
+the neutral transition schema; the cognition ledger; deterministic builders and independent
+audits for 56,000 paired HML/Neutral formal-trace teaching transitions.
 
 ## Work Completed to Date
 
@@ -47,6 +51,8 @@ chronological change record.
 
 ## Important Files and Artifacts
 
+`data/hml_50k_final/CLAUDE_FINAL_QWEN_HANDOFF.md` ·
+`data/hml_50k_final/HML50K_MANIFEST.json` · `scripts/hml50k/` ·
 `experiments/semantic_firewall/reference_checker.py` · `.../acceptance/fixtures.json` ·
 `.../requirements_handoff.json` · `.../freeze_manifest.json` ·
 `experiments/project_cognition/project_memory.yaml` · `docs/00`–`docs/04` ·
@@ -54,7 +60,8 @@ chronological change record.
 
 ## Data Sources and Provenance
 
-Hendrycks MATH (levels 4–5), PRM800K, the MiniLang OOPSLA26 v2 artifact
+LeanDojo Benchmark 4 / Mathlib `29dcec0`, Hendrycks MATH, PRM800K, five additional local
+Lean/proof-text corpora, and the MiniLang OOPSLA26 v2 artifact
 (SHA-256 `1562c845…`). Provenance is recorded per experiment.
 
 ## Decisions and Rationale
@@ -63,6 +70,16 @@ Recorded in the canonical five and in the cognition ledger. Production-side desi
 live in the HML repository's `DECISIONS.md`.
 
 ## Verification and Test Results
+
+**2026-08-22, HML50K final teaching corpus.** Golden VNext validation passed 20/20 at HML
+`68178f0`. The build produced exactly 50,000 TRAIN, 3,000 DEV and 3,000 FINAL records from
+16,950 parent theorems. Independent checks passed: 56,000 candidate-order comparisons,
+112,000 HML/Neutral state comparisons, 224,000 action-envelope comparisons, all requested
+cross-boundary mutations, zero parent/signature overlap, zero old-parent contamination in
+FINAL, zero target leaks under the tested detectors, zero JSON Unicode escapes, and zero
+Qwen3-8B input+target rows over 6,144. The primary HML view costs 10.2% more tokens than
+Neutral. All rows are `FORMAL_TRACE`, not overstated as freshly replay-verified. No Qwen,
+Gemma, MLX training, or cloud process was run.
 
 **2026-08-17, final structural-source census.** On the 24-vCPU `moheetc4` data VM,
 259,580 LeanDojo transitions were scanned; 42,957 from old VNext/Qwen development
@@ -159,8 +176,9 @@ against it describes a core that no longer exists.
 
 ## Current Blockers
 
-The final HML structural hypothesis cannot be tested fairly with currently available
-fresh sources. A suitable source must explicitly expose claim dependencies,
+There is no data blocker for the staged 10K/30K/50K teaching experiment; it now belongs to
+Claude/FABLE. The separate final HML structural hypothesis still cannot be tested fairly
+with currently available fresh sources. A suitable source must explicitly expose claim dependencies,
 obligations distinct from goals, branch predicate/membership/coverage, and candidate
 lifecycle/status while retaining replayable before/action/after state. Existing rich
 VNext records are synthetic development history and cannot be used as FINAL.
@@ -183,7 +201,8 @@ and trust modes, and an undeclared divergence would look like agreement.
 
 ## Exact Next Actions
 
-1. Acquire one fresh replayable formal-state source (or instrument an existing prover
-   API) that explicitly emits the four missing structural families, then rerun the
-   frozen `STRUCTURAL_ADMISSION_SPEC.md`. Do not train Qwen or change HML until that
-   gate passes.
+1. Claude/FABLE runs one-seed HML10K vs Neutral10K on Qwen3-8B BF16 using the fixed
+   FINAL population and the handoff budgets; stop if HML is flat/worse.
+2. Proceed to 30K and then 50K only if learning-curve separation continues.
+3. Keep the structural-source acquisition problem separate; do not reinterpret this
+   teaching corpus as satisfying the failed structural admission gate.

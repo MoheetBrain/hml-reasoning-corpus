@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "independent_rebuild_date": "2026-08-22",
+  "builder_owned_files_compared": 54,
+  "sha256_mismatches": 0,
+  "excluded_from_byte_comparison": [
+    "audits/generation_environment.json",
+    "manifest.json",
+    "SHA256SUMS"
+  ],
+  "exclusion_reason": "generation wall time is intentionally environmental; manifests are refreshed after post-build audits",
+  "rebuild_authority": "scripts/hml50k/build_hml_50k.py with pinned sources and token_exclusions_qwen3_8b.json"
+}

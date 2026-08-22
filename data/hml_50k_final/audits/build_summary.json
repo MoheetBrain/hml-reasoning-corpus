@@ -1,0 +1,50 @@
+{
+  "hml_roundtrip_records": 56000,
+  "hml_state_roundtrips": 112000,
+  "result": "PASS",
+  "separate_dev": 3000,
+  "separate_final": 3000,
+  "source_mix_decision": "formal-only core; lower-certainty local sources inventoried but not used to pad count",
+  "train_usable": 50000,
+  "view_parity": true,
+  "write_report": {
+    "nested_train_order": "rungs/10k record ids are the first 10k of 30k; 30k are the first 30k of 50k",
+    "rungs": {
+      "10k": 10000,
+      "30k": 30000,
+      "50k": 50000
+    },
+    "structural_stress": {
+      "complexity_counts": {
+        "EASY": 83,
+        "HARD": 381,
+        "LONG_OR_STRUCTURALLY_DENSE": 4358,
+        "MEDIUM": 178
+      },
+      "mechanism_counts": {
+        "context_introduction": 719,
+        "context_rebinding": 422,
+        "context_removal": 3267,
+        "formal_trace": 5000,
+        "goal_close": 3183,
+        "goal_count_reduction": 3188,
+        "multiple_source_premises": 2960,
+        "tactic_application": 5000,
+        "target_transform": 1030
+      },
+      "records": 5000,
+      "selection": "top 5,000 by frozen burden + premise + observed goal/context change score",
+      "split_counts": {
+        "dev": 288,
+        "final": 258,
+        "train": 4454
+      },
+      "status": "reference subset; no semantic fields added or simplified",
+      "unsupported_structure": {
+        "branch_semantics": "not claimed from Lean text",
+        "candidate_semantics": "candidate sets are task alternatives, not VNext candidate-state objects",
+        "obligation_semantics": "not claimed from Lean text"
+      }
+    }
+  }
+}

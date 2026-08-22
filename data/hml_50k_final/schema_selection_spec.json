@@ -1,0 +1,71 @@
+{
+  "authority": {
+    "contract": "vnext-translation-contract-1.0.0",
+    "hml_commit": "68178f07784d2a17a9aed9c4dedbea9c740c97a0",
+    "mathlib_commit": "29dcec074de168ac2bf835a77ef68bbe069194c5"
+  },
+  "candidate_count": 6,
+  "canonical_fields": [
+    "record_id",
+    "canonical_source_example_id",
+    "parent_id",
+    "split",
+    "source_family",
+    "epistemic_status",
+    "mathematical_verification_status",
+    "neutral_transition",
+    "depth",
+    "proof_length",
+    "predecessor_record_id",
+    "successor_record_id",
+    "candidate_audit",
+    "premises_used",
+    "mechanisms",
+    "complexity_bin"
+  ],
+  "canonical_record": "one exact Lean state/tactic/state-after transition",
+  "cross_projection": "NOT_EMITTED",
+  "ensure_ascii": false,
+  "frozen_before_generation": true,
+  "hml_tree": "RETIRED_NOT_EMITTED",
+  "max_sequence": 6144,
+  "negative_policy": "4-8 plausible actions required; fixed at 6; alternatives remain PLAUSIBLE_UNEXECUTED",
+  "rungs": [
+    10000,
+    30000,
+    50000
+  ],
+  "schema_id": "HML50K_TEACHING_1.0.0",
+  "seed": "hml-50k-final-20260822",
+  "split_policy": "LeanDojo official train/val/test, parent-disjoint, old VNext parents excluded",
+  "targets": {
+    "dev": 3000,
+    "final": 3000,
+    "train": 50000
+  },
+  "task_fields": [
+    "record_id",
+    "parent_id",
+    "split",
+    "task",
+    "representation",
+    "input_text",
+    "target_text",
+    "audit_metadata"
+  ],
+  "tasks": [
+    "NEXT_ACTION_SELECT",
+    "STATE_DELTA_PREDICT",
+    "VALIDITY_JUDGE",
+    "WORKED_CONTINUATION"
+  ],
+  "tokenizer_preflight": {
+    "commit": "b968826d9c46dd6066d109eabc6255188de91218",
+    "exclusions_file": "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/scripts/hml50k/token_exclusions_qwen3_8b.json",
+    "model": "Qwen/Qwen3-8B"
+  },
+  "view_families": [
+    "HML_WORKED_UTF8",
+    "STRUCTURED_NEUTRAL_WORKED"
+  ]
+}

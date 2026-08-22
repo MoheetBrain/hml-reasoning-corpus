@@ -1,0 +1,94 @@
+{
+  "available_examples_sum_non_deduplicated": 4311789,
+  "core_selection_rationale": "quality over source proportions: exact formal transitions already exceed the 50k TRAIN gate",
+  "inventory_date": "2026-08-22",
+  "result": "COMPLETE_LOCAL_INVENTORY",
+  "sources": [
+    {
+      "decision": "selected: exact state/action/state-after, current HML-representable, strongest task-native source",
+      "examples": 241265,
+      "path": "/Users/moheet/hml_research_artifacts/lean_domino_v2/lean_canonical_records.jsonl",
+      "selected": 56000,
+      "source": "LeanDojo canonical exact transitions",
+      "status": "FORMAL_TRACE"
+    },
+    {
+      "decision": "used only to recover premise annotations and verify exact canonical trace identity",
+      "examples": 259580,
+      "path": "/Users/moheet/hml_research_artifacts/leandojo_raw/leandojo_benchmark_4/random",
+      "selected": 0,
+      "source": "LeanDojo raw benchmark",
+      "status": "FORMAL_TRACE"
+    },
+    {
+      "decision": "not state/action/state-after; 51,273 conjecturing rows require separate policy",
+      "examples": 3262558,
+      "path": "/Users/moheet/hml_research_artifacts/hf_sources/STP_Lean_0320",
+      "selected": 0,
+      "source": "STP_Lean_0320",
+      "status": "FORMAL_PROOF_TEXT_MIXED_WITH_CONJECTURING"
+    },
+    {
+      "decision": "proof text, not exact traced next-state transitions",
+      "examples": 104155,
+      "path": "/Users/moheet/hml_research_artifacts/hf_sources/NuminaMath-LEAN",
+      "selected": 0,
+      "source": "NuminaMath-LEAN",
+      "status": "FORMAL_PROOF_TEXT"
+    },
+    {
+      "decision": "not exact traced next-state transitions",
+      "examples": 44553,
+      "path": "/Users/moheet/hml_research_artifacts/hf_sources/Herald_proofs",
+      "selected": 0,
+      "source": "Herald proofs",
+      "status": "FORMAL_PROOF_TEXT_WITH_NATURAL_ANNOTATION"
+    },
+    {
+      "decision": "missing state_after; ineligible for delta/continuation core",
+      "examples": 56407,
+      "path": "/Users/moheet/hml_research_artifacts/hf_sources/state_tactic_pairs",
+      "selected": 0,
+      "source": "state_tactic_pairs",
+      "status": "STATE_ACTION_ONLY"
+    },
+    {
+      "decision": "not exact traced next-state transitions",
+      "examples": 126113,
+      "path": "/Users/moheet/hml_research_artifacts/hf_sources/Pythagoras_SFT",
+      "selected": 0,
+      "source": "Pythagoras SFT",
+      "status": "SFT_PROOF_TEXT"
+    },
+    {
+      "decision": "valuable separate status class, but not mixed into formal-trace core merely for source quotas",
+      "examples": 101599,
+      "files": {
+        "phase1_test.jsonl": 106,
+        "phase1_train.jsonl": 949,
+        "phase2_test.jsonl": 2762,
+        "phase2_train.jsonl": 97782
+      },
+      "path": "/Users/moheet/hml_research_artifacts/prm800k_raw/prm800k/data",
+      "selected": 0,
+      "source": "PRM800K",
+      "status": "HUMAN_PROCESS_LABEL"
+    },
+    {
+      "decision": "solution segmentation would not preserve exact transition semantics without a new audit",
+      "examples": 12500,
+      "path": "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/data/raw/math",
+      "selected": 0,
+      "source": "Hendrycks MATH",
+      "status": "WORKED_SOLUTION_UNVERIFIED_HERE"
+    },
+    {
+      "decision": "not promoted solely to fill a preferred source mix",
+      "examples": 103059,
+      "path": "/Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/data/raw/amps_khan",
+      "selected": 0,
+      "source": "AMPS/Khan",
+      "status": "PROCEDURAL_TEXT_UNVERIFIED_HERE"
+    }
+  ]
+}

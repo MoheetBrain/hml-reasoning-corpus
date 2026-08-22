@@ -1,0 +1,22 @@
+{
+  "exact_trace_matches": 56000,
+  "files": {
+    "test": {
+      "bytes": 7129686,
+      "path": "/Users/moheet/hml_research_artifacts/leandojo_raw/leandojo_benchmark_4/random/test.json",
+      "sha256": "9f84ac4cbd5ea9031ab335d172e7a5b1873e4ac773721e60cb1a4cc5b4e2a0ae"
+    },
+    "train": {
+      "bytes": 373077058,
+      "path": "/Users/moheet/hml_research_artifacts/leandojo_raw/leandojo_benchmark_4/random/train.json",
+      "sha256": "eef6fb1382095ab4c28d4a0b0e2b5999a96cbef454dcf2899776957e83a40c1a"
+    },
+    "val": {
+      "bytes": 6456932,
+      "path": "/Users/moheet/hml_research_artifacts/leandojo_raw/leandojo_benchmark_4/random/val.json",
+      "sha256": "8ef9d5fbc1c6c8293e77a655fb888b687da804f1da9e02d6714569c49e905c70"
+    }
+  },
+  "premise_lists_recovered": 56000,
+  "selected_action_rows": 56000
+}

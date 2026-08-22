@@ -1,0 +1,32 @@
+{
+  "answer_position_counts": {
+    "0": 9418,
+    "1": 9241,
+    "2": 9203,
+    "3": 9416,
+    "4": 9366,
+    "5": 9356
+  },
+  "candidate_count": 6,
+  "chance_accuracy": 0.166667,
+  "exact_delta_target_in_input": 0,
+  "lexical_overlap_baseline_accuracy": 0.518357,
+  "lexical_overlap_with_randomised_labels_accuracy": 0.166607,
+  "mean_distractor_tactic_characters": 49.484,
+  "mean_gold_tactic_characters": 49.291,
+  "negative_status_policy": "distractors are PLAUSIBLE_UNEXECUTED, never asserted INVALID",
+  "planted_failing_controls": {
+    "answer_marker_injection_detected": true,
+    "canonical_hash_mutation_detected": true,
+    "exact_target_injection_detected": true
+  },
+  "positive_is_shortest_rate": 0.800304,
+  "positive_is_unique_shortest_rate": 0.014661,
+  "records": 56000,
+  "result": "PASS",
+  "same_tactic_head_distractor_rate": 0.909218,
+  "shortest_first_tiebreak_baseline_accuracy": 0.157857,
+  "shortest_fractional_tiebreak_baseline_accuracy": 0.156572,
+  "tactic_family_first_tiebreak_baseline_accuracy": 0.240857,
+  "target_action_outside_candidate_block": 0
+}

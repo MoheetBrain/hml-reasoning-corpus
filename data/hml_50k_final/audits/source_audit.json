@@ -1,0 +1,33 @@
+{
+  "character_safety_cap": 12000,
+  "eligible_after_exclusions": {
+    "test": 3185,
+    "train": 194687,
+    "val": 3435
+  },
+  "exclusions": {
+    "test:gold_action_verbatim_in_state_before": 1,
+    "test:old_parent": 1028,
+    "train:character_cap": 2,
+    "train:cross_split_or_internal_near_duplicate": 470,
+    "train:gold_action_verbatim_in_state_before": 72,
+    "train:old_parent": 37856,
+    "train:qwen3_8b_over_6144_preflight": 27,
+    "val:gold_action_verbatim_in_state_before": 1,
+    "val:old_parent": 494,
+    "val:qwen3_8b_over_6144_preflight": 7
+  },
+  "holdout_duplicate_priority": [
+    "test",
+    "val",
+    "train"
+  ],
+  "near_duplicate_signature": "sha256(NFKC + whitespace-collapsed state_before/tactic/state_after)",
+  "old_vnext_parent_count": 3670,
+  "source_rows": {
+    "test": 4214,
+    "train": 233114,
+    "val": 3937
+  },
+  "token_preflight_exclusion_count": 34
+}

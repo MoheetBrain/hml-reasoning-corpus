@@ -1,0 +1,21 @@
+{
+  "action_envelope_checks": 224000,
+  "candidate_order_checks": 56000,
+  "errors": [],
+  "full_state_semantic_parity_checks": 112000,
+  "paired_counts": {
+    "NEXT_ACTION_SELECT/dev": 3000,
+    "NEXT_ACTION_SELECT/final": 3000,
+    "NEXT_ACTION_SELECT/train": 50000,
+    "STATE_DELTA_PREDICT/dev": 3000,
+    "STATE_DELTA_PREDICT/final": 3000,
+    "STATE_DELTA_PREDICT/train": 50000,
+    "VALIDITY_JUDGE/dev": 6000,
+    "VALIDITY_JUDGE/final": 6000,
+    "VALIDITY_JUDGE/train": 100000,
+    "WORKED_CONTINUATION/dev": 3000,
+    "WORKED_CONTINUATION/final": 3000,
+    "WORKED_CONTINUATION/train": 50000
+  },
+  "result": "PASS"
+}

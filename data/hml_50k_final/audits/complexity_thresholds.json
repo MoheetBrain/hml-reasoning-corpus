@@ -1,0 +1,8 @@
+{
+  "field_changes": "target_changed + names_added + names_removed + names_rebound + abs(delta_goals)",
+  "fit_population": "selected TRAIN metadata only; frozen before rendering or model use",
+  "formula": "n_hypotheses_before + n_goals_before + depth + field_changes",
+  "q25": 16,
+  "q50": 23,
+  "q75": 32
+}

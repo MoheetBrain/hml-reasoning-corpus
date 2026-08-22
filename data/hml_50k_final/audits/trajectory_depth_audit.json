@@ -1,0 +1,17 @@
+{
+  "complete_trajectories": 14080,
+  "depth_counts": {
+    "1": 15532,
+    "11-20": 6295,
+    "2-3": 13731,
+    "21+": 2907,
+    "4-5": 8045,
+    "6-10": 9490
+  },
+  "parents": 16950,
+  "partial_trajectories": 2870,
+  "predecessor_link_errors": 0,
+  "result": "PASS",
+  "rows_at_depth_11_plus": 9202,
+  "successor_link_errors": 0
+}

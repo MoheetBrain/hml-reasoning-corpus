@@ -1,0 +1,77 @@
+{
+  "dev": {
+    "complete_parent_trajectories": 864,
+    "completeness_scope": "eligible catalog after all source, leakage, duplicate, character, and tokenizer exclusions",
+    "depth_counts": {
+      "1": 786,
+      "11-20": 303,
+      "2-3": 798,
+      "21+": 213,
+      "4-5": 410,
+      "6-10": 490
+    },
+    "official_source_split": "val",
+    "parents": 864,
+    "partial_parent_trajectories": 0,
+    "probability_statistics_related": 351,
+    "records": 3000,
+    "trajectory_length_counts": {
+      "1": 347,
+      "11-20": 651,
+      "2-3": 620,
+      "21+": 420,
+      "4-5": 404,
+      "6-10": 558
+    }
+  },
+  "final": {
+    "complete_parent_trajectories": 887,
+    "completeness_scope": "eligible catalog after all source, leakage, duplicate, character, and tokenizer exclusions",
+    "depth_counts": {
+      "1": 804,
+      "11-20": 331,
+      "2-3": 838,
+      "21+": 138,
+      "4-5": 404,
+      "6-10": 485
+    },
+    "official_source_split": "test",
+    "parents": 888,
+    "partial_parent_trajectories": 1,
+    "probability_statistics_related": 321,
+    "records": 3000,
+    "trajectory_length_counts": {
+      "1": 335,
+      "11-20": 562,
+      "2-3": 685,
+      "21+": 449,
+      "4-5": 405,
+      "6-10": 564
+    }
+  },
+  "train": {
+    "complete_parent_trajectories": 15198,
+    "completeness_scope": "eligible catalog after all source, leakage, duplicate, character, and tokenizer exclusions",
+    "depth_counts": {
+      "1": 13942,
+      "11-20": 5661,
+      "2-3": 12095,
+      "21+": 2556,
+      "4-5": 7231,
+      "6-10": 8515
+    },
+    "official_source_split": "train",
+    "parents": 15198,
+    "partial_parent_trajectories": 0,
+    "probability_statistics_related": 5967,
+    "records": 50000,
+    "trajectory_length_counts": {
+      "1": 7501,
+      "11-20": 9999,
+      "2-3": 7502,
+      "21+": 7498,
+      "4-5": 7500,
+      "6-10": 10000
+    }
+  }
+}
