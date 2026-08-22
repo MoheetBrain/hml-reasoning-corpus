@@ -6,7 +6,7 @@ This package is executable and data-ready. It contains no model run.
 
 - Corpus repository base before this build:
   `3337217eb2cc9460b91ead15e4a67a420ecdcd8a`.
-- Data payload commit: `TO_BE_FILLED_AFTER_DATA_COMMIT`.
+- Data payload commit: `fb6e28edec0f77753d97486cbae759a59f1d1f38`.
 - Branch: `codex/hml-50k-final`.
 - HML semantic authority: `68178f07784d2a17a9aed9c4dedbea9c740c97a0`.
 - Translation contract: `vnext-translation-contract-1.0.0`; golden validator 20/20 PASS.
