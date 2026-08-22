@@ -314,13 +314,18 @@ def trajectory_audit(canonical_records: dict[str, dict]) -> dict:
     for row in canonical_records.values():
         by_parent[row["parent_id"]].append(row)
     complete = 0
+    complete_multi_step = 0
+    complete_single_step = 0
     depth_counts = collections.Counter()
     long_rows = 0
     for values in by_parent.values():
         values.sort(key=lambda x: x["trajectory_step_index"])
         indices = [x["trajectory_step_index"] for x in values]
         proof_length = values[0]["proof_length"]
-        complete += int(indices == list(range(proof_length)))
+        is_complete = indices == list(range(proof_length))
+        complete += int(is_complete)
+        complete_multi_step += int(is_complete and proof_length > 1)
+        complete_single_step += int(is_complete and proof_length == 1)
         for index, row in enumerate(values):
             expected_previous = values[index - 1]["record_id"] if index and indices[index - 1] + 1 == indices[index] else None
             expected_next = values[index + 1]["record_id"] if index + 1 < len(values) and indices[index] + 1 == indices[index + 1] else None
@@ -332,6 +337,8 @@ def trajectory_audit(canonical_records: dict[str, dict]) -> dict:
         "result": "PASS" if predecessor_errors == 0 and successor_errors == 0 else "FAIL",
         "parents": len(by_parent),
         "complete_trajectories": complete,
+        "complete_multi_step_trajectories": complete_multi_step,
+        "complete_single_step_trajectories": complete_single_step,
         "partial_trajectories": len(by_parent) - complete,
         "predecessor_link_errors": predecessor_errors,
         "successor_link_errors": successor_errors,

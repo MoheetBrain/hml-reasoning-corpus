@@ -1,5 +1,7 @@
 {
   "complete_trajectories": 14080,
+  "complete_multi_step_trajectories": 5897,
+  "complete_single_step_trajectories": 8183,
   "depth_counts": {
     "1": 15532,
     "11-20": 6295,

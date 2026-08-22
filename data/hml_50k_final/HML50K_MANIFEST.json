@@ -86,8 +86,8 @@
       "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     "CLAUDE_FINAL_QWEN_HANDOFF.md": {
-      "bytes": 6850,
-      "sha256": "60470e0ce29bf92a7a2dd189d9d09d078bd9b8220e05c9b88053ad1496435925"
+      "bytes": 6929,
+      "sha256": "5603cbd2cf3fc966d2f2e51e151f8e859eabdbbf6c4bce0cc6e47cecb5c9e4f9"
     },
     "HML50K_BUILD_SPEC.md": {
       "bytes": 2014,
@@ -98,8 +98,8 @@
       "sha256": "23055413eb48ae0e7d2637b727dfc478609059fe7b20185369950ca85d249202"
     },
     "HML50K_DATA_AUDIT.md": {
-      "bytes": 1272,
-      "sha256": "355d5a576b224f11dae64938c0cd8265c63064b11990938c2bf295e7a6b89275"
+      "bytes": 1324,
+      "sha256": "6428c36e5288f3b15cde1053a5b14f8057a058ca846bc0ddb888809e5e048411"
     },
     "HML50K_LEAKAGE_AUDIT.md": {
       "bytes": 1195,
@@ -118,8 +118,8 @@
       "sha256": "4c55688b9aa183867cf794c51104474b3054d8cb06c44d0d3f0886ff5de53877"
     },
     "HML50K_TRAJECTORY_AUDIT.md": {
-      "bytes": 713,
-      "sha256": "1a4c124f54c6ed0b64705fe28da6f519b41e2ae28e8f9e077babe6d933f23e8a"
+      "bytes": 750,
+      "sha256": "468930a1145346653a735f3379d3d2cbc9d42b1ca807818ccd29044147ba30a9"
     },
     "HML50K_UNICODE_AUDIT.md": {
       "bytes": 374,
@@ -202,8 +202,8 @@
       "sha256": "fbfff4d0e74922cf3700b53e97e7d64cd55f072958eddd4382a25308625fff5e"
     },
     "audits/trajectory_depth_audit.json": {
-      "bytes": 333,
-      "sha256": "ffd798bc49b075d043d9cb39f3bbede04497d2790caabcd70ecb0643db5fd62d"
+      "bytes": 422,
+      "sha256": "4806545396e52220b1c4e8fc68c1a9559a83affa5425bb8797e2340e701c8e70"
     },
     "audits/unicode_audit.json": {
       "bytes": 3972,

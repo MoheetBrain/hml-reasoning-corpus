@@ -7,7 +7,8 @@ Verdict: `HML50K_READY`.
   112,000 paired judge rows per view because each state has one FORMAL_TRACE and one
   UNRESOLVED proposal.
 - 56,000 exact raw/canonical trace matches and 56,000 premise lists recovered.
-- 16,950 distinct parent theorems; 14,080 complete source trajectories after all exclusions.
+- 16,950 distinct parent theorems; 14,080 complete source trajectories after all exclusions,
+  including 5,897 complete multi-step trajectories.
 - 0 duplicate IDs, 0 cross-split near-signature matches, 0 cross-split parent overlap.
 - 0 old VNext/autopsy parents in FINAL; FINAL contains 3,000 records from 888 official-test
   parent theorems.

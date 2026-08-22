@@ -23,7 +23,8 @@ This package is executable and data-ready. It contains no model run.
 
 - Canonical examples: 56,000 = 50,000 TRAIN + 3,000 DEV + 3,000 FINAL.
 - Status: 56,000 FORMAL_TRACE; 0 FORMAL_VERIFIED, 0 HUMAN_PROCESS, 0 synthetic.
-- Parents: 16,950 distinct theorems; 14,080 complete source trajectories.
+- Parents: 16,950 distinct theorems; 14,080 complete source trajectories, of which 5,897
+  are multi-step (8,183 are complete single-step trajectories).
 - Official LeanDojo train/val/test map to TRAIN/DEV/FINAL; parent overlap is zero.
 - All 3,670 old VNext/autopsy parent IDs are excluded; FINAL contamination is zero.
 - Nested rung ID hashes:
