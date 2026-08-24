@@ -1,0 +1,22 @@
+{
+  "adapter_sha256": "bde40b3e296bc5bff754808142b7de39998194b879a4970ea2a99e9bc1de8f05",
+  "arm": "semantic",
+  "entropy": 0.8699275769265333,
+  "gold_margin": 2.3412916681480906,
+  "mrr": 0.9286333333333339,
+  "n": 3000,
+  "nll": 0.4820292332729543,
+  "peak_mlx_gib": 17.93392375856638,
+  "prompt_tokens": {
+    "max": 4868,
+    "mean": 914.2313333333333,
+    "median": 829.0,
+    "p95": 1667.0,
+    "total": 2742694
+  },
+  "raw_sha256": "53bbf94ea5857d95efcfe3ad9815cb02da0b408975fde4ed5fdc6658c28dfeb9",
+  "seed": 1,
+  "thinking_enabled": false,
+  "top1": 0.8823333333333333,
+  "wall_seconds": 1291.0253298282623
+}

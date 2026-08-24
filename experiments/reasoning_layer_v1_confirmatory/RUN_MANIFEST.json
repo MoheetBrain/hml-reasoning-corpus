@@ -80,6 +80,31 @@
   "protocol_commit": "eaeb1ec46aa3d879e1e3ce9f46351ef326a65a8c",
   "protocol_sha256": "12c6e1a16bca7495f463df3cbf945a8800e347be6eb3e8ab37bea08f25686164",
   "recipe_sha256": "b393d81f0af1c66d52b669436e6c47733fcca54d7364288ad26168e575e0c836",
+  "results": {
+    "adapters": {
+      "adapters/base_seed1/0010000_adapters.safetensors": "48c3f41f2af5d5f785f90e6cba1c57741c215915921572ec59b448bac231160c",
+      "adapters/base_seed1/adapter_config.json": "be29b92e32aa1fb2b52d4de4e9904d78f7668cb078765413defaf05310af3a38",
+      "adapters/base_seed1/adapters.safetensors": "48c3f41f2af5d5f785f90e6cba1c57741c215915921572ec59b448bac231160c",
+      "adapters/raw_seed1/0010000_adapters.safetensors": "55600c0ada87bcff560f2060769c370fe868352ed9e8231592c4f837ca6f2539",
+      "adapters/raw_seed1/adapter_config.json": "1a142a86b8898d4553f22625aa8b620e37baa54eaa6e080b72f1ba0b4eedb940",
+      "adapters/raw_seed1/adapters.safetensors": "55600c0ada87bcff560f2060769c370fe868352ed9e8231592c4f837ca6f2539",
+      "adapters/semantic_seed1/0010000_adapters.safetensors": "bde40b3e296bc5bff754808142b7de39998194b879a4970ea2a99e9bc1de8f05",
+      "adapters/semantic_seed1/adapter_config.json": "084c49152bab431f9bb7a0279beb37ecbf7404fa423cc7bcbfaf9672ef76c0db",
+      "adapters/semantic_seed1/adapters.safetensors": "bde40b3e296bc5bff754808142b7de39998194b879a4970ea2a99e9bc1de8f05"
+    },
+    "analysis_sha256": "e139b0ac60b6c4ed56b64461848ab9f6c9da2758595e4227d220ecc7d879cb78",
+    "final_b": "SEALED_NOT_OPENED",
+    "prediction_files": {
+      "base_seed1": "00e54fd76d3531c59a70a33dd4188a1536e431ea38f136187bb49d1129e9144e",
+      "raw_seed1": "9b0ce01a39446115fecc70a15c93ded749088771ab30332dcce7985b37b2c235",
+      "semantic_seed1": "53bbf94ea5857d95efcfe3ad9815cb02da0b408975fde4ed5fdc6658c28dfeb9"
+    },
+    "report_sha256": "fd4db6709b0b0fc375b359707b1520f140a10aacb7fa40dcf30b4f7a58f6bfc1",
+    "seeds": [
+      1
+    ],
+    "verdict": "V1_SEMANTIC_COMPRESSION_FAILED"
+  },
   "source_sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
   "stack": [
     "mlx=0.32.0",

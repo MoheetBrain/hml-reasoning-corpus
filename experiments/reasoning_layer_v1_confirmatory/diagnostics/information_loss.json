@@ -1,0 +1,38 @@
+{
+  "all_rows_loss_profile": {
+    "branch_ancestry_available_in_raw": 0.4776666666666667,
+    "exact_prior_hypotheses_omitted": 24.053,
+    "exact_prior_state_content_omitted": 0.7476666666666667,
+    "exact_prior_targets_omitted": 1.6843333333333332,
+    "exact_tactic_arguments_omitted": 2.0643333333333334,
+    "history_events": 2.203666666666667,
+    "prior_intermediate_proposition_content_omitted": 0.7476666666666667,
+    "tactic_retained_as_family_only": 0.7476666666666667,
+    "window_saturated": 0.40066666666666667
+  },
+  "interpretation": "RAW_HISTORY exposes exact prior states, targets, hypotheses and tactic arguments; V1 retains goal/dependency structure for the current state plus tactic families and coarse deltas only.",
+  "raw_only_loss_profile": {
+    "branch_ancestry_available_in_raw": 0.5048543689320388,
+    "exact_prior_hypotheses_omitted": 21.25242718446602,
+    "exact_prior_state_content_omitted": 0.8446601941747572,
+    "exact_prior_targets_omitted": 1.8737864077669903,
+    "exact_tactic_arguments_omitted": 2.4271844660194173,
+    "history_events": 2.6310679611650487,
+    "prior_intermediate_proposition_content_omitted": 0.8446601941747572,
+    "tactic_retained_as_family_only": 0.8446601941747572,
+    "window_saturated": 0.49514563106796117
+  },
+  "raw_only_rows": 103,
+  "semantic_only_loss_profile": {
+    "branch_ancestry_available_in_raw": 0.5121951219512195,
+    "exact_prior_hypotheses_omitted": 28.109756097560975,
+    "exact_prior_state_content_omitted": 0.7317073170731707,
+    "exact_prior_targets_omitted": 1.7804878048780488,
+    "exact_tactic_arguments_omitted": 2.097560975609756,
+    "history_events": 2.3658536585365852,
+    "prior_intermediate_proposition_content_omitted": 0.7317073170731707,
+    "tactic_retained_as_family_only": 0.7317073170731707,
+    "window_saturated": 0.45121951219512196
+  },
+  "semantic_only_rows": 82
+}
