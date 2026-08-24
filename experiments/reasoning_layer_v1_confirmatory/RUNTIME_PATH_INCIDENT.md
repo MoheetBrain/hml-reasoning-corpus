@@ -12,3 +12,9 @@ the external experiment artifact directory in `incidents/`. They are excluded fr
 analyses. The driver now names the relocated canonical paths directly. No model recipe,
 dataset content, arm content, seed, evaluation rule, or statistical gate changed. Preflight
 must be rerun after this path-only amendment, and training restarts from iteration zero.
+
+After BASE seed 1 later completed successfully, a laptop shutdown interrupted the first
+RAW seed-1 startup before any training-loss checkpoint (the log contains validation only).
+That startup log and empty adapter shell are preserved in `incidents/laptop_shutdown_raw_seed1/`
+and excluded from analysis. RAW seed 1 restarts from iteration zero with the same frozen
+recipe and prepared dataset; the completed BASE adapter is retained unchanged.
