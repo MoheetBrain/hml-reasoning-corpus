@@ -1,0 +1,89 @@
+{
+  "audits": {
+    "common_envelope.json": "43d2ff00313557a70226812bf0719f8651c110faf5f62f845b850e4ac4ee2c17",
+    "holdout_integrity.json": "30c718b47e3f004bf27a0bcd763a0d76e803d69ff150daab48a9adbdbe7e598e",
+    "information_contract.json": "5a9c03e412ef2a1e1ac1482c773764c3fa957787a2c8b47d5cce228842fed9b3",
+    "token_audit.json": "02e55c8544ea1f19d1aeac7f04b5fe17569b3b097f0bb51339736abfeca64715",
+    "training_coverage.json": "5e33d867271561ee9c1e3a17471d809aebbc57925f1b9766085de2b7b324bc77"
+  },
+  "created": "2026-08-24T07:49:18+0100",
+  "discovery_commit": "aea77b0a4197682643337efcc2d61574a5158ca7",
+  "driver_sha256": "687f6a3542d113724927f8f49b083c85d90e7b0d51dd19c8523b805470df6e81",
+  "hardware": {
+    "cpu_count": 18,
+    "machine": "arm64",
+    "platform": "macOS-26.5.2-arm64-arm-64bit"
+  },
+  "holdout_manifest_sha256": "89dd43bb71a5d1e4bf3755b7cdb52c69844eb27833ad284189bb8a37f7366a0e",
+  "model_id": "Qwen/Qwen3-8B",
+  "model_inventory": {
+    "dtypes": {
+      "BF16": 399
+    },
+    "parameters": 8190735360,
+    "quantization": null
+  },
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prepared": {
+    "base": {
+      "arm": "base",
+      "train": {
+        "full_tokens": 3678055,
+        "max_full_tokens": 3241,
+        "rows": 10000,
+        "sha256": "e4201ca0605d33e1f6681feceddb828283b9f7a0f2a9a0677ef1ecb66d954afe",
+        "supervised_tokens": 80000
+      },
+      "valid": {
+        "full_tokens": 23433,
+        "max_full_tokens": 999,
+        "rows": 64,
+        "sha256": "7b16a56dfaa1c40d5a067d7cb9f6b28e70c1490c0eefee540cdb0b1c5c14c035",
+        "supervised_tokens": 512
+      }
+    },
+    "raw": {
+      "arm": "raw",
+      "train": {
+        "full_tokens": 11120880,
+        "max_full_tokens": 6114,
+        "rows": 10000,
+        "sha256": "a7afb4a979e5ba49ab4de4ee2f1dd85ec2bb17562a1a06a03efa9f9e315b3579",
+        "supervised_tokens": 80000
+      },
+      "valid": {
+        "full_tokens": 78644,
+        "max_full_tokens": 4429,
+        "rows": 64,
+        "sha256": "c5c4f533d420c84123b2814526c5a9bf26b16cca76d0e7e5ee8d04b4cf25e290",
+        "supervised_tokens": 512
+      }
+    },
+    "semantic": {
+      "arm": "semantic",
+      "train": {
+        "full_tokens": 9032014,
+        "max_full_tokens": 4255,
+        "rows": 10000,
+        "sha256": "f6b0563632dee1803ed3a4151b1d3f6696c4e4254f3f73d4688971421b406105",
+        "supervised_tokens": 80000
+      },
+      "valid": {
+        "full_tokens": 61249,
+        "max_full_tokens": 2371,
+        "rows": 64,
+        "sha256": "b659bc45e29e4bdecb7bcf3d3e3c854f1ed391e7e10bcda625d3ac1884881393",
+        "supervised_tokens": 512
+      }
+    }
+  },
+  "protocol_commit": "ecb77aee5a9d7c1626e640656fb748e6ce1c56e6",
+  "protocol_sha256": "a2855970b70289fa208af5b96ce8bd2bc8d924070c0d741d86843747445e59f4",
+  "recipe_sha256": "b393d81f0af1c66d52b669436e6c47733fcca54d7364288ad26168e575e0c836",
+  "source_sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
+  "stack": [
+    "mlx=0.32.0",
+    "mlx-lm=0.31.3",
+    "transformers=5.15.0"
+  ]
+}

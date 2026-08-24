@@ -1,0 +1,51 @@
+{
+  "counts": {
+    "dev": 3000,
+    "final_a": 3000,
+    "train": 10000
+  },
+  "counts_before_maxseq_resolution": {
+    "dev": 3000,
+    "final_a": 3000,
+    "reserve": 512,
+    "train": 10000
+  },
+  "cross_split_parent_overlap": {
+    "dev_final_a": 0,
+    "train_dev": 0,
+    "train_final_a": 0
+  },
+  "final_a_reconstruction": {
+    "current_state_hash_set_sha256": "70213f15e72c5d71cb45c7da7bebcb237ed7da438b0c0b078f1304a6d010c632",
+    "parent_id_set_sha256": "a9f7a56fbc768e54b77e641ef094f6782eae2d4014f90e0b96830e7525e16b08",
+    "parents": 757,
+    "record_id_set_sha256": "ed1a71bd06e6918e211ed8f01188a7733342a156b56f1310f9591d106d733004",
+    "records": 3000,
+    "transition_commitment_set_sha256": "f332922e02b3f23fee6e76644e48d53ceed0b03b45b9c10033aeaead010e2bb1"
+  },
+  "final_b": {
+    "integrity_relied_on": "frozen discovery commit and FRESH_HOLDOUT_MANIFEST hashes",
+    "records": 3000,
+    "status": "SEALED_NOT_OPENED"
+  },
+  "gold_action_verbatim_in_current_state": {
+    "dev": 0,
+    "final_a": 0,
+    "train": 0
+  },
+  "maxseq_training_resolution": {
+    "policy": "replace primary-rung RAW rows above training MAXSEQ with the first SHA256-ordered unused HML50K TRAIN rows that fit all arms",
+    "primary_overflow_rows": 32,
+    "removed_record_id_set_sha256": "e56ffefe6e4d4976048211440fe6c276b939f19b0ed42c095e6a9edcc8c5efd0",
+    "replacement_record_id_set_sha256": "a05d926e775583ba02ea387071ed70bbf4ebefd69c3f66378177fc37397468f7",
+    "replacement_rows": 32,
+    "same_records_all_arms": true,
+    "semantic_content_changed": false
+  },
+  "parents": {
+    "dev": 864,
+    "final_a": 757,
+    "train": 6053
+  },
+  "result": "PASS"
+}

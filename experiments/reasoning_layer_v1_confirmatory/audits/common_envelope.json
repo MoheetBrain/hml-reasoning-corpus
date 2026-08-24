@@ -1,0 +1,10 @@
+{
+  "candidate_mismatch": 0,
+  "expected_rows": 16000,
+  "prefix_mismatch": 0,
+  "result": "PASS",
+  "rows": 16000,
+  "suffix_mismatch": 0,
+  "target_mismatch": 0,
+  "template_sha256": "4b6ef50b8cf246950831784007342ccaa572303cb109587d119b47b2ea8308ae"
+}

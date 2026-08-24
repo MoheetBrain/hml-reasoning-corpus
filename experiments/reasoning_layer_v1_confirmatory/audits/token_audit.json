@@ -1,0 +1,99 @@
+{
+  "arms": {
+    "base": {
+      "chat_prompt_tokens": {
+        "max": 3237,
+        "mean": 363.1086875,
+        "median": 319.0,
+        "p95": 691.0499999999993,
+        "total": 5809739
+      },
+      "full_tokens": {
+        "max": 3241,
+        "mean": 367.1086875,
+        "median": 323.0,
+        "p95": 695.0499999999993,
+        "total": 5873739
+      }
+    },
+    "raw": {
+      "chat_prompt_tokens": {
+        "max": 11546,
+        "mean": 1136.45925,
+        "median": 766.0,
+        "p95": 3269.2499999999964,
+        "total": 18183348
+      },
+      "full_tokens": {
+        "max": 11550,
+        "mean": 1140.45925,
+        "median": 770.0,
+        "p95": 3273.2499999999964,
+        "total": 18247348
+      }
+    },
+    "semantic": {
+      "chat_prompt_tokens": {
+        "max": 4868,
+        "mean": 903.9944375,
+        "median": 816.0,
+        "p95": 1614.0,
+        "total": 14463911
+      },
+      "full_tokens": {
+        "max": 4872,
+        "mean": 907.9944375,
+        "median": 820.0,
+        "p95": 1618.0,
+        "total": 14527911
+      }
+    }
+  },
+  "evaluation_policy": "full prompts are scored without truncation up to the pinned model context limit; training and 64-row validation remain <=6144",
+  "maxseq_resolution": {
+    "policy": "replace primary-rung RAW rows above training MAXSEQ with the first SHA256-ordered unused HML50K TRAIN rows that fit all arms",
+    "primary_overflow_rows": 32,
+    "removed_record_id_set_sha256": "e56ffefe6e4d4976048211440fe6c276b939f19b0ed42c095e6a9edcc8c5efd0",
+    "replacement_record_id_set_sha256": "a05d926e775583ba02ea387071ed70bbf4ebefd69c3f66378177fc37397468f7",
+    "replacement_rows": 32,
+    "same_records_all_arms": true,
+    "semantic_content_changed": false
+  },
+  "model_context_limit": 40960,
+  "model_context_overflows": {
+    "base": 0,
+    "raw": 0,
+    "semantic": 0
+  },
+  "ratios": {
+    "raw_over_base": 3.129804626335194,
+    "semantic_over_base": 2.489597381224871,
+    "semantic_over_raw": 0.7954481759904721
+  },
+  "result": "PASS",
+  "rows_above_training_maxseq_by_split": {
+    "dev": {
+      "base": 0,
+      "raw": 24,
+      "semantic": 0
+    },
+    "final_a": {
+      "base": 0,
+      "raw": 8,
+      "semantic": 0
+    },
+    "train": {
+      "base": 0,
+      "raw": 0,
+      "semantic": 0
+    }
+  },
+  "training_maxseq": 6144,
+  "training_overflows": {
+    "base": 0,
+    "raw": 0,
+    "semantic": 0
+  },
+  "validation_record_id_set_sha256": "ef004cd7f63109c83bc0b5c387908cf98c153d25be42b1b0c257e52e4fac5872",
+  "zero_differential_truncation": true
+}

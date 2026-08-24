@@ -1,0 +1,17 @@
+{
+  "failures": [],
+  "field_provenance": {
+    "active_goal": "A/B current state",
+    "active_scope": "A source-explicit current-state case label",
+    "local_dependencies": "B deterministic current-state name references",
+    "open_goals": "A/B current state",
+    "progress_summary": "B deterministic current state + recent deltas",
+    "recent_actions": "A/B exact prior successful action -> deterministic family",
+    "recent_deltas": "B deterministic prior state-before/state-after diff",
+    "trajectory_position": "A source-explicit prefix length, copied neutrally into RAW raw_prefix_metadata and deterministically renamed in V1"
+  },
+  "history_window": 4,
+  "result": "PASS",
+  "rows": 16000,
+  "semantic_reconstructed_exactly_from_base_plus_raw": true
+}

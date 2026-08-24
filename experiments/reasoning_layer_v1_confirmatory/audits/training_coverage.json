@@ -1,0 +1,50 @@
+{
+  "dev": {
+    "branch_scope_present": 1272,
+    "dependencies_present": 2676,
+    "depth": {
+      "1": 786,
+      "11-20": 303,
+      "2-3": 798,
+      "21+": 213,
+      "4-5": 410,
+      "6-10": 490
+    },
+    "history_absent": 863,
+    "history_present": 2137,
+    "multi_goal": 20,
+    "rows": 3000
+  },
+  "final_a": {
+    "branch_scope_present": 1377,
+    "dependencies_present": 2702,
+    "depth": {
+      "1": 674,
+      "11-20": 383,
+      "2-3": 766,
+      "21+": 185,
+      "4-5": 398,
+      "6-10": 594
+    },
+    "history_absent": 757,
+    "history_present": 2243,
+    "multi_goal": 16,
+    "rows": 3000
+  },
+  "train": {
+    "branch_scope_present": 4153,
+    "dependencies_present": 8912,
+    "depth": {
+      "1": 2899,
+      "11-20": 1130,
+      "2-3": 2421,
+      "21+": 516,
+      "4-5": 1364,
+      "6-10": 1670
+    },
+    "history_absent": 3118,
+    "history_present": 6882,
+    "multi_goal": 57,
+    "rows": 10000
+  }
+}
