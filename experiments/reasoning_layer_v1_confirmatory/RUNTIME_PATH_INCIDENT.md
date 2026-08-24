@@ -18,3 +18,13 @@ RAW seed-1 startup before any training-loss checkpoint (the log contains validat
 That startup log and empty adapter shell are preserved in `incidents/laptop_shutdown_raw_seed1/`
 and excluded from analysis. RAW seed 1 restarts from iteration zero with the same frozen
 recipe and prepared dataset; the completed BASE adapter is retained unchanged.
+
+The restarted RAW run then reached iteration 400 but a second laptop shutdown occurred.
+On the user's explicit instruction to modify the run slightly for stability, the common
+recipe is amended to physical microbatch 1 with two-step gradient accumulation (effective
+batch 2). Every arm now runs 10,000 microsteps / 5,000 optimizer updates over the same
+10,000 records. The previously completed physical-batch-2 BASE adapter is preserved as an
+incident artifact but excluded, and all three confirmatory arms restart under the amended
+common recipe. This changes execution granularity only; model, LoRA targets/rank/scale,
+optimizer, learning rate, epoch coverage, prompt masking, MAXSEQ, data, seeds, and gates are
+unchanged.

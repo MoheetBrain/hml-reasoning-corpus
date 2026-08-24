@@ -96,9 +96,12 @@ position and distractor order are SHA-256 deterministic. Alternatives remain
 - Qwen/Qwen3-8B BF16 revision `b968826d9c46dd6066d109eabc6255188de91218`;
   no quantization.
 - LoRA last 8 layers, `q_proj + o_proj`, rank 4, scale 2, dropout 0; Adam; learning rate
-  `1e-4`; batch 2; prompt masking; gradient checkpointing; MAXSEQ 6,144.
-- One complete 10K epoch: 5,000 optimizer steps. One Metal process at a time, local Mac
-  only, no cloud, no arm-specific tuning.
+  `1e-4`; effective batch 2; prompt masking; gradient checkpointing; MAXSEQ 6,144.
+- Runtime-safety amendment after two laptop shutdowns in the RAW arm: physical microbatch
+  1 with two-step gradient accumulation, identically for every arm. One complete 10K epoch
+  is 10,000 microsteps / 5,000 optimizer updates. The completed pre-amendment BASE adapter
+  is excluded and all three arms restart under this common recipe. One Metal process at a
+  time, local Mac only, no cloud, no arm-specific tuning.
 - Thinking disabled. Equal-length `C0`–`C5` labels are scored by mean token log
   probability with the validated shared-prefix prompt-cache scorer.
 

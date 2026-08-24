@@ -63,6 +63,10 @@ N_DEV = 3_000
 N_FINAL = 3_000
 BOOTSTRAPS = 4_000
 BOOTSTRAP_SEED = 20_260_824
+MICROBATCH_SIZE = 1
+GRAD_ACCUMULATION_STEPS = 2
+MICROSTEPS = 10_000
+OPTIMIZER_UPDATES = MICROSTEPS // GRAD_ACCUMULATION_STEPS
 SELECTION_SEED = "REASONING_LAYER_FRESH_HOLDOUTS_20260824_V1"
 HML_CANDIDATE_SEED = "hml-50k-final-20260822"
 DEPTH_ORDER = ("1", "2-3", "4-5", "6-10", "11-20", "21+")
@@ -698,10 +702,12 @@ def train(arm: str, seed: int) -> None:
     cell.mkdir(parents=True, exist_ok=True); result_path.parent.mkdir(parents=True, exist_ok=True)
     command = [
         "caffeinate", "-dimsu", str(PYTHON), "-m", "mlx_lm", "lora", "--model", str(MODEL), "--train",
-        "--data", str(ART / "prepared" / arm), "-c", str(RECIPE), "--batch-size", "2", "--iters", "5000",
+        "--data", str(ART / "prepared" / arm), "-c", str(RECIPE),
+        "--batch-size", str(MICROBATCH_SIZE), "--grad-accumulation-steps", str(GRAD_ACCUMULATION_STEPS),
+        "--iters", str(MICROSTEPS),
         "--learning-rate", "1e-4", "--max-seq-length", str(MAXSEQ), "--grad-checkpoint",
-        "--steps-per-report", "100", "--steps-per-eval", "100000", "--val-batches", "1",
-        "--adapter-path", str(adapter), "--save-every", "100", "--seed", str(seed),
+        "--steps-per-report", "200", "--steps-per-eval", "200000", "--val-batches", "1",
+        "--adapter-path", str(adapter), "--save-every", "200", "--seed", str(seed),
     ]
     started = time.time(); swap_start = swap_mb()
     with log_path.open("x", encoding="utf-8") as log, telemetry_path.open("x", encoding="utf-8") as telemetry:
@@ -721,12 +727,14 @@ def train(arm: str, seed: int) -> None:
     peaks = [float(x) for x in re.findall(r"Peak mem ([0-9.]+) GB", text)]
     trained = [int(x) for x in re.findall(r"Trained Tokens ([0-9]+)", text)]
     telemetry = [json.loads(line) for line in telemetry_path.read_text().splitlines()]
-    passed = returncode == 0 and iterations and iterations[-1] == 5000 and len(losses) == 50 and (adapter / "adapters.safetensors").exists()
+    passed = returncode == 0 and iterations and iterations[-1] == MICROSTEPS and len(losses) == 50 and (adapter / "adapters.safetensors").exists()
     result = {
         "result": "PASS" if passed else "FAIL", "arm": arm, "seed": seed,
         "protocol_commit": json.loads((HERE / "RUN_MANIFEST.json").read_text())["protocol_commit"],
         "model_revision": MODEL_REV, "recipe_sha256": sha(RECIPE),
         "dataset_manifest_sha256": sha(ART / "prepared" / arm / "dataset_manifest.json"),
+        "microbatch_size": MICROBATCH_SIZE, "gradient_accumulation_steps": GRAD_ACCUMULATION_STEPS,
+        "microsteps": MICROSTEPS, "optimizer_updates": OPTIMIZER_UPDATES,
         "first_loss": losses[0] if losses else None, "final_loss": losses[-1] if losses else None,
         "loss_checkpoints": losses, "iterations": iterations[-1] if iterations else None,
         "examples_seen": N_TRAIN, "reported_tokens_seen": trained[-1] if trained else None,
