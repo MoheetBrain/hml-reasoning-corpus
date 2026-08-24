@@ -499,6 +499,10 @@ def audit_and_prepare() -> None:
     }
     holdout["counts"] = {key: len(value) for key, value in records.items()}
     holdout["parents"] = {key: len({x["parent_id"] for x in value}) for key, value in records.items()}
+    holdout["gold_action_verbatim_in_current_state"] = {
+        key: sum(x["metadata"]["gold_action_verbatim_in_current_state"] for x in value)
+        for key, value in records.items()
+    }
     holdout["maxseq_training_resolution"] = replacement_audit
 
     validation_ids = []

@@ -73,7 +73,9 @@ TRAIN rows exceeded the 6,144-token training limit. Sixty-two RAW prompts across
 splits exceeded that training limit, but every DEV/FINAL_A prompt was below the pinned
 model's native context limit and the scorer does not truncate evaluation prompts.
 
-Without changing V1 or any row's semantic content, the 31 over-length TRAIN records are
+Adding the required neutral prefix-count scalar moved one further TRAIN prompt above the
+limit. Without changing V1 or any row's semantic content, the resulting 32 over-length
+TRAIN records are
 replaced identically in all arms by the first SHA-256-ordered unused HML50K TRAIN records
 whose complete prompts fit all arms. The training set remains exactly 10,000 rows. The
 64-row validation subset is likewise chosen identically across arms from complete DEV

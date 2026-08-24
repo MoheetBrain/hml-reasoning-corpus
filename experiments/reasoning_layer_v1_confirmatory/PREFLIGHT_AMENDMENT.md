@@ -9,7 +9,9 @@ envelope passed, but two pre-training gates failed:
    `raw_prefix_metadata.successful_events_before_current`; V1 itself is unchanged.
 2. Complete RAW prompts exceeded the 6,144-token training limit for 31 TRAIN, 23 DEV and 8
    FINAL_A rows (maximums 13,626 / 11,538 / 9,400). Resolution: replace only the 31 TRAIN
-   rows by a frozen SHA-256-ordered HML50K reserve that fits all arms. Select a matched safe
+   rows by a frozen SHA-256-ordered HML50K reserve that fits all arms. The required neutral
+   prefix-count scalar moved one additional TRAIN prompt above the boundary, so the final
+   audited replacement count is 32. Select a matched safe
    64-row DEV validation subset. Full DEV/FINAL_A evaluation remains lossless and below the
    pinned model's native context limit; the scorer performs no truncation.
 
