@@ -7,7 +7,7 @@ this protocol tests representation-neutral reasoning semantics, not HML syntax.
 
 ## Data and holdouts
 
-- TRAIN is the frozen HML50K 10K rung; DEV is its 3,000-row development split.
+- TRAIN begins from the frozen HML50K 10K rung; DEV is its 3,000-row development split.
 - Neither old FINAL nor either fresh holdout is used for training or selection.
 - `FRESH_FINAL_A` is exactly the 3,000 rows / 757 parents committed by
   `FRESH_HOLDOUT_MANIFEST.json`. Its identifiers are deterministically reconstructed from
@@ -31,6 +31,12 @@ V1 fields are unchanged: `active_goal`, `open_goals`, `local_dependencies`,
 `progress_summary`. No gold/current action, current state-after, future step, proof length,
 candidate-derived label, failed route, inferred strategy, lemma role, distinct obligation,
 or branch genealogy/coverage is permitted.
+
+`trajectory_position.steps_completed` is a frozen V1 field but cannot be reconstructed
+from four unindexed events alone. RAW therefore also receives the source-explicit scalar
+`raw_prefix_metadata.successful_events_before_current`. This is neutral source metadata,
+not a semantic annotation; it is deterministically renamed to the V1 field. No V1 field or
+value changes.
 
 The common user prompt has no system message. Only the bytes inside
 `<REASONING_CONTEXT>...</REASONING_CONTEXT>` may differ:
@@ -58,6 +64,21 @@ C0 / C1 / C2 / C3 / C4 / C5
 Preflight requires zero prefix, suffix, candidate, target, record, parent and ordering
 mismatches; exact semantic reconstruction from BASE+RAW for all 16,000 train/dev/FINAL_A
 rows; and zero truncation in any arm. Any failure stops before training.
+
+## Frozen preflight resolution
+
+The first preflight (after protocol commit `91b0fad0e1607214f4b844c1f1f30f2dafc9be83`)
+correctly stopped: the RAW arm lacked the neutral prefix-count scalar above, and 31 primary
+TRAIN rows exceeded the 6,144-token training limit. Sixty-two RAW prompts across all
+splits exceeded that training limit, but every DEV/FINAL_A prompt was below the pinned
+model's native context limit and the scorer does not truncate evaluation prompts.
+
+Without changing V1 or any row's semantic content, the 31 over-length TRAIN records are
+replaced identically in all arms by the first SHA-256-ordered unused HML50K TRAIN records
+whose complete prompts fit all arms. The training set remains exactly 10,000 rows. The
+64-row validation subset is likewise chosen identically across arms from complete DEV
+prompts below 6,144. Full DEV and FINAL_A prompts are audited and scored without truncation
+up to the pinned native context limit. Replacement IDs and hashes are frozen in the audit.
 
 ## Candidate construction
 

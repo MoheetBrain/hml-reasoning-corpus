@@ -180,12 +180,13 @@ def state_hash_from_hml_record(row: dict[str, Any]) -> str:
     return digest_text(row["neutral_transition"]["state_before"]["claims"]["p0"]["proposition"])
 
 
-def load_hml_authority() -> tuple[dict[str, dict[str, Any]], set[str], set[str], set[str], set[str]]:
+def load_hml_authority() -> tuple[dict[str, dict[str, Any]], set[str], set[str], set[str], set[str], set[str]]:
     train_ids = set(json.loads((CORPUS / "rungs/10k/record_ids.json").read_text(encoding="utf-8")))
     selected: dict[str, dict[str, Any]] = {}
     parents: set[str] = set()
     states: set[str] = set()
     train_examples: set[str] = set()
+    reserve_candidates: list[tuple[str, str]] = []
     dev_examples: set[str] = set()
     for row in read_gzip(CORPUS / "canonical/records.jsonl.gz"):
         parents.add(row["parent_id"])
@@ -196,9 +197,20 @@ def load_hml_authority() -> tuple[dict[str, dict[str, Any]], set[str], set[str],
         elif row["split"] == "dev":
             selected[row["canonical_source_example_id"]] = row
             dev_examples.add(row["canonical_source_example_id"])
+        elif row["split"] == "train":
+            reserve_candidates.append((
+                digest_text("RLV1_MAXSEQ_RESERVE|" + row["record_id"]),
+                row["canonical_source_example_id"],
+            ))
+    reserve_examples = {example for _, example in sorted(reserve_candidates)[:512]}
+    if reserve_examples & train_examples:
+        raise AssertionError("reserve overlaps primary 10K rung")
+    for row in read_gzip(CORPUS / "canonical/records.jsonl.gz"):
+        if row["canonical_source_example_id"] in reserve_examples:
+            selected[row["canonical_source_example_id"]] = row
     if len(train_examples) != N_TRAIN or len(dev_examples) != N_DEV:
         raise AssertionError((len(train_examples), len(dev_examples)))
-    return selected, parents, states, train_examples, dev_examples
+    return selected, parents, states, train_examples, reserve_examples, dev_examples
 
 
 def load_vnext_parents() -> set[str]:
@@ -322,11 +334,13 @@ def candidate_sets(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
 
 
 def build_records() -> tuple[dict[str, list[dict[str, Any]]], dict[str, Any]]:
-    selected_hml, hml_parents, prior_states, train_examples, dev_examples = load_hml_authority()
+    selected_hml, hml_parents, prior_states, train_examples, reserve_examples, dev_examples = load_hml_authority()
     vnext_parents = load_vnext_parents()
     final_examples, final_parents, final_checks = reconstruct_final_a(hml_parents, vnext_parents, prior_states)
-    wanted_examples = train_examples | dev_examples | final_examples
-    wanted_parents = {selected_hml[x]["parent_id"] for x in train_examples | dev_examples} | final_parents
+    wanted_examples = train_examples | reserve_examples | dev_examples | final_examples
+    wanted_parents = {
+        selected_hml[x]["parent_id"] for x in train_examples | reserve_examples | dev_examples
+    } | final_parents
     source_rows: dict[str, dict[str, Any]] = {}
     parent_rows: dict[str, list[dict[str, Any]]] = collections.defaultdict(list)
     with SOURCE.open(encoding="utf-8") as handle:
@@ -353,8 +367,11 @@ def build_records() -> tuple[dict[str, list[dict[str, Any]]], dict[str, Any]]:
                 "state_after": row["lean"]["raw_state_after"],
             })
 
-    output = {"train": [], "dev": [], "final_a": []}
-    split_examples = (("train", train_examples), ("dev", dev_examples), ("final_a", final_examples))
+    output = {"train": [], "reserve": [], "dev": [], "final_a": []}
+    split_examples = (
+        ("train", train_examples), ("reserve", reserve_examples),
+        ("dev", dev_examples), ("final_a", final_examples),
+    )
     for split, examples in split_examples:
         for example in examples:
             source = source_rows[example]
@@ -368,7 +385,8 @@ def build_records() -> tuple[dict[str, list[dict[str, Any]]], dict[str, Any]]:
             history = histories.get(example, [])[-HISTORY_WINDOW:]
             record = {
                 "record_id": frozen["record_id"] if frozen else "RLV1-A-" + digest_text(example)[:16],
-                "source_example_id": example, "parent_id": parent_id(source), "split": split,
+                "source_example_id": example, "parent_id": parent_id(source),
+                "split": "train" if split == "reserve" else split,
                 "current_state": raw, "history": history, "semantic_state": semantic,
                 "candidates": [{"candidate_id": x["candidate_id"], "tactic_text": x["tactic_text"]} for x in candidates["candidates"]],
                 "target": target,
@@ -395,7 +413,7 @@ def build_records() -> tuple[dict[str, list[dict[str, Any]]], dict[str, Any]]:
             "status": "SEALED_NOT_OPENED", "records": 3000,
             "integrity_relied_on": "frozen discovery commit and FRESH_HOLDOUT_MANIFEST hashes",
         },
-        "counts": {key: len(value) for key, value in output.items()},
+        "counts_before_maxseq_resolution": {key: len(value) for key, value in output.items()},
         "parents": {key: len({x["parent_id"] for x in value}) for key, value in output.items()},
         "cross_split_parent_overlap": {
             "train_dev": len({x["parent_id"] for x in output["train"]} & {x["parent_id"] for x in output["dev"]}),
@@ -414,12 +432,24 @@ def payload(record: dict[str, Any], arm: str) -> str:
     if arm == "base":
         value = base
     elif arm == "raw":
-        value = {**base, "raw_history": raw_history_payload(record["history"])}
+        value = {
+            **base,
+            "raw_prefix_metadata": {
+                "successful_events_before_current": record["metadata"]["trajectory_position"],
+            },
+            "raw_history": raw_history_payload(record["history"]),
+        }
     elif arm == "semantic":
         value = {**base, "reasoning_state": record["semantic_state"]}
     else:
         raise ValueError(arm)
     return canonical(value)
+
+
+def reconstruct_semantic_from_raw(record: dict[str, Any]) -> dict[str, Any]:
+    value = extract_reasoning_state(record["current_state"], record["history"])
+    value["trajectory_position"]["steps_completed"] = record["metadata"]["trajectory_position"]
+    return value
 
 
 def candidate_block(candidates: list[dict[str, str]]) -> str:
@@ -439,9 +469,51 @@ def audit_and_prepare() -> None:
         raise SystemExit("refusing preflight after training exists")
     records, holdout = build_records()
     tokenizer = AutoTokenizer.from_pretrained(MODEL, local_files_only=True, trust_remote_code=False)
+
+    def full_length(record: dict[str, Any], arm: str) -> int:
+        prompt = project(record, arm)["prompt"]
+        return len(tokenizer.apply_chat_template([
+            {"role": "user", "content": prompt},
+            {"role": "assistant", "content": record["target"]},
+        ], return_dict=False))
+
+    primary_bad = [record for record in records["train"] if full_length(record, "raw") > MAXSEQ]
+    safe_reserve = [record for record in records["reserve"] if max(full_length(record, arm) for arm in ARMS) <= MAXSEQ]
+    if len(safe_reserve) < len(primary_bad):
+        raise SystemExit(f"insufficient deterministic MAXSEQ reserve: {len(safe_reserve)} < {len(primary_bad)}")
+    bad_ids = {record["record_id"] for record in primary_bad}
+    replacements = safe_reserve[:len(primary_bad)]
+    records["train"] = sorted(
+        [record for record in records["train"] if record["record_id"] not in bad_ids] + replacements,
+        key=lambda record: record["record_id"],
+    )
+    records.pop("reserve")
+    if len(records["train"]) != N_TRAIN:
+        raise AssertionError(len(records["train"]))
+    replacement_audit = {
+        "policy": "replace primary-rung RAW rows above training MAXSEQ with the first SHA256-ordered unused HML50K TRAIN rows that fit all arms",
+        "primary_overflow_rows": len(primary_bad), "replacement_rows": len(replacements),
+        "removed_record_id_set_sha256": digest_text("\n".join(sorted(bad_ids)) + "\n"),
+        "replacement_record_id_set_sha256": digest_text("\n".join(sorted(x["record_id"] for x in replacements)) + "\n"),
+        "semantic_content_changed": False, "same_records_all_arms": True,
+    }
+    holdout["counts"] = {key: len(value) for key, value in records.items()}
+    holdout["parents"] = {key: len({x["parent_id"] for x in value}) for key, value in records.items()}
+    holdout["maxseq_training_resolution"] = replacement_audit
+
+    validation_ids = []
+    for record in records["dev"]:
+        if max(full_length(record, arm) for arm in ARMS) <= MAXSEQ:
+            validation_ids.append(record["record_id"])
+        if len(validation_ids) == 64:
+            break
+    if len(validation_ids) != 64:
+        raise SystemExit("could not select 64 matched non-truncated DEV validation rows")
+    validation_id_set = set(validation_ids)
     common = collections.Counter()
     info_failures = []
     token_values = {arm: {"chat_prompt_tokens": [], "full_tokens": []} for arm in ARMS}
+    above_training_maxseq = {split: {arm: 0 for arm in ARMS} for split in records}
     coverage = {}
     for split, values in records.items():
         coverage[split] = {
@@ -459,7 +531,7 @@ def audit_and_prepare() -> None:
             common["suffix_mismatch"] += len({value["suffix"] for value in projections.values()}) != 1
             common["candidate_mismatch"] += any(candidate_block(record["candidates"]) not in value["prompt"] for value in projections.values())
             common["target_mismatch"] += record["target"] not in [f"C{i}" for i in range(6)]
-            reconstructed = extract_reasoning_state(record["current_state"], record["history"])
+            reconstructed = reconstruct_semantic_from_raw(record)
             if canonical(reconstructed) != canonical(record["semantic_state"]):
                 info_failures.append(record["record_id"])
             forbidden = ("proof_length", "gold_candidate", "current_action", "future_trajectory")
@@ -476,6 +548,7 @@ def audit_and_prepare() -> None:
                 ], return_dict=False)
                 token_values[arm]["chat_prompt_tokens"].append(len(tokenizer.encode(chat)))
                 token_values[arm]["full_tokens"].append(len(full))
+                above_training_maxseq[split][arm] += len(full) > MAXSEQ
 
     common_result = {
         **dict(common), "expected_rows": N_TRAIN + N_DEV + N_FINAL,
@@ -490,17 +563,26 @@ def audit_and_prepare() -> None:
             "active_goal": "A/B current state", "open_goals": "A/B current state",
             "local_dependencies": "B deterministic current-state name references",
             "active_scope": "A source-explicit current-state case label",
-            "trajectory_position": "A/B pre-action prefix length",
+            "trajectory_position": "A source-explicit prefix length, copied neutrally into RAW raw_prefix_metadata and deterministically renamed in V1",
             "recent_actions": "A/B exact prior successful action -> deterministic family",
             "recent_deltas": "B deterministic prior state-before/state-after diff",
             "progress_summary": "B deterministic current state + recent deltas",
         },
     }
-    overflows = {arm: sum(value > MAXSEQ for value in token_values[arm]["full_tokens"]) for arm in ARMS}
+    model_context = int(json.loads((MODEL / "config.json").read_text()).get("max_position_embeddings", 0))
+    context_overflows = {arm: sum(value > model_context for value in token_values[arm]["full_tokens"]) for arm in ARMS}
+    training_overflows = above_training_maxseq["train"]
     token_result = {
-        "result": "PASS" if not any(overflows.values()) else "FAIL", "maxseq": MAXSEQ,
+        "result": "PASS" if not any(training_overflows.values()) and not any(context_overflows.values()) else "FAIL",
+        "training_maxseq": MAXSEQ, "model_context_limit": model_context,
         "arms": {arm: {key: stats(values) for key, values in fields.items()} for arm, fields in token_values.items()},
-        "overflows": overflows,
+        "training_overflows": training_overflows,
+        "model_context_overflows": context_overflows,
+        "rows_above_training_maxseq_by_split": above_training_maxseq,
+        "zero_differential_truncation": not any(training_overflows.values()) and not any(context_overflows.values()),
+        "evaluation_policy": "full prompts are scored without truncation up to the pinned model context limit; training and 64-row validation remain <=6144",
+        "maxseq_resolution": replacement_audit,
+        "validation_record_id_set_sha256": digest_text("\n".join(sorted(validation_ids)) + "\n"),
     }
     means = {arm: token_result["arms"][arm]["chat_prompt_tokens"]["mean"] for arm in ARMS}
     token_result["ratios"] = {
@@ -531,16 +613,16 @@ def audit_and_prepare() -> None:
         destination = prepared / arm
         destination.mkdir(parents=True)
         arm_stats = {}
-        for split, output_name, limit in (("train", "train", None), ("dev", "valid", 64)):
+        for split, output_name in (("train", "train"), ("dev", "valid")):
             converted = []
             for record in records[split]:
+                if split == "dev" and record["record_id"] not in validation_id_set:
+                    continue
                 prompt = project(record, arm)["prompt"]
                 messages = [{"role": "user", "content": prompt}, {"role": "assistant", "content": record["target"]}]
                 full = tokenizer.apply_chat_template(messages, return_dict=False)
                 offset = len(tokenizer.apply_chat_template(messages[:-1], add_generation_prompt=True, return_dict=False))
                 converted.append({"record_id": record["record_id"], "prompt": prompt, "completion": record["target"], "full": len(full), "supervised": len(full)-offset})
-                if limit and len(converted) == limit:
-                    break
             converted.sort(key=lambda x: x["record_id"])
             with (destination / f"{output_name}.jsonl").open("w", encoding="utf-8") as handle:
                 for item in converted:
