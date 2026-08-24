@@ -48,13 +48,13 @@ from semantic_extractor import (  # noqa: E402
 
 CORPUS = REPO / "data/hml_50k_final"
 VNEXT = REPO / "data/vnext_10k/full_audit_records.jsonl.gz"
-SOURCE = Path("/Users/moheet/hml_research_artifacts/lean_domino_v2/lean_canonical_records.jsonl")
+SOURCE = Path("/Users/moheet/Projects/Hamiltonian-Labs/hml_research_artifacts/lean_domino_v2/lean_canonical_records.jsonl")
 DISCOVERY = REPO / "experiments/reasoning_layer_discovery"
 HOLDOUT_MANIFEST = DISCOVERY / "FRESH_HOLDOUT_MANIFEST.json"
-ART = Path("/Users/moheet/hml_research_artifacts/reasoning_layer_v1_confirmatory")
+ART = Path("/Users/moheet/Projects/Hamiltonian-Labs/hml_research_artifacts/reasoning_layer_v1_confirmatory")
 MODEL_REV = "b968826d9c46dd6066d109eabc6255188de91218"
 MODEL = Path("/Users/moheet/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots") / MODEL_REV
-PYTHON = Path("/Users/moheet/hml-model-experiments/.venv/bin/python")
+PYTHON = Path("/Users/moheet/Projects/Hamiltonian-Labs/hml-model-experiments/.venv/bin/python")
 RECIPE = HERE / "lora_config.yaml"
 MAXSEQ = 6144
 ARMS = ("base", "raw", "semantic")
