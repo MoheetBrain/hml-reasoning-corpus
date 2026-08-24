@@ -1,0 +1,47 @@
+{
+  "admitted_modules": [
+    "GOALS",
+    "DEPENDENCIES",
+    "BRANCH_SCOPE",
+    "HISTORY"
+  ],
+  "extractor": {
+    "deterministic": true,
+    "failures": [],
+    "gold_or_future_arguments_in_api": false,
+    "history_window": 4,
+    "provenance_classes": [
+      "A_SOURCE_EXPLICIT",
+      "B_FORMALLY_DERIVABLE"
+    ],
+    "result": "PASS",
+    "rows_checked": 6000
+  },
+  "fresh_holdout_rows_in_discovery_statistics": 0,
+  "fresh_holdouts": {
+    "excluded_previous_parent_union_count": 25879,
+    "hml50k_parent_count": 16950,
+    "hml50k_state_hash_count": 55737,
+    "vnext_parent_count": 8929,
+    "zero_exact_state_overlap_a_vs_b": true,
+    "zero_exact_state_overlap_with_previous_hml50k": true,
+    "zero_parent_overlap_a_vs_b": true,
+    "zero_parent_overlap_with_all_previous_hml50k_and_vnext": true
+  },
+  "historical_files_modified": false,
+  "hml_core_modified": false,
+  "new_model_training_or_scoring_run": false,
+  "result": "PASS",
+  "schema_fields": [
+    "schema_version",
+    "active_goal",
+    "open_goals",
+    "local_dependencies",
+    "active_scope",
+    "trajectory_position",
+    "recent_actions",
+    "recent_deltas",
+    "progress_summary"
+  ],
+  "wall_seconds": 89.174
+}

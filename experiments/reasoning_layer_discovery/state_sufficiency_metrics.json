@@ -1,0 +1,15 @@
+{
+  "conditional_entropy_action_family_given_structural_state_and_recent_action_families_bits": 0.0008458279746655515,
+  "conditional_entropy_action_family_given_structural_state_bits": 0.01414305511614624,
+  "exact_state_alias_clusters_with_multiple_recorded_action_families": 1050,
+  "exact_state_rows_in_ambiguous_clusters": 2122,
+  "exact_state_signatures": 233467,
+  "fresh_holdout_rows_used": 0,
+  "interpretation": "observational evidence that recent successful trajectory history reduces ambiguity beyond a deterministic structural current-state signature",
+  "recent_history_entropy_reduction_bits": 0.013297227141480688,
+  "source_parents_used": 59982,
+  "source_rows_used": 235265,
+  "structural_alias_clusters_with_multiple_recorded_action_families": 1598,
+  "structural_rows_in_ambiguous_clusters": 3297,
+  "structural_state_signatures": 231656
+}

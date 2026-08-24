@@ -1,0 +1,92 @@
+{
+  "BASE_LEXICAL": {
+    "accuracy": 0.238,
+    "by_depth_accuracy": {
+      "1": 0.3308457711442786,
+      "11-20": 0.17522658610271905,
+      "2-3": 0.21360381861575178,
+      "21+": 0.14492753623188406,
+      "4-5": 0.20544554455445543,
+      "6-10": 0.22268041237113403
+    },
+    "delta_vs_base_pp": 0.0,
+    "discovery_dev_rows": 3000,
+    "target": "next recorded tactic family (cheap proxy, not six-way action selection)",
+    "train_rows": 50000
+  },
+  "BASE_PLUS_BRANCH_SCOPE": {
+    "accuracy": 0.242,
+    "by_depth_accuracy": {
+      "1": 0.34328358208955223,
+      "11-20": 0.18731117824773413,
+      "2-3": 0.20763723150357996,
+      "21+": 0.16666666666666666,
+      "4-5": 0.2079207920792079,
+      "6-10": 0.22061855670103092
+    },
+    "delta_vs_base_pp": 0.40000000000000036,
+    "discovery_dev_rows": 3000,
+    "target": "next recorded tactic family (cheap proxy, not six-way action selection)",
+    "train_rows": 50000
+  },
+  "BASE_PLUS_DEPENDENCIES": {
+    "accuracy": 0.233,
+    "by_depth_accuracy": {
+      "1": 0.32960199004975127,
+      "11-20": 0.17522658610271905,
+      "2-3": 0.2100238663484487,
+      "21+": 0.13768115942028986,
+      "4-5": 0.19801980198019803,
+      "6-10": 0.20824742268041238
+    },
+    "delta_vs_base_pp": -0.49999999999999767,
+    "discovery_dev_rows": 3000,
+    "target": "next recorded tactic family (cheap proxy, not six-way action selection)",
+    "train_rows": 50000
+  },
+  "BASE_PLUS_GOALS": {
+    "accuracy": 0.24866666666666667,
+    "by_depth_accuracy": {
+      "1": 0.3358208955223881,
+      "11-20": 0.19637462235649547,
+      "2-3": 0.23031026252983294,
+      "21+": 0.15217391304347827,
+      "4-5": 0.22524752475247525,
+      "6-10": 0.21855670103092784
+    },
+    "delta_vs_base_pp": 1.0666666666666687,
+    "discovery_dev_rows": 3000,
+    "target": "next recorded tactic family (cheap proxy, not six-way action selection)",
+    "train_rows": 50000
+  },
+  "BASE_PLUS_HISTORY": {
+    "accuracy": 0.27366666666666667,
+    "by_depth_accuracy": {
+      "1": 0.3420398009950249,
+      "11-20": 0.24773413897280966,
+      "2-3": 0.2529832935560859,
+      "21+": 0.21014492753623187,
+      "4-5": 0.2599009900990099,
+      "6-10": 0.24329896907216494
+    },
+    "delta_vs_base_pp": 3.566666666666668,
+    "discovery_dev_rows": 3000,
+    "target": "next recorded tactic family (cheap proxy, not six-way action selection)",
+    "train_rows": 50000
+  },
+  "FULL_SEMANTICS": {
+    "accuracy": 0.284,
+    "by_depth_accuracy": {
+      "1": 0.3482587064676617,
+      "11-20": 0.23867069486404835,
+      "2-3": 0.2541766109785203,
+      "21+": 0.2318840579710145,
+      "4-5": 0.27970297029702973,
+      "6-10": 0.27835051546391754
+    },
+    "delta_vs_base_pp": 4.599999999999999,
+    "discovery_dev_rows": 3000,
+    "target": "next recorded tactic family (cheap proxy, not six-way action selection)",
+    "train_rows": 50000
+  }
+}

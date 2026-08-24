@@ -1,0 +1,12 @@
+{
+  "deterministic": true,
+  "failures": [],
+  "gold_or_future_arguments_in_api": false,
+  "history_window": 4,
+  "provenance_classes": [
+    "A_SOURCE_EXPLICIT",
+    "B_FORMALLY_DERIVABLE"
+  ],
+  "result": "PASS",
+  "rows_checked": 6000
+}

@@ -1,0 +1,17 @@
+{
+  "failure_rows": 3000,
+  "fresh_holdout_rows_used_in_discovery": 0,
+  "holdout_integrity": "PASS",
+  "source_inventory": {
+    "canonical_official_splits": {
+      "test": 4214,
+      "train": 233114,
+      "val": 3937
+    },
+    "canonical_source_parents": 61544,
+    "canonical_source_rows": 241265,
+    "hml50k_parents": 16950,
+    "hml50k_records": 56000,
+    "vnext_previous_parents": 8929
+  }
+}

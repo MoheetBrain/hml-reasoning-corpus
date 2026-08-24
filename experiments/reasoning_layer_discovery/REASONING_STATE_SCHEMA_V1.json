@@ -1,0 +1,293 @@
+{
+  "$id": "https://hml.reasoning.local/schemas/reasoning-state-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Small evidence-selected pre-action state; canonical JSON is the primary rendering.",
+  "properties": {
+    "active_goal": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "goal_hash": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "hypothesis_count": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "position": {
+              "const": 0
+            },
+            "target": {
+              "type": "string"
+            },
+            "target_shape": {
+              "enum": [
+                "EMPTY",
+                "FORALL",
+                "EXISTS",
+                "IFF",
+                "IMPLIES",
+                "NOT",
+                "EQUALITY",
+                "ORDER",
+                "MEMBERSHIP",
+                "SUBSET",
+                "AND",
+                "OR",
+                "APPLICATION"
+              ]
+            }
+          },
+          "required": [
+            "position",
+            "goal_hash",
+            "target",
+            "target_shape",
+            "hypothesis_count"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "active_scope": {
+      "additionalProperties": false,
+      "properties": {
+        "case_label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_explicit": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "case_label",
+        "source_explicit"
+      ],
+      "type": "object"
+    },
+    "local_dependencies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "goal_index": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "to": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_index",
+          "from",
+          "to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "open_goals": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "case_label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "goal_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "hypothesis_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "position": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "target_shape": {
+            "enum": [
+              "EMPTY",
+              "FORALL",
+              "EXISTS",
+              "IFF",
+              "IMPLIES",
+              "NOT",
+              "EQUALITY",
+              "ORDER",
+              "MEMBERSHIP",
+              "SUBSET",
+              "AND",
+              "OR",
+              "APPLICATION"
+            ]
+          }
+        },
+        "required": [
+          "position",
+          "goal_hash",
+          "case_label",
+          "target_shape",
+          "hypothesis_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "progress_summary": {
+      "additionalProperties": false,
+      "properties": {
+        "open_goal_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "recent_net_goal_delta": {
+          "type": "integer"
+        },
+        "repeated_recent_action_family": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "open_goal_count",
+        "recent_net_goal_delta",
+        "repeated_recent_action_family"
+      ],
+      "type": "object"
+    },
+    "recent_actions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "family": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "offset": {
+            "maximum": -1,
+            "minimum": -4,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "family"
+        ],
+        "type": "object"
+      },
+      "maxItems": 4,
+      "type": "array"
+    },
+    "recent_deltas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "hypotheses_added": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "hypotheses_rebound": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "hypotheses_removed": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "offset": {
+            "maximum": -1,
+            "minimum": -4,
+            "type": "integer"
+          },
+          "open_goal_delta": {
+            "type": "integer"
+          },
+          "target_changed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "offset",
+          "open_goal_delta",
+          "target_changed",
+          "hypotheses_added",
+          "hypotheses_removed",
+          "hypotheses_rebound"
+        ],
+        "type": "object"
+      },
+      "maxItems": 4,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "reasoning-state-v1.0.0"
+    },
+    "trajectory_position": {
+      "additionalProperties": false,
+      "properties": {
+        "steps_completed": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "steps_completed"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "active_goal",
+    "open_goals",
+    "local_dependencies",
+    "active_scope",
+    "trajectory_position",
+    "recent_actions",
+    "recent_deltas",
+    "progress_summary"
+  ],
+  "title": "Representation-neutral reasoning state V1",
+  "type": "object",
+  "x-scientific-constraints": {
+    "actual_v1_provenance_classes": [
+      "A_SOURCE_EXPLICIT",
+      "B_FORMALLY_DERIVABLE"
+    ],
+    "allowed_provenance_classes": [
+      "A_SOURCE_EXPLICIT",
+      "B_FORMALLY_DERIVABLE",
+      "C_REPLAY_VERIFIED"
+    ],
+    "history_window": 4,
+    "not_hml_v2": true,
+    "serialization": "canonical JSON",
+    "uses_gold_or_future_action": false
+  }
+}

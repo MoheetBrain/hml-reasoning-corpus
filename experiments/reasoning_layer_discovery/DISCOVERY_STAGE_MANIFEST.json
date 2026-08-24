@@ -1,0 +1,97 @@
+{
+  "artifact": "REASONING_LAYER_DISCOVERY_STAGE_V1",
+  "authorities": {
+    "common_envelope_frozen_tag": "common-envelope-10k-final-20260824",
+    "common_envelope_protocol_commit": "ce5614947da1bf184d2e04c0107211cdddf4ee20",
+    "common_envelope_result_data_commit": "4bbd71c86c6650265679c565e12a48630ef4b58f",
+    "corpus_commit": "627194144abd9396dadbebf0b7834e76b937d908"
+  },
+  "files": {
+    "CURRENT_EXPERIMENT_LESSONS.md": {
+      "bytes": 1501,
+      "sha256": "2415d29cb1ba1bcdb157adec501998637cda577addb0825f9e087088cbd7eef9"
+    },
+    "DISCOVERY_STAGE_INTEGRITY.json": {
+      "bytes": 1205,
+      "sha256": "0c2b28bc5ffb5b3650105419650295df032531d1fb666d24d6b779e8f027fa75"
+    },
+    "FRESH_HOLDOUT_MANIFEST.json": {
+      "bytes": 2830,
+      "sha256": "89dd43bb71a5d1e4bf3755b7cdb52c69844eb27833ad284189bb8a37f7366a0e"
+    },
+    "REASONING_FAILURE_ATLAS.md": {
+      "bytes": 3298,
+      "sha256": "45bd2f04b9f198a2b03d5698b9424b663e50c64669503eeb00179f5fb47e70ca"
+    },
+    "REASONING_STATE_SCHEMA_V1.json": {
+      "bytes": 6672,
+      "sha256": "912f1d80f38b6445f726ae61fba5f97778265d119a2cf03ae4e96f801db6aa33"
+    },
+    "REASONING_STATE_SEMANTICS_V1.md": {
+      "bytes": 3038,
+      "sha256": "c357866e374f9a09f37b9faf928e2f46ef87d621dda4f7ef80a92c1df00253c6"
+    },
+    "SEMANTIC_MODULE_SCREEN.md": {
+      "bytes": 1066,
+      "sha256": "dc1d637b30357cb41ebd1b315bc54e5d63f23548c3d210e6977ca07b3f0a4b9d"
+    },
+    "SEMANTIC_REQUIREMENTS_AUDIT.md": {
+      "bytes": 2076,
+      "sha256": "e34d2bed5078554ba6ffc3498501519359a41257ed66945a6c92802e3b24da08"
+    },
+    "STAGE_STATUS.json": {
+      "bytes": 107,
+      "sha256": "fb4e10ed3bf0a0f82a38d7354903edb9b77e798c9c490f931f886216b24c60ad"
+    },
+    "STATE_SUFFICIENCY_REPORT.md": {
+      "bytes": 2024,
+      "sha256": "ea67b1919c6c95f63471f47330b5d7c86cdc87789c3cea3ac26e26e8ad3629b0"
+    },
+    "discovery_summary.json": {
+      "bytes": 404,
+      "sha256": "38b09d581f3837f993baf21587dddb04833d14633efeda0c6ca22e2a060f977d"
+    },
+    "extractor_validation.json": {
+      "bytes": 240,
+      "sha256": "6acde7a3536ad4658f301836b76547103b75f78192123946c043e9b0e4aa9bba"
+    },
+    "reasoning_failure_rows.jsonl": {
+      "bytes": 5976402,
+      "sha256": "96d2c6546a6486ac367451c37edc584cb4c2cfe13aa3fe169bb21fe2a44bed35"
+    },
+    "scripts/reasoning_layer_discovery/build_discovery_stage.py": {
+      "bytes": 67041,
+      "sha256": "c1c4470c8e17fe405510dcf117095599c92078ae3676ce7018ec114e23c41c14"
+    },
+    "scripts/reasoning_layer_discovery/semantic_extractor.py": {
+      "bytes": 8933,
+      "sha256": "d2685bcee83d79765d67eea7eb6d59dfd8e1ffe7afad889335fdfc27b27aed3e"
+    },
+    "sealed/fresh_holdout_assignments.jsonl.gz": {
+      "bytes": 811407,
+      "sha256": "1d257ad9fa6cfe7fa333947df053f30023efeb8d16e18083a4e23d5b285b2f11"
+    },
+    "semantic_module_screen.json": {
+      "bytes": 4605,
+      "sha256": "bd4d018234922983bac0eab758e3f269977e76574cf4aad67e6d7d0a260a32be"
+    },
+    "semantic_probe_results.json": {
+      "bytes": 2887,
+      "sha256": "982a103b5edd2bc6e6eaac03d30acf412df72cc104a7f35c0729ef5822d303e8"
+    },
+    "state_aliasing_candidates.jsonl": {
+      "bytes": 262342,
+      "sha256": "e34af3ef46e0a0da6661ad4420fff25b01eccd026cb1a81321929594dd573449"
+    },
+    "state_sufficiency_metrics.json": {
+      "bytes": 860,
+      "sha256": "eaed4f54add68826e3bf2c14b46b132b4c77e185ab64857688d33e7041f30515"
+    },
+    "tests/test_reasoning_layer_discovery.py": {
+      "bytes": 4030,
+      "sha256": "7fb6d989d2f924d398733fd5db3b75f014ec9850bc7647ac6e4e46bb3577cb47"
+    }
+  },
+  "manifest_self_hash": "excluded_by_design; freeze with the git commit/tree",
+  "result": "PASS"
+}
