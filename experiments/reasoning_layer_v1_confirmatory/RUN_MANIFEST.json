@@ -6,9 +6,9 @@
     "token_audit.json": "02e55c8544ea1f19d1aeac7f04b5fe17569b3b097f0bb51339736abfeca64715",
     "training_coverage.json": "5e33d867271561ee9c1e3a17471d809aebbc57925f1b9766085de2b7b324bc77"
   },
-  "created": "2026-08-24T08:14:52+0100",
+  "created": "2026-08-24T09:48:49+0100",
   "discovery_commit": "aea77b0a4197682643337efcc2d61574a5158ca7",
-  "driver_sha256": "6bc1e2f5323b700f908e796f04a280288eb74619d6d2bc895a0d023d69902217",
+  "driver_sha256": "4c3f86e004e1bd006d6d7e49002170f29dd6c5c91e674d76bca85613c0ea67cd",
   "hardware": {
     "cpu_count": 18,
     "machine": "arm64",
@@ -77,8 +77,8 @@
       }
     }
   },
-  "protocol_commit": "ecb77aee5a9d7c1626e640656fb748e6ce1c56e6",
-  "protocol_sha256": "a2855970b70289fa208af5b96ce8bd2bc8d924070c0d741d86843747445e59f4",
+  "protocol_commit": "eaeb1ec46aa3d879e1e3ce9f46351ef326a65a8c",
+  "protocol_sha256": "12c6e1a16bca7495f463df3cbf945a8800e347be6eb3e8ab37bea08f25686164",
   "recipe_sha256": "b393d81f0af1c66d52b669436e6c47733fcca54d7364288ad26168e575e0c836",
   "source_sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
   "stack": [
