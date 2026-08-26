@@ -1,0 +1,278 @@
+{
+  "artifacts": {
+    "episodes_sha256": "54a16e3f5635dbeef300e70b86da6f35e3eedfe91b1629318c4177a1d7318d5c"
+  },
+  "created_unix": 1787738948.7456663,
+  "execution_notes": {
+    "cross_arm_initial_state_disagreements": 0,
+    "lean_dojo_where_keyword_initialization_failures_per_arm": 2,
+    "raw_model_context_exceeded_episodes": 6,
+    "truncation_applied": false
+  },
+  "gpu_monitor": {
+    "framebuffer_mib_mean": 26013.31,
+    "framebuffer_mib_peak": 30618,
+    "sample_interval_seconds": 5,
+    "samples": 640,
+    "sm_utilization_percent_mean": 29.9,
+    "sm_utilization_percent_peak": 100
+  },
+  "hardware": {
+    "bf16_supported": true,
+    "cpu_count": 12,
+    "cuda": "12.9",
+    "disk": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/root        97G   61G   36G  64% /",
+    "gpu_query": "NVIDIA A100-SXM4-80GB, 81920, 580.173.02",
+    "hostname": "a100",
+    "nvidia_smi": "Wed Aug 26 10:09:08 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.173.02             Driver Version: 580.173.02     CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:00:05.0 Off |                    0 |\n| N/A   39C    P0             81W /  400W |   30618MiB /  81920MiB |     36%      Default |\n|                                         |                        |             Disabled |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A            4585      C   python3                               30606MiB |\n+-----------------------------------------------------------------------------------------+",
+    "platform": "Linux-6.8.0-1066-gcp-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "pytorch": "2.9.1+cu129",
+    "ram": "total        used        free      shared  buff/cache   available\nMem:           167Gi       3.4Gi       125Gi        19Mi        37Gi       162Gi\nSwap:             0B          0B          0B",
+    "transformers": "5.15.0"
+  },
+  "lean": {
+    "lean_dojo": "2.0.0",
+    "lean_toolchain": "leanprover/lean4:v4.10.0-rc1",
+    "lean_version": "Lean (version 4.10.0-rc1, x86_64-unknown-linux-gnu, commit 3b58e0649156, Release)",
+    "mathlib_commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+    "mathlib_url": "https://github.com/leanprover-community/mathlib4"
+  },
+  "model": {
+    "attention": "sdpa",
+    "dtype": "bfloat16",
+    "generation": {
+      "do_sample": false,
+      "max_new_tokens": 128
+    },
+    "id": "Qwen/Qwen3-8B",
+    "path": "/home/moheet/hmlpilot/model",
+    "quantization": null,
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "thinking_enabled": false
+  },
+  "portability": {
+    "conversion": {
+      "inventory": {
+        "base": {
+          "alpha": 8,
+          "converted_sha256": "4690f2ce8109909d8a0603325913853a6047aa7113128d17af1da6f512b35e6d",
+          "converted_tensor_count": 32,
+          "dropout": 0.0,
+          "layers": [
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ],
+          "modules": [
+            "o_proj",
+            "q_proj"
+          ],
+          "rank": 4,
+          "scaling": 2.0,
+          "source_sha256": "48c3f41f2af5d5f785f90e6cba1c57741c215915921572ec59b448bac231160c",
+          "source_tensor_count": 32,
+          "use_rslora": false
+        },
+        "raw": {
+          "alpha": 8,
+          "converted_sha256": "e06dca76639980b4ad85f753b288fe65252f074526f1180c1d40ce0e69a27c63",
+          "converted_tensor_count": 32,
+          "dropout": 0.0,
+          "layers": [
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ],
+          "modules": [
+            "o_proj",
+            "q_proj"
+          ],
+          "rank": 4,
+          "scaling": 2.0,
+          "source_sha256": "55600c0ada87bcff560f2060769c370fe868352ed9e8231592c4f837ca6f2539",
+          "source_tensor_count": 32,
+          "use_rslora": false
+        },
+        "semantic": {
+          "alpha": 8,
+          "converted_sha256": "ad5034e71f4b423651eaf6e616212c12a7b40fac30dea03fc4f5566b034227d8",
+          "converted_tensor_count": 32,
+          "dropout": 0.0,
+          "layers": [
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ],
+          "modules": [
+            "o_proj",
+            "q_proj"
+          ],
+          "rank": 4,
+          "scaling": 2.0,
+          "source_sha256": "bde40b3e296bc5bff754808142b7de39998194b879a4970ea2a99e9bc1de8f05",
+          "source_tensor_count": 32,
+          "use_rslora": false
+        }
+      },
+      "machine_epsilon_fp32": 1.1920928955078125e-07,
+      "maximum_absolute_fp32_update_difference": 0.0,
+      "result": "PASS"
+    },
+    "parity": {
+      "maximum_score_deviation": 0.24855303764343262,
+      "maximum_score_deviation_by_arm": {
+        "base": 0.18728017807006836,
+        "raw": 0.18749141693115234,
+        "semantic": 0.24855303764343262
+      },
+      "policy_failure_threshold": "overall <98% or more than one mismatch in any arm",
+      "predictions_compared": 150,
+      "result": "PASS",
+      "rows_per_arm": 50,
+      "top1_agreement": 150,
+      "top1_agreement_by_arm": {
+        "base": 50,
+        "raw": 50,
+        "semantic": 50
+      },
+      "top1_agreement_rate": 1.0
+    }
+  },
+  "protocol": {
+    "final_b": "SEALED_NOT_OPENED",
+    "frozen_git_commit": "8485d0d3798fdbf32b85ebf4f129721ba26e2b65",
+    "information_asymmetry": [],
+    "protocol_sha256": "0c58f52e46306204c70aa39e4a0bf57a02c10594bf210e220aa8efa7720cd1fb",
+    "theorems_sha256": "24f064d028f0574307535ac2a9897572f476135d34bab5fa6f5bfe05b446e441"
+  },
+  "runtime": {
+    "episodes_sha256": "54a16e3f5635dbeef300e70b86da6f35e3eedfe91b1629318c4177a1d7318d5c",
+    "wall_seconds": 3060.6983478059997
+  },
+  "schema_version": "hml-closed-loop-pilot-run-v1",
+  "summary": {
+    "arms": {
+      "base": {
+        "accepted_actions": 327,
+        "accepted_actions_per_solved_theorem": null,
+        "failure_reasons": {
+          "EPISODE_EXCEPTION:DojoInitError:Cannot interact with theorems with the `where` keyword.": 2,
+          "MAX_ACCEPTED_ACTIONS": 2,
+          "MAX_TOTAL_GENERATIONS": 1,
+          "THREE_REJECTED_RETRIES_AT_STATE": 55
+        },
+        "generated_actions": 545,
+        "generated_actions_per_solved_theorem": null,
+        "recovery_after_rejection": 0.47619047619047616,
+        "rejected_actions": 218,
+        "rejection_rate": 0.4,
+        "solve_rate": 0.0,
+        "solved": 0,
+        "tokens_per_solved_theorem": null,
+        "wall_seconds_per_solved_theorem": null
+      },
+      "raw": {
+        "accepted_actions": 399,
+        "accepted_actions_per_solved_theorem": null,
+        "failure_reasons": {
+          "EPISODE_EXCEPTION:DojoInitError:Cannot interact with theorems with the `where` keyword.": 2,
+          "MAX_ACCEPTED_ACTIONS": 2,
+          "MODEL_CONTEXT_EXCEEDED": 6,
+          "THREE_REJECTED_RETRIES_AT_STATE": 50
+        },
+        "generated_actions": 571,
+        "generated_actions_per_solved_theorem": null,
+        "recovery_after_rejection": 0.1935483870967742,
+        "rejected_actions": 172,
+        "rejection_rate": 0.30122591943957966,
+        "solve_rate": 0.0,
+        "solved": 0,
+        "tokens_per_solved_theorem": null,
+        "wall_seconds_per_solved_theorem": null
+      },
+      "semantic": {
+        "accepted_actions": 68,
+        "accepted_actions_per_solved_theorem": null,
+        "failure_reasons": {
+          "EPISODE_EXCEPTION:DojoInitError:Cannot interact with theorems with the `where` keyword.": 2,
+          "MAX_ACCEPTED_ACTIONS": 1,
+          "THREE_REJECTED_RETRIES_AT_STATE": 57
+        },
+        "generated_actions": 242,
+        "generated_actions_per_solved_theorem": null,
+        "recovery_after_rejection": 0.03389830508474576,
+        "rejected_actions": 174,
+        "rejection_rate": 0.71900826446281,
+        "solve_rate": 0.0,
+        "solved": 0,
+        "tokens_per_solved_theorem": null,
+        "wall_seconds_per_solved_theorem": null
+      }
+    },
+    "contrasts": {
+      "hml_minus_base": 0.0,
+      "hml_minus_raw": 0.0,
+      "raw_minus_base": 0.0
+    },
+    "depth": {
+      "11-20": {
+        "base": 0,
+        "raw": 0,
+        "semantic": 0
+      },
+      "21+": {
+        "base": 0,
+        "raw": 0,
+        "semantic": 0
+      },
+      "6-10": {
+        "base": 0,
+        "raw": 0,
+        "semantic": 0
+      }
+    },
+    "hml_advantage_increases_with_horizon": false,
+    "hml_materially_more_complete_theorems": false,
+    "horizons": {
+      "10": {
+        "base": 0,
+        "raw": 0,
+        "semantic": 0
+      },
+      "20": {
+        "base": 0,
+        "raw": 0,
+        "semantic": 0
+      },
+      "40": {
+        "base": 0,
+        "raw": 0,
+        "semantic": 0
+      },
+      "5": {
+        "base": 0,
+        "raw": 0,
+        "semantic": 0
+      }
+    },
+    "pilot_wall_seconds": 3060.6983478059997,
+    "practical_efficiency_improvement_ge_20_percent": false,
+    "verdict": "NO_MATERIAL_CLOSED_LOOP_HML_SIGNAL"
+  }
+}

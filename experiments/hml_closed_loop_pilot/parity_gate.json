@@ -1,0 +1,19 @@
+{
+  "maximum_score_deviation": 0.24855303764343262,
+  "maximum_score_deviation_by_arm": {
+    "base": 0.18728017807006836,
+    "raw": 0.18749141693115234,
+    "semantic": 0.24855303764343262
+  },
+  "policy_failure_threshold": "overall <98% or more than one mismatch in any arm",
+  "predictions_compared": 150,
+  "result": "PASS",
+  "rows_per_arm": 50,
+  "top1_agreement": 150,
+  "top1_agreement_by_arm": {
+    "base": 50,
+    "raw": 50,
+    "semantic": 50
+  },
+  "top1_agreement_rate": 1.0
+}
