@@ -13,20 +13,21 @@ the evidence for that question honestly. Representability is not reasoning super
 
 ## Current Stage
 
-Final large-scale representation-teaching data is ready for external Qwen evaluation.
-`HML50K_TEACHING` contains 50,000 TRAIN plus separate 3,000 DEV and 3,000 FINAL exact
-Lean formal-trace transitions in matched literal-UTF-8 HML and structured-neutral views.
-No model training was run here. The earlier 2026-08-17 structural-source verdict remains
-`INSUFFICIENT_STRUCTURAL_DATA`; this corpus does not rewrite or claim to satisfy that
-different conjunctive structural hypothesis.
+Forensic validation and reconciliation. `HML50K_READY` contains 50,000 TRAIN plus separate
+3,000 DEV and 3,000 FINAL exact Lean formal-trace transitions. The external two-seed HML10K
+experiment reported HML 85.75% versus Neutral 50.20% (+35.55pp, paired 95% CI
+[+33.53,+37.50]pp), but this is one-step action selection, not long-horizon theorem solving.
+The later frozen common-envelope control reported HML 85.33% versus Neutral 88.10%
+(-2.77pp) and identified an arm-specific envelope confound. No 30K run is authorized.
+`RESEARCH_STATE.md` is the authoritative recovery and reconciliation handoff.
 
 ## Current Branch
 
-`codex/hml-50k-final`, begun from corpus commit
-`3337217eb2cc9460b91ead15e4a67a420ecdcd8a`. Submodule `hml_core` remains pinned and
-untouched at `5688aba18632b65a8709aa1d85577d31a67dba6a`. The separately inspected VNext
-semantic authority is `68178f07784d2a17a9aed9c4dedbea9c740c97a0` (`src/` byte-identical
-in consolidation checkout `73184c5`).
+`codex/reasoning-layer-discovery`, checkpointed from
+`d6f03ea8b99236f5e1b727c36c74e2717a8faeba`. Submodule `hml_core` remains pinned and
+untouched at `5688aba18632b65a8709aa1d85577d31a67dba6a`. The external Hamiltonian Lang
+result commit is `701f99ec137326a91e8d61faae686a3baf5f0120` in checkout
+`/Users/moheet/Documents/ChatGPT/hamiltonian-lang-final-signal`.
 
 ## Current System Architecture
 
@@ -201,8 +202,11 @@ and trust modes, and an undeclared divergence would look like agreement.
 
 ## Exact Next Actions
 
-1. Claude/FABLE runs one-seed HML10K vs Neutral10K on Qwen3-8B BF16 using the fixed
-   FINAL population and the handoff budgets; stop if HML is flat/worse.
-2. Proceed to 30K and then 50K only if learning-curve separation continues.
-3. Keep the structural-source acquisition problem separate; do not reinterpret this
-   teaching corpus as satisfying the failed structural admission gate.
+1. Reproduce and reconcile the +35.55pp result under the complete forensic checklist in
+   `RESEARCH_STATE.md`, including untouched-base and cross-view diagnostics.
+2. Audit the already-frozen common-envelope result before proposing any rerun; do not erase
+   its -2.77pp causal control result.
+3. Do not run 30K, redesign HML, change semantics, or start another experiment until the
+   failure layer is resolved and a new protocol is explicitly authorized.
+4. Preserve the boundary: none of the one-step results proves free-running long-horizon
+   theorem solving.

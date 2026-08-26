@@ -59,3 +59,22 @@ HML is a rendering of that trajectory, not the canonical source.
 Do NOT ingest huge datasets yet. Begin with only 10 representative worked
 mathematical problems and build the end-to-end reasoning-trajectory pipeline
 correctly.
+
+## CONTEXT-LOSS RECOVERY
+
+Chat history is NOT authoritative project memory.
+
+At the beginning of every new Codex thread:
+
+1. Read `AGENTS.md`.
+2. Read `RESEARCH_STATE.md`.
+3. Read the latest `PROJECT_STATUS.md`.
+4. Read the latest `PROJECT_LEDGER.md`.
+5. Read `STATUS.json` if present.
+6. Inspect Git HEAD/status.
+7. Read only the latest relevant experiment report/protocol.
+8. Reconstruct project state from repository artifacts.
+9. Do not ask the user to reconstruct old conversation history unless repository state is genuinely insufficient.
+
+After every material experiment or scientific decision, persist state to repository
+artifacts before relying on chat memory.

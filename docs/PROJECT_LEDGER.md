@@ -463,3 +463,28 @@ valid versus invalid.
 **Next intended step.** Claude/FABLE runs one-seed Qwen3-8B BF16 HML10K vs Neutral10K using
 the unchanged FINAL set and stops if HML is flat/worse. Proceed to 30K and 50K only if the
 learning-curve separation continues. This repository does not train the model.
+
+---
+
+## 2026-08-26 — repository checkpoint for context-loss recovery
+
+**Branch:** `codex/reasoning-layer-discovery`, parent HEAD `d6f03ea`.
+
+The external frozen `FINAL_HML_SIGNAL` result at Hamiltonian Lang commit `701f99e` is now
+recorded in repository memory: two-seed HML10K mean 85.75%, Neutral mean 50.20%, delta
+**+35.55pp**, parent-clustered 95% CI **[+33.53,+37.50]pp**; seed deltas +35.20pp and
++35.90pp. Exact frozen report and protocol copies, with source hashes, were added under
+`experiments/final_hml_signal/`.
+
+The headline remains a depth-conditioned one-step action-selection result, not a
+free-running or long-horizon theorem-solving claim. A complete forensic validation is
+required and 30K is paused. Repository recovery now explicitly requires `AGENTS.md`,
+`RESEARCH_STATE.md`, this ledger, `PROJECT_STATUS.md`, `STATUS.json`, and Git state rather
+than chat history.
+
+Later evidence is preserved rather than overwritten: the initial forensic audit omitted
+two items in the stricter checklist; the frozen common-envelope control subsequently found
+HML -2.77pp versus Neutral and attributed the original headline to envelope asymmetry; and
+the later free-running solver calibration stopped at RAW 2/48. The next action is forensic
+reconciliation of these frozen results, not new training, 30K, semantic redesign, or a new
+experiment.

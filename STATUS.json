@@ -1,0 +1,35 @@
+{
+  "active_heavy_job": null,
+  "common_target_control_after_forensics": true,
+  "current_baseline": "HML_v1",
+  "current_frozen_experiment": "FINAL_HML_SIGNAL",
+  "current_result": {
+    "commit": "701f99ec137326a91e8d61faae686a3baf5f0120",
+    "protocol": "experiments/final_hml_signal/FINAL_SIGNAL_PROTOCOL.md",
+    "protocol_sha256": "163872e1d26311a099f9167e01f20a49f6d91b1360c9e5321d6cf88fab3dfa5e",
+    "report": "experiments/final_hml_signal/FINAL_SIGNAL_REPORT.md",
+    "report_sha256": "52175ab852d3385251408b26fc91c580a26c460619c02c64548ac7571615413f",
+    "repository": "/Users/moheet/Documents/ChatGPT/hamiltonian-lang-final-signal"
+  },
+  "headline_result": {
+    "ci_pp": [33.53, 37.5],
+    "delta_pp": 35.55,
+    "hml_top1": 0.8575,
+    "neutral_top1": 0.502,
+    "seeds": 2
+  },
+  "headline_result_status": "MAJOR_SIGNAL_REQUIRES_FORENSICS",
+  "long_horizon_proven": false,
+  "next_action": "forensic_audit",
+  "phase": "forensic_validation",
+  "project": "Hamiltonian Lang",
+  "recovery_parent_head": "d6f03ea8b99236f5e1b727c36c74e2717a8faeba",
+  "run_30k_now": false,
+  "forensic_scope": "complete_minimum_checklist_and_reconcile_all_frozen_later_evidence",
+  "superseding_evidence": {
+    "common_envelope_commit": "4bbd71c86c6650265679c565e12a48630ef4b58f",
+    "common_envelope_delta_pp": -2.77,
+    "common_envelope_verdict": "COMMON_ENVELOPE_EFFECT_FAILED",
+    "lossless_solver_calibration": "SOLVER_NOT_CALIBRATED_2_OF_48"
+  }
+}
