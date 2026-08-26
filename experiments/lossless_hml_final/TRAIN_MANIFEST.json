@@ -1,0 +1,46 @@
+{
+  "dataset": {
+    "max_full_tokens": 3072,
+    "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "ordered_source_ids_sha256": "d8d7a2c478fcce6884a8e551aacfad55c9067998c607354e2553c9cc50d506b2",
+    "parents": 7125,
+    "rows": 10000,
+    "schema_version": "lossless-hml-generative-10k-v1",
+    "selection_seed": "LOSSLESS_HML_GENERATIVE_10K_20260826_V1",
+    "source_sha256": "8ac0ce010cedaecb1f9edf0d0ef7b0a5700620de52a66e508fd6e71778719869",
+    "views": {
+      "lossless_hml": {
+        "max_full_tokens": 3072,
+        "mean_full_tokens": 948.5529,
+        "mean_prompt_tokens": 929.3099,
+        "sha256": "54bc75f721e6b65ea17c12772827ec09e4d1996586d238bd1190c5aa4390924b",
+        "total_full_tokens": 9485529
+      },
+      "raw": {
+        "max_full_tokens": 2457,
+        "mean_full_tokens": 560.2834,
+        "mean_prompt_tokens": 541.0404,
+        "sha256": "5198c0ecb541b3693b895838414cc3b1b5260ac4eeb02a879bce306f010e12a5",
+        "total_full_tokens": 5602834
+      }
+    }
+  },
+  "recipe": {
+    "arms": ["raw", "lossless_hml"],
+    "epochs": 1,
+    "gradient_accumulation_steps": 2,
+    "layers": [28, 29, 30, 31, 32, 33, 34, 35],
+    "learning_rate": 0.0001,
+    "lora_alpha": 8,
+    "lora_dropout": 0.0,
+    "microbatch_size": 1,
+    "model": "Qwen/Qwen3-8B",
+    "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "optimizer": "Adam",
+    "quantization": null,
+    "rank": 4,
+    "seed": 1,
+    "targets": ["q_proj", "o_proj"]
+  },
+  "training_results": "PENDING"
+}
