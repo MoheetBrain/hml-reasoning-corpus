@@ -1,0 +1,1222 @@
+{
+  "counts": {
+    "11-20": 20,
+    "21+": 20,
+    "6-10": 20,
+    "total": 60
+  },
+  "exclusion_counts": {
+    "normalized_initial_states": 58726,
+    "parents": 21377
+  },
+  "lean_dojo_version": "2.0.0",
+  "mathlib_commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+  "mathlib_url": "https://github.com/leanprover-community/mathlib4",
+  "schema_version": "hml-closed-loop-pilot-theorems-v1",
+  "selection_seed": "HML_CLOSED_LOOP_DEV_PILOT_20260826_V1",
+  "source_actions_included": false,
+  "source_metadata_sha256": "a397544ea1bcec9d25fa8797fea0387314ec77f74e34610e9d5017dc3fec4a73",
+  "source_split_sha256": "eef6fb1382095ab4c28d4a0b0e2b5999a96cbef454dcf2899776957e83a40c1a",
+  "theorems": [
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        344,
+        11
+      ],
+      "file_path": "Mathlib/RingTheory/Ideal/LocalRing.lean",
+      "full_name": "LocalRing.surjective_units_map_of_local_ringHom",
+      "initial_state_sha256": "aa62897d68037adf1f3c06b5f464c86c7e8aac83620b78dd2372c23bdaad5d3b",
+      "normalized_initial_state_sha256": "73005e64cc7cf6506e9ad83d214435e4cb8b14b99b4a2c82015dc70a21dc099c",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 7,
+      "source_split": "random/train-unused",
+      "start": [
+        337,
+        1
+      ],
+      "theorem_id": "Mathlib/RingTheory/Ideal/LocalRing.lean::LocalRing.surjective_units_map_of_local_ringHom",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        86,
+        53
+      ],
+      "file_path": "Mathlib/Data/Set/MemPartition.lean",
+      "full_name": "sUnion_memPartition",
+      "initial_state_sha256": "10dd489a2d1d8ab2fcde4846a0e247695c86a8c36475da4744c590afd5a3d1bf",
+      "normalized_initial_state_sha256": "a32f88afeb2ca5851f5e2c55eb62fde6afa82b50c311e388f6ce03f11703685b",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 10,
+      "source_split": "random/train-unused",
+      "start": [
+        73,
+        1
+      ],
+      "theorem_id": "Mathlib/Data/Set/MemPartition.lean::sUnion_memPartition",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        174,
+        8
+      ],
+      "file_path": "Mathlib/RingTheory/PowerSeries/Trunc.lean",
+      "full_name": "PowerSeries.trunc_trunc_mul",
+      "initial_state_sha256": "e95ad6c8ed893d29781a56427f436ebb47f7617b2d6dc33c3ae8ccb63fbe8625",
+      "normalized_initial_state_sha256": "ce84d6446f5d4dbf9530cd80d22708384730ced96bc9b50ff04dfa93f27aa9e2",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 8,
+      "source_split": "random/train-unused",
+      "start": [
+        165,
+        9
+      ],
+      "theorem_id": "Mathlib/RingTheory/PowerSeries/Trunc.lean::PowerSeries.trunc_trunc_mul",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        737,
+        73
+      ],
+      "file_path": "Mathlib/CategoryTheory/Localization/CalculusOfFractions.lean",
+      "full_name": "CategoryTheory.Localization.exists_leftFraction",
+      "initial_state_sha256": "006392e42c2665cdb841409d51bcbfa3d14e66bedec4752f77a3e5081634493c",
+      "normalized_initial_state_sha256": "671ba0bccfce9393145b86610cf63487705118a73866dc04df658c54f64fff5d",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 8,
+      "source_split": "random/train-unused",
+      "start": [
+        725,
+        1
+      ],
+      "theorem_id": "Mathlib/CategoryTheory/Localization/CalculusOfFractions.lean::CategoryTheory.Localization.exists_leftFraction",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        1409,
+        55
+      ],
+      "file_path": "Mathlib/MeasureTheory/Integral/SetIntegral.lean",
+      "full_name": "integral_coe_re_add_coe_im",
+      "initial_state_sha256": "df7df073cd5a88ec8a71a5d41fd37ff858d6bbb5cb238552a3a658e0a5b5f362",
+      "normalized_initial_state_sha256": "48bfaa10b0afa0bce81c7ddb819b1950c43e6a7cecab89a4a9499470a8fc1461",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 6,
+      "source_split": "random/train-unused",
+      "start": [
+        1402,
+        1
+      ],
+      "theorem_id": "Mathlib/MeasureTheory/Integral/SetIntegral.lean::integral_coe_re_add_coe_im",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        483,
+        26
+      ],
+      "file_path": "Mathlib/Data/Nat/Factorization/Basic.lean",
+      "full_name": "Nat.factorization_div",
+      "initial_state_sha256": "675ea9890de8925f753f339ef20e877917e57e60f0322bf5f2d41ebe9478ac21",
+      "normalized_initial_state_sha256": "9e4160e8189644c4c34029d924b9f2ad117111c64b67052f070876e1539c5027",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 7,
+      "source_split": "random/train-unused",
+      "start": [
+        475,
+        1
+      ],
+      "theorem_id": "Mathlib/Data/Nat/Factorization/Basic.lean::Nat.factorization_div",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        862,
+        69
+      ],
+      "file_path": "Mathlib/Probability/Process/Stopping.lean",
+      "full_name": "MeasureTheory.stronglyMeasurable_stoppedValue_of_le",
+      "initial_state_sha256": "4d84f7597dabb08a669482cfce4c44b2bc9e4d2704a8fb9d67de172bca7fe781",
+      "normalized_initial_state_sha256": "0e8d4829965690707f29e8ef5332f317b1cc6c2ebe3c00afab5d012209231800",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 6,
+      "source_split": "random/train-unused",
+      "start": [
+        855,
+        1
+      ],
+      "theorem_id": "Mathlib/Probability/Process/Stopping.lean::MeasureTheory.stronglyMeasurable_stoppedValue_of_le",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        554,
+        63
+      ],
+      "file_path": "Mathlib/Topology/MetricSpace/HausdorffDimension.lean",
+      "full_name": "Real.dimH_of_mem_nhds",
+      "initial_state_sha256": "21833fed61ccf50ac0e12ed23871f4e2313390c34a40205ef5f5abe6d2c85fd1",
+      "normalized_initial_state_sha256": "d50622e90aa6e32803d5e5af1dd0f464722d677c49b42b080820ea04aeb6d12d",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 9,
+      "source_split": "random/train-unused",
+      "start": [
+        546,
+        1
+      ],
+      "theorem_id": "Mathlib/Topology/MetricSpace/HausdorffDimension.lean::Real.dimH_of_mem_nhds",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        185,
+        54
+      ],
+      "file_path": "Mathlib/Analysis/BoxIntegral/Integrability.lean",
+      "full_name": "MeasureTheory.SimpleFunc.hasBoxIntegral",
+      "initial_state_sha256": "79ea6874d72e5ffc7a967a029937866e980af2207ae62c4f0a0913072ca6eae9",
+      "normalized_initial_state_sha256": "d0bda2a456334d4cde30877a26dea352de076c5799ee34f07fca5b708697b06d",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 6,
+      "source_split": "random/train-unused",
+      "start": [
+        175,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/BoxIntegral/Integrability.lean::MeasureTheory.SimpleFunc.hasBoxIntegral",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        172,
+        87
+      ],
+      "file_path": "Mathlib/AlgebraicGeometry/EllipticCurve/Jacobian.lean",
+      "full_name": "WeierstrassCurve.Jacobian.equiv_iff_eq_of_Z_eq'",
+      "initial_state_sha256": "1a8a535fe8098253996afae8bf3148975d2bc155aecd6233f81fc00039a6de1b",
+      "normalized_initial_state_sha256": "25451ce8d160abde4dde8353f41ad0e81e52b30baefa23a43d06bf50c48990d3",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 6,
+      "source_split": "random/train-unused",
+      "start": [
+        167,
+        1
+      ],
+      "theorem_id": "Mathlib/AlgebraicGeometry/EllipticCurve/Jacobian.lean::WeierstrassCurve.Jacobian.equiv_iff_eq_of_Z_eq'",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        278,
+        63
+      ],
+      "file_path": "Mathlib/Analysis/Convex/Extreme.lean",
+      "full_name": "Convex.mem_extremePoints_iff_convex_diff",
+      "initial_state_sha256": "fef860de1d728cb30c14a518a320b884648dc4fd30634df71b95f931eac0e007",
+      "normalized_initial_state_sha256": "0710edec5a6f24edf3929ccb475e5a22f1072065744dddec6e7edbdeaf71283c",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 6,
+      "source_split": "random/train-unused",
+      "start": [
+        270,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/Convex/Extreme.lean::Convex.mem_extremePoints_iff_convex_diff",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        1097,
+        40
+      ],
+      "file_path": "Mathlib/Topology/ContinuousFunction/Algebra.lean",
+      "full_name": "ContinuousMap.periodic_tsum_comp_add_zsmul",
+      "initial_state_sha256": "eb14c90a7dcff995634eb7c10532bc3ead4796337d7a537b06835cb1a3f4f695",
+      "normalized_initial_state_sha256": "1255b122cfdfd6f36124bd0dc0c43ce6354e7d6fbb6f0f6dd708c307c9532592",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 8,
+      "source_split": "random/train-unused",
+      "start": [
+        1082,
+        1
+      ],
+      "theorem_id": "Mathlib/Topology/ContinuousFunction/Algebra.lean::ContinuousMap.periodic_tsum_comp_add_zsmul",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        225,
+        6
+      ],
+      "file_path": "Mathlib/ModelTheory/Types.lean",
+      "full_name": "FirstOrder.Language.Theory.exists_modelType_is_realized_in",
+      "initial_state_sha256": "1f6a97217d51ad99a741c17df4a38993df4505cf32cae53773f7345aaf1bd369",
+      "normalized_initial_state_sha256": "ea63f90f28fac6b218a1bf3819ac3a17f721b0ed4512137164ca0fbc8aead799",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 6,
+      "source_split": "random/train-unused",
+      "start": [
+        214,
+        1
+      ],
+      "theorem_id": "Mathlib/ModelTheory/Types.lean::FirstOrder.Language.Theory.exists_modelType_is_realized_in",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        437,
+        40
+      ],
+      "file_path": "Mathlib/Init/Order/Defs.lean",
+      "full_name": "compare_eq_iff_eq",
+      "initial_state_sha256": "fbe4dc50dd2f21589806dc54ee3d6881c4c11866f6196ec0948ff332d6f12818",
+      "normalized_initial_state_sha256": "6fd7cf4e4e47c19f0b7a32cb4701eb17ddb9a6c7e50e099ba71d957561dc3abb",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 9,
+      "source_split": "random/train-unused",
+      "start": [
+        432,
+        1
+      ],
+      "theorem_id": "Mathlib/Init/Order/Defs.lean::compare_eq_iff_eq",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        465,
+        39
+      ],
+      "file_path": "Mathlib/Analysis/Convex/Segment.lean",
+      "full_name": "segment_subset_Icc",
+      "initial_state_sha256": "a83929dcf62fe5ed5bc54fc7dc582fc5fc12f73ebe73e30d31d3bbe97fa81543",
+      "normalized_initial_state_sha256": "c0b98da604a3c331ff52bb81fe1e7887926d8a0007dce41d9534133a872463f1",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 6,
+      "source_split": "random/train-unused",
+      "start": [
+        457,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/Convex/Segment.lean::segment_subset_Icc",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        977,
+        41
+      ],
+      "file_path": "Mathlib/LinearAlgebra/LinearPMap.lean",
+      "full_name": "Submodule.existsUnique_from_graph",
+      "initial_state_sha256": "9a2baf48e5faa2f74d07b4214bb984e1a1ec6e13866fd176e5d8d75f1797c378",
+      "normalized_initial_state_sha256": "aabfbcc9853e3801c3092c73d398519fad913d23c33614de3b9f47352f2f952e",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 9,
+      "source_split": "random/train-unused",
+      "start": [
+        967,
+        1
+      ],
+      "theorem_id": "Mathlib/LinearAlgebra/LinearPMap.lean::Submodule.existsUnique_from_graph",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        434,
+        13
+      ],
+      "file_path": "Mathlib/Computability/AkraBazzi/AkraBazzi.lean",
+      "full_name": "AkraBazziRecurrence.eventually_one_add_smoothingFn_pos",
+      "initial_state_sha256": "98193f45d72e146240ad45df447fb21eeb1e69410ad98fd061dcc11bbc8579e6",
+      "normalized_initial_state_sha256": "b1a5ed5c0dd8803e70fbfd68f4b7184c0077978a8696e80af4e5e63aa2664f4c",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 8,
+      "source_split": "random/train-unused",
+      "start": [
+        427,
+        1
+      ],
+      "theorem_id": "Mathlib/Computability/AkraBazzi/AkraBazzi.lean::AkraBazziRecurrence.eventually_one_add_smoothingFn_pos",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        38,
+        12
+      ],
+      "file_path": "Mathlib/Algebra/Ring/Divisibility/Basic.lean",
+      "full_name": "MulEquiv.decompositionMonoid",
+      "initial_state_sha256": "e902bda3f224dc1639f10d3c31d74fca25bbaa99d33c881f0ef4a5f8157c9ef7",
+      "normalized_initial_state_sha256": "25cc3327357a12dd0f0ddd0f7e249e3243edaf1e16f5632ebf9513217e7a77cd",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 7,
+      "source_split": "random/train-unused",
+      "start": [
+        31,
+        1
+      ],
+      "theorem_id": "Mathlib/Algebra/Ring/Divisibility/Basic.lean::MulEquiv.decompositionMonoid",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        970,
+        19
+      ],
+      "file_path": "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+      "full_name": "Set.Iic_ciInf",
+      "initial_state_sha256": "fab646bfdcde9ddd09ade66b5c414924a447bce3d34d59887df7b7e38394fb8f",
+      "normalized_initial_state_sha256": "416a4e435960b025b3a7c4472e7f70a08984dbf05275cbfe0b9daba1a7b5d710",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 6,
+      "source_split": "random/train-unused",
+      "start": [
+        963,
+        1
+      ],
+      "theorem_id": "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean::Set.Iic_ciInf",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        1010,
+        74
+      ],
+      "file_path": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+      "full_name": "RatFunc.num_div_denom",
+      "initial_state_sha256": "9f657c07c33a45aa222c4e97f817df98020ae26b835d9d73185dc1008aaf8fba",
+      "normalized_initial_state_sha256": "62bd4fe27b89bee154326aba063a9d1426a717c467678f09df3e03ae70fcb0f7",
+      "source_depth_bin": "6-10",
+      "source_proof_depth": 9,
+      "source_split": "random/train-unused",
+      "start": [
+        998,
+        1
+      ],
+      "theorem_id": "Mathlib/FieldTheory/RatFunc/Basic.lean::RatFunc.num_div_denom",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        671,
+        12
+      ],
+      "file_path": "Mathlib/Topology/Order/IntermediateValue.lean",
+      "full_name": "Continuous.strictMono_of_inj_boundedOrder",
+      "initial_state_sha256": "6b9f003a6dc922fcde54d5827d6647a0790bd1b4aefd7dde018f76238a84db78",
+      "normalized_initial_state_sha256": "91ba1660dbde935637e667ef6716b3a9ffbaf9bda769286e6ebfb8942048d3d8",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 16,
+      "source_split": "random/train-unused",
+      "start": [
+        654,
+        1
+      ],
+      "theorem_id": "Mathlib/Topology/Order/IntermediateValue.lean::Continuous.strictMono_of_inj_boundedOrder",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        294,
+        33
+      ],
+      "file_path": "Mathlib/LinearAlgebra/Lagrange.lean",
+      "full_name": "Lagrange.sum_basis",
+      "initial_state_sha256": "f4de56863a3a4ddb5b7134bc683773cf11cb51d9d91b87b11d35e319e8dd3f74",
+      "normalized_initial_state_sha256": "857e1a4fab056c9c25533c4ca90caeb8f30eed645a929d8dbae1e65783986500",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 12,
+      "source_split": "random/train-unused",
+      "start": [
+        280,
+        1
+      ],
+      "theorem_id": "Mathlib/LinearAlgebra/Lagrange.lean::Lagrange.sum_basis",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        231,
+        79
+      ],
+      "file_path": "Mathlib/Analysis/Convex/Extreme.lean",
+      "full_name": "extremePoints_pi",
+      "initial_state_sha256": "528843a640d17b5adc2081d03bcb751501195f9fcdd7d85d78613fc38e463e74",
+      "normalized_initial_state_sha256": "eb485b19602c06419e135dbf584f85f8edef70d5eb68146f615bc941c08e7d8e",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 17,
+      "source_split": "random/train-unused",
+      "start": [
+        213,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/Convex/Extreme.lean::extremePoints_pi",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        330,
+        62
+      ],
+      "file_path": "Mathlib/Algebra/Ring/Ext.lean",
+      "full_name": "Semiring.ext",
+      "initial_state_sha256": "1e032b84eff1b1a33ca21f1b9d1437814a81db7667e1febc738475d995f56853",
+      "normalized_initial_state_sha256": "11bc8c72277ffe9eaa37ff24857c56adfc88a3c64202a48e777a8b5ee1dacb20",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 12,
+      "source_split": "random/train-unused",
+      "start": [
+        317,
+        8
+      ],
+      "theorem_id": "Mathlib/Algebra/Ring/Ext.lean::Semiring.ext",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        499,
+        41
+      ],
+      "file_path": "Mathlib/Topology/Connected/Basic.lean",
+      "full_name": "isPreconnected_univ_pi",
+      "initial_state_sha256": "b3c611682f7ddc2b782bdd09291173d8575cf1e4c6132848fd73236c98c3bb3a",
+      "normalized_initial_state_sha256": "262d70436071ec91df25e42c06462101d03d4e7d8ed9a0b022be6bbaf4bad544",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 18,
+      "source_split": "random/train-unused",
+      "start": [
+        479,
+        1
+      ],
+      "theorem_id": "Mathlib/Topology/Connected/Basic.lean::isPreconnected_univ_pi",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        574,
+        9
+      ],
+      "file_path": "Mathlib/Dynamics/PeriodicPts.lean",
+      "full_name": "Function.periodicOrbit_chain",
+      "initial_state_sha256": "710aee733fe502f8441d344f4294e8c1ca69b96b64306e376b6f79efb0b979b9",
+      "normalized_initial_state_sha256": "1fa7c4773dde2e8b7e3bc8aa9731d3f85a5b4eec9682e38356238cadfbb9c8bb",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 15,
+      "source_split": "random/train-unused",
+      "start": [
+        558,
+        1
+      ],
+      "theorem_id": "Mathlib/Dynamics/PeriodicPts.lean::Function.periodicOrbit_chain",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        305,
+        38
+      ],
+      "file_path": "Mathlib/MeasureTheory/Function/LpSeminorm/Basic.lean",
+      "full_name": "MeasureTheory.snorm'_const'",
+      "initial_state_sha256": "7fb72fa6e76a33bb1f7f49b9993b0e64d47c336ed620fc7bc58759bdcbed569f",
+      "normalized_initial_state_sha256": "9b312cebfb934816cb16ccb343abbb6c1d16377909e244f79869f050ae40351e",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 11,
+      "source_split": "random/train-unused",
+      "start": [
+        294,
+        1
+      ],
+      "theorem_id": "Mathlib/MeasureTheory/Function/LpSeminorm/Basic.lean::MeasureTheory.snorm'_const'",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        248,
+        62
+      ],
+      "file_path": "Mathlib/Analysis/Complex/AbsMax.lean",
+      "full_name": "Complex.norm_eqOn_of_isPreconnected_of_isMaxOn",
+      "initial_state_sha256": "5cde9abd9a7106bbbd0e04b170412ac5a585d75c01900f651c918837f1b8b80b",
+      "normalized_initial_state_sha256": "bb1fe2cbc3e30b26a44c5b6323278f4f77a5f9fd0f8e807be1a6127b36811e0d",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 11,
+      "source_split": "random/train-unused",
+      "start": [
+        232,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/Complex/AbsMax.lean::Complex.norm_eqOn_of_isPreconnected_of_isMaxOn",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        822,
+        41
+      ],
+      "file_path": "Mathlib/Topology/EMetricSpace/Basic.lean",
+      "full_name": "EMetric.subset_countable_closure_of_almost_dense_set",
+      "initial_state_sha256": "2babc23a84e7a9b1edec86feeda05a1443ee89d749366abe0ee5b89fd20b54be",
+      "normalized_initial_state_sha256": "6eb11f2064d405e1e4b7d0679b8e0ec404c50b6905b2bd4cab3a656490983c18",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 17,
+      "source_split": "random/train-unused",
+      "start": [
+        796,
+        1
+      ],
+      "theorem_id": "Mathlib/Topology/EMetricSpace/Basic.lean::EMetric.subset_countable_closure_of_almost_dense_set",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        603,
+        12
+      ],
+      "file_path": "Mathlib/Data/Matroid/Basic.lean",
+      "full_name": "Matroid.Base.exchange_base_of_indep",
+      "initial_state_sha256": "e8a576d605f22ce098aa13666412d8e11b7d103c054a6a283dd7bb9712836199",
+      "normalized_initial_state_sha256": "017dcec8589fb7f694bc747d54697a4f7c8d81f7e1927c136b80496d108662ec",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 11,
+      "source_split": "random/train-unused",
+      "start": [
+        589,
+        1
+      ],
+      "theorem_id": "Mathlib/Data/Matroid/Basic.lean::Matroid.Base.exchange_base_of_indep",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        280,
+        25
+      ],
+      "file_path": "Mathlib/Analysis/NormedSpace/lpSpace.lean",
+      "full_name": "Memℓp.const_smul",
+      "initial_state_sha256": "7f9c2067e91a8a26ee4df4e9c5968ee637019f83145418d8bdf31d14fb347774",
+      "normalized_initial_state_sha256": "38dee785898f163e9002f1a82490ee0ac19272342a622582536ded25a947cb42",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 19,
+      "source_split": "random/train-unused",
+      "start": [
+        260,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/NormedSpace/lpSpace.lean::Memℓp.const_smul",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        387,
+        10
+      ],
+      "file_path": "Mathlib/CategoryTheory/Abelian/Pseudoelements.lean",
+      "full_name": "CategoryTheory.Abelian.Pseudoelement.pseudo_exact_of_exact",
+      "initial_state_sha256": "543842649e58839861e139e0763a05a6d837f7d8a006ebb7a79a2a69c8f119e7",
+      "normalized_initial_state_sha256": "ed9e503082940cdf0343f19fc628556c1c2a591feafbfd4ae169d1d1b8ea573b",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 12,
+      "source_split": "random/train-unused",
+      "start": [
+        359,
+        1
+      ],
+      "theorem_id": "Mathlib/CategoryTheory/Abelian/Pseudoelements.lean::CategoryTheory.Abelian.Pseudoelement.pseudo_exact_of_exact",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        114,
+        49
+      ],
+      "file_path": "Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean",
+      "full_name": "Complex.arg_mul_cos_add_sin_mul_I",
+      "initial_state_sha256": "224e602e8ec6604574514ce488ad5ac2fbfa23330e19dc4ab533bc9eae18aa93",
+      "normalized_initial_state_sha256": "4b44302466fa6bb757eff35ab3b960c7081cb9bb37d368b342a82c071a54af2e",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 20,
+      "source_split": "random/train-unused",
+      "start": [
+        93,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean::Complex.arg_mul_cos_add_sin_mul_I",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        30,
+        61
+      ],
+      "file_path": ".lake/packages/batteries/Batteries/Data/Array/Monadic.lean",
+      "full_name": "Array.SatisfiesM_foldlM",
+      "initial_state_sha256": "be0c6b150ebebfdea06d003706eec02895d2b4c7d2cf93cc395b845a8ee7acc0",
+      "normalized_initial_state_sha256": "65c26f90fb73c08d90af1bbb47e417ee73d8a3e6fa1f0d5e686c16300a559af1",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 11,
+      "source_split": "random/train-unused",
+      "start": [
+        18,
+        1
+      ],
+      "theorem_id": ".lake/packages/batteries/Batteries/Data/Array/Monadic.lean::Array.SatisfiesM_foldlM",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        2111,
+        62
+      ],
+      "file_path": "Mathlib/Order/Filter/AtTopBot.lean",
+      "full_name": "Function.Injective.map_atTop_finset_prod_eq",
+      "initial_state_sha256": "ab6510e0ca185d4cb9ded328b9f2cf54493b88d80b99f5fd5cb0ed587f1bd769",
+      "normalized_initial_state_sha256": "5df1741160de908f10bdce03eefadce55db9f7da5c4850dab7ce3c309c020ccc",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 13,
+      "source_split": "random/train-unused",
+      "start": [
+        2096,
+        1
+      ],
+      "theorem_id": "Mathlib/Order/Filter/AtTopBot.lean::Function.Injective.map_atTop_finset_prod_eq",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        338,
+        14
+      ],
+      "file_path": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+      "full_name": "CategoryTheory.Functor.Faithful.div_comp",
+      "initial_state_sha256": "6a61b4df00a65343aa160400ff91f07fa82c601be802b6b38fc87c493162615b",
+      "normalized_initial_state_sha256": "968b73a21a0fa55597b9ad48a8b47e8ae105f3374df85fdab2c70e487bdc11e1",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 11,
+      "source_split": "random/train-unused",
+      "start": [
+        323,
+        1
+      ],
+      "theorem_id": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean::CategoryTheory.Functor.Faithful.div_comp",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        138,
+        66
+      ],
+      "file_path": "Mathlib/MeasureTheory/Measure/LogLikelihoodRatio.lean",
+      "full_name": "MeasureTheory.llr_tilted_left",
+      "initial_state_sha256": "2549f9f84dab2b274fbfa2246729e910baf08d86ece74d846c1f0ce85b6e7a11",
+      "normalized_initial_state_sha256": "55c9dceb58bcd1ecbe2a89e420900b61f421088191c5de6e289f51c1c30a6750",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 11,
+      "source_split": "random/train-unused",
+      "start": [
+        120,
+        1
+      ],
+      "theorem_id": "Mathlib/MeasureTheory/Measure/LogLikelihoodRatio.lean::MeasureTheory.llr_tilted_left",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        304,
+        16
+      ],
+      "file_path": "Mathlib/Geometry/RingedSpace/PresheafedSpace/Gluing.lean",
+      "full_name": "AlgebraicGeometry.PresheafedSpace.GlueData.opensImagePreimageMap_app'",
+      "initial_state_sha256": "f2de6ba9db24260dc0146b57c132b48f0b46dbc638debd5b404380ead8fc3b7d",
+      "normalized_initial_state_sha256": "19a44e81d971049d095fd2f354383e1c7a43f51297de4ad7422c1cbe6a9705ad",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 11,
+      "source_split": "random/train-unused",
+      "start": [
+        289,
+        1
+      ],
+      "theorem_id": "Mathlib/Geometry/RingedSpace/PresheafedSpace/Gluing.lean::AlgebraicGeometry.PresheafedSpace.GlueData.opensImagePreimageMap_app'",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        245,
+        73
+      ],
+      "file_path": "Mathlib/Data/Nat/Bitwise.lean",
+      "full_name": "Nat.exists_most_significant_bit",
+      "initial_state_sha256": "69b5c56b059021e5eab6c35273c84cd9764aa6ea373e96abe598c6c0d22a54bc",
+      "normalized_initial_state_sha256": "f771d52ebfa907b560fc4193b49c6ffc7a04b5d643f9d587f97a7a2b51f3934c",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 19,
+      "source_split": "random/train-unused",
+      "start": [
+        230,
+        1
+      ],
+      "theorem_id": "Mathlib/Data/Nat/Bitwise.lean::Nat.exists_most_significant_bit",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        115,
+        87
+      ],
+      "file_path": "Mathlib/LinearAlgebra/AffineSpace/FiniteDimensional.lean",
+      "full_name": "AffineIndependent.finrank_vectorSpan_image_finset",
+      "initial_state_sha256": "a16dbb28c3878ab9565e2c40093ebd004912efbb1bcc0e112886cab5b720ec0c",
+      "normalized_initial_state_sha256": "0bddb8774fc255b8e100770dd1d247ed8a2b5d59294fe9c49cab7339549f688b",
+      "source_depth_bin": "11-20",
+      "source_proof_depth": 14,
+      "source_split": "random/train-unused",
+      "start": [
+        100,
+        1
+      ],
+      "theorem_id": "Mathlib/LinearAlgebra/AffineSpace/FiniteDimensional.lean::AffineIndependent.finrank_vectorSpan_image_finset",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        146,
+        32
+      ],
+      "file_path": "Mathlib/NumberTheory/Multiplicity.lean",
+      "full_name": "odd_sq_dvd_geom_sum₂_sub",
+      "initial_state_sha256": "7ec65ed1a820348da5555fbd654a4531561e086a10aa0c1e87f2bafd8d011821",
+      "normalized_initial_state_sha256": "91778b9208b119a6025b8bb9d7f3431903428fb00f708377583ed6bf52655182",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 38,
+      "source_split": "random/train-unused",
+      "start": [
+        82,
+        1
+      ],
+      "theorem_id": "Mathlib/NumberTheory/Multiplicity.lean::odd_sq_dvd_geom_sum₂_sub",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        326,
+        31
+      ],
+      "file_path": "Mathlib/NumberTheory/Multiplicity.lean",
+      "full_name": "Int.two_pow_sub_pow'",
+      "initial_state_sha256": "54592789db4744fe0a548b793dadd42f1bb4d01d7ecb9c8d36afa73a1876163c",
+      "normalized_initial_state_sha256": "2d84b7800158fb58895914059a369b3d1ad0fdaa4d10bd1d1e50b91440e17f62",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 22,
+      "source_split": "random/train-unused",
+      "start": [
+        305,
+        1
+      ],
+      "theorem_id": "Mathlib/NumberTheory/Multiplicity.lean::Int.two_pow_sub_pow'",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        96,
+        81
+      ],
+      "file_path": "Mathlib/Analysis/SpecialFunctions/NonIntegrable.lean",
+      "full_name": "not_integrableOn_of_tendsto_norm_atTop_of_deriv_isBigO_filter_aux",
+      "initial_state_sha256": "59ae3127af292b255315a51d1e6cff5a98c4bda95a7aa3e8e215916dfa257fb8",
+      "normalized_initial_state_sha256": "651ff6ca1597723c00097c4d80b6fbc1f86f14af871de644d4551228089d42e2",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 25,
+      "source_split": "random/train-unused",
+      "start": [
+        52,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/SpecialFunctions/NonIntegrable.lean::not_integrableOn_of_tendsto_norm_atTop_of_deriv_isBigO_filter_aux",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        88,
+        18
+      ],
+      "file_path": "Mathlib/Analysis/Complex/Schwarz.lean",
+      "full_name": "Complex.schwarz_aux",
+      "initial_state_sha256": "aa535bbb0d322ced9145a187b9a4e3576b08e8918f06c387abb120309e3ba214",
+      "normalized_initial_state_sha256": "50815667bc87dd02c5d5cd569d1915f1e7f8d57c04ac871717800beb2b598d64",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 21,
+      "source_split": "random/train-unused",
+      "start": [
+        65,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/Complex/Schwarz.lean::Complex.schwarz_aux",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        209,
+        49
+      ],
+      "file_path": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+      "full_name": "Complex.betaIntegral_recurrence",
+      "initial_state_sha256": "bee21aa985def1c981e56b1dec0d2f9e19b7c10ca1158f018080d4a6d6c44de4",
+      "normalized_initial_state_sha256": "0200c0c1b4202e7c8c82d5eef1e3cee617286ad1140a658a1be516cb031a018a",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 52,
+      "source_split": "random/train-unused",
+      "start": [
+        155,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean::Complex.betaIntegral_recurrence",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        258,
+        55
+      ],
+      "file_path": "Mathlib/RingTheory/Discriminant.lean",
+      "full_name": "Algebra.discr_powerBasis_eq_norm",
+      "initial_state_sha256": "cfdd0c27bf5f2d196fb8845cb7acbe91b8de16ccb0da5fcbd1efcf17a40add7f",
+      "normalized_initial_state_sha256": "832bdc7781c400b98238acde18ce0069e5a6a82a1493c0e3a0699212e0c19bb2",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 26,
+      "source_split": "random/train-unused",
+      "start": [
+        215,
+        1
+      ],
+      "theorem_id": "Mathlib/RingTheory/Discriminant.lean::Algebra.discr_powerBasis_eq_norm",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        172,
+        19
+      ],
+      "file_path": "Mathlib/Analysis/SpecialFunctions/Complex/LogBounds.lean",
+      "full_name": "Complex.norm_log_sub_logTaylor_le",
+      "initial_state_sha256": "d64e22a3602e7ab548c71061ee8b4255a30584ad3fb25b9fcead86036aeb9e47",
+      "normalized_initial_state_sha256": "d0ae524a531d0aa7ce712dc4f54eb8c8ae80a4c4f2fd9137bbeeb560d0809952",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 25,
+      "source_split": "random/train-unused",
+      "start": [
+        131,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/SpecialFunctions/Complex/LogBounds.lean::Complex.norm_log_sub_logTaylor_le",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        143,
+        58
+      ],
+      "file_path": "Mathlib/ModelTheory/Ultraproducts.lean",
+      "full_name": "FirstOrder.Language.Ultraproduct.boundedFormula_realize_cast",
+      "initial_state_sha256": "0114a4dc7adbf46154c7e5cae4ccd63a9b30ac9da145072af753a09e8340afd2",
+      "normalized_initial_state_sha256": "bd33bc939a16ef46a86ba830ade0b0fd7088f79c0284ab1d35a670b44169475c",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 30,
+      "source_split": "random/train-unused",
+      "start": [
+        95,
+        1
+      ],
+      "theorem_id": "Mathlib/ModelTheory/Ultraproducts.lean::FirstOrder.Language.Ultraproduct.boundedFormula_realize_cast",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        68,
+        17
+      ],
+      "file_path": "Mathlib/Analysis/Normed/Group/AddCircle.lean",
+      "full_name": "AddCircle.norm_coe_mul",
+      "initial_state_sha256": "a28fb999dafe3aa40fa634fd271ddab515e385d3fb22fb1ad79ff6b158e12426",
+      "normalized_initial_state_sha256": "e7bfd556e929677f89e6d0ecc9bc7dbf416afec19ecb5488a944feadc030e698",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 25,
+      "source_split": "random/train-unused",
+      "start": [
+        44,
+        1
+      ],
+      "theorem_id": "Mathlib/Analysis/Normed/Group/AddCircle.lean::AddCircle.norm_coe_mul",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        229,
+        75
+      ],
+      "file_path": "Mathlib/MeasureTheory/Covering/LiminfLimsup.lean",
+      "full_name": "blimsup_cthickening_mul_ae_eq",
+      "initial_state_sha256": "1ee015ed7bd4b6cf9b0bfb466f19fc9b1014f958c4e25e2899152e60afcbfe5b",
+      "normalized_initial_state_sha256": "5917d2d55079ca1b5255d54f4cbb7162a8ef97cc3f0662d8ceea99d494168e3f",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 33,
+      "source_split": "random/train-unused",
+      "start": [
+        193,
+        1
+      ],
+      "theorem_id": "Mathlib/MeasureTheory/Covering/LiminfLimsup.lean::blimsup_cthickening_mul_ae_eq",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        236,
+        27
+      ],
+      "file_path": "Mathlib/Probability/Kernel/Disintegration/Density.lean",
+      "full_name": "ProbabilityTheory.kernel.setIntegral_densityProcess_of_mem",
+      "initial_state_sha256": "68c5ae097ff3c47b8cd10f6bfc00075e0c4ff2880d01fdf94ef3036aeb73d2d0",
+      "normalized_initial_state_sha256": "a1410589ac6a8788337834f348119558c747e07080ea07b0ddc22c6f6c92a4ce",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 34,
+      "source_split": "random/train-unused",
+      "start": [
+        197,
+        1
+      ],
+      "theorem_id": "Mathlib/Probability/Kernel/Disintegration/Density.lean::ProbabilityTheory.kernel.setIntegral_densityProcess_of_mem",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        435,
+        10
+      ],
+      "file_path": "Mathlib/AlgebraicGeometry/EllipticCurve/Group.lean",
+      "full_name": "WeierstrassCurve.Affine.CoordinateRing.XYIdeal_mul_XYIdeal",
+      "initial_state_sha256": "5cbb8261055ad56c43dbb4c81cce857c9b65126d2e89ab7d53681e8df66b0599",
+      "normalized_initial_state_sha256": "afeeaf91260fe03d1fe709665bc9d820018264512465edcd4ee4a45fed4d0e70",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 28,
+      "source_split": "random/train-unused",
+      "start": [
+        395,
+        1
+      ],
+      "theorem_id": "Mathlib/AlgebraicGeometry/EllipticCurve/Group.lean::WeierstrassCurve.Affine.CoordinateRing.XYIdeal_mul_XYIdeal",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        863,
+        24
+      ],
+      "file_path": "Mathlib/CategoryTheory/Limits/Shapes/Types.lean",
+      "full_name": "CategoryTheory.Limits.Types.Pushout.equivalence_rel'",
+      "initial_state_sha256": "4c3130f597388544a83034f3993755fdde6e0c3a5cc3a2a9fdda5d351a4450e7",
+      "normalized_initial_state_sha256": "640f7fe2fa0d216a6db645f74ae3ba5c4782d47ab457ee44b14633bf318820f6",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 32,
+      "source_split": "random/train-unused",
+      "start": [
+        828,
+        1
+      ],
+      "theorem_id": "Mathlib/CategoryTheory/Limits/Shapes/Types.lean::CategoryTheory.Limits.Types.Pushout.equivalence_rel'",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        247,
+        38
+      ],
+      "file_path": "Mathlib/ModelTheory/Fraisse.lean",
+      "full_name": "FirstOrder.Language.exists_cg_is_age_of",
+      "initial_state_sha256": "797a8db08d382b9e3a9b33e89e712068a0035a9435808e82063e35b5eeeca9f2",
+      "normalized_initial_state_sha256": "25a1a8a004131e782e140e90d6a8842de416587fc255151b2c8d4037987779a5",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 28,
+      "source_split": "random/train-unused",
+      "start": [
+        213,
+        1
+      ],
+      "theorem_id": "Mathlib/ModelTheory/Fraisse.lean::FirstOrder.Language.exists_cg_is_age_of",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        1500,
+        21
+      ],
+      "file_path": "Mathlib/LinearAlgebra/Dual.lean",
+      "full_name": "Module.Dual.eq_of_ker_eq_of_apply_eq",
+      "initial_state_sha256": "bb90746b94ebd26df6e2310b351b2b91f6c5d30c5b9b8592720a86fb8eb1f4e0",
+      "normalized_initial_state_sha256": "277014e06eb5ba51da8d0107fc49547a803cb8e338e8b4f256300395315083c6",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 22,
+      "source_split": "random/train-unused",
+      "start": [
+        1481,
+        1
+      ],
+      "theorem_id": "Mathlib/LinearAlgebra/Dual.lean::Module.Dual.eq_of_ker_eq_of_apply_eq",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        1542,
+        8
+      ],
+      "file_path": "Mathlib/Computability/TMToPartrec.lean",
+      "full_name": "Turing.PartrecToTM2.succ_ok",
+      "initial_state_sha256": "76132086ab39417e7e178768f6bad86ed05f010a6bbc54084e3e66d7a4296a13",
+      "normalized_initial_state_sha256": "c1d86ce74a10f228be2ddc7f50f5c34ad578fb05a8129fb084f6c79560b818fe",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 25,
+      "source_split": "random/train-unused",
+      "start": [
+        1510,
+        1
+      ],
+      "theorem_id": "Mathlib/Computability/TMToPartrec.lean::Turing.PartrecToTM2.succ_ok",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        298,
+        23
+      ],
+      "file_path": "Mathlib/MeasureTheory/Covering/BesicovitchVectorSpace.lean",
+      "full_name": "Besicovitch.le_multiplicity_of_δ_of_fin",
+      "initial_state_sha256": "35ccfb7dc10fe855e14571eabcb99787735fd780822a826af42902931857efc5",
+      "normalized_initial_state_sha256": "d8b484df37b951106bbe0195edc5b63980955bc1d657b8752768da424e459574",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 22,
+      "source_split": "random/train-unused",
+      "start": [
+        277,
+        1
+      ],
+      "theorem_id": "Mathlib/MeasureTheory/Covering/BesicovitchVectorSpace.lean::Besicovitch.le_multiplicity_of_δ_of_fin",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        871,
+        80
+      ],
+      "file_path": "Mathlib/MeasureTheory/Function/Jacobian.lean",
+      "full_name": "MeasureTheory.addHaar_image_le_lintegral_abs_det_fderiv_aux1",
+      "initial_state_sha256": "e6ca8f181778ad295e927097ab66ebb51140bd4cccc5d1e9d072bbd81f8f02a5",
+      "normalized_initial_state_sha256": "9f5770a3bcce74b1a73b468ccd5c074bd847830314b07bd27c03e35c6eb50a6a",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 41,
+      "source_split": "random/train-unused",
+      "start": [
+        795,
+        1
+      ],
+      "theorem_id": "Mathlib/MeasureTheory/Function/Jacobian.lean::MeasureTheory.addHaar_image_le_lintegral_abs_det_fderiv_aux1",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        237,
+        22
+      ],
+      "file_path": "Mathlib/Order/Height.lean",
+      "full_name": "Set.chainHeight_image",
+      "initial_state_sha256": "b867e695b380b88e39d843f32d2bec2165748ce48a935e3d2ad99c974c2296ef",
+      "normalized_initial_state_sha256": "3877a6d346e4d1090b6becd2101c2b11dfcff0363555deab40c1dadc6020906a",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 24,
+      "source_split": "random/train-unused",
+      "start": [
+        212,
+        1
+      ],
+      "theorem_id": "Mathlib/Order/Height.lean::Set.chainHeight_image",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+      "end": [
+        153,
+        28
+      ],
+      "file_path": "Mathlib/Combinatorics/SimpleGraph/Finsubgraph.lean",
+      "full_name": "SimpleGraph.nonempty_hom_of_forall_finite_subgraph_hom",
+      "initial_state_sha256": "d2bf3e7d2df2dee6f1dcf323b701305962c2df017183354cae68257628b611d1",
+      "normalized_initial_state_sha256": "f7f4ecac72b95af13cd70da51a5fffe95f9caa3570da18dd2134de836410f9fc",
+      "source_depth_bin": "21+",
+      "source_proof_depth": 21,
+      "source_split": "random/train-unused",
+      "start": [
+        119,
+        1
+      ],
+      "theorem_id": "Mathlib/Combinatorics/SimpleGraph/Finsubgraph.lean::SimpleGraph.nonempty_hom_of_forall_finite_subgraph_hom",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    }
+  ]
+}
