@@ -1,0 +1,20 @@
+{
+  "adapter_sha256": "e4ac761a814049870e12d339737f3dd5d7f71dd1679fbb5114c836f2d02d6916",
+  "arm": "raw",
+  "dataset_sha256": "5198c0ecb541b3693b895838414cc3b1b5260ac4eeb02a879bce306f010e12a5",
+  "epochs": 1,
+  "final_loss": 1.2473926544189453,
+  "first_loss": 1.9786920547485352,
+  "gradient_accumulation": 2,
+  "learning_rate": 0.0001,
+  "mean_final_100_loss": 1.416854701936245,
+  "microbatch": 1,
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "optimizer_updates": 5000,
+  "result": "PASS",
+  "rows": 10000,
+  "telemetry_sha256": "545a1f43564ba12e58baabd25936f87fa9eda5dffd2301c58b8a6bb049762089",
+  "tokens": 5602834,
+  "tokens_per_second": 1695.9908021427307,
+  "wall_seconds": 3303.575699185
+}

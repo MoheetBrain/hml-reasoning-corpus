@@ -1,0 +1,6 @@
+{
+  "reason": "Solver calibration ended below the frozen 10% RAW solve-rate floor; evaluation selection was not authorized",
+  "schema_version": "lossless-hml-eval-theorems-v1",
+  "status": "NOT_FROZEN_PROTOCOL_STOP",
+  "theorems": []
+}

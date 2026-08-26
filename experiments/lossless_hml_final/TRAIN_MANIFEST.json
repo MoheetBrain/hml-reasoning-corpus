@@ -42,5 +42,23 @@
     "seed": 1,
     "targets": ["q_proj", "o_proj"]
   },
-  "training_results": "PENDING"
+  "training_results": {
+    "raw": {
+      "adapter_sha256": "e4ac761a814049870e12d339737f3dd5d7f71dd1679fbb5114c836f2d02d6916",
+      "final_loss": 1.2473926544189453,
+      "first_loss": 1.9786920547485352,
+      "mean_final_100_loss": 1.416854701936245,
+      "optimizer_updates": 5000,
+      "result": "PASS",
+      "rows": 10000,
+      "telemetry_sha256": "545a1f43564ba12e58baabd25936f87fa9eda5dffd2301c58b8a6bb049762089",
+      "tokens": 5602834,
+      "tokens_per_second": 1695.9908021427307,
+      "wall_seconds": 3303.575699185
+    },
+    "lossless_hml": {
+      "reason": "RAW development solve rate was below the protocol's 10% calibration floor",
+      "result": "NOT_RUN_PROTOCOL_STOP"
+    }
+  }
 }

@@ -1,0 +1,39 @@
+{
+  "artifacts": {
+    "calibration_result_sha256": "092e4ae1160abf3b57f3e302c031fbdf9868331829e9a63cf50876527e66abbd",
+    "dev_episodes_sha256": "63577d5bb78b4ac39b6c0f3cc32985a1e670fd1972c58e1967f846ac68d99e4d",
+    "dev_theorems_sha256": "4c9c64a159f77ab79ea4530d65041357a4a8e6efad13951236ebd89791b6b1a6"
+  },
+  "calibration": {
+    "candidate_generations": 4,
+    "max_depth": 40,
+    "max_expansions": 60,
+    "raw_solve_rate": 0.041666666666666664,
+    "search_width": 4,
+    "solved": 2,
+    "theorems": 48,
+    "wall_seconds": 764.7039091980005
+  },
+  "evaluation": {
+    "episodes": 0,
+    "reason": "Mandatory stop below solver calibration floor",
+    "status": "NOT_RUN_PROTOCOL_STOP"
+  },
+  "final_b": "SEALED_NOT_OPENED",
+  "hardware": {
+    "gpu": "NVIDIA A100 80GB PCIe"
+  },
+  "lean": {
+    "lean_dojo": "2.0.0",
+    "mathlib_commit": "29dcec074de168ac2bf835a77ef68bbe069194c5",
+    "toolchain": "leanprover/lean4:v4.10.0-rc1"
+  },
+  "model": {
+    "dtype": "bfloat16",
+    "id": "Qwen/Qwen3-8B",
+    "quantization": null,
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218"
+  },
+  "schema_version": "lossless-hml-final-run-v1",
+  "status": "SOLVER_NOT_CALIBRATED"
+}

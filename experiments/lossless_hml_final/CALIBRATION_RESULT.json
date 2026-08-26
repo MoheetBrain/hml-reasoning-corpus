@@ -1,0 +1,19 @@
+{
+  "arms": {
+    "raw": {
+      "solved": 2,
+      "theorems": 48
+    }
+  },
+  "config": {
+    "candidate_generations": 4,
+    "max_depth": 40,
+    "max_expansions": 60,
+    "search_width": 4
+  },
+  "episodes_path": "/home/moheet/lossless_hml_runtime/calibration_exp60.jsonl",
+  "episodes_sha256": "63577d5bb78b4ac39b6c0f3cc32985a1e670fd1972c58e1967f846ac68d99e4d",
+  "kind": "dev",
+  "raw_solve_rate": 0.041666666666666664,
+  "wall_seconds": 764.7039091980005
+}
