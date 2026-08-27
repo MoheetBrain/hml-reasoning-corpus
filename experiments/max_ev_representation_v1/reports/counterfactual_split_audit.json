@@ -1,0 +1,26 @@
+{
+ "verdict": "PASS",
+ "rows": 5619,
+ "families_total": 1873,
+ "source_families_total": 1873,
+ "cross_split_family_leaks": 0,
+ "cross_split_source_family_leaks": 0,
+ "exact_duplicate_leaks": 0,
+ "near_duplicate_leaks": 0,
+ "within_split_duplicates": 0,
+ "split_rows": {
+  "dev": 510,
+  "ood_alpha_rename": 270,
+  "ood_binder_depth": 210,
+  "ood_composition": 249,
+  "ood_dependency_depth": 210,
+  "ood_domain": 450,
+  "ood_state_size": 210,
+  "test_iid": 510,
+  "train": 3000
+ },
+ "siblings_per_family": {
+  "3": 1873
+ },
+ "leak_examples": []
+}

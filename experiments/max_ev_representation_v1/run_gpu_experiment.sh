@@ -28,9 +28,13 @@ INSTANCE="a100"
 PROJECT="project-08679972-d14a-4025-94f"
 REMOTE_DIR="~/max_ev_representation_v1"
 MODEL="Qwen/Qwen3-8B"
+# Immutable HF commit. Never run science against a floating branch: an upstream reupload
+# would silently change the experiment. Also the revision the 50K corpus was preflighted on.
+MODEL_REVISION="b968826d9c46dd6066d109eabc6255188de91218"
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 EXP_DIR="experiments/max_ev_representation_v1"
+MODULE="experiments.max_ev_representation_v1"   # dotted form; EXP_DIR is the path form
 DATA_DIR="$REPO/$EXP_DIR/dataset/v1"
 RESULTS_DIR="$REPO/$EXP_DIR/results/stage1"
 LOG_DIR="$REPO/$EXP_DIR/results/logs"
@@ -64,7 +68,20 @@ print(f"  dataset_version={manifest['dataset_version']} total_rows="
 sys.exit(1 if bad else 0)
 PY
 
-say "3/8 renderer identity"
+say "3/8 counterfactual split isolation (hard gate)"
+PYTHONPATH="$REPO" python3 -c "
+import json,sys
+sys.path.insert(0,'$REPO')
+from experiments.max_ev_representation_v1.audit.counterfactual_splits import audit_splits
+a=audit_splits('$DATA_DIR').to_dict()
+for k in ('families_total','source_families_total','cross_split_family_leaks',
+          'cross_split_source_family_leaks','exact_duplicate_leaks','near_duplicate_leaks'):
+    print(f'  {k:34s} {a[k]}')
+print('  verdict', a['verdict'])
+sys.exit(0 if a['verdict']=='PASS' else 1)
+" | tee -a "$LOG"
+
+say "3b/8 renderer identity"
 FROZEN_REPO="/Users/moheet/Documents/ChatGPT/hamiltonian-lang-final-signal"
 EXPECTED_RENDERER="b011511e72572608eb7836d3b8a1a6bb794c890d"
 ACTUAL_RENDERER="$(git -C "$FROZEN_REPO" rev-parse HEAD)"
@@ -77,8 +94,38 @@ say "4/8 start GPU"
 STATUS="$(gcloud compute instances describe "$INSTANCE" --zone "$ZONE" --project "$PROJECT" \
   --format='value(status)')"
 echo "  status: $STATUS" | tee -a "$LOG"
+# A stopped A100 is not a reserved A100. Releasing capacity can mean not getting it back:
+# the first attempt after our own stop returned ZONE_RESOURCE_POOL_EXHAUSTED for
+# a2-ultragpu-1g in this zone. Stockouts usually clear in minutes, so retry rather than
+# abandoning the run -- and report each attempt, because a silent retry loop is
+# indistinguishable from a hang.
+START_ATTEMPTS="${START_ATTEMPTS:-20}"
+START_INTERVAL="${START_INTERVAL:-180}"
 if [ "$STATUS" != "RUNNING" ]; then
-  gcloud compute instances start "$INSTANCE" --zone "$ZONE" --project "$PROJECT" | tee -a "$LOG"
+  started_ok=0
+  for attempt in $(seq 1 "$START_ATTEMPTS"); do
+    if gcloud compute instances start "$INSTANCE" --zone "$ZONE" --project "$PROJECT" \
+         >>"$LOG" 2>&1; then
+      echo "  start attempt $attempt: OK" | tee -a "$LOG"
+      started_ok=1
+      break
+    fi
+    if grep -q "ZONE_RESOURCE_POOL_EXHAUSTED\|STOCKOUT" "$LOG"; then
+      echo "  start attempt $attempt/$START_ATTEMPTS: zone stockout, retrying in ${START_INTERVAL}s" \
+        | tee -a "$LOG"
+    else
+      echo "  start attempt $attempt/$START_ATTEMPTS failed for a non-capacity reason; see log" \
+        | tee -a "$LOG"
+    fi
+    sleep "$START_INTERVAL"
+  done
+  if [ "$started_ok" -ne 1 ]; then
+    echo "GPU_UNAVAILABLE: could not start $INSTANCE in $ZONE after $START_ATTEMPTS attempts." \
+      | tee -a "$LOG"
+    echo "Nothing was spent. CPU artifacts are complete and the run can be resumed unchanged." \
+      | tee -a "$LOG"
+    exit 3
+  fi
 fi
 GPU_START="$(date +%s)"
 for i in $(seq 1 30); do
@@ -97,13 +144,10 @@ tar -czf "$TARBALL" -C "$REPO" \
   "$EXP_DIR/audit" "$EXP_DIR/dataset" "$EXP_DIR/harness"
 gcloud compute scp --zone "$ZONE" --project "$PROJECT" "$TARBALL" "$INSTANCE:$REMOTE_DIR/" \
   | tee -a "$LOG"
-# The frozen renderer travels with the payload: the HML arm is only meaningful at b011511.
-FROZEN_TARBALL="/tmp/${EXPERIMENT}_frozen.tar.gz"
-tar -czf "$FROZEN_TARBALL" -C "$FROZEN_REPO" src/hamiltonian_lang
-gcloud compute scp --zone "$ZONE" --project "$PROJECT" "$FROZEN_TARBALL" "$INSTANCE:$REMOTE_DIR/" \
-  | tee -a "$LOG"
-ssh_run "cd $REMOTE_DIR && tar -xzf $(basename "$TARBALL") && tar -xzf $(basename "$FROZEN_TARBALL")" \
-  | tee -a "$LOG"
+# The frozen renderer is NOT shipped. Stage 1 consumes rendered text and never renders or
+# parses, so the GPU needs no hamiltonian_lang (whose StrEnum requires 3.11; the image has
+# 3.10). Renderer identity is verified locally in step 3, where it is what actually matters.
+ssh_run "cd $REMOTE_DIR && tar -xzf $(basename "$TARBALL")" | tee -a "$LOG"
 
 say "6/8 remote environment"
 ssh_run "python3 -c 'import torch;print(\"torch\",torch.__version__,torch.version.cuda,torch.cuda.is_available())'" \
@@ -113,22 +157,27 @@ ssh_run "python3 -m pip install --quiet --upgrade 'transformers>=4.51' 'accelera
 ssh_run "nvidia-smi --query-gpu=name,memory.total,memory.used --format=csv,noheader" | tee -a "$LOG"
 
 say "7/8 smoke test (32 items per split, real model)"
-ssh_run "cd $REMOTE_DIR && PYTHONPATH=.:src python3 -m $EXP_DIR.harness.stage1 \
-  --data $EXP_DIR/dataset/v1 --out $EXP_DIR/results/stage1 --model $MODEL \
+ssh_run "cd $REMOTE_DIR && PYTHONPATH=. python3 -m $MODULE.harness.stage1 \
+  --data $EXP_DIR/dataset/v1 --out $EXP_DIR/results/stage1 --model $MODEL --revision $MODEL_REVISION \
   --device cuda --smoke 32 --seeds 0 --probe linear 2>&1 | tail -40" | tee -a "$LOG"
 
 if [ "$SMOKE_ONLY" -eq 1 ]; then
   say "smoke-only requested; skipping the full run"
 else
   say "8/8 full Stage 1 ($PROBE probe)"
-  ssh_run "cd $REMOTE_DIR && PYTHONPATH=.:src python3 -m $EXP_DIR.harness.stage1 \
-    --data $EXP_DIR/dataset/v1 --out $EXP_DIR/results/stage1 --model $MODEL \
-    --device cuda --seeds 0 1 2 --probe $PROBE 2>&1 | tail -60" | tee -a "$LOG"
+  ssh_run "cd $REMOTE_DIR && PYTHONPATH=. python3 -m $MODULE.harness.stage1 \
+    --data $EXP_DIR/dataset/v1 --out $EXP_DIR/results/stage1 --model $MODEL --revision $MODEL_REVISION \
+    --cache $EXP_DIR/cache --device cuda --seeds 0 1 2 --probe $PROBE 2>&1 | tail -80" | tee -a "$LOG"
 fi
 
-say "artifacts back"
+say "artifacts back (results + feature cache)"
 gcloud compute scp --zone "$ZONE" --project "$PROJECT" --recurse \
-  "$INSTANCE:$REMOTE_DIR/$EXP_DIR/results/stage1/*" "$RESULTS_DIR/" | tee -a "$LOG"
+  "$INSTANCE:$REMOTE_DIR/$EXP_DIR/results/stage1" "$RESULTS_DIR/" | tee -a "$LOG"
+# The cache is why Stage 2 will be nearly GPU-free; leaving it on a stopped VM wastes that.
+mkdir -p "$REPO/$EXP_DIR/cache"
+gcloud compute scp --zone "$ZONE" --project "$PROJECT" --recurse \
+  "$INSTANCE:$REMOTE_DIR/$EXP_DIR/cache" "$REPO/$EXP_DIR/" 2>&1 | tail -3 | tee -a "$LOG" || \
+  echo "  (no cache produced)" | tee -a "$LOG"
 
 GPU_SECONDS=$(( $(date +%s) - GPU_START ))
 printf '\nGPU wall seconds: %s (%.2f h)\n' "$GPU_SECONDS" \

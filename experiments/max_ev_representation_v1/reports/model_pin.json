@@ -1,0 +1,7 @@
+{
+ "model_id": "Qwen/Qwen3-8B",
+ "revision_sha": "b968826d9c46dd6066d109eabc6255188de91218",
+ "tokenizer_revision_sha": "b968826d9c46dd6066d109eabc6255188de91218",
+ "same_repo_commit": true,
+ "last_modified": "2025-07-26T03:49:13.000Z"
+}

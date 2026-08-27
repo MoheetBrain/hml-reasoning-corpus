@@ -1,0 +1,190 @@
+
+=== 1/8 local state ===
+claude/max-ev-representation-experiment-v1
+223c4e938e4e7f542605a70cb9a4e84a09d72c97
+WARNING: experiment tree has uncommitted changes; the run manifest will record this.
+
+=== 2/8 dataset integrity ===
+  dev                    OK  f6896445acc4b7b6 rows=510
+  ood_alpha_rename       OK  7b6918565e742520 rows=270
+  ood_binder_depth       OK  3b70a357f8aa2b0e rows=210
+  ood_composition        OK  609a4b6b6e4cdf33 rows=249
+  ood_dependency_depth   OK  d91b5181bf260ef6 rows=210
+  ood_domain             OK  c50c06403ce5bb83 rows=450
+  ood_state_size         OK  5a63a65c90edea91 rows=210
+  test_iid               OK  bbf84dfa35ae425d rows=510
+  train                  OK  316cf61a371fe7b9 rows=3000
+  dataset_version=DATASET_V1-1.0.0 total_rows=5619
+
+=== 3/8 renderer identity ===
+  expected b011511e72572608eb7836d3b8a1a6bb794c890d
+  actual   b011511e72572608eb7836d3b8a1a6bb794c890d
+3d37af6da95a4a73b795b98039b1f8274ec52f007e75543961b7a2ef12f8eea2  /Users/moheet/Documents/ChatGPT/hamiltonian-lang-final-signal/src/hamiltonian_lang/semantic_state/view.py
+
+=== 4/8 start GPU ===
+  status: TERMINATED
+
+=== 1/8 local state ===
+claude/max-ev-representation-experiment-v1
+223c4e938e4e7f542605a70cb9a4e84a09d72c97
+WARNING: experiment tree has uncommitted changes; the run manifest will record this.
+
+=== 2/8 dataset integrity ===
+  dev                    OK  f6896445acc4b7b6 rows=510
+  ood_alpha_rename       OK  7b6918565e742520 rows=270
+  ood_binder_depth       OK  3b70a357f8aa2b0e rows=210
+  ood_composition        OK  609a4b6b6e4cdf33 rows=249
+  ood_dependency_depth   OK  d91b5181bf260ef6 rows=210
+  ood_domain             OK  c50c06403ce5bb83 rows=450
+  ood_state_size         OK  5a63a65c90edea91 rows=210
+  test_iid               OK  bbf84dfa35ae425d rows=510
+  train                  OK  316cf61a371fe7b9 rows=3000
+  dataset_version=DATASET_V1-1.0.0 total_rows=5619
+
+=== 3/8 renderer identity ===
+  expected b011511e72572608eb7836d3b8a1a6bb794c890d
+  actual   b011511e72572608eb7836d3b8a1a6bb794c890d
+3d37af6da95a4a73b795b98039b1f8274ec52f007e75543961b7a2ef12f8eea2  /Users/moheet/Documents/ChatGPT/hamiltonian-lang-final-signal/src/hamiltonian_lang/semantic_state/view.py
+
+=== 4/8 start GPU ===
+  status: TERMINATED
+Starting instance(s) a100...
+....................................failed.
+ERROR: (gcloud.compute.instances.start) ---
+code: ZONE_RESOURCE_POOL_EXHAUSTED_WITH_DETAILS
+errorDetails:
+- help:
+    links:
+    - description: Troubleshooting documentation
+      url: https://cloud.google.com/compute/docs/resource-error
+- localizedMessage:
+    locale: en-US
+    message: A a2-ultragpu-1g VM instance with 1 nvidia-a100-80gb accelerator(s) and
+      1 local SSD(s) is currently unavailable in the europe-west4-a zone. Alternatively,
+      you can try your request again with a different VM hardware configuration or
+      at a later time. For more information, see the troubleshooting documentation.
+- errorInfo:
+    domain: compute.googleapis.com
+    metadatas:
+      attachment: local-ssd:1,nvidia-a100-80gb:1
+      vmType: a2-ultragpu-1g
+      zone: europe-west4-a
+      zonesAvailable: ''
+    reason: resource_availability
+message: The zone 'projects/project-08679972-d14a-4025-94f/zones/europe-west4-a' does
+  not have enough resources available to fulfill the request.  'NULL:0/NULL:0/NULL:0
+  (state:STOCKOUT, sub-state:STOCKOUT, resource type:compute)'.
+
+  start attempt 1/20: zone stockout, retrying in 180s
+Starting instance(s) a100...
+......................................failed.
+ERROR: (gcloud.compute.instances.start) ---
+code: ZONE_RESOURCE_POOL_EXHAUSTED_WITH_DETAILS
+errorDetails:
+- help:
+    links:
+    - description: Troubleshooting documentation
+      url: https://cloud.google.com/compute/docs/resource-error
+- localizedMessage:
+    locale: en-US
+    message: A a2-ultragpu-1g VM instance with 1 nvidia-a100-80gb accelerator(s) and
+      1 local SSD(s) is currently unavailable in the europe-west4-a zone. Alternatively,
+      you can try your request again with a different VM hardware configuration or
+      at a later time. For more information, see the troubleshooting documentation.
+- errorInfo:
+    domain: compute.googleapis.com
+    metadatas:
+      attachment: local-ssd:1,nvidia-a100-80gb:1
+      vmType: a2-ultragpu-1g
+      zone: europe-west4-a
+      zonesAvailable: ''
+    reason: resource_availability
+message: The zone 'projects/project-08679972-d14a-4025-94f/zones/europe-west4-a' does
+  not have enough resources available to fulfill the request.  'NULL:0/NULL:0/NULL:0
+  (state:STOCKOUT, sub-state:STOCKOUT, resource type:compute)'.
+
+  start attempt 2/20: zone stockout, retrying in 180s
+Starting instance(s) a100...
+....................................failed.
+ERROR: (gcloud.compute.instances.start) ---
+code: ZONE_RESOURCE_POOL_EXHAUSTED_WITH_DETAILS
+errorDetails:
+- help:
+    links:
+    - description: Troubleshooting documentation
+      url: https://cloud.google.com/compute/docs/resource-error
+- localizedMessage:
+    locale: en-US
+    message: A a2-ultragpu-1g VM instance with 1 nvidia-a100-80gb accelerator(s) and
+      1 local SSD(s) is currently unavailable in the europe-west4-a zone. Alternatively,
+      you can try your request again with a different VM hardware configuration or
+      at a later time. For more information, see the troubleshooting documentation.
+- errorInfo:
+    domain: compute.googleapis.com
+    metadatas:
+      attachment: local-ssd:1,nvidia-a100-80gb:1
+      vmType: a2-ultragpu-1g
+      zone: europe-west4-a
+      zonesAvailable: ''
+    reason: resource_availability
+message: The zone 'projects/project-08679972-d14a-4025-94f/zones/europe-west4-a' does
+  not have enough resources available to fulfill the request.  'NULL:0/NULL:0/NULL:0
+  (state:STOCKOUT, sub-state:STOCKOUT, resource type:compute)'.
+
+  start attempt 3/20: zone stockout, retrying in 180s
+Starting instance(s) a100...
+..................................failed.
+ERROR: (gcloud.compute.instances.start) ---
+code: ZONE_RESOURCE_POOL_EXHAUSTED_WITH_DETAILS
+errorDetails:
+- help:
+    links:
+    - description: Troubleshooting documentation
+      url: https://cloud.google.com/compute/docs/resource-error
+- localizedMessage:
+    locale: en-US
+    message: A a2-ultragpu-1g VM instance with 1 nvidia-a100-80gb accelerator(s) and
+      1 local SSD(s) is currently unavailable in the europe-west4-a zone. Alternatively,
+      you can try your request again with a different VM hardware configuration or
+      at a later time. For more information, see the troubleshooting documentation.
+- errorInfo:
+    domain: compute.googleapis.com
+    metadatas:
+      attachment: local-ssd:1,nvidia-a100-80gb:1
+      vmType: a2-ultragpu-1g
+      zone: europe-west4-a
+      zonesAvailable: ''
+    reason: resource_availability
+message: The zone 'projects/project-08679972-d14a-4025-94f/zones/europe-west4-a' does
+  not have enough resources available to fulfill the request.  'NULL:0/NULL:0/NULL:0
+  (state:STOCKOUT, sub-state:STOCKOUT, resource type:compute)'.
+
+  start attempt 4/20: zone stockout, retrying in 180s
+Starting instance(s) a100...
+.....................................failed.
+ERROR: (gcloud.compute.instances.start) ---
+code: ZONE_RESOURCE_POOL_EXHAUSTED_WITH_DETAILS
+errorDetails:
+- help:
+    links:
+    - description: Troubleshooting documentation
+      url: https://cloud.google.com/compute/docs/resource-error
+- localizedMessage:
+    locale: en-US
+    message: A a2-ultragpu-1g VM instance with 1 nvidia-a100-80gb accelerator(s) and
+      1 local SSD(s) is currently unavailable in the europe-west4-a zone. Alternatively,
+      you can try your request again with a different VM hardware configuration or
+      at a later time. For more information, see the troubleshooting documentation.
+- errorInfo:
+    domain: compute.googleapis.com
+    metadatas:
+      attachment: local-ssd:1,nvidia-a100-80gb:1
+      vmType: a2-ultragpu-1g
+      zone: europe-west4-a
+      zonesAvailable: ''
+    reason: resource_availability
+message: The zone 'projects/project-08679972-d14a-4025-94f/zones/europe-west4-a' does
+  not have enough resources available to fulfill the request.  'NULL:0/NULL:0/NULL:0
+  (state:STOCKOUT, sub-state:STOCKOUT, resource type:compute)'.
+
+  start attempt 5/20: zone stockout, retrying in 180s

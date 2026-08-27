@@ -583,3 +583,80 @@ way about whether representation is a causal capability variable.
 **Next intended step.** Run A100 Stage 1 via `run_gpu_experiment.sh`, read the headroom gate
 and the bag-of-words margin before the arm comparison, and follow the §14 decision table. Do
 not start Stage 2 automatically.
+
+## 2026-08-27 (later) — pre-flight hardening before the first paid GPU run; GPU still unavailable
+
+**Branch:** `claude/max-ev-representation-experiment-v1`.
+**Stage:** `EXP_REP_VALIDITY_V1` pre-flight complete. A100 Stage 1 still not run.
+
+**Objective.** Close the remaining ways the first paid run could produce a number that means
+something other than what it appears to, and make Stage 2 nearly GPU-free.
+
+**Files and systems changed.** New: `audit/counterfactual_splits.py`,
+`harness/cache.py`, `harness/shortcut_controls.py`, `harness/interactions.py`,
+`tests/test_gates_and_cache.py`, `reports/COUNTERFACTUAL_SPLIT_AUDIT.md`,
+`reports/PREREGISTERED_ANALYSES.md`, `reports/CPU_PREPARATION_GATE.md`,
+`reports/model_pin.json`. Modified: `harness/extract.py`, `harness/stage1.py`,
+`run_gpu_experiment.sh`, `docs/PROJECT_STATUS.md`. No historical artifact touched; no change
+to `hamiltonian-lang` or `hml-standard`.
+
+**What was completed.**
+- Model pinned to `Qwen/Qwen3-8B` @ `b968826d9c46dd6066d109eabc6255188de91218`, resolved from
+  the Hugging Face API. Model and tokenizer are the same repository commit.
+- Counterfactual split-isolation audit at three levels, wired into the driver as a hard gate.
+- Truncation now measured on the pre-clip length; any truncation in any arm aborts the run.
+- Length-only and structure-count coarse controls.
+- Paired minimal-pair evaluation with per-mutation-family breakdown.
+- Frozen-feature cache with full-provenance keying and a measured float16 round-trip cost.
+- Predefined §19 interaction analyses, written and committed **before any result exists**.
+
+**Decisions made and why.**
+- *Cache disabled for smoke runs.* A capped run holds a prefix of each split, so its tensors
+  are not the tensors a full run needs; sharing a key would poison the full run's cache.
+- *Structure-count control computed once, not per arm.* The counts describe the semantic
+  object, which is identical across arms by the parity gate. Computing it per arm would have
+  invented four numbers where there is one fact.
+- *Length axis for the interaction test is the HML render's token count.* The question is
+  whether HML's advantage changes with how long HML's own render is.
+- *Number of obligations recorded as untestable rather than stratified.* It is 0 for every
+  item — recorded Lean tactic states carry no proof debt — so §19's obligation-count axis
+  cannot be tested on this corpus, and saying so beats binning a constant.
+
+**Tests and verification actually executed.**
+- `PYTHONPATH=. python -m pytest experiments/max_ev_representation_v1/tests -q`
+  -> **65 passed** (was 46; 19 new tests for the gates, controls and cache).
+- Counterfactual split audit over the built dataset -> **PASS**: families_total 1873,
+  source_families_total 1873, cross_split_family_leaks 0, cross_split_source_family_leaks 0,
+  exact_duplicate_leaks 0, near_duplicate_leaks 0, siblings_per_family {3: 1873}.
+- Full-scale CPU control ladder (dev macro-F1): class prior 0.167; length-only 0.3149-0.3349
+  by arm; structure-count 0.3947; bag-of-words 0.6701-0.6982 by arm.
+- Minimal-pair machinery exercised end to end; per-family breakdown produced.
+- Harness re-parsed under `ast.parse(feature_version=(3,10))` -> all GPU-side modules
+  compatible with the A100 image's Python 3.10.
+- Interaction analysis run end to end on a synthetic-encoder result; produces well-formed
+  bootstrap intervals over parent groups.
+- **GPU: still not run.** `gcloud compute instances start a100` returns
+  `ZONE_RESOURCE_POOL_EXHAUSTED` / STOCKOUT for `a2-ultragpu-1g` in europe-west4-a. Four
+  attempts so far; the driver retries every 180s.
+
+**Failures and unresolved uncertainty.**
+- The A100 is unavailable. This is a direct consequence of stopping it to avoid idle billing:
+  releasing capacity in a constrained zone does not reserve it. Nothing has been spent and
+  nothing is lost, but the run cannot proceed until capacity returns or the instance is moved
+  to a different machine type or zone — both of which change the user's infrastructure and
+  have not been done without asking.
+- The synthetic-encoder numbers throughout remain pipeline tests, not evidence about Qwen,
+  HML, or representation. They are labelled as such wherever they are recorded.
+- Bag-of-words at ~0.69 remains the substantive limitation: the task is materially
+  token-solvable, and any state-comprehension claim must be read against that line rather than
+  against the class prior.
+
+**Effect on the overall project.** The instrument is now hardened to the point where the first
+paid run is worth buying: every gate that could invalidate it is mechanical and passing, and
+the feature cache means the money buys hidden states usable for every later probe rather than
+one number. No scientific claim has been added or withdrawn.
+
+**Next intended step.** Acquire GPU capacity, then run the driver unchanged: it gates on the
+split audit and renderer identity, runs a 32-row real-model smoke, checks truncation, runs
+Stage 1 with three seeds and a linear head, retrieves results and cache, and stops the
+instance. Stop after Stage 1.

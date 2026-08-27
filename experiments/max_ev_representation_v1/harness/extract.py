@@ -84,11 +84,23 @@ def extract_arm(
     n_layers = model.config.num_hidden_layers
     mid = n_layers // 2
 
+    # Truncation is measured on the length BEFORE clipping, not after.
+    #
+    # Counting ``len(clipped) >= max_length`` misclassifies an item whose true length is
+    # exactly ``max_length`` -- it was never truncated, but it is indistinguishable from one
+    # that was. That matters more than it sounds: the arms differ by up to 2x in length, so
+    # a miscounted truncation is an arm-asymmetric error, and comparing a clipped
+    # representation against unclipped controls would penalise verbosity rather than measure
+    # readability. Tokenising twice costs a few CPU seconds against hours of forward passes.
+    full = [tok(t, truncation=False)["input_ids"] for t in texts]
+    true_lengths = [len(e) for e in full]
+    truncated_idx = [i for i, n in enumerate(true_lengths) if n > config.max_length]
+    truncated = len(truncated_idx)
+    encoded = [e[: config.max_length] for e in full]
+
     # Length-sorted batching: padding is wasted computation and the arms have very different
     # length distributions, so unsorted batching would spend a different amount of waste on
     # each arm. Original order is restored before returning.
-    encoded = [tok(t, truncation=True, max_length=config.max_length)["input_ids"] for t in texts]
-    truncated = sum(1 for e in encoded if len(e) >= config.max_length)
     lengths = [len(e) for e in encoded]
     order = sorted(range(len(encoded)), key=lambda i: lengths[i])
 
@@ -137,13 +149,20 @@ def extract_arm(
         batch.append(i)
     flush(batch)
 
+    # Per-item token counts travel with the features. §19 names token length as a
+    # predefined interaction term and §20 requires input tokens per arm; an aggregate mean
+    # cannot answer either, and recomputing later would need the tokenizer back.
+    out["__token_lengths__"] = np.asarray(true_lengths, dtype=np.int32)
+
     config.stats = {
         "items": len(texts),
         "tokens_total": int(sum(lengths)),
         "tokens_mean": round(float(np.mean(lengths)), 1),
-        "tokens_p99": int(np.percentile(lengths, 99)),
-        "tokens_max": int(max(lengths)),
+        "tokens_p99": int(np.percentile(true_lengths, 99)),
+        "tokens_max": int(max(true_lengths)),
         "truncated_items": truncated,
+        "truncated_fraction": round(truncated / max(1, len(texts)), 6),
+        "max_length": config.max_length,
         "wall_seconds": round(time.time() - started, 2),
         "hidden_size": int(out["mean_last"].shape[1]),
         "layers": n_layers,

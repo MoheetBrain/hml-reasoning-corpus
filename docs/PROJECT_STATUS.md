@@ -259,6 +259,55 @@ harness as a per-arm control and into the headroom gate, and reported as
 `probe_minus_own_bag_of_words_macro_f1`. A probe that beats the prior but not bag-of-words has
 demonstrated that the task has signal, not that the model reads mathematical state.
 
+### Pre-flight hardening added before the first paid run
+
+Six additions, each closing a way the run could produce a number meaning something other than
+it appears to:
+
+- **Model pinned to an immutable commit.** `Qwen/Qwen3-8B` @
+  `b968826d9c46dd6066d109eabc6255188de91218` for both model and tokenizer (same repository
+  commit). This is also the revision the 50K corpus was tokenizer-preflighted against, so the
+  pin preserves continuity as well as blocking an upstream reupload from silently changing the
+  experiment.
+- **Counterfactual split-isolation gate.** Three levels — semantic family, source theorem,
+  canonical fingerprint. **PASS**: 1,873 families = 1,873 source theorems, 3 siblings each,
+  0 cross-split leaks at every level, 0 exact and 0 near duplicates.
+  `reports/COUNTERFACTUAL_SPLIT_AUDIT.md`.
+- **Truncation measured before clipping.** The old check counted
+  `len(clipped) >= max_length`, which misclassifies an item exactly at the limit. Now the true
+  pre-truncation length is recorded, and any truncation in any arm **aborts the run** rather
+  than producing a caveat.
+- **Two coarse shortcut controls.** Measured at full scale on CPU (dev macro-F1):
+  length-only **0.315–0.335** per arm, structure-count **0.395** shared. Against a 0.333
+  majority baseline, neither size/formatting nor coarse record counts is a shortcut — the
+  ~0.69 bag-of-words result comes from *which* tokens are present, not from trivial artifacts.
+- **Paired minimal-pair evaluation.** Per parent, is `P(VALID | genuine) > P(VALID |
+  one-change counterfactual)`, reported per mutation family. Two members of a pair have nearly
+  identical lexical statistics, so this is the metric global token statistics cannot fake.
+- **Frozen-feature cache.** Keyed on model SHA, tokenizer SHA, dataset hash, renderer commit,
+  code hash, max_length, dtype and pooling set; any mismatch is a miss, never a silent reuse.
+  float16 on disk, float32 in the probe, with the round-trip cost measured rather than assumed.
+  Stage 2's MLP probe, bootstrap re-analysis and diagnostic heads become nearly GPU-free.
+
+### Control ladder measured on CPU (dev macro-F1)
+
+| control | macro-F1 |
+|---|---|
+| class prior | 0.167 |
+| length-only (per arm) | 0.315 – 0.335 |
+| structure-count (shared) | 0.395 |
+| **bag-of-words (per arm)** | **0.670 – 0.698** |
+
+The gap between structure-count and bag-of-words is where the task's difficulty actually
+lives, and it is the interval the frozen transformer has to compete in.
+
+### GPU status
+
+The A100 was stopped to avoid idle billing during CPU preparation, and
+`europe-west4-a` subsequently returned `ZONE_RESOURCE_POOL_EXHAUSTED` for
+`a2-ultragpu-1g`. The driver retries every 3 minutes. **No GPU time has been spent and no
+Stage 1 result exists.**
+
 ### Not yet done
 
 No GPU time has been spent. Stage 1 (frozen Qwen3-8B + linear probe) has not run, so there is
