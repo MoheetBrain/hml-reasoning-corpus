@@ -660,3 +660,72 @@ one number. No scientific claim has been added or withdrawn.
 split audit and renderer identity, runs a 32-row real-model smoke, checks truncation, runs
 Stage 1 with three seeds and a linear head, retrieves results and cache, and stops the
 instance. Stop after Stage 1.
+
+## 2026-08-27 (evening) — EXP_REP_VALIDITY_V1 Stage 1 complete; HML does not lead
+
+**Branch:** `claude/max-ev-representation-experiment-v1`.
+**Stage:** Stage 1 complete. Stopped there by instruction; no Stage 2 started.
+
+**Objective.** Run the first paid experiment: does frozen HML make mathematical state easier
+for a pretrained model to read than matched alternative representations?
+
+**Files and systems changed.** New: `harness/report_stage1.py`,
+`reports/STAGE1_RESULT.md`, `results/stage1/EXP_REP_VALIDITY_V1_linear.json` and its
+interactions file, `results/logs/`. Modified: `run_gpu_experiment.sh` (retargeted to
+`a100-40`/us-central1-b, batch-tokens 8192, torchaudio removal), `harness/extract.py`,
+`harness/stage1.py`, `docs/PROJECT_STATUS.md`, this ledger.
+
+**What was completed.** A full Stage 1: Qwen/Qwen3-8B @ `b968826d9c46dd6066d109eabc6255188de91218`,
+frozen, linear probe, seeds 0/1/2, mid-layer mean pooling selected on dev from control arms
+only, all seven evaluation splits, on one A100-SXM4-40GB.
+
+**Decisions made and why.**
+- *Moved to A100-40GB in us-central1-b.* The 80GB instance became unobtainable after being
+  stopped, and the A2 family bundles its accelerator so no in-place conversion exists. 40GB is
+  ample: peak VRAM was 20.5 GB of 40.
+- *Removed torchaudio/torchvision on the VM.* Upgrading transformers to 5.16.1 pulled
+  torchaudio 2.11 against the image's torch 2.9.1, an ABI break failing with
+  `undefined symbol: torch_library_impl`. Neither is needed for a text model.
+- *Stopped the GPU with the cache unretrieved.* After ~20 minutes of failed transfers ending
+  in SSH refusing connections, continuing to hold a paid GPU open for a regenerable artifact
+  was the wrong trade. The cache persists on the stopped instance's disk.
+
+**Tests and verification actually executed.**
+- Pre-GPU gates on the real run: dataset hashes 9/9 match; counterfactual split isolation
+  PASS (0 leaks at all three levels); renderer identity `b011511` confirmed.
+- Smoke test on the real model: truncation 0 in all four arms; no NaN/Inf; results written.
+- Full Stage 1: **truncation 0 in all four arms** (tokens_max 3386-5132 against 8192 context);
+  float16 round trip max abs error 2.98e-08, std shift 0.0 — bf16-derived features are exactly
+  representable in fp16, so the cache is lossless rather than merely tolerable.
+- Headroom gate PASS: control dev macro-F1 0.7957 against a 0.95 ceiling and 0.40 floor.
+- Wall: 2860 s extraction, 0.79 GPU-hours total, ~GBP 2.34.
+
+**Results.** IID macro-F1: Structured English 0.7939, Lean-like 0.7759, **HML 0.7701**,
+Typed AST 0.7664. HML minus best control: IID -0.0238 (CI [-0.065, +0.014], McNemar p=0.29),
+OOD mean -0.0435, information gain -0.0898 bits. HML is not best on any of seven splits; the
+only interval excluding zero has it worse than Lean-like on `ood_alpha_rename` by 0.085.
+Probe minus own-arm bag-of-words: +0.022 to +0.055. No predefined §19 interaction has a CI
+excluding zero on any axis or split.
+
+**Failures and unresolved uncertainty.**
+- **The headline limitation is the lexical control, not the arm ordering.** The frozen
+  transformer exceeds bag-of-words by only 2-5.5 points, so Stage 1 mostly demonstrates that
+  the task carries lexical signal, not that the model reads mathematical state.
+- Minimal-pair discrimination saturated at 0.96-0.99 across all arms; the metric cannot
+  separate representations and needs harder pairs to be informative.
+- The feature cache (572 MB, 36 shards) was not retrieved. Only 5 shards are local; treat the
+  local copy as absent.
+- `CORPUS_COMMIT` reads `unavailable` in the run manifest because the VM has no git checkout.
+  Data provenance is exact via the nine per-split SHA-256 digests, verified before GPU start;
+  code provenance is the working tree at launch, committed here.
+- Structural OOD axes remain narrow, as recorded previously.
+
+**Effect on the overall project.** The project now has its first uncontaminated quantitative
+comparison of HML against matched controls. It does not support an HML advantage on this task:
+HML places third of four, the differences are small and mostly unresolvable, and the arm that
+leads is plain structured English. Per §14D the result stands as recorded and is not a reason
+to change the language.
+
+**Next intended step.** Decide whether Stage 2 is worth buying, weighing the 2-5.5 point
+transformer-over-lexical margin rather than the arm deltas. If it proceeds, retrieve the cache
+first so the MLP probe is GPU-free. Do not redesign the language in response to this result.

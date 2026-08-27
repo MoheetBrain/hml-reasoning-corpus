@@ -188,3 +188,379 @@ message: The zone 'projects/project-08679972-d14a-4025-94f/zones/europe-west4-a'
   (state:STOCKOUT, sub-state:STOCKOUT, resource type:compute)'.
 
   start attempt 5/20: zone stockout, retrying in 180s
+Starting instance(s) a100...
+....................................failed.
+ERROR: (gcloud.compute.instances.start) ---
+code: ZONE_RESOURCE_POOL_EXHAUSTED_WITH_DETAILS
+errorDetails:
+- help:
+    links:
+    - description: Troubleshooting documentation
+      url: https://cloud.google.com/compute/docs/resource-error
+- localizedMessage:
+    locale: en-US
+    message: A a2-ultragpu-1g VM instance with 1 nvidia-a100-80gb accelerator(s) and
+      1 local SSD(s) is currently unavailable in the europe-west4-a zone. Alternatively,
+      you can try your request again with a different VM hardware configuration or
+      at a later time. For more information, see the troubleshooting documentation.
+- errorInfo:
+    domain: compute.googleapis.com
+    metadatas:
+      attachment: local-ssd:1,nvidia-a100-80gb:1
+      vmType: a2-ultragpu-1g
+      zone: europe-west4-a
+      zonesAvailable: ''
+    reason: resource_availability
+message: The zone 'projects/project-08679972-d14a-4025-94f/zones/europe-west4-a' does
+  not have enough resources available to fulfill the request.  'NULL:0/NULL:0/NULL:0
+  (state:STOCKOUT, sub-state:STOCKOUT, resource type:compute)'.
+
+  start attempt 6/20: zone stockout, retrying in 180s
+
+=== 1/8 local state ===
+claude/max-ev-representation-experiment-v1
+4d64500cd204368a878cc13b4b6c2ba5464403c7
+WARNING: experiment tree has uncommitted changes; the run manifest will record this.
+
+=== 2/8 dataset integrity ===
+  dev                    OK  f6896445acc4b7b6 rows=510
+  ood_alpha_rename       OK  7b6918565e742520 rows=270
+  ood_binder_depth       OK  3b70a357f8aa2b0e rows=210
+  ood_composition        OK  609a4b6b6e4cdf33 rows=249
+  ood_dependency_depth   OK  d91b5181bf260ef6 rows=210
+  ood_domain             OK  c50c06403ce5bb83 rows=450
+  ood_state_size         OK  5a63a65c90edea91 rows=210
+  test_iid               OK  bbf84dfa35ae425d rows=510
+  train                  OK  316cf61a371fe7b9 rows=3000
+  dataset_version=DATASET_V1-1.0.0 total_rows=5619
+
+=== 3/8 counterfactual split isolation (hard gate) ===
+  families_total                     1873
+  source_families_total              1873
+  cross_split_family_leaks           0
+  cross_split_source_family_leaks    0
+  exact_duplicate_leaks              0
+  near_duplicate_leaks               0
+  verdict PASS
+
+=== 3b/8 renderer identity ===
+  expected b011511e72572608eb7836d3b8a1a6bb794c890d
+  actual   b011511e72572608eb7836d3b8a1a6bb794c890d
+3d37af6da95a4a73b795b98039b1f8274ec52f007e75543961b7a2ef12f8eea2  /Users/moheet/Documents/ChatGPT/hamiltonian-lang-final-signal/src/hamiltonian_lang/semantic_state/view.py
+
+=== 4/8 start GPU ===
+  status: RUNNING
+
+=== 5/8 sync code and data ===
+
+=== 6/8 remote environment ===
+torch 2.9.1+cu129 12.9 True
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script transformers is installed in '/home/moheet/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+NVIDIA A100-SXM4-40GB, 40960 MiB, 0 MiB
+
+=== 7/8 smoke test (32 items per split, real model) ===
+    explicit_local_code = has_local_code and not _get_model_class(
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 179, in _get_model_class
+    supported_models = model_mapping[type(config)]
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 602, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 616, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 528, in getattribute_from_module
+    if hasattr(module, attr):
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2531, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2765, in _get_module
+    raise e
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2763, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 32, in <module>
+    from ...modeling_layers import (
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 37, in <module>
+    from .processing_utils import Unpack
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/processing_utils.py", line 38, in <module>
+    from .audio_utils import AudioInput, load_audio, make_list_of_audio
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/audio_utils.py", line 58, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.10/dist-packages/torchaudio/__init__.py", line 7, in <module>
+    from . import _extension  # noqa  # usort: skip
+  File "/usr/local/lib/python3.10/dist-packages/torchaudio/_extension/__init__.py", line 30, in <module>
+    _IS_TORCHAUDIO_EXT_AVAILABLE = _load_lib("_torchaudio")
+  File "/usr/local/lib/python3.10/dist-packages/torchaudio/_extension/utils.py", line 56, in _load_lib
+    torch.ops.load_library(paths[0])
+  File "/usr/local/lib/python3.10/dist-packages/torch/_ops.py", line 1490, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /usr/local/lib/python3.10/dist-packages/torchaudio/lib/_torchaudio.abi3.so
+
+=== 8/8 full Stage 1 (linear probe) ===
+  train                   3000 rows
+  dev                      510 rows
+  test_iid                 510 rows
+  ood_alpha_rename         270 rows
+  ood_binder_depth         210 rows
+  ood_dependency_depth     210 rows
+  ood_state_size           210 rows
+  ood_composition          249 rows
+  ood_domain               450 rows
+loading Qwen/Qwen3-8B ...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/torch/_ops.py", line 1488, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.10/ctypes/__init__.py", line 374, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.10/dist-packages/torchaudio/lib/_torchaudio.abi3.so: undefined symbol: torch_library_impl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/moheet/max_ev_representation_v1/experiments/max_ev_representation_v1/harness/stage1.py", line 525, in <module>
+    sys.exit(main())
+  File "/home/moheet/max_ev_representation_v1/experiments/max_ev_representation_v1/harness/stage1.py", line 195, in main
+    tok, model = _load(config)
+  File "/home/moheet/max_ev_representation_v1/experiments/max_ev_representation_v1/harness/extract.py", line 63, in _load
+    model = AutoModel.from_pretrained(
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 357, in from_pretrained
+    explicit_local_code = has_local_code and not _get_model_class(
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 179, in _get_model_class
+    supported_models = model_mapping[type(config)]
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 602, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 616, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 528, in getattribute_from_module
+    if hasattr(module, attr):
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2531, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2765, in _get_module
+    raise e
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2763, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 32, in <module>
+    from ...modeling_layers import (
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/modeling_layers.py", line 37, in <module>
+    from .processing_utils import Unpack
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/processing_utils.py", line 38, in <module>
+    from .audio_utils import AudioInput, load_audio, make_list_of_audio
+  File "/home/moheet/.local/lib/python3.10/site-packages/transformers/audio_utils.py", line 58, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.10/dist-packages/torchaudio/__init__.py", line 7, in <module>
+    from . import _extension  # noqa  # usort: skip
+  File "/usr/local/lib/python3.10/dist-packages/torchaudio/_extension/__init__.py", line 30, in <module>
+    _IS_TORCHAUDIO_EXT_AVAILABLE = _load_lib("_torchaudio")
+  File "/usr/local/lib/python3.10/dist-packages/torchaudio/_extension/utils.py", line 56, in _load_lib
+    torch.ops.load_library(paths[0])
+  File "/usr/local/lib/python3.10/dist-packages/torch/_ops.py", line 1490, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /usr/local/lib/python3.10/dist-packages/torchaudio/lib/_torchaudio.abi3.so
+
+=== artifacts back (results + feature cache) ===
+/usr/bin/scp: ~/max_ev_representation_v1/experiments/max_ev_representation_v1/cache: No such file or directory
+ERROR: (gcloud.compute.scp) [/usr/bin/scp] exited with return code [1].
+  (no cache produced)
+
+GPU wall seconds: 84 (0.02 h)
+GPU left running by request (--keep-gpu). Stop it with:
+  gcloud compute instances stop a100-40 --zone us-central1-b --project project-08679972-d14a-4025-94f --discard-local-ssd=false
+
+=== done ===
+
+=== 1/8 local state ===
+claude/max-ev-representation-experiment-v1
+4d64500cd204368a878cc13b4b6c2ba5464403c7
+WARNING: experiment tree has uncommitted changes; the run manifest will record this.
+
+=== 2/8 dataset integrity ===
+  dev                    OK  f6896445acc4b7b6 rows=510
+  ood_alpha_rename       OK  7b6918565e742520 rows=270
+  ood_binder_depth       OK  3b70a357f8aa2b0e rows=210
+  ood_composition        OK  609a4b6b6e4cdf33 rows=249
+  ood_dependency_depth   OK  d91b5181bf260ef6 rows=210
+  ood_domain             OK  c50c06403ce5bb83 rows=450
+  ood_state_size         OK  5a63a65c90edea91 rows=210
+  test_iid               OK  bbf84dfa35ae425d rows=510
+  train                  OK  316cf61a371fe7b9 rows=3000
+  dataset_version=DATASET_V1-1.0.0 total_rows=5619
+
+=== 3/8 counterfactual split isolation (hard gate) ===
+  families_total                     1873
+  source_families_total              1873
+  cross_split_family_leaks           0
+  cross_split_source_family_leaks    0
+  exact_duplicate_leaks              0
+  near_duplicate_leaks               0
+  verdict PASS
+
+=== 3b/8 renderer identity ===
+  expected b011511e72572608eb7836d3b8a1a6bb794c890d
+  actual   b011511e72572608eb7836d3b8a1a6bb794c890d
+3d37af6da95a4a73b795b98039b1f8274ec52f007e75543961b7a2ef12f8eea2  /Users/moheet/Documents/ChatGPT/hamiltonian-lang-final-signal/src/hamiltonian_lang/semantic_state/view.py
+
+=== 4/8 start GPU ===
+  status: RUNNING
+
+=== 5/8 sync code and data ===
+
+=== 6/8 remote environment ===
+torch 2.9.1+cu129 12.9 True
+WARNING: Skipping torchvision as it is not installed.
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+import path OK, cuda True
+NVIDIA A100-SXM4-40GB, 40960 MiB, 0 MiB
+
+=== 7/8 smoke test (32 items per split, real model) ===
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  cache disabled for smoke run (row subset would poison the full key)
+extracting R_HML ...
+  R_HML done in 33.34s  tokens_max=1392 truncated=0
+extracting R_TYPED_AST ...
+  R_TYPED_AST done in 47.02s  tokens_max=1971 truncated=0
+extracting R_LEANLIKE ...
+  R_LEANLIKE done in 26.83s  tokens_max=1082 truncated=0
+extracting R_STRUCTURED_ENGLISH ...
+  R_STRUCTURED_ENGLISH done in 32.3s  tokens_max=1338 truncated=0
+class-prior baseline ...
+bag-of-words control ...
+  R_HML                    dev macroF1 0.3035
+  R_TYPED_AST              dev macroF1 0.2804
+  R_LEANLIKE               dev macroF1 0.4381
+  R_STRUCTURED_ENGLISH     dev macroF1 0.3125
+coarse shortcut controls ...
+  length-only  R_HML                    dev macroF1 0.3386
+  length-only  R_TYPED_AST              dev macroF1 0.3763
+  length-only  R_LEANLIKE               dev macroF1 0.2677
+  length-only  R_STRUCTURED_ENGLISH     dev macroF1 0.4069
+  structure-count (shared)          dev macroF1 0.4101
+  float16 round trip: mean rel err 1.33e-12, max std shift 0.00e+00
+  pooling mean_last          control dev macroF1 0.3200
+  pooling last_token_last    control dev macroF1 0.3217
+  pooling mean_mid           control dev macroF1 0.4377
+  pooling last_token_mid     control dev macroF1 0.4078
+chosen pooling (controls only): mean_mid
+headroom gate: PASS (control dev macro-F1 0.4377, bag-of-words 0.3437, arm spread 0.1577; floor 0.4, ceiling 0.95)
+  R_HML                    test_iid macroF1 0.2349 gain -1.3002 bits
+  R_TYPED_AST              test_iid macroF1 0.3019 gain -1.0378 bits
+  R_LEANLIKE               test_iid macroF1 0.3132 gain -1.7937 bits
+  R_STRUCTURED_ENGLISH     test_iid macroF1 0.3897 gain -1.8237 bits
+
+wrote experiments/max_ev_representation_v1/results/stage1/EXP_REP_VALIDITY_V1_linear_smoke.json
+
+=== 8/8 full Stage 1 (linear probe) ===
+    214/3000  26.5 items/s
+    404/3000  24.1 items/s
+    602/3000  22.4 items/s
+    809/3000  21.1 items/s
+    1001/3000  20.2 items/s
+    1207/3000  19.3 items/s
+    1407/3000  18.5 items/s
+    1607/3000  17.8 items/s
+    1805/3000  17.2 items/s
+    2006/3000  16.6 items/s
+    2206/3000  16.0 items/s
+    2401/3000  15.4 items/s
+    2602/3000  14.7 items/s
+    2800/3000  14.0 items/s
+    3000/3000  13.1 items/s
+    204/510  19.0 items/s
+    400/510  14.8 items/s
+    201/510  18.7 items/s
+    405/510  14.6 items/s
+    204/270  15.8 items/s
+    201/210  9.6 items/s
+    200/210  8.9 items/s
+    201/210  5.5 items/s
+    201/249  14.2 items/s
+    203/450  16.0 items/s
+    404/450  12.3 items/s
+  R_LEANLIKE done in 523.11s  tokens_max=3386 truncated=0
+extracting R_STRUCTURED_ENGLISH ...
+    202/3000  21.4 items/s
+    410/3000  19.1 items/s
+    608/3000  17.8 items/s
+    800/3000  16.8 items/s
+    1007/3000  15.9 items/s
+    1207/3000  15.2 items/s
+    1407/3000  14.6 items/s
+    1603/3000  14.1 items/s
+    1806/3000  13.5 items/s
+    2002/3000  13.1 items/s
+    2200/3000  12.6 items/s
+    2404/3000  12.1 items/s
+    2603/3000  11.6 items/s
+    2800/3000  11.1 items/s
+    3000/3000  10.4 items/s
+    203/510  15.1 items/s
+    402/510  11.7 items/s
+    207/510  14.6 items/s
+    400/510  11.6 items/s
+    202/270  12.4 items/s
+    201/210  7.8 items/s
+    200/210  7.2 items/s
+    201/210  4.4 items/s
+    203/249  11.2 items/s
+    204/450  12.6 items/s
+    400/450  9.9 items/s
+  R_STRUCTURED_ENGLISH done in 650.83s  tokens_max=3847 truncated=0
+class-prior baseline ...
+bag-of-words control ...
+  R_HML                    dev macroF1 0.6840
+  R_TYPED_AST              dev macroF1 0.7088
+  R_LEANLIKE               dev macroF1 0.6908
+  R_STRUCTURED_ENGLISH     dev macroF1 0.6907
+coarse shortcut controls ...
+  length-only  R_HML                    dev macroF1 0.3218
+  length-only  R_TYPED_AST              dev macroF1 0.3149
+  length-only  R_LEANLIKE               dev macroF1 0.3295
+  length-only  R_STRUCTURED_ENGLISH     dev macroF1 0.3349
+  structure-count (shared)          dev macroF1 0.3947
+  float16 round trip: mean rel err 6.41e-13, max std shift 0.00e+00
+  pooling mean_last          control dev macroF1 0.6961
+  pooling last_token_last    control dev macroF1 0.6120
+  pooling mean_mid           control dev macroF1 0.7957
+  pooling last_token_mid     control dev macroF1 0.6690
+chosen pooling (controls only): mean_mid
+headroom gate: PASS (control dev macro-F1 0.7957, bag-of-words 0.6968, arm spread 0.0248; floor 0.4, ceiling 0.95)
+  R_HML                    test_iid macroF1 0.7701 gain 0.7206 bits
+  R_TYPED_AST              test_iid macroF1 0.7664 gain 0.7219 bits
+  R_LEANLIKE               test_iid macroF1 0.7759 gain 0.7871 bits
+  R_STRUCTURED_ENGLISH     test_iid macroF1 0.7939 gain 0.8104 bits
+
+wrote experiments/max_ev_representation_v1/results/stage1/EXP_REP_VALIDITY_V1_linear.json
+
+=== artifacts back (results + feature cache) ===
+/usr/bin/scp: mkdir /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/max_ev_representation_v1/cache/b968826d9c46dd60/e1e42f037571d54b/R_STRUCTURED_ENGLISH: No such file or directory
+/usr/bin/scp: mkdir /Users/moheet/Documents/ChatGPT/hmlt-reasoning-corpus/experiments/max_ev_representation_v1/cache/b968826d9c46dd60/e1e42f037571d54b/R_TYPED_AST: No such file or directory
+ERROR: (gcloud.compute.scp) [/usr/bin/scp] exited with return code [1].
+  (no cache produced)
+
+GPU wall seconds: 3297 (0.92 h)
+GPU left running by request (--keep-gpu). Stop it with:
+  gcloud compute instances stop a100-40 --zone us-central1-b --project project-08679972-d14a-4025-94f --discard-local-ssd=false
+
+=== done ===

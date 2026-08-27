@@ -1,0 +1,1377 @@
+{
+ "hypothesis": "The representation advantage grows with semantic complexity: (HML - best control) is larger in the top bin than the bottom bin.",
+ "min_bin_size": 30,
+ "splits": {
+  "ood_alpha_rename": {
+   "axes": {
+    "binder_depth": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0714,
+     "delta_low_bin": -0.1111,
+     "difference_of_differences": 0.0397,
+     "high_min": 2.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1326,
+       0.2009
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 0.0,
+     "n_high": 42,
+     "n_low": 126,
+     "tested": true
+    },
+    "discharges_goal": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.0523,
+     "delta_low_bin": -0.1282,
+     "difference_of_differences": 0.0759,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0425,
+       0.1913
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 153,
+     "n_low": 117,
+     "tested": true
+    },
+    "domain_area": {
+     "per_group_delta": {
+      "Algebra": {
+       "delta": -0.0593,
+       "n": 135
+      },
+      "Analysis": {
+       "delta": -0.1,
+       "n": 90
+      }
+     },
+     "reason": "categorical: reported per group, no ordering to interact with",
+     "tested": false
+    },
+    "goal_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.1,
+     "delta_low_bin": -0.1505,
+     "difference_of_differences": 0.0505,
+     "high_min": 44.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0853,
+       0.1861
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 18.0,
+     "n_high": 90,
+     "n_low": 93,
+     "tested": true
+    },
+    "has_branch": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.1,
+     "delta_low_bin": -0.081,
+     "difference_of_differences": -0.019,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1471,
+       0.1067
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 60,
+     "n_low": 210,
+     "tested": true
+    },
+    "max_dependency_depth": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.1111,
+     "delta_low_bin": -0.1373,
+     "high_min": 3.0,
+     "low_max": 1.0,
+     "n_high": 27,
+     "n_low": 102,
+     "reason": "a tail bin has fewer than 30 items",
+     "tested": false
+    },
+    "n_cited": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.1429,
+     "delta_low_bin": -0.0667,
+     "difference_of_differences": -0.0762,
+     "high_min": 4.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.274,
+       0.1102
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 1.0,
+     "n_high": 42,
+     "n_low": 90,
+     "tested": true
+    },
+    "n_claims": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0333,
+     "delta_low_bin": -0.086,
+     "difference_of_differences": 0.0527,
+     "high_min": 15.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0864,
+       0.1939
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 9.0,
+     "n_high": 90,
+     "n_low": 93,
+     "tested": true
+    },
+    "n_dependency_edges": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.069,
+     "delta_low_bin": -0.1275,
+     "difference_of_differences": 0.0585,
+     "high_min": 14.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0788,
+       0.1967
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 7.0,
+     "n_high": 87,
+     "n_low": 102,
+     "tested": true
+    },
+    "quantifiers": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "state_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0667,
+     "delta_low_bin": -0.1075,
+     "difference_of_differences": 0.0408,
+     "high_min": 142.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1026,
+       0.1787
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 75.0,
+     "n_high": 90,
+     "n_low": 93,
+     "tested": true
+    },
+    "token_length": {
+     "bin_rule": "terciles of HML token count",
+     "delta_high_bin": -0.0556,
+     "delta_low_bin": -0.1222,
+     "difference_of_differences": 0.0666,
+     "high_min": 1171.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0713,
+       0.2073
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 811.0,
+     "n_high": 90,
+     "n_low": 90,
+     "tested": true
+    }
+   },
+   "best_control": "R_LEANLIKE",
+   "overall_delta": -0.0852
+  },
+  "ood_binder_depth": {
+   "axes": {
+    "binder_depth": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.037,
+     "delta_low_bin": -0.037,
+     "high_min": 5.0,
+     "low_max": 3.0,
+     "n_high": 27,
+     "n_low": 135,
+     "reason": "a tail bin has fewer than 30 items",
+     "tested": false
+    },
+    "discharges_goal": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.05,
+     "delta_low_bin": -0.0111,
+     "difference_of_differences": -0.0389,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1763,
+       0.0964
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 120,
+     "n_low": 90,
+     "tested": true
+    },
+    "domain_area": {
+     "per_group_delta": {
+      "Algebra": {
+       "delta": -0.0328,
+       "n": 183
+      }
+     },
+     "reason": "categorical: reported per group, no ordering to interact with",
+     "tested": false
+    },
+    "goal_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0455,
+     "delta_low_bin": -0.0417,
+     "difference_of_differences": -0.0038,
+     "high_min": 123.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1724,
+       0.1786
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 61.0,
+     "n_high": 66,
+     "n_low": 72,
+     "tested": true
+    },
+    "has_branch": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.0769,
+     "delta_low_bin": -0.0076,
+     "difference_of_differences": -0.0693,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.2109,
+       0.0691
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 78,
+     "n_low": 132,
+     "tested": true
+    },
+    "max_dependency_depth": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0256,
+     "delta_low_bin": -0.0392,
+     "difference_of_differences": 0.0136,
+     "high_min": 3.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1337,
+       0.1619
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 1.0,
+     "n_high": 39,
+     "n_low": 102,
+     "tested": true
+    },
+    "n_cited": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0,
+     "delta_low_bin": -0.119,
+     "difference_of_differences": 0.119,
+     "high_min": 6.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1236,
+       0.3633
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 3.0,
+     "n_high": 39,
+     "n_low": 84,
+     "tested": true
+    },
+    "n_claims": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0333,
+     "delta_low_bin": -0.12,
+     "difference_of_differences": 0.0867,
+     "high_min": 17.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0983,
+       0.2591
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 11.0,
+     "n_high": 60,
+     "n_low": 75,
+     "tested": true
+    },
+    "n_dependency_edges": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0145,
+     "delta_low_bin": -0.0513,
+     "difference_of_differences": 0.0368,
+     "high_min": 22.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1289,
+       0.1984
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 9.0,
+     "n_high": 69,
+     "n_low": 78,
+     "tested": true
+    },
+    "quantifiers": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0667,
+     "delta_low_bin": -0.0159,
+     "difference_of_differences": -0.0508,
+     "high_min": 2.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1946,
+       0.0867
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 0.0,
+     "n_high": 45,
+     "n_low": 126,
+     "tested": true
+    },
+    "state_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0145,
+     "delta_low_bin": -0.0556,
+     "difference_of_differences": 0.0411,
+     "high_min": 195.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1333,
+       0.2049
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 99.0,
+     "n_high": 69,
+     "n_low": 72,
+     "tested": true
+    },
+    "token_length": {
+     "bin_rule": "terciles of HML token count",
+     "delta_high_bin": 0.0,
+     "delta_low_bin": -0.1,
+     "difference_of_differences": 0.1,
+     "high_min": 1656.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0885,
+       0.2778
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 1091.0,
+     "n_high": 69,
+     "n_low": 70,
+     "tested": true
+    }
+   },
+   "best_control": "R_STRUCTURED_ENGLISH",
+   "overall_delta": -0.0333
+  },
+  "ood_composition": {
+   "axes": {
+    "binder_depth": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "discharges_goal": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.0588,
+     "delta_low_bin": 0.0,
+     "difference_of_differences": -0.0588,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1507,
+       0.0343
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 153,
+     "n_low": 96,
+     "tested": true
+    },
+    "domain_area": {
+     "per_group_delta": {
+      "Algebra": {
+       "delta": 0.0148,
+       "n": 135
+      },
+      "Analysis": {
+       "delta": -0.1111,
+       "n": 72
+      }
+     },
+     "reason": "categorical: reported per group, no ordering to interact with",
+     "tested": false
+    },
+    "goal_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0247,
+     "delta_low_bin": -0.0476,
+     "difference_of_differences": 0.0229,
+     "high_min": 48.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0874,
+       0.1358
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 25.0,
+     "n_high": 81,
+     "n_low": 84,
+     "tested": true
+    },
+    "has_branch": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.0145,
+     "delta_low_bin": -0.0444,
+     "difference_of_differences": 0.0299,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0909,
+       0.1518
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 69,
+     "n_low": 180,
+     "tested": true
+    },
+    "max_dependency_depth": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.037,
+     "delta_low_bin": -0.0407,
+     "high_min": 3.0,
+     "low_max": 1.0,
+     "n_high": 27,
+     "n_low": 123,
+     "reason": "a tail bin has fewer than 30 items",
+     "tested": false
+    },
+    "n_cited": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.1176,
+     "delta_low_bin": 0.0078,
+     "difference_of_differences": -0.1254,
+     "high_min": 4.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.2492,
+       -0.0111
+      ],
+      "excludes_zero": true,
+      "iters": 5000
+     },
+     "low_max": 2.0,
+     "n_high": 51,
+     "n_low": 129,
+     "tested": true
+    },
+    "n_claims": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0417,
+     "delta_low_bin": -0.023,
+     "difference_of_differences": -0.0187,
+     "high_min": 15.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1521,
+       0.1056
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 8.0,
+     "n_high": 72,
+     "n_low": 87,
+     "tested": true
+    },
+    "n_dependency_edges": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.037,
+     "delta_low_bin": -0.0222,
+     "difference_of_differences": -0.0148,
+     "high_min": 14.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1346,
+       0.0998
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 6.0,
+     "n_high": 81,
+     "n_low": 90,
+     "tested": true
+    },
+    "quantifiers": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "state_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0617,
+     "delta_low_bin": -0.0476,
+     "difference_of_differences": -0.0141,
+     "high_min": 143.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1311,
+       0.0989
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 66.0,
+     "n_high": 81,
+     "n_low": 84,
+     "tested": true
+    },
+    "token_length": {
+     "bin_rule": "terciles of HML token count",
+     "delta_high_bin": -0.0241,
+     "delta_low_bin": -0.0241,
+     "difference_of_differences": 0.0,
+     "high_min": 1278.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1238,
+       0.1217
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 873.0,
+     "n_high": 83,
+     "n_low": 83,
+     "tested": true
+    }
+   },
+   "best_control": "R_STRUCTURED_ENGLISH",
+   "overall_delta": -0.0361
+  },
+  "ood_dependency_depth": {
+   "axes": {
+    "binder_depth": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "discharges_goal": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": 0.0088,
+     "delta_low_bin": -0.0938,
+     "difference_of_differences": 0.1026,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0488,
+       0.249
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 114,
+     "n_low": 96,
+     "tested": true
+    },
+    "domain_area": {
+     "per_group_delta": {
+      "Algebra": {
+       "delta": -0.0253,
+       "n": 198
+      }
+     },
+     "reason": "categorical: reported per group, no ordering to interact with",
+     "tested": false
+    },
+    "goal_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0435,
+     "delta_low_bin": -0.125,
+     "difference_of_differences": 0.0815,
+     "high_min": 68.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0842,
+       0.2444
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 29.0,
+     "n_high": 69,
+     "n_low": 72,
+     "tested": true
+    },
+    "has_branch": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.023,
+     "delta_low_bin": -0.0488,
+     "difference_of_differences": 0.0258,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1249,
+       0.178
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 87,
+     "n_low": 123,
+     "tested": true
+    },
+    "max_dependency_depth": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "n_cited": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0702,
+     "delta_low_bin": -0.0513,
+     "difference_of_differences": 0.1215,
+     "high_min": 5.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0476,
+       0.2759
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 2.0,
+     "n_high": 57,
+     "n_low": 78,
+     "tested": true
+    },
+    "n_claims": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0,
+     "delta_low_bin": -0.0952,
+     "difference_of_differences": 0.0952,
+     "high_min": 19.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0845,
+       0.2677
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 14.0,
+     "n_high": 63,
+     "n_low": 84,
+     "tested": true
+    },
+    "n_dependency_edges": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0317,
+     "delta_low_bin": -0.125,
+     "difference_of_differences": 0.1567,
+     "high_min": 27.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0316,
+       0.3359
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 17.0,
+     "n_high": 63,
+     "n_low": 72,
+     "tested": true
+    },
+    "quantifiers": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "state_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0725,
+     "delta_low_bin": -0.08,
+     "difference_of_differences": 0.1525,
+     "high_min": 303.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0447,
+       0.3472
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 193.0,
+     "n_high": 69,
+     "n_low": 75,
+     "tested": true
+    },
+    "token_length": {
+     "bin_rule": "terciles of HML token count",
+     "delta_high_bin": 0.0429,
+     "delta_low_bin": -0.0429,
+     "difference_of_differences": 0.0858,
+     "high_min": 1737.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.101,
+       0.274
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 1279.0,
+     "n_high": 70,
+     "n_low": 70,
+     "tested": true
+    }
+   },
+   "best_control": "R_STRUCTURED_ENGLISH",
+   "overall_delta": -0.0381
+  },
+  "ood_domain": {
+   "axes": {
+    "binder_depth": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.08,
+     "delta_low_bin": -0.0385,
+     "difference_of_differences": -0.0415,
+     "high_min": 3.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.195,
+       0.1167
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 0.0,
+     "n_high": 75,
+     "n_low": 156,
+     "tested": true
+    },
+    "discharges_goal": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": 0.0095,
+     "delta_low_bin": -0.0542,
+     "difference_of_differences": 0.0637,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.026,
+       0.1553
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 210,
+     "n_low": 240,
+     "tested": true
+    },
+    "domain_area": {
+     "per_group_delta": {
+      "CategoryTheory": {
+       "delta": -0.0244,
+       "n": 450
+      }
+     },
+     "reason": "categorical: reported per group, no ordering to interact with",
+     "tested": false
+    },
+    "goal_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0533,
+     "delta_low_bin": -0.0261,
+     "difference_of_differences": -0.0272,
+     "high_min": 70.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1482,
+       0.0894
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 30.0,
+     "n_high": 150,
+     "n_low": 153,
+     "tested": true
+    },
+    "has_branch": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.0417,
+     "delta_low_bin": -0.0182,
+     "difference_of_differences": -0.0235,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1349,
+       0.0885
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 120,
+     "n_low": 330,
+     "tested": true
+    },
+    "max_dependency_depth": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0175,
+     "delta_low_bin": -0.0422,
+     "difference_of_differences": 0.0597,
+     "high_min": 4.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1163,
+       0.2264
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 2.0,
+     "n_high": 57,
+     "n_low": 237,
+     "tested": true
+    },
+    "n_cited": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.1087,
+     "delta_low_bin": -0.0199,
+     "difference_of_differences": -0.0888,
+     "high_min": 4.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.2004,
+       0.0213
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 2.0,
+     "n_high": 138,
+     "n_low": 201,
+     "tested": true
+    },
+    "n_claims": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.1083,
+     "delta_low_bin": -0.037,
+     "difference_of_differences": -0.0713,
+     "high_min": 15.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1712,
+       0.0275
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 10.0,
+     "n_high": 120,
+     "n_low": 162,
+     "tested": true
+    },
+    "n_dependency_edges": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.068,
+     "delta_low_bin": -0.0303,
+     "difference_of_differences": -0.0377,
+     "high_min": 18.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1358,
+       0.0599
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 11.0,
+     "n_high": 147,
+     "n_low": 165,
+     "tested": true
+    },
+    "quantifiers": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "state_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0638,
+     "delta_low_bin": 0.0,
+     "difference_of_differences": -0.0638,
+     "high_min": 157.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1754,
+       0.0478
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 96.0,
+     "n_high": 141,
+     "n_low": 150,
+     "tested": true
+    },
+    "token_length": {
+     "bin_rule": "terciles of HML token count",
+     "delta_high_bin": -0.0533,
+     "delta_low_bin": -0.0199,
+     "difference_of_differences": -0.0334,
+     "high_min": 1314.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1357,
+       0.0682
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 974.0,
+     "n_high": 150,
+     "n_low": 151,
+     "tested": true
+    }
+   },
+   "best_control": "R_STRUCTURED_ENGLISH",
+   "overall_delta": -0.0244
+  },
+  "ood_state_size": {
+   "axes": {
+    "binder_depth": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "discharges_goal": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.0917,
+     "delta_low_bin": -0.0333,
+     "difference_of_differences": -0.0584,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.2315,
+       0.1191
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 120,
+     "n_low": 90,
+     "tested": true
+    },
+    "domain_area": {
+     "per_group_delta": {
+      "Algebra": {
+       "delta": -0.0213,
+       "n": 141
+      },
+      "Analysis": {
+       "delta": -0.1594,
+       "n": 69
+      }
+     },
+     "reason": "categorical: reported per group, no ordering to interact with",
+     "tested": false
+    },
+    "goal_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0145,
+     "delta_low_bin": -0.0972,
+     "difference_of_differences": 0.0827,
+     "high_min": 59.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1441,
+       0.2982
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 24.0,
+     "n_high": 69,
+     "n_low": 72,
+     "tested": true
+    },
+    "has_branch": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.1071,
+     "delta_low_bin": -0.0397,
+     "difference_of_differences": -0.0674,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.2495,
+       0.102
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 84,
+     "n_low": 126,
+     "tested": true
+    },
+    "max_dependency_depth": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "n_cited": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.1333,
+     "delta_low_bin": -0.0667,
+     "difference_of_differences": -0.0666,
+     "high_min": 5.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.3186,
+       0.1857
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 3.0,
+     "n_high": 45,
+     "n_low": 105,
+     "tested": true
+    },
+    "n_claims": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.029,
+     "delta_low_bin": -0.1528,
+     "difference_of_differences": 0.1818,
+     "high_min": 34.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.04,
+       0.4016
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 25.0,
+     "n_high": 69,
+     "n_low": 72,
+     "tested": true
+    },
+    "n_dependency_edges": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.1449,
+     "delta_low_bin": -0.08,
+     "difference_of_differences": -0.0649,
+     "high_min": 40.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.2674,
+       0.1508
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 31.0,
+     "n_high": 69,
+     "n_low": 75,
+     "tested": true
+    },
+    "quantifiers": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "state_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0725,
+     "delta_low_bin": -0.0556,
+     "difference_of_differences": -0.0169,
+     "high_min": 446.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.2099,
+       0.1786
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 339.0,
+     "n_high": 69,
+     "n_low": 72,
+     "tested": true
+    },
+    "token_length": {
+     "bin_rule": "terciles of HML token count",
+     "delta_high_bin": -0.0714,
+     "delta_low_bin": -0.0143,
+     "difference_of_differences": -0.0571,
+     "high_min": 2661.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.2724,
+       0.153
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 2202.0,
+     "n_high": 70,
+     "n_low": 70,
+     "tested": true
+    }
+   },
+   "best_control": "R_STRUCTURED_ENGLISH",
+   "overall_delta": -0.0667
+  },
+  "test_iid": {
+   "axes": {
+    "binder_depth": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0486,
+     "delta_low_bin": 0.0339,
+     "difference_of_differences": -0.0825,
+     "high_min": 2.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1802,
+       0.0174
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 0.0,
+     "n_high": 144,
+     "n_low": 177,
+     "tested": true
+    },
+    "discharges_goal": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.0275,
+     "delta_low_bin": -0.0219,
+     "difference_of_differences": -0.0056,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0906,
+       0.0773
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 327,
+     "n_low": 183,
+     "tested": true
+    },
+    "domain_area": {
+     "per_group_delta": {
+      "Algebra": {
+       "delta": -0.066,
+       "n": 288
+      },
+      "Analysis": {
+       "delta": 0.0513,
+       "n": 156
+      },
+      "packages": {
+       "delta": 0.0714,
+       "n": 42
+      }
+     },
+     "reason": "categorical: reported per group, no ordering to interact with",
+     "tested": false
+    },
+    "goal_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": -0.0119,
+     "delta_low_bin": 0.0113,
+     "difference_of_differences": -0.0232,
+     "high_min": 49.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1204,
+       0.0756
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 26.0,
+     "n_high": 168,
+     "n_low": 177,
+     "tested": true
+    },
+    "has_branch": {
+     "bin_rule": "false vs true",
+     "delta_high_bin": -0.037,
+     "delta_low_bin": -0.0224,
+     "difference_of_differences": -0.0146,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.1165,
+       0.087
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "n_high": 108,
+     "n_low": 402,
+     "tested": true
+    },
+    "max_dependency_depth": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0,
+     "delta_low_bin": -0.0165,
+     "high_min": 3.0,
+     "low_max": 1.0,
+     "n_high": 15,
+     "n_low": 243,
+     "reason": "a tail bin has fewer than 30 items",
+     "tested": false
+    },
+    "n_cited": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0569,
+     "delta_low_bin": -0.0588,
+     "difference_of_differences": 0.1157,
+     "high_min": 4.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       0.0208,
+       0.2104
+      ],
+      "excludes_zero": true,
+      "iters": 5000
+     },
+     "low_max": 2.0,
+     "n_high": 123,
+     "n_low": 255,
+     "tested": true
+    },
+    "n_claims": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0119,
+     "delta_low_bin": -0.0484,
+     "difference_of_differences": 0.0603,
+     "high_min": 15.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0388,
+       0.158
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 9.0,
+     "n_high": 168,
+     "n_low": 186,
+     "tested": true
+    },
+    "n_dependency_edges": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.0242,
+     "delta_low_bin": -0.0376,
+     "difference_of_differences": 0.0618,
+     "high_min": 14.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.039,
+       0.1598
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 7.0,
+     "n_high": 165,
+     "n_low": 186,
+     "tested": true
+    },
+    "quantifiers": {
+     "reason": "too few distinct values to tercile",
+     "tested": false
+    },
+    "state_chars": {
+     "bin_rule": "terciles",
+     "delta_high_bin": 0.006,
+     "delta_low_bin": -0.0517,
+     "difference_of_differences": 0.0577,
+     "high_min": 166.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0447,
+       0.1582
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 72.0,
+     "n_high": 168,
+     "n_low": 174,
+     "tested": true
+    },
+    "token_length": {
+     "bin_rule": "terciles of HML token count",
+     "delta_high_bin": 0.0179,
+     "delta_low_bin": -0.0235,
+     "difference_of_differences": 0.0414,
+     "high_min": 1230.0,
+     "interaction_bootstrap": {
+      "ci95": [
+       -0.0686,
+       0.1498
+      ],
+      "excludes_zero": false,
+      "iters": 5000
+     },
+     "low_max": 898.0,
+     "n_high": 168,
+     "n_low": 170,
+     "tested": true
+    }
+   },
+   "best_control": "R_STRUCTURED_ENGLISH",
+   "overall_delta": -0.0255
+  }
+ },
+ "statistic": "difference-of-differences in accuracy, paired bootstrap over parents"
+}

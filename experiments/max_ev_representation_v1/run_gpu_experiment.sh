@@ -23,11 +23,17 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-ZONE="europe-west4-a"
-INSTANCE="a100"
+# Overridable: the original a2-ultragpu-1g in europe-west4-a became unobtainable
+# (ZONE_RESOURCE_POOL_EXHAUSTED across every A100 zone probed), so the run moved to an
+# A100-40GB in us-central1-b. Qwen3-8B in bf16 is ~16GB of weights, so 40GB is ample.
+ZONE="${GPU_ZONE:-us-central1-b}"
+INSTANCE="${GPU_INSTANCE:-a100-40}"
 PROJECT="project-08679972-d14a-4025-94f"
 REMOTE_DIR="~/max_ev_representation_v1"
 MODEL="Qwen/Qwen3-8B"
+# hidden_states returns one tensor per layer, so the activation footprint scales with
+# layers x batch_tokens. 8192 keeps that comfortable on a 40GB card.
+BATCH_TOKENS="${BATCH_TOKENS:-8192}"
 # Immutable HF commit. Never run science against a floating branch: an upstream reupload
 # would silently change the experiment. Also the revision the 50K corpus was preflighted on.
 MODEL_REVISION="b968826d9c46dd6066d109eabc6255188de91218"
@@ -154,12 +160,20 @@ ssh_run "python3 -c 'import torch;print(\"torch\",torch.__version__,torch.versio
   | tee -a "$LOG"
 ssh_run "python3 -m pip install --quiet --upgrade 'transformers>=4.51' 'accelerate' 'numpy' 2>&1 | tail -3" \
   | tee -a "$LOG"
+# Upgrading transformers drags torchaudio/torchvision forward with it, and the Deep Learning
+# image pins torch. The result is an ABI break -- torchaudio 2.11 against torch 2.9.1 fails
+# with "undefined symbol: torch_library_impl" the moment transformers touches it. Neither is
+# needed for a text model, so remove them rather than downgrade the transformers that Qwen3
+# requires.
+ssh_run "sudo python3 -m pip uninstall -y torchaudio torchvision 2>&1 | tail -2" | tee -a "$LOG"
+ssh_run "python3 -c 'from transformers import AutoModel; import torch; print(\"import path OK, cuda\", torch.cuda.is_available())'" \
+  | tee -a "$LOG"
 ssh_run "nvidia-smi --query-gpu=name,memory.total,memory.used --format=csv,noheader" | tee -a "$LOG"
 
 say "7/8 smoke test (32 items per split, real model)"
 ssh_run "cd $REMOTE_DIR && PYTHONPATH=. python3 -m $MODULE.harness.stage1 \
   --data $EXP_DIR/dataset/v1 --out $EXP_DIR/results/stage1 --model $MODEL --revision $MODEL_REVISION \
-  --device cuda --smoke 32 --seeds 0 --probe linear 2>&1 | tail -40" | tee -a "$LOG"
+  --device cuda --batch-tokens $BATCH_TOKENS --smoke 32 --seeds 0 --probe linear 2>&1 | tail -40" | tee -a "$LOG"
 
 if [ "$SMOKE_ONLY" -eq 1 ]; then
   say "smoke-only requested; skipping the full run"
@@ -167,7 +181,7 @@ else
   say "8/8 full Stage 1 ($PROBE probe)"
   ssh_run "cd $REMOTE_DIR && PYTHONPATH=. python3 -m $MODULE.harness.stage1 \
     --data $EXP_DIR/dataset/v1 --out $EXP_DIR/results/stage1 --model $MODEL --revision $MODEL_REVISION \
-    --cache $EXP_DIR/cache --device cuda --seeds 0 1 2 --probe $PROBE 2>&1 | tail -80" | tee -a "$LOG"
+    --cache $EXP_DIR/cache --device cuda --batch-tokens $BATCH_TOKENS --seeds 0 1 2 --probe $PROBE 2>&1 | tail -80" | tee -a "$LOG"
 fi
 
 say "artifacts back (results + feature cache)"

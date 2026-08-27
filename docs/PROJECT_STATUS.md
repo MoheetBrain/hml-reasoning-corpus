@@ -301,21 +301,73 @@ it appears to:
 The gap between structure-count and bag-of-words is where the task's difficulty actually
 lives, and it is the interval the frozen transformer has to compete in.
 
-### GPU status
+### Stage 1 result (2026-08-27) — EXP_REP_VALIDITY_V1, complete
 
-The A100 was stopped to avoid idle billing during CPU preparation, and
-`europe-west4-a` subsequently returned `ZONE_RESOURCE_POOL_EXHAUSTED` for
-`a2-ultragpu-1g`. The driver retries every 3 minutes. **No GPU time has been spent and no
-Stage 1 result exists.**
+**Run:** Qwen/Qwen3-8B @ `b968826d9c46dd6066d109eabc6255188de91218`, frozen, linear probe,
+three seeds, mid-layer mean pooling (selected on dev from control arms only). One
+A100-SXM4-40GB, 0.79 GPU-hours, ~GBP 2.34. Truncation 0 in all four arms.
+
+| arm | IID macro-F1 | info gain (bits) | OOD mean | bag-of-words | probe − BoW |
+|---|---|---|---|---|---|
+| R_HML | 0.7701 | 0.7206 | 0.6615 | 0.7371 | +0.033 |
+| R_TYPED_AST | 0.7664 | 0.7219 | 0.6277 | 0.7445 | +0.022 |
+| R_LEANLIKE | 0.7759 | 0.7871 | 0.6847 | 0.7213 | +0.055 |
+| **R_STRUCTURED_ENGLISH** | **0.7939** | **0.8104** | **0.7050** | 0.7559 | +0.038 |
+
+**HML minus best control:** IID −0.0238 (CI [−0.065, +0.014], spans zero; McNemar p=0.29),
+OOD mean −0.0435, information gain −0.0898 bits.
+
+**Findings, in order of how much they should change the project's beliefs.**
+
+1. **The frozen transformer barely exceeds the lexical control** — +0.022 to +0.055 macro-F1
+   over its own arm's bag-of-words. Of the ~0.78 achieved, roughly 0.74 is reachable by
+   counting tokens with no model at all. State-comprehension claims must stay weak.
+2. **HML is not best on any of the seven splits** and is third of four on IID. The one
+   interval excluding zero has HML *worse* than Lean-like on `ood_alpha_rename` by 0.085.
+   Every other split is a negative point estimate with an interval spanning zero.
+3. **Structured English wins six of seven splits.** If notation helped a pretrained model read
+   mathematical state, the arm with no notation should not lead.
+4. **No predefined §19 interaction survives** on any axis or split. The hypothesis that HML's
+   advantage grows with semantic complexity is unsupported here.
+5. **The Lean-like arm is not a memoriser** — its best split is `ood_alpha_rename` (0.784,
+   above its own IID), the opposite of the retrieval signature that control was built to catch.
+6. **Minimal-pair discrimination is saturated** at 0.96–0.99 for all arms and cannot separate
+   them. An instrument finding: one-edit counterfactuals are too easy side by side.
+
+Per §14D the result is preserved as it stands. It is not a reason to redesign the language,
+and it is not evidence that HML is worse in general: one task, one model, one probe,
+n=1,873 parents.
+
+### GPU status and the capacity move
+
+The original `a100` (`a2-ultragpu-1g`, A100 80GB, europe-west4-a) was stopped to avoid idle
+billing during CPU preparation and could not be restarted:
+`ZONE_RESOURCE_POOL_EXHAUSTED` on every attempt. Releasing capacity in a constrained zone
+does not reserve it, and that is the cost of the stop decision. The A2 family bundles its
+accelerator, so `set-machine-type` cannot cross from 80GB to 40GB. Quota was never the
+constraint (`NVIDIA_A100_GPUS` limit 16, usage 0 in every region checked); capacity was.
+
+Stage 1 ran on `a100-40` (`a2-highgpu-1g`, A100-SXM4-40GB, us-central1-b). **Both instances
+are now TERMINATED.**
+
+The 572 MB feature cache was written on the VM but **could not be retrieved** — repeated scp
+failures, ending in SSH refusing connections. It remains on the stopped instance's disk. It is
+regenerable for roughly GBP 2.30 if a Stage 2 probe is wanted; the local copy has 5 of 36
+shards and should be treated as absent.
 
 ### Not yet done
 
-No GPU time has been spent. Stage 1 (frozen Qwen3-8B + linear probe) has not run, so there is
-**no evidence yet, either way, about whether representation is a causal capability variable**.
+No Stage 2. No MLP probe, no LoRA, no scaling to 20K/50K, per the standing instruction to stop
+after Stage 1 and reason over the result first.
 
 ## Exact Next Actions
 
-1. Run A100 Stage 1: `./experiments/max_ev_representation_v1/run_gpu_experiment.sh`
-   (starts the instance, smoke-tests, runs, copies artifacts back, stops the instance).
-2. Read the headroom gate and the bag-of-words margin **before** the arm comparison.
-3. Follow the §14 decision table. Do not start Stage 2 automatically.
+1. **Decide whether Stage 2 is worth buying at all.** The frozen probe exceeds bag-of-words by
+   only 2–5.5 points, which is the number that should drive the decision — not the HML-versus-
+   control delta, which is small, negative and mostly unresolvable.
+2. If Stage 2 proceeds, restart `a100-40` and retrieve the 572 MB feature cache **first**; an
+   MLP probe from cache is then GPU-free. Regenerating it costs ~GBP 2.30.
+3. Do not redesign the language in response to this result (§14D).
+4. If the benchmark is revisited, the two instrument defects to fix are: minimal-pair
+   saturation (0.96–0.99, cannot separate arms) and residual lexical solvability
+   (bag-of-words ~0.74 on test).
