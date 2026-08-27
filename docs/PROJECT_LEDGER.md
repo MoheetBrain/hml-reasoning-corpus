@@ -488,3 +488,98 @@ HML -2.77pp versus Neutral and attributed the original headline to envelope asym
 the later free-running solver calibration stopped at RAW 2/48. The next action is forensic
 reconciliation of these frozen results, not new training, 30K, semantic redesign, or a new
 experiment.
+
+## 2026-08-27 — max-EV representation experiment: instrument built, two defects found, no GPU spent
+
+**Branch:** `claude/max-ev-representation-experiment-v1` (from `codex/reasoning-layer-discovery`).
+**Stage:** CPU preparation for `EXP_REP_VALIDITY_V1`; A100 Stage 1 not yet run.
+
+**Objective.** Build an instrument capable of answering whether frozen HML makes mathematical
+state easier for a pretrained model to read than matched alternative representations — and
+determine, before buying GPU time, whether such an instrument is possible on the existing
+corpus.
+
+**Files and systems changed.** New tree `experiments/max_ev_representation_v1/` only
+(`canon/`, `arms/`, `mutate/`, `audit/`, `dataset/`, `harness/`, `tests/`, `reports/`,
+`run_gpu_experiment.sh`, `README.md`), plus `docs/PROJECT_STATUS.md` and this ledger. No
+historical manifest, dataset, audit or result was modified. Nothing in `hamiltonian-lang` or
+`hml-standard` was modified; the frozen renderer is called, never re-implemented.
+
+**What was completed.**
+- Decoded-payload Unicode audit (`audit/unicode_payload.py`) with 15 regression tests,
+  including one that requires the audit to FAIL the historical artifact the old audit passed.
+- Canonical builder: decomposes a recorded Lean tactic state into typed claims, a goal, a
+  branch and a real dependency graph. 99.9% of 20,000 records decompose cleanly.
+- Four representation arms, each with a reader; parity proved by re-parsing the rendered text.
+- 16 causal mutation families plus an uncited-distractor stage; all labels from the frozen
+  verifier.
+- DATASET_V1: 5,619 rows, exactly balanced, nine splits including six OOD axes.
+- PyTorch probe harness: linear and MLP probes, class-prior and bag-of-words controls,
+  information-gain and calibration metrics, paired bootstrap over parents, McNemar.
+- A100 driver that verifies dataset and renderer hashes, starts the instance, smoke-tests,
+  runs, retrieves artifacts and stops the instance.
+
+**Decisions made and why.**
+- *Checkpoint is `Qwen/Qwen3-8B`, not a Gemma-family model as the mission preferred.* The
+  prior evidence this must connect to is Qwen: the 50K corpus was tokenizer-preflighted
+  against Qwen3-8B, its token-exclusion file is Qwen-specific, and the invalidated -3.41pp
+  result is the Qwen3-8B kill test. Gemma appears three times in the experiment repo and
+  nowhere in this corpus's calibration. Recorded as a deliberate deviation.
+- *Labels are built by mutation rather than taken from the corpus.* In `vnext_10k` the
+  verifier's natural verdict is predicted almost perfectly by the operation name alone
+  (LEAN_TACTIC 4000/4000 VALID, SOURCE_DERIVATION 2000/2000 UNRESOLVED, OPEN_BRANCH 61/61
+  INVALID). Matched triples drive operation-name and area mutual information to 0.000 bits.
+- *The canonical state is decomposed rather than used as wrapped.* Measured over 20,000
+  records the 50K canonical state has 1 claim and nothing else, so eight of ten invariants
+  are vacuous and the four arms would differ only in how they wrap one opaque string.
+- *Propositions are held to a single line.* A printed tactic state contains newlines, and the
+  line-oriented HML view would have to escape them while a free-form arm showed them
+  literally — reintroducing the §24 asymmetric-escaping confound in miniature.
+- *Uncited distractors are injected into every item.* `UNKNOWN` initially carried 0.918 of the
+  1.585 available bits. Since the verifier's unknown collection is dependency-scoped (D-049),
+  an uncited unknown genuinely does not make a transition UNRESOLVED, so this converts "spot
+  the word" into "check which record carries it" — the rule the verifier implements.
+- *Record order is excluded from the parity comparison, and nothing else is.* The frozen view
+  emits its own order; `SemanticState` maps id to record and the verifier never reads order.
+  A dedicated test pins this so the exemption cannot silently widen.
+
+**Tests and verification actually executed.**
+- `PYTHONPATH=. .venv/bin/python -m pytest experiments/max_ev_representation_v1/tests -q`
+  -> **46 passed** (one earlier failure was a wrong assertion in my own test, corrected).
+- Parity gate, all 5,619 rows -> **PASS**. Self-fidelity 5,619/5,619 per arm; cross-arm
+  identity 5,619/5,619; label preserved after re-parse 5,619/5,619; 0 failures over 16
+  properties.
+- Leakage audit, all 5,619 rows -> **PASS** on all four arms. Answer-word MI 0.000,
+  operation MI 0.000, area MI 0.000, no mutation-name or source-ID leakage; surface stumps
+  0.336-0.348 vs 0.3333 baseline; highest single-token MI 0.082 bits of 1.585.
+- Payload escape audit of the historical 50K -> 280,000/280,000 HML rows contaminated,
+  0/280,000 neutral rows, 12,995,134 escapes, 15.96%-25.39% of prompt by task.
+- Payload escape audit of DATASET_V1 -> 0 in all four arms.
+- Full-scale CPU pipeline run with a synthetic encoder -> completes; headroom gate PASS;
+  paired bootstrap over 170 parent groups and McNemar both well-formed.
+- **GPU: not run.** No Stage 1 result exists.
+
+**Failures and unresolved uncertainty.**
+- Residual lexical solvability is real: a bag-of-words model with no LLM reaches macro-F1
+  ~0.68. The task is therefore substantially token-solvable, and the meaningful quantity in
+  Stage 1 is each arm's margin over its own bag-of-words control, not over the class prior.
+  This is a limitation of the benchmark, reported rather than hidden.
+- Structural OOD axes are narrow: `max_dependency_depth` spans 0-6 with a top decile of 3, so
+  "unseen depth" means train <=2 vs test >=3. `n_claims` (train <=24, test up to 81) is the
+  strongest axis.
+- Arms differ by up to 2x in length. This is intrinsic to the notations and is recorded and
+  analysed (§19/§20) rather than equalised.
+- The alpha-rename OOD split doubles as the only control against Mathlib memorisation, which
+  matters most for the Lean-like arm. If that arm wins on IID but not on alpha-rename, the
+  IID win should be read as retrieval.
+- `HML-VER-002` remains untested in the Standard; unrelated to this work and unchanged.
+
+**Effect on the overall project.** The 50K representation result is now formally invalidated
+with measured evidence, so the project's only quantitative HML-versus-control datapoint is
+withdrawn rather than left ambiguous. A replacement instrument exists and passes its own
+blocking gates. The scientific question remains open: no evidence has yet been produced either
+way about whether representation is a causal capability variable.
+
+**Next intended step.** Run A100 Stage 1 via `run_gpu_experiment.sh`, read the headroom gate
+and the bag-of-words margin before the arm comparison, and follow the §14 decision table. Do
+not start Stage 2 automatically.

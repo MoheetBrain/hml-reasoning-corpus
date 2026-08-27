@@ -1,0 +1,66 @@
+{
+ "NEXT_ACTION_SELECT/HML_WORKED_UTF8": {
+  "rows": 56000,
+  "contaminated_rows": 56000,
+  "literal_escapes": 1583612,
+  "model_facing_contaminated_fraction": 0.159612,
+  "genuine_non_ascii": 351836,
+  "result": "FAIL"
+ },
+ "NEXT_ACTION_SELECT/STRUCTURED_NEUTRAL_WORKED": {
+  "rows": 56000,
+  "contaminated_rows": 0,
+  "literal_escapes": 0,
+  "model_facing_contaminated_fraction": 0.0,
+  "genuine_non_ascii": 1890364,
+  "result": "PASS"
+ },
+ "STATE_DELTA_PREDICT/HML_WORKED_UTF8": {
+  "rows": 56000,
+  "contaminated_rows": 56000,
+  "literal_escapes": 4122149,
+  "model_facing_contaminated_fraction": 0.25392,
+  "genuine_non_ascii": 60265,
+  "result": "FAIL"
+ },
+ "STATE_DELTA_PREDICT/STRUCTURED_NEUTRAL_WORKED": {
+  "rows": 56000,
+  "contaminated_rows": 0,
+  "literal_escapes": 0,
+  "model_facing_contaminated_fraction": 0.0,
+  "genuine_non_ascii": 4064365,
+  "result": "PASS"
+ },
+ "VALIDITY_JUDGE/HML_WORKED_UTF8": {
+  "rows": 112000,
+  "contaminated_rows": 112000,
+  "literal_escapes": 3167224,
+  "model_facing_contaminated_fraction": 0.217825,
+  "genuine_non_ascii": 121446,
+  "result": "FAIL"
+ },
+ "VALIDITY_JUDGE/STRUCTURED_NEUTRAL_WORKED": {
+  "rows": 112000,
+  "contaminated_rows": 0,
+  "literal_escapes": 0,
+  "model_facing_contaminated_fraction": 0.0,
+  "genuine_non_ascii": 3198502,
+  "result": "PASS"
+ },
+ "WORKED_CONTINUATION/HML_WORKED_UTF8": {
+  "rows": 56000,
+  "contaminated_rows": 56000,
+  "literal_escapes": 4122149,
+  "model_facing_contaminated_fraction": 0.236275,
+  "genuine_non_ascii": 187320,
+  "result": "FAIL"
+ },
+ "WORKED_CONTINUATION/STRUCTURED_NEUTRAL_WORKED": {
+  "rows": 56000,
+  "contaminated_rows": 0,
+  "literal_escapes": 0,
+  "model_facing_contaminated_fraction": 0.0,
+  "genuine_non_ascii": 4191420,
+  "result": "PASS"
+ }
+}

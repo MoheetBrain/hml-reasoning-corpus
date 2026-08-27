@@ -1,0 +1,280 @@
+{
+ "arms": [
+  "R_HML",
+  "R_TYPED_AST",
+  "R_LEANLIKE",
+  "R_STRUCTURED_ENGLISH"
+ ],
+ "composition_heldout": [
+  "TYPE_DOMAIN_MISMATCH",
+  "UNKNOWN_DOMAIN"
+ ],
+ "dataset_version": "DATASET_V1-1.0.0",
+ "domain_heldout": [
+  "CategoryTheory",
+  "NumberTheory"
+ ],
+ "label_source": "hamiltonian_lang.semantic_state.verify.verify_replay",
+ "labels": [
+  "VALID",
+  "INVALID",
+  "UNRESOLVED"
+ ],
+ "mutation_family_usage": {
+  "ALTER_BINDER_IDENTITY": 199,
+  "BRANCH_LOCAL_FACT_LEAKS_GLOBAL": 57,
+  "CLAIM_APPEARS_UNPRODUCED": 160,
+  "DEPENDENCY_ANCESTRY_DRIFT": 169,
+  "EPISTEMIC_PROMOTION": 169,
+  "EVIDENCE_SUPPORTS_OTHER_RULE": 183,
+  "FALSE_GOAL_DISCHARGE": 169,
+  "GOAL_VANISHES": 183,
+  "REMOVE_REQUIRED_PREMISE": 168,
+  "TYPE_DOMAIN_MISMATCH": 83,
+  "UNKNOWN_DOMAIN": 83,
+  "UNKNOWN_EVIDENCE_STATUS": 717,
+  "UNKNOWN_GOAL_STATUS": 390,
+  "UNKNOWN_PREMISE_STATUS": 683,
+  "UNLICENSED_PREMISE_REWRITE": 160,
+  "WARRANT_EVIDENCE_DANGLES": 173
+ },
+ "splits": {
+  "dev": {
+   "alpha_renamed": false,
+   "labels": {
+    "INVALID": 170,
+    "UNRESOLVED": 170,
+    "VALID": 170
+   },
+   "mutation_families": [
+    "ALTER_BINDER_IDENTITY",
+    "BRANCH_LOCAL_FACT_LEAKS_GLOBAL",
+    "CLAIM_APPEARS_UNPRODUCED",
+    "DEPENDENCY_ANCESTRY_DRIFT",
+    "EPISTEMIC_PROMOTION",
+    "EVIDENCE_SUPPORTS_OTHER_RULE",
+    "FALSE_GOAL_DISCHARGE",
+    "GOAL_VANISHES",
+    "REMOVE_REQUIRED_PREMISE",
+    "UNKNOWN_EVIDENCE_STATUS",
+    "UNKNOWN_GOAL_STATUS",
+    "UNKNOWN_PREMISE_STATUS",
+    "UNLICENSED_PREMISE_REWRITE",
+    "WARRANT_EVIDENCE_DANGLES"
+   ],
+   "parents": 170,
+   "rows": 510,
+   "sha256": "f6896445acc4b7b6e025ff591988ddfc5ed2d55a35fff19caf62bd5de0e3782f"
+  },
+  "ood_alpha_rename": {
+   "alpha_renamed": true,
+   "labels": {
+    "INVALID": 90,
+    "UNRESOLVED": 90,
+    "VALID": 90
+   },
+   "mutation_families": [
+    "ALTER_BINDER_IDENTITY",
+    "BRANCH_LOCAL_FACT_LEAKS_GLOBAL",
+    "CLAIM_APPEARS_UNPRODUCED",
+    "DEPENDENCY_ANCESTRY_DRIFT",
+    "EPISTEMIC_PROMOTION",
+    "EVIDENCE_SUPPORTS_OTHER_RULE",
+    "FALSE_GOAL_DISCHARGE",
+    "GOAL_VANISHES",
+    "REMOVE_REQUIRED_PREMISE",
+    "UNKNOWN_EVIDENCE_STATUS",
+    "UNKNOWN_GOAL_STATUS",
+    "UNKNOWN_PREMISE_STATUS",
+    "UNLICENSED_PREMISE_REWRITE",
+    "WARRANT_EVIDENCE_DANGLES"
+   ],
+   "parents": 90,
+   "rows": 270,
+   "sha256": "7b6918565e742520fd467d99fde90ee0e89ceeb623224926e972d30ea99b56d5"
+  },
+  "ood_binder_depth": {
+   "alpha_renamed": false,
+   "labels": {
+    "INVALID": 70,
+    "UNRESOLVED": 70,
+    "VALID": 70
+   },
+   "mutation_families": [
+    "ALTER_BINDER_IDENTITY",
+    "BRANCH_LOCAL_FACT_LEAKS_GLOBAL",
+    "CLAIM_APPEARS_UNPRODUCED",
+    "DEPENDENCY_ANCESTRY_DRIFT",
+    "EPISTEMIC_PROMOTION",
+    "EVIDENCE_SUPPORTS_OTHER_RULE",
+    "FALSE_GOAL_DISCHARGE",
+    "GOAL_VANISHES",
+    "REMOVE_REQUIRED_PREMISE",
+    "UNKNOWN_EVIDENCE_STATUS",
+    "UNKNOWN_GOAL_STATUS",
+    "UNKNOWN_PREMISE_STATUS",
+    "UNLICENSED_PREMISE_REWRITE",
+    "WARRANT_EVIDENCE_DANGLES"
+   ],
+   "parents": 70,
+   "rows": 210,
+   "sha256": "3b70a357f8aa2b0ed1a9d3591a351017c211645ae9708a58ef72d5f71f83bc08"
+  },
+  "ood_composition": {
+   "alpha_renamed": false,
+   "labels": {
+    "INVALID": 83,
+    "UNRESOLVED": 83,
+    "VALID": 83
+   },
+   "mutation_families": [
+    "TYPE_DOMAIN_MISMATCH",
+    "UNKNOWN_DOMAIN"
+   ],
+   "parents": 83,
+   "rows": 249,
+   "sha256": "609a4b6b6e4cdf332e41e713b38cfca3e02580758a3c5eb25d1d03261c8b0327"
+  },
+  "ood_dependency_depth": {
+   "alpha_renamed": false,
+   "labels": {
+    "INVALID": 70,
+    "UNRESOLVED": 70,
+    "VALID": 70
+   },
+   "mutation_families": [
+    "ALTER_BINDER_IDENTITY",
+    "BRANCH_LOCAL_FACT_LEAKS_GLOBAL",
+    "CLAIM_APPEARS_UNPRODUCED",
+    "DEPENDENCY_ANCESTRY_DRIFT",
+    "EPISTEMIC_PROMOTION",
+    "EVIDENCE_SUPPORTS_OTHER_RULE",
+    "FALSE_GOAL_DISCHARGE",
+    "GOAL_VANISHES",
+    "REMOVE_REQUIRED_PREMISE",
+    "UNKNOWN_EVIDENCE_STATUS",
+    "UNKNOWN_GOAL_STATUS",
+    "UNKNOWN_PREMISE_STATUS",
+    "UNLICENSED_PREMISE_REWRITE",
+    "WARRANT_EVIDENCE_DANGLES"
+   ],
+   "parents": 70,
+   "rows": 210,
+   "sha256": "d91b5181bf260ef67ca16ac45f4402c59ab2ef89d87af2378c2c865095a3290a"
+  },
+  "ood_domain": {
+   "alpha_renamed": false,
+   "labels": {
+    "INVALID": 150,
+    "UNRESOLVED": 150,
+    "VALID": 150
+   },
+   "mutation_families": [
+    "ALTER_BINDER_IDENTITY",
+    "BRANCH_LOCAL_FACT_LEAKS_GLOBAL",
+    "CLAIM_APPEARS_UNPRODUCED",
+    "DEPENDENCY_ANCESTRY_DRIFT",
+    "EPISTEMIC_PROMOTION",
+    "EVIDENCE_SUPPORTS_OTHER_RULE",
+    "FALSE_GOAL_DISCHARGE",
+    "GOAL_VANISHES",
+    "REMOVE_REQUIRED_PREMISE",
+    "UNKNOWN_EVIDENCE_STATUS",
+    "UNKNOWN_GOAL_STATUS",
+    "UNKNOWN_PREMISE_STATUS",
+    "UNLICENSED_PREMISE_REWRITE",
+    "WARRANT_EVIDENCE_DANGLES"
+   ],
+   "parents": 150,
+   "rows": 450,
+   "sha256": "c50c06403ce5bb837cb89100cf52ce74018fde7b78ab00ad7f8f48bb6e29ee84"
+  },
+  "ood_state_size": {
+   "alpha_renamed": false,
+   "labels": {
+    "INVALID": 70,
+    "UNRESOLVED": 70,
+    "VALID": 70
+   },
+   "mutation_families": [
+    "ALTER_BINDER_IDENTITY",
+    "BRANCH_LOCAL_FACT_LEAKS_GLOBAL",
+    "CLAIM_APPEARS_UNPRODUCED",
+    "DEPENDENCY_ANCESTRY_DRIFT",
+    "EPISTEMIC_PROMOTION",
+    "EVIDENCE_SUPPORTS_OTHER_RULE",
+    "FALSE_GOAL_DISCHARGE",
+    "GOAL_VANISHES",
+    "REMOVE_REQUIRED_PREMISE",
+    "UNKNOWN_EVIDENCE_STATUS",
+    "UNKNOWN_GOAL_STATUS",
+    "UNKNOWN_PREMISE_STATUS",
+    "UNLICENSED_PREMISE_REWRITE",
+    "WARRANT_EVIDENCE_DANGLES"
+   ],
+   "parents": 70,
+   "rows": 210,
+   "sha256": "5a63a65c90edea910465983ec54d658f24ba2f8b3bdd51d99c2fd300fb61ce1b"
+  },
+  "test_iid": {
+   "alpha_renamed": false,
+   "labels": {
+    "INVALID": 170,
+    "UNRESOLVED": 170,
+    "VALID": 170
+   },
+   "mutation_families": [
+    "ALTER_BINDER_IDENTITY",
+    "CLAIM_APPEARS_UNPRODUCED",
+    "DEPENDENCY_ANCESTRY_DRIFT",
+    "EPISTEMIC_PROMOTION",
+    "EVIDENCE_SUPPORTS_OTHER_RULE",
+    "FALSE_GOAL_DISCHARGE",
+    "GOAL_VANISHES",
+    "REMOVE_REQUIRED_PREMISE",
+    "UNKNOWN_EVIDENCE_STATUS",
+    "UNKNOWN_GOAL_STATUS",
+    "UNKNOWN_PREMISE_STATUS",
+    "UNLICENSED_PREMISE_REWRITE",
+    "WARRANT_EVIDENCE_DANGLES"
+   ],
+   "parents": 170,
+   "rows": 510,
+   "sha256": "bbf84dfa35ae425dccf3502638c29179963a73483699ae313bc129df68f81df8"
+  },
+  "train": {
+   "alpha_renamed": false,
+   "labels": {
+    "INVALID": 1000,
+    "UNRESOLVED": 1000,
+    "VALID": 1000
+   },
+   "mutation_families": [
+    "ALTER_BINDER_IDENTITY",
+    "BRANCH_LOCAL_FACT_LEAKS_GLOBAL",
+    "CLAIM_APPEARS_UNPRODUCED",
+    "DEPENDENCY_ANCESTRY_DRIFT",
+    "EPISTEMIC_PROMOTION",
+    "EVIDENCE_SUPPORTS_OTHER_RULE",
+    "FALSE_GOAL_DISCHARGE",
+    "GOAL_VANISHES",
+    "REMOVE_REQUIRED_PREMISE",
+    "UNKNOWN_EVIDENCE_STATUS",
+    "UNKNOWN_GOAL_STATUS",
+    "UNKNOWN_PREMISE_STATUS",
+    "UNLICENSED_PREMISE_REWRITE",
+    "WARRANT_EVIDENCE_DANGLES"
+   ],
+   "parents": 1000,
+   "rows": 3000,
+   "sha256": "316cf61a371fe7b993caeace868e92ded3d7534cd711565bb72a443447efe8d4"
+  }
+ },
+ "structural_thresholds": {
+  "binder_depth": 3.0,
+  "max_dependency_depth": 3.0,
+  "n_claims": 24.0
+ },
+ "task": "ACTION_VALIDITY",
+ "total_rows": 5619
+}

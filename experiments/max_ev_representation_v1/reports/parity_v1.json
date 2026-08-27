@@ -1,0 +1,50 @@
+{
+ "result": "PASS",
+ "rows": 5619,
+ "self_roundtrip_ok": {
+  "R_HML": 5619,
+  "R_TYPED_AST": 5619,
+  "R_LEANLIKE": 5619,
+  "R_STRUCTURED_ENGLISH": 5619
+ },
+ "cross_arm_identity_ok": 5619,
+ "label_preserved_after_reparse": 5619,
+ "properties_checked": [
+  "action_envelope",
+  "assumptions_and_facts",
+  "binder_identity",
+  "branches",
+  "candidates",
+  "constraints",
+  "dependencies",
+  "epistemic_state",
+  "evidence_references",
+  "goals",
+  "object_identity",
+  "obligations",
+  "preconditions",
+  "scope",
+  "types",
+  "warrants"
+ ],
+ "property_ok": {
+  "action_envelope": 5619,
+  "assumptions_and_facts": 5619,
+  "binder_identity": 5619,
+  "branches": 5619,
+  "candidates": 5619,
+  "constraints": 5619,
+  "dependencies": 5619,
+  "epistemic_state": 5619,
+  "evidence_references": 5619,
+  "goals": 5619,
+  "object_identity": 5619,
+  "obligations": 5619,
+  "preconditions": 5619,
+  "scope": 5619,
+  "types": 5619,
+  "warrants": 5619
+ },
+ "property_fail": {},
+ "failures": []
+}

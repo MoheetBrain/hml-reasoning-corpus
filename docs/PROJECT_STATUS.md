@@ -13,21 +13,20 @@ the evidence for that question honestly. Representability is not reasoning super
 
 ## Current Stage
 
-Forensic validation and reconciliation. `HML50K_READY` contains 50,000 TRAIN plus separate
-3,000 DEV and 3,000 FINAL exact Lean formal-trace transitions. The external two-seed HML10K
-experiment reported HML 85.75% versus Neutral 50.20% (+35.55pp, paired 95% CI
-[+33.53,+37.50]pp), but this is one-step action selection, not long-horizon theorem solving.
-The later frozen common-envelope control reported HML 85.33% versus Neutral 88.10%
-(-2.77pp) and identified an arm-specific envelope confound. No 30K run is authorized.
-`RESEARCH_STATE.md` is the authoritative recovery and reconciliation handoff.
+**Max-EV representation experiment, CPU preparation complete; A100 Stage 1 pending.**
+Branch `claude/max-ev-representation-experiment-v1` adds
+`experiments/max_ev_representation_v1/`: a verifier-labelled action-validity probe over four
+matched representations of one canonical semantic object. Both blocking gates pass
+(representation parity 5,619/5,619; leakage on all four arms). No GPU time has been spent.
+
+The prior forensic reconciliation stage is unchanged and unresolved; this experiment does not
+supersede it and does not reuse its results. The 50K HML/Neutral representation result is now
+formally recorded as `INVALID_FOR_HML_REPRESENTATION_INFERENCE` — see below.
 
 ## Current Branch
 
-`codex/reasoning-layer-discovery`, checkpointed from
-`d6f03ea8b99236f5e1b727c36c74e2717a8faeba`. Submodule `hml_core` remains pinned and
-untouched at `5688aba18632b65a8709aa1d85577d31a67dba6a`. The external Hamiltonian Lang
-result commit is `701f99ec137326a91e8d61faae686a3baf5f0120` in checkout
-`/Users/moheet/Documents/ChatGPT/hamiltonian-lang-final-signal`.
+`claude/max-ev-representation-experiment-v1`, branched from `codex/reasoning-layer-discovery`.
+Additive only: no historical manifest, dataset, audit or result has been modified.
 
 ## Current System Architecture
 
@@ -200,13 +199,74 @@ byte-unchanged. **13 of 40 deliberately diverge from the frozen reference checke
 with a recorded reason — production is stricter on the frame condition, scope containment
 and trust modes, and an undeclared divergence would look like agreement.
 
+## Max-EV representation experiment (2026-08-27)
+
+### The two instrument defects found and repaired
+
+**1. The 50K Unicode audit passed corrupted data.** It counted JSON `\uXXXX` escapes in the
+serialized file (correctly: zero, because `ensure_ascii=False`) rather than in the decoded
+string the model reads. Re-audited at payload level: **280,000 of 280,000 HML rows are
+contaminated and 0 of 280,000 neutral rows are**, 12,995,134 literal escape sequences,
+15.96%-25.39% of each HML prompt by task. The confound is perfectly asymmetric by arm, so the
+-3.41pp HML result measures the serializer. Recorded as
+`reports/INVALIDATED_INSTRUMENTATION_RUN.md`; the raw artifact is preserved and must not be
+used as treatment evidence. The canonical source is clean (0 literal escapes across 3,000
+records), so the defect was entirely at render time.
+
+**2. The 50K canonical corpus carries almost no HML semantic state.** Measured over 20,000
+records: every state has exactly 1 claim, 0 candidates, 0 branches, 0 goals, 0 obligations,
+1 scope, operation always `LEAN_TACTIC`. Eight of the verifier's ten invariants have nothing
+to check. A representation comparison on it would compare four ways of wrapping one opaque
+string. Repaired by decomposing the Lean tactic state into the structure it always contained
+(99.9% clean, mean 12.5 typed declarations, 100% with an explicit goal, 42% case-labelled).
+
+A third would-be defect was found before it was built in: in `vnext_10k` the verifier's
+natural verdict is predicted almost perfectly by the operation name (LEAN_TACTIC 4000/4000
+VALID, SOURCE_DERIVATION 2000/2000 UNRESOLVED, OPEN_BRANCH 61/61 INVALID). The matched-triple
+construction was chosen in response, and drives operation-name and Mathlib-area mutual
+information to 0.000 bits.
+
+### DATASET_V1
+
+5,619 rows from 1,860 parent theorems; exactly balanced VALID/INVALID/UNRESOLVED; labels from
+`semantic_state.verify.verify_replay`, never a judge. Four arms: `R_HML` (the frozen view at
+`b011511`), `R_TYPED_AST`, `R_LEANLIKE`, `R_STRUCTURED_ENGLISH`. Splits: train 3,000, dev 510,
+test_iid 510, plus six OOD splits (alpha-rename, binder depth, dependency depth, state size,
+composition, Mathlib domain). No semantic id appears in two splits; theorems never straddle a
+split; training excludes the extreme structural strata the OOD splits test.
+
+16 mutation families, all verified to flip the verdict as intended, spanning 7 error classes
+plus UNRESOLVED. Mutation family names never reach a render.
+
+### Verification actually executed
+
+- `pytest experiments/max_ev_representation_v1/tests -q` -> **46 passed**
+- representation parity gate over all 5,619 rows -> **PASS**: self-fidelity 5,619/5,619 per
+  arm (re-render reproduces stored bytes), cross-arm identity 5,619/5,619, label preserved
+  after re-parse 5,619/5,619, 0 failures across 16 §5 properties
+- leakage audit -> **PASS** on all four arms: answer-word MI 0.000, operation MI 0.000,
+  Mathlib-area MI 0.000, no mutation-name or source-ID leakage, surface-statistic decision
+  stumps 0.336-0.348 against a 0.3333 majority baseline
+- decoded-payload escape audit over DATASET_V1 -> 0 literal escapes in all four arms
+- full-scale CPU pipeline run with a synthetic encoder -> headroom gate PASS, paired
+  bootstrap and McNemar produce well-formed intervals over 170 parent groups
+
+### The number Stage 1 has to beat
+
+A bag-of-words logistic regression with **no language model** reaches macro-F1 ~0.68 on this
+task (per-arm spread 0.021). That, not the 0.333 class prior, is the bar. It is wired into the
+harness as a per-arm control and into the headroom gate, and reported as
+`probe_minus_own_bag_of_words_macro_f1`. A probe that beats the prior but not bag-of-words has
+demonstrated that the task has signal, not that the model reads mathematical state.
+
+### Not yet done
+
+No GPU time has been spent. Stage 1 (frozen Qwen3-8B + linear probe) has not run, so there is
+**no evidence yet, either way, about whether representation is a causal capability variable**.
+
 ## Exact Next Actions
 
-1. Reproduce and reconcile the +35.55pp result under the complete forensic checklist in
-   `RESEARCH_STATE.md`, including untouched-base and cross-view diagnostics.
-2. Audit the already-frozen common-envelope result before proposing any rerun; do not erase
-   its -2.77pp causal control result.
-3. Do not run 30K, redesign HML, change semantics, or start another experiment until the
-   failure layer is resolved and a new protocol is explicitly authorized.
-4. Preserve the boundary: none of the one-step results proves free-running long-horizon
-   theorem solving.
+1. Run A100 Stage 1: `./experiments/max_ev_representation_v1/run_gpu_experiment.sh`
+   (starts the instance, smoke-tests, runs, copies artifacts back, stops the instance).
+2. Read the headroom gate and the bag-of-words margin **before** the arm comparison.
+3. Follow the §14 decision table. Do not start Stage 2 automatically.

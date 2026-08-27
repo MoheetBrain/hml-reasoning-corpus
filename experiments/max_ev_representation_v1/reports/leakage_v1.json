@@ -1,0 +1,278 @@
+{
+ "R_HML": {
+  "result": "PASS",
+  "rows": 5619,
+  "label_counts": {
+   "VALID": 1873,
+   "INVALID": 1873,
+   "UNRESOLVED": 1873
+  },
+  "label_prior_entropy_bits": 1.585,
+  "answer_word_rows_containing": {
+   "VALID": 5619
+  },
+  "answer_word_mutual_information_bits": {
+   "VALID": 0.0
+  },
+  "mutation_name_leakage": {},
+  "source_id_leakage": {},
+  "operation_name_mutual_information_bits": 0.0,
+  "distinct_operations": [
+   "LEAN_TACTIC"
+  ],
+  "mathlib_area_mutual_information_bits": 0.0,
+  "highest_token_mutual_information_bits": {
+   "OPEN": 0.08158,
+   "DERIVED": 0.04903,
+   "True": 0.02625,
+   "VERIFIED": 0.01501,
+   "UNKNOWN": 0.00813,
+   "epistemic_effect": 0.0026,
+   "claim_id": 0.0026,
+   "to_status": 0.0026,
+   "APPLY_THEOREM": 0.00214,
+   "PROCEDURAL_TRANSFORM": 0.0014,
+   "h19": 0.00085,
+   "PROPOSED": 0.00077,
+   "DISCHARGED": 0.00071,
+   "h28": 0.0007,
+   "goal_effect": 0.00066,
+   "goal_id": 0.00066,
+   "DISCHARGE": 0.00066,
+   "h36": 0.00061,
+   "h26": 0.00059,
+   "h32": 0.00052,
+   "VERIFY": 0.00047,
+   "h18": 0.00045,
+   "false": 0.00031,
+   "h34": 0.0003,
+   "h27": 0.0003,
+   "h40": 0.00028,
+   "h21": 0.00027,
+   "h20": 0.00025,
+   "h31": 0.00025,
+   "h25": 0.00021
+  },
+  "surface_statistic_decision_stump_accuracy": {
+   "characters": 0.3406,
+   "lines": 0.3399,
+   "alphabetic_fraction": 0.3437,
+   "non_ascii_codepoints": 0.3376,
+   "majority_class_baseline": 0.3333
+  },
+  "ordering": {
+   "mean_characters_by_label": {
+    "VALID": 3851,
+    "INVALID": 3828,
+    "UNRESOLVED": 3849
+   }
+  }
+ },
+ "R_TYPED_AST": {
+  "result": "PASS",
+  "rows": 5619,
+  "label_counts": {
+   "VALID": 1873,
+   "INVALID": 1873,
+   "UNRESOLVED": 1873
+  },
+  "label_prior_entropy_bits": 1.585,
+  "answer_word_rows_containing": {
+   "VALID": 5619
+  },
+  "answer_word_mutual_information_bits": {
+   "VALID": 0.0
+  },
+  "mutation_name_leakage": {},
+  "source_id_leakage": {},
+  "operation_name_mutual_information_bits": 0.0,
+  "distinct_operations": [
+   "LEAN_TACTIC"
+  ],
+  "mathlib_area_mutual_information_bits": 0.0,
+  "highest_token_mutual_information_bits": {
+   "OPEN": 0.08158,
+   "DERIVED": 0.04903,
+   "True": 0.02625,
+   "VERIFIED": 0.01501,
+   "UNKNOWN": 0.00813,
+   "claim_id": 0.0026,
+   "to_status": 0.0026,
+   "APPLY_THEOREM": 0.00214,
+   "PROCEDURAL_TRANSFORM": 0.0014,
+   "h19": 0.00085,
+   "PROPOSED": 0.00077,
+   "DISCHARGED": 0.00071,
+   "h28": 0.0007,
+   "goal_id": 0.00066,
+   "DISCHARGE": 0.00066,
+   "h36": 0.00061,
+   "h26": 0.00059,
+   "h32": 0.00052,
+   "VERIFY": 0.00047,
+   "h18": 0.00045,
+   "false": 0.00031,
+   "h34": 0.0003,
+   "h27": 0.0003,
+   "h40": 0.00028,
+   "h21": 0.00027,
+   "h20": 0.00025,
+   "h31": 0.00025,
+   "h25": 0.00021,
+   "h13": 0.00021,
+   "h24": 0.00019
+  },
+  "surface_statistic_decision_stump_accuracy": {
+   "characters": 0.3397,
+   "lines": 0.3429,
+   "alphabetic_fraction": 0.3445,
+   "non_ascii_codepoints": 0.3362,
+   "majority_class_baseline": 0.3333
+  },
+  "ordering": {
+   "mean_characters_by_label": {
+    "VALID": 5086,
+    "INVALID": 5053,
+    "UNRESOLVED": 5085
+   }
+  }
+ },
+ "R_LEANLIKE": {
+  "result": "PASS",
+  "rows": 5619,
+  "label_counts": {
+   "VALID": 1873,
+   "INVALID": 1873,
+   "UNRESOLVED": 1873
+  },
+  "label_prior_entropy_bits": 1.585,
+  "answer_word_rows_containing": {
+   "VALID": 5619
+  },
+  "answer_word_mutual_information_bits": {
+   "VALID": 0.0
+  },
+  "mutation_name_leakage": {},
+  "source_id_leakage": {},
+  "operation_name_mutual_information_bits": 0.0,
+  "distinct_operations": [
+   "LEAN_TACTIC"
+  ],
+  "mathlib_area_mutual_information_bits": 0.0,
+  "highest_token_mutual_information_bits": {
+   "OPEN": 0.08158,
+   "DERIVED": 0.04903,
+   "True": 0.02625,
+   "VERIFIED": 0.01501,
+   "UNKNOWN": 0.00813,
+   "claim_id": 0.0026,
+   "to_status": 0.0026,
+   "APPLY_THEOREM": 0.00214,
+   "PROCEDURAL_TRANSFORM": 0.0014,
+   "h19": 0.00085,
+   "PROPOSED": 0.00077,
+   "DISCHARGED": 0.00071,
+   "h28": 0.0007,
+   "goal_id": 0.00066,
+   "DISCHARGE": 0.00066,
+   "h36": 0.00061,
+   "h26": 0.00059,
+   "h32": 0.00052,
+   "VERIFY": 0.00047,
+   "h18": 0.00045,
+   "false": 0.00031,
+   "h34": 0.0003,
+   "h27": 0.0003,
+   "h40": 0.00028,
+   "h21": 0.00027,
+   "h20": 0.00025,
+   "h31": 0.00025,
+   "h25": 0.00021,
+   "h13": 0.00021,
+   "h24": 0.00019
+  },
+  "surface_statistic_decision_stump_accuracy": {
+   "characters": 0.3403,
+   "lines": 0.3476,
+   "alphabetic_fraction": 0.3449,
+   "non_ascii_codepoints": 0.3376,
+   "majority_class_baseline": 0.3333
+  },
+  "ordering": {
+   "mean_characters_by_label": {
+    "VALID": 2572,
+    "INVALID": 2556,
+    "UNRESOLVED": 2572
+   }
+  }
+ },
+ "R_STRUCTURED_ENGLISH": {
+  "result": "PASS",
+  "rows": 5619,
+  "label_counts": {
+   "VALID": 1873,
+   "INVALID": 1873,
+   "UNRESOLVED": 1873
+  },
+  "label_prior_entropy_bits": 1.585,
+  "answer_word_rows_containing": {
+   "VALID": 5619
+  },
+  "answer_word_mutual_information_bits": {
+   "VALID": 0.0
+  },
+  "mutation_name_leakage": {},
+  "source_id_leakage": {},
+  "operation_name_mutual_information_bits": 0.0,
+  "distinct_operations": [
+   "LEAN_TACTIC"
+  ],
+  "mathlib_area_mutual_information_bits": 0.0,
+  "highest_token_mutual_information_bits": {
+   "OPEN": 0.08158,
+   "DERIVED": 0.04903,
+   "True": 0.02625,
+   "VERIFIED": 0.01501,
+   "UNKNOWN": 0.00813,
+   "claim_id": 0.0026,
+   "to_status": 0.0026,
+   "APPLY_THEOREM": 0.00214,
+   "PROCEDURAL_TRANSFORM": 0.0014,
+   "h19": 0.00085,
+   "PROPOSED": 0.00077,
+   "DISCHARGED": 0.00071,
+   "h28": 0.0007,
+   "goal_id": 0.00066,
+   "DISCHARGE": 0.00066,
+   "h36": 0.00061,
+   "h26": 0.00059,
+   "h32": 0.00052,
+   "VERIFY": 0.00047,
+   "h18": 0.00045,
+   "not": 0.00031,
+   "h34": 0.0003,
+   "h27": 0.0003,
+   "h40": 0.00028,
+   "h21": 0.00027,
+   "h20": 0.00025,
+   "h31": 0.00025,
+   "h25": 0.00021,
+   "h13": 0.00021,
+   "h24": 0.00019
+  },
+  "surface_statistic_decision_stump_accuracy": {
+   "characters": 0.341,
+   "lines": 0.3463,
+   "alphabetic_fraction": 0.3412,
+   "non_ascii_codepoints": 0.3376,
+   "majority_class_baseline": 0.3333
+  },
+  "ordering": {
+   "mean_characters_by_label": {
+    "VALID": 4275,
+    "INVALID": 4247,
+    "UNRESOLVED": 4275
+   }
+  }
+ }
+}
